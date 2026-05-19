@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "onr-wsoficio-login-2026",
+    "name": "ONR WSOficio — Login",
+    "description": "Coleção para autenticação no webservice ONR (`LoginUsuarioCertificado`).\n\n## Pré-requisitos\n\n1. Credenciais no `.env` do projeto (`CERT_PATH`, `CPF`, `EMAIL`, `ONR_SERVENTIA_ID`, etc.).\n2. Campos do certificado PFX — o Postman **não** lê `.pfx` nativamente. Gere com:\n   ```bash\n   node scripts/extract_cert/extract_cert.js\n   ```\n   Isso cria `cert-fields.json` (gitignored).\n3. Importe o ambiente `ONR-Homologacao.postman_environment.json` (gere com `node scripts/postman/export-postman-env.js` ou preencha manualmente).\n\n## Fluxo\n\n1. Preencha as variáveis de ambiente (certificado + CPF/e-mail).\n2. Execute **LoginUsuarioCertificado**.\n3. O script de testes grava `onr_tokens`, `onr_token` e `onr_hash` (SHA-1 de `ONR_SERVENTIA_CHAVE + token`).\n\nDocumentação: `webservice/metodos/LoginUsuarioCertificado.md`, `webservice/hash.md`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "login_endpoint",
+      "value": "https://hml3-wsoficio.onr.org.br/login.asmx",
+      "type": "string"
+    },
+    {
+      "key": "soap_action",
+      "value": "http://tempuri.org/WSOficio/LoginUsuarioCertificado",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "3.1 Login",
+      "item": [
+        {
+          "name": "LoginUsuarioCertificado",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const required = [",
+                  "  'SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL',",
+                  "  'CPF', 'EMAIL', 'IDParceiroWS'",
+                  "];",
+                  "const missing = required.filter((k) => !pm.environment.get(k));",
+                  "if (missing.length) {",
+                  "  throw new Error(",
+                  "    'Variáveis de ambiente ausentes: ' + missing.join(', ') +",
+                  "    '. Rode: node scripts/extract_cert/extract_cert.js && node scripts/postman/export-postman-env.js'",
+                  "  );",
+                  "}",
+                  "const endpoint = pm.environment.get('ONR_LOGIN_ENDPOINT') || pm.collectionVariables.get('login_endpoint');",
+                  "pm.variables.set('login_endpoint', endpoint);"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "",
+                  "const body = pm.response.text();",
+                  "const retornoMatch = body.match(/<(?:\\w+:)?RETORNO>(true|false)<\\/(?:\\w+:)?RETORNO>/i);",
+                  "const retorno = retornoMatch && retornoMatch[1].toLowerCase() === 'true';",
+                  "",
+                  "if (!retorno) {",
+                  "  const cod = body.match(/<(?:\\w+:)?CODIGOERRO>(\\d+)<\\/(?:\\w+:)?CODIGOERRO>/);",
+                  "  const desc = body.match(/<(?:\\w+:)?ERRODESCRICAO>([^<]*)<\\/(?:\\w+:)?ERRODESCRICAO>/);",
+                  "  pm.test('RETORNO=true', () => {",
+                  "    throw new Error(`Login falhou: [${cod?.[1] ?? '?'}] ${desc?.[1] ?? ''}`);",
+                  "  });",
+                  "} else {",
+                  "  const idUser = body.match(/<(?:\\w+:)?IDUsuario>(\\d+)<\\/(?:\\w+:)?IDUsuario>/);",
+                  "  const idInst = body.match(/<(?:\\w+:)?IDInstituicao>(\\d+)<\\/(?:\\w+:)?IDInstituicao>/);",
+                  "  if (idUser) pm.environment.set('onr_id_usuario', idUser[1]);",
+                  "  if (idInst) pm.environment.set('onr_id_instituicao', idInst[1]);",
+                  "",
+                  "  const tokensBlock = body.match(/<(?:\\w+:)?Tokens>([\\s\\S]*?)<\\/(?:\\w+:)?Tokens>/i);",
+                  "  const tokens = [];",
+                  "  if (tokensBlock) {",
+                  "    const re = /<(?:\\w+:)?string[^>]*>([^<]+)<\\/(?:\\w+:)?string>/gi;",
+                  "    let m;",
+                  "    while ((m = re.exec(tokensBlock[1])) !== null) {",
+                  "      if (m[1]) tokens.push(m[1]);",
+                  "    }",
+                  "  }",
+                  "",
+                  "  pm.test('Tokens retornados', () => pm.expect(tokens.length).to.be.above(0));",
+                  "  pm.environment.set('onr_tokens', JSON.stringify(tokens));",
+                  "",
+                  "  const tokenIndex = parseInt(pm.environment.get('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                  "  const token = tokens[tokenIndex] ?? tokens[0];",
+                  "  pm.environment.set('onr_token', token);",
+                  "  console.log('Tokens:', tokens.join(', '));",
+                  "  console.log('Token selecionado (índice ' + tokenIndex + '):', token);",
+                  "",
+                  "  const chave = pm.environment.get('ONR_SERVENTIA_CHAVE');",
+                  "  if (chave) {",
+                  "    const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                  "    pm.environment.set('onr_hash', hash);",
+                  "    console.log('onr_hash (SHA-1 chave+token):', hash);",
+                  "  } else {",
+                  "    console.warn('Defina ONR_SERVENTIA_CHAVE no ambiente para calcular onr_hash.');",
+                  "  }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{soap_action}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://tempuri.org/WSOficio\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado>\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{SUBJECTCN}}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ISSUERO}}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{PUBLICKEY}}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{SERIALNUMBER}}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{VALIDUNTIL}}</tns:VALIDUNTIL>\n        <tns:CPF>{{CPF}}</tns:CPF>\n        <tns:EMAIL>{{EMAIL}}</tns:EMAIL>\n        <tns:IDParceiroWS>{{IDParceiroWS}}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{login_endpoint}}",
+            "description": "Autentica com certificado digital (campos extraídos do PFX) e retorna tokens de 6 caracteres para cálculo do `Hash` nas demais operações.\n\n**SOAP 1.1** — binding `LoginSoap` do `wsdl/login.wsdl`.\n\nOrdem dos campos em `oRequest` (WSDL): SUBJECTCN, ISSUERO, PUBLICKEY, SERIALNUMBER, VALIDUNTIL, CPF, EMAIL, IDParceiroWS."
+          },
+          "response": []
+        }
+      ],
+      "description": "Módulo 3.1 — Login (`login.asmx`)"
+    }
+  ]
+}

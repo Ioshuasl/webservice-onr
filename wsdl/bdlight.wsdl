@@ -1,0 +1,293 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/WSOficio" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/WSOficio">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/WSOficio">
+<s:element name="ListArquivosXMLBDL">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListArquivosXMLBDL_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListArquivosXMLBDL_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="MaxRowPerPage" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="PageNumber" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataFinal" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListArquivosXMLBDLResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListArquivosXMLBDLResult" type="tns:ListArquivosXMLBDL_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListArquivosXMLBDL_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeRegistros" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdePaginas" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Arquivos" type="tns:ArrayOfListArquivosXMLBDL_Arquivos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListArquivosXMLBDL_Arquivos_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListArquivosXMLBDL_Arquivos_WSResp" nillable="true" type="tns:ListArquivosXMLBDL_Arquivos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListArquivosXMLBDL_Arquivos_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDArquivo" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDUsuario" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataImportacao" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeRegistros" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeInvalidos" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetArquivoXMLBDL">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:GetArquivoXMLBDL_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetArquivoXMLBDL_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDArquivo" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetArquivoXMLBDLResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GetArquivoXMLBDLResult" type="tns:GetArquivoXMLBDL_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetArquivoXMLBDL_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDUsuario" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataImportacao" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeRegistros" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeInvalidos" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ErrosImportacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Invalidos" type="tns:ArrayOfGetArquivoXMLBDL_Invalido_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfGetArquivoXMLBDL_Invalido_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="GetArquivoXMLBDL_Invalido_WSResp" nillable="true" type="tns:GetArquivoXMLBDL_Invalido_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="GetArquivoXMLBDL_Invalido_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="CPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeRazao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NMatricula" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ImportarArquivoBDL">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ImportarArquivoBDL_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ImportarArquivoBDL_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Arquivos" type="tns:ArrayOfImportarArquivoBDL_Arquivo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfImportarArquivoBDL_Arquivo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ImportarArquivoBDL_Arquivo_WSReq" nillable="true" type="tns:ImportarArquivoBDL_Arquivo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ImportarArquivoBDL_Arquivo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ImportarArquivoBDLResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ImportarArquivoBDLResult" type="tns:ImportarArquivoBDL_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ImportarArquivoBDL_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetBDLightAtualizado">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetBDLightAtualizadoBDL_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetBDLightAtualizadoBDL_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetBDLightAtualizadoResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetBDLightAtualizadoResult" type="tns:SetBDLightAtualizadoBDL_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetBDLightAtualizadoBDL_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="ListArquivosXMLBDLSoapIn">
+<wsdl:part name="parameters" element="tns:ListArquivosXMLBDL"/>
+</wsdl:message>
+<wsdl:message name="ListArquivosXMLBDLSoapOut">
+<wsdl:part name="parameters" element="tns:ListArquivosXMLBDLResponse"/>
+</wsdl:message>
+<wsdl:message name="GetArquivoXMLBDLSoapIn">
+<wsdl:part name="parameters" element="tns:GetArquivoXMLBDL"/>
+</wsdl:message>
+<wsdl:message name="GetArquivoXMLBDLSoapOut">
+<wsdl:part name="parameters" element="tns:GetArquivoXMLBDLResponse"/>
+</wsdl:message>
+<wsdl:message name="ImportarArquivoBDLSoapIn">
+<wsdl:part name="parameters" element="tns:ImportarArquivoBDL"/>
+</wsdl:message>
+<wsdl:message name="ImportarArquivoBDLSoapOut">
+<wsdl:part name="parameters" element="tns:ImportarArquivoBDLResponse"/>
+</wsdl:message>
+<wsdl:message name="SetBDLightAtualizadoSoapIn">
+<wsdl:part name="parameters" element="tns:SetBDLightAtualizado"/>
+</wsdl:message>
+<wsdl:message name="SetBDLightAtualizadoSoapOut">
+<wsdl:part name="parameters" element="tns:SetBDLightAtualizadoResponse"/>
+</wsdl:message>
+<wsdl:portType name="BDLightSoap">
+<wsdl:operation name="ListArquivosXMLBDL">
+<wsdl:input message="tns:ListArquivosXMLBDLSoapIn"/>
+<wsdl:output message="tns:ListArquivosXMLBDLSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GetArquivoXMLBDL">
+<wsdl:input message="tns:GetArquivoXMLBDLSoapIn"/>
+<wsdl:output message="tns:GetArquivoXMLBDLSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ImportarArquivoBDL">
+<wsdl:input message="tns:ImportarArquivoBDLSoapIn"/>
+<wsdl:output message="tns:ImportarArquivoBDLSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetBDLightAtualizado">
+<wsdl:input message="tns:SetBDLightAtualizadoSoapIn"/>
+<wsdl:output message="tns:SetBDLightAtualizadoSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="BDLightSoap" type="tns:BDLightSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ListArquivosXMLBDL">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListArquivosXMLBDL" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetArquivoXMLBDL">
+<soap:operation soapAction="http://tempuri.org/WSOficio/GetArquivoXMLBDL" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ImportarArquivoBDL">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ImportarArquivoBDL" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetBDLightAtualizado">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetBDLightAtualizado" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="BDLightSoap12" type="tns:BDLightSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ListArquivosXMLBDL">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListArquivosXMLBDL" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetArquivoXMLBDL">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/GetArquivoXMLBDL" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ImportarArquivoBDL">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ImportarArquivoBDL" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetBDLightAtualizado">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetBDLightAtualizado" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="BDLight">
+<wsdl:port name="BDLightSoap" binding="tns:BDLightSoap">
+<soap:address location="https://origin-hml3-wsoficio.onr.org.br/bdlight.asmx"/>
+</wsdl:port>
+<wsdl:port name="BDLightSoap12" binding="tns:BDLightSoap12">
+<soap12:address location="https://origin-hml3-wsoficio.onr.org.br/bdlight.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

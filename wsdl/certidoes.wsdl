@@ -1,0 +1,905 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/WSOficio" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/WSOficio">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/WSOficio">
+<s:element name="DevolverCertidao">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:DevolverCertidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="DevolverCertidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Motivo" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="DevolverCertidaoResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="DevolverCertidaoResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetCertidao_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexosListCertidao">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:EnviarAnexosListCertidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="EnviarAnexosListCertidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="AnexoList" type="tns:ArrayOfAnexoListCertidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfAnexoListCertidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="AnexoListCertidao_WSReq" nillable="true" type="tns:AnexoListCertidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="AnexoListCertidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="NomeArquivo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ArquivoBase64" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexosListCertidaoResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="EnviarAnexosListCertidaoResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="EnviarAnexosListCertidao_DocID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:EnviarAnexosListCertidao_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="EnviarAnexosListCertidao_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="AnexoList" type="tns:ArrayOfAnexoListCertidao_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfAnexoListCertidao_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="AnexoListCertidao_DocID_WSReq" nillable="true" type="tns:AnexoListCertidao_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="AnexoListCertidao_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="DocID" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexosListCertidao_DocIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="EnviarAnexosListCertidao_DocIDResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="EnviarAnexosListCertidao_DocID_V2">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:EnviarAnexosListCertidao_DocID_WSReq_V2"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="EnviarAnexosListCertidao_DocID_WSReq_V2">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="AnexoList" type="tns:ArrayOfAnexoListCertidao_DocID_WSReq_V2"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfAnexoListCertidao_DocID_WSReq_V2">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="AnexoListCertidao_DocID_WSReq_V2" nillable="true" type="tns:AnexoListCertidao_DocID_WSReq_V2"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="AnexoListCertidao_DocID_WSReq_V2">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="DocID" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="CertidaoAutomatizada" nillable="true" type="s:boolean"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexosListCertidao_DocID_V2Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="EnviarAnexosListCertidao_DocID_V2Result" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="EnviarAnexoCertidao">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:EnviarAnexoCertidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="EnviarAnexoCertidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeArquivo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ArquivoBase64" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexoCertidaoResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="EnviarAnexoCertidaoResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="EnviarAnexoCertidao_DocID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:EnviarAnexoCertidao_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="EnviarAnexoCertidao_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexoCertidao_DocIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="EnviarAnexoCertidao_DocIDResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="EnviarAnexoCertidao_DocID_V2">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:EnviarAnexoCertidao_DocID_WSReq_V2"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="EnviarAnexoCertidao_DocID_WSReq_V2">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="CertidaoAutomatizada" nillable="true" type="s:boolean"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexoCertidao_DocID_V2Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="EnviarAnexoCertidao_DocID_V2Result" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="FinalizarRespostaCertidao">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:FinalizarRespostaCertidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="FinalizarRespostaCertidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Matriculas" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="InteresseSocial" type="s:boolean"/>
+</s:sequence>
+</s:complexType>
+<s:element name="FinalizarRespostaCertidaoResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="FinalizarRespostaCertidaoResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ObterXMLSolicitacoes">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ObterXMLSolicitacoes_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ObterXMLSolicitacoes_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Solicitante" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="TipoCertidao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="PesquisaPor" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPedidoDe" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPedidoAte" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataConferenciaDe" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataConferenciaAte" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ObterXMLSolicitacoesResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ObterXMLSolicitacoesResult" type="tns:ObterXMLSolicitacoes_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ObterXMLSolicitacoes_WSResp">
+<s:complexContent mixed="false">
+<s:extension base="tns:SetCertidao_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="XML" type="s:string"/>
+</s:sequence>
+</s:extension>
+</s:complexContent>
+</s:complexType>
+<s:element name="ObterXMLSolicitacoes_v2">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ObterXMLSolicitacoesv2_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ObterXMLSolicitacoesv2_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Solicitante" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="TipoCertidao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="PesquisaPor" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="TipoResposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPedidoDe" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPedidoAte" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataConferenciaDe" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataConferenciaAte" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ObterXMLSolicitacoes_v2Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ObterXMLSolicitacoes_v2Result" type="tns:ObterXMLSolicitacoes_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ObterXMLSolicitacoes_v3">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ObterXMLSolicitacoesv2_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ObterXMLSolicitacoes_v3Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ObterXMLSolicitacoes_v3Result" type="tns:ObterXMLSolicitacoesv2_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ObterXMLSolicitacoesv2_WSResp">
+<s:complexContent mixed="false">
+<s:extension base="tns:SetCertidao_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="XML" type="s:string"/>
+</s:sequence>
+</s:extension>
+</s:complexContent>
+</s:complexType>
+<s:element name="ObterXMLSolicitacoes_v4">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ObterXMLSolicitacoesv2_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ObterXMLSolicitacoes_v4Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ObterXMLSolicitacoes_v4Result" type="tns:ObterXMLSolicitacoesv2_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ObterXMLSolicitacoes_v5">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ObterXMLSolicitacoesv2_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ObterXMLSolicitacoes_v5Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ObterXMLSolicitacoes_v5Result" type="tns:ObterXMLSolicitacoesv2_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ObterXMLSolicitacoes_v6">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ObterXMLSolicitacoesv2_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ObterXMLSolicitacoes_v6Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ObterXMLSolicitacoes_v6Result" type="tns:ObterXMLSolicitacoesv2_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="InformarCustasCertidao">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:InformarCustasCertidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="InformarCustasCertidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ValorCustas" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="InformarCustasCertidaoResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="InformarCustasCertidaoResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="EnviarAnexosListCertidao_UUID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:EnviarAnexosListCertidaoUUID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="EnviarAnexosListCertidaoUUID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="HashUUID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="AnexoList" type="tns:ArrayOfAnexoListCertidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexosListCertidao_UUIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="EnviarAnexosListCertidao_UUIDResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="EnviarAnexoCertidao_UUID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:EnviarAnexoCertidao_UUID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="EnviarAnexoCertidao_UUID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="HashUUID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeArquivo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ArquivoBase64" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="EnviarAnexoCertidao_UUIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="EnviarAnexoCertidao_UUIDResult" type="tns:SetCertidao_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="DevolverCertidaoSoapIn">
+<wsdl:part name="parameters" element="tns:DevolverCertidao"/>
+</wsdl:message>
+<wsdl:message name="DevolverCertidaoSoapOut">
+<wsdl:part name="parameters" element="tns:DevolverCertidaoResponse"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexosListCertidaoSoapIn">
+<wsdl:part name="parameters" element="tns:EnviarAnexosListCertidao"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexosListCertidaoSoapOut">
+<wsdl:part name="parameters" element="tns:EnviarAnexosListCertidaoResponse"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexosListCertidao_DocIDSoapIn">
+<wsdl:part name="parameters" element="tns:EnviarAnexosListCertidao_DocID"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexosListCertidao_DocIDSoapOut">
+<wsdl:part name="parameters" element="tns:EnviarAnexosListCertidao_DocIDResponse"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexosListCertidao_DocID_V2SoapIn">
+<wsdl:part name="parameters" element="tns:EnviarAnexosListCertidao_DocID_V2"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexosListCertidao_DocID_V2SoapOut">
+<wsdl:part name="parameters" element="tns:EnviarAnexosListCertidao_DocID_V2Response"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexoCertidaoSoapIn">
+<wsdl:part name="parameters" element="tns:EnviarAnexoCertidao"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexoCertidaoSoapOut">
+<wsdl:part name="parameters" element="tns:EnviarAnexoCertidaoResponse"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexoCertidao_DocIDSoapIn">
+<wsdl:part name="parameters" element="tns:EnviarAnexoCertidao_DocID"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexoCertidao_DocIDSoapOut">
+<wsdl:part name="parameters" element="tns:EnviarAnexoCertidao_DocIDResponse"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexoCertidao_DocID_V2SoapIn">
+<wsdl:part name="parameters" element="tns:EnviarAnexoCertidao_DocID_V2"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexoCertidao_DocID_V2SoapOut">
+<wsdl:part name="parameters" element="tns:EnviarAnexoCertidao_DocID_V2Response"/>
+</wsdl:message>
+<wsdl:message name="FinalizarRespostaCertidaoSoapIn">
+<wsdl:part name="parameters" element="tns:FinalizarRespostaCertidao"/>
+</wsdl:message>
+<wsdl:message name="FinalizarRespostaCertidaoSoapOut">
+<wsdl:part name="parameters" element="tns:FinalizarRespostaCertidaoResponse"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoesSoapIn">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoesSoapOut">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoesResponse"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v2SoapIn">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v2"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v2SoapOut">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v2Response"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v3SoapIn">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v3"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v3SoapOut">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v3Response"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v4SoapIn">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v4"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v4SoapOut">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v4Response"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v5SoapIn">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v5"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v5SoapOut">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v5Response"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v6SoapIn">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v6"/>
+</wsdl:message>
+<wsdl:message name="ObterXMLSolicitacoes_v6SoapOut">
+<wsdl:part name="parameters" element="tns:ObterXMLSolicitacoes_v6Response"/>
+</wsdl:message>
+<wsdl:message name="InformarCustasCertidaoSoapIn">
+<wsdl:part name="parameters" element="tns:InformarCustasCertidao"/>
+</wsdl:message>
+<wsdl:message name="InformarCustasCertidaoSoapOut">
+<wsdl:part name="parameters" element="tns:InformarCustasCertidaoResponse"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexosListCertidao_UUIDSoapIn">
+<wsdl:part name="parameters" element="tns:EnviarAnexosListCertidao_UUID"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexosListCertidao_UUIDSoapOut">
+<wsdl:part name="parameters" element="tns:EnviarAnexosListCertidao_UUIDResponse"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexoCertidao_UUIDSoapIn">
+<wsdl:part name="parameters" element="tns:EnviarAnexoCertidao_UUID"/>
+</wsdl:message>
+<wsdl:message name="EnviarAnexoCertidao_UUIDSoapOut">
+<wsdl:part name="parameters" element="tns:EnviarAnexoCertidao_UUIDResponse"/>
+</wsdl:message>
+<wsdl:portType name="CertidoesSoap">
+<wsdl:operation name="DevolverCertidao">
+<wsdl:input message="tns:DevolverCertidaoSoapIn"/>
+<wsdl:output message="tns:DevolverCertidaoSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao">
+<wsdl:input message="tns:EnviarAnexosListCertidaoSoapIn"/>
+<wsdl:output message="tns:EnviarAnexosListCertidaoSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_DocID">
+<wsdl:input message="tns:EnviarAnexosListCertidao_DocIDSoapIn"/>
+<wsdl:output message="tns:EnviarAnexosListCertidao_DocIDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_DocID_V2">
+<wsdl:input message="tns:EnviarAnexosListCertidao_DocID_V2SoapIn"/>
+<wsdl:output message="tns:EnviarAnexosListCertidao_DocID_V2SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao">
+<wsdl:input message="tns:EnviarAnexoCertidaoSoapIn"/>
+<wsdl:output message="tns:EnviarAnexoCertidaoSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_DocID">
+<wsdl:input message="tns:EnviarAnexoCertidao_DocIDSoapIn"/>
+<wsdl:output message="tns:EnviarAnexoCertidao_DocIDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_DocID_V2">
+<wsdl:input message="tns:EnviarAnexoCertidao_DocID_V2SoapIn"/>
+<wsdl:output message="tns:EnviarAnexoCertidao_DocID_V2SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="FinalizarRespostaCertidao">
+<wsdl:input message="tns:FinalizarRespostaCertidaoSoapIn"/>
+<wsdl:output message="tns:FinalizarRespostaCertidaoSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes">
+<wsdl:input message="tns:ObterXMLSolicitacoesSoapIn"/>
+<wsdl:output message="tns:ObterXMLSolicitacoesSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v2">
+<wsdl:input message="tns:ObterXMLSolicitacoes_v2SoapIn"/>
+<wsdl:output message="tns:ObterXMLSolicitacoes_v2SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v3">
+<wsdl:input message="tns:ObterXMLSolicitacoes_v3SoapIn"/>
+<wsdl:output message="tns:ObterXMLSolicitacoes_v3SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v4">
+<wsdl:input message="tns:ObterXMLSolicitacoes_v4SoapIn"/>
+<wsdl:output message="tns:ObterXMLSolicitacoes_v4SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v5">
+<wsdl:input message="tns:ObterXMLSolicitacoes_v5SoapIn"/>
+<wsdl:output message="tns:ObterXMLSolicitacoes_v5SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v6">
+<wsdl:input message="tns:ObterXMLSolicitacoes_v6SoapIn"/>
+<wsdl:output message="tns:ObterXMLSolicitacoes_v6SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="InformarCustasCertidao">
+<wsdl:input message="tns:InformarCustasCertidaoSoapIn"/>
+<wsdl:output message="tns:InformarCustasCertidaoSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_UUID">
+<wsdl:input message="tns:EnviarAnexosListCertidao_UUIDSoapIn"/>
+<wsdl:output message="tns:EnviarAnexosListCertidao_UUIDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_UUID">
+<wsdl:input message="tns:EnviarAnexoCertidao_UUIDSoapIn"/>
+<wsdl:output message="tns:EnviarAnexoCertidao_UUIDSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="CertidoesSoap" type="tns:CertidoesSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="DevolverCertidao">
+<soap:operation soapAction="http://tempuri.org/WSOficio/DevolverCertidao" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao">
+<soap:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexosListCertidao" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_DocID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexosListCertidao_DocID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_DocID_V2">
+<soap:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexosListCertidao_DocID_V2" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao">
+<soap:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexoCertidao" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_DocID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexoCertidao_DocID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_DocID_V2">
+<soap:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexoCertidao_DocID_V2" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="FinalizarRespostaCertidao">
+<soap:operation soapAction="http://tempuri.org/WSOficio/FinalizarRespostaCertidao" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v2">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v2" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v3">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v3" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v4">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v4" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v5">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v5" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v6">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v6" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InformarCustasCertidao">
+<soap:operation soapAction="http://tempuri.org/WSOficio/InformarCustasCertidao" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_UUID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexosListCertidao_UUID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_UUID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexoCertidao_UUID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="CertidoesSoap12" type="tns:CertidoesSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="DevolverCertidao">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/DevolverCertidao" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexosListCertidao" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_DocID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexosListCertidao_DocID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_DocID_V2">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexosListCertidao_DocID_V2" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexoCertidao" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_DocID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexoCertidao_DocID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_DocID_V2">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexoCertidao_DocID_V2" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="FinalizarRespostaCertidao">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/FinalizarRespostaCertidao" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v2">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v2" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v3">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v3" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v4">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v4" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v5">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v5" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterXMLSolicitacoes_v6">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ObterXMLSolicitacoes_v6" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InformarCustasCertidao">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/InformarCustasCertidao" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexosListCertidao_UUID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexosListCertidao_UUID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EnviarAnexoCertidao_UUID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/EnviarAnexoCertidao_UUID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Certidoes">
+<wsdl:port name="CertidoesSoap" binding="tns:CertidoesSoap">
+<soap:address location="https://origin-hml3-wsoficio.onr.org.br/Certidoes.asmx"/>
+</wsdl:port>
+<wsdl:port name="CertidoesSoap12" binding="tns:CertidoesSoap12">
+<soap12:address location="https://origin-hml3-wsoficio.onr.org.br/Certidoes.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

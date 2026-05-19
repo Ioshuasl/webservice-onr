@@ -1,0 +1,9 @@
+.env
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+cert-fields.json
+postman/ONR-Homologacao.postman_environment.json
+postman/ONR-Login-Pronto.postman_collection.json

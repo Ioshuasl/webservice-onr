@@ -1,0 +1,1505 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/WSOficio" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/WSOficio">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/WSOficio">
+<s:element name="ListPedidosPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListPedidosPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListPedidosPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="MaxRowPerPage" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="PageNumber" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDVara" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacaoInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacaoFinal" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataRespostaInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataRespostaFinal" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListPedidosPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListPedidosPOResult" type="tns:ListPedidosPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListPedidosPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeRegistros" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdePaginas" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Pedidos" type="tns:ArrayOfListPedidosPO_Pedidos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListPedidosPO_Pedidos_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListPedidosPO_Pedidos_WSResp" nillable="true" type="tns:ListPedidosPO_Pedidos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListPedidosPO_Pedidos_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDVara" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Vara" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataResposta" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListPedidosExportacaoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListPedidosExportacaoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListPedidosExportacaoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDVara" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacaoInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacaoFinal" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataRespostaInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataRespostaFinal" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListPedidosExportacaoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListPedidosExportacaoPOResult" type="tns:ListPedidosExportacaoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListPedidosExportacaoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Pedidos" type="tns:ArrayOfListPedidosExportacaoPO_Pedidos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListPedidosExportacaoPO_Pedidos_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListPedidosExportacaoPO_Pedidos_WSResp" nillable="true" type="tns:ListPedidosExportacaoPO_Pedidos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListPedidosExportacaoPO_Pedidos_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDProcesso" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="TipoPenhora" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="TipoCertidao" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NumeroProcesso" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPed" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Comarca" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Foro" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDVara" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Vara" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomePesqPed" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Matr1PesqPed" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ImoveisDireito" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataTransferencia" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Mandado" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NaturezaExecucao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="IDGrupoReenvio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="UsuarioCPF" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ValorDaDivida" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Parte" type="tns:ArrayOfListPedidosExportacaoPO_Parte_WSResp"/>
+<s:element minOccurs="0" maxOccurs="1" name="Imovel" type="tns:ArrayOfListPedidosExportacaoPO_Imovel_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListPedidosExportacaoPO_Parte_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListPedidosExportacaoPO_Parte_WSResp" nillable="true" type="tns:ListPedidosExportacaoPO_Parte_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListPedidosExportacaoPO_Parte_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDParte" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Qualidade" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="PassivoPenhora" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListPedidosExportacaoPO_Imovel_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListPedidosExportacaoPO_Imovel_WSResp" nillable="true" type="tns:ListPedidosExportacaoPO_Imovel_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListPedidosExportacaoPO_Imovel_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDImovel" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Proprietario" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Comarca" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Endereco" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Bairro" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Municipio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="TipoConstricao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ImovelDataAutoTermo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="PoloPassivo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="MotivoTipo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="OutrosMotivos" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeConjuge" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="IntimadoPenhora" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataIntimacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="MotivoDispensa" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeDepositario" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="TipoEmolumento" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataDecisao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Folhas" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="PercentualExecutado" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="PercentualPenhorado" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListPedidosExportacaoPO_v2">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListPedidosExportacaoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ListPedidosExportacaoPO_v2Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListPedidosExportacaoPO_v2Result" type="tns:ListPedidosExportacaoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="ListVarasPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListVarasPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListVarasPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDEstado" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDComarca" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDForo" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListVarasPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListVarasPOResult" type="tns:ListVarasPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListVarasPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Varas" type="tns:ArrayOfListVarasPO_Vara_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListVarasPO_Vara_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListVarasPO_Vara_WSResp" nillable="true" type="tns:ListVarasPO_Vara_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListVarasPO_Vara_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDVara" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDForo" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDComarca" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDEstado" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Vara" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Foro" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Comarca" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetPedidoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:GetPedidoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetPedidoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetPedidoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GetPedidoPOResult" type="tns:GetPedidoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetPedidoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDProcesso" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDVara" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDBoleto" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NumeroProcesso" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Observacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="TipoResposta" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Negativa" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataResposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="MotivoDevolucao" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Pago" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorCustas" type="s:decimal"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorBoletoAnexado" type="s:decimal"/>
+<s:element minOccurs="0" maxOccurs="1" name="NumeroPrenotacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPrenotacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataVencimentoPrenotacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="AdvogadoNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="AdvogadoTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="AdvogadoEmail" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ParteID" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ParteNome" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ParteIDTipo" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ParteCPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ImoveisDireitos" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataTransferencia" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Arquivo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="TipoArquivo" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListBoletosPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListBoletosPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListBoletosPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDProcesso" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListBoletosPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListBoletosPOResult" type="tns:ListBoletosPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListBoletosPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Boletos" type="tns:ArrayOfListBoletosPO_Boleto_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListBoletosPO_Boleto_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListBoletosPO_Boleto_WSResp" nillable="true" type="tns:ListBoletosPO_Boleto_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListBoletosPO_Boleto_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDBoleto" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="NumeroBoleto" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataGerado" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataVencimento" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPagamento" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorBoleto" type="s:decimal"/>
+<s:element minOccurs="1" maxOccurs="1" name="Pago" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolos" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="BoletoAnexado" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="URLBoleto" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetBaixaBoletoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetBaixaBoletoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetBaixaBoletoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDBoleto" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetBaixaBoletoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetBaixaBoletoPOResult" type="tns:SetBaixaBoletoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetBaixaBoletoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPrenotacaoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPrenotacaoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPrenotacaoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="NumeroPrenotacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPrenotacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataVencimento" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPrenotacaoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPrenotacaoPOResult" type="tns:SetPrenotacaoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPrenotacaoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetCustasPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetCustasPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetCustasPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorCustas" type="s:decimal"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetCustasPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetCustasPOResult" type="tns:SetCustasPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetCustasPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPenhoraAverbadoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPenhoraAverbadoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPenhoraAverbadoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CertidaoPenhora" type="tns:ArrayOfSetPenhoraAverbadoPO_Certidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPenhoraAverbadoPO_Certidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPenhoraAverbadoPO_Certidao_WSReq" nillable="true" type="tns:SetPenhoraAverbadoPO_Certidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPenhoraAverbadoPO_Certidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPenhoraAverbadoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPenhoraAverbadoPOResult" type="tns:SetPenhoraAverbadoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPenhoraAverbadoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPenhoraAverbadoPO_DocID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPenhoraAverbadoPO_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPenhoraAverbadoPO_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CertidaoPenhora" type="tns:ArrayOfSetPenhoraAverbadoPO_DocID_Certidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPenhoraAverbadoPO_DocID_Certidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPenhoraAverbadoPO_DocID_Certidao_WSReq" nillable="true" type="tns:SetPenhoraAverbadoPO_DocID_Certidao_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPenhoraAverbadoPO_DocID_Certidao_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPenhoraAverbadoPO_DocIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPenhoraAverbadoPO_DocIDResult" type="tns:SetPenhoraAverbadoPO_DocID_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPenhoraAverbadoPO_DocID_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPenhoraExigenciaPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPenhoraExigenciaPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPenhoraExigenciaPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPenhoraExigenciaPO_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPenhoraExigenciaPO_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPenhoraExigenciaPO_Anexo_WSReq" nillable="true" type="tns:SetPenhoraExigenciaPO_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPenhoraExigenciaPO_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPenhoraExigenciaPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPenhoraExigenciaPOResult" type="tns:SetPenhoraExigenciaPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPenhoraExigenciaPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPenhoraExigenciaPO_DocID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPenhoraExigenciaPO_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPenhoraExigenciaPO_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPenhoraExigenciaPO_DocID_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPenhoraExigenciaPO_DocID_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPenhoraExigenciaPO_DocID_Anexo_WSReq" nillable="true" type="tns:SetPenhoraExigenciaPO_DocID_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPenhoraExigenciaPO_DocID_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPenhoraExigenciaPO_DocIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPenhoraExigenciaPO_DocIDResult" type="tns:SetPenhoraExigenciaPO_DocID_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPenhoraExigenciaPO_DocID_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoFinalizarPrenotacaoVencida">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoFinalizarPrenotacaoVencida_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoFinalizarPrenotacaoVencida_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPedidoFinalizarPrenotacaoVencida_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoFinalizarPrenotacaoVencida_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoFinalizarPrenotacaoVencida_Anexo_WSReq" nillable="true" type="tns:SetPedidoFinalizarPrenotacaoVencida_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoFinalizarPrenotacaoVencida_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoFinalizarPrenotacaoVencidaResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoFinalizarPrenotacaoVencidaResult" type="tns:SetPedidoFinalizarPrenotacaoVencida_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoFinalizarPrenotacaoVencida_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoPessoaRespondidoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoPessoaRespondidoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoPessoaRespondidoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Negativa" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPedidoPessoaRespondidoPO_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoPessoaRespondidoPO_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoPessoaRespondidoPO_Anexo_WSReq" nillable="true" type="tns:SetPedidoPessoaRespondidoPO_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoPessoaRespondidoPO_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoPessoaRespondidoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoPessoaRespondidoPOResult" type="tns:SetPedidoPessoaRespondidoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoPessoaRespondidoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoPessoaRespondidoPO_DocID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoPessoaRespondidoPO_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoPessoaRespondidoPO_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Negativa" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPedidoPessoaRespondidoPO_DocID_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoPessoaRespondidoPO_DocID_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoPessoaRespondidoPO_DocID_Anexo_WSReq" nillable="true" type="tns:SetPedidoPessoaRespondidoPO_DocID_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoPessoaRespondidoPO_DocID_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoPessoaRespondidoPO_DocIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoPessoaRespondidoPO_DocIDResult" type="tns:SetPedidoPessoaRespondidoPO_DocID_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoPessoaRespondidoPO_DocID_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoPessoaDevolvidoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoPessoaDevolvidoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoPessoaDevolvidoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoPessoaDevolvidoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoPessoaDevolvidoPOResult" type="tns:SetPedidoPessoaDevolvidoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoPessoaDevolvidoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoMatriculaRespondidoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoMatriculaRespondidoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoMatriculaRespondidoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPedidoMatriculaRespondidoPO_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoMatriculaRespondidoPO_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoMatriculaRespondidoPO_Anexo_WSReq" nillable="true" type="tns:SetPedidoMatriculaRespondidoPO_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoMatriculaRespondidoPO_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoMatriculaRespondidoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoMatriculaRespondidoPOResult" type="tns:SetPedidoMatriculaRespondidoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoMatriculaRespondidoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoMatriculaRespondidoPO_DocID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoMatriculaRespondidoPO_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoMatriculaRespondidoPO_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPedidoMatriculaRespondidoPO_DocID_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoMatriculaRespondidoPO_DocID_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoMatriculaRespondidoPO_DocID_Anexo_WSReq" nillable="true" type="tns:SetPedidoMatriculaRespondidoPO_DocID_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoMatriculaRespondidoPO_DocID_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoMatriculaRespondidoPO_DocIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoMatriculaRespondidoPO_DocIDResult" type="tns:SetPedidoMatriculaRespondidoPO_DocID_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoMatriculaRespondidoPO_DocID_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoMatriculaDevolvidoPO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoMatriculaDevolvidoPO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoMatriculaDevolvidoPO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoMatriculaDevolvidoPOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoMatriculaDevolvidoPOResult" type="tns:SetPedidoMatriculaDevolvidoPO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoMatriculaDevolvidoPO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoNegativaLotePO">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoNegativaLotePO_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoNegativaLotePO_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Pedidos" type="tns:ArrayOfSetPedidoNegativaLotePO_Pedido_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoNegativaLotePO_Pedido_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoNegativaLotePO_Pedido_WSReq" nillable="true" type="tns:SetPedidoNegativaLotePO_Pedido_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoNegativaLotePO_Pedido_WSReq">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoNegativaLotePOResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoNegativaLotePOResult" type="tns:SetPedidoNegativaLotePO_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoNegativaLotePO_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Pedidos" type="tns:ArrayOfSetPedidoNegativaLotePO_Pedido_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoNegativaLotePO_Pedido_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoNegativaLotePO_Pedido_WSResp" nillable="true" type="tns:SetPedidoNegativaLotePO_Pedido_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoNegativaLotePO_Pedido_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+</s:sequence>
+</s:complexType>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="ListPedidosPOSoapIn">
+<wsdl:part name="parameters" element="tns:ListPedidosPO"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosPOSoapOut">
+<wsdl:part name="parameters" element="tns:ListPedidosPOResponse"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosExportacaoPOSoapIn">
+<wsdl:part name="parameters" element="tns:ListPedidosExportacaoPO"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosExportacaoPOSoapOut">
+<wsdl:part name="parameters" element="tns:ListPedidosExportacaoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosExportacaoPO_v2SoapIn">
+<wsdl:part name="parameters" element="tns:ListPedidosExportacaoPO_v2"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosExportacaoPO_v2SoapOut">
+<wsdl:part name="parameters" element="tns:ListPedidosExportacaoPO_v2Response"/>
+</wsdl:message>
+<wsdl:message name="ListVarasPOSoapIn">
+<wsdl:part name="parameters" element="tns:ListVarasPO"/>
+</wsdl:message>
+<wsdl:message name="ListVarasPOSoapOut">
+<wsdl:part name="parameters" element="tns:ListVarasPOResponse"/>
+</wsdl:message>
+<wsdl:message name="GetPedidoPOSoapIn">
+<wsdl:part name="parameters" element="tns:GetPedidoPO"/>
+</wsdl:message>
+<wsdl:message name="GetPedidoPOSoapOut">
+<wsdl:part name="parameters" element="tns:GetPedidoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="ListBoletosPOSoapIn">
+<wsdl:part name="parameters" element="tns:ListBoletosPO"/>
+</wsdl:message>
+<wsdl:message name="ListBoletosPOSoapOut">
+<wsdl:part name="parameters" element="tns:ListBoletosPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetBaixaBoletoPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetBaixaBoletoPO"/>
+</wsdl:message>
+<wsdl:message name="SetBaixaBoletoPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetBaixaBoletoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPrenotacaoPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetPrenotacaoPO"/>
+</wsdl:message>
+<wsdl:message name="SetPrenotacaoPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetPrenotacaoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetCustasPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetCustasPO"/>
+</wsdl:message>
+<wsdl:message name="SetCustasPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetCustasPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPenhoraAverbadoPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetPenhoraAverbadoPO"/>
+</wsdl:message>
+<wsdl:message name="SetPenhoraAverbadoPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetPenhoraAverbadoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPenhoraAverbadoPO_DocIDSoapIn">
+<wsdl:part name="parameters" element="tns:SetPenhoraAverbadoPO_DocID"/>
+</wsdl:message>
+<wsdl:message name="SetPenhoraAverbadoPO_DocIDSoapOut">
+<wsdl:part name="parameters" element="tns:SetPenhoraAverbadoPO_DocIDResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPenhoraExigenciaPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetPenhoraExigenciaPO"/>
+</wsdl:message>
+<wsdl:message name="SetPenhoraExigenciaPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetPenhoraExigenciaPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPenhoraExigenciaPO_DocIDSoapIn">
+<wsdl:part name="parameters" element="tns:SetPenhoraExigenciaPO_DocID"/>
+</wsdl:message>
+<wsdl:message name="SetPenhoraExigenciaPO_DocIDSoapOut">
+<wsdl:part name="parameters" element="tns:SetPenhoraExigenciaPO_DocIDResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoFinalizarPrenotacaoVencidaSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoFinalizarPrenotacaoVencida"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoFinalizarPrenotacaoVencidaSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoFinalizarPrenotacaoVencidaResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoPessoaRespondidoPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoPessoaRespondidoPO"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoPessoaRespondidoPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoPessoaRespondidoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoPessoaRespondidoPO_DocIDSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoPessoaRespondidoPO_DocID"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoPessoaRespondidoPO_DocIDSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoPessoaRespondidoPO_DocIDResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoPessoaDevolvidoPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoPessoaDevolvidoPO"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoPessoaDevolvidoPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoPessoaDevolvidoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoMatriculaRespondidoPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoMatriculaRespondidoPO"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoMatriculaRespondidoPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoMatriculaRespondidoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoMatriculaRespondidoPO_DocIDSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoMatriculaRespondidoPO_DocID"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoMatriculaRespondidoPO_DocIDSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoMatriculaRespondidoPO_DocIDResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoMatriculaDevolvidoPOSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoMatriculaDevolvidoPO"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoMatriculaDevolvidoPOSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoMatriculaDevolvidoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoNegativaLotePOSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoNegativaLotePO"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoNegativaLotePOSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoNegativaLotePOResponse"/>
+</wsdl:message>
+<wsdl:portType name="PenhoraOnlineSoap">
+<wsdl:operation name="ListPedidosPO">
+<wsdl:input message="tns:ListPedidosPOSoapIn"/>
+<wsdl:output message="tns:ListPedidosPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosExportacaoPO">
+<wsdl:input message="tns:ListPedidosExportacaoPOSoapIn"/>
+<wsdl:output message="tns:ListPedidosExportacaoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosExportacaoPO_v2">
+<wsdl:input message="tns:ListPedidosExportacaoPO_v2SoapIn"/>
+<wsdl:output message="tns:ListPedidosExportacaoPO_v2SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListVarasPO">
+<wsdl:input message="tns:ListVarasPOSoapIn"/>
+<wsdl:output message="tns:ListVarasPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GetPedidoPO">
+<wsdl:input message="tns:GetPedidoPOSoapIn"/>
+<wsdl:output message="tns:GetPedidoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListBoletosPO">
+<wsdl:input message="tns:ListBoletosPOSoapIn"/>
+<wsdl:output message="tns:ListBoletosPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetBaixaBoletoPO">
+<wsdl:input message="tns:SetBaixaBoletoPOSoapIn"/>
+<wsdl:output message="tns:SetBaixaBoletoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPrenotacaoPO">
+<wsdl:input message="tns:SetPrenotacaoPOSoapIn"/>
+<wsdl:output message="tns:SetPrenotacaoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetCustasPO">
+<wsdl:input message="tns:SetCustasPOSoapIn"/>
+<wsdl:output message="tns:SetCustasPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraAverbadoPO">
+<wsdl:input message="tns:SetPenhoraAverbadoPOSoapIn"/>
+<wsdl:output message="tns:SetPenhoraAverbadoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraAverbadoPO_DocID">
+<wsdl:input message="tns:SetPenhoraAverbadoPO_DocIDSoapIn"/>
+<wsdl:output message="tns:SetPenhoraAverbadoPO_DocIDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraExigenciaPO">
+<wsdl:input message="tns:SetPenhoraExigenciaPOSoapIn"/>
+<wsdl:output message="tns:SetPenhoraExigenciaPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraExigenciaPO_DocID">
+<wsdl:input message="tns:SetPenhoraExigenciaPO_DocIDSoapIn"/>
+<wsdl:output message="tns:SetPenhoraExigenciaPO_DocIDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoFinalizarPrenotacaoVencida">
+<wsdl:input message="tns:SetPedidoFinalizarPrenotacaoVencidaSoapIn"/>
+<wsdl:output message="tns:SetPedidoFinalizarPrenotacaoVencidaSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaRespondidoPO">
+<wsdl:input message="tns:SetPedidoPessoaRespondidoPOSoapIn"/>
+<wsdl:output message="tns:SetPedidoPessoaRespondidoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaRespondidoPO_DocID">
+<wsdl:input message="tns:SetPedidoPessoaRespondidoPO_DocIDSoapIn"/>
+<wsdl:output message="tns:SetPedidoPessoaRespondidoPO_DocIDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaDevolvidoPO">
+<wsdl:input message="tns:SetPedidoPessoaDevolvidoPOSoapIn"/>
+<wsdl:output message="tns:SetPedidoPessoaDevolvidoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaRespondidoPO">
+<wsdl:input message="tns:SetPedidoMatriculaRespondidoPOSoapIn"/>
+<wsdl:output message="tns:SetPedidoMatriculaRespondidoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaRespondidoPO_DocID">
+<wsdl:input message="tns:SetPedidoMatriculaRespondidoPO_DocIDSoapIn"/>
+<wsdl:output message="tns:SetPedidoMatriculaRespondidoPO_DocIDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaDevolvidoPO">
+<wsdl:input message="tns:SetPedidoMatriculaDevolvidoPOSoapIn"/>
+<wsdl:output message="tns:SetPedidoMatriculaDevolvidoPOSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoNegativaLotePO">
+<wsdl:input message="tns:SetPedidoNegativaLotePOSoapIn"/>
+<wsdl:output message="tns:SetPedidoNegativaLotePOSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="PenhoraOnlineSoap" type="tns:PenhoraOnlineSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ListPedidosPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListPedidosPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosExportacaoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListPedidosExportacaoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosExportacaoPO_v2">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListPedidosExportacaoPO_v2" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListVarasPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListVarasPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPedidoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/GetPedidoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListBoletosPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListBoletosPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetBaixaBoletoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetBaixaBoletoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPrenotacaoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPrenotacaoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetCustasPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetCustasPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraAverbadoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPenhoraAverbadoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraAverbadoPO_DocID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPenhoraAverbadoPO_DocID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraExigenciaPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPenhoraExigenciaPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraExigenciaPO_DocID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPenhoraExigenciaPO_DocID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoFinalizarPrenotacaoVencida">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoFinalizarPrenotacaoVencida" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaRespondidoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoPessoaRespondidoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaRespondidoPO_DocID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoPessoaRespondidoPO_DocID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaDevolvidoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoPessoaDevolvidoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaRespondidoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoMatriculaRespondidoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaRespondidoPO_DocID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoMatriculaRespondidoPO_DocID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaDevolvidoPO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoMatriculaDevolvidoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoNegativaLotePO">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoNegativaLotePO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="PenhoraOnlineSoap12" type="tns:PenhoraOnlineSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ListPedidosPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListPedidosPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosExportacaoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListPedidosExportacaoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosExportacaoPO_v2">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListPedidosExportacaoPO_v2" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListVarasPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListVarasPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPedidoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/GetPedidoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListBoletosPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListBoletosPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetBaixaBoletoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetBaixaBoletoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPrenotacaoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPrenotacaoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetCustasPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetCustasPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraAverbadoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPenhoraAverbadoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraAverbadoPO_DocID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPenhoraAverbadoPO_DocID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraExigenciaPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPenhoraExigenciaPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraExigenciaPO_DocID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPenhoraExigenciaPO_DocID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoFinalizarPrenotacaoVencida">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoFinalizarPrenotacaoVencida" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaRespondidoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoPessoaRespondidoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaRespondidoPO_DocID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoPessoaRespondidoPO_DocID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoPessoaDevolvidoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoPessoaDevolvidoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaRespondidoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoMatriculaRespondidoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaRespondidoPO_DocID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoMatriculaRespondidoPO_DocID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoMatriculaDevolvidoPO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoMatriculaDevolvidoPO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoNegativaLotePO">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoNegativaLotePO" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="PenhoraOnline">
+<wsdl:port name="PenhoraOnlineSoap" binding="tns:PenhoraOnlineSoap">
+<soap:address location="https://origin-hml3-wsoficio.onr.org.br/penhoraonline.asmx"/>
+</wsdl:port>
+<wsdl:port name="PenhoraOnlineSoap12" binding="tns:PenhoraOnlineSoap12">
+<soap12:address location="https://origin-hml3-wsoficio.onr.org.br/penhoraonline.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

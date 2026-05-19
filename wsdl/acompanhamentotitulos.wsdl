@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/WSOficio" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/WSOficio">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/WSOficio">
+<s:element name="GetTituloAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:GetTituloAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetTituloAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTitulo" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetTituloATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GetTituloATResult" type="tns:GetTituloAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetTituloAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDCartorio" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorDeposito" type="s:decimal"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorEmolumentos" type="s:decimal"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteCPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteEmail" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ModoNotificacaoStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteDDDTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNumeroTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataProtocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPrevisaoEntrega" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NaturezaTitulo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="InteressadoNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="InteressadoCPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CodigoVerificador" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="TipoSolicitacao" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="InsertTituloAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:InsertTituloAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="InsertTituloAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteEmail" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteDDDTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNumeroTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteCPFCNPJ" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorDeposito" type="s:decimal"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorEmolumentos" type="s:decimal"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataProtocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPrevisaoEntrega" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ModoNotificacaoStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="InteressadoNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="InteressadoCPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NaturezaTitulo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CodigoVerificador" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="TipoSolicitacao" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DescricaoStatus" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="InsertTituloATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="InsertTituloATResult" type="tns:InsertTituloAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="InsertTituloAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTitulo" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="UpdateTituloAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:UpdateTituloAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="UpdateTituloAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTitulo" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteEmail" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteDDDTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNumeroTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteCPFCNPJ" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorDeposito" type="s:decimal"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorEmolumentos" type="s:decimal"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataProtocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPrevisaoEntrega" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ModoNotificacaoStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="InteressadoNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="InteressadoCPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NaturezaTitulo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CodigoVerificador" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="TipoSolicitacao" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="UpdateTituloATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="UpdateTituloATResult" type="tns:UpdateTituloAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="UpdateTituloAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListTitulosAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListTitulosAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListTitulosAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="MaxRowPerPage" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="PageNumber" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataProtocoloInicio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataProtocoloFinal" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="Exportado" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Apresentante" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListTitulosATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListTitulosATResult" type="tns:ListTitulosAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListTitulosAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeRegistros" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdePaginas" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Titulos" type="tns:ArrayOfListTitulosAT_Titulos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListTitulosAT_Titulos_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListTitulosAT_Titulos_WSResp" nillable="true" type="tns:ListTitulosAT_Titulos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListTitulosAT_Titulos_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDTitulo" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Apresentante" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataUltimoStatus" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoStatus" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="DeleteTituloAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:DeleteTituloAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="DeleteTituloAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTitulo" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="DeleteTituloATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="DeleteTituloATResult" type="tns:DeleteTituloAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="DeleteTituloAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetStatusAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:GetStatusAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetStatusAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetStatusATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GetStatusATResult" type="tns:GetStatusAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetStatusAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DescricaoStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorDeposito" type="s:decimal"/>
+<s:element minOccurs="1" maxOccurs="1" name="ValorEmolumentos" type="s:decimal"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteCPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteEmail" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ModoNotificacaoStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteDDDTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNumeroTelefone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataProtocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataPrevisaoEntrega" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NaturezaTitulo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="InteressadoNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="InteressadoCPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CodigoVerificador" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="TipoSolicitacao" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="InsertStatusAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:InsertStatusAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="InsertStatusAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTitulo" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DescricaoStatus" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="InsertStatusATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="InsertStatusATResult" type="tns:InsertStatusAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="InsertStatusAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="UpdateStatusAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:UpdateStatusAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="UpdateStatusAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataStatus" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DescricaoStatus" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="UpdateStatusATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="UpdateStatusATResult" type="tns:UpdateStatusAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="UpdateStatusAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListStatusAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListStatusAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListStatusAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="MaxRowPerPage" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="PageNumber" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTitulo" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataStatusInicio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataStatusFinal" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoStatus" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListStatusATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListStatusATResult" type="tns:ListStatusAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListStatusAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeRegistros" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdePaginas" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTitulo" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDCartorio" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ApresentanteNome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:ArrayOfListStatusAT_Status_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListStatusAT_Status_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListStatusAT_Status_WSResp" nillable="true" type="tns:ListStatusAT_Status_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListStatusAT_Status_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataStatus" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ImportarArquivoAT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ImportarArquivoAT_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ImportarArquivoAT_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Arquivos" type="tns:ArrayOfImportarArquivoAT_Arquivo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfImportarArquivoAT_Arquivo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ImportarArquivoAT_Arquivo_WSReq" nillable="true" type="tns:ImportarArquivoAT_Arquivo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ImportarArquivoAT_Arquivo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeArquivo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Extensao" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ImportarArquivoATResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ImportarArquivoATResult" type="tns:ImportarArquivoAT_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ImportarArquivoAT_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="GetTituloATSoapIn">
+<wsdl:part name="parameters" element="tns:GetTituloAT"/>
+</wsdl:message>
+<wsdl:message name="GetTituloATSoapOut">
+<wsdl:part name="parameters" element="tns:GetTituloATResponse"/>
+</wsdl:message>
+<wsdl:message name="InsertTituloATSoapIn">
+<wsdl:part name="parameters" element="tns:InsertTituloAT"/>
+</wsdl:message>
+<wsdl:message name="InsertTituloATSoapOut">
+<wsdl:part name="parameters" element="tns:InsertTituloATResponse"/>
+</wsdl:message>
+<wsdl:message name="UpdateTituloATSoapIn">
+<wsdl:part name="parameters" element="tns:UpdateTituloAT"/>
+</wsdl:message>
+<wsdl:message name="UpdateTituloATSoapOut">
+<wsdl:part name="parameters" element="tns:UpdateTituloATResponse"/>
+</wsdl:message>
+<wsdl:message name="ListTitulosATSoapIn">
+<wsdl:part name="parameters" element="tns:ListTitulosAT"/>
+</wsdl:message>
+<wsdl:message name="ListTitulosATSoapOut">
+<wsdl:part name="parameters" element="tns:ListTitulosATResponse"/>
+</wsdl:message>
+<wsdl:message name="DeleteTituloATSoapIn">
+<wsdl:part name="parameters" element="tns:DeleteTituloAT"/>
+</wsdl:message>
+<wsdl:message name="DeleteTituloATSoapOut">
+<wsdl:part name="parameters" element="tns:DeleteTituloATResponse"/>
+</wsdl:message>
+<wsdl:message name="GetStatusATSoapIn">
+<wsdl:part name="parameters" element="tns:GetStatusAT"/>
+</wsdl:message>
+<wsdl:message name="GetStatusATSoapOut">
+<wsdl:part name="parameters" element="tns:GetStatusATResponse"/>
+</wsdl:message>
+<wsdl:message name="InsertStatusATSoapIn">
+<wsdl:part name="parameters" element="tns:InsertStatusAT"/>
+</wsdl:message>
+<wsdl:message name="InsertStatusATSoapOut">
+<wsdl:part name="parameters" element="tns:InsertStatusATResponse"/>
+</wsdl:message>
+<wsdl:message name="UpdateStatusATSoapIn">
+<wsdl:part name="parameters" element="tns:UpdateStatusAT"/>
+</wsdl:message>
+<wsdl:message name="UpdateStatusATSoapOut">
+<wsdl:part name="parameters" element="tns:UpdateStatusATResponse"/>
+</wsdl:message>
+<wsdl:message name="ListStatusATSoapIn">
+<wsdl:part name="parameters" element="tns:ListStatusAT"/>
+</wsdl:message>
+<wsdl:message name="ListStatusATSoapOut">
+<wsdl:part name="parameters" element="tns:ListStatusATResponse"/>
+</wsdl:message>
+<wsdl:message name="ImportarArquivoATSoapIn">
+<wsdl:part name="parameters" element="tns:ImportarArquivoAT"/>
+</wsdl:message>
+<wsdl:message name="ImportarArquivoATSoapOut">
+<wsdl:part name="parameters" element="tns:ImportarArquivoATResponse"/>
+</wsdl:message>
+<wsdl:portType name="AcompanhamentoTitulosSoap">
+<wsdl:operation name="GetTituloAT">
+<wsdl:input message="tns:GetTituloATSoapIn"/>
+<wsdl:output message="tns:GetTituloATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="InsertTituloAT">
+<wsdl:input message="tns:InsertTituloATSoapIn"/>
+<wsdl:output message="tns:InsertTituloATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="UpdateTituloAT">
+<wsdl:input message="tns:UpdateTituloATSoapIn"/>
+<wsdl:output message="tns:UpdateTituloATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListTitulosAT">
+<wsdl:input message="tns:ListTitulosATSoapIn"/>
+<wsdl:output message="tns:ListTitulosATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="DeleteTituloAT">
+<wsdl:input message="tns:DeleteTituloATSoapIn"/>
+<wsdl:output message="tns:DeleteTituloATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GetStatusAT">
+<wsdl:input message="tns:GetStatusATSoapIn"/>
+<wsdl:output message="tns:GetStatusATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="InsertStatusAT">
+<wsdl:input message="tns:InsertStatusATSoapIn"/>
+<wsdl:output message="tns:InsertStatusATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="UpdateStatusAT">
+<wsdl:input message="tns:UpdateStatusATSoapIn"/>
+<wsdl:output message="tns:UpdateStatusATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListStatusAT">
+<wsdl:input message="tns:ListStatusATSoapIn"/>
+<wsdl:output message="tns:ListStatusATSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ImportarArquivoAT">
+<wsdl:input message="tns:ImportarArquivoATSoapIn"/>
+<wsdl:output message="tns:ImportarArquivoATSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="AcompanhamentoTitulosSoap" type="tns:AcompanhamentoTitulosSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GetTituloAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/GetTituloAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertTituloAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/InsertTituloAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="UpdateTituloAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/UpdateTituloAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListTitulosAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListTitulosAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="DeleteTituloAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/DeleteTituloAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetStatusAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/GetStatusAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertStatusAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/InsertStatusAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="UpdateStatusAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/UpdateStatusAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListStatusAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListStatusAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ImportarArquivoAT">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ImportarArquivoAT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="AcompanhamentoTitulosSoap12" type="tns:AcompanhamentoTitulosSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GetTituloAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/GetTituloAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertTituloAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/InsertTituloAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="UpdateTituloAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/UpdateTituloAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListTitulosAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListTitulosAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="DeleteTituloAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/DeleteTituloAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetStatusAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/GetStatusAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertStatusAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/InsertStatusAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="UpdateStatusAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/UpdateStatusAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListStatusAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListStatusAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ImportarArquivoAT">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ImportarArquivoAT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="AcompanhamentoTitulos">
+<wsdl:port name="AcompanhamentoTitulosSoap" binding="tns:AcompanhamentoTitulosSoap">
+<soap:address location="https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx"/>
+</wsdl:port>
+<wsdl:port name="AcompanhamentoTitulosSoap12" binding="tns:AcompanhamentoTitulosSoap12">
+<soap12:address location="https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

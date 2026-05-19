@@ -1,0 +1,747 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/WSOficio" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/WSOficio">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/WSOficio">
+<s:element name="ListInstituicoesOE">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListInstituicoesOE_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListInstituicoesOE_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListInstituicoesOEResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListInstituicoesOEResult" type="tns:ListInstituicoesOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListInstituicoesOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Instituicoes" type="tns:ArrayOfListInstOE_Inst_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListInstOE_Inst_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListInstOE_Inst_WSResp" nillable="true" type="tns:ListInstOE_Inst_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListInstOE_Inst_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDInstituicao" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Instituicao" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetPedidoOE">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:GetPedidoOE_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetPedidoOE_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="GetPedidoOEResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="GetPedidoOEResult" type="tns:GetPedidoOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="GetPedidoOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDInstituicao" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Instituicao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDUsuario" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPesquisa" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoCertidao" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Ticket" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="NumeroOficio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataResposta" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Retransmitido" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="TipoPessoa" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeRazao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CPFCNPJ" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="RGIE" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="ImoveisDireitos" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataTransferencia" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Observacoes" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Transcricao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataTranscricao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="LivroNumero" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Endereco" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Complemento" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="CEP" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Edificio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Apartamento" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="ComplementoApto" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Loteamento" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Lote" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Quadra" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NContribuinte" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Registro" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataCasamento" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeMarido" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeEsposa" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListPedidosOE">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListPedidosOE_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListPedidosOE_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="MaxRowPerPage" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="PageNumber" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDInstituicao" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPesquisa" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacaoInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacaoFinal" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataRespostaInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataRespostaFinal" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListPedidosOEResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListPedidosOEResult" type="tns:ListPedidosOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListPedidosOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeRegistros" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdePaginas" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Pedidos" type="tns:ArrayOfListPedidosOE_Pedidos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListPedidosOE_Pedidos_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListPedidosOE_Pedidos_WSResp" nillable="true" type="tns:ListPedidosOE_Pedidos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListPedidosOE_Pedidos_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDInstituicao" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Instituicao" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPesquisa" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NumeroOficio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataResposta" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListPedidosOE_V2">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListPedidosOE_V2_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListPedidosOE_V2_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="MaxRowPerPage" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="PageNumber" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDInstituicao" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPesquisa" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacaoInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacaoFinal" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataRespostaInicial" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataRespostaFinal" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListPedidosOE_V2Response">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListPedidosOE_V2Result" type="tns:ListPedidosOE_V2_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListPedidosOE_V2_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdeRegistros" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="QtdePaginas" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Pedidos" type="tns:ArrayOfListPedidosOE_V2_Pedidos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListPedidosOE_V2_Pedidos_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListPedidosOE_V2_Pedidos_WSResp" nillable="true" type="tns:ListPedidosOE_V2_Pedidos_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListPedidosOE_V2_Pedidos_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDStatus" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDInstituicao" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="CNPJInstituicao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Instituicao" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDTipoPesquisa" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Protocolo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="NumeroOficio" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataSolicitacao" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DataResposta" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoRespondidoOE_DocID">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoRespondidoOE_DocID_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoRespondidoOE_DocID_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Negativa" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPedidoRespondidoOE_DocID_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoRespondidoOE_DocID_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoRespondidoOE_DocID_Anexo_WSReq" nillable="true" type="tns:SetPedidoRespondidoOE_DocID_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoRespondidoOE_DocID_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoRespondidoOE_DocIDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoRespondidoOE_DocIDResult" type="tns:SetPedidoRespondidoOE_DocID_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoRespondidoOE_DocID_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoRespondidoOE">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoRespondidoOE_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoRespondidoOE_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Resposta" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Negativa" type="s:boolean"/>
+<s:element minOccurs="0" maxOccurs="1" name="Anexos" type="tns:ArrayOfSetPedidoRespondidoOE_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoRespondidoOE_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoRespondidoOE_Anexo_WSReq" nillable="true" type="tns:SetPedidoRespondidoOE_Anexo_WSReq"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoRespondidoOE_Anexo_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="URLArquivo" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoRespondidoOEResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoRespondidoOEResult" type="tns:SetPedidoRespondidoOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoRespondidoOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoDevolvidoOE">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoDevolvidoOE_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoDevolvidoOE_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="MotivoDevolucao" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoDevolvidoOEResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoDevolvidoOEResult" type="tns:SetPedidoDevolvidoOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoDevolvidoOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoNegativaLoteOE">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoNegativaLoteOE_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoNegativaLoteOE_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Pedidos" type="tns:ArrayOfInt"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfInt">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoNegativaLoteOEResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoNegativaLoteOEResult" type="tns:SetPedidoNegativaLoteOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoNegativaLoteOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Pedidos" type="tns:ArrayOfSetPedidoNegativaLoteOE_Pedido_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfSetPedidoNegativaLoteOE_Pedido_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="SetPedidoNegativaLoteOE_Pedido_WSResp" nillable="true" type="tns:SetPedidoNegativaLoteOE_Pedido_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="SetPedidoNegativaLoteOE_Pedido_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListCartoriosRestransmitirOE">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ListCartoriosRestransmitirOE_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListCartoriosRestransmitirOE_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ListCartoriosRestransmitirOEResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ListCartoriosRestransmitirOEResult" type="tns:ListCartoriosRestransmitirOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ListCartoriosRestransmitirOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="Cartorios" type="tns:ArrayOfListRIRetransOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ArrayOfListRIRetransOE_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="unbounded" name="ListRIRetransOE_WSResp" nillable="true" type="tns:ListRIRetransOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+<s:complexType name="ListRIRetransOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="IDCartorio" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Cartorio" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoRetransmitidoOE">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:SetPedidoRetransmitidoOE_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoRetransmitidoOE_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDPedido" type="s:int"/>
+<s:element minOccurs="1" maxOccurs="1" name="IDCartorio" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="Observacoes" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="SetPedidoRetransmitidoOEResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SetPedidoRetransmitidoOEResult" type="tns:SetPedidoRetransmitidoOE_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="SetPedidoRetransmitidoOE_WSResp">
+<s:sequence>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="ListInstituicoesOESoapIn">
+<wsdl:part name="parameters" element="tns:ListInstituicoesOE"/>
+</wsdl:message>
+<wsdl:message name="ListInstituicoesOESoapOut">
+<wsdl:part name="parameters" element="tns:ListInstituicoesOEResponse"/>
+</wsdl:message>
+<wsdl:message name="GetPedidoOESoapIn">
+<wsdl:part name="parameters" element="tns:GetPedidoOE"/>
+</wsdl:message>
+<wsdl:message name="GetPedidoOESoapOut">
+<wsdl:part name="parameters" element="tns:GetPedidoOEResponse"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosOESoapIn">
+<wsdl:part name="parameters" element="tns:ListPedidosOE"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosOESoapOut">
+<wsdl:part name="parameters" element="tns:ListPedidosOEResponse"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosOE_V2SoapIn">
+<wsdl:part name="parameters" element="tns:ListPedidosOE_V2"/>
+</wsdl:message>
+<wsdl:message name="ListPedidosOE_V2SoapOut">
+<wsdl:part name="parameters" element="tns:ListPedidosOE_V2Response"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoRespondidoOE_DocIDSoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoRespondidoOE_DocID"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoRespondidoOE_DocIDSoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoRespondidoOE_DocIDResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoRespondidoOESoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoRespondidoOE"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoRespondidoOESoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoRespondidoOEResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoDevolvidoOESoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoDevolvidoOE"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoDevolvidoOESoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoDevolvidoOEResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoNegativaLoteOESoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoNegativaLoteOE"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoNegativaLoteOESoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoNegativaLoteOEResponse"/>
+</wsdl:message>
+<wsdl:message name="ListCartoriosRestransmitirOESoapIn">
+<wsdl:part name="parameters" element="tns:ListCartoriosRestransmitirOE"/>
+</wsdl:message>
+<wsdl:message name="ListCartoriosRestransmitirOESoapOut">
+<wsdl:part name="parameters" element="tns:ListCartoriosRestransmitirOEResponse"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoRetransmitidoOESoapIn">
+<wsdl:part name="parameters" element="tns:SetPedidoRetransmitidoOE"/>
+</wsdl:message>
+<wsdl:message name="SetPedidoRetransmitidoOESoapOut">
+<wsdl:part name="parameters" element="tns:SetPedidoRetransmitidoOEResponse"/>
+</wsdl:message>
+<wsdl:portType name="OficiosSoap">
+<wsdl:operation name="ListInstituicoesOE">
+<wsdl:input message="tns:ListInstituicoesOESoapIn"/>
+<wsdl:output message="tns:ListInstituicoesOESoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="GetPedidoOE">
+<wsdl:input message="tns:GetPedidoOESoapIn"/>
+<wsdl:output message="tns:GetPedidoOESoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosOE">
+<wsdl:input message="tns:ListPedidosOESoapIn"/>
+<wsdl:output message="tns:ListPedidosOESoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosOE_V2">
+<wsdl:input message="tns:ListPedidosOE_V2SoapIn"/>
+<wsdl:output message="tns:ListPedidosOE_V2SoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRespondidoOE_DocID">
+<wsdl:input message="tns:SetPedidoRespondidoOE_DocIDSoapIn"/>
+<wsdl:output message="tns:SetPedidoRespondidoOE_DocIDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRespondidoOE">
+<wsdl:input message="tns:SetPedidoRespondidoOESoapIn"/>
+<wsdl:output message="tns:SetPedidoRespondidoOESoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoDevolvidoOE">
+<wsdl:input message="tns:SetPedidoDevolvidoOESoapIn"/>
+<wsdl:output message="tns:SetPedidoDevolvidoOESoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoNegativaLoteOE">
+<wsdl:input message="tns:SetPedidoNegativaLoteOESoapIn"/>
+<wsdl:output message="tns:SetPedidoNegativaLoteOESoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="ListCartoriosRestransmitirOE">
+<wsdl:input message="tns:ListCartoriosRestransmitirOESoapIn"/>
+<wsdl:output message="tns:ListCartoriosRestransmitirOESoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRetransmitidoOE">
+<wsdl:input message="tns:SetPedidoRetransmitidoOESoapIn"/>
+<wsdl:output message="tns:SetPedidoRetransmitidoOESoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="OficiosSoap" type="tns:OficiosSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ListInstituicoesOE">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListInstituicoesOE" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPedidoOE">
+<soap:operation soapAction="http://tempuri.org/WSOficio/GetPedidoOE" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosOE">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListPedidosOE" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosOE_V2">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListPedidosOE_V2" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRespondidoOE_DocID">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoRespondidoOE_DocID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRespondidoOE">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoRespondidoOE" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoDevolvidoOE">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoDevolvidoOE" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoNegativaLoteOE">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoNegativaLoteOE" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListCartoriosRestransmitirOE">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ListCartoriosRestransmitirOE" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRetransmitidoOE">
+<soap:operation soapAction="http://tempuri.org/WSOficio/SetPedidoRetransmitidoOE" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="OficiosSoap12" type="tns:OficiosSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ListInstituicoesOE">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListInstituicoesOE" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPedidoOE">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/GetPedidoOE" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosOE">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListPedidosOE" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListPedidosOE_V2">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListPedidosOE_V2" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRespondidoOE_DocID">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoRespondidoOE_DocID" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRespondidoOE">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoRespondidoOE" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoDevolvidoOE">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoDevolvidoOE" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoNegativaLoteOE">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoNegativaLoteOE" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListCartoriosRestransmitirOE">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ListCartoriosRestransmitirOE" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPedidoRetransmitidoOE">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/SetPedidoRetransmitidoOE" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Oficios">
+<wsdl:port name="OficiosSoap" binding="tns:OficiosSoap">
+<soap:address location="https://origin-hml3-wsoficio.onr.org.br/oficios.asmx"/>
+</wsdl:port>
+<wsdl:port name="OficiosSoap12" binding="tns:OficiosSoap12">
+<soap12:address location="https://origin-hml3-wsoficio.onr.org.br/oficios.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

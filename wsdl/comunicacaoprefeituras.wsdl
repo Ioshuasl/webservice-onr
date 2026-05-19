@@ -1,0 +1,137 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/WSOficio" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/WSOficio">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/WSOficio">
+<s:element name="ImportacaoArquivos">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:ImportacaoArquivos_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ImportacaoArquivos_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="Formato" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="NomeOriginalArquivo" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="UrlCallback" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="ImportacaoArquivosResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="ImportacaoArquivosResult" type="tns:ImportacaoArquivos_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="ImportacaoArquivos_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="IdProcesso" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="UrlParaUpload" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="AtualizarStatusProcesso">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="oRequest" type="tns:AtualizarStatusProcesso_WSReq"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="AtualizarStatusProcesso_WSReq">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="IdProcesso" type="s:string"/>
+</s:sequence>
+</s:complexType>
+<s:element name="AtualizarStatusProcessoResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="AtualizarStatusProcessoResult" type="tns:AtualizarStatusProcesso_WSResp"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:complexType name="AtualizarStatusProcesso_WSResp">
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="IdStatus" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="RETORNO" type="s:boolean"/>
+<s:element minOccurs="1" maxOccurs="1" name="CODIGOERRO" type="s:int"/>
+<s:element minOccurs="0" maxOccurs="1" name="ERRODESCRICAO" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="ImportacaoArquivosSoapIn">
+<wsdl:part name="parameters" element="tns:ImportacaoArquivos"/>
+</wsdl:message>
+<wsdl:message name="ImportacaoArquivosSoapOut">
+<wsdl:part name="parameters" element="tns:ImportacaoArquivosResponse"/>
+</wsdl:message>
+<wsdl:message name="AtualizarStatusProcessoSoapIn">
+<wsdl:part name="parameters" element="tns:AtualizarStatusProcesso"/>
+</wsdl:message>
+<wsdl:message name="AtualizarStatusProcessoSoapOut">
+<wsdl:part name="parameters" element="tns:AtualizarStatusProcessoResponse"/>
+</wsdl:message>
+<wsdl:portType name="ComunicacaoMunicipiosSoap">
+<wsdl:operation name="ImportacaoArquivos">
+<wsdl:input message="tns:ImportacaoArquivosSoapIn"/>
+<wsdl:output message="tns:ImportacaoArquivosSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="AtualizarStatusProcesso">
+<wsdl:input message="tns:AtualizarStatusProcessoSoapIn"/>
+<wsdl:output message="tns:AtualizarStatusProcessoSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ComunicacaoMunicipiosSoap" type="tns:ComunicacaoMunicipiosSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ImportacaoArquivos">
+<soap:operation soapAction="http://tempuri.org/WSOficio/ImportacaoArquivos" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="AtualizarStatusProcesso">
+<soap:operation soapAction="http://tempuri.org/WSOficio/AtualizarStatusProcesso" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="ComunicacaoMunicipiosSoap12" type="tns:ComunicacaoMunicipiosSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="ImportacaoArquivos">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/ImportacaoArquivos" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="AtualizarStatusProcesso">
+<soap12:operation soapAction="http://tempuri.org/WSOficio/AtualizarStatusProcesso" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="ComunicacaoMunicipios">
+<wsdl:port name="ComunicacaoMunicipiosSoap" binding="tns:ComunicacaoMunicipiosSoap">
+<soap:address location="https://origin-hml3-wsoficio.onr.org.br/ComunicacaoMunicipios.asmx"/>
+</wsdl:port>
+<wsdl:port name="ComunicacaoMunicipiosSoap12" binding="tns:ComunicacaoMunicipiosSoap12">
+<soap12:address location="https://origin-hml3-wsoficio.onr.org.br/ComunicacaoMunicipios.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,36 @@
+{
+  "name": "onr-oficio-login",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract": "node scripts/extract_cert/extract_cert.js",
+    "login": "node scripts/login/login_onr.js",
+    "list-titulos": "node scripts/ListTitulosAt/listTitulos.js",
+    "get-titulo": "node scripts/GetTituloAt/getTituloAt.js",
+    "get-status": "node scripts/GetStatusAt/getStatusAt.js",
+    "insert-titulo": "node scripts/InsertTituloAt/insertTituloAt.js",
+    "update-titulo": "node scripts/UpdateTituloAt/updateTituloAt.js",
+    "delete-titulo": "node scripts/DeleteTituloAt/deleteTituloAt.js",
+    "insert-status": "node scripts/InsertStatusAt/insertStatusAt.js",
+    "update-status": "node scripts/UpdateStatusAt/updateStatusAt.js",
+    "list-status": "node scripts/ListStatusAT/listStatusAt.js",
+    "list-pedidos-po": "node scripts/ListPedidosPo/listPedidosPo.js",
+    "list-varas-po": "node scripts/ListVarasPo/listVarasPo.js",
+    "get-pedido-po": "node scripts/GetPedidoPo/getPedidoPo.js",
+    "list-boletos-po": "node scripts/ListBoletosPo/listBoletosPo.js",
+    "set-baixa-boleto-po": "node scripts/SetBaixaBoletoPo/setBaixaBoletoPo.js",
+    "set-prenotacao-po": "node scripts/SetPrenotacaoPo/setPrenotacaoPo.js",
+    "set-custas-po": "node scripts/SetCustasPo/setCustasPo.js",
+    "set-penhora-averbado-po": "node scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.js",
+    "set-penhora-exigencia-po": "node scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.js",
+    "set-pedido-pessoa-respondido-po": "node scripts/SetPedidoPessoaRespondidoPo/setPedidoPessoaRespondidoPo.js",
+    "find-penhora-exigencia-pedido": "py scripts/SetPenhoraExigenciaPo/findEligiblePedido.py",
+    "find-penhora-averbado-pedido": "py scripts/SetPenhoraAverbadoPo/findEligiblePedido.py"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "node-forge": "^1.3.1",
+    "soap": "^1.1.7"
+  }
+}
