@@ -37,41 +37,55 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- Datas de solicitação obrigatórias (`PENHORA_ONLINE_DATA_SOLICITACAO_*`).
+- `MaxRowPerPage` ≥ 10 (regra do serviço).
+- Homologação .NET: opcionais enviados como `""` (ver script) para evitar `NullReferenceException`.
+- Filtros [IDTipoPedido](../tabelas-dominio/IDTipoPedido-PO.md) e [IDStatus](../tabelas-dominio/IDStatus-PO.md) (`-1` = todos).
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `ListPedidosPO_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `MaxRowPerPage`
+3. `PageNumber`
+4. `Protocolo`
+5. `IDVara`
+6. `IDTipoPedido`
+7. `IDStatus`
+8. `DataSolicitacaoInicial`
+9. `DataSolicitacaoFinal`
+10. `DataRespostaInicial`
+11. `DataRespostaFinal`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página (tipo int); |
-| `● PageNumber` | Página a ser retornada (tipo int); |
-| `Protocolo` | Protocolo a ser filtrado – * opcional (tipo string); |
-| `IDVara` | Código da Vara a ser filtrado. Para retornar todos, informar -1. Para obter os códigos das Varas conferir o método ListVarasPO, item 3.3.3 (tipo int); |
-| `IDTipoPedido` | Código do tipo do pedido a ser filtrado (tipo int). Valores possíveis: |
-| `IDStatus` | Código do status a ser filtrado (tipo int). Valores possíveis: |
-| `11 = Aguardando Pagto` | Vencido |
-| `DataSolicitacaoInicial` | Data da solicitação inicial a ser filtrada, formato: aaaa-mm-dd (tipo string); |
-| `DataSolicitacaoFinal` | Data da solicitação final a ser filtrada, formato: aaaa-mm-dd (tipo string); |
-| `● DataRespostaInicial` | Data da resposta inicial a ser filtrada, formato: aaaa-mm-dd – * opcional |
-| `DataRespostaFinal` | Data da resposta final a ser filtrada, formato: aaaa-mm-dd – * opcional (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `MaxRowPerPage` | Máximo por página | int | sim | ≥ 10 | 50 |
+| `PageNumber` | Página | int | sim | — | 1 |
+| `Protocolo` | Filtro protocolo | string | sim | vazio = sem filtro | "" |
+| `IDVara` | Vara | int | sim | `-1` = todas | -1 |
+| `IDTipoPedido` | Tipo do pedido | int | sim | ver [IDTipoPedido-PO](../tabelas-dominio/IDTipoPedido-PO.md) | -1 |
+| `IDStatus` | Status do pedido | int | sim | ver [IDStatus-PO](../tabelas-dominio/IDStatus-PO.md) | -1 |
+| `DataSolicitacaoInicial` | Data solicitação inicial | string | sim | aaaa-mm-dd | 2025-01-01 |
+| `DataSolicitacaoFinal` | Data solicitação final | string | sim | aaaa-mm-dd | 2025-12-31 |
+| `DataRespostaInicial` | Data resposta inicial | string | sim | vazio se não usar | "" |
+| `DataRespostaFinal` | Data resposta final | string | sim | vazio se não usar | "" |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-| `QtdeRegistros` | (se RETORNO = true)  Quantidade total de registros encontrados (tipo int); |
-| `QtdePaginas` | (se RETORNO = true)  Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage - (tipo int); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `Protocolo` | Protocolo do Pedido (tipo string); |
-| `IDVara` | Código da Vara (tipo int); |
-| `Vara` | Nome da Vara (tipo string); |
-| `IDTipoPedido` | Código do tipo do pedido – verificar tipos possíveis no item 3.3.1 - (tipo int). |
-| `IDStatus` | Código do status – verificar tipos possíveis no item 3.3.1 -  (tipo int); |
-| `DataSolicitacao` | Data da solicitação, formato: aaaa-mm-ddhh:mm:ss (tipo string); |
-| `DataResposta` | Data da resposta, formato: aaaa-mm-ddhh:mm:ss  (tipo string). |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `QtdeRegistros` | Total de registros | int | sim | se RETORNO=true | — |
+| `QtdePaginas` | Total de páginas | int | sim | se RETORNO=true | — |
+| `Pedidos` | Lista de pedidos | ListPedidosPO_Pedidos_WSResp[] | não | se RETORNO=true | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -95,14 +109,12 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script Python: [`scripts/ListPedidosPo/listPedidosPo.py`](../../scripts/ListPedidosPo/listPedidosPo.py)
-- Script JavaScript: [`scripts/ListPedidosPo/listPedidosPo.js`](../../scripts/ListPedidosPo/listPedidosPo.js)
-- Lib: [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py) · [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js)
-- Variáveis `.env`: prefixo `PENHORA_ONLINE_*` (ver `.env.example`)
-- `oRequest` na ordem de `ListPedidosPO_WSReq` no WSDL; `Protocolo`, `DataRespostaInicial` e `DataRespostaFinal` enviados como `""` quando vazios (servidor .NET falha com NRE se omitidos)
-
+- Python: [`scripts/GetPedidoPo/getPedidoPo.py`](../../scripts/GetPedidoPo/getPedidoPo.py)
+- JavaScript: [`scripts/GetPedidoPo/getPedidoPo.js`](../../scripts/GetPedidoPo/getPedidoPo.js)
+- Variáveis `.env`: `PENHORA_ONLINE_*`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListPedidosPO`

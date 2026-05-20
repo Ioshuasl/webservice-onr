@@ -14,7 +14,7 @@ Método do WSOficio — **3.3 Penhora Online**.
 
 - **WSDL (homologação):** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx?wsdl`
 - **Endpoint:** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx`
-- **WSDL local:**`wsdl/penhoraonline.wsdl`
+- **WSDL local:** `wsdl/penhoraonline.wsdl`
 
 ## Hash de autenticação
 
@@ -37,23 +37,39 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- **[IDTipoPedido = 3](../tabelas-dominio/IDTipoPedido-PO.md)**.
+- Pedido prenotado; **não** respondido (IDStatus 2/5/14) — ver `lib/onr_penhora_exigencia.validatePedidoForExigencia`.
+- Pré-checagem opcional via `GetPedidoPO` no script.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `SetPenhoraExigenciaPO_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `IDPedido`
+3. `Resposta`
+4. `Anexos`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDPedido` | Código do pedido (tipo int); Resposta – Resposta do pedido (tipo string); |
-| `Nome` | Nome que descreve o arquivo (tipo string); |
-| `URLArquivo` | URL do arquivo. O cartório precisa informar uma URL válida para download do arquivo anexado. Os arquivos informados serão colocados em uma fila e serão baixados posteriormente pelo sistema do Ofício Eletrônico. O pedido não será efetivamente respondido antes que todos os arquivos sejam baixados. (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDPedido` | Pedido penhora | int | sim | IDTipoPedido=3 | 18014871 |
+| `Resposta` | Texto da nota de exigência | string | sim | — | Segue nota de exigência… |
+| `Anexos` | Anexos da exigência | ArrayOf… | sim | — | — |
+| `Anexos[].Nome` | Nome do anexo | string | sim | por item | Nota de exigência |
+| `Anexos[].URLArquivo` | URL pública | string | sim | por item | https://…/doc.pdf |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -77,16 +93,14 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script Python: [`scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.py`](../../scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.py)
-- Script JavaScript: [`scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.js`](../../scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.js)
-- Lib: [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py) · [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js)
-- Variáveis `.env`: `PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_RESPOSTA`, anexos via `NOME`+`URL_ARQUIVO` ou `ANEXOS_JSON`
-- Pré-validação `GetPedidoPO`: bloqueia pedido já respondido (status 2/5/14 ou campo `Resposta` preenchido); evita `InvalidCastException` do servidor
-- **Atenção:** pedido Penhora prenotado e sem resposta (ex. IDStatus 9 ou 10); anexos `.pdf` ou `.p7s` em URL pública; ver **502**
-- Variante DocID (`SetPenhoraExigenciaPO_DocID`) não implementada neste projeto
-
+- Python: [`scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.py`](../../scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.py)
+- JavaScript: [`scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.js`](../../scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.js)
+- Variáveis `.env`: `PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_*`, `ANEXOS_JSON`
+- Helper: `lib/onr_penhora_exigencia`
+- `findEligiblePedido.py`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPenhoraExigenciaPO`

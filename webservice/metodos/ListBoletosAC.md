@@ -37,34 +37,46 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<ListBoletosAC_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `IDContrato` | ID do contrato obtido da listagem de pedidos (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `IDContrato` | ID do contrato obtido da listagem de pedidos | int | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `Boletos` | (se RETORNO = true) Array de boletos vinculados ao contrato, apresentando as seguintes informações: |
-| `IDBoleto` | ID do boleto vinculado ao contrato (tipo int); |
-| `Convenio` | Indica se o boleto foi gerado por um usuário de convênio (tipo boolean); |
-| `URLBoleto` | URL para visualização do boleto (tipo string); |
-| `NumeroBoleto` | Código literal referente ao código de barras do boleto (tipo string); |
-| `NumeroBanco` | Número do banco usado para Boleto Sem Registro (tipo string); |
-| `Protocolos` | Protocolos dos pedidos vinculados ao boleto (tipo string); |
-| `DataGeracao` | Data de geração do boleto, formato: aaaa-mm-dd (tipo string); |
-| `DataVencimento` | Data de vencimento do boleto, formato: aaaa-mm-dd (tipo string). |
-| `Status` | Status de pagamento do boleto (tipo string); |
-| `DataPagamento` | Data de pagamento quando o mesmo foi efetuado, formato: aaaa-mmdd (tipo string). |
-| `Valor` | Valor vinculado ao boleto (tipo decimal); |
-| `NomeEfetivador` | Nome do efetivador do boleto após pagamento confirmado (tipo string); |
-| `PagamentoEfetuado` | Indica se o pagamento já foi ou não efetuado (tipo boolean). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| `Boletos` | Array de boletos vinculados ao contrato, apresentando as seguintes informações: | — | — | (se RETORNO = true) | — |
+| `IDBoleto` | ID do boleto vinculado ao contrato | int | — | — | — |
+| `Convenio` | Indica se o boleto foi gerado por um usuário de convênio | boolean | — | — | — |
+| `URLBoleto` | URL para visualização do boleto | string | — | — | — |
+| `NumeroBoleto` | Código literal referente ao código de barras do boleto | string | — | — | — |
+| `NumeroBanco` | Número do banco usado para Boleto Sem Registro | string | — | — | — |
+| `Protocolos` | Protocolos dos pedidos vinculados ao boleto | string | — | — | — |
+| `DataGeracao` | Data de geração do boleto, formato: aaaa-mm-dd | string | — | — | — |
+| `DataVencimento` | Data de vencimento do boleto, formato: aaaa-mm-dd | string | — | — | — |
+| `Status` | Status de pagamento do boleto | string | — | — | — |
+| `DataPagamento` | Data de pagamento quando o mesmo foi efetuado, formato: aaaa-mmdd | string | — | — | — |
+| `Valor` | Valor vinculado ao boleto | decimal | — | — | — |
+| `NomeEfetivador` | Nome do efetivador do boleto após pagamento confirmado | string | — | — | — |
+| `PagamentoEfetuado` | Indica se o pagamento já foi ou não efetuado | boolean | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -89,4 +101,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListBoletosAC`

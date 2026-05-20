@@ -37,33 +37,45 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<ListMensagensPedidoIN_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página (tipo int); |
-| `PageNumber` | Página a ser retornada (tipo int); |
-| `IDPedido` | Código do pedido de intimação obtido através da listagem anterior (tipo int); |
-| `IDStatus` | Código do status de mensagem (tipo int), os mesmos podem ser obtidos através do serviço de listagem de status (ListStatusIN); para filtrar todos os status, o valor inserido deve ser 0 (zero); |
-| `Assunto` | Descrição do assunto de mensagem (tipo string(100)); |
-| `IDFiltro` | Filtro de leitura da mensagem (tipo int), onde: |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página | int | — | — | — |
+| `PageNumber` | Página a ser retornada | int | — | — | — |
+| `IDPedido` | Código do pedido de intimação obtido através da listagem anterior | int | — | — | — |
+| `IDStatus` | Código do status de mensagem | int | — | — | — |
+| `Assunto` | Descrição do assunto de mensagem | string(100 | — | — | — |
+| `IDFiltro` | Filtro de leitura da mensagem | int | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `QtdeRegistros` | (se RETORNO = true)  Quantidade total de registros encontrados (tipo int); |
-| `QtdePaginas` | (se RETORNO = true)  Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage - (tipo int); |
-| `IDMensagem` | Código da mensagem (tipo int); |
-| `Data` | Data de inclusão da mensagem, formato: aaaa-mm-ddhh:mm:ss (tipo string); |
-| `Status` | Descrição do status (tipo string(30)); |
-| `Assunto` | Descrição do assunto da mensagem (tipo string(100)); |
-| `Remetente` | Nome do remetente (tipo string(100)); |
-| `Lida` | retorna True ou False se a mensagem foi ou não lida (tipo booleano). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| `QtdeRegistros` | Quantidade total de registros encontrados | int | — | (se RETORNO = true) | — |
+| `QtdePaginas` | Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage - | int | — | (se RETORNO = true) | — |
+| `IDMensagem` | Código da mensagem | int | — | — | — |
+| `Data` | Data de inclusão da mensagem, formato: aaaa-mm-ddhh:mm:ss | string | — | — | — |
+| `Status` | Descrição do status | string(30 | — | — | — |
+| `Assunto` | Descrição do assunto da mensagem | string(100 | — | — | — |
+| `Remetente` | Nome do remetente | string(100 | — | — | — |
+| `Lida` | retorna True ou False se a mensagem foi ou não lida | booleano | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -86,4 +98,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListMensagensPedidoIN`

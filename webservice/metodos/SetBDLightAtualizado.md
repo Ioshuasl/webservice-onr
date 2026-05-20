@@ -1,12 +1,12 @@
 # SetBDLightAtualizado
 
-Método do WSOficio — **3.4 Envio e Controle de Arquivos — Banco de Dados Light**.
+Método do WSOficio — **3.4 BD Light**.
 
 ## Resumo
 
 | Campo | Valor |
 |-------|-------|
-| Tipo | Atualização / comando |
+| Tipo | Comando / atualização de status |
 | Módulo | 3.4 Envio e Controle de Arquivos — Banco de Dados Light |
 | Operação SOAP | `SetBDLightAtualizado` |
 
@@ -18,58 +18,55 @@ Método do WSOficio — **3.4 Envio e Controle de Arquivos — Banco de Dados Li
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
+Parâmetro obrigatório **`Hash`** no envelope de entrada.
 
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
+Implementação: [`lib/onr_bdlight.py`](../../lib/onr_bdlight.py) · `resolve_auth_hash()`.
 
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
+## Pré-requisitos e validações de negócio
 
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `SetBDLightAtualizado` passando `Hash` + demais parâmetros |
+- Informa ao sistema ONR que a serventia concluiu a atualização do **Banco de Dados Light**.
+- Uso típico após importação/processamento via [`ImportarArquivoBDL`](ImportarArquivoBDL.md) e conferência com [`ListArquivosXMLBDL`](ListArquivosXMLBDL.md) / [`GetArquivoXMLBDL`](GetArquivoXMLBDL.md).
+- Erro **502** se ainda há arquivos na fila de download da ONR.
+- Erro **51** se o estado da serventia não permitir marcar como atualizado.
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+## Ordem do envelope (`oRequest`)
 
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Tipo `SetBDLightAtualizadoBDL_WSReq` (`wsdl/bdlight.wsdl`):
+
+1. `Hash`
 
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 51 | Não foi possível alterar o BDLight para atualizado. |
-| 502 | Já existe resposta para esse pedido. O status do pedido será alterado assim que todos os arquivos informados forem baixados pelo sistema do Ofício Eletrônico. |
+| 11 | Hash não informado |
+| 45–47 | Erros de hash |
+| 51 | Não foi possível alterar o BD Light para atualizado |
+| 502 | Resposta/fila pendente — aguarde processamento dos XMLs |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/SetBdlightAtualizado/setBdlightAtualizado.py`](../../scripts/SetBdlightAtualizado/setBdlightAtualizado.py)
+- JavaScript: [`scripts/SetBdlightAtualizado/setBdlightAtualizado.js`](../../scripts/SetBdlightAtualizado/setBdlightAtualizado.js)
+- Lib: [`lib/onr_bdlight.py`](../../lib/onr_bdlight.py) · [`lib/onr_bdlight.js`](../../lib/onr_bdlight.js)
+- Variáveis `.env`: `BDLIGHT_*` (WSDL, endpoint, login — sem parâmetros extras)
+- npm: `npm run set-bdlight-atualizado`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetBDLightAtualizado`
+- [`webservice/hash.md`](../hash.md)
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.4.7–3.4.8

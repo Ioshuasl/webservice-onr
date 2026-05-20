@@ -37,30 +37,42 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<GetEmolumentosIN_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `IDPedido` | Código do pedido de intimação (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `IDPedido` | Código do pedido de intimação | int | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `Emolumentos` | (se RETORNO = true) Array de emolumentos, onde: |
-| `IDEmolumento` | ID do registro correspondente ao emolumento (tipo int); |
-| `Data` | Data de inclusão do emolumento, formato aaaa-mm-ddhh:mm:ss (tipo string); |
-| `ProtocoloPagamento` | Protocolo de identificação do pagamento gerado (tipo string(12)); |
-| `Status` | Descrição do tipo de status de emolumentos das custas (tipo string(150)); |
-| `Descricao` | Descrição dos emolumentos pelo usuário (tipo string(150)); |
-| `Valor` | Valor do emolumento cadastrada, no formato XX.XX (tipo decimal); |
-| `Pago` | Retorna TRUE ou FALSE para identificar se já foi identificado pagamento para a cobrança gerada (tipo booleano); |
-| `DataCompensacao` | O valor do campo será vazio pois ele foi direcionado para o método ListPagamentosIN(); |
-| `DataRepasse` | O valor do campo será vazio pois ele foi direcionado para o método ListPagamentosIN(). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| `Emolumentos` | Array de emolumentos, onde: | — | — | (se RETORNO = true) | — |
+| `IDEmolumento` | ID do registro correspondente ao emolumento | int | — | — | — |
+| `Data` | Data de inclusão do emolumento, formato aaaa-mm-ddhh:mm:ss | string | — | — | — |
+| `ProtocoloPagamento` | Protocolo de identificação do pagamento gerado | string(12 | — | — | — |
+| `Status` | Descrição do tipo de status de emolumentos das custas | string(150 | — | — | — |
+| `Descricao` | Descrição dos emolumentos pelo usuário | string(150 | — | — | — |
+| `Valor` | Valor do emolumento cadastrada, no formato XX.XX | decimal | — | — | — |
+| `Pago` | Retorna TRUE ou FALSE para identificar se já foi identificado pagamento para a cobrança gerada | booleano | — | — | — |
+| `DataCompensacao` | O valor do campo será vazio pois ele foi direcionado para o método ListPagamentosIN(); | — | — | — | — |
+| `DataRepasse` | O valor do campo será vazio pois ele foi direcionado para o método ListPagamentosIN(). | — | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -91,4 +103,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `GetEmolumentosIN`

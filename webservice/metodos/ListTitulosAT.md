@@ -37,36 +37,49 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- Datas de protocolo obrigatórias no script (`ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_*`, formato `aaaa-mm-dd`).
+- Filtro [IDTipoStatus](../tabelas-dominio/IDTipoStatus-AT.md) (`-1` = todos).
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `ListTitulosAT_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `MaxRowPerPage`
+3. `PageNumber`
+4. `DataProtocoloInicio`
+5. `DataProtocoloFinal`
+6. `IDTipoStatus`
+7. `Exportado`
+8. `Protocolo?`
+9. `Apresentante?`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem –  tipostring(50); |
-| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página –  tipoint; |
-| `PageNumber` | Página a ser retornada –  tipoint; |
-| `Protocolo` | Protocolo a ser filtrado – opcional –  tipostring(11); |
-| `DataProtocoloInicio` | Data inicial a ser filtrada, formato: aaaa-mm-dd – tipo string(10); |
-| `DataProtocoloFinal` | Data final a ser filtrada, formato: aaaa-mm-dd – tipo string(10); |
-| `IDTipoStatus` | Código do tipo de status a ser filtrado – tipo int. Valores possíveis: |
-| `Exportado` | Filtra por pedidos exportados – tipo int. Valores possíveis: |
-| `Apresentante` | Nome do apresentante a ser filtrado – opcional – tipo string(120). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `MaxRowPerPage` | Máximo de registros por página | int | sim | — | 50 |
+| `PageNumber` | Número da página | int | sim | — | 1 |
+| `DataProtocoloInicio` | Data inicial do protocolo | string | sim | — | 2025-01-01 |
+| `DataProtocoloFinal` | Data final do protocolo | string | sim | — | 2025-12-31 |
+| `IDTipoStatus` | Filtro por tipo de status | int | sim | ver [IDTipoStatus-AT](../tabelas-dominio/IDTipoStatus-AT.md) | -1 |
+| `Exportado` | Filtro exportado | int | sim | — | 0 |
+| `Protocolo` | Filtro por protocolo | string | não | omitido se vazio | 20250100001 |
+| `Apresentante` | Filtro por apresentante | string | não | omitido se vazio | — |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método – tipo boolean; |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro – tipo int; |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro – tipo string(200); |
-| `QtdeRegistros` | (se RETORNO = true)  Quantidade total de registros encontrados – tipo int; |
-| `QtdePaginas` | (se RETORNO = true)  Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage – tipo int; |
-| `IDTitulo` | Código do título – tipo int; |
-| `Apresentante` | Nome do apresentante – tipo string(120); |
-| `Protocolo` | Protocolo do título – tipo string(11); |
-| `DataUltimoStatus` | Data do último status cadastrado, formato: aaaa-mm-ddhh:mm:ss – tipo string(10); |
-| `IDStatus` | Código do cadastro de status – tipo int; |
-| `IDTipoStatus` | Código do tipo de status – verificar tipos possíveis no item 3.2.1 – tipo int. |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `QtdeRegistros` | Total de registros | int | sim | se RETORNO=true | 10 |
+| `QtdePaginas` | Total de páginas | int | sim | se RETORNO=true | 1 |
+| `Titulos` | Lista de títulos | ListTitulosAT_Titulos_WSResp[] | não | se RETORNO=true | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -90,10 +103,12 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script: [`scripts/DeleteTituloAt/deleteTituloAt.py`](../../scripts/DeleteTituloAt/deleteTituloAt.py)
-
+- Python: [`scripts/DeleteTituloAt/deleteTituloAt.py`](../../scripts/DeleteTituloAt/deleteTituloAt.py)
+- JavaScript: [`scripts/DeleteTituloAt/deleteTituloAt.js`](../../scripts/DeleteTituloAt/deleteTituloAt.js)
+- Variáveis `.env`: `ACOMPANHAMENTO_TITULOS_*`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListTitulosAT`

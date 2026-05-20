@@ -37,27 +37,39 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<ListAnexosAC_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `IDContrato` | ID do contrato obtido da listagem de pedidos (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `IDContrato` | ID do contrato obtido da listagem de pedidos | int | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `AnexosContrato` | (se RETORNO = true) Array de anexos, apresentando as informações de anexos; |
-| `AnexosAverbacao` | (se RETORNO = true) Array de anexos, apresentando as informações de anexos; |
-| `AnexosExigencia` | (se RETORNO = true) Array de anexos, apresentando as informações de anexos. |
-| `IDAnexo` | ID do anexo obtido (tipo int); |
-| `URLAnexo` | URL do anexo obtido (tipo string); |
-| `Descricao` | Descrição do anexo obtido (tipo string); |
-| — | DataInclusao - Data de cadastro do anexo, formato: aaaa-mm-dd (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| `AnexosContrato` | Array de anexos, apresentando as informações de anexos | — | — | (se RETORNO = true) | — |
+| `AnexosAverbacao` | Array de anexos, apresentando as informações de anexos | — | — | (se RETORNO = true) | — |
+| `AnexosExigencia` | Array de anexos, apresentando as informações de anexos. | — | — | (se RETORNO = true) | — |
+| `IDAnexo` | ID do anexo obtido | int | — | — | — |
+| `URLAnexo` | URL do anexo obtido | string | — | — | — |
+| `Descricao` | Descrição do anexo obtido | string | — | — | — |
+| — | DataInclusao - Data de cadastro do anexo, formato: aaaa-mm-dd | string | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -80,4 +92,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListAnexosAC`

@@ -13,13 +13,64 @@ Agente desenvolvedor para scripts de integração SOAP. **Sempre** entregar par 
 
 ## Antes de codar
 
-1. Ler [`webservice/metodos/<Operacao>.md`](../../webservice/metodos/) — parâmetros, WSDL, hash.
-2. Ler [`webservice/hash.md`](../../webservice/hash.md) — `Hash = SHA1_UTF8_HEX_UPPER(chave + token)`.
-3. Conferir operação no WSDL local em `wsdl/` — **ordem exata** dos elementos em `<Operacao>_WSReq` (ver [SOAP .NET](#soap-net--ordem-e-opcionais-cautela)).
-4. Verificar se já existe script em `scripts/` ou helper em `lib/`.
-5. Atualizar `.env.example` com novas variáveis (nunca commitar `.env` com segredos).
+1. Ler [`webservice/metodos/<Operacao>.md`](../../webservice/metodos/) — tabelas de entrada/saída, pré-requisitos, WSDL, hash.
+2. Consultar domínios em [`webservice/tabelas-dominio/`](../../webservice/tabelas-dominio/) (`IDTipoPedido`, `IDStatus`, etc.) — **não** copiar listas inteiras no `.md` do método; linkar.
+3. Ler [`webservice/hash.md`](../../webservice/hash.md) — `Hash = SHA1_UTF8_HEX_UPPER(chave + token)`.
+4. Conferir operação no WSDL local em `wsdl/` — **ordem exata** dos elementos em `<Operacao>_WSReq` (ver [SOAP .NET](#soap-net--ordem-e-opcionais-cautela)).
+5. Verificar se já existe script em `scripts/` ou helper em `lib/`.
+6. Atualizar `.env.example` com novas variáveis (nunca commitar `.env` com segredos).
 
-Lista completa (**81 métodos**, **10 módulos**): [`webservice/list-metodos.md`](../../webservice/list-metodos.md) · índice: [`webservice/metodos/README.md`](../../webservice/metodos/README.md).
+Lista completa (**81 métodos**, **10 módulos**): [`webservice/list-metodos.md`](../../webservice/list-metodos.md) · índice: [`webservice/metodos/README.md`](../../webservice/metodos/README.md) · template: [`webservice/metodos/TEMPLATE.md`](../../webservice/metodos/TEMPLATE.md).
+
+## Documentação de métodos (`webservice/metodos/`)
+
+Ao **criar**, **implementar** ou **regenerar** um método, manter (ou enriquecer) o `.md` com o modelo abaixo. Arquivos só com duas colunas (legado do gerador) devem ser atualizados quando o método ganhar script ou validação relevante.
+
+### Seções obrigatórias
+
+| Seção | Conteúdo |
+|-------|----------|
+| Resumo / Serviço / Hash | Como hoje |
+| **Pré-requisitos e validações de negócio** | Regras não óbvias no XSD: `IDTipoPedido=3`, status elegível, prenotação, permissão, etc. Link para [`tabelas-dominio/`](../../webservice/tabelas-dominio/README.md) |
+| **Ordem do envelope** | Lista ordenada de campos em `<Operacao>_WSReq` (WSDL) |
+| **Parâmetros de entrada** | Tabela de 6 colunas (abaixo) |
+| **Parâmetros de saída** | Mesma tabela de 6 colunas |
+| Códigos de erro | Amostra + erros citados nos pré-requisitos |
+| Implementação neste projeto | Scripts, `.env`, notas de homologação |
+
+### Tabela de entrada e de saída (mesmo modelo)
+
+Usar **as duas** tabelas com estas colunas:
+
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+
+| Coluna | Preenchimento |
+|--------|----------------|
+| **Campo** | Nome WSDL (PascalCase). Tipos aninhados: `Anexos[].Matricula`, `CertidaoPenhora[].URLArquivo` |
+| **Descrição** | Texto da spec; sem repetir tipo entre parênteses |
+| **Tipo** | `int`, `string`, `boolean`, `decimal`, nome do complex type / array |
+| **Obrigatório** | `sim` ou `não` — negócio + `minOccurs` no WSDL (`minOccurs=1` → em geral `sim`) |
+| **Condicional** | Dependência: `(se RETORNO = false)`, `IDTipoPedido = 3`, `ModoNotificacaoStatus = E`, etc.; senão `—` |
+| **Exemplo** | Valor ilustrativo ou `—`; `Hash` pode ser `_(SHA-1 chave+token)_` |
+
+Campos dentro de arrays: uma linha por propriedade com notação `Pai[].Filho`.
+
+### Tabelas de domínio (`webservice/tabelas-dominio/`)
+
+Constantes compartilhadas (enums da spec). Um arquivo por domínio; sufixo de módulo quando listas diferem (`IDTipoPedido-PO.md`, `IDStatus-PO.md`).
+
+| Ação | Quando |
+|------|--------|
+| **Criar** domínio | Primeira vez que um método documenta `IDTipoPedido`, `IDStatus`, `ModoNotificacaoStatus`, `TipoSolicitacao`, … |
+| **Linkar** no método | Em pré-requisitos e na coluna Condicional (`IDTipoPedido = 2` → link) |
+| **Não duplicar** | Lista completa de valores só em `tabelas-dominio/` |
+
+Índice: [`webservice/tabelas-dominio/README.md`](../../webservice/tabelas-dominio/README.md).
+
+Regeneração em lote: `py webservice/generate_metodos.py` gera esqueleto com 6 colunas (`—` onde faltar dado).
+
+**Scripts implementados:** após criar/alterar `scripts/**/*.js`, rodar `py webservice/enrich_implemented_metodos.py` para alinhar `metodos/<Operacao>.md` (entrada/saída, pré-requisitos, domínios) com o código. Auditoria: [`webservice/AUDIT-metodos-implementados.md`](../../webservice/AUDIT-metodos-implementados.md). Referência manual: `SetPedidoPessoaRespondidoPO.md`.
 
 ## Mapa de módulos
 
@@ -27,9 +78,9 @@ Lista completa (**81 métodos**, **10 módulos**): [`webservice/list-metodos.md`
 |------|--------|------------------|----------------|-------------------|
 | 3.1 | Login | `login.asmx` | `ONR_*`, `CERT_*` | `login_onr` |
 | 3.2 | Acompanhamento de Títulos | `acompanhamentotitulos.asmx` | `ACOMPANHAMENTO_TITULOS_*` | **9/9** (completo) |
-| 3.3 | Penhora Online | `penhoraonline.asmx` · `wsdl/penhoraonline.wsdl` | `PENHORA_ONLINE_*` | `ListPedidosPO`…`SetPenhoraExigenciaPO`, `SetPedidoPessoaRespondidoPO` (10/16) |
-| 3.4 | BD Light | `bdlight.asmx` | `BDLIGHT_*` | pendente |
-| 3.5 | Ofícios | `oficios.asmx` | `OFICIOS_*` | pendente |
+| 3.3 | Penhora Online | `penhoraonline.asmx` · `wsdl/penhoraonline.wsdl` | `PENHORA_ONLINE_*` | **16/16** + `ListPedidosExportacaoPO_v2` · variantes `*_DocID` pendentes |
+| 3.4 | BD Light (Indicador Pessoal) | `bdlight.asmx` · `wsdl/bdlight.wsdl` | `BDLIGHT_*` | **4/4** scripts · **WS desativado 31/07/2023** |
+| 3.5 | Ofícios | `oficios.asmx` · `wsdl/oficios.wsdl` | `OFICIOS_*` | `ListInstituicoesOE`, `GetPedidoOE`, `ListPedidosOE_V2`, `SetPedidoRespondidoOE`, `SetPedidoDevolvidoOE` (5/9) |
 | 3.6 | **Certidões a Emitir** | `Certidoes.asmx` · `wsdl/certidoes.wsdl` | `CERTIDOES_*` | **pendente** (ver abaixo) |
 | 3.9 | Matrícula Online | `matriculaonline.asmx` | `MATRICULA_ONLINE_*` | pendente |
 | 3.10 | E-Protocolo | `eprotocolo.asmx` | `EPROTOCOLO_*` | pendente |
@@ -37,6 +88,19 @@ Lista completa (**81 métodos**, **10 módulos**): [`webservice/list-metodos.md`
 | 3.12 | **Comunicação Prefeituras (CTP)** | `ComunicacaoMunicipios.asmx` · `wsdl/comunicacaoprefeituras.wsdl` | `COMUNICACAO_PREFEITURAS_*` | **pendente** |
 
 **Não confundir:** `ObterXMLSolicitacoes_v4`–`v6` são do serviço **Certidões** (`Certidoes.asmx`, cap. 3.6). `ObterXMLSolicitacoes` e `ObterXMLSolicitacoesV2` são **Matrícula Online** (`matriculaonline.asmx`, cap. 3.9) — WSDL e filtros diferentes.
+
+### 3.4 BD Light (Indicador Pessoal) — desativação do webservice
+
+O envio do **Indicador Pessoal** (cap. 3.4 — Banco de Dados Light) via WSOficio foi **desativado em 31/07/2023** pela ONR.
+
+| Situação | Detalhe |
+|----------|---------|
+| Erro típico | `CODIGOERRO` **404**, `ERRODESCRICAO`: *O envio do Indicador Pessoal via WS foi desativado em 31/07/2023.* |
+| Métodos afetados | `ListArquivosXMLBDL`, `GetArquivoXMLBDL`, `ImportarArquivoBDL`, `SetBDLightAtualizado` |
+| Scripts no projeto | Mantidos em `scripts/ListArquivosXmlBdl/`, `GetArquivoXmlBdl/`, `ImportarArquivoBdl/`, `SetBdlightAtualizado/` e `lib/onr_bdlight*` apenas como **referência** da spec e testes de envelope |
+| Novas integrações | **Não** implementar fluxos de produção contra `bdlight.asmx`; consultar canais ONR para alternativa vigente ao Indicador Pessoal |
+
+Documentação: [`webservice/list-metodos.md`](../../webservice/list-metodos.md) § 3.4 · [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) § 3.4.
 
 ### 3.6 Certidões a Emitir — métodos prioritários
 
@@ -101,6 +165,9 @@ scripts/<PastaMetodo>/
 | InsertStatusAT (ordem WSDL) | `lib/onr_insert_status_at` | `lib/onr_insert_status_at.js` |
 | UpdateStatusAT (ordem WSDL) | `lib/onr_update_status_at` | `lib/onr_update_status_at.js` |
 | Penhora Online (config + hash) | `lib/onr_penhora_online` | `lib/onr_penhora_online.js` |
+| BD Light (config + hash) | `lib/onr_bdlight` | `lib/onr_bdlight.js` |
+| BD Light (validação XML) | `lib/onr_bdlight_xml` | `lib/onr_bdlight_xml.js` |
+| Ofícios (config + hash) | `lib/onr_oficios` | `lib/onr_oficios.js` |
 
 **Padrão preferido (JS):** usar `loadServentiaChave`, `loadLoginConfig`, `loadAcompanhamentoSoapConfig`, `resolveAuthHash`, `hashErrorHint` de `onr_acompanhamento.js` — como em `getTituloAt.js` e `listStatusAt.js`.
 
@@ -256,6 +323,8 @@ Exemplos: **Certidões** (`Certidoes.asmx`), **Comunicação Prefeituras** (`Com
 ## Checklist de entrega
 
 - [ ] `.py` e `.js` criados/atualizados
+- [ ] `webservice/metodos/<Operacao>.md` com tabelas **entrada** e **saída** (6 colunas), pré-requisitos e ordem WSDL
+- [ ] Domínios novos em `webservice/tabelas-dominio/` + links no `.md` do método
 - [ ] Parâmetros conforme `webservice/metodos/<Operacao>.md`
 - [ ] `oRequest` na **ordem do WSDL** (`<Operacao>_WSReq`)
 - [ ] Política de opcionais definida (omitir vs. `""`) e testada na homologação

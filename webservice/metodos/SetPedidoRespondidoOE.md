@@ -6,8 +6,8 @@ Método do WSOficio — **3.5 Ofícios**.
 
 | Campo | Valor |
 |-------|-------|
-| Tipo | Atualização / comando |
-| Módulo | 3.5 Ofícios |
+| Tipo | Escrita / resposta |
+| Módulo | 3.5 Ofícios Eletrônicos |
 | Operação SOAP | `SetPedidoRespondidoOE` |
 
 ## Serviço
@@ -18,71 +18,73 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
 
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
+## Pré-requisitos e validações de negócio
 
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
+- **Pré-validação local (scripts):** antes de `SetPedidoRespondidoOE`, o script chama `GetPedidoOE` e bloqueia se `IDStatus=2` (Respondido — evita erro **53** *"Pedido já respondido."*), `IDStatus=3` (Devolvido) ou se `DataResposta` / `Resposta` já estiverem preenchidos (risco de erro **502**). Usa dois tokens do login (`ONR_HASH_TOKEN_INDEX` e `+1`). Desligar: `OFICIOS_SET_PEDIDO_RESPONDIDO_SKIP_VALIDAR_STATUS=true`.
+- Pedido em status elegível (não respondido — erro **53**).
+- `Resposta` obrigatória (erro **13**).
+- Pelo menos um anexo com `Nome` e `URLArquivo` (erro **14**).
+- Anexos: URL pública; spec exige extensão **.p7s** (erro **104**).
+- `Negativa`: `true`/`1` para resposta negativa; padrão `false`.
+- Status do pedido só muda após a ONR baixar todos os anexos (erro **502** se já houver resposta pendente).
 
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `SetPedidoRespondidoOE` passando `Hash` + demais parâmetros |
+Variante com Assinador Web: `SetPedidoRespondidoOE_DocID` (não implementada neste projeto).
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+## Ordem do envelope (`oRequest`)
 
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Tipo `SetPedidoRespondidoOE_WSReq` (`wsdl/oficios.wsdl`):
+
+1. `Hash`
+2. `IDPedido`
+3. `Resposta`
+4. `Negativa`
+5. `Anexos` → `SetPedidoRespondidoOE_Anexo_WSReq[]`
+   - `Nome`
+   - `URLArquivo`
 
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `Resposta` | Resposta a ser cadastrada para o pedido (tipo string); |
-| `Negativa` | 1/0, indica se é uma negativa – (tipo boolean); |
-| `Nome` | Nome do arquivo (tipo string); |
-| `URLArquivo` | URL do arquivo. O cartório precisa informar uma URL válida para download do arquivo anexado. Os arquivos informados serão colocados em uma fila e serão baixados posteriormente pelo sistema do Ofício Eletrônico. O pedido |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDPedido` | Código do pedido | int | sim | — | — |
+| `Resposta` | Texto da resposta | string | sim | — | — |
+| `Negativa` | Resposta negativa | boolean | sim | — | false |
+| `Anexos[].Nome` | Nome do arquivo | string | sim | por item | certidao.p7s |
+| `Anexos[].URLArquivo` | URL pública do anexo | string | sim | por item | https://... |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 12 | O IDPedido informado é inválido. |
-| 13 | A Resposta não foi informada. |
-| 14 | Não foi informado nenhum anexo. |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 51 | Não foi possível pegar os dados do pedido. |
-| 52 | Usuário não tem permissão para cadastrar resposta para esse pedido. |
-| 53 | Pedido já respondido. |
-| 54 | O nome de um ou mais anexos não foi informado. |
-| 55 | Não foi informada a URL de um ou mais anexos. |
-| 56 | Não foi possível responder o pedido. |
-| … | _+8 códigos na especificação_ |
+| 12 | IDPedido inválido |
+| 13 | Resposta não informada |
+| 14 | Nenhum anexo informado |
+| 45–47 | Erros de hash |
+| 51–56 | Pedido / permissão / resposta |
+| 60, 101–105 | Arquivos / URL / extensão |
+| 501–502 | Campos ou resposta já existente |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.py`](../../scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.py)
+- JavaScript: [`scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.js`](../../scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.js)
+- Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js)
+- Pré-validação: [`lib/onr_oficios_respondido.py`](../../lib/onr_oficios_respondido.py) · [`lib/onr_oficios_respondido.js`](../../lib/onr_oficios_respondido.js)
+- Variáveis `.env`: `OFICIOS_SET_PEDIDO_RESPONDIDO_*` (ou `OFICIOS_ID_PEDIDO`)
+- npm: `npm run set-pedido-respondido-oe`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPedidoRespondidoOE`
+- [`webservice/hash.md`](../hash.md)
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.5.9–3.5.10

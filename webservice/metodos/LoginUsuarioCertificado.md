@@ -24,31 +24,45 @@ Este método **não envia** `Hash`. Ele **retorna tokens** usados no cálculo da
 2. Ler `Tokens[]` da resposta (strings de 6 caracteres, uso único, validade 8 h).
 3. Para cada operação posterior: `Hash = SHA1_UTF8_HEX_UPPER(ONR_SERVENTIA_CHAVE + token)` — ver [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- Certificado PFX válido (`CERT_PATH`, `CERT_PASSWORD`) e `ONR_SERVENTIA_ID` correspondente ao parceiro.
+- Não usa `Hash`; retorna `Tokens[]` para as demais operações.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `LoginUsuarioCertificado_WSReq` (ordem usada nos scripts):
+
+1. `SUBJECTCN`
+2. `ISSUERO`
+3. `PUBLICKEY`
+4. `SERIALNUMBER`
+5. `VALIDUNTIL`
+6. `CPF`
+7. `EMAIL`
+8. `IDParceiroWS`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `SUBJECTCN` | Valor SUBJECTCN do certificado do usuário (tipo string(100)); |
-| `ISSUERO` | Valor ISSUERO do certificado do usuário (tipo string(10)); |
-| `PUBLICKEY` | Valor PUBLICKEY do certificado do usuário (tipo string(1000)); |
-| `SERIALNUMBER` | Valor SERIALNUMBER do certificado do usuário (tipo string(100)); |
-| `VALIDUNTIL` | Valor VALIDUNTIL do certificado do usuário (tipo string); |
-| `CPF` | CPF do usuário (tipo string(11)); |
-| `EMAIL` | E-mail do usuário (tipo string(100)); |
-| `IDParceiroWS` | Código do parceiro para utilização do sistema de Web Services (tipo int). Esse código deve ser solicitado previamente à ao ONR, assim como a chave para geração de hash. |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `SUBJECTCN` | Subject CN do certificado | string | sim | — | _(do PFX)_ |
+| `ISSUERO` | Emissor do certificado | string | sim | — | _(do PFX)_ |
+| `PUBLICKEY` | Chave pública do certificado | string | sim | — | _(base64 DER)_ |
+| `SERIALNUMBER` | Número de série do certificado | string | sim | — | _(do PFX)_ |
+| `VALIDUNTIL` | Validade do certificado | string | sim | — | _(ISO ou epoch)_ |
+| `CPF` | CPF do usuário | string(11) | sim | — | 12345678901 |
+| `EMAIL` | E-mail do usuário | string | sim | — | usuario@cartorio.org |
+| `IDParceiroWS` | ID da serventia/parceiro | int | sim | — | 12345 |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `IDUsuario` | (se RETORNO = true)  Código do usuário no Ofício Eletrônico (tipo int); |
-| `IDInstituicao` | (se RETORNO = true)  Código da Instituição/Cartório no Ofício Eletrônico (tipo int); |
-| `Ativo` | (se retorno = true) Indica se cliente está ativo ou não (tipo boolean); |
-| `Tokens` | (se retorno = true) Tokens gerados (array de strings(6)). |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso da operação | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `Tokens` | Tokens de uso único (6 caracteres) | string[] | sim | se RETORNO=true | `["ABC123", ...]` |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -70,10 +84,13 @@ Este método **não envia** `Hash`. Ele **retorna tokens** usados no cálculo da
 
 ## Implementação neste projeto
 
-- Script: [`scripts/login/login_onr.py`](../../scripts/login/login_onr.py)
-
+- Python: [`scripts/login/login_onr.py`](../../scripts/login/login_onr.py)
+- JavaScript: [`scripts/login/login_onr.js`](../../scripts/login/login_onr.js)
+- npm: `npm run login`
+- Extrai campos do PFX via `lib/cert_extract`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `LoginUsuarioCertificado`

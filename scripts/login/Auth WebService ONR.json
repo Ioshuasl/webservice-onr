@@ -1,0 +1,158 @@
+{
+  "name": "Auth WebService ONR",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "163d6b2d-36fa-4c1c-bb1b-ed6085de7de2",
+        "authentication": "basicAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1072,
+        -208
+      ],
+      "id": "549ebd00-3415-473a-869e-6722d44ea16a",
+      "name": "Webhook",
+      "webhookId": "163d6b2d-36fa-4c1c-bb1b-ed6085de7de2",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "1sAfHHiPVLm43eot",
+          "name": "2FA Authentication"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"subjectcn\": \"{{ $json.body.SUBJECTCN }}\",\n  \"issuero\": \"{{ $json.body.ISSUERO }}\",\n  \"publickey\" : \"{{ $json.body.PUBLICKEY }}\",\n  \"serialnumber\": \"{{ $json.body.SERIALNUMBER }}\",\n  \"validuntil\": \"{{ $json.body.VALIDUNTIL }}\",\n  \"cpf\": \"{{ $json.body.CPF }}\",\n  \"email\": \"{{ $json.body.EMAIL }}\",\n  \"idparceirows\": {{ $json.body.IDParceiroWS }},\n  \"endpoint\": \"{{ $json.body.endpoint }}\"\n}\n ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -736,
+        -208
+      ],
+      "id": "0d7bb884-c89f-4a5a-9085-9706f74ebf61",
+      "name": "sanitize-input"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.endpoint }}",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "text/xml",
+        "body": "=<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado xmlns:tns=\"http://tempuri.org/WSOficio\">\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{ $json.subjectcn }}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ $json.issuero }}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{ $json.publickey }}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{ $json.serialnumber }}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{ $json.validuntil }}</tns:VALIDUNTIL>\n        <tns:CPF>{{ $json.cpf }}</tns:CPF>\n        <tns:EMAIL>{{ $json.email }}</tns:EMAIL>\n        <tns:IDParceiroWS>{{ $json.idparceirows }}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -416,
+        -208
+      ],
+      "id": "44c6b25b-8380-400a-a27d-0cc964f7d70d",
+      "name": "auth-onr"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Acessa o XML dentro da propriedade \"data\" do item atual\nconst xml = $input.first().json.data;\n\nif (!xml || typeof xml !== 'string') {\n    throw new Error('Propriedade \"data\" contendo o XML não foi encontrada.');\n}\n\n// Função para extrair o valor de uma tag simples\nconst getTagValue = (tag, source) => {\n    const regex = new RegExp(`<${tag}>(.*?)</${tag}>`, 's');\n    const match = source.match(regex);\n    return match ? match[1].trim() : '';\n};\n\n// Função para varrer e extrair todas as tags <string> de dentro de <Tokens>\nconst extractTokens = (source) => {\n    const tokensSection = getTagValue('Tokens', source);\n    const tokenRegex = /<string>(.*?)<\\/string>/g;\n    const tokens = [];\n    let match;\n    \n    while ((match = tokenRegex.exec(tokensSection)) !== null) {\n        tokens.push(match[1]);\n    }\n    return tokens;\n};\n\n// Monta e tipa o JSON final de forma limpa\nconst resultadoJson = {\n    RETORNO: getTagValue('RETORNO', xml) === 'true',\n    CODIGOERRO: parseInt(getTagValue('CODIGOERRO', xml) || '0', 10),\n    ERRODESCRICAO: getTagValue('ERRODESCRICAO', xml),\n    IDUsuario: parseInt(getTagValue('IDUsuario', xml), 10),\n    IDInstituicao: parseInt(getTagValue('IDInstituicao', xml), 10),\n    Ativo: getTagValue('Ativo', xml) === 'true',\n    Tokens: extractTokens(xml)\n};\n\nreturn { json: resultadoJson };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        -208
+      ],
+      "id": "10f7abc1-4c3c-41b9-a9e6-fecc6e757e60",
+      "name": "convert-xml-to-json"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        240,
+        -208
+      ],
+      "id": "d8124552-a93c-4e26-8a4a-fd956ec8b45f",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "sanitize-input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sanitize-input": {
+      "main": [
+        [
+          {
+            "node": "auth-onr",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "auth-onr": {
+      "main": [
+        [
+          {
+            "node": "convert-xml-to-json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "convert-xml-to-json": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "7HzCiYLSeXnzvhpN",
+    "timezone": "America/Sao_Paulo",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveExecutionProgress": false,
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1
+  },
+  "versionId": "9ecd4a66-3054-4c61-93af-8723e42b7af5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3ef628fb71c8a2ac0c3934d56b821108ad07b1665e951859de13a0a1199a15a6"
+  },
+  "id": "1BqWe3yG8O9LwXBs",
+  "tags": []
+}

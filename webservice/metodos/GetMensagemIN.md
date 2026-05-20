@@ -37,42 +37,54 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<GetMensagemIN_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `IDMensagem` | Código da mensagem (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `IDMensagem` | Código da mensagem | int | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `IDMensagem` | ID da mensagem (tipo int); |
-| `IDStatus` | Código do status da mensagem (tipo int); |
-| `Assunto` | Descrição do assunto da mensagem (tipo string(100)); |
-| `Mensagem` | Descrição da mensagem (tipo string(3000)); |
-| `ValorServico` | Valor das custas de operações cartorárias, no formato XX.XX (tipo decimal); |
-| `DataPagamento` | Data de pagamento (formato aaaa-mm-ddhh:mm:ss), quando IDStatus = 14(tipo string); |
-| `PrenotacaoNumero` | Número da prenotação, quando IDStatus = 4 (tipo string(30)); |
-| `PrenotacaoData` | Data de inclusão da prenotação (formato aaaa-mm-ddhh:mm:ss), quando IDStatus = 4 (tipo string); |
-| `PrenotacaoVencimento` | Data de vencimento da prenotação (formato aaaa-mmddhh:mm:ss), quando IDStatus = 4 (tipo string); |
-| `PrenotacaoValor` | Valor das custas de prenotação, quando IDStatus = 4, no formato XX.XX (tipo decimal); |
-| `PrenotacaoTipoDestinacaoMutuo` | Descrição do tipo destinação mútuo, quando IDStatus = 4.(tipo string); |
-| `TipoDeterminacaoJudicial` | Descrição do tipo determinação judicial, quando IDStatus = 28.(tipo string); |
-| `CanceladoJudicialmente` | Indicação se pedido foi cancelado judicialmente, true ou false.(tipo boolean); |
-| `DataCancelamentoJudicial` | Data do cancelamento judicial realizada no sistema, (formato aaaa-mm-ddhh:mm:ss) quando CanceladoJudicialmente = true.(tipo string); |
-| `DataAverbacaoJudicial` | Data da averbação judicial, (formato aaaa-mm-ddhh:mm:ss) quando CanceladoJudicialmente = true.(tipo string). |
-| `Boletos` | Array de boletos, onde: |
-| `DataVencimento` | Data de vencimento do boleto, formato aaaa-mm-ddhh:mm:ss (tipo string); |
-| `Valor` | Valor do boleto, no formato XX.XX (tipo decimal); |
-| `URL` | URL do boleto gerado, para download ou visualização (tipo string(500)); |
-| `Anexos` | Array de arquivos anexados à mensagem, onde: |
-| `Nome` | Nome ou descrição do arquivo anexado (tipo string(100)); |
-| `URL` | URL do anexo para download ou visualização (tipo string(500)) esse parâmetro pode retornar vazio pois existe a possibilidade de ocorrer um atraso na gravação física do arquivo. |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| `IDMensagem` | ID da mensagem | int | — | — | — |
+| `IDStatus` | Código do status da mensagem | int | — | — | — |
+| `Assunto` | Descrição do assunto da mensagem | string(100 | — | — | — |
+| `Mensagem` | Descrição da mensagem | string(3000 | — | — | — |
+| `ValorServico` | Valor das custas de operações cartorárias, no formato XX.XX | decimal | — | — | — |
+| `DataPagamento` | Data de pagamento (formato aaaa-mm-ddhh:mm:ss), quando IDStatus = 14 | string | — | — | — |
+| `PrenotacaoNumero` | Número da prenotação, quando IDStatus = 4 | string(30 | — | — | — |
+| `PrenotacaoData` | Data de inclusão da prenotação (formato aaaa-mm-ddhh:mm:ss), quando IDStatus = 4 | string | — | — | — |
+| `PrenotacaoVencimento` | Data de vencimento da prenotação (formato aaaa-mmddhh:mm:ss), quando IDStatus = 4 | string | — | — | — |
+| `PrenotacaoValor` | Valor das custas de prenotação, quando IDStatus = 4, no formato XX.XX | decimal | — | — | — |
+| `PrenotacaoTipoDestinacaoMutuo` | Descrição do tipo destinação mútuo, quando IDStatus = 4. | string | — | — | — |
+| `TipoDeterminacaoJudicial` | Descrição do tipo determinação judicial, quando IDStatus = 28. | string | — | — | — |
+| `CanceladoJudicialmente` | Indicação se pedido foi cancelado judicialmente, true ou false. | boolean | — | — | — |
+| `DataCancelamentoJudicial` | Data do cancelamento judicial realizada no sistema, (formato aaaa-mm-ddhh:mm:ss) quando CanceladoJudicialmente = true. | string | — | — | — |
+| `DataAverbacaoJudicial` | Data da averbação judicial, (formato aaaa-mm-ddhh:mm:ss) quando CanceladoJudicialmente = true. | string | — | — | — |
+| `Boletos` | Array de boletos, onde: | — | — | — | — |
+| `DataVencimento` | Data de vencimento do boleto, formato aaaa-mm-ddhh:mm:ss | string | — | — | — |
+| `Valor` | Valor do boleto, no formato XX.XX | decimal | — | — | — |
+| `URL` | URL do boleto gerado, para download ou visualização | string(500 | — | — | — |
+| `Anexos` | Array de arquivos anexados à mensagem, onde: | — | — | — | — |
+| `Nome` | Nome ou descrição do arquivo anexado | string(100 | — | — | — |
+| `URL` | URL do anexo para download ou visualização | string(500 | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -101,4 +113,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `GetMensagemIN`

@@ -1,6 +1,6 @@
 # ImportarArquivoBDL
 
-Método do WSOficio — **3.4 Envio e Controle de Arquivos — Banco de Dados Light**.
+Método do WSOficio — **3.4 BD Light**.
 
 ## Resumo
 
@@ -18,56 +18,68 @@ Método do WSOficio — **3.4 Envio e Controle de Arquivos — Banco de Dados Li
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
+Parâmetro obrigatório **`Hash`** no envelope de entrada.
 
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
+Implementação: [`lib/onr_bdlight.py`](../../lib/onr_bdlight.py) · `resolve_auth_hash()`.
 
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
+## Pré-requisitos e validações de negócio
 
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `ImportarArquivoBDL` passando `Hash` + demais parâmetros |
+- Informar ao menos uma **URL pública** (`http`/`https`) apontando para arquivo **`.xml`** (máx. **5MB**).
+- Conteúdo conforme modelo **BANCOLIGHT** — spec § **4.1** (Anexo 1).
+- A ONR baixa e processa os arquivos **assincronamente**; use [`ListArquivosXMLBDL`](ListArquivosXMLBDL.md) para acompanhar e obter `IDArquivo`.
+- Erro **104** se extensão não for `.xml`; **106** se > 5MB; **102** se URL inacessível.
+- Estrutura XML: raiz `BANCOLIGHT`, blocos `INDIVIDUO` com `NOME`, `CNPJCPF`, `NMATRICULA`, `TIPODEATO`, `DTREGAVERB`, `DTVENDA` (modelo [`bdlight-xml-exemplo/bdlight-exemplo-1.xml`](../../bdlight-xml-exemplo/bdlight-exemplo-1.xml)).
+- Validação local/URL antes do SOAP: [`lib/onr_bdlight_xml.py`](../../lib/onr_bdlight_xml.py) · [`lib/onr_bdlight_xml.js`](../../lib/onr_bdlight_xml.js).
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+## Ordem do envelope (`oRequest`)
 
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Tipo `ImportarArquivoBDL_WSReq` (`wsdl/bdlight.wsdl`):
+
+1. `Hash`
+2. `Arquivos` → `ImportarArquivoBDL_Arquivo_WSReq[]`
+   - `URLArquivo` (por item)
 
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `Arquivos` | Array dos arquivos a serem importados, apresentando as seguintes informações: |
-| `URLArquivo` | O cartório precisa informar uma URL válida para download do arquivo XML anexado. Os arquivos informados serão colocados em uma fila e serão baixados e processados posteriormente pelo sistema do Ofício Eletrônico. Cf. Anexo 1 para modelo do XML a ser usado. |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `Arquivos[].URLArquivo` | URL pública do XML | string | sim | por item | https://exemplo/arquivo.xml |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+
+> A resposta **não** retorna `IDArquivo`; após processamento, liste com `ListArquivosXMLBDL`.
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 12 | Nenhum arquivo foi informado. |
+| 12 | Nenhum arquivo informado |
+| 45–47 | Erros de hash |
+| 50 | Sem permissão |
+| 101–106 | Cadastro / URL / extensão / tamanho / XML |
+| 501–502 | XML inválido / fila de resposta |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/ImportarArquivoBdl/importarArquivoBdl.py`](../../scripts/ImportarArquivoBdl/importarArquivoBdl.py)
+- JavaScript: [`scripts/ImportarArquivoBdl/importarArquivoBdl.js`](../../scripts/ImportarArquivoBdl/importarArquivoBdl.js)
+- Lib: [`lib/onr_bdlight.py`](../../lib/onr_bdlight.py) · [`lib/onr_bdlight.js`](../../lib/onr_bdlight.js)
+- Variáveis `.env`:
+  - `BDLIGHT_IMPORTAR_URL_ARQUIVO` — uma URL
+  - `BDLIGHT_IMPORTAR_URLS` — várias URLs separadas por vírgula/espaço
+  - `BDLIGHT_IMPORTAR_ARQUIVOS_JSON` — `[{"URLArquivo":"https://..."}]` ou `["https://..."]`
+  - `BDLIGHT_IMPORTAR_VALIDAR_XML` — `true` valida paths + URLs antes do SOAP
+  - `BDLIGHT_IMPORTAR_XML_PATH` — arquivo(s) local(is) separados por vírgula
+- npm: `npm run importar-arquivo-bdl` · `npm run validate-bdlight-xml`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ImportarArquivoBDL`
+- [`webservice/hash.md`](../hash.md)
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.4.5–3.4.6, § 4.1 (modelo XML)

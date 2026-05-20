@@ -1,0 +1,270 @@
+{
+  "info": {
+    "_postman_id": "auth-onr-n8n-webhook-2026",
+    "name": "Auth ONR — n8n Webhook",
+    "description": "Coleção para consumir o workflow n8n **Auth ONR** (proxy de `LoginUsuarioCertificado`).\n\n## Pré-requisitos\n\n1. Workflow publicado ou em modo teste no n8n.\n2. Credenciais **HTTP Basic Auth** configuradas no nó Webhook do workflow.\n3. Campos do certificado — gere com:\n   ```bash\n   node scripts/extract_cert/extract_cert.js\n   node scripts/postman/export-postman-env.js\n   ```\n   Ou preencha manualmente o ambiente `Auth ONR n8n`.\n\n## URLs do webhook\n\n| Modo | Path | Quando usar |\n|------|------|-------------|\n| `webhook-test` | `/webhook-test/<uuid>` | Workflow aberto no editor + **Execute workflow** (teste) |\n| `webhook` | `/webhook/<uuid>` | Workflow **ativo** em produção |\n\nVariável `n8n_webhook_mode` controla qual prefixo usar.\n\n## Fluxo\n\n1. Importe esta coleção e o ambiente `Auth-ONR-n8n.postman_environment.template.json`.\n2. Preencha `N8N_BASIC_AUTH_USER`, `N8N_BASIC_AUTH_PASSWORD` e campos do certificado.\n3. Execute **Auth ONR — Login**.\n4. O script de testes grava `onr_tokens`, `onr_token` e `onr_hash`.\n\nDocumentação: `scripts/login/Auth WebService ONR.md`, `webservice/metodos/LoginUsuarioCertificado.md`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://n8n.ioshuavps.com.br",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id",
+      "value": "163d6b2d-36fa-4c1c-bb1b-ed6085de7de2",
+      "type": "string"
+    },
+    {
+      "key": "onr_login_endpoint",
+      "value": "https://hml3-wsoficio.onr.org.br/login.asmx",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth ONR",
+      "item": [
+        {
+          "name": "Auth ONR — Login",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "",
+                  "function hasBasicAuthConfigured() {",
+                  "  const auth = pm.request.auth;",
+                  "  if (!auth || auth.type !== 'basic' || !Array.isArray(auth.basic)) return false;",
+                  "  const user = auth.basic.find((x) => x.key === 'username')?.value;",
+                  "  const pass = auth.basic.find((x) => x.key === 'password')?.value;",
+                  "  return Boolean(user && pass && !String(user).includes('{{') && !String(pass).includes('{{'));",
+                  "}",
+                  "",
+                  "const required = [",
+                  "  'SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL',",
+                  "  'CPF', 'EMAIL', 'IDParceiroWS'",
+                  "];",
+                  "if (!getVar('N8N_BASIC_AUTH_USER') || !getVar('N8N_BASIC_AUTH_PASSWORD')) {",
+                  "  if (!hasBasicAuthConfigured()) {",
+                  "    required.push('N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD');",
+                  "  }",
+                  "}",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error(",
+                  "    'Variáveis ausentes ou desabilitadas: ' + missing.join(', ') +",
+                  "    '. Defina no Environment (checkbox ativo) ou em Collection Variables.'",
+                  "  );",
+                  "}",
+                  "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || pm.collectionVariables.get('onr_login_endpoint');",
+                  "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "",
+                  "let json;",
+                  "pm.test('Resposta JSON válida', () => {",
+                  "  json = pm.response.json();",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json).to.have.property('sucesso');",
+                  "  pm.expect(json).to.have.property('status_http');",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "",
+                  "if (!json) return;",
+                  "",
+                  "if (!json.sucesso) {",
+                  "  pm.test('sucesso=true', () => {",
+                  "    throw new Error(`Falha: [${json.codigo_erro}] ${json.mensagem_erro || ''}`);",
+                  "  });",
+                  "  return;",
+                  "}",
+                  "",
+                  "pm.test('Tokens retornados', () => {",
+                  "  pm.expect(json.tokens).to.be.an('array');",
+                  "  pm.expect(json.tokens.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "if (json.id_usuario != null) pm.environment.set('onr_id_usuario', String(json.id_usuario));",
+                  "if (json.id_instituicao != null) pm.environment.set('onr_id_instituicao', String(json.id_instituicao));",
+                  "",
+                  "pm.environment.set('onr_tokens', JSON.stringify(json.tokens || []));",
+                  "",
+                  "const tokenIndex = parseInt(pm.environment.get('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                  "const token = (json.tokens || [])[tokenIndex] ?? (json.tokens || [])[0];",
+                  "pm.environment.set('onr_token', token || '');",
+                  "console.log('Tokens:', (json.tokens || []).join(', '));",
+                  "console.log('Token selecionado (índice ' + tokenIndex + '):', token);",
+                  "",
+                  "const chave = pm.environment.get('ONR_SERVENTIA_CHAVE');",
+                  "if (chave && token) {",
+                  "  const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                  "  pm.environment.set('onr_hash', hash);",
+                  "  console.log('onr_hash (SHA-1 chave+token):', hash);",
+                  "} else {",
+                  "  console.warn('Defina ONR_SERVENTIA_CHAVE no ambiente para calcular onr_hash.');",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"{{CPF}}\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{onr_login_endpoint_resolved}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id}}",
+            "description": "Chama o webhook n8n que valida CPF, monta o SOAP `LoginUsuarioCertificado` e retorna JSON com `Tokens[]`.\n\n**Autenticação:** Basic Auth (variáveis `N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n\n**Modo teste:** use `n8n_webhook_mode=webhook-test` e clique *Execute workflow* no editor n8n antes de enviar.\n\n**Produção:** altere para `webhook` e ative o workflow."
+          },
+          "response": []
+        },
+        {
+          "name": "Auth ONR — CPF inválido",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                  "const json = pm.response.json();",
+                  "pm.test('sucesso=false por CPF inválido', () => {",
+                  "  pm.expect(json.sucesso).to.eql(false);",
+                  "  pm.expect(json.status_http).to.eql(400);",
+                  "  pm.expect(json.codigo_erro).to.eql(2);",
+                  "});",
+                  "pm.test('tokens vazio', () => {",
+                  "  pm.expect(json.tokens).to.be.an('array').that.is.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"12345678901\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id}}",
+            "description": "Testa a validação de CPF do workflow (dígitos verificadores inválidos). Espera `CODIGOERRO: 2` sem chamar a ONR."
+          },
+          "response": []
+        },
+        {
+          "name": "Auth ONR — CPF ausente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                  "const json = pm.response.json();",
+                  "pm.test('sucesso=false por CPF ausente', () => {",
+                  "  pm.expect(json.sucesso).to.eql(false);",
+                  "  pm.expect(json.status_http).to.eql(400);",
+                  "  pm.expect(json.codigo_erro).to.eql(15);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id}}",
+            "description": "Testa CPF vazio. Espera `CODIGOERRO: 15` (O CPF nao foi informado)."
+          },
+          "response": []
+        }
+      ],
+      "description": "Webhook n8n — proxy de login ONR com validação de CPF."
+    }
+  ]
+}

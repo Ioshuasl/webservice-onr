@@ -14,7 +14,7 @@ Método do WSOficio — **3.3 Penhora Online**.
 
 - **WSDL (homologação):** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx?wsdl`
 - **Endpoint:** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx`
-- **WSDL local:**`wsdl/penhoraonline.wsdl`
+- **WSDL local:** `wsdl/penhoraonline.wsdl`
 
 ## Hash de autenticação
 
@@ -33,27 +33,44 @@ Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
 | 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
 | 4 | Chamar `SetPedidoMatriculaRespondidoPO` passando `Hash` + demais parâmetros |
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py).
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- **[IDTipoPedido = 1](../tabelas-dominio/IDTipoPedido-PO.md)** (Certidão por Matrícula) — erro **53**.
+- Ao menos um anexo com matrícula e URL pública (`.p7s` na spec; homolog pode aceitar `.pdf`).
+- O pedido só é efetivamente respondido após o ONR baixar todos os arquivos (**502** se já houver resposta pendente de download).
+
+Variante com Assinador Web: `SetPedidoMatriculaRespondidoPO_DocID` (não implementada neste projeto).
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `SetPedidoMatriculaRespondidoPO_WSReq` (`wsdl/penhoraonline.wsdl`):
+
+1. `Hash`
+2. `IDPedido`
+3. `Resposta`
+4. `Anexos`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `Resposta` | Resposta do pedido (tipo string); |
-| `Matricula` | Número da matrícula referente ao arquivo (tipo string); |
-| `URLArquivo` | URL do arquivo. O cartório precisa informar uma URL válida para download do arquivo anexado. Os arquivos informados serão colocados em uma fila e serão baixados posteriormente pelo sistema do Ofício Eletrônico. O pedido não será efetivamente respondido antes que todos os arquivos sejam baixados. (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDPedido` | Pedido matrícula | int | sim | IDTipoPedido=1 | — |
+| `Resposta` | Texto da resposta | string | sim | — | — |
+| `Anexos[].Matricula` | Matrícula | string | sim | por item | 12345 |
+| `Anexos[].URLArquivo` | URL do arquivo | string | sim | por item | https://…/doc.p7s |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 
 ## Códigos de erro (amostra)
 
@@ -70,14 +87,24 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 | 47 | Hash inválido: Hash expirado. |
 | 51 | Não foi possível pegar os dados do pedido. Certifique-se que o pedido é do tipo Matrícula. |
 | 52 | Usuário não tem permissão para cadastrar resposta para esse pedido. |
-| 53 | Essa operação só pode ser realizada para pedidos do |
+| 53 | Essa operação só pode ser realizada para pedidos do tipo Pedido de Certidão por Matrícula. |
+| 54 | A matrícula de um ou mais anexos não foi informada. |
+| 55 | Não foi informada a URL de um ou mais arquivos. |
+| 60 | Não foi possível desbloquear os arquivos. |
+| 101–105 | Erros de cadastro/validação de arquivo |
+| 501 | Campos obrigatórios não informados. |
+| 502 | Já existe resposta; aguardando download dos arquivos pelo ONR. |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/SetPedidoMatriculaRespondidoPo/setPedidoMatriculaRespondidoPo.py`](../../scripts/SetPedidoMatriculaRespondidoPo/setPedidoMatriculaRespondidoPo.py)
+- JavaScript: [`scripts/SetPedidoMatriculaRespondidoPo/setPedidoMatriculaRespondidoPo.js`](../../scripts/SetPedidoMatriculaRespondidoPo/setPedidoMatriculaRespondidoPo.js)
+- Variáveis `.env`: `PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_*` (fallback `PENHORA_ONLINE_ID_PEDIDO`)
+- npm: `npm run set-pedido-matricula-respondido-po`
 
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPedidoMatriculaRespondidoPO`

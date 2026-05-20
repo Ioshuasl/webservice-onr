@@ -6,4 +6,5 @@ __pycache__/
 venv/
 cert-fields.json
 postman/ONR-Homologacao.postman_environment.json
+postman/Auth-ONR-n8n.postman_environment.json
 postman/ONR-Login-Pronto.postman_collection.json

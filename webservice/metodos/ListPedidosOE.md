@@ -37,40 +37,52 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<ListPedidosOE_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página (tipo int); |
-| `PageNumber` | Página a ser retornada (tipo int); |
-| `Protocolo` | Protocolo a ser filtrado – opcional (tipo string); |
-| `IDInstituicao` | Código da Instituição solicitante a ser filtrado. Para retornar todos, informar -1. Para obter os códigos das Instituições conferir o método ListInstituicoesOE, item 3.5.1 (tipo int); |
-| `IDTipoPesquisa` | Código do Tipo de Pesquisa a ser filtrado. Para retornar todos, informar -1. Para uma lista dos valores possíveis, conferir o item 3.5.4 (tipo int); |
-| `IDStatus` | Código do Status a ser filtrado. Para retornar todos, informar -1. Para uma lista dos |
-| `DataSolicitacaoInicial` | Data inicial da solicitação a ser filtrada, formato: aaaa-mm-dd (tipo string); |
-| `DataSolicitacaoFinal` | Data final da solicitação a ser filtrada, formato: aaaa-mm-dd (tipo string); |
-| `DataRespostaInicial` | Data inicial da resposta a ser filtrada, formato: aaaa-mm-dd - opcional (tipo string); |
-| `DataRespostaFinal` | Data final da resposta a ser filtrada, formato: aaaa-mm-dd - opcional (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string | — | — | — |
+| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página | int | — | — | — |
+| `PageNumber` | Página a ser retornada | int | — | — | — |
+| `Protocolo` | Protocolo a ser filtrado – opcional | string | não | — | — |
+| `IDInstituicao` | Código da Instituição solicitante a ser filtrado. Para retornar todos, informar -1. Para obter os códigos das Instituições conferir o método ListInstituicoesOE, item 3.5.1 | int | — | — | — |
+| `IDTipoPesquisa` | Código do Tipo de Pesquisa a ser filtrado. Para retornar todos, informar -1. Para uma lista dos valores possíveis, conferir o item 3.5.4 | int | — | — | — |
+| `IDStatus` | Código do Status a ser filtrado. Para retornar todos, informar -1. Para uma lista dos | — | — | — | — |
+| `DataSolicitacaoInicial` | Data inicial da solicitação a ser filtrada, formato: aaaa-mm-dd | string | — | — | — |
+| `DataSolicitacaoFinal` | Data final da solicitação a ser filtrada, formato: aaaa-mm-dd | string | — | — | — |
+| `DataRespostaInicial` | Data inicial da resposta a ser filtrada, formato: aaaa-mm-dd - opcional | string | não | — | — |
+| `DataRespostaFinal` | Data final da resposta a ser filtrada, formato: aaaa-mm-dd - opcional | string | não | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-| `QtdeRegistros` | (se RETORNO = true)  Quantidade total de registros encontrados (tipo int); |
-| `QtdePaginas` | (se RETORNO = true)  Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage - (tipo int); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `IDStatus` | Código do Status.  Para uma lista dos valores possíveis, conferir o item 3.5.4 (tipo int); |
-| `IDInstituicao` | Código da Instituição solicitante (tipo int); |
-| `Instituicao` | Nome da Instituição solicitante (tipo string); |
-| `IDTipoPesquisa` | Código do Tipo de Pesquisa.  Para uma lista dos valores possíveis, conferir o item 3.5.4 (tipo int); |
-| `Protocolo` | Protocolo do título (tipo string); |
-| `NumeroOficio` | Número do Ofício (tipo string); |
-| `DataSolicitacao` | Data do pedido, formato: aaaa-mm-dd (tipo string); |
-| `DataResposta` | Data da resposta, formato: aaaa-mm-dd (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string | — | (se RETORNO = false) | — |
+| `QtdeRegistros` | Quantidade total de registros encontrados | int | — | (se RETORNO = true) | — |
+| `QtdePaginas` | Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage - | int | — | (se RETORNO = true) | — |
+| `IDPedido` | Código do pedido | int | — | — | — |
+| `IDStatus` | Código do Status.  Para uma lista dos valores possíveis, conferir o item 3.5.4 | int | — | — | — |
+| `IDInstituicao` | Código da Instituição solicitante | int | — | — | — |
+| `Instituicao` | Nome da Instituição solicitante | string | — | — | — |
+| `IDTipoPesquisa` | Código do Tipo de Pesquisa.  Para uma lista dos valores possíveis, conferir o item 3.5.4 | int | — | — | — |
+| `Protocolo` | Protocolo do título | string | — | — | — |
+| `NumeroOficio` | Número do Ofício | string | — | — | — |
+| `DataSolicitacao` | Data do pedido, formato: aaaa-mm-dd | string | — | — | — |
+| `DataResposta` | Data da resposta, formato: aaaa-mm-dd | string | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -101,4 +113,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListPedidosOE`

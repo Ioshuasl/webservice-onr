@@ -116,6 +116,55 @@ def extract_section(spec: str, method: str, kind: str) -> tuple[str, list[str], 
     return section_id, params, errors
 
 
+PARAM_TABLE_HEADER = (
+    "| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |",
+    "|-------|-----------|------|-------------|-------------|---------|",
+)
+
+
+def parse_spec_param(line: str) -> tuple[str, str, str, str, str, str]:
+    """Extrai colunas da tabela a partir de uma linha da spec (- Nome – descrição (tipo …))."""
+    raw = line.strip()
+    name = "—"
+    desc = raw
+    if "–" in raw:
+        name_part, desc = raw.split("–", 1)
+        name = name_part.strip()
+        desc = desc.strip()
+
+    tipo = "—"
+    m_tipo = re.search(r"\(tipo\s+([^)]+)\)", desc, re.IGNORECASE)
+    if m_tipo:
+        tipo = m_tipo.group(1).strip().rstrip(";").strip()
+        desc = desc[: m_tipo.start()].strip().rstrip(";").strip()
+
+    condicional = "—"
+    m_cond = re.search(r"\(se [^)]+\)", desc, re.IGNORECASE)
+    if m_cond:
+        condicional = m_cond.group(0).strip()
+        desc = (desc[: m_cond.start()] + desc[m_cond.end() :]).strip().rstrip(";").strip()
+
+    obrigatorio = "—"
+    if re.search(r"\bopcional\b", desc, re.I) or name.startswith("●"):
+        obrigatorio = "não"
+    elif name and name != "—":
+        obrigatorio = "—"  # enriquecer manualmente / WSDL
+
+    exemplo = "—"
+    return name, desc or raw, tipo, obrigatorio, condicional, exemplo
+
+
+def render_param_table(params: list[str]) -> list[str]:
+    lines = list(PARAM_TABLE_HEADER)
+    if not params:
+        return lines
+    for p in params:
+        name, desc, tipo, obr, cond, ex = parse_spec_param(p)
+        field = f"`{name}`" if name != "—" else "—"
+        lines.append(f"| {field} | {desc} | {tipo} | {obr} | {cond} | {ex} |")
+    return lines
+
+
 def infer_operation_type(method: str) -> str:
     for prefix, label in (
         ("List", "Listagem"),
@@ -213,34 +262,53 @@ def render_md(meta: dict) -> str:
             ]
         )
 
-    lines.extend(["", "## Parâmetros de entrada", ""])
+    lines.extend(
+        [
+            "",
+            "## Pré-requisitos e validações de negócio",
+            "",
+            "_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar "
+            "[`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._",
+            "",
+            "## Ordem do envelope (`oRequest`)",
+            "",
+            f"_Listar campos na ordem de `<{method}_WSReq>` no WSDL local._",
+            "",
+            "## Parâmetros de entrada",
+            "",
+        ]
+    )
     if entrada_params:
-        lines.append("| Parâmetro | Descrição |")
-        lines.append("|-----------|-----------|")
-        for p in entrada_params:
-            if "–" in p:
-                name, desc = p.split("–", 1)
-                lines.append(f"| `{name.strip()}` | {desc.strip()} |")
-            else:
-                lines.append(f"| — | {p} |")
+        lines.extend(render_param_table(entrada_params))
+        lines.append("")
+        lines.append(
+            "> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo "
+            "com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._"
+        )
     else:
         lines.append("_Consultar `especificacao_wsoficio_dev.md` — Envelope de Entrada._")
 
     lines.extend(["", "## Parâmetros de saída", ""])
     if saida_params:
-        lines.append("| Parâmetro | Descrição |")
-        lines.append("|-----------|-----------|")
-        for p in saida_params[:40]:
-            if "–" in p:
-                name, desc = p.split("–", 1)
-                lines.append(f"| `{name.strip()}` | {desc.strip()} |")
-            else:
-                lines.append(f"| — | {p} |")
+        lines.extend(render_param_table(saida_params[:40]))
         if len(saida_params) > 40:
-            lines.append(f"| … | _+{len(saida_params) - 40} parâmetros — ver especificação_ |")
-    else:
+            lines.append(
+                f"| … | _+{len(saida_params) - 40} parâmetros — ver especificação_ | — | — | — | — |"
+            )
+        lines.append("")
         lines.append(
-            "_Campos comuns: `RETORNO`, `CODIGOERRO`, `ERRODESCRICAO` — ver especificação._"
+            "> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo "
+            "com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._"
+        )
+    else:
+        lines.extend(
+            render_param_table(
+                [
+                    "RETORNO – Indica se houve erro ou não (tipo boolean);",
+                    "CODIGOERRO – Código do erro (tipo int);",
+                    "ERRODESCRICAO – Descrição do erro (tipo string);",
+                ]
+            )
         )
 
     if errors:
@@ -265,6 +333,7 @@ def render_md(meta: dict) -> str:
             "",
             f"- [`webservice/hash.md`](../hash.md) — geração do `Hash`",
             f"- [`webservice/list-metodos.md`](../list-metodos.md)",
+            f"- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)",
             f"- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `{method}`",
             "",
         ]

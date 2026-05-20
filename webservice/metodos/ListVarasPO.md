@@ -37,31 +37,36 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- Filtros geográficos opcionais (`PENHORA_ONLINE_ID_ESTADO/COMARCA/FORO`).
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `ListVarasPO_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `IDEstado`
+3. `IDComarca`
+4. `IDForo`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDEstado` | Código do Estado a ser filtrado. Para retornar todos, informar -1 (tipo int); |
-| `IDComarca` | Código da Comarca a ser filtrada. Para retornar todas, informar -1 (tipo int); |
-| `IDForo` | Código do Foro a ser filtrado. Para retornar todos, informar -1 (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDEstado` | Estado | int | sim | — | 0 |
+| `IDComarca` | Comarca | int | sim | — | 0 |
+| `IDForo` | Foro | int | sim | — | 0 |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-| `IDVara` | Código da Vara(tipo int); |
-| `IDForo` | Código do Foro (tipo int); |
-| `IDComarca` | Código da Comarca (tipo int); |
-| `IDEstado` | Código do Estado (tipo int); |
-| `Vara` | Nome da Vara (tipo string); |
-| `Foro` | Nome do Foro (tipo string); |
-| `Comarca` | Nome da Comarca (tipo string); |
-| `Estado` | Nome do Estado (tipo string). |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `Varas` | Lista de varas | ListVarasPO_Vara_WSResp[] | não | se RETORNO=true | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -79,13 +84,12 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script Python: [`scripts/ListVarasPo/listVarasPo.py`](../../scripts/ListVarasPo/listVarasPo.py)
-- Script JavaScript: [`scripts/ListVarasPo/listVarasPo.js`](../../scripts/ListVarasPo/listVarasPo.js)
-- Lib: [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py) · [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js)
-- Variáveis `.env`: `PENHORA_ONLINE_ID_ESTADO`, `PENHORA_ONLINE_ID_COMARCA`, `PENHORA_ONLINE_ID_FORO` (padrão `-1` = todos)
-
+- Python: [`scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.py`](../../scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.py)
+- JavaScript: [`scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.js`](../../scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.js)
+- Variáveis `.env`: `PENHORA_ONLINE_ID_ESTADO`, `ID_COMARCA`, `ID_FORO`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListVarasPO`

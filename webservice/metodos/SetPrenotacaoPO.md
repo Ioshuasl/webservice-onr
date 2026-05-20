@@ -14,7 +14,7 @@ Método do WSOficio — **3.3 Penhora Online**.
 
 - **WSDL (homologação):** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx?wsdl`
 - **Endpoint:** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx`
-- **WSDL local:**`wsdl/penhoraonline.wsdl`
+- **WSDL local:** `wsdl/penhoraonline.wsdl`
 
 ## Hash de autenticação
 
@@ -37,24 +37,38 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- **[IDTipoPedido = 3](../tabelas-dominio/IDTipoPedido-PO.md)** (Penhora) — erro **53**.
+- Datas `aaaa-mm-dd` em `DATA_PRENOTACAO` / `DATA_VENCIMENTO`.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `SetPrenotacaoPO_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `IDPedido`
+3. `NumeroPrenotacao`
+4. `DataPrenotacao`
+5. `DataVencimento`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `NumeroPrenotacao` | Número da prenotação (tipo string); |
-| `DataPrenotacao` | Data da prenotação, formato: aaaa-mm-dd (tipo string); |
-| `DataVencimento` | Data de vencimento, formato: aaaa-mm-dd (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDPedido` | Pedido penhora | int | sim | IDTipoPedido=3 | 18014820 |
+| `NumeroPrenotacao` | Número da prenotação | string | sim | — | 1516 |
+| `DataPrenotacao` | Data da prenotação | string | sim | aaaa-mm-dd | 2025-01-09 |
+| `DataVencimento` | Vencimento da prenotação | string | sim | aaaa-mm-dd | 2025-02-09 |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -69,14 +83,12 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script Python: [`scripts/SetPrenotacaoPo/setPrenotacaoPo.py`](../../scripts/SetPrenotacaoPo/setPrenotacaoPo.py)
-- Script JavaScript: [`scripts/SetPrenotacaoPo/setPrenotacaoPo.js`](../../scripts/SetPrenotacaoPo/setPrenotacaoPo.js)
-- Lib: [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py) · [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js)
-- Variáveis `.env`: `PENHORA_ONLINE_SET_PRENOTACAO_*` (datas `aaaa-mm-dd`; `ID_PEDIDO` ou `PENHORA_ONLINE_ID_PEDIDO`)
-- **Atenção:** escrita — só pedidos tipo Penhora; erro **55** se já prenotado
-
+- Python: [`scripts/SetCustasPo/setCustasPo.py`](../../scripts/SetCustasPo/setCustasPo.py)
+- JavaScript: [`scripts/SetCustasPo/setCustasPo.js`](../../scripts/SetCustasPo/setCustasPo.js)
+- Variáveis `.env`: `PENHORA_ONLINE_SET_PRENOTACAO_*`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPrenotacaoPO`

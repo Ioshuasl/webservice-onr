@@ -1,0 +1,23 @@
+{
+  "version": 4,
+  "activeEnvironmentId": "extensao-n8n-teste-2",
+  "environmentTargets": [
+    {
+      "id": "extensao-n8n-teste",
+      "name": "extensao n8n teste",
+      "kind": "external-instance",
+      "url": "https://n8n.ioshuavps.com.br"
+    }
+  ],
+  "environments": [
+    {
+      "id": "extensao-n8n-teste-2",
+      "name": "extensao n8n teste",
+      "environmentTargetId": "extensao-n8n-teste",
+      "projectId": "personal",
+      "projectName": "Personal",
+      "syncFolder": "workflows/n8n",
+      "folderSync": true
+    }
+  ]
+}

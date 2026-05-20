@@ -37,36 +37,48 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<AdicionarMensagemIN_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `IDIntimacao` | Código do pedido (tipo int); |
-| `IDStatus` | Código do status de mensagem (tipo int), cujos tipos habilitados são: |
-| `29` | Nova Projeção; |
-| `Assunto` | Assunto da mensagem (tipo string(100)); |
-| `Mensagem` | Descrição da mensagem (tipo string(3000)); |
-| `NumeroPrenotacao` | Número de prenotação, obrigatório apenas quando o IDStatus for = 4 (tipo |
-| `DataPrenotacao` | Data de prenotação (formato: aaaa-mm-ddhh:mm:ss) , obrigatório apenas |
-| — | quando o IDStatus for = 4 (tipo string); |
-| `VencimentoPrenotacao` | Data de vencimento da prenotação (formato: aaaa-mm-ddhh:mm:ss) , |
-| — | obrigatório apenas quando o IDStatus for = 4 (tipo string); |
-| `13 - Não Habitacional - Construção` | empreendimento; |
-| `ValorServico` | Valor das custas  referentes aos tramites burocráticos, obrigatório apenas quando o |
-| — | IDStatus for = 6 ou 22 (tipo decimal) ou Valor de Devolução de custas ao cliente apenas para pedidos finalizado com IdStatus = 12 ou 25; |
-| `DataPagamento` | Data do pagamento (formato: aaaa-mm-ddhh:mm:ss) , obrigatório apenas |
-| — | quando o IDStatus for = 14 (tipo string); |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `IDIntimacao` | Código do pedido | int | — | — | — |
+| `IDStatus` | Código do status de mensagem | int | — | — | — |
+| `29` | Nova Projeção; | — | — | — | — |
+| `Assunto` | Assunto da mensagem | string(100 | — | — | — |
+| `Mensagem` | Descrição da mensagem | string(3000 | — | — | — |
+| `NumeroPrenotacao` | Número de prenotação, obrigatório apenas quando o IDStatus for = 4 (tipo | — | — | — | — |
+| `DataPrenotacao` | Data de prenotação (formato: aaaa-mm-ddhh:mm:ss) , obrigatório apenas | — | — | — | — |
+| — | quando o IDStatus for = 4 | string | — | — | — |
+| `VencimentoPrenotacao` | Data de vencimento da prenotação (formato: aaaa-mm-ddhh:mm:ss) , | — | — | — | — |
+| — | obrigatório apenas quando o IDStatus for = 4 | string | — | — | — |
+| `13 - Não Habitacional - Construção` | empreendimento; | — | — | — | — |
+| `ValorServico` | Valor das custas  referentes aos tramites burocráticos, obrigatório apenas quando o | — | — | — | — |
+| — | IDStatus for = 6 ou 22 | decimal | — | — | — |
+| `DataPagamento` | Data do pagamento (formato: aaaa-mm-ddhh:mm:ss) , obrigatório apenas | — | — | — | — |
+| — | quando o IDStatus for = 14 | string | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(20)); |
-| — | URLBoleto - (se RETORNO = true) URL do boleto gerado, quando o IDStatus for = 6 ou 22 (tipo |
-| — | 22 (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(20 | — | (se RETORNO = false) | — |
+| — | URLBoleto -  URL do boleto gerado, quando o IDStatus for = 6 ou 22 (tipo | — | — | (se RETORNO = true) | — |
+| — | 22 | int | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -97,4 +109,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `AdicionarMensagemIN`

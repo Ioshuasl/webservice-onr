@@ -37,37 +37,34 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- Mesmas regras de envelope que `InsertTituloAT` (ordem WSDL + opcionais `""`).
+- Requer `IDTitulo` existente.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `UpdateTituloAT_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `IDTitulo`
+3. `… (mesmos campos de InsertTituloAT)`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem – tipo string(50); |
-| `IDTitulo` | Código do título no Ofício Eletrônico – tipo int. Código obtido no momento do cadastro do título, ver item 3.2.10; |
-| `Protocolo` | Protocolo do título – tipo string(11); |
-| `ApresentanteNome` | Nome do apresentante –  tipostring(120); |
-| `ApresentanteEmail` | E-mail do apresentante –  opcional (obrigatório se ModoNotificacaoStatus = |
-| `ApresentanteDDDTelefone` | DDD do telefone do apresentante – opcional (obrigatório se ModoNotificacaoStatus = S) –  tipostring(4); |
-| `ApresentanteNumeroTelefone` | Número do telefone do apresentante –  opcional (obrigatório se ModoNotificacaoStatus = S) – tipo string(15); |
-| `ApresentanteCPFCNPJ` | CPF/CNPJ do apresentante – opcional – tipo string(14); |
-| `ValorDeposito` | Valor do depósito – opcional – tipo decimal; |
-| `ValorEmolumentos` | Valor dos emolumentos – opcional – tipo decimal; |
-| `DataProtocolo` | Data do protocolo. Formato: aaaa-mm-ddhh:mm:ss – tipo string(19); |
-| `DataPrevisaoEntrega` | Data de previsão de entrega . Formato: aaaa-mm-ddhh:mm:ss – tipo string(19); |
-| `ModoNotificacaoStatus` | Modo de notificação – tipo string(1). Valores permitidos: |
-| `InteressadoNome` | Nome do interessado – tipo string(120); |
-| `InteressadoCPFCNPJ` | CPF/CNPJ do interessado – opcional – tipo string(14); |
-| `NaturezaTitulo` | Natureza do título – tipo string(150); |
-| `CodigoVerificador` | Código verificador – opcional – tipo string(20); |
-| `TipoSolicitacao` | Tipo da solicitação - tipo int. Valores permitidos: |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDTitulo` | Título a alterar | int | sim | — | 1001 |
+| `_(demais campos)_` | Igual InsertTituloAT — ver `lib/onr_update_titulo_at` | — | sim | — | — |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método – tipo boolean; |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro – tipo int; |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro – tipo string(200). |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -90,10 +87,13 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script: [`scripts/UpdateTituloAt/updateTituloAt.py`](../../scripts/UpdateTituloAt/updateTituloAt.py)
-
+- Python: [`scripts/UpdateTituloAt/updateTituloAt.py`](../../scripts/UpdateTituloAt/updateTituloAt.py)
+- JavaScript: [`scripts/UpdateTituloAt/updateTituloAt.js`](../../scripts/UpdateTituloAt/updateTituloAt.js)
+- Variáveis `.env`: `ACOMPANHAMENTO_TITULOS_UPDATE_*`
+- Helper: `lib/onr_update_titulo_at`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `UpdateTituloAT`

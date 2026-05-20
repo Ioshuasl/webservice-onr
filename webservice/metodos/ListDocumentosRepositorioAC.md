@@ -37,29 +37,41 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<ListDocumentosRepositorioAC_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| — | IDContrato - ID do contrato obtido da listagem de pedidos (tipo int); |
-| — | IDDepartamento - ID do departamento vinculado ao documento do repositório (opcional, tipo int); |
-| — | CPFVinculado - CPF vinculado ao documento do repositório (opcional, tipo string); |
-| — | DataVencimentoInicial - Data de vencimento inicial do documento do repositório, no formato aaaamm-dd (opcional, tipo string); |
-| — | DataVencimentoFinal - Data de vencimento final do documento do repositório, no formato aaaamm-dd (opcional, tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| — | IDContrato - ID do contrato obtido da listagem de pedidos | int | — | — | — |
+| — | IDDepartamento - ID do departamento vinculado ao documento do repositório (opcional, tipo int); | — | não | — | — |
+| — | CPFVinculado - CPF vinculado ao documento do repositório (opcional, tipo string); | — | não | — | — |
+| — | DataVencimentoInicial - Data de vencimento inicial do documento do repositório, no formato aaaamm-dd (opcional, tipo string); | — | não | — | — |
+| — | DataVencimentoFinal - Data de vencimento final do documento do repositório, no formato aaaamm-dd (opcional, tipo string). | — | não | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `IDArquivo` | Código do documento retornado (tipo int); |
-| — | Convenio - Nome do departamento vinculado ao documento do repositório (tipo int); |
-| — | CPFAssociado - CPF vinculado ao documento do repositório (tipo string); |
-| — | DataCadastro - Data de cadastro do documento retornado, no formato aaaa-mm-dd (tipo string); |
-| — | DataVencimento - Data de vencimento do documento retornado, no formato aaaa-mm-dd (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| `IDArquivo` | Código do documento retornado | int | — | — | — |
+| — | Convenio - Nome do departamento vinculado ao documento do repositório | int | — | — | — |
+| — | CPFAssociado - CPF vinculado ao documento do repositório | string | — | — | — |
+| — | DataCadastro - Data de cadastro do documento retornado, no formato aaaa-mm-dd | string | — | — | — |
+| — | DataVencimento - Data de vencimento do documento retornado, no formato aaaa-mm-dd | string | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -85,4 +97,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListDocumentosRepositorioAC`

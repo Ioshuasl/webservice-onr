@@ -37,41 +37,56 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- Envelope completo na ordem WSDL — opcionais omitidos podem gerar erro **0** / `IDMsg` (.NET).
+- [ModoNotificacaoStatus](../tabelas-dominio/ModoNotificacaoStatus-AT.md): `E` exige e-mail; `S` exige DDD e telefone.
+- [TipoSolicitacao](../tabelas-dominio/TipoSolicitacao-AT.md) e [IDTipoStatus](../tabelas-dominio/IDTipoStatus-AT.md) no status inicial.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `InsertTituloAT_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `Protocolo`
+3. `ApresentanteNome`
+4. `ApresentanteEmail`
+5. `ApresentanteDDDTelefone`
+6. `ApresentanteNumeroTelefone`
+7. `ApresentanteCPFCNPJ`
+8. `ValorDeposito`
+9. `ValorEmolumentos`
+10. `DataProtocolo`
+11. `DataPrevisaoEntrega`
+12. `ModoNotificacaoStatus`
+13. `InteressadoNome`
+14. `InteressadoCPFCNPJ`
+15. `NaturezaTitulo`
+16. `CodigoVerificador`
+17. `TipoSolicitacao`
+18. `IDTipoStatus`
+19. `DataStatus`
+20. `DescricaoStatus`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem – tipo string(50); |
-| `Protocolo` | Protocolo do título – tipo string(11); |
-| `ApresentanteNome` | Nome do apresentante – tipo string(120); |
-| `ApresentanteEmail` | E-mail do apresentante – opcional (obrigatório se ModoNotificacaoStatus = E) – tipo string(120); |
-| `ApresentanteDDDTelefone` | DDD do telefone do apresentante – opcional (obrigatório se ModoNotificacaoStatus = S) –  tipostring(4); |
-| `ApresentanteNumeroTelefone` | Número do telefone do apresentante – opcional (obrigatório se ModoNotificacaoStatus = S) – tipo string(15); |
-| `ApresentanteCPFCNPJ` | CPF/CNPJ do apresentante – opcional –  tipostring(14); |
-| `ValorDeposito` | Valor do depósito – opcional –  tipo decimal; |
-| `ValorEmolumentos` | Valor dos emolumentos – opcional –  tipo decimal; |
-| `DataProtocolo` | Data do protocolo. Formato: aaaa-mm-ddhh:mm:ss – tipo string(19); |
-| `DataPrevisaoEntrega` | Data de previsão de entrega . Formato: aaaa-mm-ddhh:mm:ss – tipo string(19); |
-| `ModoNotificacaoStatus` | Modo de notificação – tipo string(1). Valores permitidos: |
-| `InteressadoNome` | Nome do interessado – tipo string(120); |
-| `InteressadoCPFCNPJ` | CPF/CNPJ do interessado – opcional –  tipostring(14); |
-| `NaturezaTitulo` | Natureza do título – tipo string(150); |
-| `CodigoVerificador` | Código verificador – opcional –  tipostring(20); |
-| `TipoSolicitacao` | Tipo da solicitação – tipo int. Valores permitidos: |
-| `IDTipoStatus` | Código do tipo de status – verificar tipos permitidos no item 3.2.1 – tipo int; |
-| `DataStatus` | Data do Status. Formato: aaaa-mm-ddhh:mm:ss – tipo string(19); |
-| `DescricaoStatus` | Descrição do Status (obs.: A nota de devolução deve ser informada nesse campo) – opcional –  tipotext. |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `Protocolo` | Número do protocolo | string | sim | — | 20250100001 |
+| `ModoNotificacaoStatus` | Modo de notificação | string(1) | sim | ver [ModoNotificacaoStatus-AT](../tabelas-dominio/ModoNotificacaoStatus-AT.md) | E |
+| `TipoSolicitacao` | Tipo da solicitação | int | sim | ver [TipoSolicitacao-AT](../tabelas-dominio/TipoSolicitacao-AT.md) | 1 |
+| `IDTipoStatus` | Status inicial do título | int | sim | ver [IDTipoStatus-AT](../tabelas-dominio/IDTipoStatus-AT.md) | 4 |
+| `_(+ demais campos)_` | Apresentante, valores, datas, interessado — ver `lib/onr_insert_titulo_at` | — | sim | vários opcionais enviados como `""` | — |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método – tipo boolean; |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro – tipo int; |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro – tipo string(200); |
-| `IDTitulo` | (se RETORNO = true)  Código do título cadastrado – tipo int; |
-| `IDStatus` | (se RETORNO = true)  Código do status cadastrado – tipo int. |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `IDTitulo` | ID do título criado | int | sim | se RETORNO=true | 1001 |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -95,10 +110,13 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script: [`scripts/InsertTituloAt/insertTituloAt.py`](../../scripts/InsertTituloAt/insertTituloAt.py)
-
+- Python: [`scripts/InsertTituloAt/insertTituloAt.py`](../../scripts/InsertTituloAt/insertTituloAt.py)
+- JavaScript: [`scripts/InsertTituloAt/insertTituloAt.js`](../../scripts/InsertTituloAt/insertTituloAt.js)
+- Variáveis `.env`: `ACOMPANHAMENTO_TITULOS_INSERT_*`
+- Helper: `lib/onr_insert_titulo_at`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `InsertTituloAT`

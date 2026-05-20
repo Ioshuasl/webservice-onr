@@ -14,7 +14,7 @@ Método do WSOficio — **3.3 Penhora Online**.
 
 - **WSDL (homologação):** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx?wsdl`
 - **Endpoint:** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx`
-- **WSDL local:**`wsdl/penhoraonline.wsdl`
+- **WSDL local:** `wsdl/penhoraonline.wsdl`
 
 ## Hash de autenticação
 
@@ -33,25 +33,38 @@ Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
 | 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
 | 4 | Chamar `SetPedidoMatriculaDevolvidoPO` passando `Hash` + demais parâmetros |
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py).
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- **[IDTipoPedido = 1](../tabelas-dominio/IDTipoPedido-PO.md)** (Certidão por Matrícula) — mesma família que `SetPedidoMatriculaRespondidoPO`.
+- Informar texto em `Resposta` (motivo da devolução).
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `SetPedidoMatriculaDevolvidoPO_WSReq` (`wsdl/penhoraonline.wsdl`):
+
+1. `Hash`
+2. `IDPedido`
+3. `Resposta`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `Resposta` | Resposta do pedido (tipo string); |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDPedido` | Código do pedido matrícula | int | sim | IDTipoPedido=1 | 12345 |
+| `Resposta` | Motivo da devolução | string | sim | — | Documentação incompleta |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 
 ## Códigos de erro (amostra)
 
@@ -59,13 +72,23 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 |--------|-----------|
 | 0 | Erro de sistema. |
 | 10 | Request inválido. |
+| 11 | O Hash de validação não foi informado. |
+| 12 | O IDPedido informado é inválido. |
+| 13 | A Resposta não foi informada. |
+| 45 | Hash inválido. |
+| 46 | Hash inválido: Hash já utilizado. |
+| 47 | Hash inválido: Hash expirado. |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.py`](../../scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.py)
+- JavaScript: [`scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.js`](../../scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.js)
+- Variáveis `.env`: `PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_*` (fallback `PENHORA_ONLINE_ID_PEDIDO`)
+- npm: `npm run set-pedido-matricula-devolvido-po`
 
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPedidoMatriculaDevolvidoPO`

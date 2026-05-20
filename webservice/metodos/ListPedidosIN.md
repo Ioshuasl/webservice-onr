@@ -37,34 +37,46 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<ListPedidosIN_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página (tipo int); |
-| `PageNumber` | Página a ser retornada (tipo int); |
-| `IDStatus` | ID do status do pedido (tipo int), os mesmos podem ser obtidos através do serviço de listagem de status (ListStatusIN); para filtrar todos os status, o valor inserido deve ser 0 (zero); |
-| `Protocolo` | Protocolo do pedido de intimação (tipo string(11)); |
-| — | TipoDataPesquisa - Tipo de Pesquisa (tipo string(1)) pesquisa por padrão "P" data de cadastro do pedido ou "M" data da última mensagem; |
-| `DataInicial` | Data inicial a serem filtrados, formato: aaaa-mm-dd (tipo string) verificando o tipo de pesquisa; |
-| `DataFinal` | Data final a serem filtrados, formato: aaaa-mm-dd (tipo string)verificando o tipo de pesquisa. |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página | int | — | — | — |
+| `PageNumber` | Página a ser retornada | int | — | — | — |
+| `IDStatus` | ID do status do pedido | int | — | — | — |
+| `Protocolo` | Protocolo do pedido de intimação | string(11 | — | — | — |
+| — | TipoDataPesquisa - Tipo de Pesquisa | string(1 | — | — | — |
+| `DataInicial` | Data inicial a serem filtrados, formato: aaaa-mm-dd | string | — | — | — |
+| `DataFinal` | Data final a serem filtrados, formato: aaaa-mm-dd | string | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `QtdeRegistros` | (se RETORNO = true)  Quantidade total de registros encontrados (tipo int); |
-| `QtdePaginas` | (se RETORNO = true)  Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage - (tipo int); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `Protocolo` | Protocolo do registro (tipo string(11)); |
-| `Solicitante` | Nome do solicitante (tipo string(300)) ; |
-| `Status` | Descrição do status do pedido - (tipo string(30)); |
-| `DataPedido` | Data de inclusão do pedido, formato: aaaa-mm-ddhh:mm:ss (tipo string); |
-| `DataStatus` | Data da última mensagem conforme status, formato: aaaa-mm-ddhh:mm:ss (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| `QtdeRegistros` | Quantidade total de registros encontrados | int | — | (se RETORNO = true) | — |
+| `QtdePaginas` | Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage - | int | — | (se RETORNO = true) | — |
+| `IDPedido` | Código do pedido | int | — | — | — |
+| `Protocolo` | Protocolo do registro | string(11 | — | — | — |
+| `Solicitante` | Nome do solicitante | string(300 | — | — | — |
+| `Status` | Descrição do status do pedido - | string(30 | — | — | — |
+| `DataPedido` | Data de inclusão do pedido, formato: aaaa-mm-ddhh:mm:ss | string | — | — | — |
+| `DataStatus` | Data da última mensagem conforme status, formato: aaaa-mm-ddhh:mm:ss | string | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -91,4 +103,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListPedidosIN`

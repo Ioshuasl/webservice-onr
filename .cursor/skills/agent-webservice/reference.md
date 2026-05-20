@@ -15,6 +15,8 @@
 | UpdateStatusAT | `scripts/UpdateStatusAt/updateStatusAt.py` | `scripts/UpdateStatusAt/updateStatusAt.js` | `UPDATE_STATUS_*` · `lib/onr_update_status_at*` |
 | ListStatusAT | `scripts/ListStatusAT/listStatusAt.py` | `scripts/ListStatusAT/listStatusAt.js` | Listas aninhadas |
 | ListPedidosPO | `scripts/ListPedidosPo/listPedidosPo.py` | `scripts/ListPedidosPo/listPedidosPo.js` | Penhora Online · `lib/onr_penhora_online*` |
+| ListPedidosExportacaoPO | `scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.py` | `scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.js` | `PENHORA_ONLINE_DATA_SOLICITACAO_*`, filtros |
+| ListPedidosExportacaoPO_v2 | `scripts/ListPedidosExportacaoPo_v2/listPedidosExportacaoPo_v2.py` | `scripts/ListPedidosExportacaoPo_v2/listPedidosExportacaoPo_v2.js` | Idem v1; + `ValorDaDivida`, percentuais em `Imovel` |
 | ListVarasPO | `scripts/ListVarasPo/listVarasPo.py` | `scripts/ListVarasPo/listVarasPo.js` | Filtros `PENHORA_ONLINE_ID_ESTADO/COMARCA/FORO` |
 | GetPedidoPO | `scripts/GetPedidoPo/getPedidoPo.py` | `scripts/GetPedidoPo/getPedidoPo.js` | `PENHORA_ONLINE_ID_PEDIDO` |
 | ListBoletosPO | `scripts/ListBoletosPo/listBoletosPo.py` | `scripts/ListBoletosPo/listBoletosPo.js` | `PENHORA_ONLINE_ID_PROCESSO` |
@@ -24,6 +26,11 @@
 | SetPenhoraAverbadoPO | `scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.py` | `scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.js` | `PENHORA_ONLINE_SET_PENHORA_AVERBADO_*`, `CERTIDOES_JSON` |
 | SetPenhoraExigenciaPO | `scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.py` | `scripts/SetPenhoraExigenciaPo/setPenhoraExigenciaPo.js` | `PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_*`, `ANEXOS_JSON` |
 | SetPedidoPessoaRespondidoPO | `scripts/SetPedidoPessoaRespondidoPo/setPedidoPessoaRespondidoPo.py` | `scripts/SetPedidoPessoaRespondidoPo/setPedidoPessoaRespondidoPo.js` | `PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_*`, `ANEXOS_JSON` |
+| SetPedidoPessoaDevolvidoPO | `scripts/SetPedidoPessoaDevolvidoPo/setPedidoPessoaDevolvidoPo.py` | `scripts/SetPedidoPessoaDevolvidoPo/setPedidoPessoaDevolvidoPo.js` | `PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_*` |
+| SetPedidoMatriculaRespondidoPO | `scripts/SetPedidoMatriculaRespondidoPo/setPedidoMatriculaRespondidoPo.py` | `scripts/SetPedidoMatriculaRespondidoPo/setPedidoMatriculaRespondidoPo.js` | `PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_*`, `ANEXOS_JSON` |
+| SetPedidoMatriculaDevolvidoPO | `scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.py` | `scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.js` | `PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_*` |
+| SetPedidoNegativaLotePO | `scripts/SetPedidoNegativaLotePo/setPedidoNegativaLotePo.py` | `scripts/SetPedidoNegativaLotePo/setPedidoNegativaLotePo.js` | `PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_*`, `PEDIDOS_JSON` |
+| SetPedidoFinalizarPrenotacaoVencida | `scripts/SetPedidoFinalizarPrenotacaoVencida/setPedidoFinalizarPrenotacaoVencida.py` | `scripts/SetPedidoFinalizarPrenotacaoVencida/setPedidoFinalizarPrenotacaoVencida.js` | `PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_*`, `ANEXOS_JSON` |
 
 ## WSDL ↔ módulo ↔ env
 
@@ -32,8 +39,16 @@
 | Login | `wsdl/login.wsdl` | `https://hml3-wsoficio.onr.org.br/login.asmx` | `ONR_*`, `CERT_*` |
 | Acompanhamento Títulos | `wsdl/acompanhamentotitulos.wsdl` | `.../acompanhamentotitulos.asmx` | `ACOMPANHAMENTO_TITULOS_*` |
 | Penhora Online | `wsdl/penhoraonline.wsdl` | `.../penhoraonline.asmx` | `PENHORA_ONLINE_*` |
-| BD Light | `wsdl/bdlight.wsdl` | `.../bdlight.asmx` | `BDLIGHT_*` |
-| Ofícios | `wsdl/oficios.wsdl` | `.../oficios.asmx` | `OFICIOS_*` |
+| ListArquivosXMLBDL | `scripts/ListArquivosXmlBdl/listArquivosXmlBdl.py` | `scripts/ListArquivosXmlBdl/listArquivosXmlBdl.js` | `BDLIGHT_*`, `DATA_INICIAL`/`FINAL` |
+| GetArquivoXMLBDL | `scripts/GetArquivoXmlBdl/getArquivoXmlBdl.py` | `scripts/GetArquivoXmlBdl/getArquivoXmlBdl.js` | `BDLIGHT_ID_ARQUIVO` |
+| ImportarArquivoBDL | `scripts/ImportarArquivoBdl/importarArquivoBdl.py` | `scripts/ImportarArquivoBdl/importarArquivoBdl.js` | `BDLIGHT_IMPORTAR_URL_*`, `XML_PATH`, `VALIDAR_XML` |
+| SetBDLightAtualizado | `scripts/SetBdlightAtualizado/setBdlightAtualizado.py` | `scripts/SetBdlightAtualizado/setBdlightAtualizado.js` | `BDLIGHT_*` (somente Hash) |
+| ListInstituicoesOE | `scripts/ListInstituicoesOe/listInstituicoesOe.py` | `scripts/ListInstituicoesOe/listInstituicoesOe.js` | `OFICIOS_*` |
+| GetPedidoOE | `scripts/GetPedidoOe/getPedidoOe.py` | `scripts/GetPedidoOe/getPedidoOe.js` | `OFICIOS_ID_PEDIDO` |
+| ListPedidosOE_V2 | `scripts/ListPedidosOe_v2/listPedidosOe_v2.py` | `scripts/ListPedidosOe_v2/listPedidosOe_v2.js` | `OFICIOS_DATA_SOLICITACAO_*`, filtros |
+| SetPedidoRespondidoOE | `scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.py` | `scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.js` | `OFICIOS_SET_PEDIDO_RESPONDIDO_*` |
+| SetPedidoDevolvidoOE | `scripts/SetPedidoDevolvidoOe/setPedidoDevolvidoOe.py` | `scripts/SetPedidoDevolvidoOe/setPedidoDevolvidoOe.js` | `OFICIOS_SET_PEDIDO_DEVOLVIDO_*` |
+| Ofícios (outros) | `wsdl/oficios.wsdl` | `.../oficios.asmx` | `SetPedidoNegativaLoteOE`, `SetPedidoRetransmitidoOE`, … pendentes |
 | Certidões a Emitir | `wsdl/certidoes.wsdl` | `.../Certidoes.asmx` | `CERTIDOES_*` |
 | Comunicação Prefeituras (CTP) | `wsdl/comunicacaoprefeituras.wsdl` | `.../ComunicacaoMunicipios.asmx` | `COMUNICACAO_PREFEITURAS_*` |
 | Matrícula Online | `wsdl/matriculaonline.wsdl` | `.../matriculaonline.asmx` | `MATRICULA_ONLINE_*` |

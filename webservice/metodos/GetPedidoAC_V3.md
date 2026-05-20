@@ -37,58 +37,70 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<GetPedidoAC_V3_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `IDContrato` | ID do contrato obtido da listagem de pedidos (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `IDContrato` | ID do contrato obtido da listagem de pedidos | int | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| — | IDContrato - ID do contrato retornado pelo serviço (tipo int); |
-| — | Protocolo - Protocolo do contrato retornado (tipo string); |
-| — | IDStatus - Código do Status a ser filtrado. Para retornar todos, informar -1. Para uma lista dos valores possíveis abaixo (tipo int): |
-| — | IDCartorio - Código do cartório cujo contrato foi direcionado. Para uma lista dos cartórios possíveis conferir serviço CartoriosListar, item 3.17.1.1  (tipo int); |
-| — | DataRemessa - Data de remessa do contrato obtido, formato: aaaa-mm-dd (tipo string); |
-| — | Solicitante - Nome do solicitante informado na geração do contrato (tipo string); |
-| — | Telefone - Telefone do solicitante informado na geração do contrato (tipo string); |
-| — | Instituicao - Instituição do solicitante informada na geração do contrato (tipo string); |
-| — | Email - E-mail do solicitante informado na geração do contrato (tipo string); |
-| — | TipoDocumento - Tipo do contrato, onde 1 = Escritura Pública (tipo string); |
-| — | TipoServico - Tipo do Serviço indicado, onde 1 = Registro/Averbação e 2 = Exame/Cálculo (tipo string); |
-| — | ImportacaoExtratoXML - Indica se o contrato foi gerado a partir de uma importação de XML (tipo boolean); |
-| `Nome` | nome do apresentante (tipo String); |
-| `CPFCNPJ` | CPF ou CNPJ do apresentante (tipo String); |
-| `Email` | e-mail do apresentante (tipo String); |
-| `Via` | tipo de via correspondente ao endereço do apresentante (tipo String); |
-| `Endereco` | endereço do apresentante (tipo String); |
-| `Numero` | número correspondente ao endereço do apresentante (tipo String); |
-| `Complemento` | complemento correspondente ao endereço do apresentante (tipo String); |
-| `Bairro` | bairro correspondente ao endereço do apresentante (tipo String); |
-| `Cidade` | cidade correspondente ao endereço do apresentante (tipo String); |
-| `Estado` | UF correspondente ao endereço do apresentante (tipo String); |
-| `CEP` | CEP correspondente ao endereço do apresentante (tipo String); |
-| `DDD` | DDD correspondente ao telefone do apresentante (tipo String); |
-| `Telefone` | telefone do apresentante (tipo String); |
-| — | PrenotacaoNumero - Quando prenotado, contém o número da prenotação (tipo string); |
-| — | PrenotacaoSenha - Quando prenotado, e se a senha foi informada, contém o dado correspondente (tipo string); |
-| — | PrenotacaoDataInclusao - Quando prenotado, contém a data de inclusão da prenotação no formato aaaa-mm-dd (tipo string); |
-| — | PrenotacaoDataVencimento - Quando prenotado, contém a data de vencimento da prenotação no formato aaaa-mm-dd (tipo string); |
-| — | PrenotacaoDataReenvio - Quando prenotado, e se a prenotaçao foi reenviada, contém a data correspondente no formato aaaa-mm-dd (tipo string); |
-| — | ValorServico - Valor de serviço informado pelo cartório (tipo decimal); |
-| — | DataResposta - Data de resposta do contrato obtido, formato: aaaa-mm-dd (tipo string); |
-| — | Resposta - Resposta fornecida na finalização do contrato (tipo string); |
-| — | DadosAceite - Dados do aceite quando o contrato foi finalizado, contendo nome do responsável e data do aceite no formato aaaa-mm-dd(tipo string); |
-| — | DataCumprimentoRI- Data do informe de cumprimento de exigência pelo RI no formato aaaa-mmdd(tipo string); |
-| `Matricula` | matrícula do imóvel (tipo String); |
-| `Via` | tipo de via correspondente ao endereço do imóvel (tipo String); |
-| … | _+14 parâmetros — ver especificação_ |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| — | IDContrato - ID do contrato retornado pelo serviço | int | — | — | — |
+| — | Protocolo - Protocolo do contrato retornado | string | — | — | — |
+| — | IDStatus - Código do Status a ser filtrado. Para retornar todos, informar -1. Para uma lista dos valores possíveis abaixo | int | — | — | — |
+| — | IDCartorio - Código do cartório cujo contrato foi direcionado. Para uma lista dos cartórios possíveis conferir serviço CartoriosListar, item 3.17.1.1 | int | — | — | — |
+| — | DataRemessa - Data de remessa do contrato obtido, formato: aaaa-mm-dd | string | — | — | — |
+| — | Solicitante - Nome do solicitante informado na geração do contrato | string | — | — | — |
+| — | Telefone - Telefone do solicitante informado na geração do contrato | string | — | — | — |
+| — | Instituicao - Instituição do solicitante informada na geração do contrato | string | — | — | — |
+| — | Email - E-mail do solicitante informado na geração do contrato | string | — | — | — |
+| — | TipoDocumento - Tipo do contrato, onde 1 = Escritura Pública | string | — | — | — |
+| — | TipoServico - Tipo do Serviço indicado, onde 1 = Registro/Averbação e 2 = Exame/Cálculo | string | — | — | — |
+| — | ImportacaoExtratoXML - Indica se o contrato foi gerado a partir de uma importação de XML | boolean | — | — | — |
+| `Nome` | nome do apresentante | String | — | — | — |
+| `CPFCNPJ` | CPF ou CNPJ do apresentante | String | — | — | — |
+| `Email` | e-mail do apresentante | String | — | — | — |
+| `Via` | tipo de via correspondente ao endereço do apresentante | String | — | — | — |
+| `Endereco` | endereço do apresentante | String | — | — | — |
+| `Numero` | número correspondente ao endereço do apresentante | String | — | — | — |
+| `Complemento` | complemento correspondente ao endereço do apresentante | String | — | — | — |
+| `Bairro` | bairro correspondente ao endereço do apresentante | String | — | — | — |
+| `Cidade` | cidade correspondente ao endereço do apresentante | String | — | — | — |
+| `Estado` | UF correspondente ao endereço do apresentante | String | — | — | — |
+| `CEP` | CEP correspondente ao endereço do apresentante | String | — | — | — |
+| `DDD` | DDD correspondente ao telefone do apresentante | String | — | — | — |
+| `Telefone` | telefone do apresentante | String | — | — | — |
+| — | PrenotacaoNumero - Quando prenotado, contém o número da prenotação | string | — | — | — |
+| — | PrenotacaoSenha - Quando prenotado, e se a senha foi informada, contém o dado correspondente | string | — | — | — |
+| — | PrenotacaoDataInclusao - Quando prenotado, contém a data de inclusão da prenotação no formato aaaa-mm-dd | string | — | — | — |
+| — | PrenotacaoDataVencimento - Quando prenotado, contém a data de vencimento da prenotação no formato aaaa-mm-dd | string | — | — | — |
+| — | PrenotacaoDataReenvio - Quando prenotado, e se a prenotaçao foi reenviada, contém a data correspondente no formato aaaa-mm-dd | string | — | — | — |
+| — | ValorServico - Valor de serviço informado pelo cartório | decimal | — | — | — |
+| — | DataResposta - Data de resposta do contrato obtido, formato: aaaa-mm-dd | string | — | — | — |
+| — | Resposta - Resposta fornecida na finalização do contrato | string | — | — | — |
+| — | DadosAceite - Dados do aceite quando o contrato foi finalizado, contendo nome do responsável e data do aceite no formato aaaa-mm-dd | string | — | — | — |
+| — | DataCumprimentoRI- Data do informe de cumprimento de exigência pelo RI no formato aaaa-mmdd | string | — | — | — |
+| `Matricula` | matrícula do imóvel | String | — | — | — |
+| `Via` | tipo de via correspondente ao endereço do imóvel | String | — | — | — |
+| … | _+14 parâmetros — ver especificação_ | — | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -112,4 +124,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `GetPedidoAC_V3`

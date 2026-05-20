@@ -2847,6 +2847,11 @@ Listagem de erros possíveis retornados no envelope de saída:
 
 **3.4 Envio e Controle de Arquivos – Banco de Dados Light** 
 
+> **Desativação do webservice (Indicador Pessoal / BD Light)**  
+> O envio do **Indicador Pessoal** (Banco de Dados Light) via WSOficio foi **desativado em 31/07/2023**.  
+> As operações deste capítulo (`ListArquivosXMLBDL`, `GetArquivoXMLBDL`, `ImportarArquivoBDL`, `SetBDLightAtualizado`) não devem ser usadas em integrações ativas: o ambiente ONR responde com **CODIGOERRO 404** e a mensagem *«O envio do Indicador Pessoal via WS foi desativado em 31/07/2023.»*  
+> O texto abaixo descreve o contrato **histórico** da especificação; para o estado atual do serviço, consultar a ONR.
+
 O ONR disponibiliza o serviço de Envio e Controle de Arquivos – Banco de Dados Light através de web services contemplando as seguintes funcionalidades: 
 
 ## A. Listagem de Arquivos 

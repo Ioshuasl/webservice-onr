@@ -37,58 +37,70 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<GetDetalhesIN_V3_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string(50)); |
-| `IDPedido` | Código do pedido (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string(50 | — | — | — |
+| `IDPedido` | Código do pedido | int | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string(200)); |
-| `IDPedido` | ID do pedido (tipo int); |
-| — | IDStatus - ID do status do pedido (tipo int); |
-| `Protocolo` | Protocolo do pedido de intimação (tipo string(11)); |
-| `Estado` | Estado de solicitação (tipo string(50)); |
-| `Cidade` | Cidade de solicitação (tipo string(100)); |
-| `IDCartorio` | ID do cartório onde a intimação está registrada (tipo int); |
-| `Cartorio` | Descrição do cartório onde a intimação está registrada (tipo string(300)); |
-| `NumeroContrato` | Número do contrato gerado (tipo string(30)); |
-| `DataRemessa` | Data da remessa, formato aaaa-mm-ddhh:mm:ss (tipo string); |
-| `Solicitante` | Nome do solicitante (tipo string(120)); |
-| `SolicitanteCPFCNPJ` | Documento (CPF ou CNPJ) do solicitante (tipo string(14)); |
-| `SolicitanteIM` | Número de Inscrição Municipal do solicitante (tipo string(30)); |
-| `SolicitanteEndereco` | Endereço do solicitante (tipo string(150)); |
-| `SolicitanteNumero` | Número do solicitante (tipo string(10)); |
-| `SolicitanteComplemento` | Complemento do endereço do solicitante (tipo string(10)); |
-| `SolicitanteBairro` | Bairro do solicitante (tipo string(40)); |
-| `SolicitanteCidade` | Cidade do solicitante (tipo string(40)); |
-| `SolicitanteEstado` | Estado do solicitante (tipo string(2)); |
-| `SolicitanteCEP` | CEP do solicitante (tipo string(9)); |
-| `SolicitanteDDD` | DDD do solicitante (tipo string(4)); |
-| `SolicitanteTelefone` | Telefone do solicitante (tipo string(15)); |
-| `SolicitanteEmail` | Email do solicitante (tipo string(60)); |
-| `Credor` | Nome do credor (tipo string(120)); |
-| `CredorCPFCNPJ` | Documento (CPF ou CNPJ) do credor (tipo string(14)); |
-| `CredorIM` | Número de Inscrição Municipal do credor (tipo string(30)); |
-| `CredorEndereco` | Endereço do credor (tipo string(150)); |
-| `CredorNumero` | Número do credor (tipo string(10)); |
-| `CredorComplemento` | Complemento do endereço do credor (tipo string(10)); |
-| `CredorBairro` | Bairro do credor (tipo string(40)); |
-| `CredorCidade` | Cidade do credor (tipo string(40)); |
-| `CredorEstado` | Estado do credor (tipo string(2)); |
-| `CredorCEP` | CEP do credor (tipo string(9)); |
-| `CredorDDD` | DDD do credor (tipo string(4)); |
-| `CredorTelefone` | Telefone do credor (tipo string(15)); |
-| `CredorEmail` | Email do credor (tipo string(60)); |
-| `PrestacaoAgencia` | Dados da agência de cobrança (tipo string(6)); |
-| `PrestacaoEndereco` | Endereço de cobrança (tipo string(150)); |
-| … | _+29 parâmetros — ver especificação_ |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
+| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
+| `ERRODESCRICAO` | Descrição do erro | string(200 | — | (se RETORNO = false) | — |
+| `IDPedido` | ID do pedido | int | — | — | — |
+| — | IDStatus - ID do status do pedido | int | — | — | — |
+| `Protocolo` | Protocolo do pedido de intimação | string(11 | — | — | — |
+| `Estado` | Estado de solicitação | string(50 | — | — | — |
+| `Cidade` | Cidade de solicitação | string(100 | — | — | — |
+| `IDCartorio` | ID do cartório onde a intimação está registrada | int | — | — | — |
+| `Cartorio` | Descrição do cartório onde a intimação está registrada | string(300 | — | — | — |
+| `NumeroContrato` | Número do contrato gerado | string(30 | — | — | — |
+| `DataRemessa` | Data da remessa, formato aaaa-mm-ddhh:mm:ss | string | — | — | — |
+| `Solicitante` | Nome do solicitante | string(120 | — | — | — |
+| `SolicitanteCPFCNPJ` | Documento (CPF ou CNPJ) do solicitante | string(14 | — | — | — |
+| `SolicitanteIM` | Número de Inscrição Municipal do solicitante | string(30 | — | — | — |
+| `SolicitanteEndereco` | Endereço do solicitante | string(150 | — | — | — |
+| `SolicitanteNumero` | Número do solicitante | string(10 | — | — | — |
+| `SolicitanteComplemento` | Complemento do endereço do solicitante | string(10 | — | — | — |
+| `SolicitanteBairro` | Bairro do solicitante | string(40 | — | — | — |
+| `SolicitanteCidade` | Cidade do solicitante | string(40 | — | — | — |
+| `SolicitanteEstado` | Estado do solicitante | string(2 | — | — | — |
+| `SolicitanteCEP` | CEP do solicitante | string(9 | — | — | — |
+| `SolicitanteDDD` | DDD do solicitante | string(4 | — | — | — |
+| `SolicitanteTelefone` | Telefone do solicitante | string(15 | — | — | — |
+| `SolicitanteEmail` | Email do solicitante | string(60 | — | — | — |
+| `Credor` | Nome do credor | string(120 | — | — | — |
+| `CredorCPFCNPJ` | Documento (CPF ou CNPJ) do credor | string(14 | — | — | — |
+| `CredorIM` | Número de Inscrição Municipal do credor | string(30 | — | — | — |
+| `CredorEndereco` | Endereço do credor | string(150 | — | — | — |
+| `CredorNumero` | Número do credor | string(10 | — | — | — |
+| `CredorComplemento` | Complemento do endereço do credor | string(10 | — | — | — |
+| `CredorBairro` | Bairro do credor | string(40 | — | — | — |
+| `CredorCidade` | Cidade do credor | string(40 | — | — | — |
+| `CredorEstado` | Estado do credor | string(2 | — | — | — |
+| `CredorCEP` | CEP do credor | string(9 | — | — | — |
+| `CredorDDD` | DDD do credor | string(4 | — | — | — |
+| `CredorTelefone` | Telefone do credor | string(15 | — | — | — |
+| `CredorEmail` | Email do credor | string(60 | — | — | — |
+| `PrestacaoAgencia` | Dados da agência de cobrança | string(6 | — | — | — |
+| `PrestacaoEndereco` | Endereço de cobrança | string(150 | — | — | — |
+| … | _+29 parâmetros — ver especificação_ | — | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Códigos de erro (amostra)
 
@@ -119,4 +131,5 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `GetDetalhesIN_V3`

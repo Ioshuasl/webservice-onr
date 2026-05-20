@@ -1,6 +1,6 @@
 # GetArquivoXMLBDL
 
-Método do WSOficio — **3.4 Envio e Controle de Arquivos — Banco de Dados Light**.
+Método do WSOficio — **3.4 BD Light**.
 
 ## Resumo
 
@@ -26,63 +26,67 @@ Cálculo (detalhes em [`../hash.md`](../hash.md)):
 Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
 ```
 
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `GetArquivoXMLBDL` passando `Hash` + demais parâmetros |
+Implementação: [`lib/onr_bdlight.py`](../../lib/onr_bdlight.py) · `resolve_auth_hash()`.
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+## Pré-requisitos e validações de negócio
 
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+- `IDArquivo` deve existir e pertencer à serventia autenticada (erro **50** se sem permissão).
+- Obter `IDArquivo` via [`ListArquivosXMLBDL`](ListArquivosXMLBDL.md) ou após [`ImportarArquivoBDL`](ImportarArquivoBDL.md).
+- Status do arquivo: [`IDStatus-BDL`](../tabelas-dominio/IDStatus-BDL.md).
+- `URLArquivo` pode estar indisponível ou expirar após a importação.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `GetArquivoXMLBDL_WSReq` (`wsdl/bdlight.wsdl`):
+
+1. `Hash`
+2. `IDArquivo`
 
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDArquivo` | Código do arquivo (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDArquivo` | Código do arquivo | int | sim | — | 12345 |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-| `IDStatus` | (se RETORNO = true)  Código do status. Cf. status possíveis no item 3.4.2 (tipo int); |
-| `IDUsuario` | (se RETORNO = true)  Código do usuário (tipo int); |
-| `DataImportacao` | (se RETORNO = true)  Data da importação, formato: aaaa-mm-ddhh:mm:ss (tipo string); |
-| `QtdeRegistros` | (se RETORNO = true)  Quantidade de registros importados (tipo int); |
-| `QtdeInvalidos` | Quantidade de CPFs/CNPJs inválidos (tipo int); |
-| `URLArquivo` | (se RETORNO = true)  URL para download do arquivo. Obs.: É possível que o arquivo nem sempre esteja disponível ou disponível apenas por um tempo (tipo string); |
-| `ErrosImportacao` | (se RETORNO = true)  Erros da importação, caso tenha ocorrido erro (tipo |
-| `Invalidos` | (se RETORNO = true) Array contendo informações dos registros inválidos, apresentando as seguintes informações: |
-| `CPFCNPJ` | CPF ou CNPJ inválido (tipo string); |
-| `NomeRazao` | Nome da pessoa (tipo string); |
-| `NMatricula` | Número da matrícula (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `IDStatus` | Status do arquivo | int | sim | se RETORNO=true | 2 |
+| `IDUsuario` | Usuário da importação | int | sim | se RETORNO=true | — |
+| `DataImportacao` | Data/hora importação | string | não | se RETORNO=true | 2025-01-15 10:30:00 |
+| `QtdeRegistros` | Registros importados | int | sim | se RETORNO=true | — |
+| `QtdeInvalidos` | CPF/CNPJ inválidos | int | sim | — | — |
+| `URLArquivo` | URL para download do XML | string | não | se RETORNO=true | — |
+| `ErrosImportacao` | Erros da importação | string | não | se RETORNO=true | — |
+| `Invalidos[].CPFCNPJ` | CPF/CNPJ inválido | string | não | por item | — |
+| `Invalidos[].NomeRazao` | Nome da pessoa | string | não | por item | — |
+| `Invalidos[].NMatricula` | Número da matrícula | string | não | por item | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 12 | O IDArquivo informado é inválido. |
-| 30 | Não foi possível pegar os dados do arquivo. |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 50 | Usuário não tem permissão para acessar o arquivo informado. |
+| 11 | Hash não informado |
+| 12 | IDArquivo inválido |
+| 30 | Não foi possível obter os dados do arquivo |
+| 45–47 | Erros de hash |
+| 50 | Sem permissão para o arquivo |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/GetArquivoXmlBdl/getArquivoXmlBdl.py`](../../scripts/GetArquivoXmlBdl/getArquivoXmlBdl.py)
+- JavaScript: [`scripts/GetArquivoXmlBdl/getArquivoXmlBdl.js`](../../scripts/GetArquivoXmlBdl/getArquivoXmlBdl.js)
+- Lib: [`lib/onr_bdlight.py`](../../lib/onr_bdlight.py) · [`lib/onr_bdlight.js`](../../lib/onr_bdlight.js)
+- Variáveis `.env`: `BDLIGHT_ID_ARQUIVO`, `BDLIGHT_*` (WSDL/endpoint/login)
+- npm: `npm run get-arquivo-xml-bdl`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
+- [`webservice/hash.md`](../hash.md)
 - [`webservice/list-metodos.md`](../list-metodos.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `GetArquivoXMLBDL`
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.4.3–3.4.4

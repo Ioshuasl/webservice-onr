@@ -37,55 +37,65 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+
+## Ordem do envelope (`oRequest`)
+
+_Listar campos na ordem de `<ObterXMLSolicitacoes_v4_WSReq>` no WSDL local._
+
 ## Parâmetros de entrada
 
 _Consultar `especificacao_wsoficio_dev.md` — Envelope de Entrada._
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string). |
-| — | Protocolo - Filtro opcional para um protocolo específico (tipo string) |
-| — | Solicitante - Filtro opcional para o nome do solicitante (tipo string) |
-| — | TipoCertidao - Filtro opcional para o tipo de certidão, baseado na seguinte tabela: |
-| `1` | POSITIVA/NEGATIVA DE PROPRIEDADE |
-| `2` | VINTENÁRIA |
-| `3` | MATRÍCULA – INTEIRO TEOR |
-| `4` | TRANSCRIÇÃO |
-| `5` | PACTO ANTENUPCIAL |
-| `6` | ÔNUS E ALIENAÇÕES |
-| `7` | DOCUMENTO ARQUIVADO |
-| `8` | CONVENÇÃO DE CONDOMÍNIO |
-| `9` | LIVRO3 – GARANTIAS |
-| `10` | OUTROS REGISTROS LIVRO3 – AUXILIAR |
-| `11` | OUTRAS CERTIDÕES |
-| `12` | INTEIRO TEOR, ÔNUS E AÇÕES |
-| `13` | POR QUESITO |
-| `14` | NEGATIVA DE PENHOR |
-| `15` | ÔNUS REAIS E AÇÕES REIPERSECUTÓRIAS |
-| `16` | USUCAPIÃO |
-| `17` | PROPRIEDADE, ÔNUS E ALIENAÇÕES |
-| `18` | CADEIA DOMINIAL (FILIAÇÃO ATÉ ORIGEM) |
-| `19` | AÇÕES REIPERSECUTÓRIAS |
-| `20` | ÔNUS REAIS |
-| `21` | CERTIDÃO DA SITUAÇÃO JURÍDICA ATUALIZADA DO IMÓVEL |
-| `22` | CERTIDÃO AGRONEGÓCIO |
-| — | PedidoPor - Filtro opcional para o tipo de pesquisa, baseado na seguinte tabela: |
-| `1` | ENDEREÇO RUA |
-| `2` | ENDEREÇO EDIFÍCIO |
-| `3` | ENDEREÇO LOTEAMENTO |
-| `4` | MATRÍCULA |
-| `5` | TRANSCRIÇÃO |
-| `6` | PESSOA |
-| `7` | REGISTRO |
-| `8` | PACTUANTES |
-| `9` | ENDEREÇO |
-| `10` | Nº DO PROTOCOLO |
-| `11` | N° DO REGISTRO DO LIVRO 3 |
-| `12` | NOME DO CONDOMÍNIO |
-| `13` | PARA FINS DE USUCAPIÃO |
-| … | _+10 parâmetros — ver especificação_ |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash para validação da mensagem | string | — | — | — |
+| — | Protocolo - Filtro opcional para um protocolo específico | string | não | — | — |
+| — | Solicitante - Filtro opcional para o nome do solicitante | string | não | — | — |
+| — | TipoCertidao - Filtro opcional para o tipo de certidão, baseado na seguinte tabela: | — | não | — | — |
+| `1` | POSITIVA/NEGATIVA DE PROPRIEDADE | — | — | — | — |
+| `2` | VINTENÁRIA | — | — | — | — |
+| `3` | MATRÍCULA – INTEIRO TEOR | — | — | — | — |
+| `4` | TRANSCRIÇÃO | — | — | — | — |
+| `5` | PACTO ANTENUPCIAL | — | — | — | — |
+| `6` | ÔNUS E ALIENAÇÕES | — | — | — | — |
+| `7` | DOCUMENTO ARQUIVADO | — | — | — | — |
+| `8` | CONVENÇÃO DE CONDOMÍNIO | — | — | — | — |
+| `9` | LIVRO3 – GARANTIAS | — | — | — | — |
+| `10` | OUTROS REGISTROS LIVRO3 – AUXILIAR | — | — | — | — |
+| `11` | OUTRAS CERTIDÕES | — | — | — | — |
+| `12` | INTEIRO TEOR, ÔNUS E AÇÕES | — | — | — | — |
+| `13` | POR QUESITO | — | — | — | — |
+| `14` | NEGATIVA DE PENHOR | — | — | — | — |
+| `15` | ÔNUS REAIS E AÇÕES REIPERSECUTÓRIAS | — | — | — | — |
+| `16` | USUCAPIÃO | — | — | — | — |
+| `17` | PROPRIEDADE, ÔNUS E ALIENAÇÕES | — | — | — | — |
+| `18` | CADEIA DOMINIAL (FILIAÇÃO ATÉ ORIGEM) | — | — | — | — |
+| `19` | AÇÕES REIPERSECUTÓRIAS | — | — | — | — |
+| `20` | ÔNUS REAIS | — | — | — | — |
+| `21` | CERTIDÃO DA SITUAÇÃO JURÍDICA ATUALIZADA DO IMÓVEL | — | — | — | — |
+| `22` | CERTIDÃO AGRONEGÓCIO | — | — | — | — |
+| — | PedidoPor - Filtro opcional para o tipo de pesquisa, baseado na seguinte tabela: | — | não | — | — |
+| `1` | ENDEREÇO RUA | — | — | — | — |
+| `2` | ENDEREÇO EDIFÍCIO | — | — | — | — |
+| `3` | ENDEREÇO LOTEAMENTO | — | — | — | — |
+| `4` | MATRÍCULA | — | — | — | — |
+| `5` | TRANSCRIÇÃO | — | — | — | — |
+| `6` | PESSOA | — | — | — | — |
+| `7` | REGISTRO | — | — | — | — |
+| `8` | PACTUANTES | — | — | — | — |
+| `9` | ENDEREÇO | — | — | — | — |
+| `10` | Nº DO PROTOCOLO | — | — | — | — |
+| `11` | N° DO REGISTRO DO LIVRO 3 | — | — | — | — |
+| `12` | NOME DO CONDOMÍNIO | — | — | — | — |
+| `13` | PARA FINS DE USUCAPIÃO | — | — | — | — |
+| … | _+10 parâmetros — ver especificação_ | — | — | — | — |
+
+> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
 
 ## Implementação neste projeto
 
@@ -95,4 +105,5 @@ _Consultar `especificacao_wsoficio_dev.md` — Envelope de Entrada._
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ObterXMLSolicitacoes_v4`

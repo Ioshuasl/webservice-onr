@@ -37,25 +37,39 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- Envelope na ordem WSDL; opcionais omitidos podem falhar (.NET).
+- [IDTipoStatus](../tabelas-dominio/IDTipoStatus-AT.md) válido para o título.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `InsertStatusAT_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `IDTitulo`
+3. `IDTipoStatus`
+4. `DataStatus`
+5. `DescricaoStatus`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem – tipo string(50); |
-| `IDTitulo` | Código do título no Ofício Eletrônico. Código obtido no momento do cadastro do título, ver item 3.2.10 – tipo int; |
-| `IDTipoStatus` | Código do tipo de status – verificar tipos permitidos no item 3.2.1 – tipo int; |
-| `DataStatus` | Data do Status. Formato: aaaa-mm-ddhh:mm:ss – tipo string(19); |
-| `DescricaoStatus` | Descrição do status (obs.: A nota de devolução deve ser informada nesse campo)  – tipo text. |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDTitulo` | Título | int | sim | — | 1001 |
+| `IDTipoStatus` | Tipo de status | int | sim | ver [IDTipoStatus-AT](../tabelas-dominio/IDTipoStatus-AT.md) | 7 |
+| `DataStatus` | Data do status | string | sim | — | 2025-05-19 10:00:00 |
+| `DescricaoStatus` | Descrição | string | sim | — | Nota de exigência |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método – tipo boolean; |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro – tipo int; |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro – tipo string(200); |
-| `IDStatus` | (se RETORNO = true)  Código do status cadastrado – tipo int. |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `IDStatus` | ID do status criado | int | sim | se RETORNO=true | 5001 |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -79,10 +93,13 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script: [`scripts/InsertStatusAt/insertStatusAt.py`](../../scripts/InsertStatusAt/insertStatusAt.py)
-
+- Python: [`scripts/InsertStatusAt/insertStatusAt.py`](../../scripts/InsertStatusAt/insertStatusAt.py)
+- JavaScript: [`scripts/InsertStatusAt/insertStatusAt.js`](../../scripts/InsertStatusAt/insertStatusAt.js)
+- Variáveis `.env`: `ACOMPANHAMENTO_TITULOS_INSERT_STATUS_*`
+- Helper: `lib/onr_insert_status_at`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `InsertStatusAT`

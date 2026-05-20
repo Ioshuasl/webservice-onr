@@ -37,31 +37,32 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- `PENHORA_ONLINE_ID_PROCESSO` de `GetPedidoPO`.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `ListBoletosPO_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `IDProcesso`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDProcesso` | Código do Processo a ser filtrado (tipo int). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDProcesso` | Código do processo | int | sim | — | 2642149 |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-| `IDBoleto` | Código do boleto (tipo int); |
-| `NumeroBoleto` | Número do boleto (tipo string); |
-| `DataGerado` | Data que o boleto foi gerado, formato: aaaa-mm-ddhh:mm:ss (tipo string); |
-| `DataVencimento` | Data de vencimento do boleto, formato: aaaa-mm-ddhh:mm:ss (tipo string); |
-| `DataPagamento` | Data da baixa do boleto, formato: aaaa-mm-ddhh:mm:ss (tipo string); |
-| `ValorBoleto` | Valor do boleto (tipo decimal); |
-| `Pago` | Indica se foi pago (tipo boolean); |
-| `Protocolos` | Protocolos associados com o boleto (tipo string); |
-| `BoletoAnexado` | Indica se o boleto é do tipo anexado ou gerado (tipo boolean); |
-| `URLBoleto` | URL do boleto (tipo string). |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `Boletos` | Lista de boletos | ListBoletosPO_Boleto_WSResp[] | não | se RETORNO=true | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -77,13 +78,12 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script Python: [`scripts/ListBoletosPo/listBoletosPo.py`](../../scripts/ListBoletosPo/listBoletosPo.py)
-- Script JavaScript: [`scripts/ListBoletosPo/listBoletosPo.js`](../../scripts/ListBoletosPo/listBoletosPo.js)
-- Lib: [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py) · [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js)
-- Variável `.env`: `PENHORA_ONLINE_ID_PROCESSO` (campo `IDProcesso` de `GetPedidoPO`)
-
+- Python: [`scripts/ListBoletosPo/listBoletosPo.py`](../../scripts/ListBoletosPo/listBoletosPo.py)
+- JavaScript: [`scripts/ListBoletosPo/listBoletosPo.js`](../../scripts/ListBoletosPo/listBoletosPo.js)
+- Variáveis `.env`: `PENHORA_ONLINE_ID_PROCESSO`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListBoletosPO`

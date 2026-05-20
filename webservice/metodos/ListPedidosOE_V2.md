@@ -1,13 +1,13 @@
 # ListPedidosOE_V2
 
-Método do WSOficio — **3.5 Ofícios**.
+Método do WSOficio — **3.5 Ofícios** (evolução de `ListPedidosOE` com `CNPJInstituicao` por pedido).
 
 ## Resumo
 
 | Campo | Valor |
 |-------|-------|
 | Tipo | Listagem |
-| Módulo | 3.5 Ofícios |
+| Módulo | 3.5 Ofícios Eletrônicos |
 | Operação SOAP | `ListPedidosOE_V2` |
 
 ## Serviço
@@ -18,88 +18,87 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
 
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
+## Pré-requisitos e validações de negócio
 
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
+- `DataSolicitacaoInicial` e `DataSolicitacaoFinal` obrigatórias (aaaa-mm-dd), período máximo **30 dias** (erro **18**).
+- `MaxRowPerPage` mínimo **10** (erro **12**).
+- `IDInstituicao`: **-1** = todas; códigos via [`ListInstituicoesOE`](ListInstituicoesOE.md).
+- `IDTipoPesquisa` / `IDStatus`: **-1** = todos; domínios em spec § 3.5.4 (`GetPedidoOE`).
+- Filtros opcionais de resposta: `DataRespostaInicial` / `DataRespostaFinal` (enviar `""` se não usar).
 
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `ListPedidosOE_V2` passando `Hash` + demais parâmetros |
+## Ordem do envelope (`oRequest`)
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+Tipo `ListPedidosOE_V2_WSReq` (`wsdl/oficios.wsdl`):
 
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+1. `Hash`
+2. `MaxRowPerPage`
+3. `PageNumber`
+4. `Protocolo`
+5. `IDInstituicao`
+6. `IDTipoPesquisa`
+7. `IDStatus`
+8. `DataSolicitacaoInicial`
+9. `DataSolicitacaoFinal`
+10. `DataRespostaInicial`
+11. `DataRespostaFinal`
 
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `MaxRowPerPage` | Quantidade máxima de registros a serem retornados por página (tipo int); |
-| `PageNumber` | Página a ser retornada (tipo int); |
-| `Protocolo` | Protocolo a ser filtrado – opcional (tipo string); |
-| `IDInstituicao` | Código da Instituição solicitante a ser filtrado. Para retornar todos, informar -1. Para obter os códigos das Instituições conferir o método ListInstituicoesOE, item 3.5.1 (tipo int); |
-| `IDTipoPesquisa` | Código do Tipo de Pesquisa a ser filtrado. Para retornar todos, informar -1. Para uma lista dos valores possíveis, conferir o item 3.5.4 (tipo int); |
-| `IDStatus` | Código do Status a ser filtrado. Para retornar todos, informar -1. Para uma lista dos valores possíveis, conferir o item 3.5.4 (tipo int); |
-| `DataSolicitacaoInicial` | Data inicial da solicitação a ser filtrada, formato: aaaa-mm-dd (tipo string); |
-| `DataSolicitacaoFinal` | Data final da solicitação a ser filtrada, formato: aaaa-mm-dd (tipo string); |
-| `DataRespostaInicial` | Data inicial da resposta a ser filtrada, formato: aaaa-mm-dd - opcional (tipo string); |
-| `DataRespostaFinal` | Data final da resposta a ser filtrada, formato: aaaa-mm-dd - opcional (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `MaxRowPerPage` | Registros por página (mín. 10) | int | sim | — | 50 |
+| `PageNumber` | Página | int | sim | — | 1 |
+| `Protocolo` | Filtro por protocolo | string | não | — | — |
+| `IDInstituicao` | Instituição (-1 = todas) | int | sim | — | -1 |
+| `IDTipoPesquisa` | Tipo pesquisa (-1 = todos) | int | sim | — | -1 |
+| `IDStatus` | Status (-1 = todos) | int | sim | — | -1 |
+| `DataSolicitacaoInicial` | Data início solicitação | string | sim | aaaa-mm-dd | 2025-01-01 |
+| `DataSolicitacaoFinal` | Data fim solicitação | string | sim | máx. 30 dias | 2025-01-31 |
+| `DataRespostaInicial` | Filtro resposta início | string | não | — | — |
+| `DataRespostaFinal` | Filtro resposta fim | string | não | — | — |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-| `QtdeRegistros` | (se RETORNO = true)  Quantidade total de registros encontrados (tipo int); |
-| `QtdePaginas` | (se RETORNO = true)  Quantidade total de páginas, de acordo com o total de registros encontrados e com a quantidade máxima de registros por página que foi informada no envelope de entrada - MaxRowPerPage - (tipo int); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `IDStatus` | Código do Status.  Para uma lista dos valores possíveis, conferir o item 3.5.4 (tipo int); |
-| `IDInstituicao` | Código da Instituição solicitante (tipo int); |
-| `CNPJInstituicao` | CNPJ da Instituição solicitante (tipo string); |
-| `Instituicao` | Nome da Instituição solicitante (tipo string); |
-| `IDTipoPesquisa` | Código do Tipo de Pesquisa.  Para uma lista dos valores possíveis, conferir o item 3.5.4 (tipo int); |
-| `Protocolo` | Protocolo do título (tipo string); |
-| `NumeroOficio` | Número do Ofício (tipo string); |
-| `DataSolicitacao` | Data do pedido, formato: aaaa-mm-dd (tipo string); |
-| `DataResposta` | Data da resposta, formato: aaaa-mm-dd (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `QtdeRegistros` | Total de registros | int | sim | se RETORNO=true | — |
+| `QtdePaginas` | Total de páginas | int | sim | se RETORNO=true | — |
+| `Pedidos[].IDPedido` | Código do pedido | int | sim | por item | — |
+| `Pedidos[].IDStatus` | Status | int | sim | por item | — |
+| `Pedidos[].IDInstituicao` | Instituição | int | sim | por item | — |
+| `Pedidos[].CNPJInstituicao` | CNPJ da instituição | string | não | **v2** | — |
+| `Pedidos[].Instituicao` | Nome da instituição | string | não | por item | — |
+| `Pedidos[].IDTipoPesquisa` | Tipo de pesquisa | int | sim | por item | — |
+| `Pedidos[].Protocolo` | Protocolo | string | não | por item | — |
+| `Pedidos[].NumeroOficio` | Número do ofício | string | não | por item | — |
+| `Pedidos[].DataSolicitacao` | Data solicitação | string | não | por item | — |
+| `Pedidos[].DataResposta` | Data resposta | string | não | por item | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 12 | A quantidade de registros por página informada é inválida. A quantidade mínima permitida é 10. |
-| 13 | A página informada é inválida. |
-| 14 | A data de solicitação inicial não foi informada. |
-| 15 | A data de solicitação inicial informada é inválida. |
-| 16 | A data de solicitação final não foi informada. |
-| 17 | A data de solicitação final informada é inválida. |
-| 18 | O período da data de solicitação não pode ser maior que 30 dias. |
-| 19 | A data da resposta inicial informada é inválida. |
-| 20 | A data da resposta final informada é inválida. |
-| 30 | A página informada é inválida. Página máxima possível: [PAGINA] |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| … | _+2 códigos na especificação_ |
+| 12–20 | Paginação / datas inválidas ou ausentes |
+| 18 | Período > 30 dias |
+| 30 | Página além do máximo |
+| 45–47 | Erros de hash |
+| 51 | Não foi possível obter os pedidos |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/ListPedidosOe_v2/listPedidosOe_v2.py`](../../scripts/ListPedidosOe_v2/listPedidosOe_v2.py)
+- JavaScript: [`scripts/ListPedidosOe_v2/listPedidosOe_v2.js`](../../scripts/ListPedidosOe_v2/listPedidosOe_v2.js)
+- Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js)
+- Variáveis `.env`: `OFICIOS_DATA_SOLICITACAO_*`, `OFICIOS_MAX_ROW_PER_PAGE`, filtros `OFICIOS_*`
+- npm: `npm run list-pedidos-oe-v2`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListPedidosOE_V2`
+- [`webservice/hash.md`](../hash.md)
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.5.7–3.5.8

@@ -63,9 +63,16 @@ Total: **81 métodos** em **10 módulos**.
 
 ---
 
-## 3.4 Envio e Controle de Arquivos — Banco de Dados Light
+## 3.4 Envio e Controle de Arquivos — Banco de Dados Light (Indicador Pessoal / BD Light)
 
-**WSDL (homologação):** `https://hml3-wsoficio.onr.org.br/bdlight.asmx?wsdl`
+> **Serviço desativado via webservice (31/07/2023)**  
+> O envio do **Indicador Pessoal** (Banco de Dados Light) pelo WSOficio foi descontinuado pela ONR em **31/07/2023**.  
+> Em homologação/produção as operações deste capítulo tendem a falhar com **CODIGOERRO 404** e mensagem:  
+> *«O envio do Indicador Pessoal via WS foi desativado em 31/07/2023.»*  
+> Os métodos abaixo permanecem na especificação e no repositório apenas como **referência histórica**; os scripts em `scripts/*Bdl*` não devem ser usados para integração ativa.
+
+**WSDL (homologação — legado):** `https://hml3-wsoficio.onr.org.br/bdlight.asmx?wsdl`  
+**WSDL local:** `wsdl/bdlight.wsdl`
 
 | # | Método |
 |---|--------|
@@ -279,5 +286,6 @@ Estes capítulos existem na especificação, mas **não** trazem a seção *Mét
 
 | Capítulo | Observação |
 |----------|------------|
+| 3.4 BD Light (Indicador Pessoal) | Spec e scripts no repo; **WS desativado em 31/07/2023** (erro 404) |
 | 3.7 Consulta CPF/CNPJ | Em desenvolvimento |
 | 3.8 Consulta Eletrônica / Rel. CE | Em desenvolvimento |

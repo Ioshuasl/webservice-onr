@@ -6,8 +6,8 @@ Método do WSOficio — **3.5 Ofícios**.
 
 | Campo | Valor |
 |-------|-------|
-| Tipo | Atualização / comando |
-| Módulo | 3.5 Ofícios |
+| Tipo | Escrita / devolução |
+| Módulo | 3.5 Ofícios Eletrônicos |
 | Operação SOAP | `SetPedidoDevolvidoOE` |
 
 ## Serviço
@@ -18,64 +18,61 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
 
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
+## Pré-requisitos e validações de negócio
 
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
+- **Pré-validação local (scripts):** antes de `SetPedidoDevolvidoOE`, o script chama `GetPedidoOE` e bloqueia se `IDStatus=3` (já devolvido), `IDStatus=2` (Respondido — erro **53**), ou se `DataResposta` / `Resposta` já estiverem preenchidos. Usa dois tokens do login (`ONR_HASH_TOKEN_INDEX` e `+1`). Desligar: `OFICIOS_SET_PEDIDO_DEVOLVIDO_SKIP_VALIDAR_STATUS=true`.
+- Pedido em status elegível (em geral **Aberto**, `IDStatus=1` — ver spec § 3.5.4 em [`GetPedidoOE.md`](GetPedidoOE.md)).
+- `MotivoDevolucao` obrigatório (erro **13**).
+- Não confundir com `SetPedidoRespondidoOE` (resposta com anexos `.p7s`).
 
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `SetPedidoDevolvidoOE` passando `Hash` + demais parâmetros |
+Status após devolução: `IDStatus=3` (Devolvido) — spec § 3.5.4.
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+## Ordem do envelope (`oRequest`)
 
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Tipo `SetPedidoDevolvidoOE_WSReq` (`wsdl/oficios.wsdl`):
+
+1. `Hash`
+2. `IDPedido`
+3. `MotivoDevolucao`
 
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `MotivoDevolucao` | Motivo da devolução (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDPedido` | Código do pedido | int | sim | — | — |
+| `MotivoDevolucao` | Motivo da devolução | string | sim | — | Documentação incompleta no ofício |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 12 | O IDPedido informado é inválido. |
-| 13 | O MotivoDevolucao não foi informado. |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 51 | Não foi possível pegar os dados do pedido. |
-| 52 | Usuário não tem permissão para cadastrar resposta para esse pedido. |
-| 53 | Pedido já respondido. |
-| 54 | Não foi possível responder o pedido. |
+| 12 | IDPedido inválido |
+| 13 | MotivoDevolucao não informado |
+| 45–47 | Erros de hash |
+| 51–54 | Pedido / permissão / devolução |
+| 53 | Pedido já respondido |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/SetPedidoDevolvidoOe/setPedidoDevolvidoOe.py`](../../scripts/SetPedidoDevolvidoOe/setPedidoDevolvidoOe.py)
+- JavaScript: [`scripts/SetPedidoDevolvidoOe/setPedidoDevolvidoOe.js`](../../scripts/SetPedidoDevolvidoOe/setPedidoDevolvidoOe.js)
+- Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js)
+- Pré-validação: [`lib/onr_oficios_devolvido.py`](../../lib/onr_oficios_devolvido.py) · [`lib/onr_oficios_devolvido.js`](../../lib/onr_oficios_devolvido.js)
+- Variáveis `.env`: `OFICIOS_SET_PEDIDO_DEVOLVIDO_*` (ou `OFICIOS_ID_PEDIDO`)
+- npm: `npm run set-pedido-devolvido-oe`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPedidoDevolvidoOE`
+- [`webservice/hash.md`](../hash.md)
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.5.13–3.5.14

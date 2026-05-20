@@ -14,7 +14,7 @@ Método do WSOficio — **3.3 Penhora Online**.
 
 - **WSDL (homologação):** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx?wsdl`
 - **Endpoint:** `https://hml3-wsoficio.onr.org.br/penhoraonline.asmx`
-- **WSDL local:**`wsdl/penhoraonline.wsdl`
+- **WSDL local:** `wsdl/penhoraonline.wsdl`
 
 ## Hash de autenticação
 
@@ -37,24 +37,39 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- **[IDTipoPedido = 3](../tabelas-dominio/IDTipoPedido-PO.md)** — erro **53**.
+- Prenotação e pagamento conforme spec (erros **54–56**).
+- Ao menos uma certidão (`CertidaoPenhora`) com URL pública; spec **.p7s** (homolog pode aceitar `.pdf`).
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `SetPenhoraAverbadoPO_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `IDPedido`
+3. `Resposta`
+4. `CertidaoPenhora`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string); |
-| `IDPedido` | Código do pedido (tipo int); |
-| `Resposta` | Resposta do pedido (tipo string); |
-| `Matricula` | Número da matrícula (tipo string); |
-| `URLArquivo` | URL do arquivo. O cartório precisa informar uma URL válida para download do arquivo anexado. Os arquivos informados serão colocados em uma fila e serão baixados posteriormente pelo sistema do Ofício Eletrônico. O pedido não será efetivamente respondido antes que todos os arquivos sejam baixados. (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDPedido` | Pedido penhora | int | sim | IDTipoPedido=3 | 18014820 |
+| `Resposta` | Texto da resposta | string | sim | — | Penhora averbada conforme mandado. |
+| `CertidaoPenhora` | Lista de certidões | ArrayOf… | sim | — | — |
+| `CertidaoPenhora[].Matricula` | Matrícula | string | sim | por item | 12345 |
+| `CertidaoPenhora[].URLArquivo` | URL do arquivo | string | sim | por item | https://…/doc.p7s |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -77,15 +92,12 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script Python: [`scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.py`](../../scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.py)
-- Script JavaScript: [`scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.js`](../../scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.js)
-- Lib: [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py) · [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js)
-- Variáveis `.env`: `PENHORA_ONLINE_SET_PENHORA_AVERBADO_RESPOSTA`, certidões via `MATRICULA`+`URL_ARQUIVO` ou `CERTIDOES_JSON`
-- **Atenção:** spec § 3.3.15 cita apenas `.p7s` (erro **104**); em **homologação (hml3)** `.pdf` em URL pública também foi aceito nos testes. Produção: preferir `.p7s`. Pedido só conclui após download pelo ONR (ver **502**)
-- Variante DocID (`SetPenhoraAverbadoPO_DocID`) não implementada neste projeto
-
+- Python: [`scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.py`](../../scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.py)
+- JavaScript: [`scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.js`](../../scripts/SetPenhoraAverbadoPo/setPenhoraAverbadoPo.js)
+- Variáveis `.env`: `PENHORA_ONLINE_SET_PENHORA_AVERBADO_*`, `CERTIDOES_JSON`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPenhoraAverbadoPO`

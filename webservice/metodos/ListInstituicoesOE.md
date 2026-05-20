@@ -6,8 +6,8 @@ Método do WSOficio — **3.5 Ofícios**.
 
 | Campo | Valor |
 |-------|-------|
-| Tipo | Listagem |
-| Módulo | 3.5 Ofícios |
+| Tipo | Listagem / domínio |
+| Módulo | 3.5 Ofícios Eletrônicos |
 | Operação SOAP | `ListInstituicoesOE` |
 
 ## Serviço
@@ -18,59 +18,55 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
+Parâmetro obrigatório **`Hash`** no envelope de entrada.
 
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
 
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
+## Pré-requisitos e validações de negócio
 
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `ListInstituicoesOE` passando `Hash` + demais parâmetros |
+- Retorna o catálogo de **instituições solicitantes** para filtros em `ListPedidosOE` / `ListPedidosOE_V2` (`IDInstituicao`; use **-1** para todas).
+- Não exige parâmetros além do `Hash`.
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+## Ordem do envelope (`oRequest`)
 
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Tipo `ListInstituicoesOE_WSReq` (`wsdl/oficios.wsdl`):
+
+1. `Hash`
 
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método (tipo boolean); |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro (tipo int); |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro (tipo string); |
-| `IDInstituicao` | Código da Instituição (tipo int); |
-| `Instituicao` | Nome da Instituição (tipo string). |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `Instituicoes[].IDInstituicao` | Código da instituição | int | sim | por item | — |
+| `Instituicoes[].Instituicao` | Nome da instituição | string | não | por item | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 51 | Não foi possível obter as Instituições. |
+| 11 | Hash não informado |
+| 45–47 | Erros de hash |
+| 51 | Não foi possível obter as instituições |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/ListInstituicoesOe/listInstituicoesOe.py`](../../scripts/ListInstituicoesOe/listInstituicoesOe.py)
+- JavaScript: [`scripts/ListInstituicoesOe/listInstituicoesOe.js`](../../scripts/ListInstituicoesOe/listInstituicoesOe.js)
+- Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js)
+- Variáveis `.env`: `OFICIOS_WSDL_PATH`, `OFICIOS_ENDPOINT`, `OFICIOS_AUTO_LOGIN`
+- npm: `npm run list-instituicoes-oe`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
+- [`webservice/hash.md`](../hash.md)
 - [`webservice/list-metodos.md`](../list-metodos.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ListInstituicoesOE`
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.5.1–3.5.2

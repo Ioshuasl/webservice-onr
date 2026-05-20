@@ -37,21 +37,31 @@ Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
+## Pré-requisitos e validações de negócio
+
+- Título existente e permissão de exclusão.
+
+## Ordem do envelope (`oRequest`)
+
+Tipo `DeleteTituloAT_WSReq` (ordem usada nos scripts):
+
+1. `Hash`
+2. `IDTitulo`
+
 ## Parâmetros de entrada
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `Hash` | Hash para validação da mensagem – tipo string(50); |
-| `IDTitulo` | Código do cadastro do título – tipo int; |
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDTitulo` | Título a excluir | int | sim | — | 1001 |
 
 ## Parâmetros de saída
 
-| Parâmetro | Descrição |
-|-----------|-----------|
-| `RETORNO` | Indica se houve erro ou não na execução do método – tipo boolean; |
-| `CODIGOERRO` | (se RETORNO = false) Código do erro – tipo int; |
-| `ERRODESCRICAO` | (se RETORNO = false) Descrição do erro – tipo string(200); |
-
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
@@ -68,10 +78,12 @@ Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirad
 
 ## Implementação neste projeto
 
-- Script: [`scripts/DeleteTituloAt/deleteTituloAt.py`](../../scripts/DeleteTituloAt/deleteTituloAt.py)
-
+- Python: [`scripts/DeleteTituloAt/deleteTituloAt.py`](../../scripts/DeleteTituloAt/deleteTituloAt.py)
+- JavaScript: [`scripts/DeleteTituloAt/deleteTituloAt.js`](../../scripts/DeleteTituloAt/deleteTituloAt.js)
+- Variáveis `.env`: `DELETE_ID_TITULO` ou `ACOMPANHAMENTO_TITULOS_ID_TITULO`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`
 - [`webservice/list-metodos.md`](../list-metodos.md)
+- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
 - [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `DeleteTituloAT`
