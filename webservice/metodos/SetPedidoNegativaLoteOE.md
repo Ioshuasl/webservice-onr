@@ -6,8 +6,8 @@ Método do WSOficio — **3.5 Ofícios**.
 
 | Campo | Valor |
 |-------|-------|
-| Tipo | Atualização / comando |
-| Módulo | 3.5 Ofícios |
+| Tipo | Escrita / negativa em lote |
+| Módulo | 3.5 Ofícios Eletrônicos |
 | Operação SOAP | `SetPedidoNegativaLoteOE` |
 
 ## Serviço
@@ -18,80 +18,61 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
-
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
-
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
-
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `SetPedidoNegativaLoteOE` passando `Hash` + demais parâmetros |
-
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
-
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
 
 ## Pré-requisitos e validações de negócio
 
-_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+- Pelo menos um `IDPedido` em `Pedidos` (erro **12**).
+- Pedidos em status elegível para negativa (não respondido — erro **154** por item).
+- Resposta por pedido em `Pedidos[]` com `RETORNO`, `CODIGOERRO`, `ERRODESCRICAO`, `IDPedido` (spec § 3.5.16).
+- Diferente de `SetPedidoNegativaLotePO` (Penhora): Ofícios usa `ArrayOfInt` (`int[]`), não array de objetos `IDPedido`.
+
+Status após negativa: conforme fluxo ONR (consultar `GetPedidoOE` / `ListPedidosOE_V2`).
 
 ## Ordem do envelope (`oRequest`)
 
-_Listar campos na ordem de `<SetPedidoNegativaLoteOE_WSReq>` no WSDL local._
+Tipo `SetPedidoNegativaLoteOE_WSReq` (`wsdl/oficios.wsdl`):
+
+1. `Hash`
+2. `Pedidos` → `ArrayOfInt`
+   - `int` (repetido, um por pedido)
 
 ## Parâmetros de entrada
 
 | Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
 |-------|-----------|------|-------------|-------------|---------|
-| `Hash` | Hash para validação da mensagem | string | — | — | — |
-| `Pedidos` | Código dos pedidos a serem negativados (array de int). | — | — | — | — |
-
-> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `Pedidos` | IDs dos pedidos a negativar | `ArrayOfInt` | sim | — | `{ "int": [101, 102] }` |
 
 ## Parâmetros de saída
 
 | Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
 |-------|-----------|------|-------------|-------------|---------|
-| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
-| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
-| `ERRODESCRICAO` | Descrição do erro | string | — | (se RETORNO = false) | — |
-| `IDPedido` | Código do pedido | int | — | — | — |
-| `RETORNO` | Indica se houve erro ou não ao negativar o pedido ref. IDPedido. | boolean | — | — | — |
-| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
-| `ERRODESCRICAO` | Descrição do erro | string | — | (se RETORNO = false) | — |
-
-> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
+| `RETORNO` | Sucesso global | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro global | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro global | string | não | se RETORNO=false | — |
+| `Pedidos[].IDPedido` | ID do pedido no lote | int | sim | se RETORNO=true | 101 |
+| `Pedidos[].RETORNO` | Sucesso por pedido | boolean | sim | por item | true |
+| `Pedidos[].CODIGOERRO` | Código por pedido | int | sim | por item | 0 |
+| `Pedidos[].ERRODESCRICAO` | Descrição por pedido | string | não | se item RETORNO=false | — |
 
 ## Códigos de erro (amostra)
 
-| Código | Descrição |
-|--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 12 | Não foi informado nenhum pedido. |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 151 | O IDPedido informado é inválido. |
-| 152 | Não foi possível pegar os dados do pedido. |
-| 153 | Usuário não tem permissão para cadastrar resposta para esse pedido. |
-| 154 | Pedido já respondido. |
-| 155 | Não foi possível responder o pedido. |
+| Código | Escopo | Descrição |
+|--------|--------|-----------|
+| 12 | global | Nenhum pedido informado |
+| 45–47 | global | Erros de hash |
+| 151–155 | por pedido | ID / permissão / já respondido / falha na negativa |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/SetPedidoNegativaLoteOe/setPedidoNegativaLoteOe.py`](../../scripts/SetPedidoNegativaLoteOe/setPedidoNegativaLoteOe.py)
+- JavaScript: [`scripts/SetPedidoNegativaLoteOe/setPedidoNegativaLoteOe.js`](../../scripts/SetPedidoNegativaLoteOe/setPedidoNegativaLoteOe.js)
+- Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios_negativa_lote.py`](../../lib/onr_oficios_negativa_lote.py)
+- Variáveis `.env`: `OFICIOS_SET_PEDIDO_NEGATIVA_LOTE_*` (`PEDIDOS_JSON`, `ID_PEDIDOS` ou `ID_PEDIDO`)
+- npm: `npm run set-pedido-negativa-lote-oe`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPedidoNegativaLoteOE`
+- [`webservice/hash.md`](../hash.md)
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.5.15–3.5.16

@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ROOT>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000141D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>23/01/2025 18:11:52</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Cancelado</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>150.00</VALOR>
+    <SOLICITANTE>
+      <NOME>DOUGLAS ALMEIDA MAIA</NOME>
+      <TELEFONE>19 (19) 9921-85926</TELEFONE>
+      <EMAIL>douglas.maia@onr.org.br</EMAIL>
+      <CPFCNPJ>46045197810</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>13484648</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Alfredo Crepaldi</LOGRADOURO>
+        <NUMERO>199</NUMERO>
+        <COMPLEMENTO />
+        <BAIRRO>JARDIM CIDADE UNIVERSITA</BAIRRO>
+        <CIDADE>Limeira</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>2</TIPO>
+      <PEDIDO_POR>5</PEDIDO_POR>
+      <MATRICULA />
+      <ENDERECO />
+      <TRANSCRICAO>
+        <NUMERO>12134</NUMERO>
+        <LETRA />
+        <LIVRO />
+        <TRANSCRICAO_UNIDADE_LOTE>0</TRANSCRICAO_UNIDADE_LOTE>
+        <INFORMACAO_ADICIONAL />
+      </TRANSCRICAO>
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Não desejo declarar a finalidade, estando ciente de que esta poderá ser exigida pelo Cartório, nas situações legalmente previstas.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000004D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>02/01/2025 17:22:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Devolvido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>100.00</VALOR>
+    <SOLICITANTE>
+      <NOME>HANNAH PATRICIA PEREIRA PIRES</NOME>
+      <TELEFONE>21 993765943</TELEFONE>
+      <EMAIL>hannahmarques2011@hotmail.com</EMAIL>
+      <CPFCNPJ>18534993742</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>21555250</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Igarata</LOGRADOURO>
+        <NUMERO>134</NUMERO>
+        <COMPLEMENTO>01</COMPLEMENTO>
+        <BAIRRO>MARECHAL HERMES</BAIRRO>
+        <CIDADE>Rio de Janeiro</CIDADE>
+        <UF>RJ</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>2</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>123456</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Não desejo declarar a finalidade, estando ciente de que esta poderá ser exigida pelo Cartório, nas situações legalmente previstas.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000025D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>08/01/2025 12:06:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Devolvido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>CAIXA - BPEDO</NOME>
+      <TELEFONE>11 31072531</TELEFONE>
+      <EMAIL />
+      <CPFCNPJ>08286514000167</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>0</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>01319001</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Paula Maria</LOGRADOURO>
+        <NUMERO>321</NUMERO>
+        <COMPLEMENTO>1º e 5º andar</COMPLEMENTO>
+        <BAIRRO>Pinheiros</BAIRRO>
+        <CIDADE>SÃO PAULO</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>9</PEDIDO_POR>
+      <MATRICULA />
+      <ENDERECO>
+        <CEP>00000000</CEP>
+        <ENDERECO>Rua rua teste</ENDERECO>
+        <NUMERO>00</NUMERO>
+        <COMPLEMENTO>?</COMPLEMENTO>
+        <BLOCO_TORRE>?</BLOCO_TORRE>
+        <LOTEAMENTO>?</LOTEAMENTO>
+        <LOTE>?</LOTE>
+        <QUADRA>?</QUADRA>
+        <NUMERO_CONTRIBUINTE>?</NUMERO_CONTRIBUINTE>
+      </ENDERECO>
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO>?</OBSERVACAO>
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000026D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>08/01/2025 12:14:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Devolvido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>CAIXA - BPEDO</NOME>
+      <TELEFONE>11 31072531</TELEFONE>
+      <EMAIL />
+      <CPFCNPJ>08286514000167</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>0</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>01319001</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Paula Maria</LOGRADOURO>
+        <NUMERO>321</NUMERO>
+        <COMPLEMENTO>1º e 5º andar</COMPLEMENTO>
+        <BAIRRO>Pinheiros</BAIRRO>
+        <CIDADE>SÃO PAULO</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>9</PEDIDO_POR>
+      <MATRICULA />
+      <ENDERECO>
+        <CEP>00000000</CEP>
+        <ENDERECO>Rua rua teste</ENDERECO>
+        <NUMERO>00</NUMERO>
+        <COMPLEMENTO />
+        <BLOCO_TORRE />
+        <LOTEAMENTO />
+        <LOTE />
+        <QUADRA />
+        <NUMERO_CONTRIBUINTE />
+      </ENDERECO>
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000027D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>08/01/2025 12:16:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Devolvido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>CAIXA - BPEDO</NOME>
+      <TELEFONE>11 31072531</TELEFONE>
+      <EMAIL />
+      <CPFCNPJ>08286514000167</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>0</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>01319001</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Paula Maria</LOGRADOURO>
+        <NUMERO>321</NUMERO>
+        <COMPLEMENTO>1º e 5º andar</COMPLEMENTO>
+        <BAIRRO>Pinheiros</BAIRRO>
+        <CIDADE>SÃO PAULO</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>9</PEDIDO_POR>
+      <MATRICULA />
+      <ENDERECO>
+        <CEP>00000000</CEP>
+        <ENDERECO>Rua rua teste</ENDERECO>
+        <NUMERO>00</NUMERO>
+        <COMPLEMENTO />
+        <BLOCO_TORRE />
+        <LOTEAMENTO />
+        <LOTE />
+        <QUADRA />
+        <NUMERO_CONTRIBUINTE />
+      </ENDERECO>
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000032D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>08/01/2025 16:18:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>JOAO PAULO SILVA MACHADO</NOME>
+      <TELEFONE>11 1199999999</TELEFONE>
+      <EMAIL>jpmachado.app@gmail.com</EMAIL>
+      <CPFCNPJ>28924128892</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>44444555</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>do Exemplo</LOGRADOURO>
+        <NUMERO>200</NUMERO>
+        <COMPLEMENTO />
+        <BAIRRO>JD. ALVORADA</BAIRRO>
+        <CIDADE>Teste</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>343</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000033D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>08/01/2025 16:18:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>JOAO PAULO SILVA MACHADO</NOME>
+      <TELEFONE>11 1199999999</TELEFONE>
+      <EMAIL>jpmachado.app@gmail.com</EMAIL>
+      <CPFCNPJ>28924128892</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>44444555</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>do Exemplo</LOGRADOURO>
+        <NUMERO>200</NUMERO>
+        <COMPLEMENTO />
+        <BAIRRO>JD. ALVORADA</BAIRRO>
+        <CIDADE>Teste</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>3444</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000034D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>08/01/2025 16:29:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>JOAO PAULO SILVA MACHADO</NOME>
+      <TELEFONE>11 1199999999</TELEFONE>
+      <EMAIL>jpmachado.app@gmail.com</EMAIL>
+      <CPFCNPJ>28924128892</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>44444555</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>do Exemplo</LOGRADOURO>
+        <NUMERO>200</NUMERO>
+        <COMPLEMENTO />
+        <BAIRRO>JD. ALVORADA</BAIRRO>
+        <CIDADE>Teste</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>2525</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>O solicitante da certidão digital é titular de algum direito real registrado sobre o imóvel.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000035D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>08/01/2025 16:29:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>JOAO PAULO SILVA MACHADO</NOME>
+      <TELEFONE>11 1199999999</TELEFONE>
+      <EMAIL>jpmachado.app@gmail.com</EMAIL>
+      <CPFCNPJ>28924128892</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>44444555</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>do Exemplo</LOGRADOURO>
+        <NUMERO>200</NUMERO>
+        <COMPLEMENTO />
+        <BAIRRO>JD. ALVORADA</BAIRRO>
+        <CIDADE>Teste</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>2626</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>O solicitante da certidão digital é titular de algum direito real registrado sobre o imóvel.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000043D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>09/01/2025 08:28:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>TESTE CONVENIO - PO</NOME>
+      <TELEFONE>11 31952293</TELEFONE>
+      <EMAIL>email@teste.com.br</EMAIL>
+      <CPFCNPJ>69287639000104</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL>123132</INSCRICAO_MUNICIPAL>
+      <ISENTO_CCM>0</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>01310921</CEP>
+        <TIPO_LOGRADOURO>Avenida</TIPO_LOGRADOURO>
+        <LOGRADOURO>Paulista</LOGRADOURO>
+        <NUMERO>1776</NUMERO>
+        <COMPLEMENTO>15 andar</COMPLEMENTO>
+        <BAIRRO>Bela Vista</BAIRRO>
+        <CIDADE>SÃO PAULO</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>123</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Não desejo declarar a finalidade, estando ciente de que esta poderá ser exigida pelo Cartório, nas situações legalmente previstas.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000139D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>23/01/2025 18:10:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Devolvido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>DOUGLAS ALMEIDA MAIA</NOME>
+      <TELEFONE>19 (19) 9921-85926</TELEFONE>
+      <EMAIL>douglas.maia@onr.org.br</EMAIL>
+      <CPFCNPJ>46045197810</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>13484648</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Alfredo Crepaldi</LOGRADOURO>
+        <NUMERO>199</NUMERO>
+        <COMPLEMENTO />
+        <BAIRRO>JARDIM CIDADE UNIVERSITA</BAIRRO>
+        <CIDADE>Limeira</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>1234</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Não desejo declarar a finalidade, estando ciente de que esta poderá ser exigida pelo Cartório, nas situações legalmente previstas.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000140D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>23/01/2025 18:10:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>DOUGLAS ALMEIDA MAIA</NOME>
+      <TELEFONE>19 (19) 9921-85926</TELEFONE>
+      <EMAIL>douglas.maia@onr.org.br</EMAIL>
+      <CPFCNPJ>46045197810</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>13484648</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Alfredo Crepaldi</LOGRADOURO>
+        <NUMERO>199</NUMERO>
+        <COMPLEMENTO />
+        <BAIRRO>JARDIM CIDADE UNIVERSITA</BAIRRO>
+        <CIDADE>Limeira</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>4</TIPO>
+      <PEDIDO_POR>9</PEDIDO_POR>
+      <MATRICULA />
+      <ENDERECO>
+        <CEP>00000000</CEP>
+        <ENDERECO>Rua rua teste</ENDERECO>
+        <NUMERO>1</NUMERO>
+        <COMPLEMENTO>teste complemento</COMPLEMENTO>
+        <BLOCO_TORRE>teste bloco</BLOCO_TORRE>
+        <LOTEAMENTO />
+        <LOTE />
+        <QUADRA />
+        <NUMERO_CONTRIBUINTE />
+      </ENDERECO>
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO>teste observações</OBSERVACAO>
+      <TIPOFINALIDADE>Não desejo declarar a finalidade, estando ciente de que esta poderá ser exigida pelo Cartório, nas situações legalmente previstas.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000143D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>26/01/2025 17:24:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>HELOISA DA SILVA FREIRE</NOME>
+      <TELEFONE>18 1896518554</TELEFONE>
+      <EMAIL>heloisafreire13@gmail.com</EMAIL>
+      <CPFCNPJ>45943873813</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>05015000</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Ministro GodÃ³i</LOGRADOURO>
+        <NUMERO>928</NUMERO>
+        <COMPLEMENTO>ape 121</COMPLEMENTO>
+        <BAIRRO>PERDIZES</BAIRRO>
+        <CIDADE>SÃ£o Paulo</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>145</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000144D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>26/01/2025 17:24:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>HELOISA DA SILVA FREIRE</NOME>
+      <TELEFONE>18 1896518554</TELEFONE>
+      <EMAIL>heloisafreire13@gmail.com</EMAIL>
+      <CPFCNPJ>45943873813</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>05015000</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Ministro GodÃ³i</LOGRADOURO>
+        <NUMERO>928</NUMERO>
+        <COMPLEMENTO>ape 121</COMPLEMENTO>
+        <BAIRRO>PERDIZES</BAIRRO>
+        <CIDADE>SÃ£o Paulo</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>157</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000142D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>26/01/2025 17:24:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Devolvido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>HELOISA DA SILVA FREIRE</NOME>
+      <TELEFONE>18 1896518554</TELEFONE>
+      <EMAIL>heloisafreire13@gmail.com</EMAIL>
+      <CPFCNPJ>45943873813</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>05015000</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Ministro GodÃ³i</LOGRADOURO>
+        <NUMERO>928</NUMERO>
+        <COMPLEMENTO>ape 121</COMPLEMENTO>
+        <BAIRRO>PERDIZES</BAIRRO>
+        <CIDADE>SÃ£o Paulo</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>144</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000145D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>26/01/2025 17:37:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Respondido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>HELOISA DA SILVA FREIRE</NOME>
+      <TELEFONE>18 1896518554</TELEFONE>
+      <EMAIL>heloisafreire13@gmail.com</EMAIL>
+      <CPFCNPJ>45943873813</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>1</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>05015000</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Ministro GodÃ³i</LOGRADOURO>
+        <NUMERO>928</NUMERO>
+        <COMPLEMENTO>ape 121</COMPLEMENTO>
+        <BAIRRO>PERDIZES</BAIRRO>
+        <CIDADE>SÃ£o Paulo</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>258</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Investigação jurídico-econômica para fins de avaliação de crédito, solvência ou responsabilidade civil.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+  <PEDIDO_CERTIDAO>
+    <PROTOCOLO_SOLICITACAO>S25010000168D</PROTOCOLO_SOLICITACAO>
+    <DATA_PEDIDO>30/01/2025 18:09:00</DATA_PEDIDO>
+    <STATUS_SOLICITACAO>Devolvido</STATUS_SOLICITACAO>
+    <TIPO_COBRANCA>1</TIPO_COBRANCA>
+    <VALOR>68.77</VALOR>
+    <SOLICITANTE>
+      <NOME>Banco Onr S/A</NOME>
+      <TELEFONE>11 31072531</TELEFONE>
+      <EMAIL>samira.arroyo@onr.org.br</EMAIL>
+      <CPFCNPJ>00057412000168</CPFCNPJ>
+      <INSCRICAO_MUNICIPAL />
+      <ISENTO_CCM>0</ISENTO_CCM>
+      <NUMERO_CCM />
+      <VARA />
+      <ORGAO />
+      <CARGO />
+      <ENDERECO>
+        <CEP>01319001</CEP>
+        <TIPO_LOGRADOURO>Rua</TIPO_LOGRADOURO>
+        <LOGRADOURO>Maria Paula</LOGRADOURO>
+        <NUMERO>333</NUMERO>
+        <COMPLEMENTO>12º andar</COMPLEMENTO>
+        <BAIRRO>alterado para teste</BAIRRO>
+        <CIDADE>SÃO PAULO</CIDADE>
+        <UF>SP</UF>
+      </ENDERECO>
+    </SOLICITANTE>
+    <CERTIDAO>
+      <TIPO>3</TIPO>
+      <PEDIDO_POR>4</PEDIDO_POR>
+      <MATRICULA>
+        <NUMERO>100</NUMERO>
+        <LETRA />
+        <MATRICULA_MAE>0</MATRICULA_MAE>
+        <IDENTIFICACAO_ADICIONAL_MATRICULA_MAE />
+        <NUMERO_ATO />
+      </MATRICULA>
+      <ENDERECO />
+      <TRANSCRICAO />
+      <PESSOA />
+      <PROTOCOLO />
+      <PACTO_ANTENUPCIAL />
+      <CONVENCAO />
+      <LIVRO3 />
+      <POR_BUSCA_DE_GARANTIAS />
+      <OBSERVACAO />
+      <TIPOFINALIDADE>Não desejo declarar a finalidade, estando ciente de que esta poderá ser exigida pelo Cartório, nas situações legalmente previstas.</TIPOFINALIDADE>
+    </CERTIDAO>
+    <NUMERO_PROCESSO />
+  </PEDIDO_CERTIDAO>
+</ROOT>

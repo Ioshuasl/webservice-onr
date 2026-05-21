@@ -80,8 +80,8 @@ Regeneração em lote: `py webservice/generate_metodos.py` gera esqueleto com 6 
 | 3.2 | Acompanhamento de Títulos | `acompanhamentotitulos.asmx` | `ACOMPANHAMENTO_TITULOS_*` | **9/9** (completo) |
 | 3.3 | Penhora Online | `penhoraonline.asmx` · `wsdl/penhoraonline.wsdl` | `PENHORA_ONLINE_*` | **16/16** + `ListPedidosExportacaoPO_v2` · variantes `*_DocID` pendentes |
 | 3.4 | BD Light (Indicador Pessoal) | `bdlight.asmx` · `wsdl/bdlight.wsdl` | `BDLIGHT_*` | **4/4** scripts · **WS desativado 31/07/2023** |
-| 3.5 | Ofícios | `oficios.asmx` · `wsdl/oficios.wsdl` | `OFICIOS_*` | `ListInstituicoesOE`, `GetPedidoOE`, `ListPedidosOE_V2`, `SetPedidoRespondidoOE`, `SetPedidoDevolvidoOE` (5/9) |
-| 3.6 | **Certidões a Emitir** | `Certidoes.asmx` · `wsdl/certidoes.wsdl` | `CERTIDOES_*` | **pendente** (ver abaixo) |
+| 3.5 | Ofícios | `oficios.asmx` · `wsdl/oficios.wsdl` | `OFICIOS_*` | `ListInstituicoesOE`, `GetPedidoOE`, `ListPedidosOE_V2`, `SetPedidoRespondidoOE`, `SetPedidoDevolvidoOE`, `SetPedidoNegativaLoteOE`, `SetPedidoRetransmitidoOE`, `ListCartoriosRestransmitirOE` (8/9) |
+| 3.6 | **Certidões a Emitir** | `Certidoes.asmx` · `wsdl/certidoes.wsdl` | `CERTIDOES_*` | `ObterXMLSolicitacoes_v6`, `DevolverCertidao`, `EnviarAnexoCertidao` (3/11) · demais pendentes |
 | 3.9 | Matrícula Online | `matriculaonline.asmx` | `MATRICULA_ONLINE_*` | pendente |
 | 3.10 | E-Protocolo | `eprotocolo.asmx` | `EPROTOCOLO_*` | pendente |
 | 3.11 | Intimações | `intimacoes.asmx` | `INTIMACOES_*` | pendente |
@@ -165,6 +165,9 @@ scripts/<PastaMetodo>/
 | InsertStatusAT (ordem WSDL) | `lib/onr_insert_status_at` | `lib/onr_insert_status_at.js` |
 | UpdateStatusAT (ordem WSDL) | `lib/onr_update_status_at` | `lib/onr_update_status_at.js` |
 | Penhora Online (config + hash) | `lib/onr_penhora_online` | `lib/onr_penhora_online.js` |
+| Certidões (config + hash) | `lib/onr_certidoes` | `lib/onr_certidoes.js` |
+| Certidões ObterXML (envelope v2) | `lib/onr_certidoes_obter_xml` | `lib/onr_certidoes_obter_xml.js` |
+| Certidões anexo (base64) | `lib/onr_certidoes_anexo` | `lib/onr_certidoes_anexo.js` |
 | BD Light (config + hash) | `lib/onr_bdlight` | `lib/onr_bdlight.js` |
 | BD Light (validação XML) | `lib/onr_bdlight_xml` | `lib/onr_bdlight_xml.js` |
 | Ofícios (config + hash) | `lib/onr_oficios` | `lib/onr_oficios.js` |

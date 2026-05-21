@@ -48,8 +48,14 @@
 | ListPedidosOE_V2 | `scripts/ListPedidosOe_v2/listPedidosOe_v2.py` | `scripts/ListPedidosOe_v2/listPedidosOe_v2.js` | `OFICIOS_DATA_SOLICITACAO_*`, filtros |
 | SetPedidoRespondidoOE | `scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.py` | `scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.js` | `OFICIOS_SET_PEDIDO_RESPONDIDO_*` |
 | SetPedidoDevolvidoOE | `scripts/SetPedidoDevolvidoOe/setPedidoDevolvidoOe.py` | `scripts/SetPedidoDevolvidoOe/setPedidoDevolvidoOe.js` | `OFICIOS_SET_PEDIDO_DEVOLVIDO_*` |
-| Ofícios (outros) | `wsdl/oficios.wsdl` | `.../oficios.asmx` | `SetPedidoNegativaLoteOE`, `SetPedidoRetransmitidoOE`, … pendentes |
-| Certidões a Emitir | `wsdl/certidoes.wsdl` | `.../Certidoes.asmx` | `CERTIDOES_*` |
+| SetPedidoNegativaLoteOE | `scripts/SetPedidoNegativaLoteOe/setPedidoNegativaLoteOe.py` | `scripts/SetPedidoNegativaLoteOe/setPedidoNegativaLoteOe.js` | `OFICIOS_SET_PEDIDO_NEGATIVA_LOTE_*` |
+| SetPedidoRetransmitidoOE | `scripts/SetPedidoRetransmitidoOe/setPedidoRetransmitidoOe.py` | `scripts/SetPedidoRetransmitidoOe/setPedidoRetransmitidoOe.js` | `OFICIOS_SET_PEDIDO_RETRANSMITIDO_*` |
+| ListCartoriosRestransmitirOE | `scripts/ListCartoriosRestransmitirOe/listCartoriosRestransmitirOe.py` | `scripts/ListCartoriosRestransmitirOe/listCartoriosRestransmitirOe.js` | `ONR_*`, `OFICIOS_*` (somente Hash) |
+| Ofícios (outros) | `wsdl/oficios.wsdl` | `.../oficios.asmx` | `ListPedidosOE`, `SetPedidoRespondidoOE_DocID` |
+| ObterXMLSolicitacoes_v6 | `scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.py` | `scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.js` | `CERTIDOES_OBTER_XML_V6_*` |
+| DevolverCertidao | `scripts/DevolverCertidao/devolverCertidao.py` | `scripts/DevolverCertidao/devolverCertidao.js` | `CERTIDOES_DEVOLVER_CERTIDAO_*`, `CERTIDOES_PROTOCOLO` |
+| EnviarAnexoCertidao | `scripts/EnviarAnexoCertidao/enviarAnexoCertidao.py` | `scripts/EnviarAnexoCertidao/enviarAnexoCertidao.js` | `CERTIDOES_ENVIAR_ANEXO_*` |
+| Certidões (outros) | `wsdl/certidoes.wsdl` | `.../Certidoes.asmx` | `FinalizarRespostaCertidao`, `InformarCustasCertidao`, … |
 | Comunicação Prefeituras (CTP) | `wsdl/comunicacaoprefeituras.wsdl` | `.../ComunicacaoMunicipios.asmx` | `COMUNICACAO_PREFEITURAS_*` |
 | Matrícula Online | `wsdl/matriculaonline.wsdl` | `.../matriculaonline.asmx` | `MATRICULA_ONLINE_*` |
 | E-Protocolo | `wsdl/eprotocolo.wsdl` | `.../eprotocolo.asmx` | `EPROTOCOLO_*` |

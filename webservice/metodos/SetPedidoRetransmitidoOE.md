@@ -6,8 +6,8 @@ Método do WSOficio — **3.5 Ofícios**.
 
 | Campo | Valor |
 |-------|-------|
-| Tipo | Atualização / comando |
-| Módulo | 3.5 Ofícios |
+| Tipo | Escrita / retransmissão |
+| Módulo | 3.5 Ofícios Eletrônicos |
 | Operação SOAP | `SetPedidoRetransmitidoOE` |
 
 ## Serviço
@@ -18,79 +18,63 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
-
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
-
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
-
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `SetPedidoRetransmitidoOE` passando `Hash` + demais parâmetros |
-
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
-
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
 
 ## Pré-requisitos e validações de negócio
 
-_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+- **Pré-validação local (scripts):** `GetPedidoOE` antes da escrita — bloqueia `IDStatus=2/3`, `Retransmitido=true`, `IDTipoPesquisa` fora de **1–3** (erro **54/503**), ou resposta já preenchida. Dois tokens (`ONR_HASH_TOKEN_INDEX` + `+1`). Desligar: `OFICIOS_SET_PEDIDO_RETRANSMITIDO_SKIP_VALIDAR_STATUS=true`.
+- `IDCartorio` deve constar em `ListCartoriosRestransmitirOE` (erro **504**).
+- Não retransmitir para o cartório de origem (erro **501**).
+- Apenas pesquisas **Endereço Rua (1)**, **Edifício (2)**, **Loteamento (3)** — spec § 3.5.4.
+- `Observacoes` opcional no WSDL.
 
 ## Ordem do envelope (`oRequest`)
 
-_Listar campos na ordem de `<SetPedidoRetransmitidoOE_WSReq>` no WSDL local._
+Tipo `SetPedidoRetransmitidoOE_WSReq` (`wsdl/oficios.wsdl`):
+
+1. `Hash`
+2. `IDPedido`
+3. `IDCartorio`
+4. `Observacoes` (opcional — omitido pelo script se vazio)
 
 ## Parâmetros de entrada
 
 | Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
 |-------|-----------|------|-------------|-------------|---------|
-| `Hash` | Hash para validação da mensagem | string | — | — | — |
-| `IDPedido` | Código do pedido | int | — | — | — |
-| `IDCartorio` | Código do cartório a ser retransmitido. A lista de cartórios permitidos para retransmissão pode ser obtida pelo método ListCartoriosRestransmitirOE, cf. item 3.5.13 | int | — | — | — |
-| `Observacoes` | Observações - * opcional | string | não | — | — |
-
-> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `IDPedido` | Código do pedido | int | sim | — | — |
+| `IDCartorio` | Cartório destino (`ListCartoriosRestransmitirOE`) | int | sim | — | — |
+| `Observacoes` | Observações da retransmissão | string | não | — | — |
 
 ## Parâmetros de saída
 
 | Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
 |-------|-----------|------|-------------|-------------|---------|
-| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
-| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
-| `ERRODESCRICAO` | Descrição do erro | string | — | (se RETORNO = false) | — |
-
-> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 12 | O IDPedido informado é inválido. |
-| 13 | O IDCartorio informado é inválido. |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 51 | Não foi possível pegar os dados do pedido. |
-| 52 | Usuário não tem permissão para retransmitir para |
-| 55 | Não foi possível retransmitir o pedido. |
-| 501 | O pedido não pode ser retransmitido para o cartório que ele pertence. |
-| 504 | O cartório informado não é permitido. |
+| 12 | IDPedido inválido |
+| 13 | IDCartorio inválido |
+| 45–47 | Erros de hash |
+| 51–55 | Pedido / permissão / tipo / falha |
+| 501 | Mesmo cartório de origem |
+| 502–504 | Já respondido / tipo / cartório não permitido |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/SetPedidoRetransmitidoOe/setPedidoRetransmitidoOe.py`](../../scripts/SetPedidoRetransmitidoOe/setPedidoRetransmitidoOe.py)
+- JavaScript: [`scripts/SetPedidoRetransmitidoOe/setPedidoRetransmitidoOe.js`](../../scripts/SetPedidoRetransmitidoOe/setPedidoRetransmitidoOe.js)
+- Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios_retransmitido.py`](../../lib/onr_oficios_retransmitido.py)
+- Variáveis `.env`: `OFICIOS_SET_PEDIDO_RETRANSMITIDO_*`
+- npm: `npm run set-pedido-retransmitido-oe`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `SetPedidoRetransmitidoOE`
+- [`webservice/hash.md`](../hash.md)
+- [`GetPedidoOE.md`](GetPedidoOE.md) — `IDTipoPesquisa`, `Retransmitido`
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.5.19–3.5.20

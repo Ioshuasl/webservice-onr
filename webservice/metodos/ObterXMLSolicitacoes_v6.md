@@ -6,9 +6,10 @@ Método do WSOficio — **3.6 Certidões a Emitir**.
 
 | Campo | Valor |
 |-------|-------|
-| Tipo | Consulta |
+| Tipo | Consulta / exportação XML |
 | Módulo | 3.6 Certidões a Emitir |
 | Operação SOAP | `ObterXMLSolicitacoes_v6` |
+| Serviço | `Certidoes.asmx` (não Matrícula Online) |
 
 ## Serviço
 
@@ -18,74 +19,74 @@ Método do WSOficio — **3.6 Certidões a Emitir**.
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
-
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
-
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
-
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `ObterXMLSolicitacoes_v6` passando `Hash` + demais parâmetros |
-
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
-
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Implementação: [`lib/onr_certidoes.py`](../../lib/onr_certidoes.py) · `resolve_auth_hash()`.
 
 ## Pré-requisitos e validações de negócio
 
-_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+- Filtros não usados: enviar **string vazia** `""` (spec § 3.6.5).
+- `TipoResposta`: `""`, `D` ou `C` — **somente** com `Status=3` (Respondido); validação local no script (erro **26**).
+- `Status`, `TipoCertidao`, `PesquisaPor`: tabelas na spec § 3.6.5.
+- Saída `XML`: equivalente ao export do portal *Certidões a Emitir / Exportar*.
+- **Não confundir** com `ObterXMLSolicitacoes` / `ObterXMLSolicitacoesV2` (`matriculaonline.asmx`, cap. 3.9).
 
 ## Ordem do envelope (`oRequest`)
 
-_Listar campos na ordem de `<ObterXMLSolicitacoes_v6_WSReq>` no WSDL local._
+Tipo `ObterXMLSolicitacoesv2_WSReq` (`wsdl/certidoes.wsdl`) — compartilhado por v4–v6:
+
+1. `Hash`
+2. `Protocolo`
+3. `Solicitante`
+4. `TipoCertidao`
+5. `PesquisaPor`
+6. `Status`
+7. `TipoResposta`
+8. `DataPedidoDe`
+9. `DataPedidoAte`
+10. `DataConferenciaDe`
+11. `DataConferenciaAte`
 
 ## Parâmetros de entrada
 
-_Consultar `especificacao_wsoficio_dev.md` — Envelope de Entrada._
+| Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
+|-------|-----------|------|-------------|-------------|---------|
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `Protocolo` | Filtro por protocolo | string | não | — | — |
+| `Solicitante` | Nome do solicitante | string | não | — | — |
+| `TipoCertidao` | Tipo de certidão (1–22, spec) | string | não | — | — |
+| `PesquisaPor` | Tipo de pesquisa (4–15, spec) | string | não | — | — |
+| `Status` | Status do pedido (1,2,3,10–13,23, spec) | string | não | — | 1 |
+| `TipoResposta` | `""`, `D` ou `C` | string | não | se Status=3 | — |
+| `DataPedidoDe` | Data inicial pedido (aaaa-mm-dd) | string | não | — | 2025-01-01 |
+| `DataPedidoAte` | Data final pedido | string | não | — | 2025-01-31 |
+| `DataConferenciaDe` | Data inicial resposta | string | não | — | — |
+| `DataConferenciaAte` | Data final resposta | string | não | — | — |
 
 ## Parâmetros de saída
 
 | Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
 |-------|-----------|------|-------------|-------------|---------|
-| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
-| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
-| `ERRODESCRICAO` | Descrição do erro | string | — | (se RETORNO = false) | — |
-
-> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
+| `XML` | Conteúdo XML da exportação | string | não | se RETORNO=true | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 18 | Status Inválido. |
-| 19 | Data inválida em"DataPedidoDe" |
-| 20 | Data inválida em"DataPedidoAte" |
-| 21 | Data inválida em"DataConferenciaDe" |
-| 22 | Data inválida em"DataConferenciaAte" |
-| 23 | Campo "TipoCertidao" deve estar em branco ou entre 1 e 10. |
-| 24 | Campo "PesquisaPor" deve estar em branco ou entre 4 e 12. |
-| 26 | Campo "TipoResposta" inválido. Valores permitidos: "" (vazio), "D" ou "C". Os valores "D" e "C" somente são permitidos se o campo "Sttatus"  estiver preenchido com"3"(Respondido). |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 200 | Não foram localizados registros para exportação |
+| 18–26 | Filtros inválidos (status, datas, tipo resposta) |
+| 45–47 | Erros de hash |
+| 200 | Nenhum registro para exportação |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.py`](../../scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.py)
+- JavaScript: [`scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.js`](../../scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.js)
+- Lib: [`lib/onr_certidoes.py`](../../lib/onr_certidoes.py) · [`lib/onr_certidoes_obter_xml.py`](../../lib/onr_certidoes_obter_xml.py)
+- Variáveis `.env`: `CERTIDOES_*`, `CERTIDOES_OBTER_XML_V6_*`
+- npm: `npm run obter-xml-solicitacoes-v6`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `ObterXMLSolicitacoes_v6`
+- [`webservice/hash.md`](../hash.md)
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.6.5–3.6.6

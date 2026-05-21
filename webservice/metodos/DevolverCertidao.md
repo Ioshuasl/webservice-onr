@@ -6,7 +6,7 @@ Método do WSOficio — **3.6 Certidões a Emitir**.
 
 | Campo | Valor |
 |-------|-------|
-| Tipo | Operação |
+| Tipo | Escrita / devolução |
 | Módulo | 3.6 Certidões a Emitir |
 | Operação SOAP | `DevolverCertidao` |
 
@@ -18,73 +18,57 @@ Método do WSOficio — **3.6 Certidões a Emitir**.
 
 ## Hash de autenticação
 
-Parâmetro obrigatório **`Hash`** no envelope de entrada (`string(50)`).
-
-Cálculo (detalhes em [`../hash.md`](../hash.md)):
-
-```text
-Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
-```
-
-| Etapa | Ação |
-|-------|------|
-| 1 | `LoginUsuarioCertificado` → obter `Tokens` |
-| 2 | Escolher token (`ONR_HASH_TOKEN_INDEX`, padrão `0`) |
-| 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
-| 4 | Chamar `DevolverCertidao` passando `Hash` + demais parâmetros |
-
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
-
-Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
+Implementação: [`lib/onr_certidoes.py`](../../lib/onr_certidoes.py) · `resolve_auth_hash()`.
 
 ## Pré-requisitos e validações de negócio
 
-_Documentar regras de negócio (ex.: IDTipoPedido, IDStatus) e linkar [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)._
+- `Protocolo` da solicitação a devolver (obtido em `ObterXMLSolicitacoes_v6` ou portal *Certidões a Emitir*).
+- `Motivo` obrigatório (erro **13**).
+- Marca a solicitação com status **Devolvido** no fluxo de certidões (spec § 3.6.7).
 
 ## Ordem do envelope (`oRequest`)
 
-_Listar campos na ordem de `<DevolverCertidao_WSReq>` no WSDL local._
+Tipo `DevolverCertidao_WSReq` (`wsdl/certidoes.wsdl`):
+
+1. `Hash`
+2. `Protocolo`
+3. `Motivo`
 
 ## Parâmetros de entrada
 
 | Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
 |-------|-----------|------|-------------|-------------|---------|
-| `Hash` | Hash para validação da mensagem | string | — | — | — |
-| — | Protocolo - Identifica a solicitação a ser devolvida | string | — | — | — |
-| — | Motivo - Razão da devolução | string | — | — | — |
-
-> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
+| `Hash` | Hash de autenticação | string | sim | — | _(SHA-1)_ |
+| `Protocolo` | Protocolo da solicitação | string | sim | — | — |
+| `Motivo` | Razão da devolução | string | sim | — | Documentação incompleta |
 
 ## Parâmetros de saída
 
 | Campo | Descrição | Tipo | Obrigatório | Condicional | Exemplo |
 |-------|-----------|------|-------------|-------------|---------|
-| `RETORNO` | Indica se houve erro ou não na execução do método | boolean | — | — | — |
-| `CODIGOERRO` | Código do erro | int | — | (se RETORNO = false) | — |
-| `ERRODESCRICAO` | Descrição do erro | string | — | (se RETORNO = false) | — |
-
-> _Gerado da spec: revisar colunas Obrigatório, Condicional e Exemplo com WSDL + [`TEMPLATE.md`](TEMPLATE.md)._
+| `RETORNO` | Sucesso | boolean | sim | — | true |
+| `CODIGOERRO` | Código do erro | int | sim | — | 0 |
+| `ERRODESCRICAO` | Descrição do erro | string | não | se RETORNO=false | — |
 
 ## Códigos de erro (amostra)
 
 | Código | Descrição |
 |--------|-----------|
-| 0 | Erro de sistema. |
-| 10 | Request inválido. |
-| 11 | O Hash de validação não foi informado. |
-| 13 | O motivo da devolução não foi informado. |
-| 45 | Hash inválido. |
-| 46 | Hash inválido: Hash já utilizado. |
-| 47 | Hash inválido: Hash expirado. |
-| 200 | Não foram localizados registros para exportação |
+| 11 | Hash não informado |
+| 13 | Motivo não informado |
+| 45–47 | Erros de hash |
+| 200 | Protocolo não localizado / inelegível |
 
 ## Implementação neste projeto
 
-- Script: _(ainda não implementado)_
+- Python: [`scripts/DevolverCertidao/devolverCertidao.py`](../../scripts/DevolverCertidao/devolverCertidao.py)
+- JavaScript: [`scripts/DevolverCertidao/devolverCertidao.js`](../../scripts/DevolverCertidao/devolverCertidao.js)
+- Lib: [`lib/onr_certidoes.py`](../../lib/onr_certidoes.py) · [`lib/onr_certidoes.js`](../../lib/onr_certidoes.js)
+- Variáveis `.env`: `CERTIDOES_DEVOLVER_CERTIDAO_*` (ou `CERTIDOES_PROTOCOLO`)
+- npm: `npm run devolver-certidao`
 
 ## Referências
 
-- [`webservice/hash.md`](../hash.md) — geração do `Hash`
-- [`webservice/list-metodos.md`](../list-metodos.md)
-- [`webservice/tabelas-dominio/`](../tabelas-dominio/README.md)
-- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — Envelope de Entrada/Saída `DevolverCertidao`
+- [`webservice/hash.md`](../hash.md)
+- [`ObterXMLSolicitacoes_v6.md`](ObterXMLSolicitacoes_v6.md)
+- [`especificacao_wsoficio_dev.md`](../../especificacao_wsoficio_dev.md) — § 3.6.7–3.6.8
