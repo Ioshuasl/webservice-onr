@@ -49,7 +49,10 @@
     "set-pedido-negativa-lote-po": "node scripts/SetPedidoNegativaLotePo/setPedidoNegativaLotePo.js",
     "set-pedido-finalizar-prenotacao-vencida": "node scripts/SetPedidoFinalizarPrenotacaoVencida/setPedidoFinalizarPrenotacaoVencida.js",
     "find-penhora-exigencia-pedido": "py scripts/SetPenhoraExigenciaPo/findEligiblePedido.py",
-    "find-penhora-averbado-pedido": "py scripts/SetPenhoraAverbadoPo/findEligiblePedido.py"
+    "find-penhora-averbado-pedido": "py scripts/SetPenhoraAverbadoPo/findEligiblePedido.py",
+    "postman:sync": "node scripts/postman/sync-postman-collection.js",
+    "postman:sync:watch": "node scripts/postman/sync-postman-collection.js --watch",
+    "postman:sync:create": "node scripts/postman/sync-postman-collection.js --create"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

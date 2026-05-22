@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "signature": "82d0fb921eb6af6fa5105240bd705dca652349ab5214a64c2437706061485a6e",
-  "n8nacVersion": "2.2.1",
+  "signature": "51b2279f94ec7451ed6031170837c6f6dc8cd04ac50997c3feb69cef97f65f5d",
+  "n8nacVersion": "2.3.1",
   "n8nVersion": "2.15.0",
-  "generatedAt": "2026-05-20T14:15:48.035Z",
-  "reason": "snapshot:webview-refresh"
+  "generatedAt": "2026-05-22T19:34:56.902Z",
+  "reason": "sync-initialized"
 }

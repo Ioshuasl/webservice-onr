@@ -1,0 +1,6 @@
+{
+  "collectionUid": "COLE-AQUI-O-UID-DA-COLECAO-NO-POSTMAN",
+  "collectionName": "ONR WebService — n8n",
+  "workspaceId": "",
+  "comment": "Copie para postman/.postman-sync.json (gitignored). UID em Share → Via API. API key só no .env: POSTMAN_API_KEY."
+}

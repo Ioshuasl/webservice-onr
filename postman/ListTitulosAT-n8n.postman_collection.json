@@ -1,0 +1,78 @@
+{
+  "info": {
+    "_postman_id": "list-titulos-at-n8n-2026",
+    "name": "List Titulos AT — n8n Webhook",
+    "description": "Lista títulos via workflow n8n proxy de `ListTitulosAT`.\n\n**Pré-requisito:** executar **Auth ONR — Login** e copiar `onr_hash` para a variável `onr_hash` deste ambiente.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{N8N_BASIC_AUTH_USER}}", "type": "string" },
+      { "key": "password", "value": "{{N8N_BASIC_AUTH_PASSWORD}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "n8n_base_url", "value": "https://n8n.ioshuavps.com.br", "type": "string" },
+    { "key": "n8n_webhook_mode", "value": "webhook-test", "type": "string" },
+    { "key": "n8n_webhook_id", "value": "f8e2a1b0-9c3d-4e5f-a6b7-8d9e0f1a2b3c", "type": "string" },
+    { "key": "url_servico_onr", "value": "https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "List Titulos AT",
+      "item": [
+        {
+          "name": "List Titulos AT — Listar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_INICIO', 'ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_FINAL'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta válida', () => {",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.status_http).to.eql(200);",
+                  "  pm.expect(json.dados.titulos).to.be.an('array');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"max_registros_por_pagina\": {{ACOMPANHAMENTO_TITULOS_MAX_ROW_PER_PAGE}},\n  \"numero_pagina\": {{ACOMPANHAMENTO_TITULOS_PAGE_NUMBER}},\n  \"data_protocolo_inicio\": \"{{ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_INICIO}}\",\n  \"data_protocolo_final\": \"{{ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_FINAL}}\",\n  \"id_tipo_status\": {{ACOMPANHAMENTO_TITULOS_ID_TIPO_STATUS}},\n  \"exportado\": {{ACOMPANHAMENTO_TITULOS_EXPORTADO}},\n  \"protocolo\": \"{{ACOMPANHAMENTO_TITULOS_PROTOCOLO}}\",\n  \"apresentante\": \"{{ACOMPANHAMENTO_TITULOS_APRESENTANTE}}\",\n  \"url_servico_onr\": \"{{url_servico_onr}}\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id}}"
+          }
+        }
+      ]
+    }
+  ]
+}
