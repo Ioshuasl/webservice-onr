@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "activeEnvironmentId": "n8n-censec-2",
+  "activeEnvironmentId": "extensao-n8n-teste-2",
   "environmentTargets": [
     {
       "id": "extensao-n8n-teste",

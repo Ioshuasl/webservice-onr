@@ -1,30 +1,111 @@
 {
   "info": {
-    "_postman_id": "c006bdfe-e1be-4773-80d2-5fa0effed952",
+    "_postman_id": "1290ad44-898b-472f-90bf-132a0657c66f",
     "name": "ONR WebService — n8n",
-    "description": "Coleção unificada dos webhooks n8n proxy ONR (JSON snake_case + status HTTP).\n\n## Fluxo recomendado\n\n1. **3.1 Login** → Auth ONR — Login (grava onr_hash)\n2. **3.2 Acompanhamento** → List / Get / Insert Titulo AT (usa onr_hash)\n\n## Variáveis\n\nn8n_webhook_id_auth, n8n_webhook_id_list_titulos, n8n_webhook_id_list_status, n8n_webhook_id_get_status, n8n_webhook_id_get_titulo, n8n_webhook_id_insert_titulo, n8n_webhook_mode\n\n## Sync\n\nnpm run postman:sync",
+    "description": "Coleção unificada dos webhooks n8n proxy ONR (JSON snake_case + status HTTP).\n\n## Fluxo recomendado\n\n1. **3.1 Login** → Auth ONR — Login (grava onr_hash)\n2. **3.2 Acompanhamento** → List / Get / Insert / Update / Delete Titulo AT (usa onr_hash)\n3. **3.3 Penhora Online** → List / Set PO (usa onr_hash)\n\n## Variáveis\n\nn8n_webhook_id_auth, n8n_webhook_id_list_titulos, n8n_webhook_id_list_status, n8n_webhook_id_get_status, n8n_webhook_id_get_titulo, n8n_webhook_id_insert_titulo, n8n_webhook_id_update_titulo, n8n_webhook_id_delete_titulo, n8n_webhook_id_set_baixa_boleto_po, n8n_webhook_id_set_custas_po, n8n_webhook_mode\n\n## Sync\n\nnpm run postman:sync",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
     "type": "basic",
     "basic": [
-      { "key": "username", "value": "{{N8N_BASIC_AUTH_USER}}", "type": "string" },
-      { "key": "password", "value": "{{N8N_BASIC_AUTH_PASSWORD}}", "type": "string" }
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
     ]
   },
   "variable": [
-    { "key": "n8n_base_url", "value": "https://n8n.ioshuavps.com.br", "type": "string" },
-    { "key": "n8n_webhook_mode", "value": "webhook-test", "type": "string" },
-    { "key": "n8n_webhook_id_auth", "value": "163d6b2d-36fa-4c1c-bb1b-ed6085de7de2", "type": "string" },
-    { "key": "n8n_webhook_id_list_titulos", "value": "f8e2a1b0-9c3d-4e5f-a6b7-8d9e0f1a2b3c", "type": "string" },
-    { "key": "n8n_webhook_id_list_status", "value": "b4c5d6e7-f8a9-4b0c-9d1e-2f3a4b5c6d7e", "type": "string" },
-    { "key": "n8n_webhook_id_get_titulo", "value": "c8d9e0f1-a2b3-4c5d-8e9f-0a1b2c3d4e5f", "type": "string" },
-    { "key": "n8n_webhook_id_get_status", "value": "d7e8f9a0-b1c2-4d3e-9f0a-1b2c3d4e5f6a", "type": "string" },
-    { "key": "n8n_webhook_id_insert_titulo", "value": "f3a4b5c6-d7e8-4f9a-0b1c-2d3e4f5a6b7c", "type": "string" },
-    { "key": "onr_login_endpoint", "value": "https://hml3-wsoficio.onr.org.br/login.asmx", "type": "string" },
-    { "key": "url_servico_acompanhamento_titulos", "value": "https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx", "type": "string" },
-    { "key": "N8N_BASIC_AUTH_USER", "value": "", "type": "string" },
-    { "key": "N8N_BASIC_AUTH_PASSWORD", "value": "", "type": "string" }
+    {
+      "key": "n8n_base_url",
+      "value": "https://n8n.ioshuavps.com.br",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_auth",
+      "value": "163d6b2d-36fa-4c1c-bb1b-ed6085de7de2",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_titulos",
+      "value": "f8e2a1b0-9c3d-4e5f-a6b7-8d9e0f1a2b3c",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_status",
+      "value": "b4c5d6e7-f8a9-4b0c-9d1e-2f3a4b5c6d7e",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_get_titulo",
+      "value": "c8d9e0f1-a2b3-4c5d-8e9f-0a1b2c3d4e5f",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_get_status",
+      "value": "d7e8f9a0-b1c2-4d3e-9f0a-1b2c3d4e5f6a",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_insert_titulo",
+      "value": "f3a4b5c6-d7e8-4f9a-0b1c-2d3e4f5a6b7c",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_update_titulo",
+      "value": "a4b5c6d7-e8f9-4a0b-1c2d-3e4f5a6b7c8d",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_delete_titulo",
+      "value": "b5c6d7e8-f9a0-4b1c-2d3e-4f5a6b7c8d9e",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_baixa_boleto_po",
+      "value": "c7d8e9f0-a1b2-4c3d-8e9f-0a1b2c3d4e5f",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_custas_po",
+      "value": "d8e9f0a1-b2c3-4d5e-8f90-a1b2c3d4e5f6",
+      "type": "string"
+    },
+    {
+      "key": "onr_login_endpoint",
+      "value": "https://hml3-wsoficio.onr.org.br/login.asmx",
+      "type": "string"
+    },
+    {
+      "key": "url_servico_acompanhamento_titulos",
+      "value": "https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx",
+      "type": "string"
+    },
+    {
+      "key": "url_servico_penhora_online",
+      "value": "https://hml3-wsoficio.onr.org.br/penhoraonline.asmx",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "",
+      "type": "string"
+    }
   ],
   "item": [
     {
@@ -101,11 +182,20 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"{{CPF}}\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{onr_login_endpoint_resolved}}\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
           }
@@ -128,11 +218,20 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"12345678901\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
           }
@@ -154,11 +253,20 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
           }
@@ -212,11 +320,20 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"max_registros_por_pagina\": {{ACOMPANHAMENTO_TITULOS_MAX_ROW_PER_PAGE}},\n  \"numero_pagina\": {{ACOMPANHAMENTO_TITULOS_PAGE_NUMBER}},\n  \"data_protocolo_inicio\": \"{{ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_INICIO}}\",\n  \"data_protocolo_final\": \"{{ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_FINAL}}\",\n  \"id_tipo_status\": {{ACOMPANHAMENTO_TITULOS_ID_TIPO_STATUS}},\n  \"exportado\": {{ACOMPANHAMENTO_TITULOS_EXPORTADO}},\n  \"protocolo\": \"{{ACOMPANHAMENTO_TITULOS_PROTOCOLO}}\",\n  \"apresentante\": \"{{ACOMPANHAMENTO_TITULOS_APRESENTANTE}}\",\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_titulos}}"
           }
@@ -264,11 +381,20 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"max_registros_por_pagina\": {{ACOMPANHAMENTO_TITULOS_MAX_ROW_PER_PAGE}},\n  \"numero_pagina\": {{ACOMPANHAMENTO_TITULOS_PAGE_NUMBER}},\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_ID_TITULO}},\n  \"id_tipo_status\": {{ACOMPANHAMENTO_TITULOS_ID_TIPO_STATUS}},\n  \"data_status_inicio\": \"{{ACOMPANHAMENTO_TITULOS_DATA_STATUS_INICIO}}\",\n  \"data_status_final\": \"{{ACOMPANHAMENTO_TITULOS_DATA_STATUS_FINAL}}\",\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_status}}"
           }
@@ -316,11 +442,20 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_ID_TITULO}},\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_get_titulo}}"
           }
@@ -369,11 +504,20 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_status\": {{ACOMPANHAMENTO_TITULOS_ID_STATUS}},\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_get_status}}"
           }
@@ -395,17 +539,10 @@
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
                   "}",
-                  "const required = ['onr_hash', 'ACOMPANHAMENTO_TITULOS_INSERT_PROTOCOLO', 'ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_NOME', 'ACOMPANHAMENTO_TITULOS_INSERT_DATA_PROTOCOLO', 'ACOMPANHAMENTO_TITULOS_INSERT_DATA_PREVISAO_ENTREGA', 'ACOMPANHAMENTO_TITULOS_INSERT_MODO_NOTIFICACAO', 'ACOMPANHAMENTO_TITULOS_INSERT_INTERESSADO_NOME', 'ACOMPANHAMENTO_TITULOS_INSERT_NATUREZA_TITULO', 'ACOMPANHAMENTO_TITULOS_INSERT_CODIGO_VERIFICADOR', 'ACOMPANHAMENTO_TITULOS_INSERT_TIPO_SOLICITACAO', 'ACOMPANHAMENTO_TITULOS_INSERT_ID_TIPO_STATUS', 'ACOMPANHAMENTO_TITULOS_INSERT_DATA_STATUS'];",
+                  "const required = ['onr_hash'];",
                   "const missing = required.filter((k) => !getVar(k));",
                   "if (missing.length) {",
                   "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
-                  "}",
-                  "const modo = String(getVar('ACOMPANHAMENTO_TITULOS_INSERT_MODO_NOTIFICACAO') || '').toUpperCase();",
-                  "if (modo === 'E' && !getVar('ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_EMAIL')) {",
-                  "  throw new Error('Com MODO_NOTIFICACAO=E, defina ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_EMAIL.');",
-                  "}",
-                  "if (modo === 'S' && (!getVar('ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_DDD') || !getVar('ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_TELEFONE'))) {",
-                  "  throw new Error('Com MODO_NOTIFICACAO=S, defina ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_DDD e TELEFONE.');",
                   "}"
                 ]
               }
@@ -431,13 +568,283 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_PROTOCOLO}}\",\n  \"apresentante_nome\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_NOME}}\",\n  \"apresentante_email\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_EMAIL}}\",\n  \"apresentante_ddd_telefone\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_DDD}}\",\n  \"apresentante_numero_telefone\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_TELEFONE}}\",\n  \"apresentante_cpf_cnpj\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_CPFCNPJ}}\",\n  \"valor_deposito\": {{ACOMPANHAMENTO_TITULOS_INSERT_VALOR_DEPOSITO}},\n  \"valor_emolumentos\": {{ACOMPANHAMENTO_TITULOS_INSERT_VALOR_EMOLUMENTOS}},\n  \"data_protocolo\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_DATA_PROTOCOLO}}\",\n  \"data_previsao_entrega\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_DATA_PREVISAO_ENTREGA}}\",\n  \"modo_notificacao_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_MODO_NOTIFICACAO}}\",\n  \"interessado_nome\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_INTERESSADO_NOME}}\",\n  \"interessado_cpf_cnpj\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_INTERESSADO_CPFCNPJ}}\",\n  \"natureza_titulo\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_NATUREZA_TITULO}}\",\n  \"codigo_verificador\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_CODIGO_VERIFICADOR}}\",\n  \"tipo_solicitacao\": {{ACOMPANHAMENTO_TITULOS_INSERT_TIPO_SOLICITACAO}},\n  \"id_tipo_status\": {{ACOMPANHAMENTO_TITULOS_INSERT_ID_TIPO_STATUS}},\n  \"data_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_DATA_STATUS}}\",\n  \"descricao_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_DESCRICAO_STATUS}}\",\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
-              "options": { "raw": { "language": "json" } }
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"887766\",\n  \"apresentante_nome\": \"Banco Homologacao S.A.\",\n  \"apresentante_email\": \"homologacao@example.com\",\n  \"apresentante_ddd_telefone\": \"11\",\n  \"apresentante_numero_telefone\": \"999999999\",\n  \"apresentante_cpf_cnpj\": \"11222333000181\",\n  \"valor_deposito\": 1500.75,\n  \"valor_emolumentos\": 245.9,\n  \"data_protocolo\": \"2026-05-25T09:00:00\",\n  \"data_previsao_entrega\": \"2026-06-24T17:00:00\",\n  \"modo_notificacao_status\": \"E\",\n  \"interessado_nome\": \"Maria de Teste\",\n  \"interessado_cpf_cnpj\": \"12345678909\",\n  \"natureza_titulo\": \"Escritura publica de compra e venda - homologacao\",\n  \"codigo_verificador\": \"HMLG2026052501\",\n  \"tipo_solicitacao\": 1,\n  \"id_tipo_status\": 4,\n  \"data_status\": \"2026-05-25T09:05:00\",\n  \"descricao_status\": \"Titulo prenotado para teste em homologacao\",\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_insert_titulo}}"
+          }
+        },
+        {
+          "name": "Update Titulo AT — Atualizar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'ACOMPANHAMENTO_TITULOS_ID_TITULO'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Título atualizado', () => {",
+                  "    pm.expect(json.dados.id_titulo).to.eql(Number(pm.variables.replaceIn('{{ACOMPANHAMENTO_TITULOS_ID_TITULO}}')));",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_ID_TITULO}},\n  \"protocolo\": \"887766\",\n  \"apresentante_nome\": \"Banco Homologacao Atualizado S.A.\",\n  \"apresentante_email\": \"homologacao.atualizado@example.com\",\n  \"apresentante_ddd_telefone\": \"11\",\n  \"apresentante_numero_telefone\": \"999999999\",\n  \"apresentante_cpf_cnpj\": \"11222333000181\",\n  \"valor_deposito\": 1750.25,\n  \"valor_emolumentos\": 260.4,\n  \"data_protocolo\": \"2026-05-25T10:00:00\",\n  \"data_previsao_entrega\": \"2026-06-24T17:00:00\",\n  \"modo_notificacao_status\": \"E\",\n  \"interessado_nome\": \"Maria de Teste Atualizada\",\n  \"interessado_cpf_cnpj\": \"12345678909\",\n  \"natureza_titulo\": \"Escritura publica de compra e venda - homologacao atualizada\",\n  \"codigo_verificador\": \"UPDHMLG20260525\",\n  \"tipo_solicitacao\": 1,\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_update_titulo}}"
+          }
+        },
+        {
+          "name": "Delete Titulo AT — Excluir",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'ACOMPANHAMENTO_TITULOS_ID_TITULO'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Título excluído', () => {",
+                  "    pm.expect(json.dados.id_titulo).to.eql(Number(pm.variables.replaceIn('{{ACOMPANHAMENTO_TITULOS_ID_TITULO}}')));",
+                  "    pm.expect(json.dados.excluido).to.eql(true);",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_ID_TITULO}},\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_delete_titulo}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3.3 Penhora Online",
+      "description": "Proxies do módulo 3.3. Requer `onr_hash` do login (Auth ONR).",
+      "item": [
+        {
+          "name": "Set Baixa Boleto PO — Baixar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'PENHORA_ONLINE_SET_BAIXA_ID_BOLETO'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Baixa registrada', () => {",
+                  "    pm.expect(json.dados.id_boleto).to.eql(Number(pm.variables.replaceIn('{{PENHORA_ONLINE_SET_BAIXA_ID_BOLETO}}')));",
+                  "    pm.expect(json.dados.baixa_efetuada).to.eql(true);",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_boleto\": {{PENHORA_ONLINE_SET_BAIXA_ID_BOLETO}},\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_baixa_boleto_po}}"
+          }
+        },
+        {
+          "name": "Set Custas PO — Informar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'PENHORA_ONLINE_ID_PEDIDO', 'PENHORA_ONLINE_SET_CUSTAS_VALOR'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Custas informadas', () => {",
+                  "    pm.expect(json.dados.id_pedido).to.eql(Number(pm.variables.replaceIn('{{PENHORA_ONLINE_ID_PEDIDO}}')));",
+                  "    pm.expect(json.dados.custas_informadas).to.eql(true);",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_ID_PEDIDO}},\n  \"valor_custas\": {{PENHORA_ONLINE_SET_CUSTAS_VALOR}},\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_custas_po}}"
           }
         }
       ]

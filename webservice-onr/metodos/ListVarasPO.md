@@ -33,7 +33,7 @@ Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
 | 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
 | 4 | Chamar `ListVarasPO` passando `Hash` + demais parâmetros |
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolveAuthHash()` em [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js).
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
@@ -84,9 +84,10 @@ Tipo `ListVarasPO_WSReq` (ordem usada nos scripts):
 
 ## Implementação neste projeto
 
-- Python: [`scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.py`](../../scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.py)
-- JavaScript: [`scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.js`](../../scripts/ListPedidosExportacaoPo/listPedidosExportacaoPo.js)
-- Variáveis `.env`: `PENHORA_ONLINE_ID_ESTADO`, `ID_COMARCA`, `ID_FORO`
+- Python: [`scripts/ListVarasPo/listVarasPo.py`](../../scripts/ListVarasPo/listVarasPo.py)
+- JavaScript: [`scripts/ListVarasPo/listVarasPo.js`](../../scripts/ListVarasPo/listVarasPo.js)
+- Workflow n8n: [`scripts/ListVarasPo/List Varas PO WebService ONR.md`](../../scripts/ListVarasPo/List%20Varas%20PO%20WebService%20ONR.md)
+- Variáveis `.env`: `PENHORA_ONLINE_ID_ESTADO`, `PENHORA_ONLINE_ID_COMARCA`, `PENHORA_ONLINE_ID_FORO`
 ## Referências
 
 - [`webservice/hash.md`](../hash.md) — geração do `Hash`

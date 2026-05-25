@@ -109,8 +109,9 @@ Tipo `ListPedidosPO_WSReq` (ordem usada nos scripts):
 
 ## Implementação neste projeto
 
-- Python: [`scripts/GetPedidoPo/getPedidoPo.py`](../../scripts/GetPedidoPo/getPedidoPo.py)
-- JavaScript: [`scripts/GetPedidoPo/getPedidoPo.js`](../../scripts/GetPedidoPo/getPedidoPo.js)
+- Python: [`scripts/ListPedidosPo/listPedidosPo.py`](../../scripts/ListPedidosPo/listPedidosPo.py)
+- JavaScript: [`scripts/ListPedidosPo/listPedidosPo.js`](../../scripts/ListPedidosPo/listPedidosPo.js)
+- Workflow n8n: [`scripts/ListPedidosPo/List Pedidos PO WebService ONR.md`](../../scripts/ListPedidosPo/List%20Pedidos%20PO%20WebService%20ONR.md)
 - Variáveis `.env`: `PENHORA_ONLINE_*`
 ## Referências
 

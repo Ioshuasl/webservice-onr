@@ -1,0 +1,59 @@
+{
+  "workflows": {
+    "zf0CgRoSw9gVuLhA": {
+      "lastSyncedHash": "b4183f33d12ea27912453a802183aa52803e96b19bba2ab458287c1304054b4f",
+      "lastSyncedAt": "2026-05-25T15:18:42.201Z",
+      "filename": "Update Titulo AT.workflow.ts"
+    },
+    "YErY4lcqZywGC32m": {
+      "lastSyncedHash": "17544469b397816e4ca631f7fd27f926f239065833a1db6f45c3735acd8cb832",
+      "lastSyncedAt": "2026-05-25T18:10:05.310Z",
+      "filename": "Delete Titulo AT.workflow.ts"
+    },
+    "vVAREdSNXOu9HTT6": {
+      "lastSyncedHash": "e9bef84e0155a12e5edafc06b37a3324f0a9c82355418fd5341a0f1d42f9ccfa",
+      "lastSyncedAt": "2026-05-25T18:12:39.712Z",
+      "filename": "Insert Status AT.workflow.ts"
+    },
+    "LOlM4dMRAiqOBWSn": {
+      "lastSyncedHash": "c73e8a7363a87d637387a724186e35ae1fc719a4fdd360bde8916c51ec8d8e7d",
+      "lastSyncedAt": "2026-05-25T18:13:11.721Z",
+      "filename": "Update Status AT.workflow.ts"
+    },
+    "UDR1PYjNOEdCT4H9": {
+      "lastSyncedHash": "3045b72aef25ecb2ea19f7e8819209acddb99d76fec9f8848a063a68fc874309",
+      "lastSyncedAt": "2026-05-25T18:33:42.316Z",
+      "filename": "List Pedidos PO.workflow.ts"
+    },
+    "T0IwycbCkErXC9E2": {
+      "lastSyncedHash": "55647bc431eb8a6325ad684b48b024f6f74faebb038424e5b104f3f3563d797b",
+      "lastSyncedAt": "2026-05-25T20:26:20.956Z",
+      "filename": "List Varas PO.workflow.ts"
+    },
+    "HpxXK8DrXEW5lsfr": {
+      "lastSyncedHash": "4919dda49e9e365d08ad91f2251a5e40a77cc632946911610fe1914b991c9015",
+      "lastSyncedAt": "2026-05-25T20:26:22.132Z",
+      "filename": "Set Baixa Boleto PO.workflow.ts"
+    },
+    "qB8C62B2wWD6LYPc": {
+      "lastSyncedHash": "e8e5e858b6ff3fc5e6c3fdb08e82c5b4a731e0c966179583d6b38a221ea1c5a8",
+      "lastSyncedAt": "2026-05-25T20:27:08.931Z",
+      "filename": "Get Pedido PO.workflow.ts"
+    },
+    "5Yxd6nLHdwdvSXOq": {
+      "lastSyncedHash": "161e986cf7b17c18ae8f6fdb0e8aef79e878db19a5de5981e2d47015f228d29a",
+      "lastSyncedAt": "2026-05-25T20:34:19.867Z",
+      "filename": "Set Custas PO.workflow.ts"
+    },
+    "De1OE9zv9QYpyXpR": {
+      "lastSyncedHash": "73b278a9321c803554bc94630ef6f9ca6a9a98f3fa272ab2a6411fa9c91ab1d7",
+      "lastSyncedAt": "2026-05-25T20:34:58.888Z",
+      "filename": "Set Prenotacao PO.workflow.ts"
+    },
+    "JOrrjEb379A0TaEz": {
+      "lastSyncedHash": "c2ac7c699523efeeb4653bf9d7875d8ec6d1a838ed4f596311aefa732bded187",
+      "lastSyncedAt": "2026-05-25T20:38:39.589Z",
+      "filename": "Set Penhora Averbado PO.workflow.ts"
+    }
+  }
+}

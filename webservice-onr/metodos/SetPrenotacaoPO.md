@@ -33,7 +33,7 @@ Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
 | 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
 | 4 | Chamar `SetPrenotacaoPO` passando `Hash` + demais parâmetros |
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_acompanhamento.py`](../../lib/onr_acompanhamento.py).
+Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolveAuthHash()` em [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js).
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
@@ -80,11 +80,20 @@ Tipo `SetPrenotacaoPO_WSReq` (ordem usada nos scripts):
 | 13 | O número da prenotação não foi informado. |
 | 14 | A data da prenotação não foi informada. |
 | 15 | A data da prenotação é inválida. |
+| 16 | A data de vencimento não foi informada. |
+| 17 | A data de vencimento é inválida. |
+| 18 | A data de vencimento não pode ser anterior à data da prenotação. |
+| 51 | Não foi possível obter dados do pedido. |
+| 52 | Sem permissão para cadastrar prenotação neste pedido. |
+| 53 | Prenotação somente para pedidos tipo Penhora (`IDTipoPedido=3`). |
+| 54 | Não foi possível cadastrar prenotação. |
+| 55 | Pedido já possui prenotação cadastrada. |
 
 ## Implementação neste projeto
 
-- Python: [`scripts/SetCustasPo/setCustasPo.py`](../../scripts/SetCustasPo/setCustasPo.py)
-- JavaScript: [`scripts/SetCustasPo/setCustasPo.js`](../../scripts/SetCustasPo/setCustasPo.js)
+- Python: [`scripts/SetPrenotacaoPo/setPrenotacaoPo.py`](../../scripts/SetPrenotacaoPo/setPrenotacaoPo.py)
+- JavaScript: [`scripts/SetPrenotacaoPo/setPrenotacaoPo.js`](../../scripts/SetPrenotacaoPo/setPrenotacaoPo.js)
+- Workflow n8n: [`scripts/SetPrenotacaoPo/Set Prenotacao PO WebService ONR.md`](../../scripts/SetPrenotacaoPo/Set%20Prenotacao%20PO%20WebService%20ONR.md)
 - Variáveis `.env`: `PENHORA_ONLINE_SET_PRENOTACAO_*`
 ## Referências
 

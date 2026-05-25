@@ -27,6 +27,8 @@ const ROOT = path.resolve(__dirname, "../..");
 const COLLECTION_PATH = path.join(ROOT, "postman", "onr-webservice-n8n.postman_collection.json");
 const SYNC_CONFIG_PATH = path.join(ROOT, "postman", ".postman-sync.json");
 const API_BASE = "https://api.getpostman.com";
+const WATCH_DEBOUNCE_MS = 700;
+const RETRY_DELAYS_MS = [1200, 2500, 5000];
 
 dotenv.config({ path: path.join(ROOT, ".env") });
 
@@ -127,9 +129,20 @@ async function postmanRequest(method, urlPath, apiKey, body) {
       data?.error?.name === "invalidUidError"
         ? " Dica: info._postman_id no JSON deve ser UUID; POSTMAN_COLLECTION_UID no formato 12345678-xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx (Share → Via API)."
         : "";
-    throw new Error(`Postman API ${res.status}: ${msg}${hint}`);
+    const err = new Error(`Postman API ${res.status}: ${msg}${hint}`);
+    err.status = res.status;
+    err.data = data;
+    throw err;
   }
   return data;
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRetryablePostmanError(err) {
+  return [409, 429, 500, 502, 503, 504].includes(err?.status);
 }
 
 async function createCollection(apiKey, collection, workspaceId) {
@@ -169,12 +182,24 @@ async function updateCollection(apiKey, collectionUid, collection) {
       `POSTMAN_COLLECTION_UID inválido: "${collectionUid}". Use o UID completo (Share → Via API), ex.: 35976147-c006bdfe-e1be-4773-80d2-5fa0effed952`
     );
   }
-  await postmanRequest(
-    "PUT",
-    `/collections/${encodeURIComponent(collectionUid)}`,
-    apiKey,
-    { collection: prepareCollectionForApi(collection, { forCreate: false }) }
-  );
+  for (let attempt = 0; ; attempt += 1) {
+    try {
+      await postmanRequest(
+        "PUT",
+        `/collections/${encodeURIComponent(collectionUid)}`,
+        apiKey,
+        { collection: prepareCollectionForApi(collection, { forCreate: false }) }
+      );
+      return;
+    } catch (e) {
+      const delay = RETRY_DELAYS_MS[attempt];
+      if (!delay || !isRetryablePostmanError(e)) throw e;
+      console.warn(
+        `[postman:sync] API ocupada/temporariamente indisponível (${e.message}). Nova tentativa em ${delay}ms…`
+      );
+      await sleep(delay);
+    }
+  }
 }
 
 async function syncOnce() {
@@ -211,33 +236,64 @@ async function syncOnce() {
   console.log("OK — coleção sincronizada.");
 }
 
-function debounce(fn, ms) {
-  let t;
-  return (...a) => {
-    clearTimeout(t);
-    t = setTimeout(() => fn(...a), ms);
+function createSyncScheduler() {
+  let timer;
+  let running = false;
+  let runAgain = false;
+
+  async function runQueuedSync() {
+    timer = undefined;
+    if (running) {
+      runAgain = true;
+      return;
+    }
+
+    running = true;
+    try {
+      do {
+        runAgain = false;
+        try {
+          await syncOnce();
+        } catch (e) {
+          console.error("[postman:sync]", e.message);
+        }
+      } while (runAgain);
+    } finally {
+      running = false;
+    }
+  }
+
+  return {
+    schedule() {
+      if (running) {
+        runAgain = true;
+        return;
+      }
+      clearTimeout(timer);
+      timer = setTimeout(runQueuedSync, WATCH_DEBOUNCE_MS);
+    },
   };
 }
 
 function startWatch() {
-  const debounced = debounce(async () => {
-    try {
-      await syncOnce();
-    } catch (e) {
-      console.error("[postman:sync]", e.message);
-    }
-  }, 400);
+  const scheduler = createSyncScheduler();
+  const collectionDir = path.dirname(COLLECTION_PATH);
+  const collectionFile = path.basename(COLLECTION_PATH);
 
-  console.log(`Observando ${COLLECTION_PATH} (debounce 400ms)…`);
-  fs.watch(COLLECTION_PATH, { persistent: true }, (eventType) => {
-    if (eventType === "change") debounced();
+  console.log(`Observando ${COLLECTION_PATH} (debounce ${WATCH_DEBOUNCE_MS}ms)…`);
+  const watcher = fs.watch(collectionDir, { persistent: true }, (eventType, filename) => {
+    const changedFile = filename ? path.basename(filename.toString()) : "";
+    if (!changedFile || changedFile === collectionFile) scheduler.schedule();
   });
-  debounced();
+
+  watcher.on("error", (e) => {
+    console.error(`[postman:sync] erro no watcher (${e.message}). Reinicie o comando --watch.`);
+  });
+  scheduler.schedule();
 }
 
 try {
   if (watchMode) {
-    await syncOnce();
     startWatch();
   } else {
     await syncOnce();
