@@ -1,0 +1,159 @@
+{
+    "info": {
+      "_postman_id": "ffa897da-1f69-4776-a5db-c48cfaadd3dc",
+      "name": "Mapa Onr API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "_exporter_id": "35976147"
+    },
+    "item": [
+      {
+        "name": "auth",
+        "item": [
+          {
+            "name": "Autenticação",
+            "request": {
+              "auth": {
+                "type": "noauth"
+              },
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "https://mapa.onr.org.br/api-estatisticas/auth",
+                "protocol": "https",
+                "host": [
+                  "mapa",
+                  "onr",
+                  "org",
+                  "br"
+                ],
+                "path": [
+                  "api-estatisticas",
+                  "auth"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Uploads json",
+        "item": [
+          {
+            "name": "Envio json",
+            "request": {
+              "auth": {
+                "type": "noauth"
+              },
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n  \"hash\": \"93104779dfbe834853c7a2146f5b5cb7821e8340\",\r\n  \"dataEnvio\": \"15\\/10\\/2019\",\r\n  \"sequencial\": \"0001\",\r\n  \"extratos\": [\r\n    {\r\n      \"cns\": \"999992\",\r\n      \"operacao\": {\r\n        \"numero_controle\": \"0\",\r\n        \"data_lavratura\": \"01\\/01\\/2018\",\r\n        \"livro\": \"2\",\r\n        \"folha\": \"12\",\r\n        \"matricula\": \"63767\",\r\n        \"registro\": \"1\",\r\n        \"situacao\": \"0\",\r\n        \"atribuicao_doi\": \"2\",\r\n        \"tipo_transacao\": \"11\",\r\n        \"descricao_tipo_transacao\": \"Outros\",\r\n        \"retificacao_ato\": \"0\",\r\n        \"data_alienacao\": \"29\\/09\\/2017\",\r\n        \"forma_alienacao_aquisicao\": \"5\",\r\n        \"valor_nao_consta_documentos\": \"0\",\r\n        \"valor_alienacao_aquisicao\": \"103790,00\",\r\n        \"base_calculo_itbi\": \"124740,00\",\r\n        \"tipo_imovel\": \"17\",\r\n        \"descricao_tipo_imovel\": \"Outros\",\r\n        \"situacao_construcao\": \"0\",\r\n        \"localizacao\": \"1\",\r\n        \"area_nao_consta\": \"1\",\r\n        \"area_imovel\": \"0\",\r\n        \"endereco_imovel\": \"AVENIDA MARIAT ERESA\",\r\n        \"numero_imovel\": \"260\",\r\n        \"complemento_imovel\": \"SL5 10\",\r\n        \"bairro_imovel\": \"CAMPO GRANDE\",\r\n        \"cep_imovel\": \"20000000\",\r\n        \"municipio_imovel\": \"RIO DE JANEIRO\",\r\n        \"uf_imovel\": \"RJ\",\r\n        \"inscricao_nirf\": \"32385171\",\r\n        \"valor_itbi_nao_consta_nos_documentos\": \"0\"\r\n      },\r\n      \"alienantes\": [\r\n        {\r\n          \"cpf_cnpj\": \"73155455063\",\r\n          \"participacao_na_operacao\": \"100,00\",\r\n          \"cpf_procurador\": \"19801776005\"\r\n        }\r\n      ],\r\n      \"adquirentes\": [\r\n        {\r\n          \"cpf_cnpj\": \"76596482090\",\r\n          \"participacao_na_operacao\": \"50,00\",\r\n          \"cpf_procurador\": \"19801776005\"\r\n        },\r\n        {\r\n          \"cpf_cnpj\": \"01107774098\",\r\n          \"participacao_na_operacao\": \"50,00\",\r\n          \"cpf_procurador\": \"19801776005\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "https://mapa.onr.org.br/api-estatisticas/enviar-arquivo",
+                "protocol": "https",
+                "host": [
+                  "mapa",
+                  "onr",
+                  "org",
+                  "br"
+                ],
+                "path": [
+                  "api-estatisticas",
+                  "enviar-arquivo"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Envio doiweb json",
+            "request": {
+              "auth": {
+                "type": "noauth"
+              },
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n  \"hash\": \"93104779dfbe834853c7a2146f5b5cb7821e8340\",\r\n  \"declaracoes\": [\r\n    {\r\n      \"adquirentes\": [\r\n        {\r\n          \"cpfConjuge\": \"00000000000\",\r\n          \"cpfInventariante\": \"00000000000\",\r\n          \"indicadorConjuge\": false,\r\n          \"indicadorConjugeParticipa\": false,\r\n          \"indicadorCpfConjugeIdentificado\": false,\r\n          \"indicadorEspolio\": false,\r\n          \"indicadorEstrangeiro\": false,\r\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\r\n          \"indicadorNiIdentificado\": false,\r\n          \"indicadorRepresentante\": false,\r\n          \"motivoNaoIdentificacaoNi\": 0,\r\n          \"ni\": \"\",\r\n          \"nome\": \"Nome da parte\",\r\n          \"nomeConjuge\": \"\",\r\n          \"nomeInventariante\": \"\",\r\n          \"participacao\": 100,\r\n          \"regimeBens\": \"1\",\r\n          \"representantes\": [\r\n            {\r\n              \"ni\": \"\",\r\n              \"nome\": \"\"\r\n            }\r\n          ]\r\n        }\r\n      ],\r\n      \"alienantes\": [\r\n        {\r\n          \"cpfConjuge\": \"00000000000\",\r\n          \"cpfInventariante\": \"00000000000\",\r\n          \"indicadorConjuge\": false,\r\n          \"indicadorConjugeParticipa\": false,\r\n          \"indicadorCpfConjugeIdentificado\": false,\r\n          \"indicadorEspolio\": false,\r\n          \"indicadorEstrangeiro\": false,\r\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\r\n          \"indicadorNiIdentificado\": false,\r\n          \"indicadorRepresentante\": false,\r\n          \"motivoNaoIdentificacaoNi\": 0,\r\n          \"ni\": \"\",\r\n          \"nome\": \"Nome da parte\",\r\n          \"nomeConjuge\": \"\",\r\n          \"nomeInventariante\": \"\",\r\n          \"participacao\": 100,\r\n          \"regimeBens\": \"1\",\r\n          \"representantes\": [\r\n            {\r\n              \"ni\": \"\",\r\n              \"nome\": \"\"\r\n            }\r\n          ]\r\n        }\r\n      ],\r\n      \"areaConstruida\": 0,\r\n      \"areaImovel\": 0,\r\n      \"bairro\": \"\",\r\n      \"cep\": \"00000000\",\r\n      \"certidaoAutorizacaoTransferencia\": \"\",\r\n      \"cib\": \"0\",\r\n      \"codigoIbge\": \"\",\r\n      \"codigoIncra\": \"\",\r\n      \"codigoNacionalMatricula\": \"\",\r\n      \"complementoEndereco\": \"\",\r\n      \"complementoNumeroImovel\": \"\",\r\n      \"dataLavraturaRegistroAverbacao\": \"0000-00-00\",\r\n      \"dataNegocioJuridico\": \"0000-00-00\",\r\n      \"denominacao\": \"\",\r\n      \"descricaoOutrasOperacoesImobiliarias\": \"\",\r\n      \"destinacao\": \"1\",\r\n      \"existeDoiAnterior\": false,\r\n      \"folha\": \"0\",\r\n      \"formaPagamento\": \"5\",\r\n      \"indicadorAlienacaoFiduciaria\": false,\r\n      \"indicadorAreaConstruidaNaoConsta\": false,\r\n      \"indicadorAreaLoteNaoConsta\": false,\r\n      \"indicadorImovelImportado\": false,\r\n      \"indicadorImovelPublicoUniao\": false,\r\n      \"indicadorNaoConstaValorBaseCalculoItbiItcmd\": false,\r\n      \"indicadorNaoConstaValorOperacaoImobiliaria\": false,\r\n      \"indicadorPagamentoDinheiro\": false,\r\n      \"indicadorPermutaBens\": true,\r\n      \"inscricaoMunicipal\": \"123456\",\r\n      \"localizacao\": \"distrito\",\r\n      \"matricula\": \"\",\r\n      \"matriculaNotarialEletronica\": \"\",\r\n      \"mesAnoUltimaParcela\": \"\",\r\n      \"motivoCancelamento\": \"\",\r\n      \"municipiosUF\": [\r\n        \"0000000\"\r\n      ],\r\n      \"naturezaTitulo\": \"1\",\r\n      \"nomeLogradouro\": \"\",\r\n      \"numeroImovel\": \"\",\r\n      \"numeroLivro\": \"\",\r\n      \"numeroReciboDeclaracaoRetificada\": 0,\r\n      \"numeroRegistro\": \"\",\r\n      \"numeroRegistroAverbacao\": \"\",\r\n      \"registroImobiliarioPatrimonial\": \"\",\r\n      \"retificacaoAto\": false,\r\n      \"tipoAto\": \"1\",\r\n      \"tipoDeclaracao\": \"0\",\r\n      \"tipoImovel\": \"67\",\r\n      \"tipoLivro\": \"1\",\r\n      \"tipoLogradouro\": \"Rua\",\r\n      \"tipoOperacaoImobiliaria\": \"11\",\r\n      \"tipoParteTransacionada\": \"1\",\r\n      \"tipoServico\": \"2\",\r\n      \"transcricao\": 0,\r\n      \"valorBaseCalculoItbiItcmd\": 0.00,\r\n      \"valorOperacaoImobiliaria\": 0.00,\r\n      \"valorPagoAteDataAto\": 0.00,\r\n      \"valorPagoMoedaCorrenteDataAto\": 0.00,\r\n      \"valorParteTransacionada\": 100.0\r\n    }\r\n  ]\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "https://mapa.onr.org.br/api-estatisticas/enviar-arquivo",
+                "protocol": "https",
+                "host": [
+                  "mapa",
+                  "onr",
+                  "org",
+                  "br"
+                ],
+                "path": [
+                  "api-estatisticas",
+                  "enviar-arquivo"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Consulta",
+        "item": [
+          {
+            "name": "Consultar processamento do json enviado",
+            "request": {
+              "auth": {
+                "type": "noauth"
+              },
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "https://mapa.onr.org.br/api-estatisticas/consultar-arquivo/:uuid",
+                "protocol": "https",
+                "host": [
+                  "mapa",
+                  "onr",
+                  "org",
+                  "br"
+                ],
+                "path": [
+                  "api-estatisticas",
+                  "consultar-arquivo",
+                  ":uuid"
+                ],
+                "variable": [
+                  {
+                    "key": "uuid",
+                    "value": ""
+                  }
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
