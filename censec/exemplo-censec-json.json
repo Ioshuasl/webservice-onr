@@ -1,0 +1,175 @@
+{
+  "quinzena": {
+    "anoReferencia": 2026,
+    "quinzenaReferencia": 1,
+    "mesReferencia": "Maio"
+  },
+  "atosCep": [
+    {
+      "tipoAtoCep": "Escritura",
+      "naturezaEscritura": "CompraEVenda",
+      "livro": "1500",
+      "folha": "12",
+      "livroComplemento": "A",
+      "folhaComplemento": null,
+      "data": "2026-05-02",
+      "valor": 500000,
+      "existeBemEDireito": true,
+      "bensEDireitos": [
+        {
+          "descricaoPormenorizada": "Lote urbano localizado na quadra 10",
+          "valorBemEDireito": 500000,
+          "valorFiscal": 450000,
+          "formaPagamento": "Transferencia",
+          "prazoPagamento": "AVista"
+        }
+      ],
+      "partes": [
+        {
+          "nome": "Joao da Silva",
+          "qualidade": "Outorgante",
+          "tipoDocumento": "Cpf",
+          "numeroDocumento": "52998224725",
+          "estrangeiro": false
+        },
+        {
+          "nome": "Empresa Ficticia LTDA",
+          "qualidade": "Outorgado",
+          "tipoDocumento": "Cnpj",
+          "numeroDocumento": "11222333000181",
+          "estrangeiro": false
+        }
+      ]
+    }
+  ],
+  "atosCesdi": [
+    {
+      "tipoAtoCesdi": "Separacao",
+      "data": "2026-05-03",
+      "livro": "22",
+      "folha": "112",
+      "livroComplemento": null,
+      "folhaComplemento": null,
+      "dataCasamento": "2010-10-15",
+      "regimeBens": "SeparacaoTotal",
+      "quantidadeFilhosMaiores": 2,
+      "quantidadeFilhosMenores": 0,
+      "responsavel": "AmbosConjuges",
+      "partes": [
+        {
+          "nome": "Maria Souza",
+          "conjugeTipo": "Conjuge1",
+          "qualidade": "Separando",
+          "dataNascimento": "1985-01-10",
+          "localNascimentoPais": "BRASIL",
+          "localNascimentoUf": "DF",
+          "localResidenciaPais": "BRASIL",
+          "localResidenciaMunicipio": "BRASILIA",
+          "localResidenciaUf": "DF",
+          "sexo": "F",
+          "documentos": [
+            {
+              "documentoTipo": "Cpf",
+              "prioridade": "Primario",
+              "documento": "52998224725"
+            }
+          ]
+        },
+        {
+          "nome": "Jose Souza",
+          "conjugeTipo": "Conjuge2",
+          "qualidade": "Separando",
+          "dataNascimento": "1984-02-11",
+          "localNascimentoPais": "BRASIL",
+          "localNascimentoUf": "DF",
+          "localResidenciaPais": "BRASIL",
+          "localResidenciaMunicipio": "BRASILIA",
+          "localResidenciaUf": "DF",
+          "sexo": "M",
+          "documentos": [
+            {
+              "documentoTipo": "Cpf",
+              "prioridade": "Primario",
+              "documento": "11144477735"
+            }
+          ]
+        },
+        {
+          "nome": "Advogado Teste",
+          "qualidade": "Advogado",
+          "documentos": [
+            {
+              "documentoTipo": "Cpf",
+              "prioridade": "Primario",
+              "documento": "52998224725"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "declaracoes": [
+    {
+      "tipoDeclaracao": "Original",
+      "tipoServico": "Notarial",
+      "dataLavraturaRegistroAverbacao": "2026-05-04",
+      "tipoAto": "Escritura",
+      "numeroLivro": "15",
+      "folha": "201",
+      "dataNegocioJuridico": "2026-05-01",
+      "tipoOperacaoImobiliaria": "CompraEVenda",
+      "valorOperacaoImobiliaria": 62284.09,
+      "indicadorNaoConstaValorOperacaoImobiliaria": false,
+      "valorBaseCalculoItbiItcmd": 7191.71,
+      "indicadorNaoConstaValorBaseCalculoItbiItcmd": false,
+      "formaPagamento": "QuitadoAVista",
+      "indicadorPermutaBens": false,
+      "indicadorPagamentoDinheiro": true,
+      "valorPagoMoedaCorrenteDataAto": 62284.09,
+      "tipoParteTransacionada": "Percentual",
+      "valorParteTransacionada": 100,
+      "cib": "12345678",
+      "destinacao": "Urbano",
+      "indicadorImovelPublicoUniao": false,
+      "inscricaoMunicipal": "123456",
+      "codigoIbge": "3550308",
+      "areaImovel": 100,
+      "indicadorAreaLoteNaoConsta": false,
+      "areaConstruida": 50,
+      "indicadorAreaConstruidaNaoConsta": false,
+      "tipoImovel": "Casa",
+      "tipoLogradouro": "Rua",
+      "nomeLogradouro": "do Limao",
+      "numeroImovel": "32",
+      "bairro": "Limoeiro",
+      "cep": "02520300",
+      "municipiosUF": [],
+      "alienantes": [
+        {
+          "indicadorNiIdentificado": true,
+          "ni": "52998224725",
+          "participacao": 100,
+          "indicadorNaoConstaParticipacaoOperacao": false,
+          "indicadorEstrangeiro": false,
+          "indicadorEspolio": false,
+          "indicadorConjuge": false,
+          "indicadorRepresentante": false,
+          "representantes": []
+        }
+      ],
+      "adquirentes": [
+        {
+          "indicadorNiIdentificado": true,
+          "ni": "11222333000181",
+          "participacao": 100,
+          "indicadorNaoConstaParticipacaoOperacao": false,
+          "indicadorEstrangeiro": false,
+          "indicadorEspolio": false,
+          "indicadorConjuge": false,
+          "indicadorRepresentante": false,
+          "representantes": []
+        }
+      ]
+    }
+  ]
+}

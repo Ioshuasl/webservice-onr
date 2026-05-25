@@ -1,10 +1,16 @@
 {
   "version": 4,
-  "activeEnvironmentId": "extensao-n8n-teste-2",
+  "activeEnvironmentId": "n8n-censec-2",
   "environmentTargets": [
     {
       "id": "extensao-n8n-teste",
       "name": "extensao n8n teste",
+      "kind": "external-instance",
+      "url": "https://n8n.ioshuavps.com.br"
+    },
+    {
+      "id": "n8n-censec",
+      "name": "n8n-censec",
       "kind": "external-instance",
       "url": "https://n8n.ioshuavps.com.br"
     }
@@ -13,10 +19,21 @@
     {
       "id": "extensao-n8n-teste-2",
       "name": "extensao n8n teste",
+      "syncSlug": "extensao-n8n-teste",
       "environmentTargetId": "extensao-n8n-teste",
       "projectId": "personal",
       "projectName": "Personal",
-      "syncFolder": "workflows/n8n",
+      "workflowsPath": "workflows/n8n/extensao-n8n-teste",
+      "folderSync": true
+    },
+    {
+      "id": "n8n-censec-2",
+      "name": "n8n-censec",
+      "syncSlug": "n8n-censec",
+      "environmentTargetId": "n8n-censec",
+      "projectId": "personal",
+      "projectName": "Personal",
+      "workflowsPath": "workflows/n8n-censec",
       "folderSync": true
     }
   ]

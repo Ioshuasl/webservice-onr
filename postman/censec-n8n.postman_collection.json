@@ -1,0 +1,223 @@
+{
+  "info": {
+    "_postman_id": "9e4cfa1c-29f0-4eea-a3c4-9fc2f9fd3376",
+    "name": "CENSEC — n8n",
+    "description": "Coleção para testar o workflow n8n `CENSEC Upload JSON Gateway`.\n\nWorkflow: `8ZVf9yiRyrL2cLGw`\n\nAutenticação do webhook n8n: Basic Auth (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n\nAutorização CENSEC: header `X-Api-Key` (`CENSEC_API_KEY`). O workflow encaminha esse header para `https://censec.org.br/api/cargas/upload-json`.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://n8n.ioshuavps.com.br",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "censec_n8n_webhook_path",
+      "value": "censec/cargas/upload-json",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CENSEC_API_KEY",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "function getVar(key) {",
+          "  const env = pm.environment.get(key);",
+          "  if (env !== undefined && env !== null && String(env).length > 0) return env;",
+          "  const col = pm.collectionVariables.get(key);",
+          "  if (col !== undefined && col !== null && String(col).length > 0) return col;",
+          "  return pm.variables.get(key);",
+          "}",
+          "const required = ['n8n_base_url', 'n8n_webhook_mode', 'censec_n8n_webhook_path', 'N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD', 'CENSEC_API_KEY'];",
+          "const missing = required.filter((key) => !getVar(key));",
+          "if (missing.length) throw new Error('Variáveis ausentes: ' + missing.join(', '));"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Upload JSON — Payload completo",
+      "description": "Payload completo com `atosCep`, `atosCesdi` e `declaracoes`, formatado para passar na validação local do workflow. Requer Basic Auth do webhook e `X-Api-Key` para o envio ao endpoint CENSEC.",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200 ou 502 esperado', () => pm.expect([200, 502]).to.include(pm.response.code));",
+              "pm.test('Resposta JSON válida', () => {",
+              "  const json = pm.response.json();",
+              "  pm.expect(json).to.have.property('success');",
+              "});",
+              "pm.test('Não retornou erro de validação local', () => {",
+              "  const json = pm.response.json();",
+              "  pm.expect(JSON.stringify(json)).to.not.include('Payload rejeitado pela validacao local');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Api-Key",
+            "value": "{{CENSEC_API_KEY}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cns\": 991018,\n  \"quinzena\": {\n    \"anoReferencia\": 2026,\n    \"quinzenaReferencia\": 1,\n    \"mesReferencia\": \"Maio\"\n  },\n  \"atosCep\": [\n    {\n      \"tipoAtoCep\": \"Escritura\",\n      \"naturezaEscritura\": \"CompraEVenda\",\n      \"livro\": \"1500\",\n      \"folha\": \"12\",\n      \"livroComplemento\": \"A\",\n      \"folhaComplemento\": null,\n      \"data\": \"2026-05-02\",\n      \"valor\": 500000,\n      \"existeBemEDireito\": true,\n      \"bensEDireitos\": [\n        {\n          \"descricaoPormenorizada\": \"Lote urbano localizado na quadra 10\",\n          \"valorBemEDireito\": 500000,\n          \"valorFiscal\": 450000,\n          \"formaPagamento\": \"Transferencia\",\n          \"prazoPagamento\": \"AVista\"\n        }\n      ],\n      \"partes\": [\n        {\n          \"nome\": \"Joao da Silva\",\n          \"qualidade\": \"Outorgante\",\n          \"tipoDocumento\": \"Cpf\",\n          \"numeroDocumento\": \"52998224725\",\n          \"estrangeiro\": false\n        },\n        {\n          \"nome\": \"Empresa Ficticia LTDA\",\n          \"qualidade\": \"Outorgado\",\n          \"tipoDocumento\": \"Cnpj\",\n          \"numeroDocumento\": \"11222333000181\",\n          \"estrangeiro\": false\n        }\n      ]\n    }\n  ],\n  \"atosCesdi\": [\n    {\n      \"tipoAtoCesdi\": \"Separacao\",\n      \"data\": \"2026-05-03\",\n      \"livro\": \"22\",\n      \"folha\": \"112\",\n      \"livroComplemento\": null,\n      \"folhaComplemento\": null,\n      \"dataCasamento\": \"2010-10-15\",\n      \"regimeBens\": \"SeparacaoTotal\",\n      \"quantidadeFilhosMaiores\": 2,\n      \"quantidadeFilhosMenores\": 0,\n      \"responsavel\": \"AmbosConjuges\",\n      \"partes\": [\n        {\n          \"nome\": \"Maria Souza\",\n          \"conjugeTipo\": \"Conjuge1\",\n          \"qualidade\": \"Separando\",\n          \"dataNascimento\": \"1985-01-10\",\n          \"localNascimentoPais\": \"BRASIL\",\n          \"localNascimentoUf\": \"DF\",\n          \"localResidenciaPais\": \"BRASIL\",\n          \"localResidenciaMunicipio\": \"BRASILIA\",\n          \"localResidenciaUf\": \"DF\",\n          \"sexo\": \"F\",\n          \"documentos\": [\n            {\n              \"documentoTipo\": \"Cpf\",\n              \"prioridade\": \"Primario\",\n              \"documento\": \"52998224725\"\n            }\n          ]\n        },\n        {\n          \"nome\": \"Jose Souza\",\n          \"conjugeTipo\": \"Conjuge2\",\n          \"qualidade\": \"Separando\",\n          \"dataNascimento\": \"1984-02-11\",\n          \"localNascimentoPais\": \"BRASIL\",\n          \"localNascimentoUf\": \"DF\",\n          \"localResidenciaPais\": \"BRASIL\",\n          \"localResidenciaMunicipio\": \"BRASILIA\",\n          \"localResidenciaUf\": \"DF\",\n          \"sexo\": \"M\",\n          \"documentos\": [\n            {\n              \"documentoTipo\": \"Cpf\",\n              \"prioridade\": \"Primario\",\n              \"documento\": \"11144477735\"\n            }\n          ]\n        },\n        {\n          \"nome\": \"Advogado Teste\",\n          \"qualidade\": \"Advogado\",\n          \"documentos\": [\n            {\n              \"documentoTipo\": \"Cpf\",\n              \"prioridade\": \"Primario\",\n              \"documento\": \"52998224725\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"declaracoes\": [\n    {\n      \"tipoDeclaracao\": \"Original\",\n      \"tipoServico\": \"Notarial\",\n      \"dataLavraturaRegistroAverbacao\": \"2026-05-04\",\n      \"tipoAto\": \"Escritura\",\n      \"numeroLivro\": \"15\",\n      \"folha\": \"201\",\n      \"dataNegocioJuridico\": \"2026-05-01\",\n      \"tipoOperacaoImobiliaria\": \"CompraEVenda\",\n      \"valorOperacaoImobiliaria\": 62284.09,\n      \"indicadorNaoConstaValorOperacaoImobiliaria\": false,\n      \"valorBaseCalculoItbiItcmd\": 7191.71,\n      \"indicadorNaoConstaValorBaseCalculoItbiItcmd\": false,\n      \"formaPagamento\": \"QuitadoAVista\",\n      \"indicadorPermutaBens\": false,\n      \"indicadorPagamentoDinheiro\": true,\n      \"valorPagoMoedaCorrenteDataAto\": 62284.09,\n      \"tipoParteTransacionada\": \"Percentual\",\n      \"valorParteTransacionada\": 100,\n      \"cib\": \"12345678\",\n      \"destinacao\": \"Urbano\",\n      \"indicadorImovelPublicoUniao\": false,\n      \"inscricaoMunicipal\": \"123456\",\n      \"codigoIbge\": \"3550308\",\n      \"areaImovel\": 100,\n      \"indicadorAreaLoteNaoConsta\": false,\n      \"areaConstruida\": 50,\n      \"indicadorAreaConstruidaNaoConsta\": false,\n      \"tipoImovel\": \"Casa\",\n      \"tipoLogradouro\": \"Rua\",\n      \"nomeLogradouro\": \"do Limao\",\n      \"numeroImovel\": \"32\",\n      \"bairro\": \"Limoeiro\",\n      \"cep\": \"02520300\",\n      \"municipiosUF\": [],\n      \"alienantes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"52998224725\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false,\n          \"representantes\": []\n        }\n      ],\n      \"adquirentes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"11222333000181\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false,\n          \"representantes\": []\n        }\n      ]\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{censec_n8n_webhook_path}}"
+      }
+    },
+    {
+      "name": "Validação CEP — CPF inválido",
+      "description": "Força erro local no bloco `atosCep[].partes[].numeroDocumento` quando `tipoDocumento=CPF`.",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+              "pm.test('Erro de CPF CEP retornado', () => {",
+              "  const json = pm.response.json();",
+              "  pm.expect(json.success).to.eql(false);",
+              "  pm.expect(JSON.stringify(json.errors)).to.include('cpf_invalid');",
+              "  pm.expect(JSON.stringify(json.errors)).to.include('atosCep');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Api-Key",
+            "value": "{{CENSEC_API_KEY}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cns\": 991018,\n  \"quinzena\": {\n    \"anoReferencia\": 2026,\n    \"quinzenaReferencia\": 1,\n    \"mesReferencia\": \"Maio\"\n  },\n  \"atosCep\": [\n    {\n      \"tipoAtoCep\": \"Escritura\",\n      \"naturezaEscritura\": \"CompraEVenda\",\n      \"livro\": \"1500\",\n      \"folha\": \"12\",\n      \"data\": \"2026-05-02\",\n      \"valor\": 500000,\n      \"partes\": [\n        {\n          \"nome\": \"CPF Invalido\",\n          \"qualidade\": \"Outorgante\",\n          \"tipoDocumento\": \"CPF\",\n          \"numeroDocumento\": \"12345678901\",\n          \"estrangeiro\": false\n        }\n      ]\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{censec_n8n_webhook_path}}"
+      }
+    },
+    {
+      "name": "Validação CTP — NI inválido em representante",
+      "description": "Força erro local em `declaracoes[].alienantes[].representantes[].ni`.",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+              "pm.test('Erro de NI representante retornado', () => {",
+              "  const json = pm.response.json();",
+              "  pm.expect(json.success).to.eql(false);",
+              "  pm.expect(JSON.stringify(json.errors)).to.include('ni_invalid');",
+              "  pm.expect(JSON.stringify(json.errors)).to.include('representantes');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Api-Key",
+            "value": "{{CENSEC_API_KEY}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cns\": 991018,\n  \"quinzena\": {\n    \"anoReferencia\": 2026,\n    \"quinzenaReferencia\": 1,\n    \"mesReferencia\": \"Maio\"\n  },\n  \"declaracoes\": [\n    {\n      \"tipoDeclaracao\": \"Original\",\n      \"tipoServico\": \"Notarial\",\n      \"dataLavraturaRegistroAverbacao\": \"2026-05-04\",\n      \"tipoAto\": \"Escritura\",\n      \"numeroLivro\": \"15\",\n      \"folha\": \"201\",\n      \"dataNegocioJuridico\": \"2026-05-01\",\n      \"tipoOperacaoImobiliaria\": \"CompraEVenda\",\n      \"valorOperacaoImobiliaria\": 62284.09,\n      \"indicadorNaoConstaValorOperacaoImobiliaria\": false,\n      \"valorBaseCalculoItbiItcmd\": 7191.71,\n      \"indicadorNaoConstaValorBaseCalculoItbiItcmd\": false,\n      \"formaPagamento\": \"QuitadoAVista\",\n      \"indicadorPermutaBens\": false,\n      \"indicadorPagamentoDinheiro\": false,\n      \"tipoParteTransacionada\": \"Percentual\",\n      \"valorParteTransacionada\": 100,\n      \"cib\": \"12345678\",\n      \"destinacao\": \"Urbano\",\n      \"indicadorImovelPublicoUniao\": false,\n      \"inscricaoMunicipal\": \"123456\",\n      \"codigoIbge\": \"3550308\",\n      \"areaImovel\": 100,\n      \"indicadorAreaLoteNaoConsta\": false,\n      \"areaConstruida\": 50,\n      \"indicadorAreaConstruidaNaoConsta\": false,\n      \"tipoImovel\": \"Casa\",\n      \"tipoLogradouro\": \"Rua\",\n      \"nomeLogradouro\": \"do Limao\",\n      \"numeroImovel\": \"32\",\n      \"bairro\": \"Limoeiro\",\n      \"cep\": \"02520300\",\n      \"alienantes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"52998224725\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": true,\n          \"representantes\": [\n            {\n              \"ni\": \"12345678901\"\n            }\n          ]\n        }\n      ],\n      \"adquirentes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"11222333000181\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false,\n          \"representantes\": []\n        }\n      ]\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{censec_n8n_webhook_path}}"
+      }
+    }
+  ]
+}

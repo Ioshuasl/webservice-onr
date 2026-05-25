@@ -1,0 +1,9 @@
+{
+  "workflows": {
+    "8ZVf9yiRyrL2cLGw": {
+      "lastSyncedHash": "1a05cca7c3a55de92f832541dc0d0c1a8c0312124b733e3f4d16129744ac4cd2",
+      "lastSyncedAt": "2026-05-25T07:03:11.113Z",
+      "filename": "censec-upload-json.workflow.ts"
+    }
+  }
+}
