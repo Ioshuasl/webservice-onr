@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "1290ad44-898b-472f-90bf-132a0657c66f",
     "name": "ONR WebService — n8n",
-    "description": "Coleção unificada dos webhooks n8n proxy ONR (JSON snake_case + status HTTP).\n\n## Fluxo recomendado\n\n1. **3.1 Login** → Auth ONR — Login (grava onr_hash)\n2. **3.2 Acompanhamento** → List / Get / Insert / Update / Delete Titulo AT (usa onr_hash)\n3. **3.3 Penhora Online** → List / Set PO (usa onr_hash)\n\n## Variáveis\n\nn8n_webhook_id_auth, n8n_webhook_id_list_titulos, n8n_webhook_id_list_status, n8n_webhook_id_get_status, n8n_webhook_id_get_titulo, n8n_webhook_id_insert_titulo, n8n_webhook_id_update_titulo, n8n_webhook_id_delete_titulo, n8n_webhook_id_set_baixa_boleto_po, n8n_webhook_id_set_custas_po, n8n_webhook_mode\n\n## Sync\n\nnpm run postman:sync",
+    "description": "Coleção unificada dos webhooks n8n proxy ONR (JSON snake_case + status HTTP).\n\n## Fluxo recomendado\n\n1. **3.1 Login** → Auth ONR — Login (grava onr_hash)\n2. **3.2 Acompanhamento** → List / Get / Insert / Update / Delete Titulo AT (usa onr_hash)\n3. **3.3 Penhora Online** → List / Set PO (usa onr_hash)\n4. **3.5 Ofícios** → List Pedidos OE (usa onr_hash)\n\n## Variáveis\n\nn8n_webhook_id_auth, n8n_webhook_id_list_titulos, n8n_webhook_id_list_status, n8n_webhook_id_get_status, n8n_webhook_id_get_titulo, n8n_webhook_id_insert_titulo, n8n_webhook_id_update_titulo, n8n_webhook_id_delete_titulo, n8n_webhook_id_set_baixa_boleto_po, n8n_webhook_id_set_custas_po, n8n_webhook_id_set_pedido_pessoa_respondido_po, n8n_webhook_id_set_pedido_negativa_lote_po, n8n_webhook_id_set_pedido_finalizar_prenotacao_vencida, n8n_webhook_id_list_pedidos_oe, n8n_webhook_mode\n\n## Sync\n\nnpm run postman:sync",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
@@ -82,6 +82,26 @@
       "type": "string"
     },
     {
+      "key": "n8n_webhook_id_set_pedido_pessoa_respondido_po",
+      "value": "e9f0a1b2-c3d4-4e5f-9a0b-c1d2e3f4a5b7",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_negativa_lote_po",
+      "value": "f0a1b2c3-d4e5-4f6a-8b9c-d0e1f2a3b4c6",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_finalizar_prenotacao_vencida",
+      "value": "b2c3d4e5-f6a7-4b8c-9d0e-f1a2b3c4d5e7",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_pedidos_oe",
+      "value": "c4d5e6f7-a8b9-4c0d-9e1f-a2b3c4d5e6f8",
+      "type": "string"
+    },
+    {
       "key": "onr_login_endpoint",
       "value": "https://hml3-wsoficio.onr.org.br/login.asmx",
       "type": "string"
@@ -94,6 +114,11 @@
     {
       "key": "url_servico_penhora_online",
       "value": "https://hml3-wsoficio.onr.org.br/penhoraonline.asmx",
+      "type": "string"
+    },
+    {
+      "key": "url_servico_oficios",
+      "value": "https://hml3-wsoficio.onr.org.br/oficios.asmx",
       "type": "string"
     },
     {
@@ -845,6 +870,269 @@
               }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_custas_po}}"
+          }
+        },
+        {
+          "name": "Set Pedido Pessoa Respondido PO — Responder",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_ID_PEDIDO', 'PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_RESPOSTA', 'PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_MATRICULA', 'PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_URL_ARQUIVO'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Pedido respondido', () => {",
+                  "    pm.expect(json.dados.id_pedido).to.eql(Number(pm.variables.replaceIn('{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_ID_PEDIDO}}')));",
+                  "    pm.expect(json.dados.respondido).to.eql(true);",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_RESPOSTA}}\",\n  \"negativa\": {{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_NEGATIVA}},\n  \"anexos\": [\n    {\n      \"matricula\": \"{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_MATRICULA}}\",\n      \"url_arquivo\": \"{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_URL_ARQUIVO}}\"\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_pessoa_respondido_po}}"
+          }
+        },
+        {
+          "name": "Set Pedido Negativa Lote PO — Negativar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Lote negativado', () => {",
+                  "    pm.expect(json.dados.quantidade_falhas).to.eql(0);",
+                  "    pm.expect(json.dados.pedidos[0].id_pedido).to.eql(Number(pm.variables.replaceIn('{{PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO}}')));",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"pedidos\": [\n    {\n      \"id_pedido\": {{PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO}}\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_negativa_lote_po}}"
+          }
+        },
+        {
+          "name": "Set Pedido Finalizar Prenotacao Vencida — Finalizar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ID_PEDIDO', 'PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_RESPOSTA', 'PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_NOME', 'PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_URL_ARQUIVO'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Prenotação vencida finalizada', () => {",
+                  "    pm.expect(json.dados.id_pedido).to.eql(Number(pm.variables.replaceIn('{{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ID_PEDIDO}}')));",
+                  "    pm.expect(json.dados.prenotacao_vencida_finalizada).to.eql(true);",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_RESPOSTA}}\",\n  \"anexos\": [\n    {\n      \"nome\": \"{{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_NOME}}\",\n      \"url_arquivo\": \"{{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_URL_ARQUIVO}}\"\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_finalizar_prenotacao_vencida}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3.5 Ofícios",
+      "description": "Proxies do módulo 3.5. Requer `onr_hash` do login (Auth ONR).",
+      "item": [
+        {
+          "name": "List Pedidos OE — Listar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'OFICIOS_DATA_SOLICITACAO_INICIAL', 'OFICIOS_DATA_SOLICITACAO_FINAL'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Listagem de ofícios retornou paginação', () => {",
+                  "    pm.expect(json.dados).to.have.property('quantidade_registros');",
+                  "    pm.expect(json.dados).to.have.property('quantidade_paginas');",
+                  "    pm.expect(json.dados.pedidos).to.be.an('array');",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"max_registros_por_pagina\": {{OFICIOS_MAX_ROW_PER_PAGE}},\n  \"numero_pagina\": {{OFICIOS_PAGE_NUMBER}},\n  \"protocolo\": \"{{OFICIOS_PROTOCOLO}}\",\n  \"id_instituicao\": {{OFICIOS_ID_INSTITUICAO}},\n  \"id_tipo_pesquisa\": {{OFICIOS_ID_TIPO_PESQUISA}},\n  \"id_status\": {{OFICIOS_ID_STATUS}},\n  \"data_solicitacao_inicial\": \"{{OFICIOS_DATA_SOLICITACAO_INICIAL}}\",\n  \"data_solicitacao_final\": \"{{OFICIOS_DATA_SOLICITACAO_FINAL}}\",\n  \"data_resposta_inicial\": \"{{OFICIOS_DATA_RESPOSTA_INICIAL}}\",\n  \"data_resposta_final\": \"{{OFICIOS_DATA_RESPOSTA_FINAL}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_pedidos_oe}}"
           }
         }
       ]

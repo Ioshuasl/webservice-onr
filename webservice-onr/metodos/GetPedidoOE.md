@@ -18,7 +18,7 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js) · `resolveAuthHash()` / `resolve_auth_hash()`.
 
 ## Pré-requisitos e validações de negócio
 
@@ -91,6 +91,7 @@ Tipo `GetPedidoOE_WSReq` (`wsdl/oficios.wsdl`):
 
 - Python: [`scripts/GetPedidoOe/getPedidoOe.py`](../../scripts/GetPedidoOe/getPedidoOe.py)
 - JavaScript: [`scripts/GetPedidoOe/getPedidoOe.js`](../../scripts/GetPedidoOe/getPedidoOe.js)
+- n8n webhook: [`scripts/GetPedidoOe/Get Pedido OE WebService ONR.md`](../../scripts/GetPedidoOe/Get%20Pedido%20OE%20WebService%20ONR.md)
 - Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js)
 - Variáveis `.env`: `OFICIOS_ID_PEDIDO`, `OFICIOS_*`
 - npm: `npm run get-pedido-oe`

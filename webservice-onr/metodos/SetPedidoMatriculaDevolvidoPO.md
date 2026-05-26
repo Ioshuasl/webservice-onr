@@ -33,7 +33,7 @@ Hash = SHA1( ONR_SERVENTIA_CHAVE + token ).encode('utf-8').hexdigest().upper()
 | 3 | Calcular hash com a chave da serventia (não enviar chave na SOAP) |
 | 4 | Chamar `SetPedidoMatriculaDevolvidoPO` passando `Hash` + demais parâmetros |
 
-Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper: `resolve_auth_hash()` em [`lib/onr_penhora_online.py`](../../lib/onr_penhora_online.py).
+Implementação: [`lib/onr_hash.py`](../../lib/onr_hash.py) · Helper JS: `resolveAuthHash()` em [`lib/onr_penhora_online.js`](../../lib/onr_penhora_online.js).
 
 Erros comuns: **45** (hash inválido), **46** (token já usado), **47** (expirado) — ver tabela em [`../hash.md`](../hash.md).
 
@@ -78,11 +78,15 @@ Tipo `SetPedidoMatriculaDevolvidoPO_WSReq` (`wsdl/penhoraonline.wsdl`):
 | 45 | Hash inválido. |
 | 46 | Hash inválido: Hash já utilizado. |
 | 47 | Hash inválido: Hash expirado. |
+| 51 | Não foi possível obter dados do pedido. |
+| 52 | Sem permissão para devolver este pedido. |
+| 53 | Operação disponível apenas para pedido de certidão por matrícula (`IDTipoPedido=1`). |
 
 ## Implementação neste projeto
 
 - Python: [`scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.py`](../../scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.py)
 - JavaScript: [`scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.js`](../../scripts/SetPedidoMatriculaDevolvidoPo/setPedidoMatriculaDevolvidoPo.js)
+- n8n webhook: [`scripts/SetPedidoMatriculaDevolvidoPo/Set Pedido Matricula Devolvido PO WebService ONR.md`](../../scripts/SetPedidoMatriculaDevolvidoPo/Set%20Pedido%20Matricula%20Devolvido%20PO%20WebService%20ONR.md)
 - Variáveis `.env`: `PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_*` (fallback `PENHORA_ONLINE_ID_PEDIDO`)
 - npm: `npm run set-pedido-matricula-devolvido-po`
 

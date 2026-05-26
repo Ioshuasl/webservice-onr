@@ -78,11 +78,15 @@ Tipo `SetPedidoPessoaDevolvidoPO_WSReq` (`wsdl/penhoraonline.wsdl`):
 | 45 | Hash inválido. |
 | 46 | Hash inválido: Hash já utilizado. |
 | 47 | Hash inválido: Hash expirado. |
+| 51 | Não foi possível obter dados do pedido. |
+| 52 | Sem permissão para devolver este pedido. |
+| 53 | Operação somente para pedidos tipo Certidão por Pessoa (`IDTipoPedido=2`). |
 
 ## Implementação neste projeto
 
 - Python: [`scripts/SetPedidoPessoaDevolvidoPo/setPedidoPessoaDevolvidoPo.py`](../../scripts/SetPedidoPessoaDevolvidoPo/setPedidoPessoaDevolvidoPo.py)
 - JavaScript: [`scripts/SetPedidoPessoaDevolvidoPo/setPedidoPessoaDevolvidoPo.js`](../../scripts/SetPedidoPessoaDevolvidoPo/setPedidoPessoaDevolvidoPo.js)
+- Workflow n8n: [`scripts/SetPedidoPessoaDevolvidoPo/Set Pedido Pessoa Devolvido PO WebService ONR.md`](../../scripts/SetPedidoPessoaDevolvidoPo/Set%20Pedido%20Pessoa%20Devolvido%20PO%20WebService%20ONR.md)
 - Variáveis `.env`: `PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_*` (fallback `PENHORA_ONLINE_ID_PEDIDO`)
 - npm: `npm run set-pedido-pessoa-devolvido-po`
 

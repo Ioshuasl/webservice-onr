@@ -54,6 +54,61 @@
       "lastSyncedHash": "c2ac7c699523efeeb4653bf9d7875d8ec6d1a838ed4f596311aefa732bded187",
       "lastSyncedAt": "2026-05-25T20:38:39.589Z",
       "filename": "Set Penhora Averbado PO.workflow.ts"
+    },
+    "cCKrInQyHC2yYMgX": {
+      "lastSyncedHash": "a3fb41295f5cc46885ac09a72072441f0630f3f711cd00771d22ff7d424268f5",
+      "lastSyncedAt": "2026-05-26T12:39:14.358Z",
+      "filename": "Set Penhora Exigencia PO.workflow.ts"
+    },
+    "qNOnrrZcR6tSGSxq": {
+      "lastSyncedHash": "e5fcd71200ab576b6c8c743c3bd99a4b2e9b75e9b5e5972e8583a7cd2d461daa",
+      "lastSyncedAt": "2026-05-26T12:39:13.844Z",
+      "filename": "Set Pedido Pessoa Devolvido PO.workflow.ts"
+    },
+    "mgoFiPyeqxqOBm0D": {
+      "lastSyncedHash": "224a65f9b77d3c106d2e0c7cc303f9aeadfd12fae35bfff4cddc4414ea3a37ae",
+      "lastSyncedAt": "2026-05-26T12:39:14.006Z",
+      "filename": "Set Pedido Pessoa Respondido PO.workflow.ts"
+    },
+    "cy8zOBAwuY0bXXYP": {
+      "lastSyncedHash": "a6f827ac23ef8fcb74f8c0794e6e8e5bbbab7f8e9760442d20a9c43bd8f00a14",
+      "lastSyncedAt": "2026-05-26T13:54:39.655Z",
+      "filename": "Set Pedido Negativa Lote PO.workflow.ts"
+    },
+    "HYYFoaHz09qOwuyp": {
+      "lastSyncedHash": "87399047c37ccbddc4f263bdfff7b7ec40c268ebd4ab32ed8680af1bd468f097",
+      "lastSyncedAt": "2026-05-26T13:56:10.329Z",
+      "filename": "Set Pedido Matricula Respondido PO.workflow.ts"
+    },
+    "VFnP6LykhgSQosmI": {
+      "lastSyncedHash": "aa7588ec627b352d8c189650c065ce9ba9e90769867f26ebb68901e684e7b6ea",
+      "lastSyncedAt": "2026-05-26T13:56:33.720Z",
+      "filename": "Set Pedido Matricula Devolvido PO.workflow.ts"
+    },
+    "lY1cDcyN3GRAuh9f": {
+      "lastSyncedHash": "6f663e751afb4a26434070f9af032013d03ddc26e0af22593d02fc5d9d86e397",
+      "lastSyncedAt": "2026-05-26T18:58:54.145Z",
+      "filename": "List Pedidos Exportacao PO.workflow.ts"
+    },
+    "HgBkpRJnuuTsllww": {
+      "lastSyncedHash": "d4c4d5dc062f6594bee6d29505dedb5d3be80f83f59069c52e860f69a428ae41",
+      "lastSyncedAt": "2026-05-26T18:58:57.997Z",
+      "filename": "Set Pedido Finalizar Prenotacao Vencida.workflow.ts"
+    },
+    "Vv0AvxZGIBLkMrkS": {
+      "lastSyncedHash": "a76c8d81bca13a27266580df2803073f434cb232be3b34f9dd208720a41c7dec",
+      "lastSyncedAt": "2026-05-26T18:59:43.045Z",
+      "filename": "List Instituicoes OE.workflow.ts"
+    },
+    "Ee3K8lXcvrGmxjbF": {
+      "lastSyncedHash": "b0328a9d2116f2e85009871abd7752624a9a1385a8dda63407b97c99a1b72199",
+      "lastSyncedAt": "2026-05-26T19:08:49.070Z",
+      "filename": "Get Pedido OE.workflow.ts"
+    },
+    "Eod4SWTYy0Sg1FNS": {
+      "lastSyncedHash": "9098c45cafc1bf6af449812336fdc6418fa5a7609997d265da42ae440f931069",
+      "lastSyncedAt": "2026-05-26T19:11:38.823Z",
+      "filename": "List Pedidos OE.workflow.ts"
     }
   }
 }

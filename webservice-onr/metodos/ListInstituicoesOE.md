@@ -20,7 +20,7 @@ Método do WSOficio — **3.5 Ofícios**.
 
 Parâmetro obrigatório **`Hash`** no envelope de entrada.
 
-Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js) · `resolveAuthHash()` / `resolve_auth_hash()`.
 
 ## Pré-requisitos e validações de negócio
 
@@ -61,6 +61,7 @@ Tipo `ListInstituicoesOE_WSReq` (`wsdl/oficios.wsdl`):
 
 - Python: [`scripts/ListInstituicoesOe/listInstituicoesOe.py`](../../scripts/ListInstituicoesOe/listInstituicoesOe.py)
 - JavaScript: [`scripts/ListInstituicoesOe/listInstituicoesOe.js`](../../scripts/ListInstituicoesOe/listInstituicoesOe.js)
+- n8n webhook: [`scripts/ListInstituicoesOe/List Instituicoes OE WebService ONR.md`](../../scripts/ListInstituicoesOe/List%20Instituicoes%20OE%20WebService%20ONR.md)
 - Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js)
 - Variáveis `.env`: `OFICIOS_WSDL_PATH`, `OFICIOS_ENDPOINT`, `OFICIOS_AUTO_LOGIN`
 - npm: `npm run list-instituicoes-oe`
