@@ -18,7 +18,7 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js) · `resolveAuthHash()` / `resolve_auth_hash()`.
 
 ## Pré-requisitos e validações de negócio
 
@@ -62,6 +62,7 @@ Tipo `ListCartoriosRestransmitirOE_WSReq` (`wsdl/oficios.wsdl`):
 
 - Python: [`scripts/ListCartoriosRestransmitirOe/listCartoriosRestransmitirOe.py`](../../scripts/ListCartoriosRestransmitirOe/listCartoriosRestransmitirOe.py)
 - JavaScript: [`scripts/ListCartoriosRestransmitirOe/listCartoriosRestransmitirOe.js`](../../scripts/ListCartoriosRestransmitirOe/listCartoriosRestransmitirOe.js)
+- n8n webhook: [`scripts/ListCartoriosRestransmitirOe/List Cartorios Restransmitir OE WebService ONR.md`](../../scripts/ListCartoriosRestransmitirOe/List%20Cartorios%20Restransmitir%20OE%20WebService%20ONR.md)
 - Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js)
 - Credenciais: variáveis globais `ONR_*`, `OFICIOS_*` (sem parâmetros extras além do hash)
 - npm: `npm run list-cartorios-retransmitir-oe`

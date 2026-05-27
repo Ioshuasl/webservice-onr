@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "1290ad44-898b-472f-90bf-132a0657c66f",
     "name": "ONR WebService — n8n",
-    "description": "Coleção unificada dos webhooks n8n proxy ONR (JSON snake_case + status HTTP).\n\n## Fluxo recomendado\n\n1. **3.1 Login** → Auth ONR — Login (grava onr_hash)\n2. **3.2 Acompanhamento** → List / Get / Insert / Update / Delete Titulo AT (usa onr_hash)\n3. **3.3 Penhora Online** → List / Set PO (usa onr_hash)\n4. **3.5 Ofícios** → List Pedidos OE (usa onr_hash)\n\n## Variáveis\n\nn8n_webhook_id_auth, n8n_webhook_id_list_titulos, n8n_webhook_id_list_status, n8n_webhook_id_get_status, n8n_webhook_id_get_titulo, n8n_webhook_id_insert_titulo, n8n_webhook_id_update_titulo, n8n_webhook_id_delete_titulo, n8n_webhook_id_set_baixa_boleto_po, n8n_webhook_id_set_custas_po, n8n_webhook_id_set_pedido_pessoa_respondido_po, n8n_webhook_id_set_pedido_negativa_lote_po, n8n_webhook_id_set_pedido_finalizar_prenotacao_vencida, n8n_webhook_id_list_pedidos_oe, n8n_webhook_mode\n\n## Sync\n\nnpm run postman:sync",
+    "description": "Coleção unificada dos webhooks n8n proxy ONR (JSON snake_case + status HTTP).\n\n## Fluxo recomendado\n\n1. **3.1 Login** → Auth ONR — Login (grava onr_hash)\n2. **3.2 Acompanhamento** → List / Get / Insert / Update / Delete Titulo AT (usa onr_hash)\n3. **3.3 Penhora Online** → List / Set PO (usa onr_hash)\n4. **3.5 Ofícios** → List Pedidos OE / List Pedidos OE V2 / Set Pedido Negativa Lote OE (usa onr_hash)\n\n## Variáveis\n\nn8n_webhook_id_auth, n8n_webhook_id_list_titulos, n8n_webhook_id_list_status, n8n_webhook_id_get_status, n8n_webhook_id_get_titulo, n8n_webhook_id_insert_titulo, n8n_webhook_id_update_titulo, n8n_webhook_id_delete_titulo, n8n_webhook_id_set_baixa_boleto_po, n8n_webhook_id_set_custas_po, n8n_webhook_id_set_pedido_pessoa_respondido_po, n8n_webhook_id_set_pedido_negativa_lote_po, n8n_webhook_id_set_pedido_finalizar_prenotacao_vencida, n8n_webhook_id_list_pedidos_oe, n8n_webhook_id_list_pedidos_oe_v2, n8n_webhook_id_set_pedido_negativa_lote_oe, n8n_webhook_mode\n\n## Sync\n\nnpm run postman:sync",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
@@ -99,6 +99,16 @@
     {
       "key": "n8n_webhook_id_list_pedidos_oe",
       "value": "c4d5e6f7-a8b9-4c0d-9e1f-a2b3c4d5e6f8",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_pedidos_oe_v2",
+      "value": "d5e6f7a8-b9c0-4d1e-af2a-b3c4d5e6f7a9",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_negativa_lote_oe",
+      "value": "e6f7a8b9-c0d1-4e2f-b3a4-c5d6e7f8a9b0",
       "type": "string"
     },
     {
@@ -1133,6 +1143,137 @@
               }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_pedidos_oe}}"
+          }
+        },
+        {
+          "name": "List Pedidos OE V2 — Listar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'OFICIOS_DATA_SOLICITACAO_INICIAL', 'OFICIOS_DATA_SOLICITACAO_FINAL'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('ListPedidosOE_V2 retornou paginação', () => {",
+                  "    pm.expect(json.dados.operacao_soap).to.eql('ListPedidosOE_V2');",
+                  "    pm.expect(json.dados).to.have.property('quantidade_registros');",
+                  "    pm.expect(json.dados).to.have.property('quantidade_paginas');",
+                  "    pm.expect(json.dados.pedidos).to.be.an('array');",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"max_registros_por_pagina\": {{OFICIOS_MAX_ROW_PER_PAGE}},\n  \"numero_pagina\": {{OFICIOS_PAGE_NUMBER}},\n  \"protocolo\": \"{{OFICIOS_PROTOCOLO}}\",\n  \"id_instituicao\": {{OFICIOS_ID_INSTITUICAO}},\n  \"id_tipo_pesquisa\": {{OFICIOS_ID_TIPO_PESQUISA}},\n  \"id_status\": {{OFICIOS_ID_STATUS}},\n  \"data_solicitacao_inicial\": \"{{OFICIOS_DATA_SOLICITACAO_INICIAL}}\",\n  \"data_solicitacao_final\": \"{{OFICIOS_DATA_SOLICITACAO_FINAL}}\",\n  \"data_resposta_inicial\": \"{{OFICIOS_DATA_RESPOSTA_INICIAL}}\",\n  \"data_resposta_final\": \"{{OFICIOS_DATA_RESPOSTA_FINAL}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_pedidos_oe_v2}}"
+          }
+        },
+        {
+          "name": "Set Pedido Negativa Lote OE — Negativar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = ['onr_hash', 'OFICIOS_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO'];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "if (json.sucesso) {",
+                  "  pm.test('Lote de ofícios negativado', () => {",
+                  "    pm.expect(json.dados.operacao_soap).to.eql('SetPedidoNegativaLoteOE');",
+                  "    pm.expect(json.dados.quantidade_falhas).to.eql(0);",
+                  "    pm.expect(json.dados.pedidos).to.be.an('array');",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"pedidos\": [\n    {\n      \"id_pedido\": {{OFICIOS_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO}}\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_negativa_lote_oe}}"
           }
         }
       ]

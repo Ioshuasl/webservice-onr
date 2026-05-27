@@ -18,7 +18,7 @@ Método do WSOficio — **3.5 Ofícios**.
 
 ## Hash de autenticação
 
-Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · `resolve_auth_hash()`.
+Implementação: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js) · `resolveAuthHash()` / `resolve_auth_hash()`.
 
 ## Pré-requisitos e validações de negócio
 
@@ -79,6 +79,7 @@ Tipo `SetPedidoRespondidoOE_WSReq` (`wsdl/oficios.wsdl`):
 
 - Python: [`scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.py`](../../scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.py)
 - JavaScript: [`scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.js`](../../scripts/SetPedidoRespondidoOe/setPedidoRespondidoOe.js)
+- n8n webhook: [`scripts/SetPedidoRespondidoOe/Set Pedido Respondido OE WebService ONR.md`](../../scripts/SetPedidoRespondidoOe/Set%20Pedido%20Respondido%20OE%20WebService%20ONR.md)
 - Lib: [`lib/onr_oficios.py`](../../lib/onr_oficios.py) · [`lib/onr_oficios.js`](../../lib/onr_oficios.js)
 - Pré-validação: [`lib/onr_oficios_respondido.py`](../../lib/onr_oficios_respondido.py) · [`lib/onr_oficios_respondido.js`](../../lib/onr_oficios_respondido.js)
 - Variáveis `.env`: `OFICIOS_SET_PEDIDO_RESPONDIDO_*` (ou `OFICIOS_ID_PEDIDO`)
