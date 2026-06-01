@@ -39,7 +39,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // =====================================================================
 
 @workflow({
-    id: 'qNOnrrZcR6tSGSxq',
+    id: 'y7IQQ20CaiNhYF4a',
     name: 'Set Pedido Pessoa Devolvido PO',
     active: false,
     isArchived: false,

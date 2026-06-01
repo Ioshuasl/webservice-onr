@@ -39,7 +39,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // =====================================================================
 
 @workflow({
-    id: 'Eod4SWTYy0Sg1FNS',
+    id: 'gm8GGdTBOwxB4Bzy',
     name: 'List Pedidos OE',
     active: false,
     isArchived: false,

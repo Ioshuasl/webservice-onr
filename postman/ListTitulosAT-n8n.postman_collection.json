@@ -13,7 +13,7 @@
     ]
   },
   "variable": [
-    { "key": "n8n_base_url", "value": "https://n8n.ioshuavps.com.br", "type": "string" },
+    { "key": "n8n_base_url", "value": "https://api-n8n.gbrqne.easypanel.host", "type": "string" },
     { "key": "n8n_webhook_mode", "value": "webhook-test", "type": "string" },
     { "key": "n8n_webhook_id", "value": "f8e2a1b0-9c3d-4e5f-a6b7-8d9e0f1a2b3c", "type": "string" },
     { "key": "url_servico_onr", "value": "https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx", "type": "string" }

@@ -1,0 +1,293 @@
+{
+  "info": {
+    "_postman_id": "7a3b2c1d-4e5f-6789-a0b1-c2d3e4f5a6b7",
+    "name": "Parse Memorial SIGEF — n8n Webhook",
+    "description": "Coleção para consumir o workflow n8n **Parse Memorial SIGEF** (`drRULxhBQUk10wbw`).\n\nEnvia um PDF do Memorial Descritivo SIGEF (INCRA) e recebe JSON estruturado com cabeçalho, vértices, limites, geometria WKT, área/perímetro e validações.\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Credenciais **HTTP Basic Auth** no nó Webhook (mesmas dos demais workflows n8n deste projeto).\n3. PDF de memorial SIGEF para o request principal.\n\n## URLs do webhook\n\n| Modo | URL base | Quando usar |\n|------|----------|-------------|\n| `webhook-test` | `{{n8n_base_url}}/webhook-test/sigef/memorial/parse` | Editor aberto + **Execute workflow** |\n| `webhook` | `{{n8n_base_url}}/webhook/sigef/memorial/parse` | Workflow **ativo** |\n\nVariável `n8n_webhook_mode`: `webhook-test` ou `webhook`.\n\n## Corpo da requisição\n\n`multipart/form-data` com campo de arquivo **`memorial`** (PDF).\n\nNo Postman, defina `MEMORIAL_PDF_PATH` no ambiente ou selecione o arquivo manualmente no campo *memorial*.\n\n## Respostas\n\n| HTTP | `code` (erro) | Situação |\n|------|---------------|----------|\n| 200 | — | `sucesso: true` + payload SIGEF |\n| 400 | `datum_invalido`, `geometria_invalida`, etc. | Validação bloqueante |\n| 422 | `arquivo_invalido`, `memorial_invalido` | PDF ausente ou sem tabela |\n| 500 | `erro_interno` | Falha no parser |\n\nWorkflow local: `workflows/n8n/extensao-n8n-teste/Parse Memorial SIGEF.workflow.ts`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_path",
+      "value": "sigef/memorial/parse",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id",
+      "value": "drRULxhBQUk10wbw",
+      "type": "string"
+    },
+    {
+      "key": "MEMORIAL_PDF_PATH",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Parse Memorial SIGEF",
+      "description": "Webhook n8n — extrai e estrutura memorial descritivo SIGEF a partir de PDF.",
+      "item": [
+        {
+          "name": "Parse Memorial SIGEF — PDF",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "",
+                  "function hasBasicAuthConfigured() {",
+                  "  const auth = pm.request.auth;",
+                  "  if (!auth || auth.type !== 'basic' || !Array.isArray(auth.basic)) return false;",
+                  "  const user = auth.basic.find((x) => x.key === 'username')?.value;",
+                  "  const pass = auth.basic.find((x) => x.key === 'password')?.value;",
+                  "  return Boolean(user && pass && !String(user).includes('{{') && !String(pass).includes('{{'));",
+                  "}",
+                  "",
+                  "const required = ['n8n_base_url', 'n8n_webhook_mode', 'n8n_webhook_path'];",
+                  "if (!getVar('N8N_BASIC_AUTH_USER') || !getVar('N8N_BASIC_AUTH_PASSWORD')) {",
+                  "  if (!hasBasicAuthConfigured()) {",
+                  "    required.push('N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD');",
+                  "  }",
+                  "}",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error(",
+                  "    'Variáveis ausentes: ' + missing.join(', ') +",
+                  "    '. Defina no Environment ou Collection Variables.'",
+                  "  );",
+                  "}",
+                  "",
+                  "const pdfPath = getVar('MEMORIAL_PDF_PATH');",
+                  "if (!pdfPath) {",
+                  "  console.warn(",
+                  "    'MEMORIAL_PDF_PATH vazio: selecione o arquivo PDF no campo \"memorial\" do body ou defina o caminho no ambiente.'",
+                  "  );",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "",
+                  "let json;",
+                  "pm.test('Resposta JSON válida', () => {",
+                  "  json = pm.response.json();",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json).to.have.property('sucesso');",
+                  "  pm.expect(json).to.have.property('status_http');",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "",
+                  "if (!json) return;",
+                  "",
+                  "if (!json.sucesso) {",
+                  "  pm.test('sucesso=true', () => {",
+                  "    throw new Error(`Falha: [${json.code}] ${json.detail || ''}`);",
+                  "  });",
+                  "  return;",
+                  "}",
+                  "",
+                  "pm.test('Campos principais do memorial', () => {",
+                  "  pm.expect(json.vertices).to.be.an('array');",
+                  "  pm.expect(json.vertices.length).to.be.at.least(3);",
+                  "  pm.expect(json.limites).to.be.an('array');",
+                  "  pm.expect(json.descricao_parcela).to.be.an('array');",
+                  "  pm.expect(json.validacoes).to.be.an('object');",
+                  "  pm.expect(json.validacoes.datum_valido).to.eql(true);",
+                  "});",
+                  "",
+                  "pm.test('Geometria presente', () => {",
+                  "  pm.expect(json.geometria_wkt).to.be.a('string').and.not.empty;",
+                  "  pm.expect(json.bbox).to.be.an('object');",
+                  "  pm.expect(json.bbox).to.have.keys('xmin', 'ymin', 'xmax', 'ymax');",
+                  "});",
+                  "",
+                  "if (json.qrcode) pm.environment.set('sigef_memorial_uuid', json.qrcode);",
+                  "if (json.nome) pm.environment.set('sigef_memorial_nome', json.nome);",
+                  "if (json.codigo_incra_sncr) pm.environment.set('sigef_codigo_incra_sncr', String(json.codigo_incra_sncr));",
+                  "",
+                  "console.log('Imóvel:', json.nome || '(sem nome)');",
+                  "console.log('Vértices:', (json.vertices || []).length);",
+                  "console.log('Área (ha):', json.area_ha);",
+                  "console.log('Perímetro (m):', json.perimetro_m);",
+                  "if ((json.validacoes?.warnings || []).length) {",
+                  "  console.warn('Warnings:', json.validacoes.warnings);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "memorial",
+                  "description": "PDF do Memorial Descritivo SIGEF (INCRA)",
+                  "type": "file",
+                  "src": "{{MEMORIAL_PDF_PATH}}"
+                }
+              ]
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_path}}",
+            "description": "Envia o PDF do memorial e retorna JSON estruturado (vértices, limites, WKT, cabeçalho, certificação).\n\n**Campo multipart:** `memorial` (obrigatório, PDF).\n\n**Autenticação:** Basic Auth (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n\n**Modo teste:** `n8n_webhook_mode=webhook-test` + *Execute workflow* no editor.\n\n**Produção:** `n8n_webhook_mode=webhook` + workflow ativo."
+          },
+          "response": []
+        },
+        {
+          "name": "Parse Memorial SIGEF — sem arquivo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const json = pm.response.json();",
+                  "pm.test('sucesso=false', () => {",
+                  "  pm.expect(json.sucesso).to.eql(false);",
+                  "  pm.expect(json.status_http).to.eql(422);",
+                  "});",
+                  "pm.test('code=arquivo_invalido', () => {",
+                  "  pm.expect(json.code).to.eql('arquivo_invalido');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{N8N_BASIC_AUTH_USER}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_path}}",
+            "description": "Valida rejeição quando nenhum PDF é enviado. Espera HTTP 422 e `code: arquivo_invalido`."
+          },
+          "response": []
+        },
+        {
+          "name": "Parse Memorial SIGEF — campo errado (data)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const json = pm.response.json();",
+                  "pm.test('sucesso=false por PDF ausente/inválido', () => {",
+                  "  pm.expect(json.sucesso).to.eql(false);",
+                  "  pm.expect(json.code).to.eql('arquivo_invalido');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "data",
+                  "value": "nao-e-pdf",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_path}}",
+            "description": "Envia multipart sem o campo `memorial` (apenas texto). O workflow espera o campo `memorial` com PDF; deve retornar 422."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

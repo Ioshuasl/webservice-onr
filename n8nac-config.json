@@ -6,13 +6,13 @@
       "id": "extensao-n8n-teste",
       "name": "extensao n8n teste",
       "kind": "external-instance",
-      "url": "https://n8n.ioshuavps.com.br"
+      "url": "https://api-n8n.gbrqne.easypanel.host"
     },
     {
       "id": "n8n-censec",
       "name": "n8n-censec",
       "kind": "external-instance",
-      "url": "https://n8n.ioshuavps.com.br"
+      "url": "https://api-n8n.gbrqne.easypanel.host"
     }
   ],
   "environments": [

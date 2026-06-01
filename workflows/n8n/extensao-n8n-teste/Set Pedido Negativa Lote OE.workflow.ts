@@ -39,7 +39,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // =====================================================================
 
 @workflow({
-    id: 'q4527bVeo6gjtMBR',
+    id: 'ergNGHwTWWl6rPpa',
     name: 'Set Pedido Negativa Lote OE',
     active: false,
     isArchived: false,

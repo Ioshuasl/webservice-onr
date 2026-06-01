@@ -7,7 +7,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // NODE INDEX
 // ──────────────────────────────────────────────────────────────────
 // Property name                    Node type (short)         Flags
-// Webhook                            webhook                    [creds]
+// Webhook                            webhook
 // NormalizarEntrada                  set
 // ValidarEntrada                     code
 // IfEntradaValida                    if
@@ -39,11 +39,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // =====================================================================
 
 @workflow({
-    id: 'UDR1PYjNOEdCT4H9',
+    id: 'Zo0VSHwlPFcQAWgq',
     name: 'List Pedidos PO',
     active: false,
     isArchived: false,
-    settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
+    projectId: 'PP65Me8T4KDNsx9m',
+    settings: { executionOrder: 'v1', binaryMode: 'separate', availableInMCP: false },
 })
 export class ListPedidosPoWorkflow {
     // =====================================================================
@@ -51,13 +52,12 @@ export class ListPedidosPoWorkflow {
     // =====================================================================
 
     @node({
-        id: 'a9b0c1d2-e3f4-4a5b-b6c7-d8e9f0a1b2c3',
+        id: 'cc0f936f-2f5a-430c-9d38-d499a4f2a154',
         webhookId: 'e9f0a1b2-c3d4-4e5f-9a0b-c1d2e3f4a5b6',
         name: 'Webhook',
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
-        position: [0, 0],
-        credentials: { httpBasicAuth: { id: 'CE3L7VlaRe4klqlk', name: 'ioshua + ioshua123' } },
+        position: [-1296, 128],
     })
     Webhook = {
         httpMethod: 'POST',
@@ -68,11 +68,11 @@ export class ListPedidosPoWorkflow {
     };
 
     @node({
-        id: 'b0c1d2e3-f4a5-4b6c-c7d8-e9f0a1b2c3d4',
+        id: '011f85b7-c28a-4d13-bb82-51d930e46d0e',
         name: 'normalizar-entrada',
         type: 'n8n-nodes-base.set',
         version: 3.4,
-        position: [336, 0],
+        position: [-960, 128],
     })
     NormalizarEntrada = {
         mode: 'raw',
@@ -95,11 +95,11 @@ export class ListPedidosPoWorkflow {
     };
 
     @node({
-        id: 'c1d2e3f4-a5b6-4c7d-d8e9-f0a1b2c3d4e5',
+        id: 'ae01207e-7ddf-4ddb-b141-a6c4b24869a9',
         name: 'validar-entrada',
         type: 'n8n-nodes-base.code',
         version: 2,
-        position: [656, 0],
+        position: [-640, 128],
     })
     ValidarEntrada = {
         jsCode: `const item = $input.first().json;
@@ -244,11 +244,11 @@ return [{
     };
 
     @node({
-        id: 'd2e3f4a5-b6c7-4d8e-e9f0-a1b2c3d4e5f6',
+        id: '8ed809d7-5d55-41e3-965e-efd2a3fbe33f',
         name: 'if-entrada-valida',
         type: 'n8n-nodes-base.if',
         version: 2.2,
-        position: [976, 0],
+        position: [-320, 128],
     })
     IfEntradaValida = {
         conditions: {
@@ -276,11 +276,11 @@ return [{
     };
 
     @node({
-        id: 'f4a5b6c7-d8e9-4f0a-a1b2-c3d4e5f6a7b8',
+        id: 'd8b8fc0a-0d9f-4531-8697-d6f659c3364d',
         name: 'montar-envelope-soap',
         type: 'n8n-nodes-base.code',
         version: 2,
-        position: [1296, -128],
+        position: [0, 0],
     })
     MontarEnvelopeSoap = {
         jsCode: `const item = $input.first().json;
@@ -319,11 +319,11 @@ return [{ json: { ...item, corpo_soap: corpo } }];`,
     };
 
     @node({
-        id: 'a5b6c7d8-e9f0-4a1b-b2c3-d4e5f6a7b8c9',
+        id: '84d8438f-e8e6-4b9b-8d5e-785ad0c1f3bf',
         name: 'consumir-soap-onr',
         type: 'n8n-nodes-base.httpRequest',
         version: 4.4,
-        position: [1616, -128],
+        position: [320, 0],
         onError: 'continueErrorOutput',
     })
     ConsumirSoapOnr = {
@@ -337,11 +337,11 @@ return [{ json: { ...item, corpo_soap: corpo } }];`,
     };
 
     @node({
-        id: 'b6c7d8e9-f0a1-4b2c-c3d4-e5f6a7b8c9d0',
+        id: '1d65c209-2f66-4886-9366-9f221f9c217c',
         name: 'converter-resposta-onr',
         type: 'n8n-nodes-base.code',
         version: 2,
-        position: [1936, -128],
+        position: [640, 0],
     })
     ConverterRespostaOnr = {
         jsCode: `const entrada = $input.first().json;
@@ -429,11 +429,11 @@ return {
     };
 
     @node({
-        id: 'c7d8e9f0-a1b2-4c3d-d4e5-f6a7b8c9d0e1',
+        id: 'e72536a9-f979-488a-8992-2abb300631dc',
         name: 'resposta-validacao',
         type: 'n8n-nodes-base.code',
         version: 2,
-        position: [1296, 128],
+        position: [0, 256],
     })
     RespostaValidacao = {
         jsCode: `const item = $input.first().json;
@@ -454,11 +454,11 @@ return [{
     };
 
     @node({
-        id: 'd8e9f0a1-b2c3-4d4e-e5f6-a7b8c9d0e1f2',
+        id: 'b470c9d3-0ff2-4f1e-ab26-6166c664a6b8',
         name: 'resposta-erro-conexao-onr',
         type: 'n8n-nodes-base.code',
         version: 2,
-        position: [1936, 128],
+        position: [640, 256],
     })
     RespostaErroConexaoOnr = {
         jsCode: `const erro = $input.first().json;
@@ -480,14 +480,13 @@ return [{
     };
 
     @node({
-        id: 'e9f0a1b2-c3d4-4e5f-f6a7-b8c9d0e1f2a3',
+        id: 'cd4b6837-fa81-4071-86af-7bb38651215e',
         name: 'Respond to Webhook',
         type: 'n8n-nodes-base.respondToWebhook',
         version: 1.5,
-        position: [2256, 0],
+        position: [960, 128],
     })
     RespondToWebhook = {
-        respondWith: 'firstIncomingItem',
         options: {
             responseCode: '={{ $json.status_http }}',
         },
@@ -506,7 +505,7 @@ return [{
         this.IfEntradaValida.out(1).to(this.RespostaValidacao.in(0));
         this.MontarEnvelopeSoap.out(0).to(this.ConsumirSoapOnr.in(0));
         this.ConsumirSoapOnr.out(0).to(this.ConverterRespostaOnr.in(0));
-        this.ConsumirSoapOnr.error().to(this.RespostaErroConexaoOnr.in(0));
+        this.ConsumirSoapOnr.out(0).to(this.RespostaErroConexaoOnr.in(0));
         this.ConverterRespostaOnr.out(0).to(this.RespondToWebhook.in(0));
         this.RespostaValidacao.out(0).to(this.RespondToWebhook.in(0));
         this.RespostaErroConexaoOnr.out(0).to(this.RespondToWebhook.in(0));

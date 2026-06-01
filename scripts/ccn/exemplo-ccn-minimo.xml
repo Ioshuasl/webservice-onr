@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO8859-1" ?>
+<pessoas>
+  <pessoa>
+    <estadoCivil>2</estadoCivil>
+    <ibgeCidadeNaturalidade>1600600</ibgeCidadeNaturalidade>
+    <nacionalidade>BRASIL</nacionalidade>
+    <nacionalidadeTipo>Brasileiro Nato</nacionalidadeTipo>
+    <ufNaturalidade>AP</ufNaturalidade>
+    <cidadeNaturalidade>SANTANA</cidadeNaturalidade>
+    <cpf>11144477735</cpf>
+    <nome>MAYA SIMONE TEREZA ROCHA</nome>
+    <sexo>F</sexo>
+    <mae>CARLA ISIS ROCHA</mae>
+    <pai>MARCOS VICTOR ROCHA</pai>
+    <telefone>+555439999999</telefone>
+    <celular>+5543999999999</celular>
+    <profissao>ADVOGADA</profissao>
+    <dataNascimento>1998-12-26</dataNascimento>
+    <email>teste@teste.com.br</email>
+    <endereco>
+      <ibgeCidade>1600600</ibgeCidade>
+      <cep>68928259</cep>
+      <bairro>FONTE NOVA</bairro>
+      <cidade>SANTANA</cidade>
+      <uf>AP</uf>
+      <complemento>AP 26</complemento>
+      <endereco>ALAMEDA DOS CRISANTEMOS</endereco>
+      <numero>503</numero>
+      <imagemComprovanteResidencia>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagemComprovanteResidencia>
+    </endereco>
+    <observacao>Cadastro realizado para testes Orius n8n</observacao>
+    <documento>
+      <tipo>RG</tipo>
+      <docIdentidade>27610007</docIdentidade>
+      <orgaoEmissor>SSP</orgaoEmissor>
+      <ufOrgaoEmissor>MG</ufOrgaoEmissor>
+      <dataEmissao>2009-05-18</dataEmissao>
+      <imagemDocumento>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagemDocumento>
+    </documento>
+    <carteiraHabilitacao>
+      <numeroCarteiraHabilitacao>123456</numeroCarteiraHabilitacao>
+      <categoriaCarteiraHabilitacao>AB</categoriaCarteiraHabilitacao>
+      <dataPrimeiraHabilitacao>2000-01-30</dataPrimeiraHabilitacao>
+      <dataExpiracaoHabilitacao>2023-10-25</dataExpiracaoHabilitacao>
+      <imagemDocumento>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagemDocumento>
+    </carteiraHabilitacao>
+    <biometria>
+      <dedo>1</dedo>
+      <imagemBiometria>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagemBiometria>
+    </biometria>
+    <biometria>
+      <dedo>2</dedo>
+      <imagemBiometria>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagemBiometria>
+    </biometria>
+    <ficha>
+      <dataFicha>2010-04-15</dataFicha>
+      <numeroFicha>0217780</numeroFicha>
+      <imagensFicha>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagensFicha>
+      <imagensFicha>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagensFicha>
+      <imagensFicha>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagensFicha>
+    </ficha>
+    <imagemFoto>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagemFoto>
+    <anexo>
+      <imagemAnexo>iVBORw0KGgoAAAANSUhEUgAAAAUA</imagemAnexo>
+    </anexo>
+    <enderecoTrabalho>
+      <ibgeCidade>3106200</ibgeCidade>
+      <cep>30170131</cep>
+      <bairro>CENTRO</bairro>
+      <cidade>BELO HORIZONTE</cidade>
+      <uf>MG</uf>
+      <complemento>5 ANDAR - SALA 1006</complemento>
+      <endereco>RUA SAO PAULO</endereco>
+      <numero>1565</numero>
+    </enderecoTrabalho>
+    <politicamenteExposta>false</politicamenteExposta>
+    <investigadaAcusadaTerrorismo>false</investigadaAcusadaTerrorismo>
+    <conjuge>
+      <cpf>52998224725</cpf>
+      <nome>ELIAS RENATO GOMES</nome>
+      <regimeBem>Comunhao Parcial</regimeBem>
+    </conjuge>
+    <fichaBloqueada>false</fichaBloqueada>
+  </pessoa>
+</pessoas>

@@ -1,0 +1,309 @@
+{
+  "info": {
+    "_postman_id": "f8e7d6c5-b4a3-4291-8e7d-6c5b4a392817",
+    "name": "DOI Validate JSON — n8n Webhook",
+    "description": "Coleção para testar o workflow n8n **DOI Validate JSON** (`HewsInHfw3Gfrs5Z`).\n\nValidação **local** de payload DOI-Web (importação JSON) — não envia dados à Receita Federal.\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Este webhook usa `authentication: none` (sem Basic Auth no nó).\n\n## URLs do webhook\n\n| Modo | URL |\n|------|-----|\n| Teste (editor) | `{{n8n_base_url}}/webhook-test/doi/validate-json` |\n| Produção | `{{n8n_base_url}}/webhook/doi/validate-json` |\n\nVariável `n8n_webhook_mode`: `webhook-test` ou `webhook`.\n\n## Corpo da requisição\n\n`Content-Type: application/json` com objeto raiz `{ \"declaracoes\": [ ... ] }` (mesmo formato do arquivo de importação DOI-Web).\n\nO normalizador aceita também body aninhado em `{ \"body\": { \"declaracoes\": ... } }`.\n\n## Respostas\n\n| HTTP | Situação |\n|------|----------|\n| `200` | `valid: true`, `errors: []` |\n| `400` | `valid: false`, lista em `errors[]` (`sistema: DOI`, `path`, `code`, `message`) |\n\nCampos úteis: `declarationCount`, `warningCount`, `warnings`.\n\n## Referências\n\n- Workflow: `workflows/n8n/extensao-n8n-teste/DOI Validate JSON.workflow.ts`\n- Exemplo válido: `scripts/doi/exemplo-doi-valido.json`\n- Validador: `scripts/doi/doi-validate-payload.cjs`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "doi_n8n_webhook_path",
+      "value": "doi/validate-json",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id",
+      "value": "HewsInHfw3Gfrs5Z",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "function getVar(key) {",
+          "  const fromEnv = pm.environment.get(key);",
+          "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+          "  const fromCollection = pm.collectionVariables.get(key);",
+          "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+          "  return pm.variables.get(key);",
+          "}",
+          "",
+          "const required = ['n8n_base_url', 'n8n_webhook_mode', 'doi_n8n_webhook_path'];",
+          "const missing = required.filter((k) => !getVar(k));",
+          "if (missing.length) {",
+          "  throw new Error(",
+          "    'Variáveis ausentes: ' + missing.join(', ') +",
+          "    '. Importe DOI-Validate-JSON-n8n.postman_environment.template.json ou defina na coleção.'",
+          "  );",
+          "}",
+          "",
+          "if (getVar('n8n_webhook_mode') === 'webhook-test') {",
+          "  console.warn('Modo webhook-test: abra o workflow no n8n e clique Execute workflow antes de enviar.');",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "DOI Validate JSON",
+      "description": "Webhook n8n — validação local de declarações DOI em JSON.",
+      "item": [
+        {
+          "name": "Payload válido — Notarial (exemplo)",
+          "description": "Espelha `scripts/doi/exemplo-doi-valido.json`. Escritura notarial urbana com CPFs válidos.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "",
+                  "let json;",
+                  "pm.test('Resposta JSON válida', () => {",
+                  "  json = pm.response.json();",
+                  "  pm.expect(json).to.be.an('object');",
+                  "});",
+                  "",
+                  "pm.test('Payload aceito pela validação local', () => {",
+                  "  pm.expect(json.valid).to.eql(true);",
+                  "  pm.expect(json.success).to.eql(true);",
+                  "  pm.expect(json.errors).to.be.an('array').that.is.empty;",
+                  "});",
+                  "",
+                  "pm.test('Contém ao menos uma declaração', () => {",
+                  "  pm.expect(json.declarationCount).to.be.at.least(1);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"declaracoes\": [\n    {\n      \"tipoDeclaracao\": \"0\",\n      \"tipoServico\": \"1\",\n      \"dataLavraturaRegistroAverbacao\": \"2025-08-15\",\n      \"tipoAto\": \"1\",\n      \"folha\": \"10-12\",\n      \"dataNegocioJuridico\": \"2025-08-10\",\n      \"tipoOperacaoImobiliaria\": \"11\",\n      \"valorOperacaoImobiliaria\": 450000,\n      \"valorBaseCalculoItbiItcmd\": 450000,\n      \"formaPagamento\": \"5\",\n      \"indicadorPermutaBens\": false,\n      \"indicadorPagamentoDinheiro\": true,\n      \"valorPagoMoedaCorrenteDataAto\": 450000,\n      \"tipoParteTransacionada\": \"1\",\n      \"valorParteTransacionada\": 100,\n      \"destinacao\": \"1\",\n      \"indicadorImovelPublicoUniao\": false,\n      \"cib\": \"J7DNF01S\",\n      \"inscricaoMunicipal\": \"1234567890\",\n      \"codigoIbge\": \"3550308\",\n      \"areaImovel\": 250,\n      \"indicadorAreaLoteNaoConsta\": false,\n      \"areaConstruida\": 180,\n      \"indicadorAreaConstruidaNaoConsta\": false,\n      \"tipoImovel\": \"67\",\n      \"tipoLogradouro\": \"Rua\",\n      \"nomeLogradouro\": \"Rua das Flores\",\n      \"numeroImovel\": \"123\",\n      \"bairro\": \"Centro\",\n      \"cep\": \"01001000\",\n      \"alienantes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"11144477735\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false\n        }\n      ],\n      \"adquirentes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"52998224725\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{doi_n8n_webhook_path}}"
+          }
+        },
+        {
+          "name": "Payload inválido — declaracoes ausente",
+          "description": "Objeto raiz sem `declaracoes` — deve retornar 400 com erro `required`.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                  "",
+                  "const json = pm.response.json();",
+                  "",
+                  "pm.test('Validação rejeitou o payload', () => {",
+                  "  pm.expect(json.valid).to.eql(false);",
+                  "  pm.expect(json.success).to.eql(false);",
+                  "  pm.expect(json.errors.length).to.be.at.least(1);",
+                  "});",
+                  "",
+                  "pm.test('Erro em declaracoes', () => {",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('declaracoes');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"observacao\": \"payload sem bloco declaracoes\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{doi_n8n_webhook_path}}"
+          }
+        },
+        {
+          "name": "Payload inválido — CPF alienante",
+          "description": "Força `ni_invalid` em `declaracoes[0].alienantes[0].ni`.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                  "",
+                  "const json = pm.response.json();",
+                  "",
+                  "pm.test('Erro de CPF retornado', () => {",
+                  "  pm.expect(json.valid).to.eql(false);",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('ni_invalid');",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('alienantes');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"declaracoes\": [\n    {\n      \"tipoDeclaracao\": \"0\",\n      \"tipoServico\": \"1\",\n      \"dataLavraturaRegistroAverbacao\": \"2025-08-15\",\n      \"tipoAto\": \"1\",\n      \"folha\": \"10\",\n      \"dataNegocioJuridico\": \"2025-08-10\",\n      \"tipoOperacaoImobiliaria\": \"11\",\n      \"valorOperacaoImobiliaria\": 450000,\n      \"valorBaseCalculoItbiItcmd\": 450000,\n      \"formaPagamento\": \"5\",\n      \"indicadorPermutaBens\": false,\n      \"indicadorPagamentoDinheiro\": false,\n      \"tipoParteTransacionada\": \"1\",\n      \"valorParteTransacionada\": 100,\n      \"destinacao\": \"1\",\n      \"indicadorImovelPublicoUniao\": false,\n      \"cib\": \"J7DNF01S\",\n      \"inscricaoMunicipal\": \"1234567890\",\n      \"codigoIbge\": \"3550308\",\n      \"areaImovel\": 250,\n      \"indicadorAreaLoteNaoConsta\": false,\n      \"areaConstruida\": 180,\n      \"indicadorAreaConstruidaNaoConsta\": false,\n      \"tipoImovel\": \"67\",\n      \"tipoLogradouro\": \"Rua\",\n      \"nomeLogradouro\": \"Rua das Flores\",\n      \"numeroImovel\": \"123\",\n      \"bairro\": \"Centro\",\n      \"cep\": \"01001000\",\n      \"alienantes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"12345678901\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false\n        }\n      ],\n      \"adquirentes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"52998224725\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{doi_n8n_webhook_path}}"
+          }
+        },
+        {
+          "name": "Payload inválido — tipoDeclaracao retificadora",
+          "description": "Importação em lote aceita somente Original (`0`). `tipoDeclaracao` = `1` deve retornar `unsupported_batch_type`.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                  "",
+                  "const json = pm.response.json();",
+                  "",
+                  "pm.test('Erro de tipo de declaração', () => {",
+                  "  pm.expect(json.valid).to.eql(false);",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('unsupported_batch_type');",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('tipoDeclaracao');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"declaracoes\": [\n    {\n      \"tipoDeclaracao\": \"1\",\n      \"tipoServico\": \"1\",\n      \"dataLavraturaRegistroAverbacao\": \"2025-08-15\",\n      \"tipoAto\": \"1\",\n      \"folha\": \"10\",\n      \"dataNegocioJuridico\": \"2025-08-10\",\n      \"tipoOperacaoImobiliaria\": \"11\",\n      \"valorOperacaoImobiliaria\": 450000,\n      \"valorBaseCalculoItbiItcmd\": 450000,\n      \"formaPagamento\": \"5\",\n      \"indicadorPermutaBens\": false,\n      \"indicadorPagamentoDinheiro\": false,\n      \"tipoParteTransacionada\": \"1\",\n      \"valorParteTransacionada\": 100,\n      \"destinacao\": \"1\",\n      \"indicadorImovelPublicoUniao\": false,\n      \"cib\": \"J7DNF01S\",\n      \"inscricaoMunicipal\": \"1234567890\",\n      \"codigoIbge\": \"3550308\",\n      \"areaImovel\": 250,\n      \"indicadorAreaLoteNaoConsta\": false,\n      \"areaConstruida\": 180,\n      \"indicadorAreaConstruidaNaoConsta\": false,\n      \"tipoImovel\": \"67\",\n      \"tipoLogradouro\": \"Rua\",\n      \"nomeLogradouro\": \"Rua das Flores\",\n      \"numeroImovel\": \"123\",\n      \"bairro\": \"Centro\",\n      \"cep\": \"01001000\",\n      \"alienantes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"11144477735\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false\n        }\n      ],\n      \"adquirentes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"52998224725\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{doi_n8n_webhook_path}}"
+          }
+        },
+        {
+          "name": "Payload inválido — participação soma incorreta",
+          "description": "Soma de `participacao` em alienantes diferente de 99–100% — erro `participation_sum`.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                  "",
+                  "const json = pm.response.json();",
+                  "",
+                  "pm.test('Erro de soma de participação', () => {",
+                  "  pm.expect(json.valid).to.eql(false);",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('participation_sum');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"declaracoes\": [\n    {\n      \"tipoDeclaracao\": \"0\",\n      \"tipoServico\": \"1\",\n      \"dataLavraturaRegistroAverbacao\": \"2025-08-15\",\n      \"tipoAto\": \"1\",\n      \"folha\": \"10\",\n      \"dataNegocioJuridico\": \"2025-08-10\",\n      \"tipoOperacaoImobiliaria\": \"11\",\n      \"valorOperacaoImobiliaria\": 450000,\n      \"valorBaseCalculoItbiItcmd\": 450000,\n      \"formaPagamento\": \"5\",\n      \"indicadorPermutaBens\": false,\n      \"indicadorPagamentoDinheiro\": false,\n      \"tipoParteTransacionada\": \"1\",\n      \"valorParteTransacionada\": 100,\n      \"destinacao\": \"1\",\n      \"indicadorImovelPublicoUniao\": false,\n      \"cib\": \"J7DNF01S\",\n      \"inscricaoMunicipal\": \"1234567890\",\n      \"codigoIbge\": \"3550308\",\n      \"areaImovel\": 250,\n      \"indicadorAreaLoteNaoConsta\": false,\n      \"areaConstruida\": 180,\n      \"indicadorAreaConstruidaNaoConsta\": false,\n      \"tipoImovel\": \"67\",\n      \"tipoLogradouro\": \"Rua\",\n      \"nomeLogradouro\": \"Rua das Flores\",\n      \"numeroImovel\": \"123\",\n      \"bairro\": \"Centro\",\n      \"cep\": \"01001000\",\n      \"alienantes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"11144477735\",\n          \"participacao\": 50,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false\n        }\n      ],\n      \"adquirentes\": [\n        {\n          \"indicadorNiIdentificado\": true,\n          \"ni\": \"52998224725\",\n          \"participacao\": 100,\n          \"indicadorNaoConstaParticipacaoOperacao\": false,\n          \"indicadorEstrangeiro\": false,\n          \"indicadorEspolio\": false,\n          \"indicadorConjuge\": false,\n          \"indicadorRepresentante\": false\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{doi_n8n_webhook_path}}"
+          }
+        }
+      ]
+    }
+  ]
+}

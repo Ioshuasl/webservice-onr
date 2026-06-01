@@ -39,7 +39,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // =====================================================================
 
 @workflow({
-    id: '9euY3Y5fEQ7QPin0',
+    id: 'bjoMRiIFXBIXQ1zO',
     name: 'Set Pedido Retransmitido OE',
     active: false,
     isArchived: false,

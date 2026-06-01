@@ -1,0 +1,60 @@
+{
+  "declaracoes": [
+    {
+      "tipoDeclaracao": "0",
+      "tipoServico": "1",
+      "dataLavraturaRegistroAverbacao": "2025-08-15",
+      "tipoAto": "1",
+      "folha": "10-12",
+      "dataNegocioJuridico": "2025-08-10",
+      "tipoOperacaoImobiliaria": "11",
+      "valorOperacaoImobiliaria": 450000,
+      "valorBaseCalculoItbiItcmd": 450000,
+      "formaPagamento": "5",
+      "indicadorPermutaBens": false,
+      "indicadorPagamentoDinheiro": true,
+      "valorPagoMoedaCorrenteDataAto": 450000,
+      "tipoParteTransacionada": "1",
+      "valorParteTransacionada": 100,
+      "destinacao": "1",
+      "indicadorImovelPublicoUniao": false,
+      "cib": "J7DNF01S",
+      "inscricaoMunicipal": "1234567890",
+      "codigoIbge": "3550308",
+      "areaImovel": 250,
+      "indicadorAreaLoteNaoConsta": false,
+      "areaConstruida": 180,
+      "indicadorAreaConstruidaNaoConsta": false,
+      "tipoImovel": "67",
+      "tipoLogradouro": "Rua",
+      "nomeLogradouro": "Rua das Flores",
+      "numeroImovel": "123",
+      "bairro": "Centro",
+      "cep": "01001000",
+      "alienantes": [
+        {
+          "indicadorNiIdentificado": true,
+          "ni": "11144477735",
+          "participacao": 100,
+          "indicadorNaoConstaParticipacaoOperacao": false,
+          "indicadorEstrangeiro": false,
+          "indicadorEspolio": false,
+          "indicadorConjuge": false,
+          "indicadorRepresentante": false
+        }
+      ],
+      "adquirentes": [
+        {
+          "indicadorNiIdentificado": true,
+          "ni": "52998224725",
+          "participacao": 100,
+          "indicadorNaoConstaParticipacaoOperacao": false,
+          "indicadorEstrangeiro": false,
+          "indicadorEspolio": false,
+          "indicadorConjuge": false,
+          "indicadorRepresentante": false
+        }
+      ]
+    }
+  ]
+}

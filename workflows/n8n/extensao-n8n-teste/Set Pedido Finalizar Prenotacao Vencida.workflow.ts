@@ -39,7 +39,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // =====================================================================
 
 @workflow({
-    id: 'HgBkpRJnuuTsllww',
+    id: 'tsnC6eTaTDNIzRu4',
     name: 'Set Pedido Finalizar Prenotacao Vencida',
     active: false,
     isArchived: false,

@@ -39,7 +39,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // =====================================================================
 
 @workflow({
-    id: 'lY1cDcyN3GRAuh9f',
+    id: 'gedZRBQxyQYz8EvU',
     name: 'List Pedidos Exportacao PO',
     active: false,
     isArchived: false,

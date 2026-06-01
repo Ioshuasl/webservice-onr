@@ -23,7 +23,7 @@
   "variable": [
     {
       "key": "n8n_base_url",
-      "value": "https://n8n.ioshuavps.com.br",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
       "type": "string"
     },
     {
@@ -133,12 +133,12 @@
     },
     {
       "key": "N8N_BASIC_AUTH_USER",
-      "value": "",
+      "value": "orius",
       "type": "string"
     },
     {
       "key": "N8N_BASIC_AUTH_PASSWORD",
-      "value": "",
+      "value": "master@orius",
       "type": "string"
     }
   ],

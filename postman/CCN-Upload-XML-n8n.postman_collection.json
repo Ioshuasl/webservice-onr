@@ -1,0 +1,359 @@
+{
+  "info": {
+    "_postman_id": "a4c8e2f1-9b3d-4a7e-8f6c-1d2e3f4a5b6c",
+    "name": "CCN Upload XML — n8n Webhook",
+    "description": "Coleção para testar o workflow n8n **CCN Upload XML** (`oy22MYSQfB7CYcbl`).\n\nRecebe XML CCN via multipart, valida localmente e repassa para `POST /api/uploads` do e-notariado.\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Chave CCN em `CCN_X_API_KEY` (header `X-Ccn-Api-Key`, formato `app|token`) — ver vault `ambiente-homologacao-api#CCN`.\n4. Arquivo XML em `CCN_XML_PATH` ou selecione manualmente no campo **file**.\n\nExemplo local mínimo: `scripts/ccn/exemplo-ccn-minimo.xml`\n\n## URLs do webhook\n\n| Modo | URL |\n|------|-----|\n| Teste (editor) | `{{n8n_base_url}}/webhook-test/ccn/uploads` |\n| Produção | `{{n8n_base_url}}/webhook/ccn/uploads` |\n\nVariável `n8n_webhook_mode`: `webhook-test` ou `webhook`.\n\n## Headers\n\n| Header | Uso |\n|--------|-----|\n| `X-Ambiente` | `homologacao` (default) ou `producao` |\n| `X-Ccn-Api-Key` | Chave e-notariado (alternativa: `CCN_X_API_KEY` no n8n) |\n\n## Respostas\n\n| HTTP | Situação |\n|------|----------|\n| `200` | `success: true`, objeto `upload` (`id`, `location`, `name`, `contentType`) |\n| `422` | Validação local (arquivo, `<pessoas>`, API key) |\n| `4xx/5xx` | Erro da API e-notariado |\n\n## Referências\n\n- Workflow: `workflows/n8n/extensao-n8n-teste/CCN Upload XML.workflow.ts`\n- Vault: `Orius/integracoes/tabelionato-notas/ccn/automacao/n8n-upload-xml-gateway`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "ccn_n8n_webhook_path",
+      "value": "ccn/uploads",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id",
+      "value": "oy22MYSQfB7CYcbl",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    },
+    {
+      "key": "CCN_X_API_KEY",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CCN_X_AMBIENTE",
+      "value": "homologacao",
+      "type": "string"
+    },
+    {
+      "key": "CCN_XML_PATH",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "function getVar(key) {",
+          "  const fromEnv = pm.environment.get(key);",
+          "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+          "  const fromCollection = pm.collectionVariables.get(key);",
+          "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+          "  return pm.variables.get(key);",
+          "}",
+          "",
+          "function hasBasicAuthConfigured() {",
+          "  const auth = pm.request.auth;",
+          "  if (!auth || auth.type !== 'basic' || !Array.isArray(auth.basic)) return false;",
+          "  const user = auth.basic.find((x) => x.key === 'username')?.value;",
+          "  const pass = auth.basic.find((x) => x.key === 'password')?.value;",
+          "  return Boolean(user && pass && !String(user).includes('{{') && !String(pass).includes('{{'));",
+          "}",
+          "",
+          "const required = ['n8n_base_url', 'n8n_webhook_mode', 'ccn_n8n_webhook_path'];",
+          "if (!getVar('N8N_BASIC_AUTH_USER') || !getVar('N8N_BASIC_AUTH_PASSWORD')) {",
+          "  if (!hasBasicAuthConfigured()) {",
+          "    required.push('N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD');",
+          "  }",
+          "}",
+          "const missing = required.filter((k) => !getVar(k));",
+          "if (missing.length) {",
+          "  throw new Error('Variáveis ausentes: ' + missing.join(', '));",
+          "}",
+          "",
+          "if (getVar('n8n_webhook_mode') === 'webhook-test') {",
+          "  console.warn('Modo webhook-test: abra CCN Upload XML no n8n e clique Execute workflow antes de enviar.');",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "CCN Upload XML",
+      "description": "Webhook n8n — upload de XML CCN para e-notariado (`POST /api/uploads`).",
+      "item": [
+        {
+          "name": "Upload XML CCN — HML",
+          "description": "Envia XML válido com raiz `<pessoas>` para homologação e-notariado.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('CCN_X_API_KEY')) {",
+                  "  console.warn('CCN_X_API_KEY vazio: preencha no environment (vault ambiente-homologacao-api#CCN).');",
+                  "}",
+                  "const xmlPath = getVar('CCN_XML_PATH');",
+                  "if (!xmlPath) {",
+                  "  console.warn('CCN_XML_PATH vazio: defina no environment o caminho absoluto do .xml.');",
+                  "} else {",
+                  "  const fileRow = pm.request.body.formdata.find((r) => r.key === 'file');",
+                  "  if (fileRow) fileRow.src = xmlPath;",
+                  "  if (!xmlPath.includes('/') && !xmlPath.includes('\\\\')) {",
+                  "    console.warn('CCN_XML_PATH parece so o nome do arquivo; use caminho completo.');",
+                  "  }",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "",
+                  "const json = pm.response.json();",
+                  "",
+                  "pm.test('Upload aceito', () => {",
+                  "  pm.expect(json.success).to.eql(true);",
+                  "  pm.expect(json.upload).to.be.an('object');",
+                  "  pm.expect(json.upload.id).to.be.a('string').and.not.empty;",
+                  "  pm.expect(json.upload.location).to.be.a('string').and.not.empty;",
+                  "});",
+                  "",
+                  "if (json.upload?.id) pm.environment.set('ccn_upload_id', json.upload.id);",
+                  "if (json.upload?.location) pm.environment.set('ccn_upload_location', json.upload.location);",
+                  "",
+                  "console.log('upload.id:', json.upload?.id);",
+                  "console.log('upload.location:', json.upload?.location);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              },
+              {
+                "key": "X-Ccn-Api-Key",
+                "value": "{{CCN_X_API_KEY}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "description": "Arquivo XML CCN (encoding ISO-8859-1). O pre-request define src a partir de CCN_XML_PATH.",
+                  "type": "file",
+                  "src": "c:/Users/kenio/automacoes e testes/scripts/ccn/exemplo-ccn-minimo.xml"
+                }
+              ]
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{ccn_n8n_webhook_path}}",
+            "description": "Multipart com campo **file** (XML). Headers `X-Ambiente` e `X-Ccn-Api-Key`.\n\nUse `scripts/ccn/exemplo-ccn-minimo.xml` ou [CCN20251123-1.xml](https://orius-tools.s3.sa-east-1.amazonaws.com/community/1777905117317-CCN20251123-1.xml)."
+          },
+          "response": []
+        },
+        {
+          "name": "Upload XML CCN — sem arquivo",
+          "description": "Deve retornar 422 `arquivo_ausente`.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const json = pm.response.json();",
+                  "pm.test('Erro de arquivo ausente', () => {",
+                  "  pm.expect(json.success).to.eql(false);",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('arquivo_ausente');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              },
+              {
+                "key": "X-Ccn-Api-Key",
+                "value": "{{CCN_X_API_KEY}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{ccn_n8n_webhook_path}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Upload XML CCN — sem API key",
+          "description": "Deve retornar 422 `api_key_ausente` quando header e n8n env estão vazios.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const json = pm.response.json();",
+                  "pm.test('Erro de API key ausente', () => {",
+                  "  pm.expect(json.success).to.eql(false);",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('api_key_ausente');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "{{CCN_XML_PATH}}"
+                }
+              ]
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{ccn_n8n_webhook_path}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Upload XML CCN — raiz invalida",
+          "description": "XML sem `<pessoas>` — deve retornar 422 `xml_raiz_invalida`.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const json = pm.response.json();",
+                  "pm.test('Erro de raiz XML', () => {",
+                  "  pm.expect(json.success).to.eql(false);",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('xml_raiz_invalida');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              },
+              {
+                "key": "X-Ccn-Api-Key",
+                "value": "{{CCN_X_API_KEY}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "description": "Use scripts/ccn/exemplo-ccn-raiz-invalida.xml",
+                  "type": "file",
+                  "src": "{{CCN_XML_INVALID_PATH}}"
+                },
+                {
+                  "key": "name",
+                  "value": "invalido.xml",
+                  "type": "text"
+                },
+                {
+                  "key": "contentType",
+                  "value": "text/xml",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{ccn_n8n_webhook_path}}",
+            "description": "Defina `CCN_XML_INVALID_PATH` ou selecione manualmente `scripts/ccn/exemplo-ccn-raiz-invalida.xml` no campo file."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

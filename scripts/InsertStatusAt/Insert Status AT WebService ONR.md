@@ -77,8 +77,8 @@ O envelope SOAP envia os elementos do `InsertStatusAT_WSReq` na ordem do WSDL:
 ## Webhook
 
 - Path: `c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f`
-- URL teste: `https://n8n.ioshuavps.com.br/webhook-test/c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f`
-- URL produção: `https://n8n.ioshuavps.com.br/webhook/c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f`
+- URL teste: `https://api-n8n.gbrqne.easypanel.host/webhook-test/c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f`
+- URL produção: `https://api-n8n.gbrqne.easypanel.host/webhook/c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f`
 - Basic Auth: mesmas credenciais do Auth ONR
 
 ## Publicar
