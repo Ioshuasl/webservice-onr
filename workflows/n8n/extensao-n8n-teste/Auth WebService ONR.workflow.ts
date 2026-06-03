@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : Auth WebService ONR
+// Workflow : [AUTONR-2] (webservice ONR) LoginUsuarioCertificado - Autenticação
 // Nodes   : 9  |  Connections: 10
 //
 // NODE INDEX
@@ -38,13 +38,17 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'BsrV8WFHGbwugwrm',
-    name: 'Auth WebService ONR',
+    name: '[AUTONR-2] (webservice ONR) LoginUsuarioCertificado - Autenticação',
     active: false,
     isArchived: false,
-    projectId: 'PP65Me8T4KDNsx9m',
-    settings: { executionOrder: 'v1', binaryMode: 'separate', availableInMCP: false },
+    settings: {
+        executionOrder: 'v1',
+        binaryMode: 'separate',
+        availableInMCP: false,
+        callerPolicy: 'workflowsFromSameOwner',
+    },
 })
-export class AuthWebserviceOnrWorkflow {
+export class Autonr2WebserviceOnrLoginusuariocertificadoAutenticacaoWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -67,7 +71,8 @@ export class AuthWebserviceOnrWorkflow {
   "cpf": "{{ $json.body.cpf }}",
   "email": "{{ $json.body.email }}",
   "id_parceiro_ws": {{ $json.body.id_parceiro_ws }},
-  "url_login_onr": "{{ $json.body.url_login_onr }}"
+  "url_login_onr": "{{ $json.body.url_login_onr }}",
+  "chave_serventia": "{{ $json.body.chave_serventia ?? $json.body.onr_serventia_chave ?? '' }}"
 }
  `,
         options: {},
@@ -201,8 +206,122 @@ function respostaErro(statusHttp, codigoErro, mensagemErro) {
         id_usuario: 0,
         id_instituicao: 0,
         usuario_ativo: false,
-        tokens: []
+        tokens: [],
+        hashes: [],
+        hash: ''
     };
+}
+
+/** SHA-1 FIPS 180-1 (ASCII/Latin-1). OK para chave UUID + token ONR (sem require('crypto')). */
+function sha1HexUpperAscii(message) {
+    let h0 = 0x67452301;
+    let h1 = 0xefcdab89;
+    let h2 = 0x98badcfe;
+    let h3 = 0x10325476;
+    let h4 = 0xc3d2e1f0;
+    const block = new Uint32Array(80);
+    let offset = 0;
+    let shift = 24;
+    let totalLength = 0;
+
+    function write(byte) {
+        block[offset] |= (byte & 0xff) << shift;
+        if (shift) {
+            shift -= 8;
+        } else {
+            offset++;
+            shift = 24;
+        }
+        if (offset === 16) processBlock();
+    }
+
+    function processBlock() {
+        for (let i = 16; i < 80; i++) {
+            const w = block[i - 3] ^ block[i - 8] ^ block[i - 14] ^ block[i - 16];
+            block[i] = (w << 1) | (w >>> 31);
+        }
+        let a = h0;
+        let b = h1;
+        let c = h2;
+        let d = h3;
+        let e = h4;
+        for (let i = 0; i < 80; i++) {
+            let f;
+            let k;
+            if (i < 20) {
+                f = d ^ (b & (c ^ d));
+                k = 0x5a827999;
+            } else if (i < 40) {
+                f = b ^ c ^ d;
+                k = 0x6ed9eba1;
+            } else if (i < 60) {
+                f = (b & c) | (d & (b | c));
+                k = 0x8f1bbcdc;
+            } else {
+                f = b ^ c ^ d;
+                k = 0xca62c1d6;
+            }
+            const temp = (a << 5 | a >>> 27) + f + e + k + (block[i] | 0);
+            e = d;
+            d = c;
+            c = b << 30 | b >>> 2;
+            b = a;
+            a = temp;
+        }
+        h0 = (h0 + a) | 0;
+        h1 = (h1 + b) | 0;
+        h2 = (h2 + c) | 0;
+        h3 = (h3 + d) | 0;
+        h4 = (h4 + e) | 0;
+        offset = 0;
+        for (let i = 0; i < 16; i++) block[i] = 0;
+    }
+
+    function toHex(word) {
+        let hex = '';
+        for (let i = 28; i >= 0; i -= 4) {
+            hex += ((word >> i) & 0xf).toString(16);
+        }
+        return hex;
+    }
+
+    const text = String(message);
+    totalLength = text.length * 8;
+    for (let i = 0; i < text.length; i++) {
+        write(text.charCodeAt(i));
+    }
+
+    write(0x80);
+    if (offset > 14 || (offset === 14 && shift < 24)) {
+        processBlock();
+    }
+    offset = 14;
+    shift = 24;
+    write(0x00);
+    write(0x00);
+    write(totalLength > 0xffffffffff ? totalLength / 0x10000000000 : 0x00);
+    write(totalLength > 0xffffffff ? totalLength / 0x100000000 : 0x00);
+    for (let s = 24; s >= 0; s -= 8) {
+        write(totalLength >> s);
+    }
+
+    return (toHex(h0) + toHex(h1) + toHex(h2) + toHex(h3) + toHex(h4)).toUpperCase();
+}
+
+function computeOnrAuthHash(chave, token) {
+    return sha1HexUpperAscii(String(chave) + String(token));
+}
+
+function resolverChaveServentia() {
+    const ctx = $('validar-cpf').first().json;
+    const doBody = String(ctx.chave_serventia ?? '').trim();
+    if (doBody) return doBody;
+    return String($env.ONR_SERVENTIA_CHAVE ?? '').trim();
+}
+
+function hashesDosTokens(tokens, chave) {
+    if (!chave || !tokens.length) return [];
+    return tokens.map((token) => computeOnrAuthHash(chave, token));
 }
 
 if (!xml || typeof xml !== 'string') {
@@ -236,6 +355,9 @@ const extrairTokens = (origem) => {
 const sucesso = extrairTag('RETORNO', xml) === 'true';
 const codigo_erro = parseInt(extrairTag('CODIGOERRO', xml) || '0', 10);
 const mensagem_erro = extrairTag('ERRODESCRICAO', xml);
+const tokens = extrairTokens(xml);
+const chave = resolverChaveServentia();
+const hashes = sucesso ? hashesDosTokens(tokens, chave) : [];
 
 return {
     json: {
@@ -246,7 +368,10 @@ return {
         id_usuario: parseInt(extrairTag('IDUsuario', xml), 10) || 0,
         id_instituicao: parseInt(extrairTag('IDInstituicao', xml), 10) || 0,
         usuario_ativo: extrairTag('Ativo', xml) === 'true',
-        tokens: extrairTokens(xml)
+        tokens,
+        hashes,
+        hash: hashes[0] ?? '',
+        hash_versao: 'sha1-fips-ascii-1'
     }
 };`,
     };
@@ -270,7 +395,9 @@ return [{
         id_usuario: 0,
         id_instituicao: 0,
         usuario_ativo: false,
-        tokens: []
+        tokens: [],
+        hashes: [],
+        hash: ''
     }
 }];`,
     };
@@ -295,7 +422,9 @@ return [{
         id_usuario: 0,
         id_instituicao: 0,
         usuario_ativo: false,
-        tokens: []
+        tokens: [],
+        hashes: [],
+        hash: ''
     }
 }];`,
     };

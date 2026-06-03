@@ -1,8 +1,8 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : CCN Upload XML
-// Nodes   : 7  |  Connections: 7
+// Workflow : [AUTONR-88] (CCN) CCN_Uploads - CCN
+// Nodes   : 11  |  Connections: 12
 //
 // NODE INDEX
 // ──────────────────────────────────────────────────────────────────
@@ -12,7 +12,11 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // EntradaValida                      if
 // RespostaErroEntrada                code
 // UploadXmlToCcn                     httpRequest                [onError→regular]
-// BuildUploadResponse                code
+// PrepareImportPayload               code
+// ImportReady                        if
+// RespostaErroUpload                 code
+// CreateImportCcn                    httpRequest                [onError→regular]
+// BuildFlowResponse                  code
 // ReturnUploadResponse               respondToWebhook
 //
 // ROUTING MAP
@@ -21,8 +25,13 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 //    → ValidarXmlEntrada
 //      → EntradaValida
 //        → UploadXmlToCcn
-//          → BuildUploadResponse
-//            → ReturnUploadResponse
+//          → PrepareImportPayload
+//            → ImportReady
+//              → RespostaErroUpload
+//                → ReturnUploadResponse
+//             .out(1) → CreateImportCcn
+//                → BuildFlowResponse
+//                  → ReturnUploadResponse (↩ loop)
 //       .out(1) → RespostaErroEntrada
 //          → ReturnUploadResponse (↩ loop)
 // </workflow-map>
@@ -33,12 +42,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'oy22MYSQfB7CYcbl',
-    name: 'CCN Upload XML',
+    name: '[AUTONR-88] (CCN) CCN_Uploads - CCN',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class CcnUploadXmlWorkflow {
+export class Autonr88CcnCcnUploadsCcnWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -130,15 +139,20 @@ function stripLeadingNoise(text) {
 }
 
 function hasPessoasRoot(text) {
-  const sample = String(text).slice(0, 131072);
-  const lower = sample.toLowerCase();
-  let idx = lower.indexOf('<pessoas');
-  while (idx >= 0) {
-    const next = lower.charAt(idx + 9);
-    if (next === '>' || next === ' ' || next === '/' || next === ':' || next === '') {
-      return true;
-    }
-    idx = lower.indexOf('<pessoas', idx + 9);
+  let value = String(text).slice(0, 131072);
+  if (value.charCodeAt(0) === 0xfeff) value = value.slice(1);
+  value = value.trimStart();
+  if (value.startsWith('<?xml')) {
+    const endDecl = value.indexOf('?>');
+    if (endDecl >= 0) value = value.slice(endDecl + 2).trimStart();
+  }
+
+  const lower = value.toLowerCase();
+  if (lower.startsWith('<pessoas')) {
+    const next = lower.charAt(8) || '';
+    const code = next ? next.charCodeAt(0) : 0;
+    return next === '' || next === '>' || next === '/' || next === ':'
+      || code === 9 || code === 10 || code === 13 || next === ' ';
   }
   return false;
 }
@@ -269,6 +283,17 @@ if (!ccnApiKey) {
   );
 }
 
+const ccnSubscription = header('x-subscription') || header('x-ccn-subscription') || ($env.CCN_X_SUBSCRIPTION ?? '');
+if (!ccnSubscription) {
+  return erro(
+    422,
+    'subscription_ausente',
+    'Informe header X-Subscription (ou X-Ccn-Subscription) ou configure CCN_X_SUBSCRIPTION no n8n.',
+  );
+}
+
+const importType = header('x-ccn-import-type') || 'CcnPessoaFisica';
+
 const contentType = String(body.contentType || 'text/xml');
 const preparedFile = await this.helpers.prepareBinaryData(picked.buffer, fileName, contentType);
 
@@ -282,6 +307,8 @@ return [{
       ambiente: amb.key,
       baseUrl: amb.baseUrl,
       ccnApiKey,
+      ccnSubscription,
+      importType,
       receivedAt: new Date().toISOString(),
       source: 'n8n-ccn-upload-xml',
       binaryKey: picked.key,
@@ -401,20 +428,109 @@ return [{
     };
 
     @node({
-        id: '7445bc44-424b-47d1-acb2-09da04995589',
-        name: 'Build Upload Response',
+        id: 'a1b2c3d4-e5f6-7890-abcd-ef1234567890',
+        name: 'Prepare Import Payload',
         type: 'n8n-nodes-base.code',
         version: 2,
-        position: [1120, 180],
+        position: [1060, 180],
     })
-    BuildUploadResponse = {
+    PrepareImportPayload = {
         mode: 'runOnceForAllItems',
         language: 'javaScript',
         jsCode: `
-const result = items[0].json;
-const error = result.error;
-const failed = Boolean(error);
+const uploadResult = items[0].json;
 const meta = $('Validar Xml Entrada').first().json.meta ?? {};
+
+function fail(stage, error) {
+  return [{
+    json: {
+      failed: true,
+      stage,
+      error,
+      meta,
+    },
+  }];
+}
+
+if (uploadResult.error) {
+  return fail('upload', uploadResult.error);
+}
+
+const upload = {
+  id: uploadResult.id,
+  location: uploadResult.location,
+  name: uploadResult.name,
+  contentType: uploadResult.contentType,
+};
+
+if (!upload.id) {
+  return fail('upload', {
+    message: 'Resposta de upload sem id.',
+    code: 'upload_resposta_invalida',
+  });
+}
+
+return [{
+  json: {
+    failed: false,
+    importUrl: meta.baseUrl + '/api/imports',
+    importPayload: {
+      type: meta.importType || 'CcnPessoaFisica',
+      upload,
+    },
+    upload,
+    meta: {
+      ...meta,
+      uploadId: upload.id,
+    },
+  },
+}];
+`,
+    };
+
+    @node({
+        id: 'b2c3d4e5-f6a7-8901-bcde-f12345678901',
+        name: 'Import ready?',
+        type: 'n8n-nodes-base.if',
+        version: 2.2,
+        position: [1280, 180],
+    })
+    ImportReady = {
+        conditions: {
+            options: {
+                caseSensitive: true,
+                leftValue: '',
+                typeValidation: 'strict',
+                version: 2,
+            },
+            conditions: [
+                {
+                    id: 'cond-import-ready',
+                    leftValue: '={{ $json.failed }}',
+                    rightValue: true,
+                    operator: {
+                        type: 'boolean',
+                        operation: 'true',
+                    },
+                },
+            ],
+            combinator: 'and',
+        },
+        options: {},
+    };
+
+    @node({
+        id: 'c3d4e5f6-a7b8-9012-cdef-123456789012',
+        name: 'Resposta Erro Upload',
+        type: 'n8n-nodes-base.code',
+        version: 2,
+        position: [1500, 380],
+    })
+    RespostaErroUpload = {
+        mode: 'runOnceForAllItems',
+        language: 'javaScript',
+        jsCode: `
+const data = items[0].json;
 
 function parseJsonSafe(value) {
   if (value === undefined || value === null) return null;
@@ -451,35 +567,154 @@ function normalizeHttpError(errorObject) {
   };
 }
 
-if (!failed) {
-  const upload = result.id ? result : result;
-  return [{
-    json: {
-      statusCode: 200,
-      response: {
-        success: true,
-        message: 'Upload CCN realizado com sucesso.',
-        upload: {
-          id: upload.id,
-          location: upload.location,
-          name: upload.name,
-          contentType: upload.contentType,
-        },
-        meta,
-      },
-    },
-  }];
-}
+const normalized = normalizeHttpError(data.error ?? { message: 'Falha no upload CCN.' });
 
-const normalized = normalizeHttpError(error);
 return [{
   json: {
     statusCode: normalized.statusCode,
     response: {
       success: false,
       message: normalized.message,
+      stage: data.stage || 'upload',
       errors: normalized.errors,
       technical: normalized.technical,
+      meta: data.meta ?? {},
+    },
+  },
+}];
+`,
+    };
+
+    @node({
+        id: 'd4e5f6a7-b8c9-0123-def0-234567890123',
+        name: 'Create Import CCN',
+        type: 'n8n-nodes-base.httpRequest',
+        version: 4.4,
+        position: [1500, 180],
+        onError: 'continueRegularOutput',
+    })
+    CreateImportCcn = {
+        method: 'POST',
+        url: '={{ $json.importUrl }}',
+        authentication: 'none',
+        sendHeaders: true,
+        specifyHeaders: 'keypair',
+        headerParameters: {
+            parameters: [
+                {
+                    name: 'X-Api-Key',
+                    value: '={{ $json.meta.ccnApiKey }}',
+                },
+                {
+                    name: 'X-Subscription',
+                    value: '={{ $json.meta.ccnSubscription }}',
+                },
+                {
+                    name: 'Accept',
+                    value: 'application/json',
+                },
+                {
+                    name: 'Content-Type',
+                    value: 'application/json',
+                },
+            ],
+        },
+        sendBody: true,
+        contentType: 'json',
+        specifyBody: 'json',
+        jsonBody: '={{ $json.importPayload }}',
+        options: {},
+    };
+
+    @node({
+        id: '7445bc44-424b-47d1-acb2-09da04995589',
+        name: 'Build Flow Response',
+        type: 'n8n-nodes-base.code',
+        version: 2,
+        position: [1720, 180],
+    })
+    BuildFlowResponse = {
+        mode: 'runOnceForAllItems',
+        language: 'javaScript',
+        jsCode: `
+const importResult = items[0].json;
+const prepare = $('Prepare Import Payload').first().json;
+const meta = prepare.meta ?? $('Validar Xml Entrada').first().json.meta ?? {};
+
+function parseJsonSafe(value) {
+  if (value === undefined || value === null) return null;
+  if (typeof value === 'object') return value;
+  if (typeof value !== 'string') return null;
+  try {
+    return JSON.parse(value);
+  } catch {
+    return null;
+  }
+}
+
+function normalizeHttpError(errorObject) {
+  const rawMessage = errorObject?.message ?? 'Erro desconhecido ao chamar API CCN.';
+  const status = Number(
+    errorObject?.status
+      ?? errorObject?.httpCode
+      ?? rawMessage.match(/^\\s*(\\d{3})\\s*-/)?.[1]
+      ?? 502,
+  );
+  const parsed = parseJsonSafe(errorObject?.response?.body)
+    ?? parseJsonSafe(errorObject?.response?.data)
+    ?? (typeof errorObject?.response?.body === 'object' ? errorObject.response.body : null);
+
+  return {
+    statusCode: status || 502,
+    message: parsed?.message ?? parsed?.title ?? rawMessage,
+    errors: [{ code: 'ccn_http_error', message: parsed?.message ?? rawMessage, sistema: 'CCN' }],
+    technical: {
+      name: errorObject?.name ?? null,
+      code: errorObject?.code ?? null,
+      status: status || null,
+    },
+  };
+}
+
+if (importResult.error) {
+  const normalized = normalizeHttpError(importResult.error);
+  return [{
+    json: {
+      statusCode: normalized.statusCode,
+      response: {
+        success: false,
+        message: normalized.message,
+        stage: 'import',
+        errors: normalized.errors,
+        upload: prepare.upload ?? null,
+        meta,
+        technical: normalized.technical,
+      },
+    },
+  }];
+}
+
+const imp = importResult;
+return [{
+  json: {
+    statusCode: 200,
+    response: {
+      success: true,
+      message: 'Upload e importacao CCN registrados com sucesso.',
+      upload: prepare.upload ?? {
+        id: imp.uploadId,
+        name: imp.fileName,
+      },
+      importacao: {
+        id: imp.id,
+        status: imp.status,
+        type: imp.type,
+        processedRecords: imp.processedRecords,
+        failedRecords: imp.failedRecords,
+        totalRecords: imp.totalRecords,
+        fileName: imp.fileName,
+        uploadId: imp.uploadId,
+      },
       meta,
     },
   },
@@ -492,7 +727,7 @@ return [{
         name: 'Return Upload Response',
         type: 'n8n-nodes-base.respondToWebhook',
         version: 1.5,
-        position: [1400, 300],
+        position: [1940, 300],
     })
     ReturnUploadResponse = {
         respondWith: 'json',
@@ -512,8 +747,13 @@ return [{
         this.ValidarXmlEntrada.out(0).to(this.EntradaValida.in(0));
         this.EntradaValida.out(0).to(this.UploadXmlToCcn.in(0));
         this.EntradaValida.out(1).to(this.RespostaErroEntrada.in(0));
-        this.UploadXmlToCcn.out(0).to(this.BuildUploadResponse.in(0));
-        this.BuildUploadResponse.out(0).to(this.ReturnUploadResponse.in(0));
+        this.UploadXmlToCcn.out(0).to(this.PrepareImportPayload.in(0));
+        this.PrepareImportPayload.out(0).to(this.ImportReady.in(0));
+        this.ImportReady.out(0).to(this.RespostaErroUpload.in(0));
+        this.ImportReady.out(1).to(this.CreateImportCcn.in(0));
+        this.CreateImportCcn.out(0).to(this.BuildFlowResponse.in(0));
+        this.BuildFlowResponse.out(0).to(this.ReturnUploadResponse.in(0));
+        this.RespostaErroUpload.out(0).to(this.ReturnUploadResponse.in(0));
         this.RespostaErroEntrada.out(0).to(this.ReturnUploadResponse.in(0));
     }
 }

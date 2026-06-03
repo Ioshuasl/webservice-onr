@@ -1,13 +1,13 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : Update Status AT
+// Workflow : [AUTONR-12] (webservice ONR) UpdateStatusAT - Acompanhamento de Títulos
 // Nodes   : 10  |  Connections: 11
 //
 // NODE INDEX
 // ──────────────────────────────────────────────────────────────────
 // Property name                    Node type (short)         Flags
-// Webhook                            webhook
+// Webhook                            webhook                    [creds]
 // NormalizarEntrada                  set
 // ValidarEntrada                     code
 // IfEntradaValida                    if
@@ -40,13 +40,17 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'OtgoVSVOl1u8LWl1',
-    name: 'Update Status AT',
+    name: '[AUTONR-12] (webservice ONR) UpdateStatusAT - Acompanhamento de Títulos',
     active: false,
     isArchived: false,
-    projectId: 'PP65Me8T4KDNsx9m',
-    settings: { executionOrder: 'v1', binaryMode: 'separate', availableInMCP: false },
+    settings: {
+        executionOrder: 'v1',
+        binaryMode: 'separate',
+        availableInMCP: false,
+        callerPolicy: 'workflowsFromSameOwner',
+    },
 })
-export class UpdateStatusAtWorkflow {
+export class Autonr12WebserviceOnrUpdatestatusatAcompanhamentoDeTitulosWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -58,6 +62,7 @@ export class UpdateStatusAtWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [-1296, 128],
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     Webhook = {
         httpMethod: 'POST',

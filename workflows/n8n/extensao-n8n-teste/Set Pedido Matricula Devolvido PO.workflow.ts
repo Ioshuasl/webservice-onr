@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : Set Pedido Matricula Devolvido PO
+// Workflow : [AUTONR-25] (webservice ONR) SetPedidoMatriculaDevolvidoPO - Penhora Online
 // Nodes   : 10  |  Connections: 11
 //
 // NODE INDEX
@@ -40,12 +40,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'jBQoQA7G8Lv9ioZ4',
-    name: 'Set Pedido Matricula Devolvido PO',
+    name: '[AUTONR-25] (webservice ONR) SetPedidoMatriculaDevolvidoPO - Penhora Online',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class SetPedidoMatriculaDevolvidoPoWorkflow {
+export class Autonr25WebserviceOnrSetpedidomatriculadevolvidopoPenhoraOnlineWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -57,7 +57,7 @@ export class SetPedidoMatriculaDevolvidoPoWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [0, 0],
-        credentials: { httpBasicAuth: { id: 'CE3L7VlaRe4klqlk', name: 'ioshua + ioshua123' } },
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     Webhook = {
         httpMethod: 'POST',

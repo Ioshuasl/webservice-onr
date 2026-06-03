@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : Get Pedido OE
+// Workflow : [AUTONR-29] (webservice ONR) GetPedidoOE - Ofício Eletrônico
 // Nodes   : 10  |  Connections: 11
 //
 // NODE INDEX
@@ -40,12 +40,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'Y93ngHiK9eZqS6JX',
-    name: 'Get Pedido OE',
+    name: '[AUTONR-29] (webservice ONR) GetPedidoOE - Ofício Eletrônico',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class GetPedidoOeWorkflow {
+export class Autonr29WebserviceOnrGetpedidooeOficioEletronicoWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -57,7 +57,7 @@ export class GetPedidoOeWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [0, 0],
-        credentials: { httpBasicAuth: { id: 'CE3L7VlaRe4klqlk', name: 'ioshua + ioshua123' } },
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     Webhook = {
         httpMethod: 'POST',

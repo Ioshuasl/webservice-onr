@@ -165,6 +165,9 @@ Contrato público em **snake_case** (pt-BR). O workflow traduz internamente para
 | `email` | string | sim | E-mail do usuário | `EMAIL` |
 | `id_parceiro_ws` | number | sim | ID da serventia/parceiro | `IDParceiroWS` |
 | `url_login_onr` | string | sim | URL do `login.asmx` (homolog ou produção) | — |
+| `chave_serventia` | string | não* | Chave única da serventia (`ONR_SERVENTIA_CHAVE`) para calcular `hashes` na resposta | — |
+
+\*Obrigatória para preencher `hashes`/`hash` na resposta, se não existir `ONR_SERVENTIA_CHAVE` no ambiente do n8n.
 
 ### Exemplo
 
@@ -183,7 +186,8 @@ Authorization: Basic dXN1YXJpbzpzZW5oYQ==
   "cpf": "12345678901",
   "email": "usuario@cartorio.org.br",
   "id_parceiro_ws": 12345,
-  "url_login_onr": "https://hml3-wsoficio.onr.org.br/login.asmx"
+  "url_login_onr": "https://hml3-wsoficio.onr.org.br/login.asmx",
+  "chave_serventia": "<ONR_SERVENTIA_CHAVE>"
 }
 ```
 
@@ -246,15 +250,29 @@ Todas as respostas incluem `status_http`, espelhando o **HTTP status code** reto
     "A1B2C3",
     "D4E5F6",
     "G7H8I9"
-  ]
+  ],
+  "hashes": [
+    "A1B2C3D4E5F6...",
+    "..."
+  ],
+  "hash": "A1B2C3D4E5F6..."
 }
 ```
 
-Use um token de `tokens` para calcular o hash das operações seguintes:
+| Campo | Descrição |
+|-------|-----------|
+| `tokens` | Tokens retornados pela ONR (6 caracteres cada). |
+| `hashes` | SHA-1 de `chave_serventia + token` para cada item de `tokens` (mesma ordem). |
+| `hash` | Primeiro hash de `hashes` (índice `ONR_HASH_TOKEN_INDEX`, padrão `0`) — use em `onr_hash` / body dos demais webhooks. |
 
-```
-Hash = SHA1_UTF8_HEX_UPPER(ONR_SERVENTIA_CHAVE + token)
-```
+Os hashes só são preenchidos quando a chave da serventia está disponível:
+
+- no body: `chave_serventia` (ou `onr_serventia_chave`), **ou**
+- no ambiente do n8n: variável `ONR_SERVENTIA_CHAVE`.
+
+Fórmula: `Hash = SHA1_UTF8_HEX_UPPER(chave + token)` — ver `webservice-onr/hash.md` ou `lib/onr_hash.js`.
+
+Cada hash corresponde a **um** uso em operação SOAP (token de uso único).
 
 ### Falha de validação local (`status_http: 400`)
 

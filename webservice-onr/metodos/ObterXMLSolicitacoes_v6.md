@@ -80,11 +80,13 @@ Tipo `ObterXMLSolicitacoesv2_WSReq` (`wsdl/certidoes.wsdl`) — compartilhado po
 
 ## Implementação neste projeto
 
+- **n8n:** [`workflows/n8n/extensao-n8n-teste/Obter XML Solicitacoes V6.workflow.ts`](../../workflows/n8n/extensao-n8n-teste/Obter%20XML%20Solicitacoes%20V6.workflow.ts) · doc [`scripts/ObterXmlSolicitacoes_v6/Obter XML Solicitacoes V6 WebService ONR.md`](../../scripts/ObterXmlSolicitacoes_v6/Obter%20XML%20Solicitacoes%20V6%20WebService%20ONR.md)
 - Python: [`scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.py`](../../scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.py)
 - JavaScript: [`scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.js`](../../scripts/ObterXmlSolicitacoes_v6/obterXmlSolicitacoes_v6.js)
 - Lib: [`lib/onr_certidoes.py`](../../lib/onr_certidoes.py) · [`lib/onr_certidoes_obter_xml.py`](../../lib/onr_certidoes_obter_xml.py)
 - Variáveis `.env`: `CERTIDOES_*`, `CERTIDOES_OBTER_XML_V6_*`
 - npm: `npm run obter-xml-solicitacoes-v6`
+- Postman: [`postman/onr-webservice-n8n.postman_collection.json`](../../postman/onr-webservice-n8n.postman_collection.json) — § 3.6
 
 ## Referências
 

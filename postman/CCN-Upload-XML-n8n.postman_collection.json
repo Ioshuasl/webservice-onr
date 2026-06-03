@@ -1,8 +1,8 @@
 {
   "info": {
-    "_postman_id": "a4c8e2f1-9b3d-4a7e-8f6c-1d2e3f4a5b6c",
+    "_postman_id": "296a1d1a-a171-42c0-919b-847f27f89166",
     "name": "CCN Upload XML — n8n Webhook",
-    "description": "Coleção para testar o workflow n8n **CCN Upload XML** (`oy22MYSQfB7CYcbl`).\n\nRecebe XML CCN via multipart, valida localmente e repassa para `POST /api/uploads` do e-notariado.\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Chave CCN em `CCN_X_API_KEY` (header `X-Ccn-Api-Key`, formato `app|token`) — ver vault `ambiente-homologacao-api#CCN`.\n4. Arquivo XML em `CCN_XML_PATH` ou selecione manualmente no campo **file**.\n\nExemplo local mínimo: `scripts/ccn/exemplo-ccn-minimo.xml`\n\n## URLs do webhook\n\n| Modo | URL |\n|------|-----|\n| Teste (editor) | `{{n8n_base_url}}/webhook-test/ccn/uploads` |\n| Produção | `{{n8n_base_url}}/webhook/ccn/uploads` |\n\nVariável `n8n_webhook_mode`: `webhook-test` ou `webhook`.\n\n## Headers\n\n| Header | Uso |\n|--------|-----|\n| `X-Ambiente` | `homologacao` (default) ou `producao` |\n| `X-Ccn-Api-Key` | Chave e-notariado (alternativa: `CCN_X_API_KEY` no n8n) |\n\n## Respostas\n\n| HTTP | Situação |\n|------|----------|\n| `200` | `success: true`, objeto `upload` (`id`, `location`, `name`, `contentType`) |\n| `422` | Validação local (arquivo, `<pessoas>`, API key) |\n| `4xx/5xx` | Erro da API e-notariado |\n\n## Referências\n\n- Workflow: `workflows/n8n/extensao-n8n-teste/CCN Upload XML.workflow.ts`\n- Vault: `Orius/integracoes/tabelionato-notas/ccn/automacao/n8n-upload-xml-gateway`",
+    "description": "Coleção para testar os workflows n8n **CCN Upload XML** (`oy22MYSQfB7CYcbl`), **CCN Get Import Status** (`STRA45Ya8zFPl8YM`) e **CCN Get Import Erros** (`TUbsvYHrfuS9xf2P`).\n\n**Variáveis HML explícitas** em **Collection variables** (aba Variables da coleção) — cópia sincronizada em `projetos-orius/N8N/CCN/postman/`.\n\n**Upload:** recebe XML CCN via multipart, valida localmente, executa `POST /api/uploads` + `POST /api/imports`.\n\n**Consulta status:** `GET /{webhookId}/ccn/imports/{id}` — proxy para `GET /api/imports/{id}` (polling manual).\n\n**Lista de erros:** `GET /{webhookId}/ccn/imports/{id}/erros` — proxy para `GET /api/imports/{id}/errors` (path upstream em inglês).\n\n## Pré-requisitos\n\n1. Workflows **ativos** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Chave CCN em `CCN_X_API_KEY` (header `X-Ccn-Api-Key`) — ver vault `env#CCN`.\n4. Subscription em `CCN_X_SUBSCRIPTION` (upload/import).\n5. Arquivo XML em `CCN_XML_PATH` ou selecione manualmente no campo **file**.\n\nExemplo local mínimo: `scripts/ccn/exemplo-ccn-minimo.xml`\n\n## URLs do webhook\n\n| Operação | Teste (editor) | Produção |\n|----------|----------------|----------|\n| Upload | `{{n8n_base_url}}/webhook-test/ccn/uploads` | `{{n8n_base_url}}/webhook/ccn/uploads` |\n| Status import | `{{n8n_base_url}}/webhook-test/{{n8n_webhook_id_ccn_import_status}}/ccn/imports/{id}` | `{{n8n_base_url}}/webhook/{{n8n_webhook_id_ccn_import_status}}/ccn/imports/{id}` |\n| Erros import | `{{n8n_base_url}}/webhook-test/{{n8n_webhook_id_ccn_import_erros}}/ccn/imports/{id}/erros` → upstream `/errors` | `{{n8n_base_url}}/webhook/{{n8n_webhook_id_ccn_import_erros}}/ccn/imports/{id}/erros` |\n\nCom path dinâmico (`:id`), o n8n **prefixa o webhookId** na URL. `n8n_webhook_id_ccn_import_status` = `b2f3a4c5-d6e7-4890-b1c2-d3e4f5a6b7c8` · `n8n_webhook_id_ccn_import_erros` = `c4d5e6f7-a8b9-4012-d3e4-f5a6b7c8d9e0`.\n\nVariável `n8n_webhook_mode`: `webhook-test` ou `webhook`.\n\n## Sync automático\n\n```bash\nnpm run postman:sync:ccn\n```\n\n## Referências\n\n- Workflows: `workflows/n8n/extensao-n8n-teste/CCN Upload XML.workflow.ts`, `CCN Get Import Status.workflow.ts`, `CCN Get Import Erros.workflow.ts`\n- Vault: `Orius/integracoes/tabelionato-notas/ccn/automacao/n8n-upload-xml-gateway`, `n8n-get-import-status-gateway`",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
@@ -37,8 +37,28 @@
       "type": "string"
     },
     {
+      "key": "n8n_webhook_id_ccn_import_status",
+      "value": "b2f3a4c5-d6e7-4890-b1c2-d3e4f5a6b7c8",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_ccn_import_erros",
+      "value": "c4d5e6f7-a8b9-4012-d3e4-f5a6b7c8d9e0",
+      "type": "string"
+    },
+    {
       "key": "n8n_workflow_id",
       "value": "oy22MYSQfB7CYcbl",
+      "type": "string"
+    },
+    {
+      "key": "n8n_import_status_workflow_id",
+      "value": "STRA45Ya8zFPl8YM",
+      "type": "string"
+    },
+    {
+      "key": "n8n_import_erros_workflow_id",
+      "value": "TUbsvYHrfuS9xf2P",
       "type": "string"
     },
     {
@@ -53,7 +73,12 @@
     },
     {
       "key": "CCN_X_API_KEY",
-      "value": "",
+      "value": "ORIUS TECNOLOGIA  GOIANIAGO|6e4aef5e74f09a4ebf029655e893c93812ecbf62179d6458911582e20a96c021",
+      "type": "string"
+    },
+    {
+      "key": "CCN_X_SUBSCRIPTION",
+      "value": "d2efe9cc-23f9-4bd2-06c0-08ddf76de010",
       "type": "string"
     },
     {
@@ -63,6 +88,41 @@
     },
     {
       "key": "CCN_XML_PATH",
+      "value": "c:/Users/kenio/automacoes e testes/scripts/ccn/exemplo-ccn-minimo.xml",
+      "type": "string"
+    },
+    {
+      "key": "CCN_XML_INVALID_PATH",
+      "value": "c:/Users/kenio/automacoes e testes/scripts/ccn/exemplo-ccn-raiz-invalida.xml",
+      "type": "string"
+    },
+    {
+      "key": "CCN_HML_BASE_URL",
+      "value": "https://pessoas-hml.e-notariado.org.br",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASE_URL",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "CNS_HOMOLOGACAO",
+      "value": "995936",
+      "type": "string"
+    },
+    {
+      "key": "ccn_upload_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ccn_upload_location",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ccn_import_id",
       "value": "",
       "type": "string"
     }
@@ -158,8 +218,15 @@
                   "  pm.expect(json.upload.location).to.be.a('string').and.not.empty;",
                   "});",
                   "",
+                  "pm.test('Importacao registrada', () => {",
+                  "  pm.expect(json.importacao).to.be.an('object');",
+                  "  pm.expect(json.importacao.id).to.be.a('string').and.not.empty;",
+                  "  pm.expect(json.importacao.status).to.be.a('string').and.not.empty;",
+                  "});",
+                  "",
                   "if (json.upload?.id) pm.environment.set('ccn_upload_id', json.upload.id);",
                   "if (json.upload?.location) pm.environment.set('ccn_upload_location', json.upload.location);",
+                  "if (json.importacao?.id) pm.environment.set('ccn_import_id', json.importacao.id);",
                   "",
                   "console.log('upload.id:', json.upload?.id);",
                   "console.log('upload.location:', json.upload?.location);"
@@ -181,6 +248,10 @@
               {
                 "key": "X-Ccn-Api-Key",
                 "value": "{{CCN_X_API_KEY}}"
+              },
+              {
+                "key": "X-Ccn-Subscription",
+                "value": "{{CCN_X_SUBSCRIPTION}}"
               }
             ],
             "body": {
@@ -232,6 +303,10 @@
               {
                 "key": "X-Ccn-Api-Key",
                 "value": "{{CCN_X_API_KEY}}"
+              },
+              {
+                "key": "X-Ccn-Subscription",
+                "value": "{{CCN_X_SUBSCRIPTION}}"
               }
             ],
             "body": {
@@ -325,6 +400,10 @@
               {
                 "key": "X-Ccn-Api-Key",
                 "value": "{{CCN_X_API_KEY}}"
+              },
+              {
+                "key": "X-Ccn-Subscription",
+                "value": "{{CCN_X_SUBSCRIPTION}}"
               }
             ],
             "body": {
@@ -350,6 +429,294 @@
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{ccn_n8n_webhook_path}}",
             "description": "Defina `CCN_XML_INVALID_PATH` ou selecione manualmente `scripts/ccn/exemplo-ccn-raiz-invalida.xml` no campo file."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "CCN Get Import Status",
+      "description": "Webhook n8n — consulta status de importacao CCN (`GET /api/imports/{id}`).",
+      "item": [
+        {
+          "name": "Get Import Status — HML",
+          "description": "Consulta status da importacao pelo UUID retornado no upload.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('ccn_import_id')) {",
+                  "  console.warn('ccn_import_id vazio: execute Upload XML CCN — HML antes ou preencha manualmente.');",
+                  "}",
+                  "if (!getVar('CCN_X_API_KEY')) {",
+                  "  console.warn('CCN_X_API_KEY vazio: preencha no environment (vault ambiente-homologacao-api#CCN).');",
+                  "}",
+                  "if (getVar('n8n_webhook_mode') === 'webhook-test') {",
+                  "  console.warn('Modo webhook-test: abra CCN Get Import Status no n8n e clique Execute workflow antes de enviar.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "",
+                  "const json = pm.response.json();",
+                  "",
+                  "pm.test('Consulta aceita', () => {",
+                  "  pm.expect(json.success).to.eql(true);",
+                  "  pm.expect(json.importacao).to.be.an('object');",
+                  "  pm.expect(json.importacao.id).to.be.a('string').and.not.empty;",
+                  "  pm.expect(json.importacao.status).to.be.a('string').and.not.empty;",
+                  "});",
+                  "",
+                  "console.log('importacao.status:', json.importacao?.status);",
+                  "console.log('processedRecords:', json.importacao?.processedRecords, '/', json.importacao?.totalRecords);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              },
+              {
+                "key": "X-Ccn-Api-Key",
+                "value": "{{CCN_X_API_KEY}}"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_ccn_import_status}}/ccn/imports/{{ccn_import_id}}",
+            "description": "URL com webhookId prefixado (path dinâmico `:id` no n8n). Usa `ccn_import_id` salvo pelo upload. Query opcional: `include_erros=true`."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Import Status — com erros",
+          "description": "Mesma consulta com `include_erros=true` (util apos falhas parciais).",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta com importacao', () => {",
+                  "  pm.expect(json.success).to.eql(true);",
+                  "  pm.expect(json.importacao).to.be.an('object');",
+                  "});",
+                  "if (Number(json.importacao?.failedRecords) > 0) {",
+                  "  pm.test('Erros incluidos quando ha falhas', () => {",
+                  "    pm.expect(json.erros).to.exist;",
+                  "  });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              },
+              {
+                "key": "X-Ccn-Api-Key",
+                "value": "{{CCN_X_API_KEY}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_ccn_import_status}}/ccn/imports/{{ccn_import_id}}?include_erros=true",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "{{n8n_webhook_id_ccn_import_status}}",
+                "ccn",
+                "imports",
+                "{{ccn_import_id}}"
+              ],
+              "query": [
+                {
+                  "key": "include_erros",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Import Status — id invalido",
+          "description": "Deve retornar 422 `import_id_invalido`.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const json = pm.response.json();",
+                  "pm.test('Erro de id invalido', () => {",
+                  "  pm.expect(json.success).to.eql(false);",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('import_id_invalido');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              },
+              {
+                "key": "X-Ccn-Api-Key",
+                "value": "{{CCN_X_API_KEY}}"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_ccn_import_status}}/ccn/imports/nao-e-uuid"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "CCN Get Import Erros",
+      "description": "Webhook n8n — lista erros da importacao CCN. Upstream: `GET /api/imports/{id}/errors` (Swagger CCN oficial).",
+      "item": [
+        {
+          "name": "Get Import Erros — HML",
+          "description": "Consulta somente os erros da importacao pelo UUID retornado no upload.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('ccn_import_id')) {",
+                  "  console.warn('ccn_import_id vazio: execute Upload XML CCN — HML antes ou preencha manualmente.');",
+                  "}",
+                  "if (!getVar('CCN_X_API_KEY')) {",
+                  "  console.warn('CCN_X_API_KEY vazio: preencha no environment (vault ambiente-homologacao-api#CCN).');",
+                  "}",
+                  "if (getVar('n8n_webhook_mode') === 'webhook-test') {",
+                  "  console.warn('Modo webhook-test: abra CCN Get Import Erros no n8n e clique Execute workflow antes de enviar.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "",
+                  "const json = pm.response.json();",
+                  "",
+                  "pm.test('Consulta de erros aceita', () => {",
+                  "  pm.expect(json.success).to.eql(true);",
+                  "  pm.expect(json.erros).to.be.an('array');",
+                  "  pm.expect(json.importId).to.be.a('string').and.not.empty;",
+                  "});",
+                  "",
+                  "console.log('total erros:', json.erros?.length ?? 0);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              },
+              {
+                "key": "X-Ccn-Api-Key",
+                "value": "{{CCN_X_API_KEY}}"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_ccn_import_erros}}/ccn/imports/{{ccn_import_id}}/erros",
+            "description": "URL com webhookId prefixado (path dinâmico `:id` no n8n). Usa `ccn_import_id` salvo pelo upload. Resposta: `{ success, importId, erros: [] }`."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Import Erros — id invalido",
+          "description": "Deve retornar 422 `import_id_invalido`.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const json = pm.response.json();",
+                  "pm.test('Erro de id invalido', () => {",
+                  "  pm.expect(json.success).to.eql(false);",
+                  "  pm.expect(JSON.stringify(json.errors)).to.include('import_id_invalido');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Ambiente",
+                "value": "{{CCN_X_AMBIENTE}}"
+              },
+              {
+                "key": "X-Ccn-Api-Key",
+                "value": "{{CCN_X_API_KEY}}"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_ccn_import_erros}}/ccn/imports/nao-e-uuid/erros"
           },
           "response": []
         }

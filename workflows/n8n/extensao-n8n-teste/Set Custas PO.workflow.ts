@@ -1,13 +1,13 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : Set Custas PO
+// Workflow : [AUTONR-18] (webservice ONR) SetCustasPO - Penhora Online
 // Nodes   : 10  |  Connections: 11
 //
 // NODE INDEX
 // ──────────────────────────────────────────────────────────────────
 // Property name                    Node type (short)         Flags
-// Webhook                            webhook
+// Webhook                            webhook                    [creds]
 // NormalizarEntrada                  set
 // ValidarEntrada                     code
 // IfEntradaValida                    if
@@ -40,28 +40,33 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'dDkmAiJefB7i1zAS',
-    name: 'Set Custas PO',
+    name: '[AUTONR-18] (webservice ONR) SetCustasPO - Penhora Online',
     active: false,
     isArchived: false,
-    projectId: 'PP65Me8T4KDNsx9m',
-    settings: { executionOrder: 'v1', binaryMode: 'separate', availableInMCP: false },
+    settings: {
+        executionOrder: 'v1',
+        binaryMode: 'separate',
+        availableInMCP: false,
+        callerPolicy: 'workflowsFromSameOwner',
+    },
 })
-export class SetCustasPoWorkflow {
+export class Autonr18WebserviceOnrSetcustaspoPenhoraOnlineWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
 
     @node({
         id: 'bdf7ff94-1c26-473b-9a8f-bdcc23994481',
-        webhookId: 'd8e9f0a1-b2c3-4d5e-8f90-a1b2c3d4e5f6',
+        webhookId: 'e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b8',
         name: 'Webhook',
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [-1296, 128],
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     Webhook = {
         httpMethod: 'POST',
-        path: 'd8e9f0a1-b2c3-4d5e-8f90-a1b2c3d4e5f6',
+        path: 'e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b8',
         authentication: 'basicAuth',
         responseMode: 'responseNode',
         options: {},

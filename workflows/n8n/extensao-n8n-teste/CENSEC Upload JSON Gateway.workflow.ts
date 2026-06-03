@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : CENSEC Upload JSON Gateway
+// Workflow : [AUTONR-13] (CENSEC) CENSEC_UploadJSON - CENSEC
 // Nodes   : 11  |  Connections: 10
 //
 // NODE INDEX
@@ -40,13 +40,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'tav97HSLIT79LpwO',
-    name: 'CENSEC Upload JSON Gateway',
+    name: '[AUTONR-13] (CENSEC) CENSEC_UploadJSON - CENSEC',
     active: false,
     isArchived: false,
-    projectId: 'PP65Me8T4KDNsx9m',
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class CensecUploadJsonGatewayWorkflow {
+export class Autonr13CensecCensecUploadjsonCensecWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -58,7 +57,7 @@ export class CensecUploadJsonGatewayWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [0, 300],
-        credentials: { httpBasicAuth: { id: 'CE3L7VlaRe4klqlk', name: 'ioshua + ioshua123' } },
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     ReceiveCensecPayload = {
         httpMethod: 'POST',

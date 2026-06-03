@@ -1,8 +1,8 @@
 {
   "info": {
-    "_postman_id": "1290ad44-898b-472f-90bf-132a0657c66f",
+    "_postman_id": "1b47ee61-a242-4eb5-83f0-184e9433c471",
     "name": "ONR WebService — n8n",
-    "description": "Coleção unificada dos webhooks n8n proxy ONR (JSON snake_case + status HTTP).\n\n## Fluxo recomendado\n\n1. **3.1 Login** → Auth ONR — Login (grava onr_hash)\n2. **3.2 Acompanhamento** → List / Get / Insert / Update / Delete Titulo AT (usa onr_hash)\n3. **3.3 Penhora Online** → List / Set PO (usa onr_hash)\n4. **3.5 Ofícios** → List Pedidos OE / List Pedidos OE V2 / Set Pedido Negativa Lote OE (usa onr_hash)\n\n## Variáveis\n\nn8n_webhook_id_auth, n8n_webhook_id_list_titulos, n8n_webhook_id_list_status, n8n_webhook_id_get_status, n8n_webhook_id_get_titulo, n8n_webhook_id_insert_titulo, n8n_webhook_id_update_titulo, n8n_webhook_id_delete_titulo, n8n_webhook_id_set_baixa_boleto_po, n8n_webhook_id_set_custas_po, n8n_webhook_id_set_pedido_pessoa_respondido_po, n8n_webhook_id_set_pedido_negativa_lote_po, n8n_webhook_id_set_pedido_finalizar_prenotacao_vencida, n8n_webhook_id_list_pedidos_oe, n8n_webhook_id_list_pedidos_oe_v2, n8n_webhook_id_set_pedido_negativa_lote_oe, n8n_webhook_mode\n\n## Sync\n\nnpm run postman:sync",
+    "description": "Coleção unificada dos webhooks n8n e referência SOAP para o **WSOficio ONR** (homologação).\n\n## Variáveis\n\nTodas as variáveis HML estão em **Collection variables** (aba Variables da coleção). Environment opcional sobrescreve.\n\n## Domínios (pastas)\n\n| Pasta | Serviço |\n|-------|---------|\n| 3.1 Login | `login.asmx` |\n| 3.2 Acompanhamento de Títulos | `acompanhamentotitulos.asmx` |\n| 3.3 Penhora Online | `penhoraonline.asmx` |\n| 3.5 Ofícios | `oficios.asmx` |\n| 3.6 Certidões a Emitir | `Certidoes.asmx` |\n\n## Fluxo recomendado\n\n1. **3.1 Login → n8n — Auth ONR** (grava `onr_hash` na coleção)\n2. Escolha o domínio e execute o request desejado\n\n## Sync\n\n`npm run postman:sync`\n\nColeções legadas unificadas aqui: `Auth-ONR-n8n`, `ListTitulosAT-n8n`, `Certidoes-ONR-n8n`, `ONR-WSOficio-Login`.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
@@ -78,7 +78,272 @@
     },
     {
       "key": "n8n_webhook_id_set_custas_po",
-      "value": "d8e9f0a1-b2c3-4d5e-8f90-a1b2c3d4e5f6",
+      "value": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b8",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    },
+    {
+      "key": "ONR_LOGIN_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/login.asmx",
+      "type": "string"
+    },
+    {
+      "key": "SUBJECTCN",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ISSUERO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PUBLICKEY",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "SERIALNUMBER",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "VALIDUNTIL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CPF",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "EMAIL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "IDParceiroWS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ONR_SERVENTIA_CHAVE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ONR_HASH_TOKEN_INDEX",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "onr_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "onr_tokens",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "onr_hash",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "onr_id_usuario",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "onr_id_instituicao",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_MAX_ROW_PER_PAGE",
+      "value": "50",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_PAGE_NUMBER",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_INICIO",
+      "value": "2025-01-01",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_DATA_PROTOCOLO_FINAL",
+      "value": "2026-12-31",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_ID_TIPO_STATUS",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_EXPORTADO",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_APRESENTANTE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_ID_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_DATA_STATUS_INICIO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_DATA_STATUS_FINAL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_ID_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_EMAIL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_DDD",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_TELEFONE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_CPFCNPJ",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_VALOR_DEPOSITO",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_VALOR_EMOLUMENTOS",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_DATA_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_DATA_PREVISAO_ENTREGA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_MODO_NOTIFICACAO",
+      "value": "E",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_INTERESSADO_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_INTERESSADO_CPFCNPJ",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_NATUREZA_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_CODIGO_VERIFICADOR",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_TIPO_SOLICITACAO",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_ID_TIPO_STATUS",
+      "value": "4",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_DATA_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_DESCRICAO_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "url_servico_penhora_online",
+      "value": "https://hml3-wsoficio.onr.org.br/penhoraonline.asmx",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_BAIXA_ID_BOLETO",
+      "value": "184569",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_PEDIDO",
+      "value": "18014709",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_CUSTAS_VALOR",
+      "value": "50.00",
       "type": "string"
     },
     {
@@ -87,13 +352,63 @@
       "type": "string"
     },
     {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_RESPOSTA",
+      "value": "Certidão emitida conforme solicitado.",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_NEGATIVA",
+      "value": "false",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_MATRICULA",
+      "value": "12345",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_URL_ARQUIVO",
+      "value": "https://orius-tools.s3.sa-east-1.amazonaws.com/community/1778068969246-IBGE_RCIVIL_LAYOUT_TABINF_31_05_2020.pdf",
+      "type": "string"
+    },
+    {
       "key": "n8n_webhook_id_set_pedido_negativa_lote_po",
       "value": "f0a1b2c3-d4e5-4f6a-8b9c-d0e1f2a3b4c6",
       "type": "string"
     },
     {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO",
+      "value": "18014708",
+      "type": "string"
+    },
+    {
       "key": "n8n_webhook_id_set_pedido_finalizar_prenotacao_vencida",
       "value": "b2c3d4e5-f6a7-4b8c-9d0e-f1a2b3c4d5e7",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ID_PEDIDO",
+      "value": "18014709",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_RESPOSTA",
+      "value": "Certidao emitida conforme solicitado.",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_NOME",
+      "value": "Certidao matricula 12345",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_URL_ARQUIVO",
+      "value": "https://orius-tools.s3.sa-east-1.amazonaws.com/community/1778068969246-IBGE_RCIVIL_LAYOUT_TABINF_31_05_2020.pdf",
       "type": "string"
     },
     {
@@ -112,8 +427,63 @@
       "type": "string"
     },
     {
-      "key": "onr_login_endpoint",
-      "value": "https://hml3-wsoficio.onr.org.br/login.asmx",
+      "key": "url_servico_oficios",
+      "value": "https://hml3-wsoficio.onr.org.br/oficios.asmx",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_MAX_ROW_PER_PAGE",
+      "value": "50",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_PAGE_NUMBER",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_ID_INSTITUICAO",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_ID_TIPO_PESQUISA",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_ID_STATUS",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_DATA_SOLICITACAO_INICIAL",
+      "value": "2026-05-01",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_DATA_SOLICITACAO_FINAL",
+      "value": "2026-05-26",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_DATA_RESPOSTA_INICIAL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_DATA_RESPOSTA_FINAL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO",
+      "value": "18014708",
       "type": "string"
     },
     {
@@ -122,195 +492,1381 @@
       "type": "string"
     },
     {
-      "key": "url_servico_penhora_online",
+      "key": "url_servico_certidoes",
+      "value": "https://hml3-wsoficio.onr.org.br/Certidoes.asmx",
+      "type": "string"
+    },
+    {
+      "key": "onr_login_endpoint",
+      "value": "https://hml3-wsoficio.onr.org.br/login.asmx",
+      "type": "string"
+    },
+    {
+      "key": "onr_soap_action_login",
+      "value": "http://tempuri.org/WSOficio/LoginUsuarioCertificado",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_obter_xml_v6",
+      "value": "b2c3d4e5-f6a7-4890-b123-456789abcdef",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_devolver_certidao",
+      "value": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+      "type": "string"
+    },
+    {
+      "key": "certidoes_protocolo",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "certidoes_motivo_devolucao",
+      "value": "Documentação incompleta para emissão da certidão.",
+      "type": "string"
+    },
+    {
+      "key": "certidoes_status_filtro",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "certidoes_data_pedido_de",
+      "value": "2025-01-01",
+      "type": "string"
+    },
+    {
+      "key": "certidoes_data_pedido_ate",
+      "value": "2025-01-31",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_insert_status",
+      "value": "c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_update_status",
+      "value": "d8e9f0a1-b2c3-4d5e-8f90-a1b2c3d4e5f6",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_get_pedido",
+      "value": "a0b1c2d3-e4f5-4a6b-8c9d-0e1f2a3b4c5d",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_cartorios_restransmitir",
+      "value": "36f93de2-d160-453e-a11f-94d8f6dedebc",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_instituicoes",
+      "value": "91f0d4c2-7a6b-4e5f-9c81-2d3e4f5a6b7c",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_pedidos_exportacao",
+      "value": "b28f7a63-4d9d-40a3-a7ac-d7b53a6a8f1d",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_pedidos",
+      "value": "e9f0a1b2-c3d4-4e5f-9a0b-c1d2e3f4a5b6",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_list_varas",
+      "value": "f0a1b2c3-d4e5-4f6a-9b8c-d7e6f5a4b3c2",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_devolvido",
+      "value": "f34f2f9f-6c01-475e-9871-ebd36e714f67",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_matricula_devolvido",
+      "value": "c3d4e5f6-a7b8-4c9d-0e1f-a2b3c4d5e6f7",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_matricula_respondido",
+      "value": "c3d4e5f6-a7b8-49c0-8d9e-f0a1b2c3d4e5",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_pessoa_devolvido",
+      "value": "b2c3d4e5-f6a7-4b8c-9d0e-f1a2b3c4d5e6",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_respondido",
+      "value": "7b8c9d0e-1f2a-4b3c-8d4e-5f6a7b8c9d0e",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_pedido_retransmitido",
+      "value": "74213246-f338-4574-ae26-17a12337a247",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_penhora_averbado",
+      "value": "f1a2b3c4-d5e6-4f7a-8b9c-d0e1f2a3b4c5",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_penhora_exigencia",
+      "value": "e2f3a4b5-c6d7-4e8f-9a0b-c1d2e3f4a5b6",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_set_prenotacao",
+      "value": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+      "type": "string"
+    },
+    {
+      "key": "CERT_PATH",
+      "value": "C:\\Users\\kenio\\OneDrive\\Desktop\\PALMELO CARTORIO DO PRIMEIRO OFICIO E REGISTRO IM - senha - Hugo54.pfx",
+      "type": "string"
+    },
+    {
+      "key": "CERT_PASSWORD",
+      "value": "Hugo54",
+      "type": "string"
+    },
+    {
+      "key": "ONR_SERVENTIA_ID",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "ONR_WSDL_LOGIN_PATH",
+      "value": "wsdl/login.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "PUBLICKEY_FORMAT",
+      "value": "base64_der",
+      "type": "string"
+    },
+    {
+      "key": "VALIDUNTIL_FORMAT",
+      "value": "iso",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_WSDL_PATH",
+      "value": "wsdl/acompanhamentotitulos.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_ID_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_EMAIL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_DDD",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_TELEFONE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_CPFCNPJ",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_VALOR_DEPOSITO",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_VALOR_EMOLUMENTOS",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_DATA_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_DATA_PREVISAO_ENTREGA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_MODO_NOTIFICACAO",
+      "value": "E",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_INTERESSADO_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_INTERESSADO_CPFCNPJ",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_NATUREZA_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_CODIGO_VERIFICADOR",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_TIPO_SOLICITACAO",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_DELETE_ID_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_ID_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_ID_TIPO_STATUS",
+      "value": "3",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DATA_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DESCRICAO_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_ID_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_ID_TIPO_STATUS",
+      "value": "3",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_DATA_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_DESCRICAO_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_ESTADO",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_COMARCA",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_FORO",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_PROCESSO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_BOLETO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PRENOTACAO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PRENOTACAO_NUMERO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PRENOTACAO_DATA_PRENOTACAO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PRENOTACAO_DATA_VENCIMENTO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_CUSTAS_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_MATRICULA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_CERTIDOES_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_ANEXOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_ANEXOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_MATRICULA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_ANEXOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDOS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_PEDIDOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_MATRICULA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ANEXOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_WSDL_PATH",
+      "value": "wsdl/penhoraonline.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ENDPOINT",
       "value": "https://hml3-wsoficio.onr.org.br/penhoraonline.asmx",
       "type": "string"
     },
     {
-      "key": "url_servico_oficios",
+      "key": "PENHORA_ONLINE_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_MAX_ROW_PER_PAGE",
+      "value": "50",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_PAGE_NUMBER",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_VARA",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_TIPO_PEDIDO",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_STATUS",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_DATA_SOLICITACAO_INICIAL",
+      "value": "2025-01-01",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_DATA_SOLICITACAO_FINAL",
+      "value": "2025-01-31",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_DATA_RESPOSTA_INICIAL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_DATA_RESPOSTA_FINAL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_WSDL_PATH",
+      "value": "wsdl/bdlight.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/bdlight.asmx",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_MAX_ROW_PER_PAGE",
+      "value": "50",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_PAGE_NUMBER",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_DATA_INICIAL",
+      "value": "2025-01-01",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_DATA_FINAL",
+      "value": "2025-03-31",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_ID_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_IMPORTAR_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_IMPORTAR_VALIDAR_XML",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_IMPORTAR_XML_PATH",
+      "value": "bdlight-xml-exemplo/bdlight-exemplo-1.xml",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_WSDL_PATH",
+      "value": "wsdl/oficios.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_ENDPOINT",
       "value": "https://hml3-wsoficio.onr.org.br/oficios.asmx",
       "type": "string"
     },
     {
-      "key": "N8N_BASIC_AUTH_USER",
-      "value": "orius",
+      "key": "OFICIOS_AUTO_LOGIN",
+      "value": "true",
       "type": "string"
     },
     {
-      "key": "N8N_BASIC_AUTH_PASSWORD",
-      "value": "master@orius",
+      "key": "OFICIOS_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_NEGATIVA",
+      "value": "false",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_DEVOLVIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_DEVOLVIDO_MOTIVO_DEVOLUCAO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RETRANSMITIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RETRANSMITIDO_ID_CARTORIO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_WSDL_PATH",
+      "value": "wsdl/certidoes.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/Certidoes.asmx",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_SOLICITANTE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_TIPO_CERTIDAO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_PESQUISA_POR",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_TIPO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_DATA_PEDIDO_DE",
+      "value": "2025-01-01",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_DATA_PEDIDO_ATE",
+      "value": "2025-01-31",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_DATA_CONFERENCIA_DE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_DATA_CONFERENCIA_ATE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_XML_OUTPUT_PATH",
+      "value": "output/certidoes-export-v6.xml",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_DEVOLVER_CERTIDAO_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_DEVOLVER_CERTIDAO_MOTIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_ENVIAR_ANEXO_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_ENVIAR_ANEXO_NOME_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_ENVIAR_ANEXO_ARQUIVO_PATH",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "POSTMAN_API_KEY",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "POSTMAN_COLLECTION_UID",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "POSTMAN_WORKSPACE_ID",
+      "value": "",
       "type": "string"
     }
   ],
   "item": [
     {
-      "name": "3.1 Login — Auth ONR",
-      "description": "Proxy `LoginUsuarioCertificado`. Documentação: `scripts/login/Auth WebService ONR.md`",
+      "name": "3.1 Login",
+      "description": "Autenticação ONR (`LoginUsuarioCertificado`). Use **n8n — Auth ONR** em integrações; SOAP direto só para debug.",
       "item": [
         {
-          "name": "Auth ONR — Login",
-          "event": [
+          "name": "n8n — Auth ONR",
+          "description": "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
+          "item": [
             {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
-                  "  const fromCollection = pm.collectionVariables.get(key);",
-                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
-                  "  const fromGlobals = pm.globals.get(key);",
-                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
-                  "  return pm.variables.get(key);",
-                  "}",
-                  "function hasBasicAuthConfigured() {",
-                  "  const auth = pm.request.auth;",
-                  "  if (!auth || auth.type !== 'basic' || !Array.isArray(auth.basic)) return false;",
-                  "  const user = auth.basic.find((x) => x.key === 'username')?.value;",
-                  "  const pass = auth.basic.find((x) => x.key === 'password')?.value;",
-                  "  return Boolean(user && pass && !String(user).includes('{{') && !String(pass).includes('{{'));",
-                  "}",
-                  "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
-                  "if (!getVar('N8N_BASIC_AUTH_USER') || !getVar('N8N_BASIC_AUTH_PASSWORD')) {",
-                  "  if (!hasBasicAuthConfigured()) required.push('N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD');",
-                  "}",
-                  "const missing = required.filter((k) => !getVar(k));",
-                  "if (missing.length) {",
-                  "  throw new Error('Variáveis ausentes ou desabilitadas: ' + missing.join(', ') + '. Defina no Environment (checkbox ativo) ou em Collection Variables.');",
-                  "}",
-                  "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || pm.collectionVariables.get('onr_login_endpoint');",
-                  "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
-                  "let json;",
-                  "pm.test('Resposta JSON válida', () => {",
-                  "  json = pm.response.json();",
-                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
-                  "});",
-                  "if (!json || !json.sucesso) return;",
-                  "pm.test('Tokens retornados', () => {",
-                  "  pm.expect(json.tokens.length).to.be.above(0);",
-                  "});",
-                  "if (json.id_usuario != null) pm.environment.set('onr_id_usuario', String(json.id_usuario));",
-                  "if (json.id_instituicao != null) pm.environment.set('onr_id_instituicao', String(json.id_instituicao));",
-                  "pm.environment.set('onr_tokens', JSON.stringify(json.tokens || []));",
-                  "const tokenIndex = parseInt(pm.environment.get('ONR_HASH_TOKEN_INDEX') || '0', 10);",
-                  "const token = (json.tokens || [])[tokenIndex] ?? (json.tokens || [])[0];",
-                  "pm.environment.set('onr_token', token || '');",
-                  "const chave = pm.environment.get('ONR_SERVENTIA_CHAVE');",
-                  "if (chave && token) {",
-                  "  const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
-                  "  pm.environment.set('onr_hash', hash);",
-                  "  console.log('onr_hash:', hash);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"{{CPF}}\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{onr_login_endpoint_resolved}}\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
+              "name": "n8n — Auth ONR",
+              "description": "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
+              "item": [
+                {
+                  "name": "n8n — Auth ONR",
+                  "description": "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
+                  "item": [
+                    {
+                      "name": "n8n — Auth ONR",
+                      "description": "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
+                      "item": [
+                        {
+                          "name": "Auth ONR — Login",
+                          "event": [
+                            {
+                              "listen": "prerequest",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "function getVar(key) {",
+                                  "  const fromCollection = pm.collectionVariables.get(key);",
+                                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                                  "  const fromEnv = pm.environment.get(key);",
+                                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                                  "  const fromGlobals = pm.globals.get(key);",
+                                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                                  "  return pm.variables.get(key);",
+                                  "}",
+                                  "function hasBasicAuthConfigured() {",
+                                  "  const auth = pm.request.auth;",
+                                  "  if (!auth || auth.type !== 'basic' || !Array.isArray(auth.basic)) return false;",
+                                  "  const user = auth.basic.find((x) => x.key === 'username')?.value;",
+                                  "  const pass = auth.basic.find((x) => x.key === 'password')?.value;",
+                                  "  return Boolean(user && pass && !String(user).includes('{{') && !String(pass).includes('{{'));",
+                                  "}",
+                                  "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                                  "if (!getVar('N8N_BASIC_AUTH_USER') || !getVar('N8N_BASIC_AUTH_PASSWORD')) {",
+                                  "  if (!hasBasicAuthConfigured()) required.push('N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD');",
+                                  "}",
+                                  "const missing = required.filter((k) => !getVar(k));",
+                                  "if (missing.length) throw new Error('Variáveis ausentes: ' + missing.join(', '));",
+                                  "pm.variables.set('onr_login_endpoint_resolved', getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint'));"
+                                ]
+                              }
+                            },
+                            {
+                              "listen": "test",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                  "let json;",
+                                  "pm.test('Resposta JSON válida', () => {",
+                                  "  json = pm.response.json();",
+                                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                                  "});",
+                                  "if (!json || !json.sucesso) return;",
+                                  "pm.test('Tokens retornados', () => { pm.expect(json.tokens.length).to.be.above(0); });",
+                                  "  if (json.id_usuario != null) {",
+                                  "    pm.collectionVariables.set('onr_id_usuario', String(json.id_usuario));",
+                                  "    pm.environment.set('onr_id_usuario', String(json.id_usuario));",
+                                  "  }",
+                                  "  if (json.id_instituicao != null) {",
+                                  "    pm.collectionVariables.set('onr_id_instituicao', String(json.id_instituicao));",
+                                  "    pm.environment.set('onr_id_instituicao', String(json.id_instituicao));",
+                                  "  }",
+                                  "  pm.collectionVariables.set('onr_tokens', JSON.stringify(json.tokens || []));",
+                                  "  pm.environment.set('onr_tokens', JSON.stringify(json.tokens || []));",
+                                  "  if (Array.isArray(json.hashes)) {",
+                                  "    pm.collectionVariables.set('onr_hashes', JSON.stringify(json.hashes));",
+                                  "    pm.environment.set('onr_hashes', JSON.stringify(json.hashes));",
+                                  "  }",
+                                  "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                                  "  const token = (json.tokens || [])[tokenIndex] ?? (json.tokens || [])[0];",
+                                  "  pm.collectionVariables.set('onr_token', token || '');",
+                                  "  pm.environment.set('onr_token', token || '');",
+                                  "  const hashFromWorkflow = json.hash || (json.hashes || [])[tokenIndex] || (json.hashes || [])[0];",
+                                  "  if (hashFromWorkflow) {",
+                                  "    pm.collectionVariables.set('onr_hash', hashFromWorkflow);",
+                                  "    pm.environment.set('onr_hash', hashFromWorkflow);",
+                                  "    console.log('onr_hash (workflow):', hashFromWorkflow);",
+                                  "  } else {",
+                                  "    const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                                  "    if (chave && token) {",
+                                  "      const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                                  "      pm.collectionVariables.set('onr_hash', hash);",
+                                  "      pm.environment.set('onr_hash', hash);",
+                                  "      console.log('onr_hash (Postman):', hash);",
+                                  "    }",
+                                  "  }"
+                                ]
+                              }
+                            }
+                          ],
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"{{CPF}}\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{onr_login_endpoint_resolved}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
+                              "options": {
+                                "raw": {
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
+                          }
+                        },
+                        {
+                          "name": "Auth ONR — CPF inválido",
+                          "event": [
+                            {
+                              "listen": "test",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                                  "const json = pm.response.json();",
+                                  "pm.expect(json.sucesso).to.eql(false);",
+                                  "pm.expect(json.codigo_erro).to.eql(2);"
+                                ]
+                              }
+                            }
+                          ],
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"12345678901\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
+                              "options": {
+                                "raw": {
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
+                          }
+                        },
+                        {
+                          "name": "Auth ONR — CPF ausente",
+                          "event": [
+                            {
+                              "listen": "test",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                                  "const json = pm.response.json();",
+                                  "pm.expect(json.codigo_erro).to.eql(15);"
+                                ]
+                              }
+                            }
+                          ],
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
+                              "options": {
+                                "raw": {
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "SOAP direto (referência)",
+                      "description": "Chamada SOAP nativa a `login.asmx` — sem n8n. Preferir **n8n — Auth ONR** para integrações.",
+                      "item": [
+                        {
+                          "name": "LoginUsuarioCertificado — SOAP direto",
+                          "event": [
+                            {
+                              "listen": "prerequest",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "function getVar(key) {",
+                                  "  const fromCollection = pm.collectionVariables.get(key);",
+                                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                                  "  const fromEnv = pm.environment.get(key);",
+                                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                                  "  const fromGlobals = pm.globals.get(key);",
+                                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                                  "  return pm.variables.get(key);",
+                                  "}",
+                                  "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                                  "const missing = required.filter((k) => !getVar(k));",
+                                  "if (missing.length) {",
+                                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Preencha Collection Variables ou Environment.');",
+                                  "}",
+                                  "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint');",
+                                  "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
+                                ]
+                              }
+                            },
+                            {
+                              "listen": "test",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                  "const body = pm.response.text();",
+                                  "const retornoMatch = body.match(/<(?:\\\\w+:)?RETORNO>(true|false)<\\\\/(?:\\\\w+:)?RETORNO>/i);",
+                                  "const retorno = retornoMatch && retornoMatch[1].toLowerCase() === 'true';",
+                                  "if (!retorno) {",
+                                  "  const cod = body.match(/<(?:\\\\w+:)?CODIGOERRO>(\\\\d+)<\\\\/(?:\\\\w+:)?CODIGOERRO>/);",
+                                  "  const desc = body.match(/<(?:\\\\w+:)?ERRODESCRICAO>([^<]*)<\\\\/(?:\\\\w+:)?ERRODESCRICAO>/);",
+                                  "  pm.test('RETORNO=true', () => { throw new Error(`Login falhou: [${cod?.[1] ?? '?'}] ${desc?.[1] ?? ''}`); });",
+                                  "} else {",
+                                  "  const tokensBlock = body.match(/<(?:\\\\w+:)?Tokens>([\\\\s\\\\S]*?)<\\\\/(?:\\\\w+:)?Tokens>/i);",
+                                  "  const tokens = [];",
+                                  "  if (tokensBlock) {",
+                                  "    const re = /<(?:\\\\w+:)?string[^>]*>([^<]+)<\\\\/(?:\\\\w+:)?string>/gi;",
+                                  "    let m; while ((m = re.exec(tokensBlock[1])) !== null) { if (m[1]) tokens.push(m[1]); }",
+                                  "  }",
+                                  "  pm.test('Tokens retornados', () => pm.expect(tokens.length).to.be.above(0));",
+                                  "  pm.collectionVariables.set('onr_tokens', JSON.stringify(tokens));",
+                                  "  pm.environment.set('onr_tokens', JSON.stringify(tokens));",
+                                  "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                                  "  const token = tokens[tokenIndex] ?? tokens[0];",
+                                  "  pm.collectionVariables.set('onr_token', token);",
+                                  "  pm.environment.set('onr_token', token);",
+                                  "  const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                                  "  if (chave) {",
+                                  "    const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                                  "    pm.collectionVariables.set('onr_hash', hash);",
+                                  "    pm.environment.set('onr_hash', hash);",
+                                  "    console.log('onr_hash:', hash);",
+                                  "  }",
+                                  "}"
+                                ]
+                              }
+                            }
+                          ],
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "text/xml; charset=utf-8"
+                              },
+                              {
+                                "key": "SOAPAction",
+                                "value": "{{onr_soap_action_login}}"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://tempuri.org/WSOficio\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado>\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{SUBJECTCN}}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ISSUERO}}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{PUBLICKEY}}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{SERIALNUMBER}}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{VALIDUNTIL}}</tns:VALIDUNTIL>\n        <tns:CPF>{{CPF}}</tns:CPF>\n        <tns:EMAIL>{{EMAIL}}</tns:EMAIL>\n        <tns:IDParceiroWS>{{IDParceiroWS}}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+                              "options": {
+                                "raw": {
+                                  "language": "xml"
+                                }
+                              }
+                            },
+                            "url": "{{onr_login_endpoint_resolved}}",
+                            "description": "Autentica com certificado digital (campos extraídos do PFX) e retorna tokens de 6 caracteres para cálculo do `Hash` nas demais operações.\n\n**SOAP 1.1** — binding `LoginSoap` do `wsdl/login.wsdl`.\n\nOrdem dos campos em `oRequest` (WSDL): SUBJECTCN, ISSUERO, PUBLICKEY, SERIALNUMBER, VALIDUNTIL, CPF, EMAIL, IDParceiroWS."
+                          },
+                          "response": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "SOAP direto (referência)",
+                  "description": "Chamada SOAP nativa a `login.asmx` — sem n8n. Preferir **n8n — Auth ONR** para integrações.",
+                  "item": [
+                    {
+                      "name": "LoginUsuarioCertificado — SOAP direto",
+                      "event": [
+                        {
+                          "listen": "prerequest",
+                          "script": {
+                            "type": "text/javascript",
+                            "exec": [
+                              "function getVar(key) {",
+                              "  const fromCollection = pm.collectionVariables.get(key);",
+                              "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                              "  const fromEnv = pm.environment.get(key);",
+                              "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                              "  const fromGlobals = pm.globals.get(key);",
+                              "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                              "  return pm.variables.get(key);",
+                              "}",
+                              "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                              "const missing = required.filter((k) => !getVar(k));",
+                              "if (missing.length) {",
+                              "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Preencha Collection Variables ou Environment.');",
+                              "}",
+                              "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint');",
+                              "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
+                            ]
+                          }
+                        },
+                        {
+                          "listen": "test",
+                          "script": {
+                            "type": "text/javascript",
+                            "exec": [
+                              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                              "const body = pm.response.text();",
+                              "const retornoMatch = body.match(/<(?:\\\\w+:)?RETORNO>(true|false)<\\\\/(?:\\\\w+:)?RETORNO>/i);",
+                              "const retorno = retornoMatch && retornoMatch[1].toLowerCase() === 'true';",
+                              "if (!retorno) {",
+                              "  const cod = body.match(/<(?:\\\\w+:)?CODIGOERRO>(\\\\d+)<\\\\/(?:\\\\w+:)?CODIGOERRO>/);",
+                              "  const desc = body.match(/<(?:\\\\w+:)?ERRODESCRICAO>([^<]*)<\\\\/(?:\\\\w+:)?ERRODESCRICAO>/);",
+                              "  pm.test('RETORNO=true', () => { throw new Error(`Login falhou: [${cod?.[1] ?? '?'}] ${desc?.[1] ?? ''}`); });",
+                              "} else {",
+                              "  const tokensBlock = body.match(/<(?:\\\\w+:)?Tokens>([\\\\s\\\\S]*?)<\\\\/(?:\\\\w+:)?Tokens>/i);",
+                              "  const tokens = [];",
+                              "  if (tokensBlock) {",
+                              "    const re = /<(?:\\\\w+:)?string[^>]*>([^<]+)<\\\\/(?:\\\\w+:)?string>/gi;",
+                              "    let m; while ((m = re.exec(tokensBlock[1])) !== null) { if (m[1]) tokens.push(m[1]); }",
+                              "  }",
+                              "  pm.test('Tokens retornados', () => pm.expect(tokens.length).to.be.above(0));",
+                              "  pm.collectionVariables.set('onr_tokens', JSON.stringify(tokens));",
+                              "  pm.environment.set('onr_tokens', JSON.stringify(tokens));",
+                              "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                              "  const token = tokens[tokenIndex] ?? tokens[0];",
+                              "  pm.collectionVariables.set('onr_token', token);",
+                              "  pm.environment.set('onr_token', token);",
+                              "  const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                              "  if (chave) {",
+                              "    const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                              "    pm.collectionVariables.set('onr_hash', hash);",
+                              "    pm.environment.set('onr_hash', hash);",
+                              "    console.log('onr_hash:', hash);",
+                              "  }",
+                              "}"
+                            ]
+                          }
+                        }
+                      ],
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "text/xml; charset=utf-8"
+                          },
+                          {
+                            "key": "SOAPAction",
+                            "value": "{{onr_soap_action_login}}"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://tempuri.org/WSOficio\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado>\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{SUBJECTCN}}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ISSUERO}}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{PUBLICKEY}}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{SERIALNUMBER}}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{VALIDUNTIL}}</tns:VALIDUNTIL>\n        <tns:CPF>{{CPF}}</tns:CPF>\n        <tns:EMAIL>{{EMAIL}}</tns:EMAIL>\n        <tns:IDParceiroWS>{{IDParceiroWS}}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+                          "options": {
+                            "raw": {
+                              "language": "xml"
+                            }
+                          }
+                        },
+                        "url": "{{onr_login_endpoint_resolved}}",
+                        "description": "Autentica com certificado digital (campos extraídos do PFX) e retorna tokens de 6 caracteres para cálculo do `Hash` nas demais operações.\n\n**SOAP 1.1** — binding `LoginSoap` do `wsdl/login.wsdl`.\n\nOrdem dos campos em `oRequest` (WSDL): SUBJECTCN, ISSUERO, PUBLICKEY, SERIALNUMBER, VALIDUNTIL, CPF, EMAIL, IDParceiroWS."
+                      },
+                      "response": []
+                    }
+                  ]
                 }
-              }
+              ]
             },
-            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
-          }
+            {
+              "name": "SOAP direto (referência)",
+              "description": "Chamada SOAP nativa a `login.asmx` — sem n8n. Preferir **n8n — Auth ONR** para integrações.",
+              "item": [
+                {
+                  "name": "LoginUsuarioCertificado — SOAP direto",
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                          "function getVar(key) {",
+                          "  const fromCollection = pm.collectionVariables.get(key);",
+                          "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                          "  const fromEnv = pm.environment.get(key);",
+                          "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                          "  const fromGlobals = pm.globals.get(key);",
+                          "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                          "  return pm.variables.get(key);",
+                          "}",
+                          "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                          "const missing = required.filter((k) => !getVar(k));",
+                          "if (missing.length) {",
+                          "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Preencha Collection Variables ou Environment.');",
+                          "}",
+                          "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint');",
+                          "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                          "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                          "const body = pm.response.text();",
+                          "const retornoMatch = body.match(/<(?:\\\\w+:)?RETORNO>(true|false)<\\\\/(?:\\\\w+:)?RETORNO>/i);",
+                          "const retorno = retornoMatch && retornoMatch[1].toLowerCase() === 'true';",
+                          "if (!retorno) {",
+                          "  const cod = body.match(/<(?:\\\\w+:)?CODIGOERRO>(\\\\d+)<\\\\/(?:\\\\w+:)?CODIGOERRO>/);",
+                          "  const desc = body.match(/<(?:\\\\w+:)?ERRODESCRICAO>([^<]*)<\\\\/(?:\\\\w+:)?ERRODESCRICAO>/);",
+                          "  pm.test('RETORNO=true', () => { throw new Error(`Login falhou: [${cod?.[1] ?? '?'}] ${desc?.[1] ?? ''}`); });",
+                          "} else {",
+                          "  const tokensBlock = body.match(/<(?:\\\\w+:)?Tokens>([\\\\s\\\\S]*?)<\\\\/(?:\\\\w+:)?Tokens>/i);",
+                          "  const tokens = [];",
+                          "  if (tokensBlock) {",
+                          "    const re = /<(?:\\\\w+:)?string[^>]*>([^<]+)<\\\\/(?:\\\\w+:)?string>/gi;",
+                          "    let m; while ((m = re.exec(tokensBlock[1])) !== null) { if (m[1]) tokens.push(m[1]); }",
+                          "  }",
+                          "  pm.test('Tokens retornados', () => pm.expect(tokens.length).to.be.above(0));",
+                          "  pm.collectionVariables.set('onr_tokens', JSON.stringify(tokens));",
+                          "  pm.environment.set('onr_tokens', JSON.stringify(tokens));",
+                          "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                          "  const token = tokens[tokenIndex] ?? tokens[0];",
+                          "  pm.collectionVariables.set('onr_token', token);",
+                          "  pm.environment.set('onr_token', token);",
+                          "  const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                          "  if (chave) {",
+                          "    const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                          "    pm.collectionVariables.set('onr_hash', hash);",
+                          "    pm.environment.set('onr_hash', hash);",
+                          "    console.log('onr_hash:', hash);",
+                          "  }",
+                          "}"
+                        ]
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "text/xml; charset=utf-8"
+                      },
+                      {
+                        "key": "SOAPAction",
+                        "value": "{{onr_soap_action_login}}"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://tempuri.org/WSOficio\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado>\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{SUBJECTCN}}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ISSUERO}}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{PUBLICKEY}}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{SERIALNUMBER}}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{VALIDUNTIL}}</tns:VALIDUNTIL>\n        <tns:CPF>{{CPF}}</tns:CPF>\n        <tns:EMAIL>{{EMAIL}}</tns:EMAIL>\n        <tns:IDParceiroWS>{{IDParceiroWS}}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+                      "options": {
+                        "raw": {
+                          "language": "xml"
+                        }
+                      }
+                    },
+                    "url": "{{onr_login_endpoint_resolved}}",
+                    "description": "Autentica com certificado digital (campos extraídos do PFX) e retorna tokens de 6 caracteres para cálculo do `Hash` nas demais operações.\n\n**SOAP 1.1** — binding `LoginSoap` do `wsdl/login.wsdl`.\n\nOrdem dos campos em `oRequest` (WSDL): SUBJECTCN, ISSUERO, PUBLICKEY, SERIALNUMBER, VALIDUNTIL, CPF, EMAIL, IDParceiroWS."
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Auth ONR — CPF inválido",
-          "event": [
+          "name": "SOAP direto (referência)",
+          "description": "Chamada SOAP nativa a `login.asmx` — sem n8n. Preferir **n8n — Auth ONR** para integrações.",
+          "item": [
             {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
-                  "const json = pm.response.json();",
-                  "pm.expect(json.sucesso).to.eql(false);",
-                  "pm.expect(json.codigo_erro).to.eql(2);"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"12345678901\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
+              "name": "LoginUsuarioCertificado — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromCollection = pm.collectionVariables.get(key);",
+                      "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  const fromGlobals = pm.globals.get(key);",
+                      "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                      "  return pm.variables.get(key);",
+                      "}",
+                      "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                      "const missing = required.filter((k) => !getVar(k));",
+                      "if (missing.length) {",
+                      "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Preencha Collection Variables ou Environment.');",
+                      "}",
+                      "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint');",
+                      "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "const retornoMatch = body.match(/<(?:\\\\w+:)?RETORNO>(true|false)<\\\\/(?:\\\\w+:)?RETORNO>/i);",
+                      "const retorno = retornoMatch && retornoMatch[1].toLowerCase() === 'true';",
+                      "if (!retorno) {",
+                      "  const cod = body.match(/<(?:\\\\w+:)?CODIGOERRO>(\\\\d+)<\\\\/(?:\\\\w+:)?CODIGOERRO>/);",
+                      "  const desc = body.match(/<(?:\\\\w+:)?ERRODESCRICAO>([^<]*)<\\\\/(?:\\\\w+:)?ERRODESCRICAO>/);",
+                      "  pm.test('RETORNO=true', () => { throw new Error(`Login falhou: [${cod?.[1] ?? '?'}] ${desc?.[1] ?? ''}`); });",
+                      "} else {",
+                      "  const tokensBlock = body.match(/<(?:\\\\w+:)?Tokens>([\\\\s\\\\S]*?)<\\\\/(?:\\\\w+:)?Tokens>/i);",
+                      "  const tokens = [];",
+                      "  if (tokensBlock) {",
+                      "    const re = /<(?:\\\\w+:)?string[^>]*>([^<]+)<\\\\/(?:\\\\w+:)?string>/gi;",
+                      "    let m; while ((m = re.exec(tokensBlock[1])) !== null) { if (m[1]) tokens.push(m[1]); }",
+                      "  }",
+                      "  pm.test('Tokens retornados', () => pm.expect(tokens.length).to.be.above(0));",
+                      "  pm.collectionVariables.set('onr_tokens', JSON.stringify(tokens));",
+                      "  pm.environment.set('onr_tokens', JSON.stringify(tokens));",
+                      "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                      "  const token = tokens[tokenIndex] ?? tokens[0];",
+                      "  pm.collectionVariables.set('onr_token', token);",
+                      "  pm.environment.set('onr_token', token);",
+                      "  const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                      "  if (chave) {",
+                      "    const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                      "    pm.collectionVariables.set('onr_hash', hash);",
+                      "    pm.environment.set('onr_hash', hash);",
+                      "    console.log('onr_hash:', hash);",
+                      "  }",
+                      "}"
+                    ]
+                  }
                 }
-              }
-            },
-            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
-          }
-        },
-        {
-          "name": "Auth ONR — CPF ausente",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
-                  "const json = pm.response.json();",
-                  "pm.expect(json.codigo_erro).to.eql(15);"
-                ]
-              }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=utf-8"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{onr_soap_action_login}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://tempuri.org/WSOficio\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado>\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{SUBJECTCN}}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ISSUERO}}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{PUBLICKEY}}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{SERIALNUMBER}}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{VALIDUNTIL}}</tns:VALIDUNTIL>\n        <tns:CPF>{{CPF}}</tns:CPF>\n        <tns:EMAIL>{{EMAIL}}</tns:EMAIL>\n        <tns:IDParceiroWS>{{IDParceiroWS}}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                },
+                "url": "{{onr_login_endpoint_resolved}}",
+                "description": "Autentica com certificado digital (campos extraídos do PFX) e retorna tokens de 6 caracteres para cálculo do `Hash` nas demais operações.\n\n**SOAP 1.1** — binding `LoginSoap` do `wsdl/login.wsdl`.\n\nOrdem dos campos em `oRequest` (WSDL): SUBJECTCN, ISSUERO, PUBLICKEY, SERIALNUMBER, VALIDUNTIL, CPF, EMAIL, IDParceiroWS."
+              },
+              "response": []
             }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
-          }
+          ]
         }
       ]
     },
     {
       "name": "3.2 Acompanhamento de Títulos",
-      "description": "Proxies do módulo 3.2. Requer `onr_hash` do login (Auth ONR).",
+      "description": "Proxies do módulo 3.2 (`acompanhamentotitulos.asmx`). Requer `onr_hash` do login.",
       "item": [
         {
           "name": "List Titulos AT — Listar",
@@ -321,10 +1877,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -382,10 +1938,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -443,10 +1999,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -504,10 +2060,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -566,10 +2122,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -630,10 +2186,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -693,10 +2249,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -747,13 +2303,426 @@
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_delete_titulo}}"
           }
+        },
+        {
+          "name": "Insert Status AT — Cadastrar status",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_insert_status}}"
+          }
+        },
+        {
+          "name": "Update Status AT — Atualizar status",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_update_status}}"
+          }
         }
       ]
     },
     {
       "name": "3.3 Penhora Online",
-      "description": "Proxies do módulo 3.3. Requer `onr_hash` do login (Auth ONR).",
+      "description": "Proxies do módulo 3.3 (`penhoraonline.asmx`). Requer `onr_hash` do login.",
       "item": [
+        {
+          "name": "List Pedidos PO — Listar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_pedidos}}"
+          }
+        },
+        {
+          "name": "Get Pedido PO — Consultar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_get_pedido}}"
+          }
+        },
+        {
+          "name": "List Varas PO — Listar varas",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_varas}}"
+          }
+        },
+        {
+          "name": "List Pedidos Exportacao PO — Listar exportação",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_pedidos_exportacao}}"
+          }
+        },
+        {
+          "name": "Set Prenotacao PO — Prenotar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_prenotacao}}"
+          }
+        },
         {
           "name": "Set Baixa Boleto PO — Baixar",
           "event": [
@@ -763,10 +2732,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -827,10 +2796,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -883,6 +2852,124 @@
           }
         },
         {
+          "name": "Set Penhora Averbado PO — Averbar penhora",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_penhora_averbado}}"
+          }
+        },
+        {
+          "name": "Set Penhora Exigencia PO — Registrar exigência",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_penhora_exigencia}}"
+          }
+        },
+        {
           "name": "Set Pedido Pessoa Respondido PO — Responder",
           "event": [
             {
@@ -891,10 +2978,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -947,6 +3034,183 @@
           }
         },
         {
+          "name": "Set Pedido Pessoa Devolvido PO — Devolver (pessoa)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_pessoa_devolvido}}"
+          }
+        },
+        {
+          "name": "Set Pedido Matricula Respondido PO — Responder (matrícula)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_matricula_respondido}}"
+          }
+        },
+        {
+          "name": "Set Pedido Matricula Devolvido PO — Devolver (matrícula)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_matricula_devolvido}}"
+          }
+        },
+        {
           "name": "Set Pedido Negativa Lote PO — Negativar",
           "event": [
             {
@@ -955,10 +3219,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -1011,7 +3275,7 @@
           }
         },
         {
-          "name": "Set Pedido Finalizar Prenotacao Vencida — Finalizar",
+          "name": "Set Pedido Finalizar Prenotacao Vencida — Finalizar prenotação vencida",
           "event": [
             {
               "listen": "prerequest",
@@ -1019,15 +3283,15 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
                   "}",
-                  "const required = ['onr_hash', 'PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ID_PEDIDO', 'PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_RESPOSTA', 'PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_NOME', 'PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_URL_ARQUIVO'];",
+                  "const required = [\"onr_hash\"];",
                   "const missing = required.filter((k) => !getVar(k));",
                   "if (missing.length) {",
                   "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
@@ -1040,16 +3304,11 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "const json = pm.response.json();",
                   "pm.test('status_http espelha HTTP', () => {",
                   "  pm.expect(json.status_http).to.eql(pm.response.code);",
-                  "});",
-                  "if (json.sucesso) {",
-                  "  pm.test('Prenotação vencida finalizada', () => {",
-                  "    pm.expect(json.dados.id_pedido).to.eql(Number(pm.variables.replaceIn('{{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ID_PEDIDO}}')));",
-                  "    pm.expect(json.dados.prenotacao_vencida_finalizada).to.eql(true);",
-                  "  });",
-                  "}"
+                  "});"
                 ]
               }
             }
@@ -1064,7 +3323,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_RESPOSTA}}\",\n  \"anexos\": [\n    {\n      \"nome\": \"{{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_NOME}}\",\n      \"url_arquivo\": \"{{PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_URL_ARQUIVO}}\"\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1078,7 +3337,7 @@
     },
     {
       "name": "3.5 Ofícios",
-      "description": "Proxies do módulo 3.5. Requer `onr_hash` do login (Auth ONR).",
+      "description": "Proxies do módulo 3.5 (`oficios.asmx`). Requer `onr_hash` do login.",
       "item": [
         {
           "name": "List Pedidos OE — Listar",
@@ -1089,10 +3348,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -1146,7 +3405,7 @@
           }
         },
         {
-          "name": "List Pedidos OE V2 — Listar",
+          "name": "List Pedidos OE V2 — Listar (v2)",
           "event": [
             {
               "listen": "prerequest",
@@ -1154,15 +3413,15 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
                   "}",
-                  "const required = ['onr_hash', 'OFICIOS_DATA_SOLICITACAO_INICIAL', 'OFICIOS_DATA_SOLICITACAO_FINAL'];",
+                  "const required = [\"onr_hash\"];",
                   "const missing = required.filter((k) => !getVar(k));",
                   "if (missing.length) {",
                   "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
@@ -1175,18 +3434,11 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
                   "const json = pm.response.json();",
                   "pm.test('status_http espelha HTTP', () => {",
                   "  pm.expect(json.status_http).to.eql(pm.response.code);",
-                  "});",
-                  "if (json.sucesso) {",
-                  "  pm.test('ListPedidosOE_V2 retornou paginação', () => {",
-                  "    pm.expect(json.dados.operacao_soap).to.eql('ListPedidosOE_V2');",
-                  "    pm.expect(json.dados).to.have.property('quantidade_registros');",
-                  "    pm.expect(json.dados).to.have.property('quantidade_paginas');",
-                  "    pm.expect(json.dados.pedidos).to.be.an('array');",
-                  "  });",
-                  "}"
+                  "});"
                 ]
               }
             }
@@ -1201,7 +3453,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"max_registros_por_pagina\": {{OFICIOS_MAX_ROW_PER_PAGE}},\n  \"numero_pagina\": {{OFICIOS_PAGE_NUMBER}},\n  \"protocolo\": \"{{OFICIOS_PROTOCOLO}}\",\n  \"id_instituicao\": {{OFICIOS_ID_INSTITUICAO}},\n  \"id_tipo_pesquisa\": {{OFICIOS_ID_TIPO_PESQUISA}},\n  \"id_status\": {{OFICIOS_ID_STATUS}},\n  \"data_solicitacao_inicial\": \"{{OFICIOS_DATA_SOLICITACAO_INICIAL}}\",\n  \"data_solicitacao_final\": \"{{OFICIOS_DATA_SOLICITACAO_FINAL}}\",\n  \"data_resposta_inicial\": \"{{OFICIOS_DATA_RESPOSTA_INICIAL}}\",\n  \"data_resposta_final\": \"{{OFICIOS_DATA_RESPOSTA_FINAL}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1209,6 +3461,301 @@
               }
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_pedidos_oe_v2}}"
+          }
+        },
+        {
+          "name": "Get Pedido OE — Consultar",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_get_pedido}}"
+          }
+        },
+        {
+          "name": "List Instituicoes OE — Listar instituições",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_instituicoes}}"
+          }
+        },
+        {
+          "name": "Set Pedido Respondido OE — Responder",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_respondido}}"
+          }
+        },
+        {
+          "name": "Set Pedido Devolvido OE — Devolver",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_devolvido}}"
+          }
+        },
+        {
+          "name": "Set Pedido Retransmitido OE — Retransmitir",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_retransmitido}}"
           }
         },
         {
@@ -1220,10 +3767,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "function getVar(key) {",
-                  "  const fromEnv = pm.environment.get(key);",
-                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromCollection = pm.collectionVariables.get(key);",
                   "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
                   "  const fromGlobals = pm.globals.get(key);",
                   "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
                   "  return pm.variables.get(key);",
@@ -1275,6 +3822,264 @@
             },
             "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_set_pedido_negativa_lote_oe}}"
           }
+        },
+        {
+          "name": "List Cartorios Restransmitir OE — Listar cartórios",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "const required = [\"onr_hash\"];",
+                  "const missing = required.filter((k) => !getVar(k));",
+                  "if (missing.length) {",
+                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Execute Auth ONR — Login antes.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('status_http espelha HTTP', () => {",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_list_cartorios_restransmitir}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3.6 Certidões a Emitir",
+      "description": "Proxies do módulo 3.6 (`Certidoes.asmx`). Requer `onr_hash` do login.\n\nDocumentação: `webservice-onr/metodos/ObterXMLSolicitacoes_v6.md`, `DevolverCertidao.md`.",
+      "item": [
+        {
+          "name": "Obter XML Solicitacoes v6",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "if (!getVar('onr_hash')) {",
+                  "  throw new Error('Defina onr_hash (execute Auth ONR na coleção ONR WebService — n8n).');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP alinhado ao status_http', () => {",
+                  "  const json = pm.response.json();",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "const json = pm.response.json();",
+                  "if (json && json.sucesso && json.dados && json.dados.xml) {",
+                  "  pm.test('XML exportado', () => {",
+                  "    pm.expect(json.dados.tamanho_xml).to.be.above(0);",
+                  "  });",
+                  "  const match = json.dados.xml.match(/<Protocolo[^>]*>([^<]+)</i) || json.dados.xml.match(/protocolo=\"([^\"]+)\"/i);",
+                  "  if (match && match[1]) {",
+                  "    pm.collectionVariables.set('certidoes_protocolo', match[1].trim());",
+                  "    console.log('certidoes_protocolo atualizado:', match[1].trim());",
+                  "  }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"\",\n  \"solicitante\": \"\",\n  \"tipo_certidao\": \"\",\n  \"pesquisa_por\": \"\",\n  \"status\": \"{{certidoes_status_filtro}}\",\n  \"tipo_resposta\": \"\",\n  \"data_pedido_de\": \"{{certidoes_data_pedido_de}}\",\n  \"data_pedido_ate\": \"{{certidoes_data_pedido_ate}}\",\n  \"data_conferencia_de\": \"\",\n  \"data_conferencia_ate\": \"\",\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_obter_xml_v6}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "{{n8n_webhook_id_obter_xml_v6}}"
+              ]
+            },
+            "description": "Proxy `ObterXMLSolicitacoes_v6`. Filtros vazios = string vazia. Ajuste `certidoes_status_filtro` e datas na coleção."
+          },
+          "response": []
+        },
+        {
+          "name": "Obter XML — por protocolo",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "if (!getVar('onr_hash')) throw new Error('Defina onr_hash.');",
+                  "if (!getVar('certidoes_protocolo')) throw new Error('Defina certidoes_protocolo (rode Obter XML antes ou informe manualmente).');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{certidoes_protocolo}}\",\n  \"solicitante\": \"\",\n  \"tipo_certidao\": \"\",\n  \"pesquisa_por\": \"\",\n  \"status\": \"\",\n  \"tipo_resposta\": \"\",\n  \"data_pedido_de\": \"\",\n  \"data_pedido_ate\": \"\",\n  \"data_conferencia_de\": \"\",\n  \"data_conferencia_ate\": \"\",\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_obter_xml_v6}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "{{n8n_webhook_id_obter_xml_v6}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Devolver Certidao",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "if (!getVar('onr_hash')) throw new Error('Defina onr_hash.');",
+                  "if (!getVar('certidoes_protocolo')) throw new Error('Defina certidoes_protocolo.');",
+                  "if (!getVar('certidoes_motivo_devolucao')) throw new Error('Defina certidoes_motivo_devolucao.');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));",
+                  "if (json && json.sucesso) {",
+                  "  pm.test('devolvido', () => pm.expect(json.dados.devolvido).to.eql(true));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{certidoes_protocolo}}\",\n  \"motivo\": \"{{certidoes_motivo_devolucao}}\",\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_devolver_certidao}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "{{n8n_webhook_id_devolver_certidao}}"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     }

@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : Set Pedido Negativa Lote PO
+// Workflow : [AUTONR-26] (webservice ONR) SetPedidoNegativaLotePO - Penhora Online
 // Nodes   : 10  |  Connections: 11
 //
 // NODE INDEX
@@ -40,12 +40,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'je8TVDJXU7oWT117',
-    name: 'Set Pedido Negativa Lote PO',
+    name: '[AUTONR-26] (webservice ONR) SetPedidoNegativaLotePO - Penhora Online',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class SetPedidoNegativaLotePoWorkflow {
+export class Autonr26WebserviceOnrSetpedidonegativalotepoPenhoraOnlineWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -57,7 +57,7 @@ export class SetPedidoNegativaLotePoWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [0, 0],
-        credentials: { httpBasicAuth: { id: 'CE3L7VlaRe4klqlk', name: 'ioshua + ioshua123' } },
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     Webhook = {
         httpMethod: 'POST',

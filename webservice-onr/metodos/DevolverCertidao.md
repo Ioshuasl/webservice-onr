@@ -61,11 +61,13 @@ Tipo `DevolverCertidao_WSReq` (`wsdl/certidoes.wsdl`):
 
 ## Implementação neste projeto
 
+- **n8n:** [`workflows/n8n/extensao-n8n-teste/Devolver Certidao.workflow.ts`](../../workflows/n8n/extensao-n8n-teste/Devolver%20Certidao.workflow.ts) · doc [`scripts/DevolverCertidao/Devolver Certidao WebService ONR.md`](../../scripts/DevolverCertidao/Devolver%20Certidao%20WebService%20ONR.md)
 - Python: [`scripts/DevolverCertidao/devolverCertidao.py`](../../scripts/DevolverCertidao/devolverCertidao.py)
 - JavaScript: [`scripts/DevolverCertidao/devolverCertidao.js`](../../scripts/DevolverCertidao/devolverCertidao.js)
 - Lib: [`lib/onr_certidoes.py`](../../lib/onr_certidoes.py) · [`lib/onr_certidoes.js`](../../lib/onr_certidoes.js)
 - Variáveis `.env`: `CERTIDOES_DEVOLVER_CERTIDAO_*` (ou `CERTIDOES_PROTOCOLO`)
 - npm: `npm run devolver-certidao`
+- Postman: [`postman/onr-webservice-n8n.postman_collection.json`](../../postman/onr-webservice-n8n.postman_collection.json) — § 3.6
 
 ## Referências
 

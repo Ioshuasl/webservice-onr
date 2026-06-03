@@ -7,7 +7,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 // NODE INDEX
 // ──────────────────────────────────────────────────────────────────
 // Property name                    Node type (short)         Flags
-// Webhook                            webhook
+// Webhook                            webhook                    [creds]
 // NormalizarEntrada                  set
 // ValidarEntrada                     code
 // IfEntradaValida                    if
@@ -40,11 +40,15 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'xEmLaoNHR9WPY7Vg',
-    name: 'List Titulos AT',
+    name: '[AUTONR-4] (webservice ONR) ListTitulosAT - Acompanhamento de Títulos',
     active: false,
     isArchived: false,
-    projectId: 'PP65Me8T4KDNsx9m',
-    settings: { executionOrder: 'v1', binaryMode: 'separate', availableInMCP: false },
+    settings: {
+        executionOrder: 'v1',
+        binaryMode: 'separate',
+        availableInMCP: false,
+        callerPolicy: 'workflowsFromSameOwner',
+    },
 })
 export class ListTitulosAtWorkflow {
     // =====================================================================
@@ -58,6 +62,7 @@ export class ListTitulosAtWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [-1296, 128],
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     Webhook = {
         httpMethod: 'POST',

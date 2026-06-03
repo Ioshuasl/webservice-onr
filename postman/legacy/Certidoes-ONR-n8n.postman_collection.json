@@ -1,0 +1,197 @@
+{
+  "info": {
+    "_postman_id": "f3a8c2d1-9e4b-4f6a-b1c0-8d7e6f5a4b3c",
+    "name": "Certidões ONR — n8n Webhooks",
+    "description": "Coleção para testar os workflows n8n proxy **Certidões a Emitir** (`Certidoes.asmx`, cap. 3.6).\n\n## Workflows (Fase 1)\n\n| Operação | Workflow ID | Webhook path (UUID) |\n|----------|-------------|---------------------|\n| ObterXMLSolicitacoes_v6 | `8Ym0nQ3oRwSxZuAb` | `b2c3d4e5-f6a7-4890-b123-456789abcdef` |\n| DevolverCertidao | `7Xk9mP2nQvRwYtZa` | `a1b2c3d4-e5f6-4789-a012-3456789abcde` |\n\n## Fluxo recomendado\n\n1. **Auth ONR** (coleção `ONR WebService — n8n`) → grava `onr_hash`\n2. **Obter XML Solicitacoes v6** → exporta solicitações; copie um `protocolo` do XML\n3. **Devolver Certidao** → usa `certidoes_protocolo` + `certidoes_motivo_devolucao`\n\n## URLs\n\n`POST {{n8n_base_url}}/{{n8n_webhook_mode}}/{{webhook_path}}`\n\n- Teste (editor): `n8n_webhook_mode` = `webhook-test` + **Execute workflow**\n- Produção: `webhook` + workflow **ativo**\n\n## Referências\n\n- `scripts/ObterXmlSolicitacoes_v6/Obter XML Solicitacoes V6 WebService ONR.md`\n- `scripts/DevolverCertidao/Devolver Certidao WebService ONR.md`\n- `webservice-onr/metodos/`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "{{N8N_BASIC_AUTH_USER}}", "type": "string" },
+      { "key": "password", "value": "{{N8N_BASIC_AUTH_PASSWORD}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "n8n_base_url", "value": "https://api-n8n.gbrqne.easypanel.host", "type": "string" },
+    { "key": "n8n_webhook_mode", "value": "webhook-test", "type": "string" },
+    { "key": "n8n_webhook_id_obter_xml_v6", "value": "b2c3d4e5-f6a7-4890-b123-456789abcdef", "type": "string" },
+    { "key": "n8n_webhook_id_devolver_certidao", "value": "a1b2c3d4-e5f6-4789-a012-3456789abcde", "type": "string" },
+    { "key": "n8n_workflow_id_obter_xml_v6", "value": "8Ym0nQ3oRwSxZuAb", "type": "string" },
+    { "key": "n8n_workflow_id_devolver_certidao", "value": "7Xk9mP2nQvRwYtZa", "type": "string" },
+    { "key": "url_servico_certidoes", "value": "https://hml3-wsoficio.onr.org.br/Certidoes.asmx", "type": "string" },
+    { "key": "N8N_BASIC_AUTH_USER", "value": "orius", "type": "string" },
+    { "key": "N8N_BASIC_AUTH_PASSWORD", "value": "master@orius", "type": "string" },
+    { "key": "onr_hash", "value": "", "type": "string" },
+    { "key": "certidoes_protocolo", "value": "", "type": "string" },
+    { "key": "certidoes_motivo_devolucao", "value": "Documentação incompleta para emissão da certidão.", "type": "string" },
+    { "key": "certidoes_status_filtro", "value": "1", "type": "string" },
+    { "key": "certidoes_data_pedido_de", "value": "2025-01-01", "type": "string" },
+    { "key": "certidoes_data_pedido_ate", "value": "2025-01-31", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "3.6 Certidões — ObterXMLSolicitacoes_v6",
+      "description": "Exporta solicitações de certidões em XML. Documentação: `scripts/ObterXmlSolicitacoes_v6/Obter XML Solicitacoes V6 WebService ONR.md`",
+      "item": [
+        {
+          "name": "Obter XML Solicitacoes v6",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "if (!getVar('onr_hash')) {",
+                  "  throw new Error('Defina onr_hash (execute Auth ONR na coleção ONR WebService — n8n).');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP alinhado ao status_http', () => {",
+                  "  const json = pm.response.json();",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "});",
+                  "const json = pm.response.json();",
+                  "if (json && json.sucesso && json.dados && json.dados.xml) {",
+                  "  pm.test('XML exportado', () => {",
+                  "    pm.expect(json.dados.tamanho_xml).to.be.above(0);",
+                  "  });",
+                  "  const match = json.dados.xml.match(/<Protocolo[^>]*>([^<]+)</i) || json.dados.xml.match(/protocolo=\"([^\"]+)\"/i);",
+                  "  if (match && match[1]) {",
+                  "    pm.collectionVariables.set('certidoes_protocolo', match[1].trim());",
+                  "    console.log('certidoes_protocolo atualizado:', match[1].trim());",
+                  "  }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"\",\n  \"solicitante\": \"\",\n  \"tipo_certidao\": \"\",\n  \"pesquisa_por\": \"\",\n  \"status\": \"{{certidoes_status_filtro}}\",\n  \"tipo_resposta\": \"\",\n  \"data_pedido_de\": \"{{certidoes_data_pedido_de}}\",\n  \"data_pedido_ate\": \"{{certidoes_data_pedido_ate}}\",\n  \"data_conferencia_de\": \"\",\n  \"data_conferencia_ate\": \"\",\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_obter_xml_v6}}",
+              "host": ["{{n8n_base_url}}"],
+              "path": ["{{n8n_webhook_mode}}", "{{n8n_webhook_id_obter_xml_v6}}"]
+            },
+            "description": "Proxy `ObterXMLSolicitacoes_v6`. Filtros vazios = string vazia. Ajuste `certidoes_status_filtro` e datas na coleção."
+          },
+          "response": []
+        },
+        {
+          "name": "Obter XML — por protocolo",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const v = pm.environment.get(key) || pm.collectionVariables.get(key);",
+                  "  return v && String(v).length ? v : null;",
+                  "}",
+                  "if (!getVar('onr_hash')) throw new Error('Defina onr_hash.');",
+                  "if (!getVar('certidoes_protocolo')) throw new Error('Defina certidoes_protocolo (rode Obter XML antes ou informe manualmente).');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{certidoes_protocolo}}\",\n  \"solicitante\": \"\",\n  \"tipo_certidao\": \"\",\n  \"pesquisa_por\": \"\",\n  \"status\": \"\",\n  \"tipo_resposta\": \"\",\n  \"data_pedido_de\": \"\",\n  \"data_pedido_ate\": \"\",\n  \"data_conferencia_de\": \"\",\n  \"data_conferencia_ate\": \"\",\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_obter_xml_v6}}",
+              "host": ["{{n8n_base_url}}"],
+              "path": ["{{n8n_webhook_mode}}", "{{n8n_webhook_id_obter_xml_v6}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3.6 Certidões — DevolverCertidao",
+      "description": "Marca solicitação como devolvida. Documentação: `scripts/DevolverCertidao/Devolver Certidao WebService ONR.md`",
+      "item": [
+        {
+          "name": "Devolver Certidao",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const v = pm.environment.get(key) || pm.collectionVariables.get(key);",
+                  "  return v && String(v).length ? v : null;",
+                  "}",
+                  "if (!getVar('onr_hash')) throw new Error('Defina onr_hash.');",
+                  "if (!getVar('certidoes_protocolo')) throw new Error('Defina certidoes_protocolo.');",
+                  "if (!getVar('certidoes_motivo_devolucao')) throw new Error('Defina certidoes_motivo_devolucao.');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));",
+                  "if (json && json.sucesso) {",
+                  "  pm.test('devolvido', () => pm.expect(json.dados.devolvido).to.eql(true));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{certidoes_protocolo}}\",\n  \"motivo\": \"{{certidoes_motivo_devolucao}}\",\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_devolver_certidao}}",
+              "host": ["{{n8n_base_url}}"],
+              "path": ["{{n8n_webhook_mode}}", "{{n8n_webhook_id_devolver_certidao}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

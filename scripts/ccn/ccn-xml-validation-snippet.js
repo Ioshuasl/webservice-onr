@@ -61,15 +61,20 @@ function stripLeadingNoise(text) {
 }
 
 function hasPessoasRoot(text) {
-  const sample = String(text).slice(0, 131072);
-  const lower = sample.toLowerCase();
-  let idx = lower.indexOf('<pessoas');
-  while (idx >= 0) {
-    const next = lower.charAt(idx + 9);
-    if (next === '>' || next === ' ' || next === '/' || next === ':' || next === '') {
-      return true;
-    }
-    idx = lower.indexOf('<pessoas', idx + 9);
+  let value = String(text).slice(0, 131072);
+  if (value.charCodeAt(0) === 0xfeff) value = value.slice(1);
+  value = value.trimStart();
+  if (value.startsWith('<?xml')) {
+    const endDecl = value.indexOf('?>');
+    if (endDecl >= 0) value = value.slice(endDecl + 2).trimStart();
+  }
+
+  const lower = value.toLowerCase();
+  if (lower.startsWith('<pessoas')) {
+    const next = lower.charAt(8) || '';
+    const code = next ? next.charCodeAt(0) : 0;
+    return next === '' || next === '>' || next === '/' || next === ':'
+      || code === 9 || code === 10 || code === 13 || next === ' ';
   }
   return false;
 }

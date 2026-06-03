@@ -1,63 +1,70 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : DOI Validate JSON
+// Workflow : [AUTONR-87] (DOI) DOI_ValidateJSON - DOI
 // Nodes   : 5  |  Connections: 4
 //
 // NODE INDEX
+// ──────────────────────────────────────────────────────────────────
 // Property name                    Node type (short)         Flags
-// ReceiveDoiPayload                webhook
-// NormalizePayload                 code
-// ValidateDoiDeclarations          code
+// ReceiveDoiPayload                  webhook
+// NormalizePayload                   code
+// ValidateDoiDeclarations            code
 // BuildValidationResponse            code
 // ReturnValidationResponse           respondToWebhook
 //
 // ROUTING MAP
+// ──────────────────────────────────────────────────────────────────
 // ReceiveDoiPayload
-//   -> NormalizePayload
-//     -> ValidateDoiDeclarations
-//       -> BuildValidationResponse
-//         -> ReturnValidationResponse
+//    → NormalizePayload
+//      → ValidateDoiDeclarations
+//        → BuildValidationResponse
+//          → ReturnValidationResponse
 // </workflow-map>
+
+// =====================================================================
+// METADATA DU WORKFLOW
+// =====================================================================
 
 @workflow({
     id: 'HewsInHfw3Gfrs5Z',
-  name: 'DOI Validate JSON',
-  active: false,
-  isArchived: false,
-  settings: {
-    executionOrder: 'v1',
-    availableInMCP: false,
-    callerPolicy: 'workflowsFromSameOwner',
-  },
+    name: '[AUTONR-87] (DOI) DOI_ValidateJSON - DOI',
+    active: false,
+    isArchived: false,
+    settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class DoiValidateJsonWorkflow {
-  @node({
-        id: '22df6964-cbf4-4e2e-84e2-2755c314ea9d',
-    name: 'Receive DOI Payload',
-    type: 'n8n-nodes-base.webhook',
-    version: 2.1,
-    position: [0, 300],
-  })
-  ReceiveDoiPayload = {
-    httpMethod: 'POST',
-    path: 'doi/validate-json',
-    authentication: 'none',
-    responseMode: 'responseNode',
-    options: {},
-  };
+export class Autonr87DoiDoiValidatejsonDoiWorkflow {
+    // =====================================================================
+    // CONFIGURATION DES NOEUDS
+    // =====================================================================
 
-  @node({
+    @node({
+        id: '22df6964-cbf4-4e2e-84e2-2755c314ea9d',
+        webhookId: '6dcaccea-858e-4eec-a069-c9995cd2be01',
+        name: 'Receive DOI Payload',
+        type: 'n8n-nodes-base.webhook',
+        version: 2.1,
+        position: [0, 300],
+    })
+    ReceiveDoiPayload = {
+        httpMethod: 'POST',
+        path: 'doi/validate-json',
+        authentication: 'none',
+        responseMode: 'responseNode',
+        options: {},
+    };
+
+    @node({
         id: '153e153c-1586-48b2-a296-0ebbbc157c5b',
-    name: 'Normalize Payload',
-    type: 'n8n-nodes-base.code',
-    version: 2,
-    position: [280, 300],
-  })
-  NormalizePayload = {
-    mode: 'runOnceForAllItems',
-    language: 'javaScript',
-    jsCode: `
+        name: 'Normalize Payload',
+        type: 'n8n-nodes-base.code',
+        version: 2,
+        position: [280, 300],
+    })
+    NormalizePayload = {
+        mode: 'runOnceForAllItems',
+        language: 'javaScript',
+        jsCode: `
 const input = items[0]?.json ?? {};
 const payload = input.body && typeof input.body === 'object' && !Array.isArray(input.body)
   ? input.body
@@ -82,19 +89,19 @@ return [{
   },
 }];
 `,
-  };
+    };
 
-  @node({
+    @node({
         id: 'ccc0eabe-6f2c-4638-aa0b-13eaad406e29',
-    name: 'Validate DOI Declarations',
-    type: 'n8n-nodes-base.code',
-    version: 2,
-    position: [560, 300],
-  })
-  ValidateDoiDeclarations = {
-    mode: 'runOnceForAllItems',
-    language: 'javaScript',
-    jsCode: `
+        name: 'Validate DOI Declarations',
+        type: 'n8n-nodes-base.code',
+        version: 2,
+        position: [560, 300],
+    })
+    ValidateDoiDeclarations = {
+        mode: 'runOnceForAllItems',
+        language: 'javaScript',
+        jsCode: `
 /** @typedef {{ scopeField?: string, scopeLabel?: string }} ValidateOptions */
 
 const DOMAINS = {
@@ -622,19 +629,19 @@ item.validation.declarationCount = result.declarationCount;
 return items;
 
 `,
-  };
+    };
 
-  @node({
+    @node({
         id: 'cf505050-f05f-4ca6-8eae-1dbb4621c4f5',
-    name: 'Build Validation Response',
-    type: 'n8n-nodes-base.code',
-    version: 2,
-    position: [840, 300],
-  })
-  BuildValidationResponse = {
-    mode: 'runOnceForAllItems',
-    language: 'javaScript',
-    jsCode: `
+        name: 'Build Validation Response',
+        type: 'n8n-nodes-base.code',
+        version: 2,
+        position: [840, 300],
+    })
+    BuildValidationResponse = {
+        mode: 'runOnceForAllItems',
+        language: 'javaScript',
+        jsCode: `
 const data = items[0].json;
 const ok = !data.validation.hasErrors;
 return [{
@@ -656,28 +663,32 @@ return [{
   },
 }];
 `,
-  };
+    };
 
-  @node({
+    @node({
         id: '9d527280-2bd6-40be-8445-345476ae88bd',
-    name: 'Return Validation Response',
-    type: 'n8n-nodes-base.respondToWebhook',
-    version: 1.5,
-    position: [1120, 300],
-  })
-  ReturnValidationResponse = {
-    respondWith: 'json',
-    responseBody: '={{ $json.response }}',
-    options: {
-      responseCode: '={{ $json.statusCode || 200 }}',
-    },
-  };
+        name: 'Return Validation Response',
+        type: 'n8n-nodes-base.respondToWebhook',
+        version: 1.5,
+        position: [1120, 300],
+    })
+    ReturnValidationResponse = {
+        respondWith: 'json',
+        responseBody: '={{ $json.response }}',
+        options: {
+            responseCode: '={{ $json.statusCode || 200 }}',
+        },
+    };
 
-  @links()
-  defineRouting() {
-    this.ReceiveDoiPayload.out(0).to(this.NormalizePayload.in(0));
-    this.NormalizePayload.out(0).to(this.ValidateDoiDeclarations.in(0));
-    this.ValidateDoiDeclarations.out(0).to(this.BuildValidationResponse.in(0));
-    this.BuildValidationResponse.out(0).to(this.ReturnValidationResponse.in(0));
-  }
+    // =====================================================================
+    // ROUTAGE ET CONNEXIONS
+    // =====================================================================
+
+    @links()
+    defineRouting() {
+        this.ReceiveDoiPayload.out(0).to(this.NormalizePayload.in(0));
+        this.NormalizePayload.out(0).to(this.ValidateDoiDeclarations.in(0));
+        this.ValidateDoiDeclarations.out(0).to(this.BuildValidationResponse.in(0));
+        this.BuildValidationResponse.out(0).to(this.ReturnValidationResponse.in(0));
+    }
 }

@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : Set Pedido Finalizar Prenotacao Vencida
+// Workflow : [AUTONR-28] (webservice ONR) SetPedidoFinalizarPrenotacaoVencida - Penhora Online
 // Nodes   : 10  |  Connections: 11
 //
 // NODE INDEX
@@ -40,12 +40,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'tsnC6eTaTDNIzRu4',
-    name: 'Set Pedido Finalizar Prenotacao Vencida',
+    name: '[AUTONR-28] (webservice ONR) SetPedidoFinalizarPrenotacaoVencida - Penhora Online',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class SetPedidoFinalizarPrenotacaoVencidaWorkflow {
+export class Autonr28WebserviceOnrSetpedidofinalizarprenotacaovencidaPenhoraOnlineWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -57,7 +57,7 @@ export class SetPedidoFinalizarPrenotacaoVencidaWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [0, 0],
-        credentials: { httpBasicAuth: { id: 'CE3L7VlaRe4klqlk', name: 'ioshua + ioshua123' } },
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     Webhook = {
         httpMethod: 'POST',

@@ -57,7 +57,7 @@ export class CensecUploadJsonGatewayWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [0, 300],
-        credentials: { httpBasicAuth: { id: 'CE3L7VlaRe4klqlk', name: 'ioshua + ioshua123' } },
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     ReceiveCensecPayload = {
         httpMethod: 'POST',

@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : Parse Memorial SIGEF
+// Workflow : [AUTONR-86] (SIGEF) ParseMemorialSIGEF - SIGEF
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,10 +33,9 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'drRULxhBQUk10wbw',
-    name: 'Parse Memorial SIGEF',
+    name: '[AUTONR-86] (SIGEF) ParseMemorialSIGEF - SIGEF',
     active: false,
     isArchived: false,
-    projectId: 'PP65Me8T4KDNsx9m',
     settings: {
         executionOrder: 'v1',
         binaryMode: 'separate',
@@ -44,7 +43,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
         callerPolicy: 'workflowsFromSameOwner',
     },
 })
-export class ParseMemorialSigefWorkflow {
+export class Autonr86SigefParsememorialsigefSigefWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

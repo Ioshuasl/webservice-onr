@@ -1,12 +1,13 @@
 /**
- * Sincroniza postman/onr-webservice-n8n.postman_collection.json com o Postman Cloud.
+ * Sincroniza uma coleção Postman local com o Postman Cloud.
  *
  * Uso:
- *   node scripts/postman/sync-postman-collection.js           # push único
+ *   node scripts/postman/sync-postman-collection.js           # push único (ONR default)
  *   node scripts/postman/sync-postman-collection.js --watch    # observa alterações
  *   node scripts/postman/sync-postman-collection.js --create   # cria coleção nova na API
+ *   node scripts/postman/sync-postman-collection.js --collection postman/CCN-Upload-XML-n8n.postman_collection.json --config postman/.postman-sync-ccn.json
  *
- * Variáveis (.env ou postman/.postman-sync.json):
+ * Variáveis (.env ou postman/.postman-sync*.json):
  *   POSTMAN_API_KEY          — API key (https://go.postman.co/settings/me/api-keys)
  *   POSTMAN_COLLECTION_UID   — UID da coleção (Share → Via API → UID)
  *   POSTMAN_WORKSPACE_ID     — opcional, ao usar --create
@@ -24,8 +25,6 @@ const POSTMAN_UID_RE =
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
-const COLLECTION_PATH = path.join(ROOT, "postman", "onr-webservice-n8n.postman_collection.json");
-const SYNC_CONFIG_PATH = path.join(ROOT, "postman", ".postman-sync.json");
 const API_BASE = "https://api.getpostman.com";
 const WATCH_DEBOUNCE_MS = 700;
 const RETRY_DELAYS_MS = [1200, 2500, 5000];
@@ -35,6 +34,21 @@ dotenv.config({ path: path.join(ROOT, ".env") });
 const args = new Set(process.argv.slice(2));
 const watchMode = args.has("--watch");
 const createMode = args.has("--create");
+
+function readArg(flag) {
+  const idx = process.argv.indexOf(flag);
+  if (idx === -1 || idx + 1 >= process.argv.length) return "";
+  return process.argv[idx + 1];
+}
+
+const collectionArg = readArg("--collection");
+const configArg = readArg("--config");
+const COLLECTION_PATH = collectionArg
+  ? path.resolve(ROOT, collectionArg)
+  : path.join(ROOT, "postman", "onr-webservice-n8n.postman_collection.json");
+const SYNC_CONFIG_PATH = configArg
+  ? path.resolve(ROOT, configArg)
+  : path.join(ROOT, "postman", ".postman-sync.json");
 
 function loadSyncConfig() {
   if (!fs.existsSync(SYNC_CONFIG_PATH)) return {};
@@ -58,7 +72,7 @@ function resolveConfig() {
     process.env.POSTMAN_API_KEY || file.apiKey
   );
   const collectionUid = normalizeConfigValue(
-    process.env.POSTMAN_COLLECTION_UID || file.collectionUid
+    file.collectionUid || process.env.POSTMAN_COLLECTION_UID
   );
   const workspaceId = normalizeConfigValue(
     process.env.POSTMAN_WORKSPACE_ID || file.workspaceId
@@ -218,8 +232,8 @@ async function syncOnce() {
   if (createMode) {
     console.log(`Criando coleção "${name}" no Postman Cloud…`);
     uid = await createCollection(apiKey, collection, workspaceId);
-    console.log(`Criada. UID salvo em postman/.postman-sync.json: ${uid}`);
-    console.log(`Defina no .env: POSTMAN_COLLECTION_UID=${uid}`);
+    console.log(`Criada. UID salvo em ${path.relative(ROOT, SYNC_CONFIG_PATH)}: ${uid}`);
+    console.log(`Defina no .env (opcional): POSTMAN_COLLECTION_UID=${uid}`);
     return;
   }
 

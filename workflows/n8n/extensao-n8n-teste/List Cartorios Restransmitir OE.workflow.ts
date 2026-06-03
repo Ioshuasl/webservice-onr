@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : List Cartorios Restransmitir OE
+// Workflow : [AUTONR-37] (webservice ONR) ListCartoriosRestransmitirOE - Ofício Eletrônico
 // Nodes   : 10  |  Connections: 11
 //
 // NODE INDEX
@@ -40,12 +40,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'vcmraSCQBOHVxNaW',
-    name: 'List Cartorios Restransmitir OE',
+    name: '[AUTONR-37] (webservice ONR) ListCartoriosRestransmitirOE - Ofício Eletrônico',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class ListCartoriosRestransmitirOeWorkflow {
+export class Autonr37WebserviceOnrListcartoriosrestransmitiroeOficioEletronicoWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================
@@ -57,7 +57,7 @@ export class ListCartoriosRestransmitirOeWorkflow {
         type: 'n8n-nodes-base.webhook',
         version: 2.1,
         position: [0, 0],
-        credentials: { httpBasicAuth: { id: 'CE3L7VlaRe4klqlk', name: 'ioshua + ioshua123' } },
+        credentials: { httpBasicAuth: { id: 'zyTOdADUUemJkEzk', name: 'orius - master@orius' } },
     })
     Webhook = {
         httpMethod: 'POST',
