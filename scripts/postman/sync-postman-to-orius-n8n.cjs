@@ -173,7 +173,9 @@ function main() {
     n8n_webhook_id: '163d6b2d-36fa-4c1c-bb1b-ed6085de7de2',
   };
 
-  const onrSource = readJson(path.join(POSTMAN_SRC, 'onr-webservice-n8n.postman_collection.json'));
+  const onrSource = readJson(
+    path.join(POSTMAN_SRC, 'onr-webservice-n8n-variaveis-explicitas.postman_collection.json'),
+  );
 
   const onrSlices = [
     {
@@ -233,7 +235,7 @@ function main() {
   fs.mkdirSync(certidoesPostmanDir, { recursive: true });
   const fullOnrDest = path.join(certidoesPostmanDir, 'onr-webservice-n8n.postman_collection.json');
   fs.copyFileSync(
-    path.join(POSTMAN_SRC, 'onr-webservice-n8n.postman_collection.json'),
+    path.join(POSTMAN_SRC, 'onr-webservice-n8n-variaveis-explicitas.postman_collection.json'),
     fullOnrDest,
   );
   console.log(`✓ ${path.relative(OUT_DIR, fullOnrDest)} (coleção unificada)`);

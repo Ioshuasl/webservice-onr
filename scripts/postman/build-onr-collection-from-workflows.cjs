@@ -5,11 +5,31 @@
  */
 const fs = require("fs");
 const path = require("path");
+const {
+  parseWorkflowFields,
+  buildBodyRaw: buildBodyFromWorkflow,
+  isEmptyJsonBody: isEmptyBody,
+  inferDomain: inferBodyDomain,
+  findEnvVar,
+} = require("./onr-postman-body.cjs");
+const { normalizeLoginFolder } = require("./normalize-login-folder.cjs");
+const {
+  COLLECTION_NAME,
+  COLLECTION_DESCRIPTION,
+  POSTMAN: POSTMAN_DIR,
+  collectionOutputPaths,
+  writeCollectionJson,
+} = require("./onr-postman-collection-meta.cjs");
+const {
+  buildExplicitCollectionVariables,
+  webhookVarKey,
+  listWorkflowVariableSources,
+} = require("./onr-postman-variables.cjs");
 
 const ROOT = path.resolve(__dirname, "../..");
 const WORKFLOWS_DIR = path.join(ROOT, "workflows/n8n/extensao-n8n-teste");
 const POSTMAN = path.join(ROOT, "postman");
-const OUT = path.join(POSTMAN, "onr-webservice-n8n.postman_collection.json");
+const OUT = path.join(POSTMAN_DIR, "onr-webservice-n8n.postman_collection.json");
 const ENV_EXAMPLE = path.join(ROOT, ".env.example");
 const ENV_TEMPLATE = path.join(POSTMAN, "onr-webservice-n8n.postman_environment.template.json");
 
@@ -92,29 +112,6 @@ const REQUEST_SUFFIX = {
   "List Cartorios Restransmitir OE": "Listar cartórios",
 };
 
-const WEBHOOK_VAR_KEY = {
-  "Auth WebService ONR": "n8n_webhook_id_auth",
-  "List Titulos AT": "n8n_webhook_id_list_titulos",
-  "List Status AT": "n8n_webhook_id_list_status",
-  "Get Titulo AT": "n8n_webhook_id_get_titulo",
-  "Get Status AT": "n8n_webhook_id_get_status",
-  "Insert Titulo AT": "n8n_webhook_id_insert_titulo",
-  "Update Titulo AT": "n8n_webhook_id_update_titulo",
-  "Delete Titulo AT": "n8n_webhook_id_delete_titulo",
-  "Insert Status AT": "n8n_webhook_id_insert_status",
-  "Update Status AT": "n8n_webhook_id_update_status",
-  "Set Baixa Boleto PO": "n8n_webhook_id_set_baixa_boleto_po",
-  "Set Custas PO": "n8n_webhook_id_set_custas_po",
-  "Set Pedido Pessoa Respondido PO": "n8n_webhook_id_set_pedido_pessoa_respondido_po",
-  "Set Pedido Negativa Lote PO": "n8n_webhook_id_set_pedido_negativa_lote_po",
-  "Set Pedido Finalizar Prenotacao Vencida": "n8n_webhook_id_set_pedido_finalizar_prenotacao_vencida",
-  "List Pedidos OE": "n8n_webhook_id_list_pedidos_oe",
-  "List Pedidos OE V2": "n8n_webhook_id_list_pedidos_oe_v2",
-  "Set Pedido Negativa Lote OE": "n8n_webhook_id_set_pedido_negativa_lote_oe",
-  "Obter XML Solicitacoes V6": "n8n_webhook_id_obter_xml_v6",
-  "Devolver Certidao": "n8n_webhook_id_devolver_certidao",
-};
-
 const DOMAINS = {
   AT: {
     folder: "3.2 Acompanhamento de Títulos",
@@ -191,43 +188,24 @@ function listOnrWorkflows() {
 }
 
 function inferDomain(name) {
-  if (name.endsWith(" AT") || name.includes(" Titulo") || name.includes(" Status AT")) return "AT";
-  if (name.endsWith(" PO") || name.includes(" Prenotacao") || name.includes("Penhora")) return "PO";
-  if (/\sOE(\s| V\d|$)/.test(name) || name.endsWith(" OE") || name.includes("Instituicoes") || name.includes("Cartorios"))
-    return "OE";
-  if (name.includes("Certidao") || name.includes("XML Solicitacoes")) return "certidoes";
+  const d = inferBodyDomain(name);
   if (name.startsWith("Auth")) return "login";
-  return null;
+  return d === "login" ? null : d;
 }
 
 function parseWorkflow(name) {
   const file = path.join(WORKFLOWS_DIR, `${name}.workflow.ts`);
   const src = fs.readFileSync(file, "utf8");
   const pathMatch = src.match(/path:\s*'([^']+)'/);
-  const blockMatch = src.match(/jsonOutput:\s*`=\{([\s\S]*?)\n`/);
-  const fields = [];
-  if (blockMatch) {
-    for (const line of blockMatch[1].split("\n")) {
-      const m = line.trim().match(/^"([^"]+)":\s*(.+?),?\s*$/);
-      if (m) fields.push({ name: m[1], expr: m[2].trim() });
-    }
-  }
+  const idMatch = src.match(/webhookId:\s*'([^']+)'/);
   return {
     name,
     domain: inferDomain(name),
     webhookPath: pathMatch ? pathMatch[1] : "",
-    fields,
+    webhookId: idMatch ? idMatch[1] : "",
+    webhookVarKey: webhookVarKey(name),
+    fields: parseWorkflowFields(src),
   };
-}
-
-function webhookVarKey(name) {
-  if (WEBHOOK_VAR_KEY[name]) return WEBHOOK_VAR_KEY[name];
-  const slug = name
-    .replace(/ AT$| OE$| PO$/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_")
-    .replace(/^_|_$/g, "");
-  return `n8n_webhook_id_${slug}`;
 }
 
 function requestDisplayName(name) {
@@ -249,63 +227,8 @@ function loadEnvKeys() {
   return { keys, defaults };
 }
 
-function operationSegment(workflowName) {
-  if (workflowName.startsWith("Set ")) {
-    const inner = workflowName.slice(4).replace(/ PO$| OE$/, "");
-    return "SET_" + inner.replace(/\s+/g, "_").toUpperCase();
-  }
-  if (workflowName.startsWith("Insert ")) return "INSERT" + (workflowName.includes("Status") ? "_STATUS" : "");
-  if (workflowName.startsWith("Update ")) return "UPDATE" + (workflowName.includes("Status") ? "_STATUS" : "");
-  if (workflowName.startsWith("Delete ")) return "DELETE";
-  return "";
-}
-
-function findEnvVar(field, domainPrefix, workflowName, envKeys) {
-  if (field === "hash") return "onr_hash";
-  if (field === "url_servico_onr") return null;
-
-  const op = operationSegment(workflowName);
-  const alias = FIELD_ALIASES[field] || field.toUpperCase();
-  const tries = [];
-  if (op) {
-    tries.push(`${domainPrefix}${op}_${alias}`);
-    tries.push(`${domainPrefix}SET_${op}_${alias}`);
-  }
-  tries.push(`${domainPrefix}${alias}`);
-  tries.push(`${domainPrefix}${op}_${field.toUpperCase()}`);
-
-  for (const t of tries) {
-    if (envKeys.has(t)) return t;
-  }
-  for (const k of envKeys) {
-    if (!k.startsWith(domainPrefix)) continue;
-    if (k.endsWith(`_${alias}`) || k.endsWith(`_${field.toUpperCase()}`)) return k;
-  }
-  return tries[0];
-}
-
-function isNumericExpr(expr) {
-  return !expr.includes('"$json.body') && !expr.includes('"{{');
-}
-
 function buildBodyRaw(wf, domain, envKeys) {
-  const lines = [];
-  for (const f of wf.fields) {
-    if (f.name === "url_servico_onr") {
-      lines.push(`  "url_servico_onr": "{{${domain.urlVar}}}"`);
-      continue;
-    }
-    const envKey = findEnvVar(f.name, domain.prefix, wf.name, envKeys);
-
-    if (f.name === "hash") {
-      lines.push('  "hash": "{{onr_hash}}"');
-    } else if (isNumericExpr(f.expr)) {
-      lines.push(`  "${f.name}": {{${envKey}}}`);
-    } else {
-      lines.push(`  "${f.name}": "{{${envKey}}}"`);
-    }
-  }
-  return `{\n${lines.join(",\n")}\n}`;
+  return buildBodyFromWorkflow(wf, wf.domain || "AT", envKeys);
 }
 
 function requiredVars(wf, domain, envKeys) {
@@ -347,6 +270,10 @@ function makeRequest(wf, domain, existingByName, envKeys) {
     const copy = JSON.parse(JSON.stringify(existingByName[display]));
     const varKey = webhookVarKey(wf.name);
     copy.request.url = `{{n8n_base_url}}/{{n8n_webhook_mode}}/{{${varKey}}}`;
+    if (wf.fields.length) {
+      copy.request.body = copy.request.body || { mode: "raw", options: { raw: { language: "json" } } };
+      copy.request.body.raw = buildBodyRaw(wf, domain, envKeys);
+    }
     return copy;
   }
 
@@ -395,38 +322,6 @@ function buildDomainFolders(workflows, existingByName, envKeys) {
   return folders;
 }
 
-function collectWebhookVars(workflows) {
-  const vars = {};
-  for (const wf of workflows) {
-    if (wf.domain === "login" || wf.domain === "certidoes") continue;
-    vars[webhookVarKey(wf.name)] = wf.webhookPath;
-  }
-  return vars;
-}
-
-function mergeCollectionVariables(workflows, existing) {
-  const envTpl = fs.existsSync(ENV_TEMPLATE) ? loadJson(ENV_TEMPLATE) : { values: [] };
-  const { defaults } = loadEnvKeys();
-  const map = new Map();
-
-  for (const v of envTpl.values || []) map.set(v.key, v.value ?? "");
-  for (const v of existing.variable || []) map.set(v.key, v.value ?? "");
-  for (const [k, v] of Object.entries(collectWebhookVars(workflows))) map.set(k, v);
-
-  const extras = {
-    url_servico_acompanhamento_titulos: "https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx",
-    url_servico_penhora_online: "https://hml3-wsoficio.onr.org.br/penhoraonline.asmx",
-    url_servico_oficios: "https://hml3-wsoficio.onr.org.br/oficios.asmx",
-    url_servico_certidoes: "https://hml3-wsoficio.onr.org.br/Certidoes.asmx",
-    n8n_webhook_id_set_custas_po: "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b8",
-  };
-  for (const [k, v] of Object.entries(extras)) map.set(k, v);
-  for (const [k, v] of Object.entries(defaults)) {
-    if (!map.has(k)) map.set(k, v);
-  }
-
-  return [...map.entries()].map(([key, value]) => ({ key, value: String(value), type: "string" }));
-}
 
 function main() {
   const names = listOnrWorkflows();
@@ -434,13 +329,13 @@ function main() {
 
   const existing = fs.existsSync(OUT) ? loadJson(OUT) : { info: {}, item: [], variable: [] };
   const existingByName = flattenRequests(existing.item);
-  const loginFolder = existing.item.find((i) => i.name && i.name.startsWith("3.1"));
+  const loginFolderRaw = existing.item.find((i) => i.name && i.name.startsWith("3.1"));
   const certFolder = existing.item.find((i) => i.name && i.name.startsWith("3.6"));
 
   const { keys: envKeys } = loadEnvKeys();
   const domainFolders = buildDomainFolders(workflows, existingByName, envKeys);
   const item = [];
-  if (loginFolder) item.push(loginFolder);
+  if (loginFolderRaw) item.push(normalizeLoginFolder(loginFolderRaw));
   item.push(...domainFolders);
   if (certFolder) item.push(certFolder);
 
@@ -457,14 +352,19 @@ function main() {
   const collection = {
     info: {
       ...existing.info,
-      name: "ONR WebService — n8n",
-      description: existing.info?.description || "Coleção unificada ONR WSOficio via n8n.",
+      name: COLLECTION_NAME,
+      description: COLLECTION_DESCRIPTION,
       schema: "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     },
     auth: existing.auth,
-    variable: mergeCollectionVariables(workflows, existing),
+    variable: [],
     item,
   };
+
+  collection.variable = buildExplicitCollectionVariables({
+    workflows: listWorkflowVariableSources(),
+    collection,
+  });
 
   let requestCount = 0;
   const walk = (items) => {
@@ -475,8 +375,8 @@ function main() {
   };
   walk(collection.item);
 
-  fs.writeFileSync(OUT, JSON.stringify(collection, null, 2) + "\n", "utf8");
-  console.log("OK —", OUT);
+  writeCollectionJson(collection);
+  console.log("OK —", collectionOutputPaths().join(" + "));
   console.log("Workflows ONR:", names.length);
   console.log("Requests na coleção:", requestCount);
   console.log("Variáveis:", collection.variable.length);

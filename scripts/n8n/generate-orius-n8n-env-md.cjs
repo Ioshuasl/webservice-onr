@@ -111,6 +111,7 @@ const INTEGRATIONS = {
     dir: path.join(ORIUS_N8N, "Censec"),
     title: "CENSEC — Upload JSON",
     description: "Gateway n8n CENSEC Upload JSON Gateway → censec.org.br/api/cargas/upload-json.",
+    postmanEnv: path.join(POSTMAN, "censec-n8n.postman_environment.template.json"),
     postmanCollection: path.join(ORIUS_N8N, "Censec/postman/censec-n8n.postman_collection.json"),
     extraSections: [
       {

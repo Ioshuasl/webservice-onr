@@ -45,7 +45,7 @@ const collectionArg = readArg("--collection");
 const configArg = readArg("--config");
 const COLLECTION_PATH = collectionArg
   ? path.resolve(ROOT, collectionArg)
-  : path.join(ROOT, "postman", "onr-webservice-n8n.postman_collection.json");
+  : path.join(ROOT, "postman", "onr-webservice-n8n-variaveis-explicitas.postman_collection.json");
 const SYNC_CONFIG_PATH = configArg
   ? path.resolve(ROOT, configArg)
   : path.join(ROOT, "postman", ".postman-sync.json");

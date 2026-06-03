@@ -1,10 +1,25 @@
 /**
- * Unifica coleções Postman do WSOficio ONR em onr-webservice-n8n.postman_collection.json
- * com variáveis explícitas na coleção e pastas por domínio (cap. spec).
+ * Unifica coleções Postman do WSOficio ONR com variáveis explícitas na coleção
+ * (onr-webservice-n8n-variaveis-explicitas.postman_collection.json + espelho legado).
  */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
+const { normalizeLoginFolder, collectLeafRequests } = require("./normalize-login-folder.cjs");
+const {
+  COLLECTION_NAME,
+  COLLECTION_DESCRIPTION,
+  COLLECTION_FILE_LEGACY,
+  writeCollectionJson,
+  collectionOutputPaths,
+} = require("./onr-postman-collection-meta.cjs");
+const {
+  buildExplicitCollectionVariables,
+  listWorkflowVariableSources,
+} = require("./onr-postman-variables.cjs");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -59,14 +74,6 @@ const HASH_FROM_LOGIN_TEST = [
 
 function loadJson(file) {
   return JSON.parse(fs.readFileSync(path.join(POSTMAN, file), "utf8"));
-}
-
-function envTemplateToCollectionVars(env) {
-  return env.values.map((v) => ({
-    key: v.key,
-    value: v.value ?? "",
-    type: "string",
-  }));
 }
 
 /** Remove definição legada inteira de getVar antes de injetar GET_VAR_HELPER. */
@@ -229,35 +236,11 @@ function soapLoginFolder() {
 }
 
 function main() {
-  const base = loadJson("onr-webservice-n8n.postman_collection.json");
-  const envTpl = loadJson("onr-webservice-n8n.postman_environment.template.json");
-
-  const extraVars = [
-    { key: "url_servico_acompanhamento_titulos", value: "https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx" },
-    { key: "url_servico_certidoes", value: "https://hml3-wsoficio.onr.org.br/Certidoes.asmx" },
-    { key: "onr_login_endpoint", value: "https://hml3-wsoficio.onr.org.br/login.asmx" },
-    { key: "onr_soap_action_login", value: "http://tempuri.org/WSOficio/LoginUsuarioCertificado" },
-    { key: "n8n_webhook_id_obter_xml_v6", value: "b2c3d4e5-f6a7-4890-b123-456789abcdef" },
-    { key: "n8n_webhook_id_devolver_certidao", value: "a1b2c3d4-e5f6-4789-a012-3456789abcde" },
-    { key: "certidoes_protocolo", value: "" },
-    { key: "certidoes_motivo_devolucao", value: "Documentação incompleta para emissão da certidão." },
-    { key: "certidoes_status_filtro", value: "1" },
-    { key: "certidoes_data_pedido_de", value: "2025-01-01" },
-    { key: "certidoes_data_pedido_ate", value: "2025-01-31" },
-    { key: "n8n_webhook_id_insert_status", value: "c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f" },
-    { key: "n8n_webhook_id_update_status", value: "d8e9f0a1-b2c3-4d5e-8f90-a1b2c3d4e5f6" },
-  ];
-
-  const varMap = new Map();
-  for (const v of envTemplateToCollectionVars(envTpl)) varMap.set(v.key, v.value);
-  for (const v of base.variable || []) varMap.set(v.key, v.value);
-  for (const v of extraVars) varMap.set(v.key, v.value);
-
-  base.variable = [...varMap.entries()].map(([key, value]) => ({
-    key,
-    value: String(value),
-    type: "string",
-  }));
+  const base = loadJson(COLLECTION_FILE_LEGACY);
+  base.variable = buildExplicitCollectionVariables({
+    workflows: listWorkflowVariableSources(),
+    collection: base,
+  });
 
   walkItems(base.item, (item) => {
     if (!item.event) return;
@@ -270,16 +253,15 @@ function main() {
 
   const loginFolderIdx = base.item.findIndex((i) => i.name.startsWith("3.1"));
   if (loginFolderIdx >= 0) {
-    const authFolder = base.item[loginFolderIdx];
-    const authItems = authFolder.item || [];
-    authFolder.name = "3.1 Login";
-    authFolder.description =
-      "Autenticação ONR (`LoginUsuarioCertificado`). Use **n8n — Auth ONR** em integrações; SOAP direto só para debug.";
+    const authFolder = normalizeLoginFolder(base.item[loginFolderIdx]);
+    const n8nLeaf = collectLeafRequests(
+      authFolder.item?.find((f) => f.name === "n8n — Auth ONR")?.item
+    );
 
     const n8nAuth = {
       name: "n8n — Auth ONR",
       description: "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
-      item: authItems.map((req) => {
+      item: n8nLeaf.map((req) => {
         const copy = JSON.parse(JSON.stringify(req));
         if (copy.name === "Auth ONR — Login") {
           for (const ev of copy.event || []) {
@@ -326,41 +308,17 @@ function main() {
     };
 
     authFolder.item = [n8nAuth, soapLoginFolder()];
+    base.item[loginFolderIdx] = authFolder;
   }
 
   base.item = base.item.filter((i) => !i.name.startsWith("3.6"));
   base.item.push(certidoesFolder());
 
-  base.info.description = `Coleção unificada dos webhooks n8n e referência SOAP para o **WSOficio ONR** (homologação).
+  base.info.name = COLLECTION_NAME;
+  base.info.description = COLLECTION_DESCRIPTION;
 
-## Variáveis
-
-Todas as variáveis HML estão em **Collection variables** (aba Variables da coleção). Environment opcional sobrescreve.
-
-## Domínios (pastas)
-
-| Pasta | Serviço |
-|-------|---------|
-| 3.1 Login | \`login.asmx\` |
-| 3.2 Acompanhamento de Títulos | \`acompanhamentotitulos.asmx\` |
-| 3.3 Penhora Online | \`penhoraonline.asmx\` |
-| 3.5 Ofícios | \`oficios.asmx\` |
-| 3.6 Certidões a Emitir | \`Certidoes.asmx\` |
-
-## Fluxo recomendado
-
-1. **3.1 Login → n8n — Auth ONR** (grava \`onr_hash\` na coleção)
-2. Escolha o domínio e execute o request desejado
-
-## Sync
-
-\`npm run postman:sync\`
-
-Coleções legadas unificadas aqui: \`Auth-ONR-n8n\`, \`ListTitulosAT-n8n\`, \`Certidoes-ONR-n8n\`, \`ONR-WSOficio-Login\`.`;
-
-  const outPath = path.join(POSTMAN, "onr-webservice-n8n.postman_collection.json");
-  fs.writeFileSync(outPath, JSON.stringify(base, null, 2) + "\n", "utf8");
-  console.log("OK —", outPath);
+  writeCollectionJson(base);
+  console.log("OK —", collectionOutputPaths().join(" + "));
   console.log("Variáveis na coleção:", base.variable.length);
   console.log("Pastas raiz:", base.item.map((i) => i.name).join(", "));
 }

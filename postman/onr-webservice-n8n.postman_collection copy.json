@@ -1,8 +1,8 @@
 {
   "info": {
     "_postman_id": "1b47ee61-a242-4eb5-83f0-184e9433c471",
-    "name": "ONR WebService — n8n (variáveis explícitas)",
-    "description": "Coleção unificada dos webhooks n8n e referência SOAP para o **WSOficio ONR** (homologação).\n\n## Variáveis explícitas (substituição total)\n\nO bloco `variable` deste JSON é a **lista completa** de Collection variables. Ao importar no Postman, escolha **Replace** na coleção existente (mesmo `_postman_id`) para **sobrescrever todas** as variáveis da coleção com os valores do arquivo.\n\nFonte no build: `onr-webservice-n8n.postman_environment.template.json` + webhooks dos workflows + chaves `{{…}}` usadas nos requests. **Não** importa environment para carregar defaults HML.\n\nEnvironment separado: opcional só para secrets/overrides locais (não substitui o conjunto da coleção na importação).\n\n## Domínios (pastas)\n\n| Pasta | Serviço |\n|-------|---------|\n| 3.1 Login | `login.asmx` |\n| 3.2 Acompanhamento de Títulos | `acompanhamentotitulos.asmx` |\n| 3.3 Penhora Online | `penhoraonline.asmx` |\n| 3.5 Ofícios | `oficios.asmx` |\n| 3.6 Certidões a Emitir | `Certidoes.asmx` |\n\n## Fluxo recomendado\n\n1. Preencha certificado e `ONR_SERVENTIA_CHAVE` nas **Collection variables**\n2. **3.1 Login → n8n — Auth ONR** (grava `onr_hash` na coleção)\n3. Execute requests do domínio desejado\n\n## Regenerar\n\n`npm run postman:build:onr`\n\nArquivo canônico: `onr-webservice-n8n-variaveis-explicitas.postman_collection.json` (cópia espelhada em `onr-webservice-n8n.postman_collection.json` para sync legado).\n\n## Sync Postman Cloud\n\n`npm run postman:sync`",
+    "name": "ONR WebService — n8n",
+    "description": "Coleção unificada dos webhooks n8n e referência SOAP para o **WSOficio ONR** (homologação).\n\n## Variáveis\n\nTodas as variáveis HML estão em **Collection variables** (aba Variables da coleção). Environment opcional sobrescreve.\n\n## Domínios (pastas)\n\n| Pasta | Serviço |\n|-------|---------|\n| 3.1 Login | `login.asmx` |\n| 3.2 Acompanhamento de Títulos | `acompanhamentotitulos.asmx` |\n| 3.3 Penhora Online | `penhoraonline.asmx` |\n| 3.5 Ofícios | `oficios.asmx` |\n| 3.6 Certidões a Emitir | `Certidoes.asmx` |\n\n## Fluxo recomendado\n\n1. **3.1 Login → n8n — Auth ONR** (grava `onr_hash` na coleção)\n2. Escolha o domínio e execute o request desejado\n\n## Sync\n\n`npm run postman:sync`\n\nColeções legadas unificadas aqui: `Auth-ONR-n8n`, `ListTitulosAT-n8n`, `Certidoes-ONR-n8n`, `ONR-WSOficio-Login`.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
@@ -542,403 +542,18 @@
       "type": "string"
     },
     {
-      "key": "ACOMPANHAMENTO_TITULOS_DELETE_ID_TITULO",
-      "value": "",
+      "key": "n8n_webhook_id_insert_status",
+      "value": "c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f",
       "type": "string"
     },
     {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_CPF_CNPJ",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_DDD_TELEFONE",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_NUMERO_TELEFONE",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_INTERESSADO_CPF_CNPJ",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_MODO_NOTIFICACAO_STATUS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DATA_STATUS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DESCRICAO_STATUS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_ID_TIPO_STATUS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_ID_TITULO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_CPF_CNPJ",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_DDD_TELEFONE",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_EMAIL",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_NOME",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_NUMERO_TELEFONE",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_CODIGO_VERIFICADOR",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_DATA_PREVISAO_ENTREGA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_DATA_PROTOCOLO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_ID_TITULO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_INTERESSADO_CPF_CNPJ",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_INTERESSADO_NOME",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_MODO_NOTIFICACAO_STATUS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_NATUREZA_TITULO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_PROTOCOLO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_ID_STATUS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_ID_TIPO_STATUS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_TIPO_SOLICITACAO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_VALOR_DEPOSITO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_VALOR_EMOLUMENTOS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_DEVOLVIDO_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_DEVOLVIDO_MOTIVO_DEVOLUCAO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_NEGATIVA_LOTE_PEDIDOS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_NEGATIVA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_RESPOSTA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_RETRANSMITIDO_ID_CARTORIO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_RETRANSMITIDO_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "OFICIOS_SET_PEDIDO_RETRANSMITIDO_OBSERVACOES",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_DATA_RESPOSTA_FINAL",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_DATA_RESPOSTA_INICIAL",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_DATA_SOLICITACAO_FINAL",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_DATA_SOLICITACAO_INICIAL",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_ID_BOLETO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_ID_COMARCA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_ID_ESTADO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_ID_FORO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_ID_STATUS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_ID_TIPO_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_ID_VARA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_MAX_ROW_PER_PAGE",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_PAGE_NUMBER",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_PROTOCOLO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_CUSTAS_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_RESPOSTA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_RESPOSTA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDOS",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_RESPOSTA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_MATRICULA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_RESPOSTA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_URL_ARQUIVO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_RESPOSTA",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PRENOTACAO_DATA_PRENOTACAO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PRENOTACAO_DATA_VENCIMENTO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PRENOTACAO_ID_PEDIDO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "PENHORA_ONLINE_SET_PRENOTACAO_NUMERO",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "n8n_webhook_id_ccn_get_import_erros",
-      "value": "c4d5e6f7-a8b9-4012-d3e4-f5a6b7c8d9e0",
-      "type": "string"
-    },
-    {
-      "key": "n8n_webhook_id_ccn_get_import_status",
-      "value": "b2f3a4c5-d6e7-4890-b1c2-d3e4f5a6b7c8",
-      "type": "string"
-    },
-    {
-      "key": "n8n_webhook_id_ccn_upload_xml",
-      "value": "9899d3fe-8c27-42ee-a3b1-899b4a297cd6",
-      "type": "string"
-    },
-    {
-      "key": "n8n_webhook_id_censec_upload_json_gateway",
-      "value": "b5466eb9-9d7c-47d3-939b-dd5a26d60e1f",
-      "type": "string"
-    },
-    {
-      "key": "n8n_webhook_id_doi_validate_json",
-      "value": "6dcaccea-858e-4eec-a069-c9995cd2be01",
-      "type": "string"
-    },
-    {
-      "key": "n8n_webhook_id_enviar_anexos_certidao",
-      "value": "b2c3d4e5-f6a7-4890-b123-4567890abcde",
+      "key": "n8n_webhook_id_update_status",
+      "value": "d8e9f0a1-b2c3-4d5e-8f90-a1b2c3d4e5f6",
       "type": "string"
     },
     {
       "key": "n8n_webhook_id_get_pedido",
       "value": "a0b1c2d3-e4f5-4a6b-8c9d-0e1f2a3b4c5d",
-      "type": "string"
-    },
-    {
-      "key": "n8n_webhook_id_get_pedido_oe",
-      "value": "2f3a4b5c-6d7e-4f8a-9b0c-1d2e3f4a5b6c",
-      "type": "string"
-    },
-    {
-      "key": "n8n_webhook_id_insert_status",
-      "value": "c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f",
       "type": "string"
     },
     {
@@ -952,23 +567,18 @@
       "type": "string"
     },
     {
-      "key": "n8n_webhook_id_list_pedidos",
-      "value": "e9f0a1b2-c3d4-4e5f-9a0b-c1d2e3f4a5b6",
-      "type": "string"
-    },
-    {
       "key": "n8n_webhook_id_list_pedidos_exportacao",
       "value": "b28f7a63-4d9d-40a3-a7ac-d7b53a6a8f1d",
       "type": "string"
     },
     {
-      "key": "n8n_webhook_id_list_varas",
-      "value": "f0a1b2c3-d4e5-4f6a-9b8c-d7e6f5a4b3c2",
+      "key": "n8n_webhook_id_list_pedidos",
+      "value": "e9f0a1b2-c3d4-4e5f-9a0b-c1d2e3f4a5b6",
       "type": "string"
     },
     {
-      "key": "n8n_webhook_id_parse_memorial_sigef",
-      "value": "c8e7f6a5-b4d3-4c2b-a1f0-9e8d7c6b5a4f",
+      "key": "n8n_webhook_id_list_varas",
+      "value": "f0a1b2c3-d4e5-4f6a-9b8c-d7e6f5a4b3c2",
       "type": "string"
     },
     {
@@ -1017,12 +627,642 @@
       "type": "string"
     },
     {
-      "key": "n8n_webhook_id_update_status",
-      "value": "d8e9f0a1-b2c3-4d5e-8f90-a1b2c3d4e5f6",
+      "key": "CERT_PATH",
+      "value": "C:\\Users\\kenio\\OneDrive\\Desktop\\PALMELO CARTORIO DO PRIMEIRO OFICIO E REGISTRO IM - senha - Hugo54.pfx",
       "type": "string"
     },
     {
-      "key": "onr_login_endpoint_resolved",
+      "key": "CERT_PASSWORD",
+      "value": "Hugo54",
+      "type": "string"
+    },
+    {
+      "key": "ONR_SERVENTIA_ID",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "ONR_WSDL_LOGIN_PATH",
+      "value": "wsdl/login.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "PUBLICKEY_FORMAT",
+      "value": "base64_der",
+      "type": "string"
+    },
+    {
+      "key": "VALIDUNTIL_FORMAT",
+      "value": "iso",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_WSDL_PATH",
+      "value": "wsdl/acompanhamentotitulos.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/acompanhamentotitulos.asmx",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_ID_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_EMAIL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_DDD",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_TELEFONE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_CPFCNPJ",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_VALOR_DEPOSITO",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_VALOR_EMOLUMENTOS",
+      "value": "0",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_DATA_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_DATA_PREVISAO_ENTREGA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_MODO_NOTIFICACAO",
+      "value": "E",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_INTERESSADO_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_INTERESSADO_CPFCNPJ",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_NATUREZA_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_CODIGO_VERIFICADOR",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_TIPO_SOLICITACAO",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_DELETE_ID_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_ID_TITULO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_ID_TIPO_STATUS",
+      "value": "3",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DATA_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DESCRICAO_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_ID_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_ID_TIPO_STATUS",
+      "value": "3",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_DATA_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_DESCRICAO_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_ESTADO",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_COMARCA",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_FORO",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_PROCESSO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_BOLETO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PRENOTACAO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PRENOTACAO_NUMERO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PRENOTACAO_DATA_PRENOTACAO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PRENOTACAO_DATA_VENCIMENTO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_CUSTAS_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_MATRICULA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_AVERBADO_CERTIDOES_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_ANEXOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_ANEXOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_MATRICULA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_ANEXOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDOS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_PEDIDOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_MATRICULA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_SET_FINALIZAR_PRENOTACAO_VENCIDA_ANEXOS_JSON",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_WSDL_PATH",
+      "value": "wsdl/penhoraonline.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/penhoraonline.asmx",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_MAX_ROW_PER_PAGE",
+      "value": "50",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_PAGE_NUMBER",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_VARA",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_TIPO_PEDIDO",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_ID_STATUS",
+      "value": "-1",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_DATA_SOLICITACAO_INICIAL",
+      "value": "2025-01-01",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_DATA_SOLICITACAO_FINAL",
+      "value": "2025-01-31",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_DATA_RESPOSTA_INICIAL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "PENHORA_ONLINE_DATA_RESPOSTA_FINAL",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_WSDL_PATH",
+      "value": "wsdl/bdlight.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/bdlight.asmx",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_MAX_ROW_PER_PAGE",
+      "value": "50",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_PAGE_NUMBER",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_DATA_INICIAL",
+      "value": "2025-01-01",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_DATA_FINAL",
+      "value": "2025-03-31",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_ID_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_IMPORTAR_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_IMPORTAR_VALIDAR_XML",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "BDLIGHT_IMPORTAR_XML_PATH",
+      "value": "bdlight-xml-exemplo/bdlight-exemplo-1.xml",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_WSDL_PATH",
+      "value": "wsdl/oficios.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/oficios.asmx",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_NEGATIVA",
+      "value": "false",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_NOME",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RESPONDIDO_URL_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_DEVOLVIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_DEVOLVIDO_MOTIVO_DEVOLUCAO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RETRANSMITIDO_ID_PEDIDO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "OFICIOS_SET_PEDIDO_RETRANSMITIDO_ID_CARTORIO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_WSDL_PATH",
+      "value": "wsdl/certidoes.wsdl",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_ENDPOINT",
+      "value": "https://hml3-wsoficio.onr.org.br/Certidoes.asmx",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_AUTO_LOGIN",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_SOLICITANTE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_TIPO_CERTIDAO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_PESQUISA_POR",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_STATUS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_TIPO_RESPOSTA",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_DATA_PEDIDO_DE",
+      "value": "2025-01-01",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_DATA_PEDIDO_ATE",
+      "value": "2025-01-31",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_DATA_CONFERENCIA_DE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_DATA_CONFERENCIA_ATE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_OBTER_XML_V6_XML_OUTPUT_PATH",
+      "value": "output/certidoes-export-v6.xml",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_DEVOLVER_CERTIDAO_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_DEVOLVER_CERTIDAO_MOTIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_ENVIAR_ANEXO_PROTOCOLO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_ENVIAR_ANEXO_NOME_ARQUIVO",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CERTIDOES_ENVIAR_ANEXO_ARQUIVO_PATH",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "POSTMAN_API_KEY",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "POSTMAN_COLLECTION_UID",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "POSTMAN_WORKSPACE_ID",
       "value": "",
       "type": "string"
     }
@@ -1037,178 +1277,490 @@
           "description": "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
           "item": [
             {
-              "name": "Auth ONR — Login",
-              "event": [
+              "name": "n8n — Auth ONR",
+              "description": "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
+              "item": [
                 {
-                  "listen": "prerequest",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "function getVar(key) {",
-                      "  const fromCollection = pm.collectionVariables.get(key);",
-                      "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
-                      "  const fromEnv = pm.environment.get(key);",
-                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
-                      "  const fromGlobals = pm.globals.get(key);",
-                      "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
-                      "  return pm.variables.get(key);",
-                      "}",
-                      "function hasBasicAuthConfigured() {",
-                      "  const auth = pm.request.auth;",
-                      "  if (!auth || auth.type !== 'basic' || !Array.isArray(auth.basic)) return false;",
-                      "  const user = auth.basic.find((x) => x.key === 'username')?.value;",
-                      "  const pass = auth.basic.find((x) => x.key === 'password')?.value;",
-                      "  return Boolean(user && pass && !String(user).includes('{{') && !String(pass).includes('{{'));",
-                      "}",
-                      "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
-                      "if (!getVar('N8N_BASIC_AUTH_USER') || !getVar('N8N_BASIC_AUTH_PASSWORD')) {",
-                      "  if (!hasBasicAuthConfigured()) required.push('N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD');",
-                      "}",
-                      "const missing = required.filter((k) => !getVar(k));",
-                      "if (missing.length) throw new Error('Variáveis ausentes: ' + missing.join(', '));",
-                      "pm.variables.set('onr_login_endpoint_resolved', getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint'));"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
-                      "let json;",
-                      "pm.test('Resposta JSON válida', () => {",
-                      "  json = pm.response.json();",
-                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
-                      "});",
-                      "if (!json || !json.sucesso) return;",
-                      "pm.test('Tokens retornados', () => { pm.expect(json.tokens.length).to.be.above(0); });",
-                      "  if (json.id_usuario != null) {",
-                      "    pm.collectionVariables.set('onr_id_usuario', String(json.id_usuario));",
-                      "    pm.environment.set('onr_id_usuario', String(json.id_usuario));",
-                      "  }",
-                      "  if (json.id_instituicao != null) {",
-                      "    pm.collectionVariables.set('onr_id_instituicao', String(json.id_instituicao));",
-                      "    pm.environment.set('onr_id_instituicao', String(json.id_instituicao));",
-                      "  }",
-                      "  pm.collectionVariables.set('onr_tokens', JSON.stringify(json.tokens || []));",
-                      "  pm.environment.set('onr_tokens', JSON.stringify(json.tokens || []));",
-                      "  if (Array.isArray(json.hashes)) {",
-                      "    pm.collectionVariables.set('onr_hashes', JSON.stringify(json.hashes));",
-                      "    pm.environment.set('onr_hashes', JSON.stringify(json.hashes));",
-                      "  }",
-                      "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
-                      "  const token = (json.tokens || [])[tokenIndex] ?? (json.tokens || [])[0];",
-                      "  pm.collectionVariables.set('onr_token', token || '');",
-                      "  pm.environment.set('onr_token', token || '');",
-                      "  const hashFromWorkflow = json.hash || (json.hashes || [])[tokenIndex] || (json.hashes || [])[0];",
-                      "  if (hashFromWorkflow) {",
-                      "    pm.collectionVariables.set('onr_hash', hashFromWorkflow);",
-                      "    pm.environment.set('onr_hash', hashFromWorkflow);",
-                      "    console.log('onr_hash (workflow):', hashFromWorkflow);",
-                      "  } else {",
-                      "    const chave = getVar('ONR_SERVENTIA_CHAVE');",
-                      "    if (chave && token) {",
-                      "      const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
-                      "      pm.collectionVariables.set('onr_hash', hash);",
-                      "      pm.environment.set('onr_hash', hash);",
-                      "      console.log('onr_hash (Postman):', hash);",
-                      "    }",
-                      "  }"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"{{CPF}}\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{onr_login_endpoint_resolved}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                  "name": "n8n — Auth ONR",
+                  "description": "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
+                  "item": [
+                    {
+                      "name": "n8n — Auth ONR",
+                      "description": "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
+                      "item": [
+                        {
+                          "name": "Auth ONR — Login",
+                          "event": [
+                            {
+                              "listen": "prerequest",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "function getVar(key) {",
+                                  "  const fromCollection = pm.collectionVariables.get(key);",
+                                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                                  "  const fromEnv = pm.environment.get(key);",
+                                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                                  "  const fromGlobals = pm.globals.get(key);",
+                                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                                  "  return pm.variables.get(key);",
+                                  "}",
+                                  "function hasBasicAuthConfigured() {",
+                                  "  const auth = pm.request.auth;",
+                                  "  if (!auth || auth.type !== 'basic' || !Array.isArray(auth.basic)) return false;",
+                                  "  const user = auth.basic.find((x) => x.key === 'username')?.value;",
+                                  "  const pass = auth.basic.find((x) => x.key === 'password')?.value;",
+                                  "  return Boolean(user && pass && !String(user).includes('{{') && !String(pass).includes('{{'));",
+                                  "}",
+                                  "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                                  "if (!getVar('N8N_BASIC_AUTH_USER') || !getVar('N8N_BASIC_AUTH_PASSWORD')) {",
+                                  "  if (!hasBasicAuthConfigured()) required.push('N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD');",
+                                  "}",
+                                  "const missing = required.filter((k) => !getVar(k));",
+                                  "if (missing.length) throw new Error('Variáveis ausentes: ' + missing.join(', '));",
+                                  "pm.variables.set('onr_login_endpoint_resolved', getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint'));"
+                                ]
+                              }
+                            },
+                            {
+                              "listen": "test",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                  "let json;",
+                                  "pm.test('Resposta JSON válida', () => {",
+                                  "  json = pm.response.json();",
+                                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                                  "});",
+                                  "if (!json || !json.sucesso) return;",
+                                  "pm.test('Tokens retornados', () => { pm.expect(json.tokens.length).to.be.above(0); });",
+                                  "  if (json.id_usuario != null) {",
+                                  "    pm.collectionVariables.set('onr_id_usuario', String(json.id_usuario));",
+                                  "    pm.environment.set('onr_id_usuario', String(json.id_usuario));",
+                                  "  }",
+                                  "  if (json.id_instituicao != null) {",
+                                  "    pm.collectionVariables.set('onr_id_instituicao', String(json.id_instituicao));",
+                                  "    pm.environment.set('onr_id_instituicao', String(json.id_instituicao));",
+                                  "  }",
+                                  "  pm.collectionVariables.set('onr_tokens', JSON.stringify(json.tokens || []));",
+                                  "  pm.environment.set('onr_tokens', JSON.stringify(json.tokens || []));",
+                                  "  if (Array.isArray(json.hashes)) {",
+                                  "    pm.collectionVariables.set('onr_hashes', JSON.stringify(json.hashes));",
+                                  "    pm.environment.set('onr_hashes', JSON.stringify(json.hashes));",
+                                  "  }",
+                                  "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                                  "  const token = (json.tokens || [])[tokenIndex] ?? (json.tokens || [])[0];",
+                                  "  pm.collectionVariables.set('onr_token', token || '');",
+                                  "  pm.environment.set('onr_token', token || '');",
+                                  "  const hashFromWorkflow = json.hash || (json.hashes || [])[tokenIndex] || (json.hashes || [])[0];",
+                                  "  if (hashFromWorkflow) {",
+                                  "    pm.collectionVariables.set('onr_hash', hashFromWorkflow);",
+                                  "    pm.environment.set('onr_hash', hashFromWorkflow);",
+                                  "    console.log('onr_hash (workflow):', hashFromWorkflow);",
+                                  "  } else {",
+                                  "    const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                                  "    if (chave && token) {",
+                                  "      const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                                  "      pm.collectionVariables.set('onr_hash', hash);",
+                                  "      pm.environment.set('onr_hash', hash);",
+                                  "      console.log('onr_hash (Postman):', hash);",
+                                  "    }",
+                                  "  }"
+                                ]
+                              }
+                            }
+                          ],
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"{{CPF}}\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{onr_login_endpoint_resolved}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
+                              "options": {
+                                "raw": {
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
+                          }
+                        },
+                        {
+                          "name": "Auth ONR — CPF inválido",
+                          "event": [
+                            {
+                              "listen": "test",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                                  "const json = pm.response.json();",
+                                  "pm.expect(json.sucesso).to.eql(false);",
+                                  "pm.expect(json.codigo_erro).to.eql(2);"
+                                ]
+                              }
+                            }
+                          ],
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"12345678901\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
+                              "options": {
+                                "raw": {
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
+                          }
+                        },
+                        {
+                          "name": "Auth ONR — CPF ausente",
+                          "event": [
+                            {
+                              "listen": "test",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                                  "const json = pm.response.json();",
+                                  "pm.expect(json.codigo_erro).to.eql(15);"
+                                ]
+                              }
+                            }
+                          ],
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
+                              "options": {
+                                "raw": {
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "SOAP direto (referência)",
+                      "description": "Chamada SOAP nativa a `login.asmx` — sem n8n. Preferir **n8n — Auth ONR** para integrações.",
+                      "item": [
+                        {
+                          "name": "LoginUsuarioCertificado — SOAP direto",
+                          "event": [
+                            {
+                              "listen": "prerequest",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "function getVar(key) {",
+                                  "  const fromCollection = pm.collectionVariables.get(key);",
+                                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                                  "  const fromEnv = pm.environment.get(key);",
+                                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                                  "  const fromGlobals = pm.globals.get(key);",
+                                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                                  "  return pm.variables.get(key);",
+                                  "}",
+                                  "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                                  "const missing = required.filter((k) => !getVar(k));",
+                                  "if (missing.length) {",
+                                  "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Preencha Collection Variables ou Environment.');",
+                                  "}",
+                                  "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint');",
+                                  "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
+                                ]
+                              }
+                            },
+                            {
+                              "listen": "test",
+                              "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                                  "const body = pm.response.text();",
+                                  "const retornoMatch = body.match(/<(?:\\\\w+:)?RETORNO>(true|false)<\\\\/(?:\\\\w+:)?RETORNO>/i);",
+                                  "const retorno = retornoMatch && retornoMatch[1].toLowerCase() === 'true';",
+                                  "if (!retorno) {",
+                                  "  const cod = body.match(/<(?:\\\\w+:)?CODIGOERRO>(\\\\d+)<\\\\/(?:\\\\w+:)?CODIGOERRO>/);",
+                                  "  const desc = body.match(/<(?:\\\\w+:)?ERRODESCRICAO>([^<]*)<\\\\/(?:\\\\w+:)?ERRODESCRICAO>/);",
+                                  "  pm.test('RETORNO=true', () => { throw new Error(`Login falhou: [${cod?.[1] ?? '?'}] ${desc?.[1] ?? ''}`); });",
+                                  "} else {",
+                                  "  const tokensBlock = body.match(/<(?:\\\\w+:)?Tokens>([\\\\s\\\\S]*?)<\\\\/(?:\\\\w+:)?Tokens>/i);",
+                                  "  const tokens = [];",
+                                  "  if (tokensBlock) {",
+                                  "    const re = /<(?:\\\\w+:)?string[^>]*>([^<]+)<\\\\/(?:\\\\w+:)?string>/gi;",
+                                  "    let m; while ((m = re.exec(tokensBlock[1])) !== null) { if (m[1]) tokens.push(m[1]); }",
+                                  "  }",
+                                  "  pm.test('Tokens retornados', () => pm.expect(tokens.length).to.be.above(0));",
+                                  "  pm.collectionVariables.set('onr_tokens', JSON.stringify(tokens));",
+                                  "  pm.environment.set('onr_tokens', JSON.stringify(tokens));",
+                                  "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                                  "  const token = tokens[tokenIndex] ?? tokens[0];",
+                                  "  pm.collectionVariables.set('onr_token', token);",
+                                  "  pm.environment.set('onr_token', token);",
+                                  "  const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                                  "  if (chave) {",
+                                  "    const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                                  "    pm.collectionVariables.set('onr_hash', hash);",
+                                  "    pm.environment.set('onr_hash', hash);",
+                                  "    console.log('onr_hash:', hash);",
+                                  "  }",
+                                  "}"
+                                ]
+                              }
+                            }
+                          ],
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "text/xml; charset=utf-8"
+                              },
+                              {
+                                "key": "SOAPAction",
+                                "value": "{{onr_soap_action_login}}"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://tempuri.org/WSOficio\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado>\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{SUBJECTCN}}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ISSUERO}}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{PUBLICKEY}}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{SERIALNUMBER}}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{VALIDUNTIL}}</tns:VALIDUNTIL>\n        <tns:CPF>{{CPF}}</tns:CPF>\n        <tns:EMAIL>{{EMAIL}}</tns:EMAIL>\n        <tns:IDParceiroWS>{{IDParceiroWS}}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+                              "options": {
+                                "raw": {
+                                  "language": "xml"
+                                }
+                              }
+                            },
+                            "url": "{{onr_login_endpoint_resolved}}",
+                            "description": "Autentica com certificado digital (campos extraídos do PFX) e retorna tokens de 6 caracteres para cálculo do `Hash` nas demais operações.\n\n**SOAP 1.1** — binding `LoginSoap` do `wsdl/login.wsdl`.\n\nOrdem dos campos em `oRequest` (WSDL): SUBJECTCN, ISSUERO, PUBLICKEY, SERIALNUMBER, VALIDUNTIL, CPF, EMAIL, IDParceiroWS."
+                          },
+                          "response": []
+                        }
+                      ]
                     }
-                  }
+                  ]
                 },
-                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
-              }
+                {
+                  "name": "SOAP direto (referência)",
+                  "description": "Chamada SOAP nativa a `login.asmx` — sem n8n. Preferir **n8n — Auth ONR** para integrações.",
+                  "item": [
+                    {
+                      "name": "LoginUsuarioCertificado — SOAP direto",
+                      "event": [
+                        {
+                          "listen": "prerequest",
+                          "script": {
+                            "type": "text/javascript",
+                            "exec": [
+                              "function getVar(key) {",
+                              "  const fromCollection = pm.collectionVariables.get(key);",
+                              "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                              "  const fromEnv = pm.environment.get(key);",
+                              "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                              "  const fromGlobals = pm.globals.get(key);",
+                              "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                              "  return pm.variables.get(key);",
+                              "}",
+                              "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                              "const missing = required.filter((k) => !getVar(k));",
+                              "if (missing.length) {",
+                              "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Preencha Collection Variables ou Environment.');",
+                              "}",
+                              "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint');",
+                              "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
+                            ]
+                          }
+                        },
+                        {
+                          "listen": "test",
+                          "script": {
+                            "type": "text/javascript",
+                            "exec": [
+                              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                              "const body = pm.response.text();",
+                              "const retornoMatch = body.match(/<(?:\\\\w+:)?RETORNO>(true|false)<\\\\/(?:\\\\w+:)?RETORNO>/i);",
+                              "const retorno = retornoMatch && retornoMatch[1].toLowerCase() === 'true';",
+                              "if (!retorno) {",
+                              "  const cod = body.match(/<(?:\\\\w+:)?CODIGOERRO>(\\\\d+)<\\\\/(?:\\\\w+:)?CODIGOERRO>/);",
+                              "  const desc = body.match(/<(?:\\\\w+:)?ERRODESCRICAO>([^<]*)<\\\\/(?:\\\\w+:)?ERRODESCRICAO>/);",
+                              "  pm.test('RETORNO=true', () => { throw new Error(`Login falhou: [${cod?.[1] ?? '?'}] ${desc?.[1] ?? ''}`); });",
+                              "} else {",
+                              "  const tokensBlock = body.match(/<(?:\\\\w+:)?Tokens>([\\\\s\\\\S]*?)<\\\\/(?:\\\\w+:)?Tokens>/i);",
+                              "  const tokens = [];",
+                              "  if (tokensBlock) {",
+                              "    const re = /<(?:\\\\w+:)?string[^>]*>([^<]+)<\\\\/(?:\\\\w+:)?string>/gi;",
+                              "    let m; while ((m = re.exec(tokensBlock[1])) !== null) { if (m[1]) tokens.push(m[1]); }",
+                              "  }",
+                              "  pm.test('Tokens retornados', () => pm.expect(tokens.length).to.be.above(0));",
+                              "  pm.collectionVariables.set('onr_tokens', JSON.stringify(tokens));",
+                              "  pm.environment.set('onr_tokens', JSON.stringify(tokens));",
+                              "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                              "  const token = tokens[tokenIndex] ?? tokens[0];",
+                              "  pm.collectionVariables.set('onr_token', token);",
+                              "  pm.environment.set('onr_token', token);",
+                              "  const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                              "  if (chave) {",
+                              "    const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                              "    pm.collectionVariables.set('onr_hash', hash);",
+                              "    pm.environment.set('onr_hash', hash);",
+                              "    console.log('onr_hash:', hash);",
+                              "  }",
+                              "}"
+                            ]
+                          }
+                        }
+                      ],
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "text/xml; charset=utf-8"
+                          },
+                          {
+                            "key": "SOAPAction",
+                            "value": "{{onr_soap_action_login}}"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://tempuri.org/WSOficio\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado>\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{SUBJECTCN}}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ISSUERO}}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{PUBLICKEY}}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{SERIALNUMBER}}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{VALIDUNTIL}}</tns:VALIDUNTIL>\n        <tns:CPF>{{CPF}}</tns:CPF>\n        <tns:EMAIL>{{EMAIL}}</tns:EMAIL>\n        <tns:IDParceiroWS>{{IDParceiroWS}}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+                          "options": {
+                            "raw": {
+                              "language": "xml"
+                            }
+                          }
+                        },
+                        "url": "{{onr_login_endpoint_resolved}}",
+                        "description": "Autentica com certificado digital (campos extraídos do PFX) e retorna tokens de 6 caracteres para cálculo do `Hash` nas demais operações.\n\n**SOAP 1.1** — binding `LoginSoap` do `wsdl/login.wsdl`.\n\nOrdem dos campos em `oRequest` (WSDL): SUBJECTCN, ISSUERO, PUBLICKEY, SERIALNUMBER, VALIDUNTIL, CPF, EMAIL, IDParceiroWS."
+                      },
+                      "response": []
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "Auth ONR — CPF inválido",
-              "event": [
+              "name": "SOAP direto (referência)",
+              "description": "Chamada SOAP nativa a `login.asmx` — sem n8n. Preferir **n8n — Auth ONR** para integrações.",
+              "item": [
                 {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
-                      "const json = pm.response.json();",
-                      "pm.expect(json.sucesso).to.eql(false);",
-                      "pm.expect(json.codigo_erro).to.eql(2);"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"12345678901\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                  "name": "LoginUsuarioCertificado — SOAP direto",
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                          "function getVar(key) {",
+                          "  const fromCollection = pm.collectionVariables.get(key);",
+                          "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                          "  const fromEnv = pm.environment.get(key);",
+                          "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                          "  const fromGlobals = pm.globals.get(key);",
+                          "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                          "  return pm.variables.get(key);",
+                          "}",
+                          "const required = ['SUBJECTCN', 'ISSUERO', 'PUBLICKEY', 'SERIALNUMBER', 'VALIDUNTIL', 'CPF', 'EMAIL', 'IDParceiroWS'];",
+                          "const missing = required.filter((k) => !getVar(k));",
+                          "if (missing.length) {",
+                          "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Preencha Collection Variables ou Environment.');",
+                          "}",
+                          "const endpoint = getVar('ONR_LOGIN_ENDPOINT') || getVar('onr_login_endpoint');",
+                          "pm.variables.set('onr_login_endpoint_resolved', endpoint);"
+                        ]
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                          "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                          "const body = pm.response.text();",
+                          "const retornoMatch = body.match(/<(?:\\\\w+:)?RETORNO>(true|false)<\\\\/(?:\\\\w+:)?RETORNO>/i);",
+                          "const retorno = retornoMatch && retornoMatch[1].toLowerCase() === 'true';",
+                          "if (!retorno) {",
+                          "  const cod = body.match(/<(?:\\\\w+:)?CODIGOERRO>(\\\\d+)<\\\\/(?:\\\\w+:)?CODIGOERRO>/);",
+                          "  const desc = body.match(/<(?:\\\\w+:)?ERRODESCRICAO>([^<]*)<\\\\/(?:\\\\w+:)?ERRODESCRICAO>/);",
+                          "  pm.test('RETORNO=true', () => { throw new Error(`Login falhou: [${cod?.[1] ?? '?'}] ${desc?.[1] ?? ''}`); });",
+                          "} else {",
+                          "  const tokensBlock = body.match(/<(?:\\\\w+:)?Tokens>([\\\\s\\\\S]*?)<\\\\/(?:\\\\w+:)?Tokens>/i);",
+                          "  const tokens = [];",
+                          "  if (tokensBlock) {",
+                          "    const re = /<(?:\\\\w+:)?string[^>]*>([^<]+)<\\\\/(?:\\\\w+:)?string>/gi;",
+                          "    let m; while ((m = re.exec(tokensBlock[1])) !== null) { if (m[1]) tokens.push(m[1]); }",
+                          "  }",
+                          "  pm.test('Tokens retornados', () => pm.expect(tokens.length).to.be.above(0));",
+                          "  pm.collectionVariables.set('onr_tokens', JSON.stringify(tokens));",
+                          "  pm.environment.set('onr_tokens', JSON.stringify(tokens));",
+                          "  const tokenIndex = parseInt(getVar('ONR_HASH_TOKEN_INDEX') || '0', 10);",
+                          "  const token = tokens[tokenIndex] ?? tokens[0];",
+                          "  pm.collectionVariables.set('onr_token', token);",
+                          "  pm.environment.set('onr_token', token);",
+                          "  const chave = getVar('ONR_SERVENTIA_CHAVE');",
+                          "  if (chave) {",
+                          "    const hash = CryptoJS.SHA1(chave + token).toString(CryptoJS.enc.Hex).toUpperCase();",
+                          "    pm.collectionVariables.set('onr_hash', hash);",
+                          "    pm.environment.set('onr_hash', hash);",
+                          "    console.log('onr_hash:', hash);",
+                          "  }",
+                          "}"
+                        ]
+                      }
                     }
-                  }
-                },
-                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
-              }
-            },
-            {
-              "name": "Auth ONR — CPF ausente",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
-                      "const json = pm.response.json();",
-                      "pm.expect(json.codigo_erro).to.eql(15);"
-                    ]
-                  }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "text/xml; charset=utf-8"
+                      },
+                      {
+                        "key": "SOAPAction",
+                        "value": "{{onr_soap_action_login}}"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"http://tempuri.org/WSOficio\">\n  <soap:Body>\n    <tns:LoginUsuarioCertificado>\n      <tns:oRequest>\n        <tns:SUBJECTCN>{{SUBJECTCN}}</tns:SUBJECTCN>\n        <tns:ISSUERO>{{ISSUERO}}</tns:ISSUERO>\n        <tns:PUBLICKEY>{{PUBLICKEY}}</tns:PUBLICKEY>\n        <tns:SERIALNUMBER>{{SERIALNUMBER}}</tns:SERIALNUMBER>\n        <tns:VALIDUNTIL>{{VALIDUNTIL}}</tns:VALIDUNTIL>\n        <tns:CPF>{{CPF}}</tns:CPF>\n        <tns:EMAIL>{{EMAIL}}</tns:EMAIL>\n        <tns:IDParceiroWS>{{IDParceiroWS}}</tns:IDParceiroWS>\n      </tns:oRequest>\n    </tns:LoginUsuarioCertificado>\n  </soap:Body>\n</soap:Envelope>",
+                      "options": {
+                        "raw": {
+                          "language": "xml"
+                        }
+                      }
+                    },
+                    "url": "{{onr_login_endpoint_resolved}}",
+                    "description": "Autentica com certificado digital (campos extraídos do PFX) e retorna tokens de 6 caracteres para cálculo do `Hash` nas demais operações.\n\n**SOAP 1.1** — binding `LoginSoap` do `wsdl/login.wsdl`.\n\nOrdem dos campos em `oRequest` (WSDL): SUBJECTCN, ISSUERO, PUBLICKEY, SERIALNUMBER, VALIDUNTIL, CPF, EMAIL, IDParceiroWS."
+                  },
+                  "response": []
                 }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"assunto_certificado\": \"{{SUBJECTCN}}\",\n  \"emissor_certificado\": \"{{ISSUERO}}\",\n  \"chave_publica\": \"{{PUBLICKEY}}\",\n  \"numero_serie_certificado\": \"{{SERIALNUMBER}}\",\n  \"validade_certificado\": \"{{VALIDUNTIL}}\",\n  \"cpf\": \"\",\n  \"email\": \"{{EMAIL}}\",\n  \"id_parceiro_ws\": {{IDParceiroWS}},\n  \"url_login_onr\": \"{{ONR_LOGIN_ENDPOINT}}\",\n  \"chave_serventia\": \"{{ONR_SERVENTIA_CHAVE}}\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_auth}}"
-              }
+              ]
             }
           ]
         },
@@ -1615,7 +2167,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_PROTOCOLO}}\",\n  \"apresentante_nome\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_NOME}}\",\n  \"apresentante_email\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_EMAIL}}\",\n  \"apresentante_ddd_telefone\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_DDD_TELEFONE}}\",\n  \"apresentante_numero_telefone\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_NUMERO_TELEFONE}}\",\n  \"apresentante_cpf_cnpj\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_APRESENTANTE_CPF_CNPJ}}\",\n  \"valor_deposito\": {{ACOMPANHAMENTO_TITULOS_INSERT_VALOR_DEPOSITO}},\n  \"valor_emolumentos\": {{ACOMPANHAMENTO_TITULOS_INSERT_VALOR_EMOLUMENTOS}},\n  \"data_protocolo\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_DATA_PROTOCOLO}}\",\n  \"data_previsao_entrega\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_DATA_PREVISAO_ENTREGA}}\",\n  \"modo_notificacao_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_MODO_NOTIFICACAO_STATUS}}\",\n  \"interessado_nome\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_INTERESSADO_NOME}}\",\n  \"interessado_cpf_cnpj\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_INTERESSADO_CPF_CNPJ}}\",\n  \"natureza_titulo\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_NATUREZA_TITULO}}\",\n  \"codigo_verificador\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_CODIGO_VERIFICADOR}}\",\n  \"tipo_solicitacao\": {{ACOMPANHAMENTO_TITULOS_INSERT_TIPO_SOLICITACAO}},\n  \"id_tipo_status\": {{ACOMPANHAMENTO_TITULOS_INSERT_ID_TIPO_STATUS}},\n  \"data_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DATA_STATUS}}\",\n  \"descricao_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DESCRICAO_STATUS}}\",\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"887766\",\n  \"apresentante_nome\": \"Banco Homologacao S.A.\",\n  \"apresentante_email\": \"homologacao@example.com\",\n  \"apresentante_ddd_telefone\": \"11\",\n  \"apresentante_numero_telefone\": \"999999999\",\n  \"apresentante_cpf_cnpj\": \"11222333000181\",\n  \"valor_deposito\": 1500.75,\n  \"valor_emolumentos\": 245.9,\n  \"data_protocolo\": \"2026-05-25T09:00:00\",\n  \"data_previsao_entrega\": \"2026-06-24T17:00:00\",\n  \"modo_notificacao_status\": \"E\",\n  \"interessado_nome\": \"Maria de Teste\",\n  \"interessado_cpf_cnpj\": \"12345678909\",\n  \"natureza_titulo\": \"Escritura publica de compra e venda - homologacao\",\n  \"codigo_verificador\": \"HMLG2026052501\",\n  \"tipo_solicitacao\": 1,\n  \"id_tipo_status\": 4,\n  \"data_status\": \"2026-05-25T09:05:00\",\n  \"descricao_status\": \"Titulo prenotado para teste em homologacao\",\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1678,7 +2230,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_UPDATE_ID_TITULO}},\n  \"protocolo\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_PROTOCOLO}}\",\n  \"apresentante_nome\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_NOME}}\",\n  \"apresentante_email\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_EMAIL}}\",\n  \"apresentante_ddd_telefone\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_DDD_TELEFONE}}\",\n  \"apresentante_numero_telefone\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_NUMERO_TELEFONE}}\",\n  \"apresentante_cpf_cnpj\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_APRESENTANTE_CPF_CNPJ}}\",\n  \"valor_deposito\": {{ACOMPANHAMENTO_TITULOS_UPDATE_VALOR_DEPOSITO}},\n  \"valor_emolumentos\": {{ACOMPANHAMENTO_TITULOS_UPDATE_VALOR_EMOLUMENTOS}},\n  \"data_protocolo\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_DATA_PROTOCOLO}}\",\n  \"data_previsao_entrega\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_DATA_PREVISAO_ENTREGA}}\",\n  \"modo_notificacao_status\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_MODO_NOTIFICACAO_STATUS}}\",\n  \"interessado_nome\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_INTERESSADO_NOME}}\",\n  \"interessado_cpf_cnpj\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_INTERESSADO_CPF_CNPJ}}\",\n  \"natureza_titulo\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_NATUREZA_TITULO}}\",\n  \"codigo_verificador\": \"{{ACOMPANHAMENTO_TITULOS_UPDATE_CODIGO_VERIFICADOR}}\",\n  \"tipo_solicitacao\": {{ACOMPANHAMENTO_TITULOS_UPDATE_TIPO_SOLICITACAO}},\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_ID_TITULO}},\n  \"protocolo\": \"887766\",\n  \"apresentante_nome\": \"Banco Homologacao Atualizado S.A.\",\n  \"apresentante_email\": \"homologacao.atualizado@example.com\",\n  \"apresentante_ddd_telefone\": \"11\",\n  \"apresentante_numero_telefone\": \"999999999\",\n  \"apresentante_cpf_cnpj\": \"11222333000181\",\n  \"valor_deposito\": 1750.25,\n  \"valor_emolumentos\": 260.4,\n  \"data_protocolo\": \"2026-05-25T10:00:00\",\n  \"data_previsao_entrega\": \"2026-06-24T17:00:00\",\n  \"modo_notificacao_status\": \"E\",\n  \"interessado_nome\": \"Maria de Teste Atualizada\",\n  \"interessado_cpf_cnpj\": \"12345678909\",\n  \"natureza_titulo\": \"Escritura publica de compra e venda - homologacao atualizada\",\n  \"codigo_verificador\": \"UPDHMLG20260525\",\n  \"tipo_solicitacao\": 1,\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1742,7 +2294,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_DELETE_ID_TITULO}},\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_ID_TITULO}},\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1801,7 +2353,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_titulo\": {{ACOMPANHAMENTO_TITULOS_INSERT_STATUS_ID_TITULO}},\n  \"id_tipo_status\": {{ACOMPANHAMENTO_TITULOS_INSERT_STATUS_ID_TIPO_STATUS}},\n  \"data_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DATA_STATUS}}\",\n  \"descricao_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DESCRICAO_STATUS}}\",\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1860,7 +2412,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_status\": {{ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_ID_STATUS}},\n  \"id_tipo_status\": {{ACOMPANHAMENTO_TITULOS_UPDATE_STATUS_ID_TIPO_STATUS}},\n  \"data_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DATA_STATUS}}\",\n  \"descricao_status\": \"{{ACOMPANHAMENTO_TITULOS_INSERT_STATUS_DESCRICAO_STATUS}}\",\n  \"url_servico_onr\": \"{{url_servico_acompanhamento_titulos}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1925,7 +2477,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"max_registros_por_pagina\": {{PENHORA_ONLINE_MAX_ROW_PER_PAGE}},\n  \"numero_pagina\": {{PENHORA_ONLINE_PAGE_NUMBER}},\n  \"protocolo\": \"{{PENHORA_ONLINE_PROTOCOLO}}\",\n  \"id_vara\": {{PENHORA_ONLINE_ID_VARA}},\n  \"id_tipo_pedido\": {{PENHORA_ONLINE_ID_TIPO_PEDIDO}},\n  \"id_status\": {{PENHORA_ONLINE_ID_STATUS}},\n  \"data_solicitacao_inicial\": \"{{PENHORA_ONLINE_DATA_SOLICITACAO_INICIAL}}\",\n  \"data_solicitacao_final\": \"{{PENHORA_ONLINE_DATA_SOLICITACAO_FINAL}}\",\n  \"data_resposta_inicial\": \"{{PENHORA_ONLINE_DATA_RESPOSTA_INICIAL}}\",\n  \"data_resposta_final\": \"{{PENHORA_ONLINE_DATA_RESPOSTA_FINAL}}\",\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1984,7 +2536,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_ID_PEDIDO}},\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2043,7 +2595,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_estado\": {{PENHORA_ONLINE_ID_ESTADO}},\n  \"id_comarca\": {{PENHORA_ONLINE_ID_COMARCA}},\n  \"id_foro\": {{PENHORA_ONLINE_ID_FORO}},\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2102,7 +2654,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{PENHORA_ONLINE_PROTOCOLO}}\",\n  \"id_tipo_pedido\": {{PENHORA_ONLINE_ID_TIPO_PEDIDO}},\n  \"id_status\": {{PENHORA_ONLINE_ID_STATUS}},\n  \"id_vara\": {{PENHORA_ONLINE_ID_VARA}},\n  \"data_solicitacao_inicial\": \"{{PENHORA_ONLINE_DATA_SOLICITACAO_INICIAL}}\",\n  \"data_solicitacao_final\": \"{{PENHORA_ONLINE_DATA_SOLICITACAO_FINAL}}\",\n  \"data_resposta_inicial\": \"{{PENHORA_ONLINE_DATA_RESPOSTA_INICIAL}}\",\n  \"data_resposta_final\": \"{{PENHORA_ONLINE_DATA_RESPOSTA_FINAL}}\",\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2161,7 +2713,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PRENOTACAO_ID_PEDIDO}},\n  \"numero_prenotacao\": \"{{PENHORA_ONLINE_SET_PRENOTACAO_NUMERO}}\",\n  \"data_prenotacao\": \"{{PENHORA_ONLINE_SET_PRENOTACAO_DATA_PRENOTACAO}}\",\n  \"data_vencimento\": \"{{PENHORA_ONLINE_SET_PRENOTACAO_DATA_VENCIMENTO}}\",\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2225,7 +2777,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_boleto\": {{PENHORA_ONLINE_ID_BOLETO}},\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_boleto\": {{PENHORA_ONLINE_SET_BAIXA_ID_BOLETO}},\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2289,7 +2841,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_CUSTAS_ID_PEDIDO}},\n  \"valor_custas\": {{PENHORA_ONLINE_SET_CUSTAS_VALOR}},\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_ID_PEDIDO}},\n  \"valor_custas\": {{PENHORA_ONLINE_SET_CUSTAS_VALOR}},\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2348,7 +2900,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PENHORA_AVERBADO_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PENHORA_AVERBADO_RESPOSTA}}\",\n  \"certidoes\": [\n    {\n      \"matricula\": \"{{PENHORA_ONLINE_SET_PENHORA_AVERBADO_MATRICULA}}\",\n      \"url_arquivo\": \"{{PENHORA_ONLINE_SET_PENHORA_AVERBADO_URL_ARQUIVO}}\"\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2407,7 +2959,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PENHORA_EXIGENCIA_RESPOSTA}}\",\n  \"anexos\": [],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2471,7 +3023,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_RESPOSTA}}\",\n  \"negativa\": {{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_NEGATIVA}},\n  \"anexos\": [],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_RESPOSTA}}\",\n  \"negativa\": {{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_NEGATIVA}},\n  \"anexos\": [\n    {\n      \"matricula\": \"{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_MATRICULA}}\",\n      \"url_arquivo\": \"{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_RESPONDIDO_URL_ARQUIVO}}\"\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2530,7 +3082,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PEDIDO_PESSOA_DEVOLVIDO_RESPOSTA}}\",\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2589,7 +3141,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PEDIDO_MATRICULA_RESPONDIDO_RESPOSTA}}\",\n  \"anexos\": [],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2648,7 +3200,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PEDIDO_MATRICULA_DEVOLVIDO_RESPOSTA}}\",\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2712,7 +3264,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"pedidos\": \"{{PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDOS}}\",\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"pedidos\": [\n    {\n      \"id_pedido\": {{PENHORA_ONLINE_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO}}\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2771,7 +3323,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{PENHORA_ONLINE_ID_PEDIDO}},\n  \"resposta\": \"{{PENHORA_ONLINE_SET_PENHORA_AVERBADO_RESPOSTA}}\",\n  \"anexos\": [],\n  \"url_servico_onr\": \"{{url_servico_penhora_online}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2901,7 +3453,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"max_registros_por_pagina\": {{OFICIOS_MAX_ROW_PER_PAGE}},\n  \"numero_pagina\": {{OFICIOS_PAGE_NUMBER}},\n  \"protocolo\": \"{{OFICIOS_PROTOCOLO}}\",\n  \"id_instituicao\": {{OFICIOS_ID_INSTITUICAO}},\n  \"id_tipo_pesquisa\": {{OFICIOS_ID_TIPO_PESQUISA}},\n  \"id_status\": {{OFICIOS_ID_STATUS}},\n  \"data_solicitacao_inicial\": \"{{OFICIOS_DATA_SOLICITACAO_INICIAL}}\",\n  \"data_solicitacao_final\": \"{{OFICIOS_DATA_SOLICITACAO_FINAL}}\",\n  \"data_resposta_inicial\": \"{{OFICIOS_DATA_RESPOSTA_INICIAL}}\",\n  \"data_resposta_final\": \"{{OFICIOS_DATA_RESPOSTA_FINAL}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2960,14 +3512,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{OFICIOS_ID_PEDIDO}},\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
                 }
               }
             },
-            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_get_pedido_oe}}"
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_get_pedido}}"
           }
         },
         {
@@ -3019,7 +3571,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3078,7 +3630,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{OFICIOS_SET_PEDIDO_RESPONDIDO_ID_PEDIDO}},\n  \"resposta\": \"{{OFICIOS_SET_PEDIDO_RESPONDIDO_RESPOSTA}}\",\n  \"negativa\": {{OFICIOS_SET_PEDIDO_RESPONDIDO_NEGATIVA}},\n  \"anexos\": [],\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3137,7 +3689,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{OFICIOS_SET_PEDIDO_DEVOLVIDO_ID_PEDIDO}},\n  \"motivo_devolucao\": \"{{OFICIOS_SET_PEDIDO_DEVOLVIDO_MOTIVO_DEVOLUCAO}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3196,7 +3748,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"id_pedido\": {{OFICIOS_SET_PEDIDO_RETRANSMITIDO_ID_PEDIDO}},\n  \"id_cartorio\": {{OFICIOS_SET_PEDIDO_RETRANSMITIDO_ID_CARTORIO}},\n  \"observacoes\": \"{{OFICIOS_SET_PEDIDO_RETRANSMITIDO_OBSERVACOES}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3261,7 +3813,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"pedidos\": \"{{OFICIOS_SET_PEDIDO_NEGATIVA_LOTE_PEDIDOS}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"pedidos\": [\n    {\n      \"id_pedido\": {{OFICIOS_SET_PEDIDO_NEGATIVA_LOTE_ID_PEDIDO}}\n    }\n  ],\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3320,7 +3872,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"url_servico_onr\": \"{{url_servico_oficios}}\"\n}",
+              "raw": "{\n\n}",
               "options": {
                 "raw": {
                   "language": "json"

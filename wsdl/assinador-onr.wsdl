@@ -1,0 +1,633 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://wsassinador.arisp.com.br" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="Assinador" targetNamespace="http://wsassinador.arisp.com.br">
+<wsdl:types>
+<xsd:schema targetNamespace="http://wsassinador.arisp.com.br/Imports">
+<xsd:import schemaLocation="http://wsassinador.onr.org.br/Assinador.svc?xsd=xsd0" namespace="http://wsassinador.arisp.com.br"/>
+<xsd:import schemaLocation="http://wsassinador.onr.org.br/Assinador.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+<xsd:import schemaLocation="http://wsassinador.onr.org.br/Assinador.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/"/>
+<xsd:import schemaLocation="http://wsassinador.onr.org.br/Assinador.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Assinador.DAL.BE"/>
+<xsd:import schemaLocation="http://wsassinador.onr.org.br/Assinador.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System"/>
+<xsd:import schemaLocation="http://wsassinador.onr.org.br/Assinador.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<xsd:import schemaLocation="http://wsassinador.onr.org.br/Assinador.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Lacuna.Amplia.Api.CertificateFormatting"/>
+<xsd:import schemaLocation="http://wsassinador.onr.org.br/Assinador.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/WSAssinador"/>
+</xsd:schema>
+</wsdl:types>
+<wsdl:message name="IAssinador_GetData_InputMessage">
+<wsdl:part name="parameters" element="tns:GetData"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetData_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetDataResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetDataUsingDataContract_InputMessage">
+<wsdl:part name="parameters" element="tns:GetDataUsingDataContract"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetDataUsingDataContract_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ObterVersao_InputMessage">
+<wsdl:part name="parameters" element="tns:ObterVersao"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ObterVersao_OutputMessage">
+<wsdl:part name="parameters" element="tns:ObterVersaoResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarAnexosSolicitacoes_InputMessage">
+<wsdl:part name="parameters" element="tns:ListarAnexosSolicitacoes"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarAnexosSolicitacoes_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListarAnexosSolicitacoesResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarPedidosClientes_InputMessage">
+<wsdl:part name="parameters" element="tns:ListarPedidosClientes"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarPedidosClientes_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListarPedidosClientesResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoes_InputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoes"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoes_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoesOficio_InputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesOficio"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoesOficio_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesOficioResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoesPenhora_InputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesPenhora"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoesPenhora_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesPenhoraResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_InserirAnexoSolicitacao_InputMessage">
+<wsdl:part name="parameters" element="tns:InserirAnexoSolicitacao"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_InserirAnexoSolicitacao_OutputMessage">
+<wsdl:part name="parameters" element="tns:InserirAnexoSolicitacaoResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_TipoArquivoAssinado_InputMessage">
+<wsdl:part name="parameters" element="tns:TipoArquivoAssinado"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_TipoArquivoAssinado_OutputMessage">
+<wsdl:part name="parameters" element="tns:TipoArquivoAssinadoResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_TipoAnexoAssinado_InputMessage">
+<wsdl:part name="parameters" element="tns:TipoAnexoAssinado"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_TipoAnexoAssinado_OutputMessage">
+<wsdl:part name="parameters" element="tns:TipoAnexoAssinadoResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_TipoAnexoTempURL_InputMessage">
+<wsdl:part name="parameters" element="tns:TipoAnexoTempURL"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_TipoAnexoTempURL_OutputMessage">
+<wsdl:part name="parameters" element="tns:TipoAnexoTempURLResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ObterTokensOficial_InputMessage">
+<wsdl:part name="parameters" element="tns:ObterTokensOficial"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ObterTokensOficial_OutputMessage">
+<wsdl:part name="parameters" element="tns:ObterTokensOficialResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ValidarArquivoOficial_InputMessage">
+<wsdl:part name="parameters" element="tns:ValidarArquivoOficial"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ValidarArquivoOficial_OutputMessage">
+<wsdl:part name="parameters" element="tns:ValidarArquivoOficialResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ValidarArquivoAssinado_InputMessage">
+<wsdl:part name="parameters" element="tns:ValidarArquivoAssinado"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ValidarArquivoAssinado_OutputMessage">
+<wsdl:part name="parameters" element="tns:ValidarArquivoAssinadoResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ValidarPedidoCertidaoCDHU_InputMessage">
+<wsdl:part name="parameters" element="tns:ValidarPedidoCertidaoCDHU"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ValidarPedidoCertidaoCDHU_OutputMessage">
+<wsdl:part name="parameters" element="tns:ValidarPedidoCertidaoCDHUResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_CriptografarDados_InputMessage">
+<wsdl:part name="parameters" element="tns:CriptografarDados"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_CriptografarDados_OutputMessage">
+<wsdl:part name="parameters" element="tns:CriptografarDadosResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_DescriptografarDados_InputMessage">
+<wsdl:part name="parameters" element="tns:DescriptografarDados"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_DescriptografarDados_OutputMessage">
+<wsdl:part name="parameters" element="tns:DescriptografarDadosResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_CriptografarChaveCartorio_InputMessage">
+<wsdl:part name="parameters" element="tns:CriptografarChaveCartorio"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_CriptografarChaveCartorio_OutputMessage">
+<wsdl:part name="parameters" element="tns:CriptografarChaveCartorioResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_DescriptografarChaveCartorio_InputMessage">
+<wsdl:part name="parameters" element="tns:DescriptografarChaveCartorio"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_DescriptografarChaveCartorio_OutputMessage">
+<wsdl:part name="parameters" element="tns:DescriptografarChaveCartorioResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ObterAtributoAmplia_InputMessage">
+<wsdl:part name="parameters" element="tns:ObterAtributoAmplia"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ObterAtributoAmplia_OutputMessage">
+<wsdl:part name="parameters" element="tns:ObterAtributoAmpliaResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GerarAtributoAmplia_InputMessage">
+<wsdl:part name="parameters" element="tns:GerarAtributoAmplia"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GerarAtributoAmplia_OutputMessage">
+<wsdl:part name="parameters" element="tns:GerarAtributoAmpliaResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetTimeStamp2_InputMessage">
+<wsdl:part name="parameters" element="tns:GetTimeStamp2"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetTimeStamp2_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetTimeStamp2Response"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetTimeStamp_InputMessage">
+<wsdl:part name="parameters" element="tns:GetTimeStamp"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetTimeStamp_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetTimeStampResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetTimeStampFromBase64_InputMessage">
+<wsdl:part name="parameters" element="tns:GetTimeStampFromBase64"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_GetTimeStampFromBase64_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetTimeStampFromBase64Response"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_PADES_CadastrarArquivo_InputMessage">
+<wsdl:part name="parameters" element="tns:PADES_CadastrarArquivo"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_PADES_CadastrarArquivo_OutputMessage">
+<wsdl:part name="parameters" element="tns:PADES_CadastrarArquivoResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_SetContratoExigenciaAC_InputMessage">
+<wsdl:part name="parameters" element="tns:SetContratoExigenciaAC"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_SetContratoExigenciaAC_OutputMessage">
+<wsdl:part name="parameters" element="tns:SetContratoExigenciaACResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_SetContratoAverbadoAC_InputMessage">
+<wsdl:part name="parameters" element="tns:SetContratoAverbadoAC"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_SetContratoAverbadoAC_OutputMessage">
+<wsdl:part name="parameters" element="tns:SetContratoAverbadoACResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoesEProtocolo_InputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesEProtocolo"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoesEProtocolo_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesEProtocoloResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoesStatusPO_InputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesStatusPO"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_ListarSolicitacoesStatusPO_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListarSolicitacoesStatusPOResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_SetPenhoraAverbadoPO_InputMessage">
+<wsdl:part name="parameters" element="tns:SetPenhoraAverbadoPO"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_SetPenhoraAverbadoPO_OutputMessage">
+<wsdl:part name="parameters" element="tns:SetPenhoraAverbadoPOResponse"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_SetPenhoraExigenciaPO_InputMessage">
+<wsdl:part name="parameters" element="tns:SetPenhoraExigenciaPO"/>
+</wsdl:message>
+<wsdl:message name="IAssinador_SetPenhoraExigenciaPO_OutputMessage">
+<wsdl:part name="parameters" element="tns:SetPenhoraExigenciaPOResponse"/>
+</wsdl:message>
+<wsdl:portType name="IAssinador">
+<wsdl:operation name="GetData">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetData" message="tns:IAssinador_GetData_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetDataResponse" message="tns:IAssinador_GetData_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetDataUsingDataContract">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetDataUsingDataContract" message="tns:IAssinador_GetDataUsingDataContract_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetDataUsingDataContractResponse" message="tns:IAssinador_GetDataUsingDataContract_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ObterVersao">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ObterVersao" message="tns:IAssinador_ObterVersao_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ObterVersaoResponse" message="tns:IAssinador_ObterVersao_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListarAnexosSolicitacoes">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarAnexosSolicitacoes" message="tns:IAssinador_ListarAnexosSolicitacoes_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarAnexosSolicitacoesResponse" message="tns:IAssinador_ListarAnexosSolicitacoes_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListarPedidosClientes">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarPedidosClientes" message="tns:IAssinador_ListarPedidosClientes_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarPedidosClientesResponse" message="tns:IAssinador_ListarPedidosClientes_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoes">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoes" message="tns:IAssinador_ListarSolicitacoes_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesResponse" message="tns:IAssinador_ListarSolicitacoes_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoesOficio">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesOficio" message="tns:IAssinador_ListarSolicitacoesOficio_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesOficioResponse" message="tns:IAssinador_ListarSolicitacoesOficio_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoesPenhora">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesPenhora" message="tns:IAssinador_ListarSolicitacoesPenhora_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesPenhoraResponse" message="tns:IAssinador_ListarSolicitacoesPenhora_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="InserirAnexoSolicitacao">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/InserirAnexoSolicitacao" message="tns:IAssinador_InserirAnexoSolicitacao_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/InserirAnexoSolicitacaoResponse" message="tns:IAssinador_InserirAnexoSolicitacao_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="TipoArquivoAssinado">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/TipoArquivoAssinado" message="tns:IAssinador_TipoArquivoAssinado_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/TipoArquivoAssinadoResponse" message="tns:IAssinador_TipoArquivoAssinado_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="TipoAnexoAssinado">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/TipoAnexoAssinado" message="tns:IAssinador_TipoAnexoAssinado_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/TipoAnexoAssinadoResponse" message="tns:IAssinador_TipoAnexoAssinado_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="TipoAnexoTempURL">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/TipoAnexoTempURL" message="tns:IAssinador_TipoAnexoTempURL_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/TipoAnexoTempURLResponse" message="tns:IAssinador_TipoAnexoTempURL_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ObterTokensOficial">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ObterTokensOficial" message="tns:IAssinador_ObterTokensOficial_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ObterTokensOficialResponse" message="tns:IAssinador_ObterTokensOficial_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ValidarArquivoOficial">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ValidarArquivoOficial" message="tns:IAssinador_ValidarArquivoOficial_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ValidarArquivoOficialResponse" message="tns:IAssinador_ValidarArquivoOficial_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ValidarArquivoAssinado">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ValidarArquivoAssinado" message="tns:IAssinador_ValidarArquivoAssinado_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ValidarArquivoAssinadoResponse" message="tns:IAssinador_ValidarArquivoAssinado_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ValidarPedidoCertidaoCDHU">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ValidarPedidoCertidaoCDHU" message="tns:IAssinador_ValidarPedidoCertidaoCDHU_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ValidarPedidoCertidaoCDHUResponse" message="tns:IAssinador_ValidarPedidoCertidaoCDHU_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CriptografarDados">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/CriptografarDados" message="tns:IAssinador_CriptografarDados_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/CriptografarDadosResponse" message="tns:IAssinador_CriptografarDados_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="DescriptografarDados">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/DescriptografarDados" message="tns:IAssinador_DescriptografarDados_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/DescriptografarDadosResponse" message="tns:IAssinador_DescriptografarDados_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CriptografarChaveCartorio">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/CriptografarChaveCartorio" message="tns:IAssinador_CriptografarChaveCartorio_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/CriptografarChaveCartorioResponse" message="tns:IAssinador_CriptografarChaveCartorio_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="DescriptografarChaveCartorio">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/DescriptografarChaveCartorio" message="tns:IAssinador_DescriptografarChaveCartorio_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/DescriptografarChaveCartorioResponse" message="tns:IAssinador_DescriptografarChaveCartorio_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ObterAtributoAmplia">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ObterAtributoAmplia" message="tns:IAssinador_ObterAtributoAmplia_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ObterAtributoAmpliaResponse" message="tns:IAssinador_ObterAtributoAmplia_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GerarAtributoAmplia">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GerarAtributoAmplia" message="tns:IAssinador_GerarAtributoAmplia_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GerarAtributoAmpliaResponse" message="tns:IAssinador_GerarAtributoAmplia_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetTimeStamp2">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetTimeStamp2" message="tns:IAssinador_GetTimeStamp2_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetTimeStamp2Response" message="tns:IAssinador_GetTimeStamp2_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetTimeStamp">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetTimeStamp" message="tns:IAssinador_GetTimeStamp_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetTimeStampResponse" message="tns:IAssinador_GetTimeStamp_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetTimeStampFromBase64">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetTimeStampFromBase64" message="tns:IAssinador_GetTimeStampFromBase64_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/GetTimeStampFromBase64Response" message="tns:IAssinador_GetTimeStampFromBase64_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="PADES_CadastrarArquivo">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/PADES_CadastrarArquivo" message="tns:IAssinador_PADES_CadastrarArquivo_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/PADES_CadastrarArquivoResponse" message="tns:IAssinador_PADES_CadastrarArquivo_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SetContratoExigenciaAC">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/SetContratoExigenciaAC" message="tns:IAssinador_SetContratoExigenciaAC_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/SetContratoExigenciaACResponse" message="tns:IAssinador_SetContratoExigenciaAC_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SetContratoAverbadoAC">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/SetContratoAverbadoAC" message="tns:IAssinador_SetContratoAverbadoAC_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/SetContratoAverbadoACResponse" message="tns:IAssinador_SetContratoAverbadoAC_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoesEProtocolo">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesEProtocolo" message="tns:IAssinador_ListarSolicitacoesEProtocolo_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesEProtocoloResponse" message="tns:IAssinador_ListarSolicitacoesEProtocolo_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoesStatusPO">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesStatusPO" message="tns:IAssinador_ListarSolicitacoesStatusPO_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesStatusPOResponse" message="tns:IAssinador_ListarSolicitacoesStatusPO_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraAverbadoPO">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/SetPenhoraAverbadoPO" message="tns:IAssinador_SetPenhoraAverbadoPO_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/SetPenhoraAverbadoPOResponse" message="tns:IAssinador_SetPenhoraAverbadoPO_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraExigenciaPO">
+<wsdl:input wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/SetPenhoraExigenciaPO" message="tns:IAssinador_SetPenhoraExigenciaPO_InputMessage"/>
+<wsdl:output wsaw:Action="http://wsassinador.arisp.com.br/IAssinador/SetPenhoraExigenciaPOResponse" message="tns:IAssinador_SetPenhoraExigenciaPO_OutputMessage"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="BasicHttpBinding_IAssinador" type="tns:IAssinador">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GetData">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/GetData" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetDataUsingDataContract">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/GetDataUsingDataContract" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterVersao">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ObterVersao" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListarAnexosSolicitacoes">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ListarAnexosSolicitacoes" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListarPedidosClientes">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ListarPedidosClientes" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoes">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoes" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoesOficio">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesOficio" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoesPenhora">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesPenhora" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InserirAnexoSolicitacao">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/InserirAnexoSolicitacao" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="TipoArquivoAssinado">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/TipoArquivoAssinado" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="TipoAnexoAssinado">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/TipoAnexoAssinado" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="TipoAnexoTempURL">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/TipoAnexoTempURL" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterTokensOficial">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ObterTokensOficial" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ValidarArquivoOficial">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ValidarArquivoOficial" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ValidarArquivoAssinado">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ValidarArquivoAssinado" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ValidarPedidoCertidaoCDHU">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ValidarPedidoCertidaoCDHU" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CriptografarDados">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/CriptografarDados" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="DescriptografarDados">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/DescriptografarDados" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CriptografarChaveCartorio">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/CriptografarChaveCartorio" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="DescriptografarChaveCartorio">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/DescriptografarChaveCartorio" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ObterAtributoAmplia">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ObterAtributoAmplia" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GerarAtributoAmplia">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/GerarAtributoAmplia" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetTimeStamp2">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/GetTimeStamp2" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetTimeStamp">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/GetTimeStamp" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetTimeStampFromBase64">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/GetTimeStampFromBase64" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="PADES_CadastrarArquivo">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/PADES_CadastrarArquivo" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetContratoExigenciaAC">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/SetContratoExigenciaAC" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetContratoAverbadoAC">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/SetContratoAverbadoAC" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoesEProtocolo">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesEProtocolo" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListarSolicitacoesStatusPO">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/ListarSolicitacoesStatusPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraAverbadoPO">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/SetPenhoraAverbadoPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SetPenhoraExigenciaPO">
+<soap:operation soapAction="http://wsassinador.arisp.com.br/IAssinador/SetPenhoraExigenciaPO" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Assinador">
+<wsdl:port name="BasicHttpBinding_IAssinador" binding="tns:BasicHttpBinding_IAssinador">
+<soap:address location="http://wsassinador.onr.org.br/Assinador.svc"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

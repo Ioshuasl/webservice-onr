@@ -1,0 +1,1494 @@
+{
+  "info": {
+    "_postman_id": "81646582-e1bf-417e-83fe-b0aa9c8dcb52",
+    "name": "Assinador ONR — SOAP",
+    "description": "Coleção SOAP para **wsassinador.onr.org.br** (`IAssinador`).\n\n**Variáveis explícitas** em **Collection variables** (aba Variables) — padrão CCN/ONR unificado. Environment opcional sobrescreve.\n\n## Credenciais\n\n1. `id_instituicao` — ID do cartório no cadastro ONR.\n2. `assinador_hash` — hash de sessão (operações `Listar*` com `hash` minúsculo). Costuma ser o `onr_hash` do login WSOficio (`postman/onr-webservice-n8n` → 3.1 Login).\n3. `assinador_Hash` — mesma origem, para `ListarSolicitacoesStatusPO` / `ListarSolicitacoesEProtocolo`.\n4. `HASH_Autenticacao` + `HASH_UDDI` — credencial da aplicação (ONR/serventia).\n5. `assinador_pdf_base64` — PDF em Base64 (sem quebras de linha).\n\n## Regenerar\n\n```bash\nnpm run postman:build:assinador\n```\n\nDocumentação: `assinador-onr/manual-endpoint-assinador-.md` · WSDL: `wsdl/assinador-onr.wsdl`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "assinador_endpoint",
+      "value": "http://wsassinador.onr.org.br/Assinador.svc",
+      "type": "string"
+    },
+    {
+      "key": "assinador_soap_namespace",
+      "value": "http://wsassinador.arisp.com.br",
+      "type": "string"
+    },
+    {
+      "key": "id_instituicao",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "assinador_hash",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "assinador_Hash",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "HASH_Autenticacao",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "HASH_UDDI",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_certidao_s",
+      "value": "S20120000001D",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_oficio",
+      "value": "2101000001",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_penhora_sph",
+      "value": "SPH21010000001D",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_penhora_ph",
+      "value": "PH000007167",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_penhora_ph_nota",
+      "value": "PH000007167N",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_eprot",
+      "value": "AC000570464",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_eprot_nota",
+      "value": "AC000570464N",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_eprot_talao",
+      "value": "AC000570464T",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_eprot_xml",
+      "value": "AC000570464X",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_balcao_certidao",
+      "value": "certidao-1234",
+      "type": "string"
+    },
+    {
+      "key": "protocolo_seic",
+      "value": "IN00905472CN",
+      "type": "string"
+    },
+    {
+      "key": "assinador_pdf_base64",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "assinador_nome_arquivo",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "penhora_matricula",
+      "value": "1234",
+      "type": "string"
+    },
+    {
+      "key": "penhora_resposta",
+      "value": "Certidão de registro conforme pedido.",
+      "type": "string"
+    },
+    {
+      "key": "contrato_descricao",
+      "value": "Nota de exigência conforme documentação.",
+      "type": "string"
+    },
+    {
+      "key": "contrato_resposta",
+      "value": "Resposta ao protocolo.",
+      "type": "string"
+    },
+    {
+      "key": "dt_pedido_inicial",
+      "value": "2025-01-01T00:00:00",
+      "type": "string"
+    },
+    {
+      "key": "dt_pedido_final",
+      "value": "2026-12-31T23:59:59",
+      "type": "string"
+    },
+    {
+      "key": "id_solicitacao",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "token_usuario",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "assinador_cpf",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "onr_hash",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ONR_SERVENTIA_CHAVE",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "assinador_soapaction_prefix",
+      "value": "http://wsassinador.arisp.com.br/IAssinador/",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "0. Diagnóstico",
+      "item": [
+        {
+          "name": "ObterVersao",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ObterVersao"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ObterVersao/>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Versão do serviço — sem parâmetros."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "1. Certidão digital",
+      "description": "Protocolo S… — Listar → Validar → PADES.",
+      "item": [
+        {
+          "name": "ListarSolicitacoes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ListarSolicitacoes"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ListarSolicitacoes>\n      <tns:idInstituicao>{{id_instituicao}}</tns:idInstituicao>\n      <tns:protocolo>{{protocolo_certidao_s}}</tns:protocolo>\n      <tns:hash>{{assinador_hash}}</tns:hash>\n    </tns:ListarSolicitacoes>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Lista pedidos certidão. `protocolo_certidao_s` ex.: S20120000001D."
+          },
+          "response": []
+        },
+        {
+          "name": "ValidarArquivoOficial",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ValidarArquivoOficial"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ValidarArquivoOficial>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:strProtocolo>{{protocolo_certidao_s}}</tns:strProtocolo>\n    </tns:ValidarArquivoOficial>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Valida PDF + nome S… (Pronto para assinar / recusado)."
+          },
+          "response": []
+        },
+        {
+          "name": "PADES_CadastrarArquivo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}PADES_CadastrarArquivo"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:PADES_CadastrarArquivo>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:PADES_CadastrarArquivo>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Cadastra PDF PAdES após assinatura."
+          },
+          "response": []
+        },
+        {
+          "name": "InserirAnexoSolicitacao",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}InserirAnexoSolicitacao"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:InserirAnexoSolicitacao>\n      <tns:IdSolicitacao>{{id_solicitacao}}</tns:IdSolicitacao>\n      <tns:NomeArquivo>{{assinador_nome_arquivo}}</tns:NomeArquivo>\n      <tns:ExtensaoArquivo>pdf</tns:ExtensaoArquivo>\n      <tns:Arquivo>{{assinador_pdf_base64}}</tns:Arquivo>\n      <tns:hash>{{assinador_hash}}</tns:hash>\n    </tns:InserirAnexoSolicitacao>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Anexo em solicitação existente (`id_solicitacao`)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Ofício eletrônico",
+      "item": [
+        {
+          "name": "ListarSolicitacoesOficio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ListarSolicitacoesOficio"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ListarSolicitacoesOficio>\n      <tns:idInstituicao>{{id_instituicao}}</tns:idInstituicao>\n      <tns:protocolo>{{protocolo_oficio}}</tns:protocolo>\n      <tns:hash>{{assinador_hash}}</tns:hash>\n    </tns:ListarSolicitacoesOficio>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Lista ofícios."
+          },
+          "response": []
+        },
+        {
+          "name": "ValidarArquivoOficial",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ValidarArquivoOficial"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ValidarArquivoOficial>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:strProtocolo>{{protocolo_oficio}}</tns:strProtocolo>\n    </tns:ValidarArquivoOficial>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Valida nome 2101000001 ou 2101000001-1234."
+          },
+          "response": []
+        },
+        {
+          "name": "PADES_CadastrarArquivo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}PADES_CadastrarArquivo"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:PADES_CadastrarArquivo>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:PADES_CadastrarArquivo>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Envio PDF assinado."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Penhora SPH",
+      "item": [
+        {
+          "name": "ListarSolicitacoesPenhora",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ListarSolicitacoesPenhora"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ListarSolicitacoesPenhora>\n      <tns:idInstituicao>{{id_instituicao}}</tns:idInstituicao>\n      <tns:protocolo>{{protocolo_penhora_sph}}</tns:protocolo>\n      <tns:hash>{{assinador_hash}}</tns:hash>\n    </tns:ListarSolicitacoesPenhora>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Lista SPH…"
+          },
+          "response": []
+        },
+        {
+          "name": "ValidarArquivoOficial",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ValidarArquivoOficial"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ValidarArquivoOficial>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:strProtocolo>{{protocolo_penhora_sph}}</tns:strProtocolo>\n    </tns:ValidarArquivoOficial>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Valida SPH…"
+          },
+          "response": []
+        },
+        {
+          "name": "PADES_CadastrarArquivo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}PADES_CadastrarArquivo"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:PADES_CadastrarArquivo>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:PADES_CadastrarArquivo>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Entrega certidão assinada SPH."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Penhora PH",
+      "item": [
+        {
+          "name": "ListarSolicitacoesStatusPO",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ListarSolicitacoesStatusPO"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ListarSolicitacoesStatusPO>\n      <tns:ProtocoloPenhora>{{protocolo_penhora_ph}}</tns:ProtocoloPenhora>\n      <tns:IdInstituicao>{{id_instituicao}}</tns:IdInstituicao>\n      <tns:Hash>{{assinador_Hash}}</tns:Hash>\n    </tns:ListarSolicitacoesStatusPO>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Consulta status PH antes de SetPenhora*. Use assinador_Hash (capital H)."
+          },
+          "response": []
+        },
+        {
+          "name": "ValidarArquivoOficial",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ValidarArquivoOficial"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ValidarArquivoOficial>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:strProtocolo>{{protocolo_penhora_ph}}</tns:strProtocolo>\n    </tns:ValidarArquivoOficial>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Valida PH…"
+          },
+          "response": []
+        },
+        {
+          "name": "SetPenhoraAverbadoPO",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}SetPenhoraAverbadoPO"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:SetPenhoraAverbadoPO>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:nrProtocolo>{{protocolo_penhora_ph}}</wsa:nrProtocolo>\n        <wsa:NomeArquivo>{{assinador_nome_arquivo}}</wsa:NomeArquivo>\n        <wsa:Matricula>{{penhora_matricula}}</wsa:Matricula>\n        <wsa:Resposta>{{penhora_resposta}}</wsa:Resposta>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:SetPenhoraAverbadoPO>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Penhora PH — averbação. Arquivo sem sufixo N. Manual: assinador-onr/manual-endpoint-assinador-.md §4."
+          },
+          "response": []
+        },
+        {
+          "name": "SetPenhoraExigenciaPO",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}SetPenhoraExigenciaPO"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:SetPenhoraExigenciaPO>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:nrProtocolo>{{protocolo_penhora_ph_nota}}</wsa:nrProtocolo>\n        <wsa:NomeArquivo>{{assinador_nome_arquivo}}</wsa:NomeArquivo>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:SetPenhoraExigenciaPO>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Penhora PH — nota de exigência (sufixo N). Manual §4."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "5. E-Protocolo",
+      "item": [
+        {
+          "name": "ListarSolicitacoesEProtocolo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ListarSolicitacoesEProtocolo"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ListarSolicitacoesEProtocolo>\n      <tns:nrProtocolo>{{protocolo_eprot}}</tns:nrProtocolo>\n      <tns:IdInstituicao>{{id_instituicao}}</tns:IdInstituicao>\n      <tns:Hash>{{assinador_Hash}}</tns:Hash>\n    </tns:ListarSolicitacoesEProtocolo>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "E-Protocolo — consulta pedido AC…"
+          },
+          "response": []
+        },
+        {
+          "name": "ValidarArquivoOficial",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ValidarArquivoOficial"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ValidarArquivoOficial>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:strProtocolo>{{protocolo_eprot_nota}}</tns:strProtocolo>\n    </tns:ValidarArquivoOficial>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Valida AC…N (nota)."
+          },
+          "response": []
+        },
+        {
+          "name": "SetContratoExigenciaAC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}SetContratoExigenciaAC"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:SetContratoExigenciaAC>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:ProtocoloContrato>{{protocolo_eprot_nota}}</wsa:ProtocoloContrato>\n        <wsa:NomeArquivo>{{assinador_nome_arquivo}}</wsa:NomeArquivo>\n        <wsa:Descricao>{{contrato_descricao}}</wsa:Descricao>\n        <wsa:Resposta>{{contrato_resposta}}</wsa:Resposta>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:SetContratoExigenciaAC>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "E-Protocolo — nota (…N)."
+          },
+          "response": []
+        },
+        {
+          "name": "SetContratoAverbadoAC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}SetContratoAverbadoAC"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:SetContratoAverbadoAC>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:ProtocoloContrato>{{protocolo_eprot}}</wsa:ProtocoloContrato>\n        <wsa:NomeArquivo>{{assinador_nome_arquivo}}</wsa:NomeArquivo>\n        <wsa:Descricao>{{contrato_descricao}}</wsa:Descricao>\n        <wsa:Resposta>{{contrato_resposta}}</wsa:Resposta>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:SetContratoAverbadoAC>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "E-Protocolo — averbação/registro. Um call por arquivo (AC, ACT, ACX)."
+          },
+          "response": []
+        },
+        {
+          "name": "SetContratoAverbadoAC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}SetContratoAverbadoAC"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:SetContratoAverbadoAC>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:ProtocoloContrato>{{protocolo_eprot_talao}}</wsa:ProtocoloContrato>\n        <wsa:NomeArquivo>{{assinador_nome_arquivo}}</wsa:NomeArquivo>\n        <wsa:Descricao>{{contrato_descricao}}</wsa:Descricao>\n        <wsa:Resposta>{{contrato_resposta}}</wsa:Resposta>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:SetContratoAverbadoAC>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "E-Protocolo — averbação/registro. Um call por arquivo (AC, ACT, ACX)."
+          },
+          "response": []
+        },
+        {
+          "name": "SetContratoAverbadoAC",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}SetContratoAverbadoAC"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:SetContratoAverbadoAC>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:ProtocoloContrato>{{protocolo_eprot_xml}}</wsa:ProtocoloContrato>\n        <wsa:NomeArquivo>{{assinador_nome_arquivo}}</wsa:NomeArquivo>\n        <wsa:Descricao>{{contrato_descricao}}</wsa:Descricao>\n        <wsa:Resposta>{{contrato_resposta}}</wsa:Resposta>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:SetContratoAverbadoAC>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "E-Protocolo — averbação/registro. Um call por arquivo (AC, ACT, ACX)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "6. Balcão RI",
+      "item": [
+        {
+          "name": "ValidarArquivoOficial",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ValidarArquivoOficial"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ValidarArquivoOficial>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:strProtocolo>{{protocolo_balcao_certidao}}</tns:strProtocolo>\n    </tns:ValidarArquivoOficial>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "certidao-1234 (sem acento)."
+          },
+          "response": []
+        },
+        {
+          "name": "PADES_CadastrarArquivo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}PADES_CadastrarArquivo"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:PADES_CadastrarArquivo>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:PADES_CadastrarArquivo>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Balcão — PADES."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "7. SEIC / Intimação",
+      "item": [
+        {
+          "name": "ValidarArquivoOficial",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ValidarArquivoOficial"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ValidarArquivoOficial>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:strProtocolo>{{protocolo_seic}}</tns:strProtocolo>\n    </tns:ValidarArquivoOficial>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "IN…CN, CP, etc. — sufixo completo."
+          },
+          "response": []
+        },
+        {
+          "name": "PADES_CadastrarArquivo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}PADES_CadastrarArquivo"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:PADES_CadastrarArquivo>\n      <tns:oRequest xmlns:wsa=\"http://schemas.datacontract.org/2004/07/WSAssinador\">\n        <wsa:HASH_Autenticacao>{{HASH_Autenticacao}}</wsa:HASH_Autenticacao>\n        <wsa:HASH_UDDI>{{HASH_UDDI}}</wsa:HASH_UDDI>\n        <wsa:IDCartorio>{{id_instituicao}}</wsa:IDCartorio>\n        <wsa:file>{{assinador_pdf_base64}}</wsa:file>\n      </tns:oRequest>\n    </tns:PADES_CadastrarArquivo>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "SEIC — PADES."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Consultar lotes",
+      "item": [
+        {
+          "name": "ListarPedidosClientes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ListarPedidosClientes"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ListarPedidosClientes>\n      <tns:IdInstituicao>{{id_instituicao}}</tns:IdInstituicao>\n      <tns:dtPedidoInicial>{{dt_pedido_inicial}}</tns:dtPedidoInicial>\n      <tns:dtPedidoFinal>{{dt_pedido_final}}</tns:dtPedidoFinal>\n      <tns:hash>{{assinador_hash}}</tns:hash>\n    </tns:ListarPedidosClientes>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Pedidos por período."
+          },
+          "response": []
+        },
+        {
+          "name": "ListarAnexosSolicitacoes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ListarAnexosSolicitacoes"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ListarAnexosSolicitacoes>\n      <tns:IdSolicitacao>{{id_solicitacao}}</tns:IdSolicitacao>\n      <tns:hash>{{assinador_hash}}</tns:hash>\n    </tns:ListarAnexosSolicitacoes>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Anexos de uma solicitação."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Infraestrutura",
+      "item": [
+        {
+          "name": "ObterTokensOficial",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ObterTokensOficial"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ObterTokensOficial>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:HASH_Autenticacao>{{HASH_Autenticacao}}</tns:HASH_Autenticacao>\n    </tns:ObterTokensOficial>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Tokens para assinatura oficial."
+          },
+          "response": []
+        },
+        {
+          "name": "ValidarArquivoAssinado",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ValidarArquivoAssinado"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ValidarArquivoAssinado>\n      <tns:file>{{assinador_pdf_base64}}</tns:file>\n      <tns:Protocolo>{{protocolo_certidao_s}}</tns:Protocolo>\n      <tns:HASH_Autenticacao>{{HASH_Autenticacao}}</tns:HASH_Autenticacao>\n      <tns:HASH_UDDI>{{HASH_UDDI}}</tns:HASH_UDDI>\n      <tns:CPF>{{assinador_cpf}}</tns:CPF>\n    </tns:ValidarArquivoAssinado>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Valida P7S/PDF já assinado."
+          },
+          "response": []
+        },
+        {
+          "name": "ObterAtributoAmplia",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}ObterAtributoAmplia"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:ObterAtributoAmplia>\n      <tns:cpf>{{assinador_cpf}}</tns:cpf>\n    </tns:ObterAtributoAmplia>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Certificado de atributo Amplia."
+          },
+          "response": []
+        },
+        {
+          "name": "GetTimeStamp",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const body = pm.response.text();",
+                  "pm.test('SOAP Body presente', () => pm.expect(body.length).to.be.above(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              },
+              {
+                "key": "SOAPAction",
+                "value": "{{assinador_soapaction_prefix}}GetTimeStamp"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"{{assinador_soap_namespace}}\">\n  <soap:Body>\n    <tns:GetTimeStamp>\n      <tns:TokenUsuario>{{token_usuario}}</tns:TokenUsuario>\n      <tns:Base64Binary>{{assinador_pdf_base64}}</tns:Base64Binary>\n      <tns:DocumentoSolicitante></tns:DocumentoSolicitante>\n      <tns:Protocolo>{{protocolo_certidao_s}}</tns:Protocolo>\n      <tns:Origem>ONR</tns:Origem>\n    </tns:GetTimeStamp>\n  </soap:Body>\n</soap:Envelope>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": "{{assinador_endpoint}}",
+            "description": "Carimbo de tempo."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

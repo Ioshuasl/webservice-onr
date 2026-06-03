@@ -3,14 +3,15 @@
 > **Fonte canônica (Git):** [OriusTecnologia/N8N](https://git.oriustecnologia.com/OriusTecnologia/N8N.git) — branch `main`, arquivos em `*/postman/*.postman_collection.json`.  
 > Clone: `git clone https://git.oriustecnologia.com/OriusTecnologia/N8N.git` · espelho em `orius N8N/` neste repo · publicar: `npm run n8n:sync:postman:orius`.
 
-## Coleção unificada ONR (desenvolvimento local)
+## Coleção unificada ONR (variáveis explícitas)
 
 | Arquivo | Descrição |
 |---------|-----------|
-| [`onr-webservice-n8n.postman_collection.json`](onr-webservice-n8n.postman_collection.json) | **Única coleção** para proxies n8n + SOAP login de referência |
-| [`onr-webservice-n8n.postman_environment.template.json`](onr-webservice-n8n.postman_environment.template.json) | Environment opcional (sobrescreve Collection variables) |
+| [`onr-webservice-n8n-variaveis-explicitas.postman_collection.json`](onr-webservice-n8n-variaveis-explicitas.postman_collection.json) | **Coleção canônica** — nome no Postman: *ONR WebService — n8n (variáveis explícitas)* |
+| [`onr-webservice-n8n.postman_collection.json`](onr-webservice-n8n.postman_collection.json) | Espelho idêntico (sync legado / links antigos) |
+| [`onr-webservice-n8n.postman_environment.template.json`](onr-webservice-n8n.postman_environment.template.json) | Environment **opcional** (sobrescreve Collection variables) |
 
-**Variáveis HML:** todas em **Collection variables** (aba Variables da coleção), no estilo CCN. O environment é opcional para secrets locais ou overrides.
+**Variáveis HML:** o JSON traz a lista **completa** em `variable[]` (template + webhooks dos workflows + chaves usadas nos requests). Ao reimportar, use **Replace** na coleção para **sobrescrever todas** as Collection variables — não faz merge com variáveis antigas nem importa environment automaticamente.
 
 ### Pastas por domínio (spec WSOficio)
 
@@ -60,6 +61,23 @@ npm run postman:sync
 
 ---
 
+## Assinador ONR (SOAP direto)
+
+| Arquivo | Descrição |
+|---------|-----------|
+| [`assinador-onr.postman_collection.json`](assinador-onr.postman_collection.json) | **wsassinador** — variáveis HML explícitas em **Collection variables** |
+| [`assinador-onr.postman_environment.template.json`](assinador-onr.postman_environment.template.json) | Template opcional (sobrescreve a coleção) |
+
+Regenerar após editar o template ou o script:
+
+```bash
+npm run postman:build:assinador
+```
+
+Documentação: `assinador-onr/manual-endpoint-assinador-.md`. O `assinador_hash` costuma ser o `onr_hash` do login em `onr-webservice-n8n` (3.1 Login).
+
+---
+
 ## Outras coleções (fora do WSOficio ONR)
 
 Estas **não** entram na coleção unificada ONR (outros produtos/domínios):
@@ -68,10 +86,13 @@ Estas **não** entram na coleção unificada ONR (outros produtos/domínios):
 |---------|---------|
 | [`CCN-Upload-XML-n8n`](CCN-Upload-XML-n8n.postman_collection.json) | CCN / e-notariado |
 | [`censec-n8n`](censec-n8n.postman_collection.json) | CENSEC |
+| [`censec-n8n.postman_environment.template.json`](censec-n8n.postman_environment.template.json) | Environment CENSEC (opcional; sobrescreve Collection variables) |
 | [`DOI-Validate-JSON-n8n`](DOI-Validate-JSON-n8n.postman_collection.json) | DOI validação local |
 | [`Parse-Memorial-SIGEF-n8n`](Parse-Memorial-SIGEF-n8n.postman_collection.json) | SIGEF memorial |
 
 CCN: `npm run postman:sync:ccn` · variáveis explícitas na própria coleção CCN.
+
+**CENSEC:** importe [`censec-n8n`](censec-n8n.postman_collection.json) + [`censec-n8n.postman_environment.template.json`](censec-n8n.postman_environment.template.json). Preencha `CENSEC_API_KEY` e `N8N_BASIC_AUTH_PASSWORD` no environment (valores em Obsidian `[[env]]` ou `.env` local). A coleção já traz defaults HML em Collection variables; o environment opcional sobrescreve. Fonte: `orius N8N/Censec/env.md`.
 
 ---
 
