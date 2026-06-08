@@ -1,6 +1,6 @@
 # 🤖 AI Agents Guidelines
 <!-- n8n-as-code-start -->
-<!-- n8nac-version: 2.3.4 -->
+<!-- n8nac-version: 2.3.6 -->
 
 ## n8n-as-code Context Root
 
@@ -32,19 +32,18 @@ If your agent runtime supports workspace agents, use the `.github/agents/*.agent
 
 ## Source Of Truth
 
-Do not infer configuration from this file. It intentionally avoids storing the effective instance, project, sync folder, or workflow directory.
+Do not infer configuration from this file. It intentionally avoids storing the effective instance, project, or workflow directory.
 
 n8nac backend resolution remains the only source of effective workspace state.
 - Workspace environments live in `n8nac-config.json` and are managed by `npx --yes n8nac env ...`.
 - Managed local runtime state and secrets live in n8n-manager storage and are managed by `npx --yes @n8n-as-code/n8n-manager ...`.
 - The effective context is resolved by the backend.
 
-Before any n8n workflow command, run migration dry-run first, then workspace status only after migration is not required or has been applied:
+Before any n8n workflow command, resolve the active workspace environment:
 
 ```bash
 cd c:\Users\kenio\automacoes e testes
-npx --yes n8nac workspace migrate --json
-npx --yes n8nac workspace status --json
+npx --yes n8nac env status --json
 ```
 
 Use the returned `workflowsPath` exactly as provided. It is the configured workflow directory for the active environment.
@@ -56,9 +55,21 @@ Do not reconstruct `workflowsPath` from environment name/id, instance identifier
 
 - Primary workspace, environment, sync, validation, push, and pull work: `npx --yes n8nac ...`
 - Local managed runtime lifecycle and tunnels only: `npx --yes @n8n-as-code/n8n-manager ...`
-- Workspace status and migration: `npx --yes n8nac workspace ...`
+- Workspace environment status: `npx --yes n8nac env status --json`
 - Workflow sync and validation: `npx --yes n8nac ...`
 - Node knowledge and schema lookup: `npx --yes n8nac skills ...`
 
 Never write `n8nac-config.json`, `~/.n8n-manager`, or n8n-manager secret files by hand.
 <!-- n8n-as-code-end -->
+
+---
+
+## Orius n8n Orchestrator
+
+For **end-to-end** n8n automation (vault research → workflow → push → Postman → sync → vault docs → test payload), use the orchestrator — not `n8n-architect` alone:
+
+- Agent: `.github/agents/n8n-orchestrator.agent.md`
+- Skill: `.cursor/skills/agent-n8n-orchestrator/SKILL.md`
+- Routing matrix: `.cursor/skills/agent-n8n-orchestrator/routing-matrix.md`
+
+Adapters: **ONR WSOficio SOAP** (`agent-onr-n8n-soap`), **CENSEC** (`agent-censec-n8n`). CCN, DOI, SIGEF, RIB: routing matrix only until Phase 3.

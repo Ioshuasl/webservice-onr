@@ -1,0 +1,37 @@
+---
+description: Nomenclatura obrigatória [AUTONR-n] nos requests Postman (alinhamento Plane/vault/n8n)
+globs: postman/**/*.json,scripts/postman/**/*
+alwaysApply: false
+---
+
+# Postman — prefixo AUTONR obrigatório
+
+Todo request Postman que representa um card **AUTONR** no Plane deve usar o formato canônico:
+
+```
+[AUTONR-n] Nome descritivo
+```
+
+Exemplos:
+- `[AUTONR-2] Auth ONR — Login`
+- `[AUTONR-84] Importacao Arquivos CTP — Solicitar URL upload`
+- `[AUTONR-91] Auth Token`
+
+## Regras
+
+1. **Formato:** `[AUTONR-<sequence_id>]` + espaço + nome legível (pode usar ` — ` para ação/cenário).
+2. **Proibido** em coleções novas ou editadas: `AUTONR-n: Nome` (dois-pontos — legado).
+3. **Pastas** (`3.1 Login`, `protocolo`, etc.) **não** recebem prefixo — só folhas com `request`.
+4. **Fonte do número:** `Obsidian Vault/Meta/integracoes/plane/maps/autonr-work-items.json` (`plane_key`).
+5. **Coleções sem card AUTONR** (ex.: `assinador-onr`) ficam isentas.
+
+## Ao criar ou modificar
+
+- Scripts de build: usar `formatAutonrRequestName()` de `scripts/postman/postman-request-naming.cjs`.
+- Coleção ONR WSOficio: registry em `scripts/postman/onr-postman-autonr-registry.cjs` + `npm run postman:build:onr`.
+- RIB: `scripts/rib/update-postman-rib-collection.cjs` com `autonr` por request.
+- Validar antes de sync: `npm run postman:validate:naming` (corrigir legado: `--fix`).
+
+## Documentação
+
+`postman/README.md` — seção **Nomenclatura AUTONR (obrigatório)**.

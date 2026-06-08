@@ -3,6 +3,33 @@
 > **Fonte canônica (Git):** [OriusTecnologia/N8N](https://git.oriustecnologia.com/OriusTecnologia/N8N.git) — branch `main`, arquivos em `*/postman/*.postman_collection.json`.  
 > Clone: `git clone https://git.oriustecnologia.com/OriusTecnologia/N8N.git` · espelho em `orius N8N/` neste repo · publicar: `npm run n8n:sync:postman:orius`.
 
+## Nomenclatura AUTONR (obrigatório)
+
+Todo request que corresponde a um card **AUTONR** no Plane deve seguir o formato:
+
+```text
+[AUTONR-n] Nome descritivo
+```
+
+Exemplos: `[AUTONR-2] Auth ONR — Login` · `[AUTONR-91] Auth Token` · `[AUTONR-84] Importacao Arquivos CTP — Solicitar URL upload`
+
+| Regra | Detalhe |
+|-------|---------|
+| **Formato** | `[AUTONR-<n>]` + espaço + nome legível (use ` — ` para ação ou cenário de teste) |
+| **Pastas** | Sem prefixo — só folhas com `request` |
+| **Fonte do `n`** | `Obsidian Vault/.../plane/maps/autonr-work-items.json` → `plane_key` |
+| **Proibido** | `AUTONR-n: Nome` (legado com dois-pontos; migrar com `--fix`) |
+| **Isentas** | `assinador-onr` e coleções sem card AUTONR |
+
+**Validar** (falha o sync se houver violação):
+
+```bash
+npm run postman:validate:naming
+npm run postman:validate:naming:fix   # migra AUTONR-n: → [AUTONR-n] e aplica prefixos pendentes
+```
+
+Helpers: `scripts/postman/postman-request-naming.cjs` · registry ONR: `onr-postman-autonr-registry.cjs` · regra Cursor: `.cursor/rules/postman-autonr-naming.mdc`.
+
 ## Coleção unificada ONR (variáveis explícitas)
 
 | Arquivo | Descrição |
@@ -89,8 +116,33 @@ Estas **não** entram na coleção unificada ONR (outros produtos/domínios):
 | [`censec-n8n.postman_environment.template.json`](censec-n8n.postman_environment.template.json) | Environment CENSEC (opcional; sobrescreve Collection variables) |
 | [`DOI-Validate-JSON-n8n`](DOI-Validate-JSON-n8n.postman_collection.json) | DOI validação local |
 | [`Parse-Memorial-SIGEF-n8n`](Parse-Memorial-SIGEF-n8n.postman_collection.json) | SIGEF memorial |
+| [`RIB-n8n`](RIB-n8n.postman_collection.json) | API Registro de Imóveis do Brasil (RIB) |
+| [`RIB-n8n.postman_environment.template.json`](RIB-n8n.postman_environment.template.json) | Environment RIB (opcional; sobrescreve Collection variables) |
 
 CCN: `npm run postman:sync:ccn` · variáveis explícitas na própria coleção CCN.
+
+**Sync Postman Cloud (CCN, CENSEC, DOI, SIGEF):**
+
+```bash
+npm run postman:sync:integrations   # valida [AUTONR-n] + publica as 4 coleções
+npm run postman:sync:ccn
+npm run postman:sync:censec
+npm run postman:sync:doi
+npm run postman:sync:sigef
+```
+
+Configs locais (gitignored): `.postman-sync-ccn.json`, `.postman-sync-censec.json`, `.postman-sync-doi.json`, `.postman-sync-sigef.json` (templates `.example`).
+
+**RIB:** coleção canônica em [`RIB-n8n`](RIB-n8n.postman_collection.json). **Não reimporte** após cada alteração — publique no Postman Cloud:
+
+```bash
+npm run postman:sync:rib          # push único
+npm run postman:sync:rib:watch    # observa o JSON e publica automaticamente
+```
+
+Config local (gitignored): `postman/.postman-sync-rib.json` (UID `35976147-81ffb313-b01c-419e-941c-f97156a7fbd5`). API key: `POSTMAN_API_KEY` no `.env`. Primeira vez em workspace novo: `npm run postman:sync:rib:create`.
+
+Environment opcional: [`RIB-n8n.postman_environment.template.json`](RIB-n8n.postman_environment.template.json) — preencha `RIB_API_CLIENT_ID` / `RIB_API_CLIENT_SECRET` (vault `[[env#RIB]]`). Use `RIB_AMBIENTE` (`producao` ou `homologacao`). Fluxo: **autenticacao → Token — produção** (grava `rib_access_token`).
 
 **CENSEC:** importe [`censec-n8n`](censec-n8n.postman_collection.json) + [`censec-n8n.postman_environment.template.json`](censec-n8n.postman_environment.template.json). Preencha `CENSEC_API_KEY` e `N8N_BASIC_AUTH_PASSWORD` no environment (valores em Obsidian `[[env]]` ou `.env` local). A coleção já traz defaults HML em Collection variables; o environment opcional sobrescreve. Fonte: `orius N8N/Censec/env.md`.
 

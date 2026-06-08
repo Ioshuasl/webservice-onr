@@ -1,0 +1,1 @@
+{"status_http":400,"sucesso":false,"codigo_erro":10,"mensagem_erro":"url_servico_onr deve ser uma URL http ou https valida.","dados":{"filtros":{"protocolo":"","id_tipo_pedido":-1,"id_status":-1,"id_vara":-1,"data_solicitacao_inicial":"2025-04-01","data_solicitacao_final":"2025-04-28","data_resposta_inicial":"","data_resposta_final":""},"quantidade_pedidos":0,"pedidos":[]}}

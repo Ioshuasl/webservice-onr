@@ -10,7 +10,13 @@ const N8N_FOLDER_DESC = 'Proxy n8n. Documentação: `scripts/login/Auth WebServi
 const SOAP_FOLDER_DESC =
   'Chamada SOAP nativa a `login.asmx` — sem n8n. Preferir **n8n — Auth ONR** para integrações.';
 
+const { stripAutonrPrefix } = require('./onr-postman-autonr-registry.cjs');
+
 const N8N_REQUEST_ORDER = ['Auth ONR — Login', 'Auth ONR — CPF inválido', 'Auth ONR — CPF ausente'];
+
+function bareRequestName(name) {
+  return stripAutonrPrefix(name);
+}
 
 function collectLeafRequests(items, out = []) {
   for (const it of items || []) {
@@ -23,7 +29,8 @@ function collectLeafRequests(items, out = []) {
 function dedupeRequestsByName(requests) {
   const map = new Map();
   for (const r of requests) {
-    if (!map.has(r.name)) map.set(r.name, r);
+    const key = bareRequestName(r.name);
+    if (!map.has(key)) map.set(key, r);
   }
   return map;
 }
@@ -47,7 +54,10 @@ function normalizeLoginFolder(loginFolder) {
 
   const soapItems = [];
   for (const [name, req] of byName) {
-    if (/SOAP direto|LoginUsuarioCertificado/i.test(name)) soapItems.push(req);
+    const bare = bareRequestName(name);
+    if (/SOAP direto|LoginUsuarioCertificado/i.test(bare) || /SOAP direto|LoginUsuarioCertificado/i.test(name)) {
+      soapItems.push(req);
+    }
   }
 
   const item = [];

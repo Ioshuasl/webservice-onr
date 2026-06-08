@@ -79,9 +79,27 @@ export class CensecUploadJsonGatewayWorkflow {
         language: 'javaScript',
         jsCode: `
 const input = items[0]?.json ?? {};
-const payload = input.body && typeof input.body === 'object' && !Array.isArray(input.body)
+const rawBody = input.body && typeof input.body === 'object' && !Array.isArray(input.body)
   ? input.body
   : input;
+
+function resolveAmbiente(value) {
+  const raw = String(value ?? 'homologacao').trim().toLowerCase();
+  if (raw === 'producao' || raw === 'production' || raw === 'prod') {
+    return {
+      key: 'producao',
+      baseUrl: 'https://censec.org.br',
+    };
+  }
+  return {
+    key: 'homologacao',
+    baseUrl: 'https://hml.censec.org.br',
+  };
+}
+
+const amb = resolveAmbiente(rawBody.ambiente);
+const payload = { ...rawBody };
+delete payload.ambiente;
 
 return [{
   json: {
@@ -95,6 +113,9 @@ return [{
       receivedAt: new Date().toISOString(),
       source: 'n8n-censec-upload-json',
       headers: input.headers ?? {},
+      ambiente: amb.key,
+      censecBaseUrl: amb.baseUrl,
+      censecUploadUrl: amb.baseUrl + '/api/cargas/upload-json',
     },
   },
 }];
@@ -945,7 +966,7 @@ return [{
     })
     UploadJsonToCensec = {
         method: 'POST',
-        url: 'https://censec.org.br/api/cargas/upload-json',
+        url: '={{ $json.meta.censecUploadUrl }}',
         authentication: 'none',
         sendHeaders: true,
         specifyHeaders: 'keypair',
@@ -1039,6 +1060,8 @@ function normalizeHttpError(errorObject) {
   };
 }
 
+const upstreamMeta = $('Normalize Payload').first().json.meta ?? {};
+
 if (!failed) {
   return [{
     json: {
@@ -1046,6 +1069,8 @@ if (!failed) {
       response: {
         success: true,
         message: 'Carga JSON enviada para a CENSEC.',
+        ambiente: upstreamMeta.ambiente ?? 'homologacao',
+        censecBaseUrl: upstreamMeta.censecBaseUrl ?? null,
         censec: result,
       },
     },

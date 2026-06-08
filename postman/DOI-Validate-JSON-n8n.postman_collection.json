@@ -63,7 +63,7 @@
       "description": "Webhook n8n — validação local de declarações DOI em JSON.",
       "item": [
         {
-          "name": "Payload válido — Notarial (exemplo)",
+          "name": "[AUTONR-87] Payload válido — Notarial (exemplo)",
           "description": "Espelha `scripts/doi/exemplo-doi-valido.json`. Escritura notarial urbana com CPFs válidos.",
           "event": [
             {
@@ -117,7 +117,7 @@
           }
         },
         {
-          "name": "Payload inválido — declaracoes ausente",
+          "name": "[AUTONR-87] Payload inválido — declaracoes ausente",
           "description": "Objeto raiz sem `declaracoes` — deve retornar 400 com erro `required`.",
           "event": [
             {
@@ -167,7 +167,7 @@
           }
         },
         {
-          "name": "Payload inválido — CPF alienante",
+          "name": "[AUTONR-87] Payload inválido — CPF alienante",
           "description": "Força `ni_invalid` em `declaracoes[0].alienantes[0].ni`.",
           "event": [
             {
@@ -213,7 +213,7 @@
           }
         },
         {
-          "name": "Payload inválido — tipoDeclaracao retificadora",
+          "name": "[AUTONR-87] Payload inválido — tipoDeclaracao retificadora",
           "description": "Importação em lote aceita somente Original (`0`). `tipoDeclaracao` = `1` deve retornar `unsupported_batch_type`.",
           "event": [
             {
@@ -259,7 +259,7 @@
           }
         },
         {
-          "name": "Payload inválido — participação soma incorreta",
+          "name": "[AUTONR-87] Payload inválido — participação soma incorreta",
           "description": "Soma de `participacao` em alienantes diferente de 99–100% — erro `participation_sum`.",
           "event": [
             {

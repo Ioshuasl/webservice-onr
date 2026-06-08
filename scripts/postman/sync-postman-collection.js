@@ -16,7 +16,11 @@ import fs from "fs";
 import path from "path";
 import { randomUUID } from "crypto";
 import { fileURLToPath } from "url";
+import { createRequire } from "module";
 import dotenv from "dotenv";
+
+const require = createRequire(import.meta.url);
+const { validateCollectionFile, EXEMPT_COLLECTIONS } = require("./validate-postman-request-naming.cjs");
 
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -225,6 +229,16 @@ async function syncOnce() {
   }
 
   const collection = readCollection();
+  const collectionFile = path.basename(COLLECTION_PATH);
+  if (!EXEMPT_COLLECTIONS.has(collectionFile)) {
+    const naming = validateCollectionFile(COLLECTION_PATH);
+    if (!naming.ok) {
+      throw new Error(
+        "Nomenclatura Postman inválida (use [AUTONR-n] Nome). Rode: npm run postman:validate:naming\n" +
+          naming.errors.map((e) => `  • ${e}`).join("\n")
+      );
+    }
+  }
   const name = collection.info?.name || "ONR WebService — n8n";
 
   let uid = isValidCollectionUid(collectionUid) ? collectionUid : "";

@@ -1,0 +1,354 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="crago.cra21.com.br" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="crago.cra21.com.br">
+<types>
+<xsd:schema targetNamespace="crago.cra21.com.br">
+<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+<xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+</xsd:schema>
+</types>
+<message name="ConsultarBoletoCancelamentoRequest">
+<part name="documentoDevedor" type="xsd:string"/>
+<part name="numeroTitulo" type="xsd:string"/>
+</message>
+<message name="ConsultarBoletoCancelamentoResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="RemessaRequest">
+<part name="userArq" type="xsd:string"/>
+<part name="userDados" type="xsd:string"/>
+</message>
+<message name="RemessaResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="ConfirmacaoRequest">
+<part name="userArq" type="xsd:string"/>
+</message>
+<message name="ConfirmacaoResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="RetornoRequest">
+<part name="userArq" type="xsd:string"/>
+</message>
+<message name="RetornoResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="DesistenciaRequest">
+<part name="userArq" type="xsd:string"/>
+<part name="userDados" type="xsd:string"/>
+</message>
+<message name="DesistenciaResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="CancelamentoRequest">
+<part name="userArq" type="xsd:string"/>
+<part name="userDados" type="xsd:string"/>
+</message>
+<message name="CancelamentoResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="Autoriza_CancelamentoRequest">
+<part name="userArq" type="xsd:string"/>
+<part name="userDados" type="xsd:string"/>
+</message>
+<message name="Autoriza_CancelamentoResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="Autoriza_DesistenciaRequest">
+<part name="userArq" type="xsd:string"/>
+<part name="userDados" type="xsd:string"/>
+</message>
+<message name="Autoriza_DesistenciaResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="HomologadasRequest">
+<part name="codapres" type="xsd:string"/>
+<part name="cartorios" type="xsd:string"/>
+</message>
+<message name="HomologadasResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="ConsultaRequest">
+<part name="nossoNumero" type="xsd:string"/>
+<part name="numeroTitulo" type="xsd:string"/>
+</message>
+<message name="ConsultaResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="Consulta_SlipRequest">
+<part name="codMunicipio" type="xsd:string"/>
+<part name="codCartorio" type="xsd:string"/>
+<part name="protocolo" type="xsd:string"/>
+<part name="dataProtocolo" type="xsd:string"/>
+</message>
+<message name="Consulta_SlipResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="InstrumentoRequest">
+<part name="userDados" type="xsd:string"/>
+</message>
+<message name="InstrumentoResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="ImagemRequest">
+<part name="userArq" type="xsd:string"/>
+<part name="userDados" type="xsd:string"/>
+</message>
+<message name="ImagemResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="BoletoAutorizacaoRequest">
+<part name="numeroTitulo" type="xsd:string"/>
+<part name="documentoDevedor" type="xsd:string"/>
+</message>
+<message name="BoletoAutorizacaoResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="AndamentoRequest">
+<part name="userArq" type="xsd:string"/>
+</message>
+<message name="AndamentoResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="Oficio_TituloRequest">
+<part name="userArq" type="xsd:string"/>
+<part name="userDados" type="xsd:string"/>
+</message>
+<message name="Oficio_TituloResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="ConsultaJustificativaRequest"/>
+<message name="ConsultaJustificativaResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<portType name="server.craPortType">
+<operation name="ConsultarBoletoCancelamento">
+<input message="tns:ConsultarBoletoCancelamentoRequest"/>
+<output message="tns:ConsultarBoletoCancelamentoResponse"/>
+</operation>
+<operation name="Remessa">
+<input message="tns:RemessaRequest"/>
+<output message="tns:RemessaResponse"/>
+</operation>
+<operation name="Confirmacao">
+<input message="tns:ConfirmacaoRequest"/>
+<output message="tns:ConfirmacaoResponse"/>
+</operation>
+<operation name="Retorno">
+<input message="tns:RetornoRequest"/>
+<output message="tns:RetornoResponse"/>
+</operation>
+<operation name="Desistencia">
+<input message="tns:DesistenciaRequest"/>
+<output message="tns:DesistenciaResponse"/>
+</operation>
+<operation name="Cancelamento">
+<input message="tns:CancelamentoRequest"/>
+<output message="tns:CancelamentoResponse"/>
+</operation>
+<operation name="Autoriza_Cancelamento">
+<input message="tns:Autoriza_CancelamentoRequest"/>
+<output message="tns:Autoriza_CancelamentoResponse"/>
+</operation>
+<operation name="Autoriza_Desistencia">
+<input message="tns:Autoriza_DesistenciaRequest"/>
+<output message="tns:Autoriza_DesistenciaResponse"/>
+</operation>
+<operation name="Homologadas">
+<input message="tns:HomologadasRequest"/>
+<output message="tns:HomologadasResponse"/>
+</operation>
+<operation name="Consulta">
+<input message="tns:ConsultaRequest"/>
+<output message="tns:ConsultaResponse"/>
+</operation>
+<operation name="Consulta_Slip">
+<input message="tns:Consulta_SlipRequest"/>
+<output message="tns:Consulta_SlipResponse"/>
+</operation>
+<operation name="Instrumento">
+<input message="tns:InstrumentoRequest"/>
+<output message="tns:InstrumentoResponse"/>
+</operation>
+<operation name="Imagem">
+<input message="tns:ImagemRequest"/>
+<output message="tns:ImagemResponse"/>
+</operation>
+<operation name="BoletoAutorizacao">
+<input message="tns:BoletoAutorizacaoRequest"/>
+<output message="tns:BoletoAutorizacaoResponse"/>
+</operation>
+<operation name="Andamento">
+<input message="tns:AndamentoRequest"/>
+<output message="tns:AndamentoResponse"/>
+</operation>
+<operation name="Oficio_Titulo">
+<input message="tns:Oficio_TituloRequest"/>
+<output message="tns:Oficio_TituloResponse"/>
+</operation>
+<operation name="ConsultaJustificativa">
+<input message="tns:ConsultaJustificativaRequest"/>
+<output message="tns:ConsultaJustificativaResponse"/>
+</operation>
+</portType>
+<binding name="server.craBinding" type="tns:server.craPortType">
+<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="ConsultarBoletoCancelamento">
+<soap:operation soapAction="urn:crago.cra21.com.br#ConsultarBoletoCancelamento" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Remessa">
+<soap:operation soapAction="urn:crago.cra21.com.br#Remessa" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Confirmacao">
+<soap:operation soapAction="urn:crago.cra21.com.br#Confirmacao" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Retorno">
+<soap:operation soapAction="urn:crago.cra21.com.br#Retorno" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Desistencia">
+<soap:operation soapAction="urn:crago.cra21.com.br#Desistencia" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Cancelamento">
+<soap:operation soapAction="urn:crago.cra21.com.br#Cancelamento" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Autoriza_Cancelamento">
+<soap:operation soapAction="urn:crago.cra21.com.br#Autoriza_Cancelamento" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Autoriza_Desistencia">
+<soap:operation soapAction="urn:crago.cra21.com.br#Autoriza_Desistencia" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Homologadas">
+<soap:operation soapAction="urn:crago.cra21.com.br#Homologadas" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Consulta">
+<soap:operation soapAction="urn:crago.cra21.com.br#Consulta" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Consulta_Slip">
+<soap:operation soapAction="urn:crago.cra21.com.br#Consulta_Slip" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Instrumento">
+<soap:operation soapAction="urn:crago.cra21.com.br#Instrumento" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Imagem">
+<soap:operation soapAction="urn:crago.cra21.com.br#Imagem" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="BoletoAutorizacao">
+<soap:operation soapAction="urn:crago.cra21.com.br#BoletoAutorizacao" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Andamento">
+<soap:operation soapAction="urn:crago.cra21.com.br#Andamento" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="Oficio_Titulo">
+<soap:operation soapAction="urn:crago.cra21.com.br#Oficio_Titulo" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="ConsultaJustificativa">
+<soap:operation soapAction="urn:crago.cra21.com.br#ConsultaJustificativa" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:crago.cra21.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+</binding>
+<service name="server.cra">
+<port name="server.craPort" binding="tns:server.craBinding">
+<soap:address location="http://crago.cra21.com.br/cradf/xml/protestos.php"/>
+</port>
+</service>
+</definitions>

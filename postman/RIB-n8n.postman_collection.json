@@ -1,0 +1,1527 @@
+{
+  "info": {
+    "_postman_id": "cc0df512-82ed-4e2e-a320-b9ba7add432a",
+    "name": "api do registro de imoveis do brasil (rib) - n8n",
+    "description": "Coleção para testar os **workflows n8n** que fazem proxy para a API REST do Registro de Imóveis do Brasil (RIB / CORI-BR).\n\nOrganização por **módulo RIB** (espelha a documentação em `Orius/integracoes/registro-imoveis/api-registro-imoveis/`).\n\n## Workflows cobertos\n\n| AUTONR | Workflow | ID | Webhook |\n|--------|----------|-----|---------|\n| 91 | AuthToken | Idas4wAPEfIA17xq | POST /rib/auth/token |\n| 92 | ListagemProtocolos | Sw88u5Dn1Wnbs9c6 | GET /rib/protocolo |\n| 93 | DetalheProtocoloV2 | 6imnqEJHXSvp2EAX | GET /rib/protocolo/detalhes |\n| 94 | TokenDetalheProtocolo | HMpCCRnGi6yitVy4 | POST /rib/protocolo/token |\n| 95 | DetalheBasicoProtocolo | w9DuDDE9e74jFwVl | GET /rib/protocolo/basico |\n| 96 | DownloadAnexoProtocolo | uSexWi4TgIUZ0xno | GET /rib/protocolo/download |\n| 97 | EnvioProtocoloOnline | lGuyT9TxzELzUHa4 | POST /rib/protocolo/envio |\n| 98 | EnvioProtocoloLote | H8gMs70WzJW2uVlJ | POST /rib/protocolo/lote |\n| 99 | ListagemFilaProtocolo | 3G5maOXe8FOoJksV | GET /rib/fila/processamento/protocolo |\n| 100 | DetalheFilaProtocolo | Z0jlhH7XDrY9KKUa | GET /rib/fila/processamento/protocolo/detalhe |\n| 101 | ExclusaoProtocolo | rPEIpPQRxOvda4ya | DELETE /rib/protocolo/exclusao |\n| 102 | AtualizarProtocoloCobranca | anWU5nm66RxqPKPh | PATCH /rib/cobranca/protocolo |\n| 120 | ListagemTiposPagamento | 1C9hQMPCfrBuaJ78 | GET /rib/cobranca/tipo/pagamento |\n| 121 | ListagemCobrancas | zWqpw3J2H21zZIxl | GET /rib/cobranca |\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Credenciais RIB em `RIB_API_CLIENT_ID` / `RIB_API_CLIENT_SECRET` (body) **ou** variáveis `RIB_API_*` no n8n (Easypanel).\n4. Parâmetro **`ambiente`** (`RIB_AMBIENTE` na coleção): `producao` ou `homologacao` — define a URL upstream. Pode ir no **body JSON**, na **query** (`?ambiente=`) ou no header legado `X-Ambiente`. No n8n, fallback `$env.RIB_API_AMBIENTE`.\n\n## URLs do webhook\n\n| Modo | URL |\n|------|-----|\n| Teste (editor) | `{{n8n_base_url}}/webhook-test/{{rib_auth_webhook_path}}` |\n| Produção | `{{n8n_base_url}}/webhook/{{rib_auth_webhook_path}}` |\n\nVariável `n8n_webhook_mode`: `webhook-test` ou `webhook`.\n\n## Token para requests futuros\n\n**Uma request por AUTONR.** Execute **AUTONR-91** antes dos demais — grava `rib_access_token`. Workflows seguintes usam header `X-RIB-Access-Token: {{rib_access_token}}`.\n\n## API RIB upstream (referência)\n\n| Ambiente | Base URL |\n|----------|----------|\n| Produção | `https://api.registrodeimoveis.org.br` |\n| Homologação | `https://testes-api.registrodeimoveis.org.br` |\n\nColeção oficial (SOAP/REST direto): `api-registro-imoveis/API - Registro de Imóveis do Brasil.postman_collection.json`.\n\n## Atualizar no Postman (API — não reimportar)\n\nApós editar este JSON no Git, publique no Postman Cloud:\n\n```bash\nnpm run postman:sync:rib\nnpm run postman:sync:rib:watch   # modo contínuo\n```\n\nUID: `35976147-81ffb313-b01c-419e-941c-f97156a7fbd5` · config: `postman/.postman-sync-rib.json`\n\n## Referências\n\n- Workflow auth: `workflows/n8n/extensao-n8n-teste/Auth RIB.workflow.ts`\n- Vault credenciais: `env#RIB`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASE_URL",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook",
+      "type": "string"
+    },
+    {
+      "key": "rib_auth_webhook_path",
+      "value": "rib/auth/token",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_auth_rib",
+      "value": "Idas4wAPEfIA17xq",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    },
+    {
+      "key": "RIB_AMBIENTE",
+      "value": "producao",
+      "type": "string"
+    },
+    {
+      "key": "RIB_API_AMBIENTE",
+      "value": "producao",
+      "type": "string"
+    },
+    {
+      "key": "RIB_API_CLIENT_ID",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "RIB_API_CLIENT_SECRET",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "RIB_API_BASE_URL",
+      "value": "https://api.registrodeimoveis.org.br",
+      "type": "string"
+    },
+    {
+      "key": "RIB_API_BASE_URL_HML",
+      "value": "https://testes-api.registrodeimoveis.org.br",
+      "type": "string"
+    },
+    {
+      "key": "rib_access_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "rib_token_cns",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "rib_listagem_webhook_path",
+      "value": "rib/protocolo",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_listagem_protocolos_rib",
+      "value": "Sw88u5Dn1Wnbs9c6",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "function getVar(key) {",
+          "  const fromEnv = pm.environment.get(key);",
+          "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+          "  const fromCollection = pm.collectionVariables.get(key);",
+          "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+          "  return pm.variables.get(key);",
+          "}",
+          "",
+          "function hasBasicAuthConfigured() {",
+          "  const auth = pm.request.auth;",
+          "  if (!auth || auth.type !== 'basic' || !Array.isArray(auth.basic)) return false;",
+          "  const user = auth.basic.find((x) => x.key === 'username')?.value;",
+          "  const pass = auth.basic.find((x) => x.key === 'password')?.value;",
+          "  return Boolean(user && pass && !String(user).includes('{{') && !String(pass).includes('{{'));",
+          "}",
+          "",
+          "const required = ['n8n_base_url', 'n8n_webhook_mode'];",
+          "if (!getVar('N8N_BASIC_AUTH_USER') || !getVar('N8N_BASIC_AUTH_PASSWORD')) {",
+          "  if (!hasBasicAuthConfigured()) {",
+          "    required.push('N8N_BASIC_AUTH_USER', 'N8N_BASIC_AUTH_PASSWORD');",
+          "  }",
+          "}",
+          "const missing = required.filter((k) => !getVar(k));",
+          "if (missing.length) {",
+          "  throw new Error('Variáveis ausentes: ' + missing.join(', ') + '. Importe RIB-n8n.postman_environment.template.json ou defina na coleção.');",
+          "}",
+          "",
+          "if (getVar('n8n_webhook_mode') === 'webhook-test') {",
+          "  console.warn('Modo webhook-test: abra o workflow no n8n e clique Execute workflow antes de enviar.');",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "autenticacao",
+      "description": "Módulo **RFG-01** — uma request por AUTONR.",
+      "item": [
+        {
+          "name": "[AUTONR-91] Auth Token",
+          "description": "Webhook n8n `POST /rib/auth/token` — proxy `POST /v1/auth/token` + validação `GET /v1/auth/validacao`. Credenciais no body ou `$env.RIB_API_*` no n8n. Sucesso grava `rib_access_token`.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('RIB_API_CLIENT_ID') || !getVar('RIB_API_CLIENT_SECRET')) {",
+                  "  console.warn('RIB_API_CLIENT_ID ou RIB_API_CLIENT_SECRET vazio: preencha no environment (vault env#RIB).');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                  "",
+                  "let json;",
+                  "pm.test('Resposta JSON válida', () => {",
+                  "  json = pm.response.json();",
+                  "  pm.expect(json).to.be.an('object');",
+                  "});",
+                  "",
+                  "pm.test('Token obtido com sucesso', () => {",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.access_token).to.be.a('string').and.not.empty;",
+                  "  pm.expect(json.token_type).to.eql('Bearer');",
+                  "  pm.expect(json.token_valido).to.eql(true);",
+                  "});",
+                  "",
+                  "pm.test('Validação RIB GET /v1/auth/validacao', () => {",
+                  "  pm.expect(json.validacao).to.be.an('object');",
+                  "  pm.expect(json.validacao.sucesso).to.eql(true);",
+                  "  pm.expect(json.validacao.status_http).to.eql(200);",
+                  "  pm.expect(json.validacao.endpoint).to.include('/v1/auth/validacao');",
+                  "});",
+                  "",
+                  "pm.test('Claims básicos presentes', () => {",
+                  "  pm.expect(json.expires_in).to.be.a('number');",
+                  "  pm.expect(json.ambiente).to.eql(pm.collectionVariables.get('RIB_AMBIENTE') || 'producao');",
+                  "  pm.expect(json.meta.baseUrl).to.include('registrodeimoveis.org.br');",
+                  "});",
+                  "",
+                  "if (json.access_token) {",
+                  "  pm.collectionVariables.set('rib_access_token', json.access_token);",
+                  "  pm.environment.set('rib_access_token', json.access_token);",
+                  "}",
+                  "if (json.cns) {",
+                  "  pm.collectionVariables.set('rib_token_cns', String(json.cns));",
+                  "  pm.environment.set('rib_token_cns', String(json.cns));",
+                  "}",
+                  "",
+                  "console.log('rib_access_token gravado. CNS:', json.cns, '| escopos:', (json.escopos || []).length);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"client_id\": \"{{RIB_API_CLIENT_ID}}\",\n  \"client_secret\": \"{{RIB_API_CLIENT_SECRET}}\",\n  \"grant_type\": \"client_credentials\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{rib_auth_webhook_path}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "protocolo",
+      "description": "Módulo **protocolo** (RFP-01…07). Uma request por AUTONR. Pré-requisito: **AUTONR-91**.",
+      "item": [
+        {
+          "name": "[AUTONR-92] Listagem Protocolos",
+          "description": "GET /rib/protocolo → GET /v1/protocolo (RFP-05)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/protocolo?ambiente={{RIB_AMBIENTE}}&registrosPorPagina=50&numeroPagina=1",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "protocolo"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "registrosPorPagina",
+                  "value": "50"
+                },
+                {
+                  "key": "numeroPagina",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[AUTONR-93] Detalhe Protocolo V2",
+          "description": "GET /rib/protocolo/detalhes → GET /v2/protocolo/{numero}/detalhes (RFP-07). Ajuste query `numero`.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/protocolo/detalhes?ambiente={{RIB_AMBIENTE}}&numero=2024/123456&versao=2",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "protocolo",
+                "detalhes"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "numero",
+                  "value": "2024/123456"
+                },
+                {
+                  "key": "versao",
+                  "value": "2"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[AUTONR-94] Token Detalhe Protocolo",
+          "description": "POST /rib/protocolo/token → POST /v2/protocolo/{numero}/token (RFP-06/07)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/protocolo/token",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"numero\": \"2024/123456\",\n  \"senha\": \"senha-exemplo\",\n  \"tipoSolicitacao\": 1,\n  \"versao\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "[AUTONR-95] Detalhe Basico Protocolo",
+          "description": "GET /rib/protocolo/basico → GET /v1/protocolo/{numero} (RFP-06)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/protocolo/basico?ambiente={{RIB_AMBIENTE}}&numero=2024/123456",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "protocolo",
+                "basico"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "numero",
+                  "value": "2024/123456"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[AUTONR-96] Download Anexo Protocolo",
+          "description": "GET /rib/protocolo/download → GET /v1/protocolo/{numero}/download/{hash}",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/protocolo/download?ambiente={{RIB_AMBIENTE}}&numero=2024/123456&hash_arquivo=hash-exemplo",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "protocolo",
+                "download"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "numero",
+                  "value": "2024/123456"
+                },
+                {
+                  "key": "hash_arquivo",
+                  "value": "hash-exemplo"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[AUTONR-97] Envio Protocolo Online",
+          "description": "POST /rib/protocolo/envio → POST /v1/protocolo (RFP-01)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/protocolo/envio",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"protocolo\": \"2024/999001\",\n  \"tipoSolicitacao\": 1,\n  \"apresentante\": { \"documento\": \"12345678901\" },\n  \"datas\": { \"protocolo\": \"2026-06-05\" },\n  \"status\": { \"codigo\": 1, \"dataStatus\": \"2026-06-05\" }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "[AUTONR-98] Envio Protocolo Lote",
+          "description": "POST /rib/protocolo/lote → POST /v1/protocolo/lote (RFP-02)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 202', () => pm.response.to.have.status(202));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/protocolo/lote",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"lote\": [\n    {\n      \"protocolo\": \"2024/999002\",\n      \"tipoSolicitacao\": 1,\n      \"apresentante\": { \"documento\": \"12345678901\" },\n      \"datas\": { \"protocolo\": \"2026-06-05\" },\n      \"status\": { \"codigo\": 1, \"dataStatus\": \"2026-06-05\" }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "[AUTONR-101] Exclusao Protocolo",
+          "description": "DELETE /rib/protocolo/exclusao → DELETE /v1/protocolo/{numero} (RFP-04)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/protocolo/exclusao?ambiente={{RIB_AMBIENTE}}&numero=2024/123456",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "protocolo",
+                "exclusao"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "numero",
+                  "value": "2024/123456"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "fila-processamento",
+      "description": "Módulo **fila** (RFF-01/02). Uma request por AUTONR.",
+      "item": [
+        {
+          "name": "[AUTONR-99] Listagem Fila Protocolo",
+          "description": "GET /rib/fila/processamento/protocolo → GET /v1/fila/processamento/protocolo (RFF-01)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/fila/processamento/protocolo?ambiente={{RIB_AMBIENTE}}&registrosPorPagina=50&numeroPagina=1",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "fila",
+                "processamento",
+                "protocolo"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "registrosPorPagina",
+                  "value": "50"
+                },
+                {
+                  "key": "numeroPagina",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[AUTONR-100] Detalhe Fila Protocolo",
+          "description": "GET /rib/fila/processamento/protocolo/detalhe → GET /v1/fila/.../{hash} (RFF-02)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/fila/processamento/protocolo/detalhe?ambiente={{RIB_AMBIENTE}}&hash_fila=hash-exemplo",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "fila",
+                "processamento",
+                "protocolo",
+                "detalhe"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "hash_fila",
+                  "value": "hash-exemplo"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "cobranca",
+      "description": "Módulo **cobrança** (RFC-01…07). Uma request por AUTONR. Pré-requisito: **AUTONR-91**.",
+      "item": [
+        {
+          "name": "[AUTONR-121] Listagem Cobrancas",
+          "description": "GET /rib/cobranca → GET /v1/cobranca (RFC-02)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca?ambiente={{RIB_AMBIENTE}}&registrosPorPagina=50&numeroPagina=1",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "cobranca"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "registrosPorPagina",
+                  "value": "50"
+                },
+                {
+                  "key": "numeroPagina",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "tipo",
+          "description": "RFC-05 — tipos de pagamento.",
+          "item": [
+            {
+              "name": "[AUTONR-120] Listagem Tipos Pagamento",
+              "description": "GET /rib/cobranca/tipo/pagamento → GET /v1/cobranca/tipo/pagamento (RFC-05)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/tipo/pagamento?ambiente={{RIB_AMBIENTE}}&status=1&registrosPorPagina=50&numeroPagina=1",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "cobranca",
+                    "tipo",
+                    "pagamento"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "status",
+                      "value": "1"
+                    },
+                    {
+                      "key": "registrosPorPagina",
+                      "value": "50"
+                    },
+                    {
+                      "key": "numeroPagina",
+                      "value": "1"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "protocolo",
+          "description": "RFC-07 — vínculo protocolo na cobrança.",
+          "item": [
+            {
+              "name": "[AUTONR-102] Atualizar Protocolo Cobranca",
+              "description": "PATCH /rib/cobranca/protocolo → PATCH /v1/cobranca/{hash}/protocolo (RFC-07)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/protocolo",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"hash_cobranca\": \"hash-cobranca-exemplo\",\n  \"protocolo\": \"2024/123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "atendimento",
+      "description": "Módulo **atendimento** (RAE-01…03). Workflows n8n ainda não implementados.",
+      "item": []
+    },
+    {
+      "name": "edital",
+      "description": "Módulo **edital** (RFE/RFS/RFL, RFX extração). Roadmap: vault `automacao/roadmap-rib-edital-n8n.md`. Uma request por AUTONR. Pré-requisito: **AUTONR-91**.",
+      "item": [
+        {
+          "name": "tipo",
+          "description": "RFE-01 — tipos de edital.",
+          "item": [
+            {
+              "name": "[AUTONR-103] Listagem Tipos Edital",
+              "description": "GET /rib/edital/tipo → GET /v1/edital/tipo (RFE-01)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.tipos_edital).to.be.an('array');",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/tipo?ambiente={{RIB_AMBIENTE}}&registrosPorPagina=50&numeroPagina=1",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "edital",
+                    "tipo"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "registrosPorPagina",
+                      "value": "50"
+                    },
+                    {
+                      "key": "numeroPagina",
+                      "value": "1"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "[AUTONR-104] Listagem Editais",
+          "description": "GET /rib/edital → GET /v1/edital (RFE-02)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.editais).to.be.an('array');",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital?ambiente={{RIB_AMBIENTE}}&status=1&registrosPorPagina=50&numeroPagina=1",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "edital"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "status",
+                  "value": "1",
+                  "description": "1 = Publicado (TBD-05)"
+                },
+                {
+                  "key": "registrosPorPagina",
+                  "value": "50"
+                },
+                {
+                  "key": "numeroPagina",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "cobranca",
+          "description": "RFE-03 / RFE-04 — cobrança de edital.",
+          "item": [
+            {
+              "name": "[AUTONR-105] Cadastro Cobranca Edital",
+              "description": "POST /rib/edital/cobranca → POST /v1/edital/cobranca (RFE-03)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/cobranca",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"cnsServentia\": \"026385\",\n  \"editais\": [\"12345678901\"],\n  \"valor\": 100000,\n  \"urlAcesso\": \"https://exemplo.cartorio.local/cobranca/edital.pdf\",\n  \"dataGeracao\": \"2026-06-05\",\n  \"dataVencimento\": \"2026-06-20\",\n  \"numeroDocumento\": \"DOC-2026-0001\",\n  \"descricao\": \"Cobranca edital eletronico - teste AUTONR-105\",\n  \"pagador\": {\n    \"nome\": \"Fulano de Tal\",\n    \"documento\": \"12345678901\",\n    \"email\": \"pagador@exemplo.com\",\n    \"cep\": \"01310100\",\n    \"logradouro\": \"Avenida Paulista\",\n    \"numero\": \"1000\",\n    \"bairro\": \"Bela Vista\",\n    \"cidade\": \"Sao Paulo\",\n    \"uf\": \"SP\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "[AUTONR-106] Atualizar Cobranca Edital",
+              "description": "PATCH /rib/edital/cobranca → PATCH /v1/edital/cobranca/{numeroDocumento} (RFE-04)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/cobranca",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"numeroDocumento\": \"DOC-2026-0001\",\n  \"cnsServentia\": \"026385\",\n  \"valorPago\": 100000,\n  \"pago\": 1,\n  \"dataPagamento\": \"2026-06-05\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "indicador",
+      "description": "Módulo **indicador real**. Workflows n8n ainda não implementados.",
+      "item": []
+    }
+  ]
+}

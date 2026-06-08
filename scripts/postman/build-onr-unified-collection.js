@@ -20,6 +20,13 @@ const {
   buildExplicitCollectionVariables,
   listWorkflowVariableSources,
 } = require("./onr-postman-variables.cjs");
+const { requestDisplayName } = require("./onr-postman-request-names.cjs");
+const {
+  loadRegistryByOp,
+  buildRequestNameIndex,
+  applyAutonrPrefixes,
+  stripAutonrPrefix,
+} = require("./onr-postman-autonr-registry.cjs");
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -141,7 +148,8 @@ function certidoesFolder() {
       if (ev.listen === "prerequest" && ev.script?.exec) {
         ev.script.exec = mergeGetVarHelper(ev.script.exec);
       }
-      if (ev.listen === "test" && copy.name.includes("Obter XML Solicitacoes v6") && !copy.name.includes("protocolo")) {
+      const bareName = stripAutonrPrefix(copy.name);
+      if (ev.listen === "test" && bareName.includes("Obter XML Solicitacoes v6") && !bareName.includes("protocolo")) {
         const exec = ev.script.exec || [];
         if (!exec.some((l) => l.includes("collectionVariables.set('certidoes_protocolo'"))) {
           exec.push(
@@ -263,7 +271,7 @@ function main() {
       description: "Proxy n8n. Documentação: `scripts/login/Auth WebService ONR.md`",
       item: n8nLeaf.map((req) => {
         const copy = JSON.parse(JSON.stringify(req));
-        if (copy.name === "Auth ONR — Login") {
+        if (stripAutonrPrefix(copy.name) === "Auth ONR — Login") {
           for (const ev of copy.event || []) {
             if (ev.listen === "test") {
               ev.script.exec = [
@@ -316,6 +324,18 @@ function main() {
 
   base.info.name = COLLECTION_NAME;
   base.info.description = COLLECTION_DESCRIPTION;
+
+  const { byOp, registryPath } = loadRegistryByOp();
+  const nameIndex = buildRequestNameIndex({
+    registryByOp: byOp,
+    requestDisplayName,
+  });
+  const { unmapped } = applyAutonrPrefixes(base, nameIndex);
+  if (unmapped.length) {
+    console.warn("AVISO — requests sem AUTONR no registry:", unmapped);
+  }
+  console.log("Registry AUTONR:", registryPath);
+  console.log("Requests mapeados:", nameIndex.size);
 
   writeCollectionJson(base);
   console.log("OK —", collectionOutputPaths().join(" + "));

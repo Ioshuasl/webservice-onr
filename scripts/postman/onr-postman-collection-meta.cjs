@@ -29,6 +29,9 @@ Environment separado: opcional só para secrets/overrides locais (não substitui
 | 3.3 Penhora Online | \`penhoraonline.asmx\` |
 | 3.5 Ofícios | \`oficios.asmx\` |
 | 3.6 Certidões a Emitir | \`Certidoes.asmx\` |
+| 3.9 Matrícula Online | \`matriculaonline.asmx\` |
+| 3.11 Intimações | \`intimacoes.asmx\` |
+| 3.12 Comunicação Prefeituras (CTP) | \`ComunicacaoMunicipios.asmx\` |
 
 ## Fluxo recomendado
 

@@ -1,0 +1,7 @@
+{
+  "collectionUid": "COLE-AQUI-O-UID-DA-COLECAO-NO-POSTMAN",
+  "collectionName": "Parse Memorial SIGEF — n8n Webhook",
+  "collectionFile": "postman/Parse-Memorial-SIGEF-n8n.postman_collection.json",
+  "workspaceId": "",
+  "comment": "Copie para postman/.postman-sync-sigef.json (gitignored). UID em Share → Via API. API key: POSTMAN_API_KEY no .env."
+}
