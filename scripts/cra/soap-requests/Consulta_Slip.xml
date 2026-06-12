@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:crago.cra21.com.br">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <urn:Consulta_Slip soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+      <codMunicipio xsi:type="xsd:string">5208707</codMunicipio>
+      <codCartorio xsi:type="xsd:string">01</codCartorio>
+      <protocolo xsi:type="xsd:string">11234567890</protocolo>
+      <dataProtocolo xsi:type="xsd:string">02/05/2016</dataProtocolo>
+    </urn:Consulta_Slip>
+  </soapenv:Body>
+</soapenv:Envelope>

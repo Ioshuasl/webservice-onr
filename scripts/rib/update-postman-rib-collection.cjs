@@ -39,7 +39,7 @@ function ribRequest(cfg) {
 
   const headers = [{ key: 'Accept', value: 'application/json' }];
   if (cfg.needsToken) headers.push({ key: 'X-RIB-Access-Token', value: '{{rib_access_token}}' });
-  if (cfg.method === 'POST' || cfg.method === 'PATCH') headers.push({ key: 'Content-Type', value: 'application/json' });
+  if (cfg.method === 'POST' || cfg.method === 'PATCH' || cfg.method === 'PUT') headers.push({ key: 'Content-Type', value: 'application/json' });
 
   const item = {
     name: formatAutonrRequestName(`AUTONR-${cfg.autonr}`, cfg.label),
@@ -182,6 +182,144 @@ const COBRANCA_CORE_ITEMS = [
       ],
     },
   }),
+  ribRequest({
+    autonr: 122, label: 'Detalhe Cobranca', needsToken: true, expectStatus: 200,
+    description: 'GET /rib/cobranca/detalhes → GET /v1/cobranca/{hash} (RFC-03). Use hash de AUTONR-121 ou rib_hash_cobranca.',
+    url: {
+      raw: '{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/detalhes?ambiente={{RIB_AMBIENTE}}&hash_cobranca={{rib_hash_cobranca}}',
+      host: ['{{n8n_base_url}}'],
+      path: ['{{n8n_webhook_mode}}', 'rib', 'cobranca', 'detalhes'],
+      query: [
+        { key: 'ambiente', value: '{{RIB_AMBIENTE}}' },
+        { key: 'hash_cobranca', value: '{{rib_hash_cobranca}}' },
+      ],
+    },
+  }),
+  (() => {
+    const item = ribRequest({
+      autonr: 123,
+      label: 'Geracao Cobranca',
+      needsToken: true,
+      expectStatus: 201,
+      description: 'POST /rib/cobranca → POST /v1/cobranca (RFC-01). Ajuste servicos[].codigo e valores conforme homologação.',
+      method: 'POST',
+      url: '{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca',
+      body: [
+        '{',
+        '  "ambiente": "{{RIB_AMBIENTE}}",',
+        '  "tipo_cobranca": "PIX",',
+        '  "data_vencimento": "2026-09-15",',
+        '  "observacao": "Emolumentos",',
+        '  "identificador_cliente": "ORIUS-PEDIDO-8842",',
+        '  "tipo_pagamento": 1,',
+        '  "dados_pagador": {',
+        '    "nome": "Joao Pagador",',
+        '    "documento": "98765432100",',
+        '    "email": "joao@exemplo.com",',
+        '    "telefone": { "ddd": 11, "numero": 987654321 },',
+        '    "endereco": {',
+        '      "cep": "01310100",',
+        '      "tipo_logradouro": "Avenida",',
+        '      "logradouro": "Paulista",',
+        '      "numero": "1000",',
+        '      "bairro": "Bela Vista",',
+        '      "cidade": "Sao Paulo",',
+        '      "estado": "SP"',
+        '    }',
+        '  },',
+        '  "servicos": [',
+        '    { "codigo": 2024123456, "valor": 150000 }',
+        '  ]',
+        '}',
+      ].join('\n'),
+    });
+    item.event.push({
+      listen: 'test',
+      script: {
+        type: 'text/javascript',
+        exec: [
+          "const json = pm.response.json();",
+          "if (json.hash_cobranca) {",
+          "  pm.collectionVariables.set('rib_hash_cobranca', json.hash_cobranca);",
+          "  pm.environment.set('rib_hash_cobranca', json.hash_cobranca);",
+          "}",
+        ],
+      },
+    });
+    return item;
+  })(),
+  ribRequest({
+    autonr: 124,
+    label: 'Cancelamento Cobranca',
+    needsToken: true,
+    expectStatus: 200,
+    description: 'PATCH /rib/cobranca/cancelamento → PATCH /v1/cobranca/{hash} (RFC-04). Use hash de AUTONR-123 ou rib_hash_cobranca.',
+    method: 'PATCH',
+    url: '{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/cancelamento',
+    body: '{\n  "ambiente": "{{RIB_AMBIENTE}}",\n  "hash_cobranca": "{{rib_hash_cobranca}}"\n}',
+  }),
+  ribRequest({
+    autonr: 125,
+    label: 'Devolucao Pix',
+    needsToken: true,
+    expectStatus: 200,
+    description: 'POST /rib/cobranca/devolucao-pix → PUT /v1/cobranca/{hash}/pix/devolucao (RFC-06). Cobrança PIX paga; ajuste valor conforme saldo devolvível.',
+    method: 'POST',
+    url: '{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/devolucao-pix',
+    body: '{\n  "ambiente": "{{RIB_AMBIENTE}}",\n  "hash_cobranca": "{{rib_hash_cobranca}}",\n  "valor": 100000\n}',
+  }),
+  (() => {
+    const item = ribRequest({
+      autonr: 126,
+      label: 'Cadastramento Cobranca Externa',
+      needsToken: true,
+      expectStatus: 201,
+      description: 'POST /rib/cobranca/externa → POST /v1/cobranca/cadastrar (cobrança externa). Requer liberação RIB no cartório; ajuste editais[] conforme homologação.',
+      method: 'POST',
+      url: '{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/externa',
+      body: [
+        '{',
+        '  "ambiente": "{{RIB_AMBIENTE}}",',
+        '  "editais": ["edital-hash-exemplo"],',
+        '  "valor": 100000,',
+        '  "url": "https://pagamento.exemplo.com/boleto/12345",',
+        '  "data_geracao": "2026-06-10 14:30:00",',
+        '  "data_vencimento": "2026-07-10",',
+        '  "numero_pagamento": "NOSSO-NUMERO-12345",',
+        '  "descricao": "Cobranca externa registrada no Orius",',
+        '  "dados_pagador": {',
+        '    "nome": "Joao Pagador",',
+        '    "documento": "98765432100",',
+        '    "email": "joao@exemplo.com",',
+        '    "telefone": { "ddd": 11, "numero": 987654321 },',
+        '    "endereco": {',
+        '      "cep": "01310100",',
+        '      "tipo_logradouro": "Avenida",',
+        '      "logradouro": "Paulista",',
+        '      "numero": "1000",',
+        '      "bairro": "Bela Vista",',
+        '      "cidade": "Sao Paulo",',
+        '      "estado": "SP"',
+        '    }',
+        '  }',
+        '}',
+      ].join('\n'),
+    });
+    item.event.push({
+      listen: 'test',
+      script: {
+        type: 'text/javascript',
+        exec: [
+          "const json = pm.response.json();",
+          "if (json.hash_cobranca) {",
+          "  pm.collectionVariables.set('rib_hash_cobranca', json.hash_cobranca);",
+          "  pm.environment.set('rib_hash_cobranca', json.hash_cobranca);",
+          "}",
+        ],
+      },
+    });
+    return item;
+  })(),
 ];
 
 const COBRANCA_PROTOCOLO_ITEMS = [
@@ -209,9 +347,24 @@ const WORKFLOW_TABLE = `| AUTONR | Workflow | ID | Webhook |
 | 101 | ExclusaoProtocolo | rPEIpPQRxOvda4ya | DELETE /rib/protocolo/exclusao |
 | 102 | AtualizarProtocoloCobranca | anWU5nm66RxqPKPh | PATCH /rib/cobranca/protocolo |
 | 120 | ListagemTiposPagamento | 1C9hQMPCfrBuaJ78 | GET /rib/cobranca/tipo/pagamento |
-| 121 | ListagemCobrancas | zWqpw3J2H21zZIxl | GET /rib/cobranca |`;
+| 121 | ListagemCobrancas | zWqpw3J2H21zZIxl | GET /rib/cobranca |
+| 122 | DetalheCobranca | vdX5HRRokKzYiMEn | GET /rib/cobranca/detalhes |
+| 123 | GeracaoCobranca | dCoacaX1Oj0hBOm5 | POST /rib/cobranca |
+| 124 | CancelamentoCobranca | TcPxms2EcnItTasU | PATCH /rib/cobranca/cancelamento |
+| 125 | DevolucaoPix | ZCsiyyLsJkOzUIdV | POST /rib/cobranca/devolucao-pix |
+| 126 | CadastramentoCobranca | WXOPh0N92vCWkh5B | POST /rib/cobranca/externa |`;
+
+const COLLECTION_VAR_DEFAULTS = [
+  { key: 'rib_hash_cobranca', value: '', type: 'string' },
+];
 
 const collection = JSON.parse(fs.readFileSync(COLLECTION_PATH, 'utf8'));
+collection.variable = collection.variable ?? [];
+for (const def of COLLECTION_VAR_DEFAULTS) {
+  if (!collection.variable.some((v) => v.key === def.key)) {
+    collection.variable.push(def);
+  }
+}
 collection.info.description = collection.info.description.replace(
   /\| Módulo[\s\S]*?\| \*\*protocolo\*\*[\s\S]*?\| `GET \/v1\/protocolo` \|/,
   WORKFLOW_TABLE.split('\n').slice(2).join('\n').replace(/^\|/, '| Módulo | Workflow | ID | Webhook |\n|--------|----------|-----|---------|')

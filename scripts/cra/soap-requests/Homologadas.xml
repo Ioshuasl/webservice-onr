@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:crago.cra21.com.br">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <urn:Homologadas soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+      <codapres xsi:type="xsd:string">000</codapres>
+      <cartorios xsi:type="xsd:string">1</cartorios>
+    </urn:Homologadas>
+  </soapenv:Body>
+</soapenv:Envelope>

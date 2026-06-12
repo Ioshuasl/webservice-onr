@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-106] (integração) AtualizarCobrancaEdital - RIB
+// Workflow : [AUTORIB-16] (rib) AtualizarCobrancaEdital - RIB
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'yK0CLwoAhgnVFcIz',
-    name: '[AUTONR-106] (integração) AtualizarCobrancaEdital - RIB',
-    active: false,
+    name: '[AUTORIB-16] (rib) AtualizarCobrancaEdital - RIB',
+    active: true,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr106IntegracaoAtualizarcobrancaeditalRibWorkflow {
+export class Autorib16RibAtualizarcobrancaeditalRibWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

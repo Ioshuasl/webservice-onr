@@ -1,0 +1,11 @@
+# Pré-processamento OpenCV para PDFs escaneados CRA (Fase 1).
+# Uso: --preprocess-profile cra-scan
+
+name: cra-scan
+description: Deskew + CLAHE + denoise bilateral + binarização adaptativa
+
+deskew: true
+clahe: true
+denoise: bilateral
+binarize: adaptive
+shadow_removal: false

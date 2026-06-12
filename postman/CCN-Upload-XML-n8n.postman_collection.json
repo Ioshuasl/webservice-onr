@@ -173,7 +173,7 @@
       "description": "Webhook n8n — upload de XML CCN para e-notariado (`POST /api/uploads`).",
       "item": [
         {
-          "name": "[AUTONR-88] Upload XML CCN — HML",
+          "name": "[AUTCCN-1] Upload XML CCN — HML",
           "description": "Envia XML válido com raiz `<pessoas>` para homologação e-notariado.",
           "event": [
             {
@@ -271,7 +271,7 @@
           "response": []
         },
         {
-          "name": "[AUTONR-88] Upload XML CCN — sem arquivo",
+          "name": "[AUTCCN-1] Upload XML CCN — sem arquivo",
           "description": "Deve retornar 422 `arquivo_ausente`.",
           "event": [
             {
@@ -323,7 +323,7 @@
           "response": []
         },
         {
-          "name": "[AUTONR-88] Upload XML CCN — sem API key",
+          "name": "[AUTCCN-1] Upload XML CCN — sem API key",
           "description": "Deve retornar 422 `api_key_ausente` quando header e n8n env estão vazios.",
           "event": [
             {
@@ -368,7 +368,7 @@
           "response": []
         },
         {
-          "name": "[AUTONR-88] Upload XML CCN — raiz invalida",
+          "name": "[AUTCCN-1] Upload XML CCN — raiz invalida",
           "description": "XML sem `<pessoas>` — deve retornar 422 `xml_raiz_invalida`.",
           "event": [
             {
@@ -439,7 +439,7 @@
       "description": "Webhook n8n — consulta status de importacao CCN (`GET /api/imports/{id}`).",
       "item": [
         {
-          "name": "[AUTONR-89] Get Import Status — HML",
+          "name": "[AUTCCN-2] Get Import Status — HML",
           "description": "Consulta status da importacao pelo UUID retornado no upload.",
           "event": [
             {
@@ -508,7 +508,7 @@
           "response": []
         },
         {
-          "name": "[AUTONR-89] Get Import Status — com erros",
+          "name": "[AUTCCN-2] Get Import Status — com erros",
           "description": "Mesma consulta com `include_erros=true` (util apos falhas parciais).",
           "event": [
             {
@@ -570,7 +570,7 @@
           "response": []
         },
         {
-          "name": "[AUTONR-89] Get Import Status — id invalido",
+          "name": "[AUTCCN-2] Get Import Status — id invalido",
           "description": "Deve retornar 422 `import_id_invalido`.",
           "event": [
             {
@@ -615,7 +615,7 @@
       "description": "Webhook n8n — lista erros da importacao CCN. Upstream: `GET /api/imports/{id}/errors` (Swagger CCN oficial).",
       "item": [
         {
-          "name": "[AUTONR-90] Get Import Erros — HML",
+          "name": "[AUTCCN-3] Get Import Erros — HML",
           "description": "Consulta somente os erros da importacao pelo UUID retornado no upload.",
           "event": [
             {
@@ -682,7 +682,7 @@
           "response": []
         },
         {
-          "name": "[AUTONR-90] Get Import Erros — id invalido",
+          "name": "[AUTCCN-3] Get Import Erros — id invalido",
           "description": "Deve retornar 422 `import_id_invalido`.",
           "event": [
             {

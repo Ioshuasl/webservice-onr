@@ -1,0 +1,419 @@
+{
+  "batch_id": "api-cra-pdf-to-md",
+  "created_at": "2026-06-09",
+  "source_dir": "api-cra",
+  "converter_script": "pdf_to_markdown_pymupdf.py",
+  "converter_flags": [
+    "--profile", "cra-image",
+    "--quality-report",
+    "--show-progress"
+  ],
+  "status": "completed",
+  "current_index": 10,
+  "summary": {
+    "total": 10,
+    "pending": 0,
+    "converting": 0,
+    "validating": 0,
+    "fixing": 0,
+    "done": 10,
+    "blocked": 0
+  },
+  "files": [
+    {
+      "index": 1,
+      "pdf": "api-cra/CRA21 API REST.pdf",
+      "md": "api-cra/CRA21 API REST.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 5799,
+      "pages": 8,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "Pages 4-5 and 8 contain only page separators after table reconstruction",
+          "Occurrence numbers vary (10, 20, 2º) across profiles — preserved from source PDF",
+          "Estimated reading metadata from publishing platform, not API documentation"
+        ]
+      },
+      "fixes_applied": [
+        "Removed spurious OCR strikethrough from endpoint paths (~~o~~, ~~s-~~, ~~-p~~, ~~e-~~, ~~ca~~, ~~-i~~, ~~-e~~, ~~-o~~)",
+        "Fixed pt-BR accents: Referência, Autenticação, ATENÇÃO, Produção, seção, Permissões, Cartório, Convênio, título, período",
+        "Fixed broken heading APlREST → API REST",
+        "Reconstructed markdown tables from broken picture-text OCR blocks (pages 2-7)",
+        "Removed picture placeholder blocks and <br> HTML artifacts",
+        "Fixed endpoint paths split by OCR (/url/titulo-ocorrencia, /url/produtividade-geral, /url/cancelamento-titulo, etc.)",
+        "Fixed url/remessa → /url/remessa (missing leading slash)",
+        "Normalized table headers to Serviço | Descrição | Método",
+        "Fixed 2o → 2º in ocorrência labels",
+        "Merged fragmented multi-row OCR cells into proper 3-column table rows",
+        "Orchestrator: removed Estimated reading metadata, orphan page separators (pages 4-5, 8), promoted Acesso e Autenticação to heading"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-09T15:42:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/CRA21 API REST.pdf\" \"api-cra/CRA21 API REST.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    },
+    {
+      "index": 2,
+      "pdf": "api-cra/GET CANCELAMENTO.pdf",
+      "md": "api-cra/GET CANCELAMENTO.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 1642,
+      "pages": 3,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON across pages",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "Page 3 contained only total_items field; merged into JSON block, orphan separator removed",
+          "Classic engine fallback produced only 74 chars (unusable); layout engine retained"
+        ]
+      },
+      "fixes_applied": [
+        "Removed Estimated reading metadata (1 minute : 48 views)",
+        "Removed spurious OCR strikethrough (~~6-~~, ~~6-~~) from date field",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, Não, autenticação, através, Cartório, Ofício",
+        "Fixed heading URL/cancelamento → /url/cancelamento",
+        "Fixed JsON → JSON heading",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from merged OCR blockquote",
+        "Fixed OCR l→1, ol→01, ooo→000, ooooooo→0000000, wid→id",
+        "Fixed Cartério l°Oficio → Cartório 1° Ofício",
+        "Fixed America/Sao Paulo → America/Sao_Paulo",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact and orphan page separators",
+        "Fixed broken heading ## \"apresentante\": merged into JSON",
+        "Fixed total items → total_items"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-09T16:15:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/GET CANCELAMENTO.pdf\" \"api-cra/GET CANCELAMENTO.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    },
+    {
+      "index": 3,
+      "pdf": "api-cra/GET DESISTENCIA.pdf",
+      "md": "api-cra/GET DESISTENCIA.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 1658,
+      "pages": 3,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON across pages",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "Date field OCR garbled (201 ~~7-~~ 0 ~~5-~~ 3115:09:35) — reconstructed as 2017-05-31T15:09:35",
+          "Page 3 contained only total_items field; merged into JSON block, orphan separator removed"
+        ]
+      },
+      "fixes_applied": [
+        "Removed Estimated reading metadata (1 minute : 48 views)",
+        "Removed spurious OCR strikethrough (~~7-~~, ~~5-~~) from date field",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, Não, autenticação, através, Cartório, Ofício",
+        "Fixed heading URL/desistencia → /url/desistencia",
+        "Fixed JsON → JSON heading",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from merged OCR blockquote",
+        "Removed orphan ## Opcional heading (table column fragment)",
+        "Fixed OCR l→1, ol→01, ooo→000, oooo00o→0000000",
+        "Fixed Cartério l°Oficio → Cartório 1° Ofício",
+        "Fixed America/Sao Paulo → America/Sao_Paulo",
+        "Fixed fullwidth colons (：) and garbled telefone/fax values",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact and orphan page separators",
+        "Fixed total items → total_items"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-09T17:30:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/GET DESISTENCIA.pdf\" \"api-cra/GET DESISTENCIA.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    },
+    {
+      "index": 4,
+      "pdf": "api-cra/GET INSTRUMENTO.pdf",
+      "md": "api-cra/GET INSTRUMENTO.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 1273,
+      "pages": 2,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON across pages",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "Query string in self href garbled (=Txx-Xxx-Xx x = o noTpo) — reconstructed as codigoAutenticacao=Txx-Xxx-Xxx&imagem=1",
+          "Date field OCR garbled (201 ~~8-0~~ 7- ~~1~~ 700:00:00) — reconstructed as 2018-07-17T00:00:00",
+          "Page 2 ended with incomplete total items field; merged into JSON block, orphan separators removed",
+          "id in embedded (479777) differs from self link id (558844) — preserved from source OCR"
+        ]
+      },
+      "fixes_applied": [
+        "Removed Estimated reading metadata (1 minute : 56 views)",
+        "Removed spurious OCR strikethrough (~~8-0~~, ~~1~~) from date field",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, autenticação, Código",
+        "Fixed heading URL/instrumento → /url/instrumento",
+        "Fixed JsON → JSON heading",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from picture-text OCR block",
+        "Fixed OCR nOme → nome, fullwidth colons (：) → standard JSON colons",
+        "Fixed tipoDocumento value (leading space before CPF)",
+        "Reconstructed cartorio object from flat OCR fragment",
+        "Fixed America/Sao Paulo timezone (already Sao_Paulo in OCR)",
+        "Fixed numeroTitulo OCR quotes (\"\"124511″ → \"124511\")",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact, picture placeholders, <br> HTML, and orphan page separators",
+        "Fixed total items → total_items"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-09T18:45:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/GET INSTRUMENTO.pdf\" \"api-cra/GET INSTRUMENTO.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    },
+    {
+      "index": 5,
+      "pdf": "api-cra/GET PRODUTIVIDADE GERAL.pdf",
+      "md": "api-cra/GET PRODUTIVIDADE GERAL.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 1490,
+      "pages": 2,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON on page 2",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "processados count missing from OCR — only valorProcessados value preserved as flat sibling field",
+          "tipoApresentante enum values reconstructed from fragmented OCR table (O → 0: Específico)"
+        ]
+      },
+      "fixes_applied": [
+        "Skipped conversion — raw OCR .md already existed (convert_skipped=true)",
+        "Removed Estimated reading metadata (1 minute : 38 views)",
+        "Removed picture placeholder blocks and <br> HTML artifacts",
+        "Removed spurious OCR strikethrough (~~e-~~) from endpoint path",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, período, apresentação, convênio, ATENÇÃO",
+        "Fixed heading URL/produtividade-geral → /url/produtividade-geral",
+        "Fixed JsON → JSON heading",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from picture-text OCR block",
+        "Fixed produtividade geral → produtividade-geral in embedded key",
+        "Fixed OCR curly quotes (″) to standard JSON double quotes",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact and orphan page separators",
+        "Fixed total items → total_items"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-10T12:00:00.000Z",
+      "convert_skipped": true,
+      "convert_skip_reason": "Raw OCR .md already exists from interrupted run; skip to validate+fix"
+    },
+    {
+      "index": 6,
+      "pdf": "api-cra/GET PROTESTO CANCELAMENTO.pdf",
+      "md": "api-cra/GET PROTESTO CANCELAMENTO.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 1872,
+      "pages": 2,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON on page 2",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "Middle occurrence (Com autorização desistência) garbled in OCR (totalocorrencia:\"o\", empty valorOcorrencia) — reconstructed as 0/0 per Obs note about missing categories",
+          "tipoApresentante enum values reconstructed from fragmented OCR table (O → 0: Específico)"
+        ]
+      },
+      "fixes_applied": [
+        "Removed Estimated reading metadata (2 minutes : 41 views)",
+        "Removed picture placeholder blocks and <br> HTML artifacts",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, período, apresentação, convênio, ATENÇÃO, autorização, desistência, Não",
+        "Fixed heading URL/protesto-cancelamento → /url/protesto-cancelamento",
+        "Fixed JsON → JSON heading",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from picture-text OCR block",
+        "Fixed protesto cancelamento → protesto-cancelamento in embedded key",
+        "Fixed OCR autorizagao → autorização in ocorrencia values",
+        "Fixed OCR curly quotes (″) to standard JSON double quotes",
+        "Reconstructed protesto-cancelamento array with 3 ocorrencia entries from fragmented OCR",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact and orphan page separators",
+        "Fixed total items → total_items"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-10T14:30:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/GET PROTESTO CANCELAMENTO.pdf\" \"api-cra/GET PROTESTO CANCELAMENTO.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    },
+    {
+      "index": 7,
+      "pdf": "api-cra/GET REMESSA.pdf",
+      "md": "api-cra/GET REMESSA.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 1520,
+      "pages": 2,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON on page 2",
+          "Source PDF page 2 JSON example shows titulo-especie endpoint (mismatch with /url/remessa heading on page 1) — transcribed as visible in source",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "tipoApresentante enum values reconstructed from fragmented OCR table (O → 0: Específico)"
+        ]
+      },
+      "fixes_applied": [
+        "Removed Estimated reading metadata (1 minute : 63 views)",
+        "Removed picture placeholder blocks and <br> HTML artifacts",
+        "Removed spurious OCR strikethrough (~~-e~~) from endpoint path",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, período, apresentação, convênio, ATENÇÃO, autenticação, através, títulos, cartório",
+        "Fixed heading URL/remessa → /url/remessa",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from picture-text OCR block",
+        "Fixed OCR convénio → convênio, O → 0 in tipoApresentante enum",
+        "Reconstructed titulo-especie JSON array with 4 especie entries from fragmented OCR on page 2",
+        "Fixed fullwidth digits in date query (030１20１7 → 03012017)",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact and orphan page separators",
+        "Fixed total items → total_items"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-10T18:30:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/GET REMESSA.pdf\" \"api-cra/GET REMESSA.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    },
+    {
+      "index": 8,
+      "pdf": "api-cra/GET TITULO-ESPECIE.pdf",
+      "md": "api-cra/GET TITULO-ESPECIE.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 1527,
+      "pages": 2,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON on page 2",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "tipoApresentante enum values reconstructed from fragmented OCR table (O → 0: Específico)",
+          "OCR garbled especie values (e.g. [\"DMI\"], [\"CBI\"]) — normalized to plain strings"
+        ]
+      },
+      "fixes_applied": [
+        "Removed Estimated reading metadata (1 minute : 44 views)",
+        "Removed picture placeholder blocks and <br> HTML artifacts",
+        "Removed spurious OCR strikethrough (~~-e~~) from endpoint path",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, período, apresentação, convênio, ATENÇÃO, autenticação, através, títulos, cartório",
+        "Fixed heading URL/titulo-especie → /url/titulo-especie",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from picture-text OCR block",
+        "Fixed OCR O → 0 in tipoApresentante enum",
+        "Fixed titulo especie → titulo-especie in embedded key",
+        "Fixed OCR curly quotes (″) to standard JSON double quotes",
+        "Reconstructed titulo-especie JSON array with 4 especie entries from fragmented OCR",
+        "Fixed fullwidth digits in date query (030１20１7 → 03012017)",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact and orphan page separators",
+        "Fixed total items → total_items"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-10T20:00:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/GET TITULO-ESPECIE.pdf\" \"api-cra/GET TITULO-ESPECIE.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    },
+    {
+      "index": 9,
+      "pdf": "api-cra/GET TITULO-OCORRENCIA.pdf",
+      "md": "api-cra/GET TITULO-OCORRENCIA.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 1998,
+      "pages": 3,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON across pages 2-3",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "tipoApresentante enum values reconstructed from fragmented OCR table (O → 0: Específico)",
+          "OCR garbled saldo value for Protestado entry ([＇15177９35.0９″]) — normalized to plain string",
+          "idApresentante full description inferred from sibling endpoint docs (partial on page 2 OCR)"
+        ]
+      },
+      "fixes_applied": [
+        "Removed Estimated reading metadata (1 minute : 48 views)",
+        "Removed picture placeholder blocks and <br> HTML artifacts",
+        "Removed spurious OCR strikethrough (~~-o~~, ~~-~~) from endpoint path and e-mail",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, período, apresentação, convênio, ATENÇÃO, autenticação, através, títulos, cartório, serviço, irá, parâmetro",
+        "Fixed heading URL/titulo-ocorrencia → /url/titulo-ocorrencia",
+        "Fixed JsON → JSON heading",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from picture-text OCR block across pages 1-2",
+        "Fixed OCR O → 0 in tipoApresentante enum",
+        "Fixed idCaｒtorio fullwidth char → idCartorio",
+        "Fixed titulo ocorrencia → titulo-ocorrencia in embedded key",
+        "Fixed OCR curly quotes (″) to standard JSON double quotes",
+        "Fixed datainal → dataFinal in query string",
+        "Fixed fullwidth digits in date query (030１20１7 → 03012017)",
+        "Reconstructed titulo-ocorrencia JSON array with 4 ocorrencia entries from fragmented OCR",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact and orphan page separators",
+        "Fixed total items → total_items"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-10T21:30:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/GET TITULO-OCORRENCIA.pdf\" \"api-cra/GET TITULO-OCORRENCIA.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    },
+    {
+      "index": 10,
+      "pdf": "api-cra/GET TITULO.pdf",
+      "md": "api-cra/GET TITULO.md",
+      "status": "done",
+      "phase": "done",
+      "chars": 7236,
+      "pages": 8,
+      "validation": {
+        "ok": true,
+        "issues": [
+          "PDF is image-only (no native text layer); OCR fragmented JSON across pages 2-8",
+          "JSON example structure reconstructed from OCR fragments — braces/brackets inferred from visible keys",
+          "First conversion run aborted at page 3/8; second run completed (~21 min OCR for 8 pages)",
+          "ocorrencia.codigo missing from OCR on page 5 — omitted from reconstructed JSON",
+          "confirmacao.dataConfirmacao and dataProtocolo dates partially garbled — inferred from visible date fragments",
+          "cartorio.codigo/endereco fields merged in OCR — split per sibling endpoint patterns",
+          "Fullwidth chars in query string (idCartorio, numeroTitulo) normalized to ASCII",
+          "retorno fields (valor, confirmacao, remessa, custas, andamentos) initially nested inside ocorrencia — corrected to sibling level per OCR page order"
+        ]
+      },
+      "fixes_applied": [
+        "Removed Estimated reading metadata (3 minutes : 64 views)",
+        "Removed picture placeholder blocks and <br> HTML artifacts",
+        "Removed spurious OCR strikethrough (~~-~~, ~~0-~~, ~~1-~~, ~~2-~~, ~~4-~~, ~~6-~~, ~~7-~~, ~~8-~~, ~~l-~~, ~~^X~~) from dates, paths, and addresses",
+        "Fixed pt-BR accents: Parâmetros, Requisição, Descrição, autenticação, através, título, títulos, endereço, Ocorrência, sustação, desistência",
+        "Fixed heading URL/titulo → /url/titulo",
+        "Reconstructed parameters table (Parâmetro | Descrição | Opcional) from picture-text OCR block across pages 1-2",
+        "Fixed OCR cacelamento → cancelamento in ocorrenciaRetorno description",
+        "Fixed idCartoｒio fullwidth char → idCartorio",
+        "Fixed OCR l→1, ll→11, wid→id, nOme→nome, o00→000",
+        "Fixed America/Sao Paulo → America/Sao_Paulo",
+        "Fixed fullwidth digits and colons (：) in JSON keys/values",
+        "Fixed OCR curly quotes (″) to standard JSON double quotes",
+        "Reconstructed large titulo JSON with devedores, apresentante, cartorio, retornos, custas, andamentos from fragmented OCR",
+        "Wrapped JSON example in ```json fence with proper structure",
+        "Removed Copiar button artifact and orphan page separators",
+        "Fixed total items → total_items",
+        "Fixed retorno JSON nesting — moved valor/saldo/protocolo/confirmacao/remessa/custas/andamentos to retorno sibling level (not inside ocorrencia)",
+        "Fixed documento devedor OCR 199999999999 → 99999999999"
+      ],
+      "error": null,
+      "blocker": false,
+      "updated_at": "2026-06-10T22:45:00.000Z",
+      "convert_command": "py pdf_to_markdown_pymupdf.py \"api-cra/GET TITULO.pdf\" \"api-cra/GET TITULO.md\" --profile cra-image --quality-report --show-progress",
+      "convert_exit_code": 0
+    }
+  ]
+}

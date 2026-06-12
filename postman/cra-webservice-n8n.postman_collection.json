@@ -1,0 +1,2150 @@
+{
+  "info": {
+    "_postman_id": "93dc075f-7c9b-4a8d-a7f8-edfc31d96c89",
+    "name": "cra webservice - n8n",
+    "description": "Coleção para testar o **webservice SOAP CRA21** (protestos) — proxy n8n e SOAP direto.\n\n## Workflows (AUTOCRA-1…142)\n\n| AUTONR | Operação | Domínio |\n|--------|----------|--------|\n| 127 | Remessa | Remessa |\n| 128 | Confirmacao | Confirmação |\n| 129 | Retorno | Retorno |\n| 130 | Desistencia | Desistência |\n| 131 | Cancelamento | Cancelamento |\n| 132 | Autoriza_Cancelamento | Autorização |\n| 133 | Autoriza_Desistencia | Autorização |\n| 134 | Homologadas | Homologação |\n| 135 | Consulta | Consulta |\n| 136 | Consulta_Slip | Consulta |\n| 137 | Instrumento | Instrumento |\n| 138 | Imagem | Imagens |\n| 139 | BoletoAutorizacao | Autorização |\n| 140 | Andamento | Andamento |\n| 141 | Oficio_Titulo | Ofício |\n| 142 | ConsultaJustificativa | Consulta |\n\n## Pastas\n\n| Pasta | Uso |\n|-------|-----|\n| **SOAP direto (referência)** | POST `protestos.php` com Basic Auth CRA — funciona hoje |\n| **n8n — proxy CRA** | Webhooks HTTP→SOAP — preencher quando workflows existirem |\n\n## Pré-requisitos (SOAP direto)\n\n1. `CRA_USER` / `CRA_PASS` / `CRA_UF` — vault `env#CRA21`\n2. `CRA_AMBIENTE`: `homologacao` (`cra21.com.br`) ou `producao` (`crabr.com.br`)\n3. Ajustar XML em `scripts/cra/soap-requests/*.xml` antes de testes reais\n\n## URLs CRA\n\n| Ambiente | SOAP |\n|----------|------|\n| Homologação | `https://cra{uf}.cra21.com.br/cra{uf}/xml/protestos.php` |\n| Produção | `https://cra{uf}.crabr.com.br/cra{uf}/xml/protestos.php` |\n\n## Regenerar\n\n```bash\nnpm run postman:build:cra\n```\n\nScript: `scripts/postman/build-cra-postman-collection.cjs`\n\n## Referências\n\n- Vault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/roadmap-cra-webservice-n8n`\n- XML requests: `scripts/cra/soap-requests/`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "variable": [
+    {
+      "key": "CRA_UF",
+      "value": "go",
+      "type": "string"
+    },
+    {
+      "key": "CRA_AMBIENTE",
+      "value": "homologacao",
+      "type": "string"
+    },
+    {
+      "key": "CRA_USER",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CRA_PASS",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "cra_soap_url",
+      "value": "https://crago.cra21.com.br/crago/xml/protestos.php",
+      "type": "string"
+    },
+    {
+      "key": "cra_wsdl_url",
+      "value": "https://crago.cra21.com.br/crago/xml/protestos.php?wsdl",
+      "type": "string"
+    },
+    {
+      "key": "cra_soap_namespace",
+      "value": "urn:crago.cra21.com.br",
+      "type": "string"
+    },
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASE_URL",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_remessa",
+      "value": "cra/remessa",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_remessa",
+      "value": "rxiP8oRIStvOz9ht",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_confirmacao",
+      "value": "cra/confirmacao",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_confirmacao",
+      "value": "CS6XCx46zzr7jHX7",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_retorno",
+      "value": "cra/retorno",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_retorno",
+      "value": "pn54OjS5xQeUJNzV",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_desistencia",
+      "value": "cra/desistencia",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_desistencia",
+      "value": "Zu7Ltqw1ArQs17C8",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_cancelamento",
+      "value": "cra/cancelamento",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_cancelamento",
+      "value": "ADsgeC6405hahbl4",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_autoriza-cancelamento",
+      "value": "cra/autoriza-cancelamento",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_autoriza-cancelamento",
+      "value": "MXWDzKFaOgWKMXKr",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_autoriza-desistencia",
+      "value": "cra/autoriza-desistencia",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_autoriza-desistencia",
+      "value": "CZ103VGnFsVRUSKW",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_homologadas",
+      "value": "cra/homologadas",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_homologadas",
+      "value": "Tq9ATORk9QNWQsfv",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_consulta",
+      "value": "consulta",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_consulta",
+      "value": "eM9zHTr0SYmczKFG",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_consulta-slip",
+      "value": "cra/consulta-slip",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_consulta-slip",
+      "value": "iqe1B9FKkAP3rZPK",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_instrumento",
+      "value": "cra/instrumento",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_instrumento",
+      "value": "hwBubo0sOrSh72BU",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_imagem",
+      "value": "cra/imagem",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_imagem",
+      "value": "qjGemkjLBMLeNOyY",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_boletoautorizacao",
+      "value": "boleto-autorizacao",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_boletoautorizacao",
+      "value": "yeAyMtW4w3IUnu42",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_andamento",
+      "value": "cra/andamento",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_andamento",
+      "value": "WZCP5YdKA7KzQ2uj",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_oficio-titulo",
+      "value": "cra/oficio-titulo",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_oficio-titulo",
+      "value": "Qsemjs7WDHNgvmtD",
+      "type": "string"
+    },
+    {
+      "key": "cra_webhook_path_consultajustificativa",
+      "value": "consulta-justificativa",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_consultajustificativa",
+      "value": "16OyU7sRLhlGHOso",
+      "type": "string"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "function getVar(key) {",
+          "  const fromEnv = pm.environment.get(key);",
+          "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+          "  const fromCollection = pm.collectionVariables.get(key);",
+          "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+          "  return pm.variables.get(key);",
+          "}",
+          "",
+          "const uf = String(getVar(\"CRA_UF\") || \"go\").toLowerCase();",
+          "const amb = String(getVar(\"CRA_AMBIENTE\") || \"homologacao\").toLowerCase();",
+          "const prod = amb === \"producao\";",
+          "const host = prod ? `cra${uf}.crabr.com.br` : `cra${uf}.cra21.com.br`;",
+          "const base = `https://${host}/cra${uf}/xml/protestos.php`;",
+          "pm.collectionVariables.set(\"CRA_UF\", uf);",
+          "pm.collectionVariables.set(\"cra_soap_url\", base);",
+          "pm.collectionVariables.set(\"cra_wsdl_url\", `${base}?wsdl`);",
+          "pm.collectionVariables.set(\"cra_soap_namespace\", prod ? `urn:cra${uf}.crabr.com.br` : `urn:cra${uf}.cra21.com.br`);"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "SOAP direto (referência)",
+      "description": "Chamadas SOAP nativas ao `protestos.php` — HTTP Basic CRA. Preferir **n8n — proxy CRA** quando os workflows existirem.",
+      "item": [
+        {
+          "name": "Upload",
+          "item": [
+            {
+              "name": "[AUTOCRA-1] Remessa — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Remessa\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Remessa soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">B0000101.251</userArq>\n      <userDados xsi:type=\"xsd:string\"><![CDATA[<remessa><apresentante>000</apresentante></remessa>]]></userDados>\n    </urn:Remessa>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Remessa** (AUTOCRA-1).\n\nXML fonte: `scripts/cra/soap-requests/Remessa.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Remessa.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-4] Desistência — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Desistencia\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Desistencia soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">DP0000101.251</userArq>\n      <userDados xsi:type=\"xsd:string\"><![CDATA[<desistencia><apresentante>000</apresentante></desistencia>]]></userDados>\n    </urn:Desistencia>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Desistencia** (AUTOCRA-4).\n\nXML fonte: `scripts/cra/soap-requests/Desistencia.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Desistencia.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-5] Cancelamento — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Cancelamento\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Cancelamento soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">CP0000101.251</userArq>\n      <userDados xsi:type=\"xsd:string\"><![CDATA[<cancelamento><apresentante>000</apresentante></cancelamento>]]></userDados>\n    </urn:Cancelamento>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Cancelamento** (AUTOCRA-5).\n\nXML fonte: `scripts/cra/soap-requests/Cancelamento.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Cancelamento.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-6] Autoriza cancelamento — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Autoriza_Cancelamento\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Autoriza_Cancelamento soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">AC0000101.251</userArq>\n      <userDados xsi:type=\"xsd:string\"><![CDATA[<autoriza_cancelamento><apresentante>000</apresentante></autoriza_cancelamento>]]></userDados>\n    </urn:Autoriza_Cancelamento>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Autoriza_Cancelamento** (AUTOCRA-6).\n\nXML fonte: `scripts/cra/soap-requests/Autoriza_Cancelamento.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Autoriza_Cancelamento.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-7] Autoriza desistência — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Autoriza_Desistencia\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Autoriza_Desistencia soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">AD0000101.251</userArq>\n      <userDados xsi:type=\"xsd:string\"><![CDATA[<autoriza_desistencia><apresentante>000</apresentante></autoriza_desistencia>]]></userDados>\n    </urn:Autoriza_Desistencia>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Autoriza_Desistencia** (AUTOCRA-7).\n\nXML fonte: `scripts/cra/soap-requests/Autoriza_Desistencia.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Autoriza_Desistencia.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-12] Imagem — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Imagem\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Imagem soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">B0000101.251</userArq>\n      <userDados xsi:type=\"xsd:string\"><![CDATA[<remessas><remessa><sequencial>000001</sequencial></remessa></remessas>]]></userDados>\n    </urn:Imagem>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Imagem** (AUTOCRA-12).\n\nXML fonte: `scripts/cra/soap-requests/Imagem.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Imagem.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-15] Ofício título — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Oficio_Titulo\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Oficio_Titulo soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">OT0000101.251</userArq>\n      <userDados xsi:type=\"xsd:string\"><![CDATA[<oficio><apresentante>000</apresentante></oficio>]]></userDados>\n    </urn:Oficio_Titulo>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Oficio_Titulo** (AUTOCRA-15).\n\nXML fonte: `scripts/cra/soap-requests/Oficio_Titulo.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Oficio_Titulo.md`"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Download",
+          "item": [
+            {
+              "name": "[AUTOCRA-2] Confirmação — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Confirmacao\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Confirmacao soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">C0000101.251</userArq>\n    </urn:Confirmacao>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Confirmacao** (AUTOCRA-2).\n\nXML fonte: `scripts/cra/soap-requests/Confirmacao.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Confirmacao.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-3] Retorno — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Retorno\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Retorno soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">R0000101.251</userArq>\n    </urn:Retorno>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Retorno** (AUTOCRA-3).\n\nXML fonte: `scripts/cra/soap-requests/Retorno.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Retorno.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-8] Homologadas — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Homologadas\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Homologadas soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <codapres xsi:type=\"xsd:string\">000</codapres>\n      <cartorios xsi:type=\"xsd:string\">1</cartorios>\n    </urn:Homologadas>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Homologadas** (AUTOCRA-8).\n\nXML fonte: `scripts/cra/soap-requests/Homologadas.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Homologadas.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-11] Instrumento — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Instrumento\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Instrumento soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userDados xsi:type=\"xsd:string\"><![CDATA[<instrumento><municipios><municipio><codigoMunicipio>5208707</codigoMunicipio><cartorios><cartorio><codigoCartorio>01</codigoCartorio><titulos><titulo><protocolo>0000000001</protocolo><dataProtocolo>01/01/2025</dataProtocolo></titulo></titulos></cartorio></cartorios></municipio></municipios></instrumento>]]></userDados>\n    </urn:Instrumento>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Instrumento** (AUTOCRA-11).\n\nXML fonte: `scripts/cra/soap-requests/Instrumento.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Instrumento.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-13] Boleto autorização — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#BoletoAutorizacao\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:BoletoAutorizacao soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <numeroTitulo xsi:type=\"xsd:string\">999999999</numeroTitulo>\n      <documentoDevedor xsi:type=\"xsd:string\">99999999999</documentoDevedor>\n    </urn:BoletoAutorizacao>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **BoletoAutorizacao** (AUTOCRA-13).\n\nXML fonte: `scripts/cra/soap-requests/BoletoAutorizacao.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/BoletoAutorizacao.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-14] Andamento — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Andamento\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Andamento soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <userArq xsi:type=\"xsd:string\">M0000101.251</userArq>\n    </urn:Andamento>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Andamento** (AUTOCRA-14).\n\nXML fonte: `scripts/cra/soap-requests/Andamento.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Andamento.md`"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consulta",
+          "item": [
+            {
+              "name": "[AUTOCRA-9] Consulta título — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Consulta\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Consulta soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <nossoNumero xsi:type=\"xsd:string\"></nossoNumero>\n      <numeroTitulo xsi:type=\"xsd:string\"></numeroTitulo>\n    </urn:Consulta>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Consulta** (AUTOCRA-9).\n\nXML fonte: `scripts/cra/soap-requests/Consulta.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Consulta.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-10] Consulta slip — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#Consulta_Slip\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:Consulta_Slip soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n      <codMunicipio xsi:type=\"xsd:string\">5208707</codMunicipio>\n      <codCartorio xsi:type=\"xsd:string\">01</codCartorio>\n      <protocolo xsi:type=\"xsd:string\">11234567890</protocolo>\n      <dataProtocolo xsi:type=\"xsd:string\">02/05/2016</dataProtocolo>\n    </urn:Consulta_Slip>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **Consulta_Slip** (AUTOCRA-10).\n\nXML fonte: `scripts/cra/soap-requests/Consulta_Slip.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Consulta_Slip.md`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-16] Consulta justificativas — SOAP direto",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.variables.set(\"cra_soap_action\", pm.collectionVariables.get(\"cra_soap_namespace\") + \"#ConsultaJustificativa\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+                      "const body = pm.response.text();",
+                      "pm.test(\"Resposta XML\", () => {",
+                      "  pm.expect(body.length).to.be.above(0);",
+                      "});",
+                      "if (body.includes(\"0001\") && /AUTENTIC/i.test(body)) {",
+                      "  console.warn(\"Possível falha de autenticação CRA (código 0001)\");",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{CRA_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{CRA_PASS}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "text/xml; charset=ISO-8859-1"
+                  },
+                  {
+                    "key": "SOAPAction",
+                    "value": "{{cra_soap_action}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:crago.cra21.com.br\">\n  <soapenv:Header/>\n  <soapenv:Body>\n    <urn:ConsultaJustificativa soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"/>\n  </soapenv:Body>\n</soapenv:Envelope>\n"
+                },
+                "url": "{{cra_soap_url}}",
+                "description": "SOAP direto CRA21 — operação **ConsultaJustificativa** (AUTOCRA-16).\n\nXML fonte: `scripts/cra/soap-requests/ConsultaJustificativa.xml`\n\nVault: `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/ConsultaJustificativa.md`"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "n8n — proxy CRA",
+      "description": "Webhooks n8n (HTTP→SOAP). Paths e IDs serão preenchidos na implementação dos workflows AUTOCRA-1…142.",
+      "item": [
+        {
+          "name": "Upload",
+          "item": [
+            {
+              "name": "[AUTOCRA-1] Remessa",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Remessa');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"B9990411.171\",\n  \"user_dados\": \"<remessa><nome_arquivo>B9990411.171</nome_arquivo><comarca CodMun=\\\"1302603\\\"><hd h01=\\\"0\\\" h02=\\\"999\\\" h03=\\\"APRESENTANTE TESTE\\\" h04=\\\"18032011\\\" h05=\\\"BFO\\\" h06=\\\"SDT\\\" h07=\\\"TPR\\\" h08=\\\"10\\\" h09=\\\"1\\\" h10=\\\"1\\\" h11=\\\"0\\\" h12=\\\"2\\\" h13=\\\"\\\" h14=\\\"043\\\" h15=\\\"1302603\\\" h16=\\\"\\\" h17=\\\"1\\\" /><tr t01=\\\"1\\\" t02=\\\"999\\\" t03=\\\"77\\\" t04=\\\"DEVEDOR TESTE\\\" t05=\\\"DEVEDOR TESTE\\\" t06=\\\"05492907000139\\\" t07=\\\"CREDOR TESTE\\\" t08=\\\"69099345\\\" t09=\\\"MANAUS\\\" t10=\\\"AM\\\" t11=\\\"54995-1\\\" t12=\\\"DMI\\\" t13=\\\"54995-1\\\" t14=\\\"23042009\\\" t15=\\\"14052009\\\" t16=\\\"001\\\" t17=\\\"959.66\\\" t18=\\\"959.66\\\" t19=\\\"MANAUS\\\" t20=\\\" \\\" t21=\\\" \\\" t22=\\\"1\\\" t23=\\\"NOME ENDOSSO\\\" t24=\\\"002\\\" t25=\\\"00003535215234\\\" t26=\\\" \\\" t27=\\\"RUA TESTE 03\\\" t28=\\\"69405000\\\" t29=\\\"IRANDUBA\\\" t30=\\\"AM\\\" t31=\\\"0\\\" t32=\\\"0\\\" t33=\\\"\\\" t34=\\\"0\\\" t35=\\\"0\\\" t36=\\\"I\\\" t37=\\\"0\\\" t38=\\\" \\\" t39=\\\"CENTRO\\\" t40=\\\"0\\\" t41=\\\"0\\\" t42=\\\"0\\\" t43=\\\"0\\\" t44=\\\"0\\\" t45=\\\"0\\\" t46=\\\" \\\" t47=\\\" \\\" t48=\\\" \\\" t49=\\\" \\\" t50=\\\"0\\\" t51=\\\"hashimagem\\\" t52=\\\"2\\\"/><tl t01=\\\"9\\\" t02=\\\"999\\\" t03=\\\"APRESENTANTE TESTE\\\" t04=\\\"18032011\\\" t05=\\\"00006\\\" t06=\\\"1346.30\\\" t07=\\\"\\\" t08=\\\"3\\\" /></comarca></remessa>\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_remessa}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-1] (cra) Remessa - Remessa`.\n\nWorkflow ID: `rxiP8oRIStvOz9ht`\n\n`user_dados` deve ser XML com raiz `<remessa>` (layout Febraban). Exemplo baseado em `webservice-cra/EXEMPLO_REMESSA_XML.xml`. Em homologação, códigos de negócio (ex.: **2118**, **1217**) retornam `status_http: 422`."
+              }
+            },
+            {
+              "name": "[AUTOCRA-4] Desistência",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Desistencia');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"DP0000101.251\",\n  \"user_dados\": \"<desistencia><apresentante>000</apresentante><comarca><CodMun>3550308</CodMun><cartorio><numero_cartorio>01</numero_cartorio><titulo><numero_protocolo>1234</numero_protocolo><data_protocolo>13082012</data_protocolo><numero_titulo>00345467</numero_titulo><nome_devedor>JOSE SILVA</nome_devedor><valor_titulo>268.82</valor_titulo></titulo></cartorio></comarca></desistencia>\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_desistencia}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-4] (cra) Desistencia - Desistência`.\n\nWorkflow ID: `Zu7Ltqw1ArQs17C8`\n\n`user_arq` Febraban desistência (`DP…DDMM.AAS`). `user_dados` XML com raiz `<desistencia>` — ver `webservice-cra/DESISTENCIA.md`. Em homologação, códigos de negócio retornam `status_http: 422`."
+              }
+            },
+            {
+              "name": "[AUTOCRA-5] Cancelamento",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Cancelamento');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"CP0000101.251\",\n  \"user_dados\": \"<cancelamento><apresentante>000</apresentante><comarca><CodMun>3550308</CodMun><cartorio><numero_cartorio>01</numero_cartorio><titulo><numero_protocolo>1234</numero_protocolo><data_protocolo>13082012</data_protocolo><numero_titulo>00345467</numero_titulo><nome_devedor>JOSE SILVA</nome_devedor><valor_titulo>268.82</valor_titulo></titulo></cartorio></comarca></cancelamento>\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_cancelamento}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-5] (cra) Cancelamento - Cancelamento`.\n\nWorkflow ID: `ADsgeC6405hahbl4`\n\n`user_arq` Febraban cancelamento (`CP…DDMM.AAS`). `user_dados` XML com raiz `<cancelamento>` — ver `webservice-cra/CANCELAMENTO.md`. Em homologação, códigos de negócio retornam `status_http: 422`."
+              }
+            },
+            {
+              "name": "[AUTOCRA-6] Autoriza cancelamento",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Autoriza_Cancelamento');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"AC0000101.251\",\n  \"user_dados\": \"<autoriza_cancelamento><apresentante>000</apresentante><comarca><CodMun>3550308</CodMun><cartorio><numero_cartorio>01</numero_cartorio><titulo><numero_protocolo>1234</numero_protocolo><data_protocolo>13082012</data_protocolo><numero_titulo>00345467</numero_titulo><nome_devedor>JOSE SILVA</nome_devedor><valor_titulo>268.82</valor_titulo></titulo></cartorio></comarca></autoriza_cancelamento>\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_autoriza-cancelamento}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-6] (cra) Autoriza_Cancelamento - Autorização`.\n\nWorkflow ID: `MXWDzKFaOgWKMXKr`\n\n`user_arq` Febraban autorização cancelamento (`AC…DDMM.AAS`). `user_dados` XML com raiz `<autoriza_cancelamento>` — ver `webservice-cra/AUTORIZAÇÃO DE CANCELAMENTO OU DESISTENCIA.md`. Em homologação, códigos de negócio retornam `status_http: 422`."
+              }
+            },
+            {
+              "name": "[AUTOCRA-7] Autoriza desistência",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Autoriza_Desistencia');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"AD0000101.251\",\n  \"user_dados\": \"<autoriza_desistencia><apresentante>000</apresentante><comarca><CodMun>3550308</CodMun><cartorio><numero_cartorio>01</numero_cartorio><titulo><numero_protocolo>1234</numero_protocolo><data_protocolo>13082012</data_protocolo><numero_titulo>00345467</numero_titulo><nome_devedor>JOSE SILVA</nome_devedor><valor_titulo>268.82</valor_titulo></titulo></cartorio></comarca></autoriza_desistencia>\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_autoriza-desistencia}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-7] (cra) Autoriza_Desistencia - Autorização`.\n\nWorkflow ID: `CZ103VGnFsVRUSKW`\n\n`user_arq` Febraban autorização desistência (`AD…DDMM.AAS`). `user_dados` XML com raiz `<autoriza_desistencia>` — ver `webservice-cra/AUTORIZAÇÃO DE CANCELAMENTO OU DESISTENCIA.md`. Em homologação, códigos de negócio retornam `status_http: 422`."
+              }
+            },
+            {
+              "name": "[AUTOCRA-12] Imagem",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Imagem');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"B0000101.251\",\n  \"user_dados\": \"<remessas><remessa><sequencial>000001</sequencial><municipio>3100203</municipio><titulos><titulo><documento_devedor>10964681668</documento_devedor><nosso_numero>1350100099999</nosso_numero><numero_titulo>13501000999</numero_titulo><saldo>5114.85</saldo><imagem>UEsDBBQAAAATALdVXVMk==</imagem></titulo></titulos></remessa></remessas>\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_imagem}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-12] (cra) Imagem - Imagens`.\n\nWorkflow ID: `qjGemkjLBMLeNOyY`\n\n`user_arq` Febraban remessa (`B…DDMM.AAS`). `user_dados` XML com raiz `<remessas>` — ver `webservice-cra/IMAGEM DA REMESSA.md`. Payload pode incluir base64 grande; timeout upstream 30 min."
+              }
+            },
+            {
+              "name": "[AUTOCRA-15] Ofício título",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Oficio_Titulo');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"OT0000101.251\",\n  \"user_dados\": \"<oficio><apresentante>000</apresentante><CodMun>3550308</CodMun><numero_cartorio>01</numero_cartorio><numero_protocolo>20250001</numero_protocolo><data_protocolo>18092025</data_protocolo><numero_titulo>12345ABC</numero_titulo><nome_devedor>EMPRESA EXEMPLO LTDA</nome_devedor><valor>1500.50</valor><tipo_oficio>0</tipo_oficio><observacao>Observacoes pertinentes ao oficio judicial.</observacao></oficio>\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_oficio-titulo}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-15] (cra) Oficio_Titulo - Ofício`.\n\nWorkflow ID: `Qsemjs7WDHNgvmtD`\n\n`user_arq` Febraban ofício (`OT…DDMM.AAS`). `user_dados` XML com raiz `<oficio>` — ver `webservice-cra/OFICIO.md`. Em homologação, códigos de negócio retornam `status_http: 422`."
+              }
+            }
+          ]
+        },
+        {
+          "name": "Download",
+          "item": [
+            {
+              "name": "[AUTOCRA-2] Confirmação",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Confirmacao');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"C0000101.251\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_confirmacao}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-2] (cra) Confirmacao - Confirmação`.\n\nWorkflow ID: `CS6XCx46zzr7jHX7`\n\nArquivo fictício em homologação retorna código CRA **10000** (`status_http: 422`). Para download real, gerar confirmação via Simulação CRA e usar `user_arq` no padrão `C…DDMM.AAS`."
+              }
+            },
+            {
+              "name": "[AUTOCRA-3] Retorno",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Retorno');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"R0000101.251\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_retorno}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-3] (cra) Retorno - Retorno`.\n\nWorkflow ID: `pn54OjS5xQeUJNzV`\n\nArquivo fictício em homologação retorna código CRA **10000** (`status_http: 422`). Para download real, gerar retorno via Simulação CRA e usar `user_arq` no padrão `R…DDMM.AAS`."
+              }
+            },
+            {
+              "name": "[AUTOCRA-8] Homologadas",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Homologadas');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('comarcas');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"codapres\": \"000\",\n  \"cartorios\": \"1\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_homologadas}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-8] (cra) Homologadas - Homologação`.\n\nWorkflow ID: `Tq9ATORk9QNWQsfv`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-11] Instrumento",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Instrumento');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_dados\": \"<instrumento><municipios><municipio><codigoMunicipio>5208707</codigoMunicipio><cartorios><cartorio><codigoCartorio>01</codigoCartorio><titulos><titulo><protocolo>0000000001</protocolo><dataProtocolo>01/01/2025</dataProtocolo></titulo></titulos></cartorio></cartorios></municipio></municipios></instrumento>\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_instrumento}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-11] (cra) Instrumento - Instrumento`.\n\nWorkflow ID: `hwBubo0sOrSh72BU`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-13] Boleto autorização",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'BoletoAutorizacao');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"numero_titulo\": \"999999999\",\n  \"documento_devedor\": \"99999999999\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_boletoautorizacao}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-13] (cra) BoletoAutorizacao - Autorização`.\n\nWorkflow ID: `yeAyMtW4w3IUnu42`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-14] Andamento",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Andamento');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "  pm.expect(json.dados).to.have.property('user_arq');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"user_arq\": \"M0000101.251\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_andamento}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-14] (cra) Andamento - Andamento`.\n\nWorkflow ID: `WZCP5YdKA7KzQ2uj`\n\nArquivo fictício em homologação retorna código CRA **10000** (`status_http: 422`). Para download real, usar `user_arq` no padrão Febraban `M…DDMM.AAS` (ex.: `M0000101.251`)."
+              }
+            }
+          ]
+        },
+        {
+          "name": "Consulta",
+          "item": [
+            {
+              "name": "[AUTOCRA-9] Consulta título",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"nosso_numero\": \"\",\n  \"numero_titulo\": \"00000000000000000000\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_consulta}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-9] (cra) Consulta - Consulta`.\n\nWorkflow ID: `eM9zHTr0SYmczKFG`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-10] Consulta slip",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'Consulta_Slip');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\",\n  \"cod_municipio\": \"5208707\",\n  \"cod_cartorio\": \"01\",\n  \"protocolo\": \"11234567890\",\n  \"data_protocolo\": \"02/05/2016\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_consulta-slip}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-10] (cra) Consulta_Slip - Consulta`.\n\nWorkflow ID: `iqe1B9FKkAP3rZPK`"
+              }
+            },
+            {
+              "name": "[AUTOCRA-16] Consulta justificativas",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CRA', () => {",
+                      "  pm.expect(json).to.have.property('operacao', 'ConsultaJustificativa');",
+                      "  pm.expect(json).to.have.property('dados');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{N8N_BASIC_AUTH_USER}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"homologacao\",\n  \"uf\": \"{{CRA_UF}}\"\n}"
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/cra/{{cra_webhook_path_consultajustificativa}}",
+                "description": "Proxy n8n — workflow `[AUTOCRA-16] (cra) ConsultaJustificativa - Consulta`.\n\nWorkflow ID: `16OyU7sRLhlGHOso`\n\nCredenciais CRA via env n8n (`CRA_USER`, `CRA_PASS`, `CRA_UF`). Body opcional: `ambiente`, `uf`."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

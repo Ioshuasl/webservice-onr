@@ -1,0 +1,449 @@
+﻿{
+  "summary": {
+    "totalCards": 142,
+    "active": 70,
+    "cancelledOrPaused": 72,
+    "maxSeq": 148
+  },
+  "cancelledByMigrationProject": {
+    "AUTCENSEC": {
+      "count": 1,
+      "range": "13"
+    },
+    "AUTDOI": {
+      "count": 1,
+      "range": "87"
+    },
+    "AUTCCN": {
+      "count": 3,
+      "range": "88ÔÇª90"
+    },
+    "AUTORIB": {
+      "count": 36,
+      "range": "91ÔÇª126"
+    },
+    "AUTOCRA": {
+      "count": 16,
+      "range": "127ÔÇª142"
+    },
+    "AUTCNIB": {
+      "count": 6,
+      "range": "143ÔÇª148"
+    }
+  },
+  "cancelledNonMigration": [
+    {
+      "seq": 44,
+      "name": "[n8n] certid├Áes - ObterXMLSolicitacoes_v4"
+    },
+    {
+      "seq": 45,
+      "name": "[n8n] certid├Áes - ObterXMLSolicitacoes_v5"
+    },
+    {
+      "seq": 48,
+      "name": "[n8n] certid├Áes - EnviarAnexoCertidao"
+    },
+    {
+      "seq": 49,
+      "name": "[n8n] certid├Áes - EnviarAnexoCertidao_DocID"
+    },
+    {
+      "seq": 50,
+      "name": "[n8n] certid├Áes - EnviarAnexoCertidao_DocID_V2"
+    },
+    {
+      "seq": 51,
+      "name": "[n8n] certid├Áes - EnviarAnexosListCertidao_DocID"
+    },
+    {
+      "seq": 52,
+      "name": "[n8n] certid├Áes - EnviarAnexosListCertidao_DocID_V2"
+    },
+    {
+      "seq": 84,
+      "name": "[n8n] CTP - ImportacaoArquivos"
+    },
+    {
+      "seq": 85,
+      "name": "[n8n] CTP - AtualizarStatusProcesso"
+    }
+  ],
+  "activeSequenceRanges": [
+    "2",
+    "4-12",
+    "14-39",
+    "46-47",
+    "53-83",
+    "86"
+  ],
+  "activeGaps": [
+    3,
+    13,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    48,
+    49,
+    50,
+    51,
+    52,
+    84,
+    85
+  ],
+  "activeList": [
+    {
+      "seq": 2,
+      "key": "AUTONR-2",
+      "name": "[n8n] autentica├º├úo - LoginUsuarioCertificado"
+    },
+    {
+      "seq": 4,
+      "key": "AUTONR-4",
+      "name": "[n8n] acompanhamento de t├¡tulos - ListTitulosAT"
+    },
+    {
+      "seq": 5,
+      "key": "AUTONR-5",
+      "name": "[n8n] acompanhamento de t├¡tulos - ListStatusAT"
+    },
+    {
+      "seq": 6,
+      "key": "AUTONR-6",
+      "name": "[n8n] acompanhamento de t├¡tulos - GetTituloAT"
+    },
+    {
+      "seq": 7,
+      "key": "AUTONR-7",
+      "name": "[n8n] acompanhamento de t├¡tulos - GetStatusAT"
+    },
+    {
+      "seq": 8,
+      "key": "AUTONR-8",
+      "name": "[n8n] acompanhamento de t├¡tulos - InsertTituloAT"
+    },
+    {
+      "seq": 9,
+      "key": "AUTONR-9",
+      "name": "[n8n] acompanhamento de t├¡tulos - UpdateTituloAT"
+    },
+    {
+      "seq": 10,
+      "key": "AUTONR-10",
+      "name": "[n8n] acompanhamento de t├¡tulos - DeleteTituloAT"
+    },
+    {
+      "seq": 11,
+      "key": "AUTONR-11",
+      "name": "[n8n] acompanhamento de t├¡tulos - InsertStatusAT"
+    },
+    {
+      "seq": 12,
+      "key": "AUTONR-12",
+      "name": "[n8n] acompanhamento de t├¡tulos - UpdateStatusAT"
+    },
+    {
+      "seq": 14,
+      "key": "AUTONR-14",
+      "name": "[n8n] penhora online - ListPedidosPO"
+    },
+    {
+      "seq": 15,
+      "key": "AUTONR-15",
+      "name": "[n8n] penhora online - GetPedidoPO"
+    },
+    {
+      "seq": 16,
+      "key": "AUTONR-16",
+      "name": "[n8n] penhora online - ListVarasPO"
+    },
+    {
+      "seq": 17,
+      "key": "AUTONR-17",
+      "name": "[n8n] penhora online - SetPrenotacaoPO"
+    },
+    {
+      "seq": 18,
+      "key": "AUTONR-18",
+      "name": "[n8n] penhora online - SetCustasPO"
+    },
+    {
+      "seq": 19,
+      "key": "AUTONR-19",
+      "name": "[n8n] penhora online - SetBaixaBoletoPO"
+    },
+    {
+      "seq": 20,
+      "key": "AUTONR-20",
+      "name": "[n8n] penhora online - SetPenhoraAverbadoPO"
+    },
+    {
+      "seq": 21,
+      "key": "AUTONR-21",
+      "name": "[n8n] penhora online - SetPenhoraExigenciaPO"
+    },
+    {
+      "seq": 22,
+      "key": "AUTONR-22",
+      "name": "[n8n] penhora online - SetPedidoPessoaRespondidoPO"
+    },
+    {
+      "seq": 23,
+      "key": "AUTONR-23",
+      "name": "[n8n] penhora online - SetPedidoPessoaDevolvidoPO"
+    },
+    {
+      "seq": 24,
+      "key": "AUTONR-24",
+      "name": "[n8n] penhora online - SetPedidoMatriculaRespondidoPO"
+    },
+    {
+      "seq": 25,
+      "key": "AUTONR-25",
+      "name": "[n8n] penhora online - SetPedidoMatriculaDevolvidoPO"
+    },
+    {
+      "seq": 26,
+      "key": "AUTONR-26",
+      "name": "[n8n] penhora online - SetPedidoNegativaLotePO"
+    },
+    {
+      "seq": 27,
+      "key": "AUTONR-27",
+      "name": "[n8n] penhora online - ListPedidosExportacaoPO"
+    },
+    {
+      "seq": 28,
+      "key": "AUTONR-28",
+      "name": "[n8n] penhora online - SetPedidoFinalizarPrenotacaoVencida"
+    },
+    {
+      "seq": 29,
+      "key": "AUTONR-29",
+      "name": "[n8n] of├¡cio eletr├┤nico - GetPedidoOE"
+    },
+    {
+      "seq": 30,
+      "key": "AUTONR-30",
+      "name": "[n8n] of├¡cio eletr├┤nico - ListInstituicoesOE"
+    },
+    {
+      "seq": 31,
+      "key": "AUTONR-31",
+      "name": "[n8n] of├¡cio eletr├┤nico - ListPedidosOE"
+    },
+    {
+      "seq": 32,
+      "key": "AUTONR-32",
+      "name": "[n8n] of├¡cio eletr├┤nico - ListPedidosOE_V2"
+    },
+    {
+      "seq": 33,
+      "key": "AUTONR-33",
+      "name": "[n8n] of├¡cio eletr├┤nico - SetPedidoRespondidoOE"
+    },
+    {
+      "seq": 34,
+      "key": "AUTONR-34",
+      "name": "[n8n] of├¡cio eletr├┤nico - SetPedidoDevolvidoOE"
+    },
+    {
+      "seq": 35,
+      "key": "AUTONR-35",
+      "name": "[n8n] of├¡cio eletr├┤nico - SetPedidoRetransmitidoOE"
+    },
+    {
+      "seq": 36,
+      "key": "AUTONR-36",
+      "name": "[n8n] of├¡cio eletr├┤nico - SetPedidoNegativaLoteOE"
+    },
+    {
+      "seq": 37,
+      "key": "AUTONR-37",
+      "name": "[n8n] of├¡cio eletr├┤nico - ListCartoriosRestransmitirOE"
+    },
+    {
+      "seq": 38,
+      "key": "AUTONR-38",
+      "name": "[n8n] penhora online - ListBoletosPO"
+    },
+    {
+      "seq": 39,
+      "key": "AUTONR-39",
+      "name": "[n8n] penhora online - ListPedidosExportacaoPO_v2"
+    },
+    {
+      "seq": 46,
+      "key": "AUTONR-46",
+      "name": "[n8n] certid├Áes - ObterXMLSolicitacoes_v6"
+    },
+    {
+      "seq": 47,
+      "key": "AUTONR-47",
+      "name": "[n8n] certid├Áes - DevolverCertidao"
+    },
+    {
+      "seq": 53,
+      "key": "AUTONR-53",
+      "name": "[n8n] certid├Áes - FinalizarRespostaCertidao"
+    },
+    {
+      "seq": 54,
+      "key": "AUTONR-54",
+      "name": "[n8n] certid├Áes - InformarCustasCertidao"
+    },
+    {
+      "seq": 55,
+      "key": "AUTONR-55",
+      "name": "[AUTONR-55] (webservice ONR) ObterXMLSolicitacoes - Matricula Online"
+    },
+    {
+      "seq": 56,
+      "key": "AUTONR-56",
+      "name": "[AUTONR-56] (webservice ONR) ObterXMLSolicitacoesV2 - Matricula Online"
+    },
+    {
+      "seq": 57,
+      "key": "AUTONR-57",
+      "name": "[n8n] e-protocolo - GetExtratoXMLAC"
+    },
+    {
+      "seq": 58,
+      "key": "AUTONR-58",
+      "name": "[n8n] e-protocolo - ListPedidosAC"
+    },
+    {
+      "seq": 59,
+      "key": "AUTONR-59",
+      "name": "[n8n] e-protocolo - ListAnexosAC"
+    },
+    {
+      "seq": 60,
+      "key": "AUTONR-60",
+      "name": "[n8n] e-protocolo - ListBoletosAC"
+    },
+    {
+      "seq": 61,
+      "key": "AUTONR-61",
+      "name": "[n8n] e-protocolo - SetBaixaBoletoAC"
+    },
+    {
+      "seq": 62,
+      "key": "AUTONR-62",
+      "name": "[n8n] e-protocolo - GetPedidoAC_V3"
+    },
+    {
+      "seq": 63,
+      "key": "AUTONR-63",
+      "name": "[n8n] e-protocolo - AlterarPedidoAC"
+    },
+    {
+      "seq": 64,
+      "key": "AUTONR-64",
+      "name": "[n8n] e-protocolo - SetPrenotacaoAC"
+    },
+    {
+      "seq": 65,
+      "key": "AUTONR-65",
+      "name": "[n8n] e-protocolo - SetCustasAC"
+    },
+    {
+      "seq": 66,
+      "key": "AUTONR-66",
+      "name": "[n8n] e-protocolo - SetPrenotacaoExameCalculoAC"
+    },
+    {
+      "seq": 67,
+      "key": "AUTONR-67",
+      "name": "[n8n] e-protocolo - SetContratoAverbadoAC"
+    },
+    {
+      "seq": 68,
+      "key": "AUTONR-68",
+      "name": "[n8n] e-protocolo - SetContratoExigenciaAC"
+    },
+    {
+      "seq": 69,
+      "key": "AUTONR-69",
+      "name": "[n8n] e-protocolo - SetContratoDevolvidoAC"
+    },
+    {
+      "seq": 70,
+      "key": "AUTONR-70",
+      "name": "[n8n] e-protocolo - ListDocumentosRepositorioAC"
+    },
+    {
+      "seq": 71,
+      "key": "AUTONR-71",
+      "name": "[n8n] e-protocolo - ContratoXMLtoPDF"
+    },
+    {
+      "seq": 72,
+      "key": "AUTONR-72",
+      "name": "[AUTONR-72] (webservice ONR) ImportarPrenotacaoIN - Intima├º├Áes"
+    },
+    {
+      "seq": 73,
+      "key": "AUTONR-73",
+      "name": "[AUTONR-73] (webservice ONR) ListPedidosIN - Intima├º├Áes"
+    },
+    {
+      "seq": 74,
+      "key": "AUTONR-74",
+      "name": "[AUTONR-74] (webservice ONR) ListMensagensPedidoIN - Intima├º├Áes"
+    },
+    {
+      "seq": 75,
+      "key": "AUTONR-75",
+      "name": "[AUTONR-75] (webservice ONR) AdicionarMensagemIN - Intima├º├Áes"
+    },
+    {
+      "seq": 76,
+      "key": "AUTONR-76",
+      "name": "[AUTONR-76] (webservice ONR) GetDetalhesIN_V2 - Intima├º├Áes"
+    },
+    {
+      "seq": 77,
+      "key": "AUTONR-77",
+      "name": "[AUTONR-77] (webservice ONR) GetDetalhesIN_V3 - Intima├º├Áes"
+    },
+    {
+      "seq": 78,
+      "key": "AUTONR-78",
+      "name": "[AUTONR-78] (webservice ONR) GetMensagemIN - Intima├º├Áes"
+    },
+    {
+      "seq": 79,
+      "key": "AUTONR-79",
+      "name": "[AUTONR-79] (webservice ONR) GetEmolumentosIN - Intima├º├Áes"
+    },
+    {
+      "seq": 80,
+      "key": "AUTONR-80",
+      "name": "[AUTONR-80] (webservice ONR) AdicionarEmolumentoIN - Intima├º├Áes"
+    },
+    {
+      "seq": 81,
+      "key": "AUTONR-81",
+      "name": "[AUTONR-81] (webservice ONR) ExcluirEmolumentoIN - Intima├º├Áes"
+    },
+    {
+      "seq": 82,
+      "key": "AUTONR-82",
+      "name": "[AUTONR-82] (webservice ONR) ListPagamentosIN - Intima├º├Áes"
+    },
+    {
+      "seq": 83,
+      "key": "AUTONR-83",
+      "name": "[AUTONR-83] (webservice ONR) ListStatusIN - Intima├º├Áes"
+    },
+    {
+      "seq": 86,
+      "key": "AUTONR-86",
+      "name": "[n8n] SIGEF - ParseMemorialSIGEF"
+    }
+  ]
+}

@@ -118,6 +118,8 @@ Estas **não** entram na coleção unificada ONR (outros produtos/domínios):
 | [`Parse-Memorial-SIGEF-n8n`](Parse-Memorial-SIGEF-n8n.postman_collection.json) | SIGEF memorial |
 | [`RIB-n8n`](RIB-n8n.postman_collection.json) | API Registro de Imóveis do Brasil (RIB) |
 | [`RIB-n8n.postman_environment.template.json`](RIB-n8n.postman_environment.template.json) | Environment RIB (opcional; sobrescreve Collection variables) |
+| [`cra-webservice-n8n`](cra-webservice-n8n.postman_collection.json) | Webservice SOAP CRA21 — protesto (AUTONR-127…142) |
+| [`cra-webservice-n8n.postman_environment.template.json`](cra-webservice-n8n.postman_environment.template.json) | Environment CRA (opcional; `CRA_USER`, `CRA_PASS`, `CRA_UF`) |
 
 CCN: `npm run postman:sync:ccn` · variáveis explícitas na própria coleção CCN.
 
@@ -143,6 +145,28 @@ npm run postman:sync:rib:watch    # observa o JSON e publica automaticamente
 Config local (gitignored): `postman/.postman-sync-rib.json` (UID `35976147-81ffb313-b01c-419e-941c-f97156a7fbd5`). API key: `POSTMAN_API_KEY` no `.env`. Primeira vez em workspace novo: `npm run postman:sync:rib:create`.
 
 Environment opcional: [`RIB-n8n.postman_environment.template.json`](RIB-n8n.postman_environment.template.json) — preencha `RIB_API_CLIENT_ID` / `RIB_API_CLIENT_SECRET` (vault `[[env#RIB]]`). Use `RIB_AMBIENTE` (`producao` ou `homologacao`). Fluxo: **autenticacao → Token — produção** (grava `rib_access_token`).
+
+**CRA (webservice SOAP protesto):** coleção [`cra-webservice-n8n`](cra-webservice-n8n.postman_collection.json) — nome no Postman: *cra webservice - n8n*. AUTONR-127…142 (16 operações). Pastas:
+
+| Pasta | Uso |
+|-------|-----|
+| **SOAP direto (referência)** | POST `protestos.php` com `CRA_USER` / `CRA_PASS` — testável hoje |
+| **n8n — proxy CRA** | Webhooks HTTP→SOAP — preencher quando workflows existirem |
+
+Regenerar após editar XML em `scripts/cra/soap-requests/`:
+
+```bash
+npm run postman:build:cra
+```
+
+Environment opcional: [`cra-webservice-n8n.postman_environment.template.json`](cra-webservice-n8n.postman_environment.template.json) — credenciais vault `env#CRA21` (`CRA_USER`, `CRA_PASS`, `CRA_UF=go`).
+
+```bash
+npm run postman:sync:cra          # push único
+npm run postman:sync:cra:watch    # observa o JSON e publica automaticamente
+```
+
+Config local (gitignored): `postman/.postman-sync-cra.json` (UID `35976147-89e5212a-b0ce-4a90-a93a-2f464c3ddf95`). API key: `POSTMAN_API_KEY` no `.env` ou vault `[[env#Postman — API key (sync coleções)]]`. Primeira vez: `npm run postman:sync:cra:create`.
 
 **CENSEC:** importe [`censec-n8n`](censec-n8n.postman_collection.json) + [`censec-n8n.postman_environment.template.json`](censec-n8n.postman_environment.template.json). Preencha `CENSEC_API_KEY` e `N8N_BASIC_AUTH_PASSWORD` no environment (valores em Obsidian `[[env]]` ou `.env` local). A coleção já traz defaults HML em Collection variables; o environment opcional sobrescreve. Fonte: `orius N8N/Censec/env.md`.
 

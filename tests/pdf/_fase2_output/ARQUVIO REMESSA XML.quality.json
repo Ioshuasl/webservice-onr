@@ -1,0 +1,26 @@
+{
+  "chars_out": 7172,
+  "omitted_count": 0,
+  "omitted_ratio": 0.0,
+  "quality_score": 82,
+  "table_rows_detected": 0,
+  "heading_count": 0,
+  "xml_blocks": 0,
+  "xml_valid": 0,
+  "pdf": "C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\ARQUVIO REMESSA XML.pdf",
+  "md_path": "C:\\Users\\kenio\\automacoes e testes\\tests\\pdf\\_fase2_output\\ARQUVIO REMESSA XML.md",
+  "profile": "cra-image",
+  "engine": "layout",
+  "preprocess_profile": "cra-scan",
+  "ocr_engine": "auto",
+  "adaptive_dpi": true,
+  "pages_total": 9,
+  "pages_converted": 9,
+  "duration_sec": 453.044,
+  "retry_warnings": [
+    "page 1: retry OCR aplicado (713 chars)",
+    "page 2: retry OCR aplicado (735 chars)"
+  ],
+  "postprocessed": true,
+  "generated_at": "2026-06-10T15:29:42+00:00"
+}

@@ -17,12 +17,15 @@ Context root: `c:\Users\kenio\automacoes e testes` · Vault: `C:\Users\kenio\Obs
 
 | Integração | Palavras-chave | Label `(integração)` | Adapter skill | Domínios típicos |
 |------------|----------------|----------------------|---------------|------------------|
-| ONR WSOficio | `wsoficio`, `webservice onr`, `soap`, `ws oficio`, `acompanhamento titulos`, `penhora`, `oficio`, `certidoes`, `intimacoes`, `e-protocolo`, `matricula online`, `bdlight`, `bdl`, `ctp onr` | `webservice ONR` | ✅ `agent-onr-n8n-soap` | Autenticação, AT, PO, OE, Certidões, IN, AC, CTP, Matrícula Online |
+| ONR WSOficio | `wsoficio`, `webservice onr`, `ws oficio`, `acompanhamento titulos`, `penhora`, `oficio eletronico`, `certidoes`, `intimacoes`, `e-protocolo`, `matricula online`, `bdlight`, `bdl`, `ctp onr` | `webservice ONR` | ✅ `agent-onr-n8n-soap` | Autenticação, AT, PO, OE, Certidões, IN, AC, CTP, Matrícula Online |
+| CRA21 SOAP | `webservice cra`, `cra21`, `cra soap`, `protestos.php`, `protesto`, `tabelionato protesto`, `autonr-127`…`142` | `webservice CRA` | ✅ `agent-cra-n8n-soap` | Remessa, Confirmação, Retorno, Desistência, Cancelamento, Autorização, Homologação, Consulta, Instrumento, Imagens, Andamento, Ofício |
 | CENSEC | `censec`, `cesdi`, `cep censec`, `rcto`, `ctp censec`, `upload json`, `censec_uploadjson` | `CENSEC` | ✅ `agent-censec-n8n` | Upload JSON (CEP, CESDI, CTP) |
 | CCN | `ccn`, `e-notariado`, `upload xml ccn` | `CCN` | 📋 F3 | CCN |
 | DOI | `doi`, `validate json doi` | `DOI` | 📋 F3 | DOI |
 | SIGEF | `sigef`, `memorial sigef`, `parse memorial` | `SIGEF` | 📋 F3 | SIGEF |
 | RIB | `rib`, `registro imoveis brasil`, `protocolo rib`, `edital rib` | `RIB` | 📋 F3 | Auth, protocolo, edital, cobrança |
+| CNIB SERVENTIAS | `cnib`, `serventia-api`, `serventias api`, `indisponibilidade`, `autonr-143`…`148` | `API CNIB` | 📋 F3 | Auth, Ordem (consultar, visualizar, responder), Documentos |
+| SOAP (ambíguo) | `soap` sozinho | — | ❓ | ONR WSOficio vs CRA21 |
 | ONR (ambíguo) | `onr` sozinho | — | ❓ | WSOficio vs RIB vs Mapa ONR |
 | CTP (ambíguo) | `ctp` sozinho | — | ❓ | ONR CTP (SOAP) vs CENSEC CTP (declarações) |
 
@@ -43,6 +46,7 @@ Context root: `c:\Users\kenio\automacoes e testes` · Vault: `C:\Users\kenio\Obs
 |------------|------------|
 | ONR Auth | `workflows/n8n/gentle-juniper-bb6f8f0940a3/Auth ONR.workflow.ts` ou `extensao-n8n-teste/Auth ONR.workflow.ts` |
 | ONR demais | Pipeline em `agent-onr-n8n-soap` |
+| CRA21 SOAP | Pipeline em `agent-cra-n8n-soap` — card âncora AUTONR-142 ou AUTONR-135 |
 | CENSEC | `extensao-n8n-teste/CENSEC Upload JSON Gateway.workflow.ts` — pipeline em `agent-censec-n8n` |
 | CCN / DOI / SIGEF | workflows homônimos em `extensao-n8n-teste/` |
 
@@ -58,6 +62,8 @@ Context root: `c:\Users\kenio\automacoes e testes` · Vault: `C:\Users\kenio\Obs
 | DOI | `DOI-Validate-JSON-n8n.postman_collection.json` | Manual + naming | `npm run postman:sync:doi` |
 | SIGEF | `Parse-Memorial-SIGEF-n8n.postman_collection.json` | Manual + naming | `npm run postman:sync:sigef` |
 | RIB | `RIB-n8n.postman_collection.json` | `scripts/rib/update-postman-rib-collection.cjs` | `npm run postman:sync:rib` |
+| CRA21 SOAP | `cra-webservice-n8n.postman_collection.json` | `npm run postman:build:cra` | `npm run postman:sync:cra` |
+| CNIB SERVENTIAS | `cnib-n8n/collection_postman.json` (+ `cnib-n8n/environment_postman.json`) | Manual + naming | `npm run postman:sync:cnib` |
 | Assinador (ref.) | `assinador-onr.postman_collection.json` | `npm run postman:build:assinador` | Isento AUTONR |
 
 **Validação naming (todas com AUTONR):**
@@ -106,6 +112,8 @@ Templates: `Orius/integracoes/automacao/templates/`
 | DOI | `Orius/integracoes/tabelionato-notas/doi/automacao/utilizacao/` | `.../desenvolvimento/` |
 | SIGEF | `Orius/integracoes/registro-imoveis/automacao/sigef/utilizacao/` | `.../desenvolvimento/` |
 | RIB | Confirmar path no vault (produto imóveis / `rib-*.md`) | Idem |
+| CNIB SERVENTIAS | `Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/` | `.../automacao/desenvolvimento/` |
+| CRA21 SOAP | `Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/` | `.../automacao/desenvolvimento/` |
 
 Nome arquivo: `{OperacaoSOAP}.md` ou nome da operação REST.
 
@@ -121,6 +129,8 @@ Nome arquivo: `{OperacaoSOAP}.md` ou nome da operação REST.
 | DOI | `censec/DOI.md`, coleção DOI |
 | SIGEF | coleção SIGEF, vault SIGEF |
 | RIB | `api-registro-imoveis/`, `scripts/rib/`, coleção RIB |
+| CRA21 SOAP | `webservice-cra/`, `scripts/cra/soap-requests/`, `wsdl/cra-webservice.wsdl`, vault `tabelionato-protesto/cra/` |
+| CNIB SERVENTIAS | `cnib/`, `postman/SERVENTIAS API.postman_collection.json`, vault `api-cnib-serventias/`, Swagger `serventia-api.onr.org.br` |
 
 ---
 
@@ -143,3 +153,5 @@ Sync: `npm run n8n:sync:orius`, `npm run n8n:sync:postman:orius`.
 | CCN | Credenciais CCN + Basic Auth n8n |
 | DOI | Variáveis DOI na coleção |
 | RIB | **Auth Token** → `rib_access_token` → demais requests |
+| CRA21 SOAP | **Sem Auth separado** — Basic `CRA_USER`/`CRA_PASS` em cada request upstream; variáveis vault `env#CRA21` |
+| CNIB SERVENTIAS | **Auth Token (143)** primeiro → grava `cnib_access_token` → demais requests; OAuth form-urlencoded upstream; variáveis vault `env#CNIB` |

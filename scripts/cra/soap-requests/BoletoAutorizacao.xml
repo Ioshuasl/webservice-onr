@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:crago.cra21.com.br">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <urn:BoletoAutorizacao soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+      <numeroTitulo xsi:type="xsd:string">999999999</numeroTitulo>
+      <documentoDevedor xsi:type="xsd:string">99999999999</documentoDevedor>
+    </urn:BoletoAutorizacao>
+  </soapenv:Body>
+</soapenv:Envelope>

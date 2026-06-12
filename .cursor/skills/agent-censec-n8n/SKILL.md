@@ -40,7 +40,8 @@ Orquestração ponta a ponta: [`agent-n8n-orchestrator`](../agent-n8n-orchestrat
    - `exemplo-censec-json.json`
 3. **Workflow canônico:** `workflows/n8n/extensao-n8n-teste/CENSEC Upload JSON Gateway.workflow.ts`
 4. **Docs existentes:** vault `.../censec/automacao/utilizacao/CENSEC_UploadJSON.md` e `desenvolvimento/CENSEC_UploadJSON.md`
-5. Registry: vault `Meta/integracoes/plane/maps/autonr-work-items.json` → `CENSEC_UploadJSON` (AUTONR-13)
+5. **Plane:** projeto `autcensec` (`AUTCENSEC`) — vault `Meta/integracoes/plane/projetos/autcensec.md`. Legado: card `AUTONR-13` ainda em `autonr` até migração.
+6. Registry: vault `Meta/integracoes/plane/maps/autonr-work-items.json` → `CENSEC_UploadJSON` (legado AUTONR-13)
 
 Rodar do context root:
 
@@ -87,7 +88,7 @@ Detalhes e snippets: [workflow-template.md](workflow-template.md).
 Hoje existe **um** gateway canônico (`CENSEC_UploadJSON`). Ao estender:
 
 - **Mesma operação** → editar workflow existente (pull antes).
-- **Nova operação API** → confirmar com usuário se é novo AUTONR ou extensão do gateway; **perguntar** endpoint e escopo de validação.
+- **Nova operação API** → criar card em **`autcensec`** (`AUTCENSEC-n`); confirmar se é novo card ou extensão do gateway; **perguntar** endpoint e escopo de validação.
 
 ## Contrato HTTP público (JSON)
 
@@ -166,8 +167,10 @@ Fontes de regra (espelhar, não inventar):
 
 | Item | Convenção |
 |------|-----------|
-| Nome workflow | `[AUTONR-n] (CENSEC) <Operacao> - CENSEC` |
-| Exemplo | `[AUTONR-13] (CENSEC) CENSEC_UploadJSON - CENSEC` |
+| Nome workflow | `[AUTCENSEC-n] (CENSEC) <Operacao> - CENSEC` |
+| Exemplo (novo) | `[AUTCENSEC-1] (CENSEC) CENSEC_UploadJSON - CENSEC` |
+| Legado | `[AUTONR-13] (CENSEC) CENSEC_UploadJSON - CENSEC` (projeto `autonr`) |
+| Plane | slug `autcensec` · `plane_project_id` em `projetos/autcensec.md` |
 | Webhook path | `censec/cargas/upload-json` (upload JSON) |
 | Arquivo | Dentro de `workflowsPath` do env ativo |
 | Nós | Nomes descritivos em inglês ou kebab-case (seguir canônico) |
@@ -184,7 +187,7 @@ Coleção: `postman/censec-n8n.postman_collection.json`
 
 | Regra | Valor |
 |-------|--------|
-| Nome request | `[AUTONR-13] Upload JSON — …` |
+| Nome request | `[AUTCENSEC-n] Upload JSON — …` (legado: `[AUTONR-13] …`) |
 | Auth coleção | Basic Auth n8n |
 | Header | `X-Api-Key: {{CENSEC_API_KEY}}` |
 | Body | JSON com `ambiente` + blocos CEP/CESDI/CTP |
@@ -203,7 +206,8 @@ Variáveis: `n8n_base_url`, `censec_n8n_webhook_path`, `CENSEC_API_KEY` — ver 
 
 - [ ] Workflow com pipeline gateway (webhook → validate → API → respond)
 - [ ] `n8nac skills validate` OK
-- [ ] Request Postman `[AUTONR-n]` alinhado ao body
+- [ ] Card Plane em `autcensec` (ou legado documentado em `autonr`)
+- [ ] Request Postman `[AUTCENSEC-n]` alinhado ao body
 - [ ] Docs vault `utilizacao/` + `desenvolvimento/`
 - [ ] `npm run postman:sync:censec` (+ `n8n:sync:orius` se orquestrador etapa 6)
 

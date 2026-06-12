@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "cc0df512-82ed-4e2e-a320-b9ba7add432a",
     "name": "api do registro de imoveis do brasil (rib) - n8n",
-    "description": "Coleção para testar os **workflows n8n** que fazem proxy para a API REST do Registro de Imóveis do Brasil (RIB / CORI-BR).\n\nOrganização por **módulo RIB** (espelha a documentação em `Orius/integracoes/registro-imoveis/api-registro-imoveis/`).\n\n## Workflows cobertos\n\n| AUTONR | Workflow | ID | Webhook |\n|--------|----------|-----|---------|\n| 91 | AuthToken | Idas4wAPEfIA17xq | POST /rib/auth/token |\n| 92 | ListagemProtocolos | Sw88u5Dn1Wnbs9c6 | GET /rib/protocolo |\n| 93 | DetalheProtocoloV2 | 6imnqEJHXSvp2EAX | GET /rib/protocolo/detalhes |\n| 94 | TokenDetalheProtocolo | HMpCCRnGi6yitVy4 | POST /rib/protocolo/token |\n| 95 | DetalheBasicoProtocolo | w9DuDDE9e74jFwVl | GET /rib/protocolo/basico |\n| 96 | DownloadAnexoProtocolo | uSexWi4TgIUZ0xno | GET /rib/protocolo/download |\n| 97 | EnvioProtocoloOnline | lGuyT9TxzELzUHa4 | POST /rib/protocolo/envio |\n| 98 | EnvioProtocoloLote | H8gMs70WzJW2uVlJ | POST /rib/protocolo/lote |\n| 99 | ListagemFilaProtocolo | 3G5maOXe8FOoJksV | GET /rib/fila/processamento/protocolo |\n| 100 | DetalheFilaProtocolo | Z0jlhH7XDrY9KKUa | GET /rib/fila/processamento/protocolo/detalhe |\n| 101 | ExclusaoProtocolo | rPEIpPQRxOvda4ya | DELETE /rib/protocolo/exclusao |\n| 102 | AtualizarProtocoloCobranca | anWU5nm66RxqPKPh | PATCH /rib/cobranca/protocolo |\n| 120 | ListagemTiposPagamento | 1C9hQMPCfrBuaJ78 | GET /rib/cobranca/tipo/pagamento |\n| 121 | ListagemCobrancas | zWqpw3J2H21zZIxl | GET /rib/cobranca |\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Credenciais RIB em `RIB_API_CLIENT_ID` / `RIB_API_CLIENT_SECRET` (body) **ou** variáveis `RIB_API_*` no n8n (Easypanel).\n4. Parâmetro **`ambiente`** (`RIB_AMBIENTE` na coleção): `producao` ou `homologacao` — define a URL upstream. Pode ir no **body JSON**, na **query** (`?ambiente=`) ou no header legado `X-Ambiente`. No n8n, fallback `$env.RIB_API_AMBIENTE`.\n\n## URLs do webhook\n\n| Modo | URL |\n|------|-----|\n| Teste (editor) | `{{n8n_base_url}}/webhook-test/{{rib_auth_webhook_path}}` |\n| Produção | `{{n8n_base_url}}/webhook/{{rib_auth_webhook_path}}` |\n\nVariável `n8n_webhook_mode`: `webhook-test` ou `webhook`.\n\n## Token para requests futuros\n\n**Uma request por AUTONR.** Execute **AUTONR-91** antes dos demais — grava `rib_access_token`. Workflows seguintes usam header `X-RIB-Access-Token: {{rib_access_token}}`.\n\n## API RIB upstream (referência)\n\n| Ambiente | Base URL |\n|----------|----------|\n| Produção | `https://api.registrodeimoveis.org.br` |\n| Homologação | `https://testes-api.registrodeimoveis.org.br` |\n\nColeção oficial (SOAP/REST direto): `api-registro-imoveis/API - Registro de Imóveis do Brasil.postman_collection.json`.\n\n## Atualizar no Postman (API — não reimportar)\n\nApós editar este JSON no Git, publique no Postman Cloud:\n\n```bash\nnpm run postman:sync:rib\nnpm run postman:sync:rib:watch   # modo contínuo\n```\n\nUID: `35976147-81ffb313-b01c-419e-941c-f97156a7fbd5` · config: `postman/.postman-sync-rib.json`\n\n## Referências\n\n- Workflow auth: `workflows/n8n/extensao-n8n-teste/Auth RIB.workflow.ts`\n- Vault credenciais: `env#RIB`",
+    "description": "Coleção para testar os **workflows n8n** que fazem proxy para a API REST do Registro de Imóveis do Brasil (RIB / CORI-BR).\n\nOrganização por **módulo RIB** (espelha a documentação em `Orius/integracoes/registro-imoveis/api-registro-imoveis/`).\n\n## Workflows cobertos\n\n| AUTORIB | Workflow | ID | Webhook |\n|--------|----------|-----|---------|\n| 91 | AuthToken | Idas4wAPEfIA17xq | POST /rib/auth/token |\n| 92 | ListagemProtocolos | Sw88u5Dn1Wnbs9c6 | GET /rib/protocolo |\n| 93 | DetalheProtocoloV2 | 6imnqEJHXSvp2EAX | GET /rib/protocolo/detalhes |\n| 94 | TokenDetalheProtocolo | HMpCCRnGi6yitVy4 | POST /rib/protocolo/token |\n| 95 | DetalheBasicoProtocolo | w9DuDDE9e74jFwVl | GET /rib/protocolo/basico |\n| 96 | DownloadAnexoProtocolo | uSexWi4TgIUZ0xno | GET /rib/protocolo/download |\n| 97 | EnvioProtocoloOnline | lGuyT9TxzELzUHa4 | POST /rib/protocolo/envio |\n| 98 | EnvioProtocoloLote | H8gMs70WzJW2uVlJ | POST /rib/protocolo/lote |\n| 99 | ListagemFilaProtocolo | 3G5maOXe8FOoJksV | GET /rib/fila/processamento/protocolo |\n| 100 | DetalheFilaProtocolo | Z0jlhH7XDrY9KKUa | GET /rib/fila/processamento/protocolo/detalhe |\n| 101 | ExclusaoProtocolo | rPEIpPQRxOvda4ya | DELETE /rib/protocolo/exclusao |\n| 102 | AtualizarProtocoloCobranca | anWU5nm66RxqPKPh | PATCH /rib/cobranca/protocolo |\n| 120 | ListagemTiposPagamento | 1C9hQMPCfrBuaJ78 | GET /rib/cobranca/tipo/pagamento |\n| 121 | ListagemCobrancas | zWqpw3J2H21zZIxl | GET /rib/cobranca |\n| 122 | DetalheCobranca | vdX5HRRokKzYiMEn | GET /rib/cobranca/detalhes |\n| 123 | GeracaoCobranca | dCoacaX1Oj0hBOm5 | POST /rib/cobranca |\n| 124 | CancelamentoCobranca | TcPxms2EcnItTasU | PATCH /rib/cobranca/cancelamento |\n| 125 | DevolucaoPix | ZCsiyyLsJkOzUIdV | POST /rib/cobranca/devolucao-pix |\n| 126 | CadastramentoCobranca | WXOPh0N92vCWkh5B | POST /rib/cobranca/externa |\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Credenciais RIB em `RIB_API_CLIENT_ID` / `RIB_API_CLIENT_SECRET` (body) **ou** variáveis `RIB_API_*` no n8n (Easypanel).\n4. Parâmetro **`ambiente`** (`RIB_AMBIENTE` na coleção): `producao` ou `homologacao` — define a URL upstream. Pode ir no **body JSON**, na **query** (`?ambiente=`) ou no header legado `X-Ambiente`. No n8n, fallback `$env.RIB_API_AMBIENTE`.\n\n## URLs do webhook\n\n| Modo | URL |\n|------|-----|\n| Teste (editor) | `{{n8n_base_url}}/webhook-test/{{rib_auth_webhook_path}}` |\n| Produção | `{{n8n_base_url}}/webhook/{{rib_auth_webhook_path}}` |\n\nVariável `n8n_webhook_mode`: `webhook-test` ou `webhook`.\n\n## Token para requests futuros\n\n**Uma request por AUTORIB.** Execute **AUTORIB-1** antes dos demais — grava `rib_access_token`. Workflows seguintes usam header `X-RIB-Access-Token: {{rib_access_token}}`.\n\n## API RIB upstream (referência)\n\n| Ambiente | Base URL |\n|----------|----------|\n| Produção | `https://api.registrodeimoveis.org.br` |\n| Homologação | `https://testes-api.registrodeimoveis.org.br` |\n\nColeção oficial (SOAP/REST direto): `api-registro-imoveis/API - Registro de Imóveis do Brasil.postman_collection.json`.\n\n## Atualizar no Postman (API — não reimportar)\n\nApós editar este JSON no Git, publique no Postman Cloud:\n\n```bash\nnpm run postman:sync:rib\nnpm run postman:sync:rib:watch   # modo contínuo\n```\n\nUID: `35976147-81ffb313-b01c-419e-941c-f97156a7fbd5` · config: `postman/.postman-sync-rib.json`\n\n## Referências\n\n- Workflow auth: `workflows/n8n/extensao-n8n-teste/Auth RIB.workflow.ts`\n- Vault credenciais: `env#RIB`",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
@@ -102,6 +102,21 @@
       "type": "string"
     },
     {
+      "key": "rib_numero_edital",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "rib_hash_extracao",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "rib_hash_cobranca",
+      "value": "",
+      "type": "string"
+    },
+    {
       "key": "n8n_workflow_id_listagem_protocolos_rib",
       "value": "Sw88u5Dn1Wnbs9c6",
       "type": "string"
@@ -150,10 +165,10 @@
   "item": [
     {
       "name": "autenticacao",
-      "description": "Módulo **RFG-01** — uma request por AUTONR.",
+      "description": "Módulo **RFG-01** — Uma request por AUTORIB.",
       "item": [
         {
-          "name": "[AUTONR-91] Auth Token",
+          "name": "[AUTORIB-1] Auth Token",
           "description": "Webhook n8n `POST /rib/auth/token` — proxy `POST /v1/auth/token` + validação `GET /v1/auth/validacao`. Credenciais no body ou `$env.RIB_API_*` no n8n. Sucesso grava `rib_access_token`.",
           "event": [
             {
@@ -247,10 +262,10 @@
     },
     {
       "name": "protocolo",
-      "description": "Módulo **protocolo** (RFP-01…07). Uma request por AUTONR. Pré-requisito: **AUTONR-91**.",
+      "description": "Módulo **protocolo** (RFP-01…07). Uma request por AUTORIB. Pré-requisito: **AUTORIB-1**.",
       "item": [
         {
-          "name": "[AUTONR-92] Listagem Protocolos",
+          "name": "[AUTORIB-2] Listagem Protocolos",
           "description": "GET /rib/protocolo → GET /v1/protocolo (RFP-05)",
           "event": [
             {
@@ -264,7 +279,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -325,7 +340,7 @@
           }
         },
         {
-          "name": "[AUTONR-93] Detalhe Protocolo V2",
+          "name": "[AUTORIB-3] Detalhe Protocolo V2",
           "description": "GET /rib/protocolo/detalhes → GET /v2/protocolo/{numero}/detalhes (RFP-07). Ajuste query `numero`.",
           "event": [
             {
@@ -339,7 +354,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -401,7 +416,7 @@
           }
         },
         {
-          "name": "[AUTONR-94] Token Detalhe Protocolo",
+          "name": "[AUTORIB-4] Token Detalhe Protocolo",
           "description": "POST /rib/protocolo/token → POST /v2/protocolo/{numero}/token (RFP-06/07)",
           "event": [
             {
@@ -415,7 +430,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -465,7 +480,7 @@
           }
         },
         {
-          "name": "[AUTONR-95] Detalhe Basico Protocolo",
+          "name": "[AUTORIB-5] Detalhe Basico Protocolo",
           "description": "GET /rib/protocolo/basico → GET /v1/protocolo/{numero} (RFP-06)",
           "event": [
             {
@@ -479,7 +494,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -537,7 +552,7 @@
           }
         },
         {
-          "name": "[AUTONR-96] Download Anexo Protocolo",
+          "name": "[AUTORIB-6] Download Anexo Protocolo",
           "description": "GET /rib/protocolo/download → GET /v1/protocolo/{numero}/download/{hash}",
           "event": [
             {
@@ -551,7 +566,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -613,7 +628,7 @@
           }
         },
         {
-          "name": "[AUTONR-97] Envio Protocolo Online",
+          "name": "[AUTORIB-7] Envio Protocolo Online",
           "description": "POST /rib/protocolo/envio → POST /v1/protocolo (RFP-01)",
           "event": [
             {
@@ -627,7 +642,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -677,7 +692,7 @@
           }
         },
         {
-          "name": "[AUTONR-98] Envio Protocolo Lote",
+          "name": "[AUTORIB-8] Envio Protocolo Lote",
           "description": "POST /rib/protocolo/lote → POST /v1/protocolo/lote (RFP-02)",
           "event": [
             {
@@ -691,7 +706,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -741,7 +756,7 @@
           }
         },
         {
-          "name": "[AUTONR-101] Exclusao Protocolo",
+          "name": "[AUTORIB-11] Exclusao Protocolo",
           "description": "DELETE /rib/protocolo/exclusao → DELETE /v1/protocolo/{numero} (RFP-04)",
           "event": [
             {
@@ -755,7 +770,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -816,10 +831,10 @@
     },
     {
       "name": "fila-processamento",
-      "description": "Módulo **fila** (RFF-01/02). Uma request por AUTONR.",
+      "description": "Módulo **fila** (RFF-01/02). Uma request por AUTORIB.",
       "item": [
         {
-          "name": "[AUTONR-99] Listagem Fila Protocolo",
+          "name": "[AUTORIB-9] Listagem Fila Protocolo",
           "description": "GET /rib/fila/processamento/protocolo → GET /v1/fila/processamento/protocolo (RFF-01)",
           "event": [
             {
@@ -833,7 +848,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -896,7 +911,7 @@
           }
         },
         {
-          "name": "[AUTONR-100] Detalhe Fila Protocolo",
+          "name": "[AUTORIB-10] Detalhe Fila Protocolo",
           "description": "GET /rib/fila/processamento/protocolo/detalhe → GET /v1/fila/.../{hash} (RFF-02)",
           "event": [
             {
@@ -910,7 +925,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -973,10 +988,10 @@
     },
     {
       "name": "cobranca",
-      "description": "Módulo **cobrança** (RFC-01…07). Uma request por AUTONR. Pré-requisito: **AUTONR-91**.",
+      "description": "Módulo **cobrança** (RFC-01…07). Uma request por AUTORIB. Pré-requisito: **AUTORIB-1**.",
       "item": [
         {
-          "name": "[AUTONR-121] Listagem Cobrancas",
+          "name": "[AUTORIB-31] Listagem Cobrancas",
           "description": "GET /rib/cobranca → GET /v1/cobranca (RFC-02)",
           "event": [
             {
@@ -990,7 +1005,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -1051,11 +1066,365 @@
           }
         },
         {
+          "name": "[AUTORIB-32] Detalhe Cobranca",
+          "description": "GET /rib/cobranca/detalhes → GET /v1/cobranca/{hash} (RFC-03). Use hash de AUTORIB-31 ou rib_hash_cobranca.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/detalhes?ambiente={{RIB_AMBIENTE}}&hash_cobranca={{rib_hash_cobranca}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "cobranca",
+                "detalhes"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "hash_cobranca",
+                  "value": "{{rib_hash_cobranca}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[AUTORIB-33] Geracao Cobranca",
+          "description": "POST /rib/cobranca → POST /v1/cobranca (RFC-01). Ajuste servicos[].codigo e valores conforme homologação.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.hash_cobranca) {",
+                  "  pm.collectionVariables.set('rib_hash_cobranca', json.hash_cobranca);",
+                  "  pm.environment.set('rib_hash_cobranca', json.hash_cobranca);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"tipo_cobranca\": \"PIX\",\n  \"data_vencimento\": \"2026-09-15\",\n  \"observacao\": \"Emolumentos\",\n  \"identificador_cliente\": \"ORIUS-PEDIDO-8842\",\n  \"tipo_pagamento\": 1,\n  \"dados_pagador\": {\n    \"nome\": \"Joao Pagador\",\n    \"documento\": \"98765432100\",\n    \"email\": \"joao@exemplo.com\",\n    \"telefone\": { \"ddd\": 11, \"numero\": 987654321 },\n    \"endereco\": {\n      \"cep\": \"01310100\",\n      \"tipo_logradouro\": \"Avenida\",\n      \"logradouro\": \"Paulista\",\n      \"numero\": \"1000\",\n      \"bairro\": \"Bela Vista\",\n      \"cidade\": \"Sao Paulo\",\n      \"estado\": \"SP\"\n    }\n  },\n  \"servicos\": [\n    { \"codigo\": 2024123456, \"valor\": 150000 }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "[AUTORIB-34] Cancelamento Cobranca",
+          "description": "PATCH /rib/cobranca/cancelamento → PATCH /v1/cobranca/{hash} (RFC-04). Use hash de AUTORIB-33 ou rib_hash_cobranca.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/cancelamento",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"hash_cobranca\": \"{{rib_hash_cobranca}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "[AUTORIB-35] Devolucao Pix",
+          "description": "POST /rib/cobranca/devolucao-pix → PUT /v1/cobranca/{hash}/pix/devolucao (RFC-06). Cobrança PIX paga; ajuste valor conforme saldo devolvível.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/devolucao-pix",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"hash_cobranca\": \"{{rib_hash_cobranca}}\",\n  \"valor\": 100000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "[AUTORIB-36] Cadastramento Cobranca Externa",
+          "description": "POST /rib/cobranca/externa → POST /v1/cobranca/cadastrar (cobrança externa). Requer liberação RIB no cartório; ajuste editais[] conforme homologação.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.hash_cobranca) {",
+                  "  pm.collectionVariables.set('rib_hash_cobranca', json.hash_cobranca);",
+                  "  pm.environment.set('rib_hash_cobranca', json.hash_cobranca);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/cobranca/externa",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"editais\": [\"edital-hash-exemplo\"],\n  \"valor\": 100000,\n  \"url\": \"https://pagamento.exemplo.com/boleto/12345\",\n  \"data_geracao\": \"2026-06-10 14:30:00\",\n  \"data_vencimento\": \"2026-07-10\",\n  \"numero_pagamento\": \"NOSSO-NUMERO-12345\",\n  \"descricao\": \"Cobranca externa registrada no Orius\",\n  \"dados_pagador\": {\n    \"nome\": \"Joao Pagador\",\n    \"documento\": \"98765432100\",\n    \"email\": \"joao@exemplo.com\",\n    \"telefone\": { \"ddd\": 11, \"numero\": 987654321 },\n    \"endereco\": {\n      \"cep\": \"01310100\",\n      \"tipo_logradouro\": \"Avenida\",\n      \"logradouro\": \"Paulista\",\n      \"numero\": \"1000\",\n      \"bairro\": \"Bela Vista\",\n      \"cidade\": \"Sao Paulo\",\n      \"estado\": \"SP\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
           "name": "tipo",
           "description": "RFC-05 — tipos de pagamento.",
           "item": [
             {
-              "name": "[AUTONR-120] Listagem Tipos Pagamento",
+              "name": "[AUTORIB-30] Listagem Tipos Pagamento",
               "description": "GET /rib/cobranca/tipo/pagamento → GET /v1/cobranca/tipo/pagamento (RFC-05)",
               "event": [
                 {
@@ -1069,7 +1438,7 @@
                       "  return pm.collectionVariables.get(key);",
                       "}",
                       "if (!getVar('rib_access_token')) {",
-                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                       "}"
                     ]
                   }
@@ -1142,7 +1511,7 @@
           "description": "RFC-07 — vínculo protocolo na cobrança.",
           "item": [
             {
-              "name": "[AUTONR-102] Atualizar Protocolo Cobranca",
+              "name": "[AUTORIB-12] Atualizar Protocolo Cobranca",
               "description": "PATCH /rib/cobranca/protocolo → PATCH /v1/cobranca/{hash}/protocolo (RFC-07)",
               "event": [
                 {
@@ -1156,7 +1525,7 @@
                       "  return pm.collectionVariables.get(key);",
                       "}",
                       "if (!getVar('rib_access_token')) {",
-                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                       "}"
                     ]
                   }
@@ -1216,14 +1585,14 @@
     },
     {
       "name": "edital",
-      "description": "Módulo **edital** (RFE/RFS/RFL, RFX extração). Roadmap: vault `automacao/roadmap-rib-edital-n8n.md`. Uma request por AUTONR. Pré-requisito: **AUTONR-91**.",
+      "description": "Módulo **edital** (RFE/RFS/RFL, RFX extração). Roadmap: vault `automacao/roadmap-rib-edital-n8n.md`. Uma request por AUTORIB. Pré-requisito: **AUTORIB-1**.",
       "item": [
         {
           "name": "tipo",
           "description": "RFE-01 — tipos de edital.",
           "item": [
             {
-              "name": "[AUTONR-103] Listagem Tipos Edital",
+              "name": "[AUTORIB-13] Listagem Tipos Edital",
               "description": "GET /rib/edital/tipo → GET /v1/edital/tipo (RFE-01)",
               "event": [
                 {
@@ -1237,7 +1606,7 @@
                       "  return pm.collectionVariables.get(key);",
                       "}",
                       "if (!getVar('rib_access_token')) {",
-                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                       "}"
                     ]
                   }
@@ -1302,7 +1671,321 @@
           ]
         },
         {
-          "name": "[AUTONR-104] Listagem Editais",
+          "name": "[AUTORIB-18] Detalhe Edital Simples",
+          "description": "GET /rib/edital/detalhes → GET /v1/edital/{numeroEdital} (RFS-04)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.detalhe).to.be.an('object');",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/detalhes?ambiente={{RIB_AMBIENTE}}&numero_edital={{rib_numero_edital}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "edital",
+                "detalhes"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "numero_edital",
+                  "value": "{{rib_numero_edital}}",
+                  "description": "Preenchido por AUTORIB-17 ou AUTORIB-14"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[AUTORIB-17] Cadastro Edital Simples",
+          "description": "POST /rib/edital/envio → POST /v1/edital (RFS-01)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});",
+                  "if (json.editais_cadastrados && json.editais_cadastrados.length) {",
+                  "  const ids = json.editais_cadastrados.flatMap((e) => e.idsGerados || e.ids_gerados || []);",
+                  "  if (ids.length) pm.collectionVariables.set('rib_numero_edital', String(ids[0]));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/envio",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"tipoEdital\": 1,\n  \"textoEdital\": \"Edital de teste AUTORIB-17 — intimacao para pagamento.\",\n  \"intimados\": [\n    {\n      \"documento\": \"12345678901\",\n      \"nome\": \"Fulano de Tal\",\n      \"endereco\": {\n        \"cep\": \"01310100\",\n        \"tipoLogradouro\": \"Avenida\",\n        \"logradouro\": \"Paulista\",\n        \"numero\": \"1000\",\n        \"bairro\": \"Bela Vista\",\n        \"cidade\": \"Sao Paulo\",\n        \"estado\": \"SP\"\n      }\n    }\n  ],\n  \"dadosServentia\": {\n    \"cns\": \"026385\",\n    \"denominacao\": \"Serventia de Registro de Imoveis - Teste\",\n    \"endereco\": {\n      \"cep\": \"01310100\",\n      \"tipoLogradouro\": \"Avenida\",\n      \"logradouro\": \"Paulista\",\n      \"numero\": \"1000\",\n      \"bairro\": \"Bela Vista\",\n      \"cidade\": \"Sao Paulo\",\n      \"estado\": \"SP\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "[AUTORIB-19] Retificacao Edital Simples",
+          "description": "PUT /rib/edital/retificacao → PUT /v1/edital/{numeroEdital} (RFS-03)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}",
+                  "if (!getVar('rib_numero_edital')) {",
+                  "  throw new Error('rib_numero_edital vazio. Execute [AUTORIB-17] ou informe edital rejeitado.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});",
+                  "if (json.editais_cadastrados && json.editais_cadastrados.length) {",
+                  "  const ids = json.editais_cadastrados.flatMap((e) => e.idsGerados || e.ids_gerados || []);",
+                  "  if (ids.length) pm.collectionVariables.set('rib_numero_edital', String(ids[0]));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/retificacao?ambiente={{RIB_AMBIENTE}}&numero_edital={{rib_numero_edital}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "edital",
+                "retificacao"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "numero_edital",
+                  "value": "{{rib_numero_edital}}",
+                  "description": "Edital rejeitado a retificar (AUTORIB-17/108)"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"tipoEdital\": 1,\n  \"exibeMencao\": true,\n  \"textoEdital\": \"Retificacao de teste AUTORIB-19 — edital simples corrigido.\",\n  \"intimados\": [\n    {\n      \"documento\": \"12345678901\",\n      \"nome\": \"Fulano de Tal\",\n      \"endereco\": {\n        \"cep\": \"01310100\",\n        \"tipoLogradouro\": \"Avenida\",\n        \"logradouro\": \"Paulista\",\n        \"numero\": \"1000\",\n        \"bairro\": \"Bela Vista\",\n        \"cidade\": \"Sao Paulo\",\n        \"estado\": \"SP\"\n      }\n    }\n  ],\n  \"dadosServentia\": {\n    \"cns\": \"026385\",\n    \"denominacao\": \"Serventia de Registro de Imoveis - Teste\",\n    \"endereco\": {\n      \"cep\": \"01310100\",\n      \"tipoLogradouro\": \"Avenida\",\n      \"logradouro\": \"Paulista\",\n      \"numero\": \"1000\",\n      \"bairro\": \"Bela Vista\",\n      \"cidade\": \"Sao Paulo\",\n      \"estado\": \"SP\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "[AUTORIB-20] Cancelamento Edital Simples",
+          "description": "DELETE /rib/edital/exclusao → DELETE /v1/edital/{numeroEdital} (RFS-02)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "if (!getVar('rib_access_token')) {",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                  "}",
+                  "if (!getVar('rib_numero_edital')) {",
+                  "  throw new Error('rib_numero_edital vazio. Execute [AUTORIB-17] ou informe edital nao pago/publicado.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200 ou 204', () => {",
+                  "  pm.expect([200, 204]).to.include(pm.response.code);",
+                  "});",
+                  "const json = pm.response.json();",
+                  "pm.test('Resposta estruturada RIB', () => {",
+                  "  pm.expect(json).to.be.an('object');",
+                  "  pm.expect(json.sucesso).to.eql(true);",
+                  "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                  "  pm.expect(json.meta).to.be.an('object');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "X-RIB-Access-Token",
+                "value": "{{rib_access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/exclusao?ambiente={{RIB_AMBIENTE}}&numero_edital={{rib_numero_edital}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "rib",
+                "edital",
+                "exclusao"
+              ],
+              "query": [
+                {
+                  "key": "ambiente",
+                  "value": "{{RIB_AMBIENTE}}"
+                },
+                {
+                  "key": "numero_edital",
+                  "value": "{{rib_numero_edital}}",
+                  "description": "Edital nao pago/publicado (AUTORIB-17/108)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[AUTORIB-14] Listagem Editais",
           "description": "GET /rib/edital → GET /v1/edital (RFE-02)",
           "event": [
             {
@@ -1316,7 +1999,7 @@
                   "  return pm.collectionVariables.get(key);",
                   "}",
                   "if (!getVar('rib_access_token')) {",
-                  "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                  "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                   "}"
                 ]
               }
@@ -1383,11 +2066,762 @@
           }
         },
         {
+          "name": "leilao",
+          "description": "RFL-01 … RFL-04 — edital leilão. Pré-requisito: **AUTORIB-1** + tipo LEILAO_IMOVEL (**AUTORIB-13**).",
+          "item": [
+            {
+              "name": "[AUTORIB-21] Cadastro Edital Leilao",
+              "description": "POST /rib/edital/leilao/envio → POST /v1/edital/leilao (RFL-01)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});",
+                      "if (json.editais_cadastrados && json.editais_cadastrados.length) {",
+                      "  const ids = json.editais_cadastrados.flatMap((e) => e.idsGerados || e.ids_gerados || []);",
+                      "  if (ids.length) pm.collectionVariables.set('rib_numero_edital_leilao', String(ids[0]));",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/leilao/envio",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"tipoEdital\": 1,\n  \"sumario\": {\n    \"publicacao\": {\n      \"numeroPublicacao\": \"2026/001\",\n      \"objeto\": \"Leilao de imovel - teste AUTORIB-21\",\n      \"descricao\": \"Cadastro teste integracao\"\n    },\n    \"titulo\": \"Edital de Leilao\",\n    \"texto\": \"Sumario de teste AUTORIB-21.\"\n  },\n  \"leilao\": {\n    \"modalidade\": \"online\",\n    \"modoDisputa\": \"aberto\",\n    \"tipo\": \"Judicial\",\n    \"leiloes\": [\n      { \"data\": \"2026-07-15\", \"hora\": \"10:00\" }\n    ],\n    \"leiloeiro\": {\n      \"documento\": \"12345678901\",\n      \"nome\": \"Leiloeiro Teste\",\n      \"numeroInscricao\": \"12345\",\n      \"numeroTelefone\": \"11999999999\",\n      \"email\": \"leiloeiro@teste.com\"\n    },\n    \"preposto\": {\n      \"documento\": \"98765432100\",\n      \"nome\": \"Preposto Teste\"\n    }\n  },\n  \"intimados\": [\n    {\n      \"documento\": \"12345678901\",\n      \"nome\": \"Devedor Teste\"\n    }\n  ],\n  \"imoveis\": [\n    {\n      \"numeroLote\": \"001\",\n      \"idImovel\": \"IMOVEL-001\",\n      \"numeroMatricula\": \"12345\",\n      \"tipoImovel\": \"Apartamento\",\n      \"condicoes\": \"Venda direta\",\n      \"cns\": \"026385\",\n      \"leiloes\": [{ \"valor\": 250000 }],\n      \"endereco\": {\n        \"cep\": \"01310100\",\n        \"tipoLogradouro\": \"Avenida\",\n        \"logradouro\": \"Paulista\",\n        \"numero\": \"1000\",\n        \"bairro\": \"Bela Vista\",\n        \"cidade\": \"Sao Paulo\",\n        \"estado\": \"SP\"\n      }\n    }\n  ],\n  \"dadosCredor\": {\n    \"documento\": \"12345678000199\",\n    \"nome\": \"Credor Teste Ltda\",\n    \"cidade\": \"Sao Paulo\",\n    \"estado\": \"SP\"\n  },\n  \"informacoesGerais\": {\n    \"titulo\": \"Informacoes gerais do leilao\",\n    \"texto\": \"Texto informativo de teste AUTORIB-21.\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "[AUTORIB-23] Retificacao Edital Leilao",
+              "description": "PUT /rib/edital/leilao/retificacao → PUT /v1/edital/leilao/{numeroEdital} (RFL-03)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}",
+                      "if (!getVar('rib_numero_edital_leilao')) {",
+                      "  throw new Error('rib_numero_edital_leilao vazio. Execute [AUTORIB-21] ou informe edital leilao rejeitado.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});",
+                      "if (json.editais_cadastrados && json.editais_cadastrados.length) {",
+                      "  const ids = json.editais_cadastrados.flatMap((e) => e.idsGerados || e.ids_gerados || []);",
+                      "  if (ids.length) pm.collectionVariables.set('rib_numero_edital_leilao', String(ids[0]));",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/leilao/retificacao?ambiente={{RIB_AMBIENTE}}&numero_edital={{rib_numero_edital_leilao}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "edital",
+                    "leilao",
+                    "retificacao"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "numero_edital",
+                      "value": "{{rib_numero_edital_leilao}}",
+                      "description": "Edital leilao rejeitado a retificar (AUTORIB-21/104)"
+                    }
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"tipoEdital\": 1,\n  \"sumario\": {\n    \"publicacao\": {\n      \"numeroPublicacao\": \"2026/001\",\n      \"objeto\": \"Leilao de imovel - retificacao AUTORIB-23\",\n      \"descricao\": \"Retificacao teste integracao\"\n    },\n    \"titulo\": \"Edital de Leilao Retificado\",\n    \"texto\": \"Sumario retificado AUTORIB-23.\"\n  },\n  \"leilao\": {\n    \"modalidade\": \"online\",\n    \"modoDisputa\": \"aberto\",\n    \"tipo\": \"Judicial\",\n    \"leiloes\": [\n      { \"data\": \"2026-08-15\", \"hora\": \"10:00\" }\n    ],\n    \"leiloeiro\": {\n      \"documento\": \"12345678901\",\n      \"nome\": \"Leiloeiro Teste\",\n      \"numeroInscricao\": \"12345\",\n      \"numeroTelefone\": \"11999999999\",\n      \"email\": \"leiloeiro@teste.com\"\n    },\n    \"preposto\": {\n      \"documento\": \"98765432100\",\n      \"nome\": \"Preposto Teste\"\n    }\n  },\n  \"intimados\": [\n    {\n      \"documento\": \"12345678901\",\n      \"nome\": \"Devedor Teste\"\n    }\n  ],\n  \"imoveis\": [\n    {\n      \"numeroLote\": \"001\",\n      \"idImovel\": \"IMOVEL-001\",\n      \"numeroMatricula\": \"12345\",\n      \"tipoImovel\": \"Apartamento\",\n      \"condicoes\": \"Venda direta\",\n      \"cns\": \"026385\",\n      \"leiloes\": [{ \"valor\": 250000 }],\n      \"endereco\": {\n        \"cep\": \"01310100\",\n        \"tipoLogradouro\": \"Avenida\",\n        \"logradouro\": \"Paulista\",\n        \"numero\": \"1000\",\n        \"bairro\": \"Bela Vista\",\n        \"cidade\": \"Sao Paulo\",\n        \"estado\": \"SP\"\n      }\n    }\n  ],\n  \"dadosCredor\": {\n    \"documento\": \"12345678000199\",\n    \"nome\": \"Credor Teste Ltda\",\n    \"cidade\": \"Sao Paulo\",\n    \"estado\": \"SP\"\n  },\n  \"informacoesGerais\": {\n    \"titulo\": \"Informacoes gerais do leilao retificado\",\n    \"texto\": \"Texto informativo retificado AUTORIB-23.\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "[AUTORIB-24] Cancelamento Edital Leilao",
+              "description": "DELETE /rib/edital/leilao/exclusao → DELETE /v1/edital/leilao/{numeroEdital} (RFL-02)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}",
+                      "if (!getVar('rib_numero_edital_leilao')) {",
+                      "  throw new Error('rib_numero_edital_leilao vazio. Execute [AUTORIB-21] ou informe edital leilao nao pago/publicado.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200 ou 204', () => {",
+                      "  pm.expect([200, 204]).to.include(pm.response.code);",
+                      "});",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/leilao/exclusao?ambiente={{RIB_AMBIENTE}}&numero_edital={{rib_numero_edital_leilao}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "edital",
+                    "leilao",
+                    "exclusao"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "numero_edital",
+                      "value": "{{rib_numero_edital_leilao}}",
+                      "description": "Edital leilao nao pago/publicado (AUTORIB-21/112)"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTORIB-22] Detalhe Edital Leilao",
+              "description": "GET /rib/edital/leilao/detalhes → GET /v1/edital/leilao/{numeroEdital} (RFL-04)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.detalhe).to.be.an('object');",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/leilao/detalhes?ambiente={{RIB_AMBIENTE}}&numero_edital={{rib_numero_edital_leilao}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "edital",
+                    "leilao",
+                    "detalhes"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "numero_edital",
+                      "value": "{{rib_numero_edital_leilao}}",
+                      "description": "Preenchido por AUTORIB-21 (idsGerados) ou listagem"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "extracao",
+          "description": "RFX-01 … RFX-05 — extração de dados de editais. Pré-requisito: **AUTORIB-1**.",
+          "item": [
+            {
+              "name": "[AUTORIB-25] Solicitar Extracao Editais",
+              "description": "POST /rib/edital/extracao → POST /v1/edital/extracao (RFX-02)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 201', () => pm.response.to.have.status(201));",
+                      "const json = pm.response.json();",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.hash).to.be.a('string').and.not.empty;",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});",
+                      "if (json.hash) pm.collectionVariables.set('rib_hash_extracao', String(json.hash));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"dataEditalInicial\": \"2022-01-01\",\n  \"dataEditalFinal\": \"2022-12-31\",\n  \"cns\": \"026385\",\n  \"tipoEdital\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/extracao"
+              }
+            },
+            {
+              "name": "[AUTORIB-26] Listagem Extracao Editais",
+              "description": "GET /rib/edital/extracao → GET /v1/edital/extracao (RFX-01)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('status_http alinhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.extracoes).to.be.an('array');",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/extracao?ambiente={{RIB_AMBIENTE}}&registrosPorPagina=50&numeroPagina=1&hash={{rib_hash_extracao}}&situacao=processado",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "edital",
+                    "extracao"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "registrosPorPagina",
+                      "value": "50",
+                      "description": "Máximo 100 (RFX-01)"
+                    },
+                    {
+                      "key": "numeroPagina",
+                      "value": "1"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "{{rib_hash_extracao}}",
+                      "description": "Preenchido por AUTORIB-25 ou informe manualmente"
+                    },
+                    {
+                      "key": "dataInicialCadastro",
+                      "value": "2022-01-01",
+                      "disabled": true
+                    },
+                    {
+                      "key": "dataFinalCadastro",
+                      "value": "2022-12-31",
+                      "disabled": true
+                    },
+                    {
+                      "key": "situacao",
+                      "value": "processado",
+                      "description": "processado | pendente | processando | erro | cancelado"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTORIB-27] Detalhe Extracao Editais",
+              "description": "GET /rib/edital/extracao/detalhes → GET /v1/edital/extracao/{hash} (RFX-03)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}",
+                      "if (!getVar('rib_hash_extracao')) {",
+                      "  throw new Error('rib_hash_extracao vazio. Execute [AUTORIB-25] Solicitar Extracao Editais primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('status_http alinhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.hash).to.be.a('string').and.not.empty;",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/extracao/detalhes?ambiente={{RIB_AMBIENTE}}&hash={{rib_hash_extracao}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "edital",
+                    "extracao",
+                    "detalhes"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "{{rib_hash_extracao}}",
+                      "description": "UUID da solicitacao (preenchido por AUTORIB-25)"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTORIB-28] Dados Extracao Editais",
+              "description": "GET /rib/edital/extracao/dados → GET /v1/edital/extracao/dados/{hash} (RFX-05)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}",
+                      "if (!getVar('rib_hash_extracao')) {",
+                      "  throw new Error('rib_hash_extracao vazio. Execute [AUTORIB-25] Solicitar Extracao Editais primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('status_http alinhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.hash).to.be.a('string').and.not.empty;",
+                      "  pm.expect(json.dados).to.be.an('array');",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/extracao/dados?ambiente={{RIB_AMBIENTE}}&hash={{rib_hash_extracao}}&registrosPorPagina=50&numeroPagina=1",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "edital",
+                    "extracao",
+                    "dados"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "{{rib_hash_extracao}}",
+                      "description": "UUID da solicitacao (preenchido por AUTORIB-25)"
+                    },
+                    {
+                      "key": "registrosPorPagina",
+                      "value": "50",
+                      "description": "Opcional — max 100 (RFX-05)"
+                    },
+                    {
+                      "key": "numeroPagina",
+                      "value": "1",
+                      "description": "Opcional — paginação"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTORIB-29] Download Extracao Editais",
+              "description": "GET /rib/edital/extracao/download → GET /v1/edital/extracao/download/{hash} (RFX-04)",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('rib_access_token')) {",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
+                      "}",
+                      "if (!getVar('rib_hash_extracao')) {",
+                      "  throw new Error('rib_hash_extracao vazio. Execute [AUTORIB-25] Solicitar Extracao Editais primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                      "const json = pm.response.json();",
+                      "pm.test('status_http alinhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "pm.test('Resposta estruturada RIB', () => {",
+                      "  pm.expect(json).to.be.an('object');",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.hash).to.be.a('string').and.not.empty;",
+                      "  pm.expect(json.conteudo_base64).to.be.a('string').and.not.empty;",
+                      "  pm.expect(json.meta).to.be.an('object');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-RIB-Access-Token",
+                    "value": "{{rib_access_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/extracao/download?ambiente={{RIB_AMBIENTE}}&hash={{rib_hash_extracao}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "rib",
+                    "edital",
+                    "extracao",
+                    "download"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{RIB_AMBIENTE}}"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "{{rib_hash_extracao}}",
+                      "description": "UUID da solicitacao (preenchido por AUTORIB-25)"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
           "name": "cobranca",
           "description": "RFE-03 / RFE-04 — cobrança de edital.",
           "item": [
             {
-              "name": "[AUTONR-105] Cadastro Cobranca Edital",
+              "name": "[AUTORIB-15] Cadastro Cobranca Edital",
               "description": "POST /rib/edital/cobranca → POST /v1/edital/cobranca (RFE-03)",
               "event": [
                 {
@@ -1401,7 +2835,7 @@
                       "  return pm.collectionVariables.get(key);",
                       "}",
                       "if (!getVar('rib_access_token')) {",
-                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                       "}"
                     ]
                   }
@@ -1441,7 +2875,7 @@
                 "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/rib/edital/cobranca",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"cnsServentia\": \"026385\",\n  \"editais\": [\"12345678901\"],\n  \"valor\": 100000,\n  \"urlAcesso\": \"https://exemplo.cartorio.local/cobranca/edital.pdf\",\n  \"dataGeracao\": \"2026-06-05\",\n  \"dataVencimento\": \"2026-06-20\",\n  \"numeroDocumento\": \"DOC-2026-0001\",\n  \"descricao\": \"Cobranca edital eletronico - teste AUTONR-105\",\n  \"pagador\": {\n    \"nome\": \"Fulano de Tal\",\n    \"documento\": \"12345678901\",\n    \"email\": \"pagador@exemplo.com\",\n    \"cep\": \"01310100\",\n    \"logradouro\": \"Avenida Paulista\",\n    \"numero\": \"1000\",\n    \"bairro\": \"Bela Vista\",\n    \"cidade\": \"Sao Paulo\",\n    \"uf\": \"SP\"\n  }\n}",
+                  "raw": "{\n  \"ambiente\": \"{{RIB_AMBIENTE}}\",\n  \"cnsServentia\": \"026385\",\n  \"editais\": [\"12345678901\"],\n  \"valor\": 100000,\n  \"urlAcesso\": \"https://exemplo.cartorio.local/cobranca/edital.pdf\",\n  \"dataGeracao\": \"2026-06-05\",\n  \"dataVencimento\": \"2026-06-20\",\n  \"numeroDocumento\": \"DOC-2026-0001\",\n  \"descricao\": \"Cobranca edital eletronico - teste AUTORIB-15\",\n  \"pagador\": {\n    \"nome\": \"Fulano de Tal\",\n    \"documento\": \"12345678901\",\n    \"email\": \"pagador@exemplo.com\",\n    \"cep\": \"01310100\",\n    \"logradouro\": \"Avenida Paulista\",\n    \"numero\": \"1000\",\n    \"bairro\": \"Bela Vista\",\n    \"cidade\": \"Sao Paulo\",\n    \"uf\": \"SP\"\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1451,7 +2885,7 @@
               }
             },
             {
-              "name": "[AUTONR-106] Atualizar Cobranca Edital",
+              "name": "[AUTORIB-16] Atualizar Cobranca Edital",
               "description": "PATCH /rib/edital/cobranca → PATCH /v1/edital/cobranca/{numeroDocumento} (RFE-04)",
               "event": [
                 {
@@ -1465,7 +2899,7 @@
                       "  return pm.collectionVariables.get(key);",
                       "}",
                       "if (!getVar('rib_access_token')) {",
-                      "  throw new Error('rib_access_token vazio. Execute [AUTONR-91] Auth Token primeiro.');",
+                      "  throw new Error('rib_access_token vazio. Execute [AUTORIB-1] Auth Token primeiro.');",
                       "}"
                     ]
                   }

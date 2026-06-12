@@ -1,0 +1,259 @@
+{
+  "batch_id": "webservice-cra-pdf-to-md",
+  "started_at": "2026-06-09T00:00:00",
+  "script": "pdf_to_markdown_pymupdf.py",
+  "convert_flags": [
+    "--profile",
+    "cra-image",
+    "--quality-report"
+  ],
+  "source_dir": "webservice-cra",
+  "status_summary": {
+    "total": 23,
+    "pending": 2,
+    "done": 21,
+    "blocked": 0
+  },
+  "current_file": "RESPOSTAS DO WEBSERVICE.pdf",
+  "resumed_at": "2026-06-10T00:00:00",
+  "files": [
+    {
+      "pdf": "ARQUIVO ANDAMENTO.pdf",
+      "md": "ARQUIVO ANDAMENTO.md",
+      "status": "done",
+      "notes": "validado e corrigido (3941 chars)",
+      "finished_at": "2026-06-09T20:46:51+00:00"
+    },
+    {
+      "pdf": "ARQUVIO REMESSA XML.pdf",
+      "md": "ARQUVIO REMESSA XML.md",
+      "status": "done",
+      "notes": "convertido+validado (7724 chars)",
+      "finished_at": "2026-06-09T20:46:51+00:00"
+    },
+    {
+      "pdf": "AUTORIZAÇÃO DE CANCELAMENTO OU DESISTENCIA.pdf",
+      "md": "AUTORIZAÇÃO DE CANCELAMENTO OU DESISTENCIA.md",
+      "status": "done",
+      "notes": "convertido+validado (2380 chars)",
+      "finished_at": "2026-06-09T20:50:19+00:00"
+    },
+    {
+      "pdf": "BOLETO DE AUTORIZAÇÃO.pdf",
+      "md": "BOLETO DE AUTORIZAÇÃO.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-09T20:50:19+00:00",
+      "convert_exit_code": 0,
+      "convert_log_tail": "=== Document parser messages ===\nUsing RapidOCR for OCR processing.\nOCR on page.number=0/1.\nOCR on page.number=1/2.\nOCR on page.number=2/3.\n\nGerado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\BOLETO DE AUTORIZA��O.md (2050 caracteres)",
+      "validate_before": "OK",
+      "validate_ok_before": true,
+      "fix_log": "Corrigido e validado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\BOLETO DE AUTORIZA��O.md (1946 chars)",
+      "validate_after": "OK",
+      "validate_ok_after": true,
+      "md_chars": 1962,
+      "finished_at": "2026-06-09T20:51:40+00:00"
+    },
+    {
+      "pdf": "CANCELAMENTO.pdf",
+      "md": "CANCELAMENTO.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-09T20:51:40+00:00",
+      "convert_exit_code": 0,
+      "convert_log_tail": "=== Document parser messages ===\nUsing RapidOCR for OCR processing.\nOCR on page.number=0/1.\nOCR on page.number=1/2.\nOCR on page.number=2/3.\n\nGerado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\CANCELAMENTO.md (1876 caracteres)",
+      "validate_before": "OK",
+      "validate_ok_before": true,
+      "fix_log": "Corrigido e validado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\CANCELAMENTO.md (1798 chars)",
+      "validate_after": "OK",
+      "validate_ok_after": true,
+      "md_chars": 1829,
+      "finished_at": "2026-06-09T20:53:09+00:00"
+    },
+    {
+      "pdf": "CONFIRMAÇÃO E RETORNO.pdf",
+      "md": "CONFIRMAÇÃO E RETORNO.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-09T20:53:09+00:00",
+      "convert_exit_code": 0,
+      "convert_log_tail": "=== Document parser messages ===\nUsing RapidOCR for OCR processing.\nOCR on page.number=0/1.\nOCR on page.number=1/2.\nOCR on page.number=2/3.\n\nGerado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\CONFIRMA��O E RETORNO.md (2715 caracteres)",
+      "validate_before": "OK",
+      "validate_ok_before": true,
+      "fix_log": "Corrigido e validado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\CONFIRMA��O E RETORNO.md (2603 chars)",
+      "validate_after": "OK",
+      "validate_ok_after": true,
+      "md_chars": 2726,
+      "finished_at": "2026-06-09T20:55:30+00:00"
+    },
+    {
+      "pdf": "CONSULTAS.pdf",
+      "md": "CONSULTAS.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-09T20:55:30+00:00",
+      "convert_exit_code": 0,
+      "convert_log_tail": "=== Document parser messages ===\nUsing RapidOCR for OCR processing.\nOCR on page.number=0/1.\nOCR on page.number=1/2.\n\nGerado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\CONSULTAS.md (1325 caracteres)",
+      "validate_before": "ISSUES: artefatos ~~ strikethrough OCR restantes",
+      "validate_ok_before": false,
+      "fix_log": "Corrigido e validado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\CONSULTAS.md (1246 chars)",
+      "validate_after": "OK",
+      "validate_ok_after": true,
+      "md_chars": 1270,
+      "finished_at": "2026-06-09T20:56:53+00:00"
+    },
+    {
+      "pdf": "CRA WEBSERVICE SOAP XML.pdf",
+      "md": "CRA WEBSERVICE SOAP XML.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-09T20:56:53+00:00",
+      "convert_exit_code": 0,
+      "convert_log_tail": "=== Document parser messages ===\nUsing RapidOCR for OCR processing.\nOCR on page.number=0/1.\nOCR on page.number=1/2.\nOCR on page.number=2/3.\n\nGerado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\CRA WEBSERVICE SOAP XML.md (3535 caracteres)",
+      "validate_before": "OK",
+      "validate_ok_before": true,
+      "fix_log": "Corrigido e validado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\CRA WEBSERVICE SOAP XML.md (3441 chars)",
+      "validate_after": "OK",
+      "validate_ok_after": true,
+      "md_chars": 3471,
+      "finished_at": "2026-06-09T20:58:47+00:00"
+    },
+    {
+      "pdf": "DADOS COMPLEMENTARES DO DEVEDOR.pdf",
+      "md": "DADOS COMPLEMENTARES DO DEVEDOR.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-09T20:58:47+00:00",
+      "convert_exit_code": 0,
+      "convert_log_tail": "=== Document parser messages ===\nUsing RapidOCR for OCR processing.\nOCR on page.number=0/1.\nOCR on page.number=1/2.\nOCR on page.number=2/3.\nOCR on page.number=3/4.\n\nGerado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\DADOS COMPLEMENTARES DO DEVEDOR.md (2035 caracteres)",
+      "validate_before": "ISSUES: artefatos ~~ strikethrough OCR restantes",
+      "validate_ok_before": false,
+      "fix_log": "Corrigido e validado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\DADOS COMPLEMENTARES DO DEVEDOR.md (1878 chars)",
+      "validate_after": "OK",
+      "validate_ok_after": true,
+      "md_chars": 1906,
+      "finished_at": "2026-06-09T21:00:33+00:00"
+    },
+    {
+      "pdf": "DESISTENCIA.pdf",
+      "md": "DESISTENCIA.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-09T21:00:33+00:00",
+      "convert_exit_code": 0,
+      "convert_log_tail": "=== Document parser messages ===\nUsing RapidOCR for OCR processing.\nOCR on page.number=0/1.\nOCR on page.number=1/2.\nOCR on page.number=2/3.\n\nGerado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\DESISTENCIA.md (1850 caracteres)",
+      "validate_before": "OK",
+      "validate_ok_before": true,
+      "fix_log": "Corrigido e validado: C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\DESISTENCIA.md (1773 chars)",
+      "validate_after": "OK",
+      "validate_ok_after": true,
+      "md_chars": 1806,
+      "finished_at": "2026-06-09T21:01:41+00:00"
+    },
+    {
+      "pdf": "DOWNLOAD INSTRUMENTO.pdf",
+      "md": "DOWNLOAD INSTRUMENTO.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-10T11:39:21+00:00",
+      "convert_exit_code": 0,
+      "validate_before": "OK",
+      "validate_ok_before": true,
+      "fix_log": "Corrigido e validado (1529 chars)",
+      "validate_after": "OK",
+      "validate_ok_after": true,
+      "md_chars": 1569,
+      "finished_at": "2026-06-10T11:39:21+00:00"
+    },
+    {
+      "pdf": "ENVIO DE IMAGENS.pdf",
+      "md": "ENVIO DE IMAGENS.md",
+      "status": "done",
+      "notes": "validado",
+      "finished_at": "2026-06-10T11:41:39+00:00",
+      "md_chars": 2716,
+      "validate_before": "OK",
+      "validate_ok_before": true,
+      "validate_after": "OK",
+      "validate_ok_after": true
+    },
+    {
+      "pdf": "EXEMPLO DE MENSAGEM DE RETORNO.pdf",
+      "md": "EXEMPLO DE MENSAGEM DE RETORNO.md",
+      "status": "done",
+      "notes": "validado (2576 chars)",
+      "md_chars": 2576,
+      "finished_at": "2026-06-10T11:44:41+00:00"
+    },
+    {
+      "pdf": "GUIA DE INTEGRAÇÃO.pdf",
+      "md": "GUIA DE INTEGRAÇÃO.md",
+      "status": "done",
+      "notes": "validado",
+      "started_at": "2026-06-10T11:44:41+00:00",
+      "finished_at": "2026-06-10T11:47:30+00:00"
+    },
+    {
+      "pdf": "IMAGEM DA REMESSA.pdf",
+      "md": "IMAGEM DA REMESSA.md",
+      "status": "done",
+      "notes": "validado",
+      "finished_at": "2026-06-10T11:50:05+00:00"
+    },
+    {
+      "pdf": "IRREGULARIDADES.pdf",
+      "md": "IRREGULARIDADES.md",
+      "status": "done",
+      "notes": "validado",
+      "finished_at": "2026-06-10T11:53:14+00:00"
+    },
+    {
+      "pdf": "MENU DE SIMULAÇÃO NA CRA.pdf",
+      "md": "MENU DE SIMULAÇÃO NA CRA.md",
+      "status": "done",
+      "notes": "validado",
+      "finished_at": "2026-06-10T11:55:28+00:00"
+    },
+    {
+      "pdf": "MÉTODOS E PARÂMETROS.pdf",
+      "md": "MÉTODOS E PARÂMETROS.md",
+      "status": "done",
+      "notes": "validado",
+      "finished_at": "2026-06-10T11:57:32+00:00"
+    },
+    {
+      "pdf": "NOMENCLATURA DOS ARQUIVOS.pdf",
+      "md": "NOMENCLATURA DOS ARQUIVOS.md",
+      "status": "done",
+      "notes": "validado",
+      "finished_at": "2026-06-10T12:00:06+00:00"
+    },
+    {
+      "pdf": "OCORRENCIAS.pdf",
+      "md": "OCORRENCIAS.md",
+      "status": "done",
+      "notes": "validado",
+      "finished_at": "2026-06-10T12:05:37+00:00"
+    },
+    {
+      "pdf": "OFICIO.pdf",
+      "md": "OFICIO.md",
+      "status": "done",
+      "notes": "validado",
+      "finished_at": "2026-06-10T12:09:48+00:00"
+    },
+    {
+      "pdf": "RESPOSTAS DO WEBSERVICE.pdf",
+      "md": "RESPOSTAS DO WEBSERVICE.md",
+      "status": "pending",
+      "notes": ""
+    },
+    {
+      "pdf": "WEBSERVICE SOAPUI.pdf",
+      "md": "WEBSERVICE SOAPUI.md",
+      "status": "pending",
+      "notes": ""
+    }
+  ],
+  "updated_at": "2026-06-10T12:09:48+00:00"
+}

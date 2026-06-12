@@ -13,6 +13,7 @@ postman/.postman-sync-ccn.json
 postman/.postman-sync-censec.json
 postman/.postman-sync-doi.json
 postman/.postman-sync-sigef.json
+postman/.postman-sync-cra.json
 postman/onr-webservice-n8n.postman_environment.json
 postman/n8n-orius.postman_environment.json
 postman/Parse-Memorial-SIGEF-n8n.postman_environment.json

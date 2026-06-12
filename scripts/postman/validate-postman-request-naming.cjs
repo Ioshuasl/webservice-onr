@@ -36,20 +36,21 @@ const STRICT_COLLECTIONS = new Set([
   "censec-n8n.postman_collection.json",
   "DOI-Validate-JSON-n8n.postman_collection.json",
   "Parse-Memorial-SIGEF-n8n.postman_collection.json",
+  "cnib-n8n/collection_postman.json",
 ]);
 
 /** Prefixo por pasta pai (ou `*` para folhas na raiz). */
 const COLLECTION_FOLDER_KEYS = {
   "CCN-Upload-XML-n8n.postman_collection.json": {
-    "CCN Upload XML": "AUTONR-88",
-    "CCN Get Import Status": "AUTONR-89",
-    "CCN Get Import Erros": "AUTONR-90",
+    "CCN Upload XML": "AUTCCN-1",
+    "CCN Get Import Status": "AUTCCN-2",
+    "CCN Get Import Erros": "AUTCCN-3",
   },
   "censec-n8n.postman_collection.json": {
-    "*": "AUTONR-13",
+    "*": "AUTCENSEC-1",
   },
   "DOI-Validate-JSON-n8n.postman_collection.json": {
-    "DOI Validate JSON": "AUTONR-87",
+    "DOI Validate JSON": "AUTDOI-1",
   },
   "Parse-Memorial-SIGEF-n8n.postman_collection.json": {
     "Parse Memorial SIGEF": "AUTONR-86",
@@ -101,10 +102,10 @@ function validateCollection(collection, fileName) {
       const planeKey = resolvePlaneKeyForLeaf(fileName, leaf);
       if (planeKey) {
         errors.push(
-          `${fileName}: request sem prefixo AUTONR — esperado "${ensureCanonicalPrefix(name, planeKey)}" → "${name}"`
+          `${fileName}: request sem prefixo Plane — esperado "${ensureCanonicalPrefix(name, planeKey)}" → "${name}"`
         );
       } else {
-        errors.push(`${fileName}: request sem prefixo AUTONR canônico → "${name}"`);
+        errors.push(`${fileName}: request sem prefixo Plane canônico → "${name}"`);
       }
     }
   }
@@ -119,19 +120,34 @@ function fixCollection(collection, fileName) {
   return changed;
 }
 
+function isCollectionFile(name) {
+  return name.endsWith(".postman_collection.json") || name === "collection_postman.json";
+}
+
+function collectionKey(filePath) {
+  const rel = path.relative(POSTMAN, filePath).replace(/\\/g, "/");
+  if (rel.startsWith("..")) return path.basename(filePath);
+  return rel;
+}
+
 function listTargetCollections(argv) {
-  const files = argv.filter((a) => a.endsWith(".postman_collection.json"));
+  const files = argv.filter((a) => isCollectionFile(path.basename(a)));
   if (files.length) {
     return files.map((f) => path.resolve(process.cwd(), f));
   }
-  return fs
+  const fromRoot = fs
     .readdirSync(POSTMAN)
     .filter((f) => f.endsWith(".postman_collection.json") && !f.includes(" copy"))
     .map((f) => path.join(POSTMAN, f));
+  const cnibDir = path.join(POSTMAN, "cnib-n8n");
+  if (fs.existsSync(path.join(cnibDir, "collection_postman.json"))) {
+    fromRoot.push(path.join(cnibDir, "collection_postman.json"));
+  }
+  return fromRoot;
 }
 
 function validateCollectionFile(filePath, { fix = false } = {}) {
-  const fileName = path.basename(filePath);
+  const fileName = collectionKey(filePath);
   const collection = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
   if (fix) {
@@ -151,7 +167,7 @@ function main() {
 
   let totalErrors = 0;
   for (const filePath of paths) {
-    const fileName = path.basename(filePath);
+    const fileName = collectionKey(filePath);
     if (!fs.existsSync(filePath)) {
       console.warn("Arquivo não encontrado:", filePath);
       continue;

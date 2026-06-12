@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-104] (integração) ListagemEditais - RIB
+// Workflow : [AUTORIB-14] (rib) ListagemEditais - RIB
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'nneIeQUKzpG1DlgQ',
-    name: '[AUTONR-104] (integração) ListagemEditais - RIB',
-    active: false,
+    name: '[AUTORIB-14] (rib) ListagemEditais - RIB',
+    active: true,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr104IntegracaoListagemeditaisRibWorkflow {
+export class Autorib14RibListagemeditaisRibWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

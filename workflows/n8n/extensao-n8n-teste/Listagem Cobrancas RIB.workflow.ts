@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-121] (integração) ListagemCobrancas - RIB
+// Workflow : [AUTORIB-31] (rib) ListagemCobrancas - RIB
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'zWqpw3J2H21zZIxl',
-    name: '[AUTONR-121] (integração) ListagemCobrancas - RIB',
+    name: '[AUTORIB-31] (rib) ListagemCobrancas - RIB',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr121IntegracaoListagemcobrancasRibWorkflow {
+export class Autorib31RibListagemcobrancasRibWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

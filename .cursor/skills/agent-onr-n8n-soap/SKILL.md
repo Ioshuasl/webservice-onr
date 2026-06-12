@@ -16,9 +16,20 @@ Agente para **workflows n8n** que expõem métodos do **WSOficio (ONR)** via web
 
 | Inclui | Exclui |
 |--------|--------|
-| Workflows proxy ONR em `workflows/n8n/**/*.workflow.ts` | Outros fornecedores / APIs não-ONR |
+| Workflows proxy **WSOficio ONR** em `workflows/n8n/**/*.workflow.ts` | RIB, CNIB, CRA, CENSEC, CCN, DOI (projetos Plane próprios) |
 | Métodos listados em [`webservice/list-metodos.md`](../../webservice/list-metodos.md) | Scripts CLI em `scripts/` (referência apenas) |
-| Coleção Postman em `postman/` (opcional) | Edição manual de `n8nac-config.json` |
+| Coleção Postman `postman/onr-webservice-n8n.postman_collection.json` | Edição manual de `n8nac-config.json` |
+
+## Plane
+
+| Item | Valor |
+|------|-------|
+| Projeto | `autonr` (`AUTONR`) — **somente WSOficio SOAP** |
+| Nota vault | `Meta/integracoes/plane/projetos/autonr.md` |
+| Novos cards | `[AUTONR-n] (webservice ONR) <OperacaoSOAP> - <Domínio>` |
+| Registry | `Meta/integracoes/plane/maps/autonr-work-items.json` |
+
+> Cards de RIB, CRA, CNIB, CENSEC, etc. **não** pertencem mais a este projeto — ver `Meta/integracoes/plane/palavras-chave-plane.md`.
 
 ## Antes de montar o workflow
 
@@ -148,9 +159,11 @@ Não chamar a ONR se `entrada_valida === false`.
 
 | Item | Convenção |
 |------|-----------|
+| Nome workflow / card | `[AUTONR-n] (webservice ONR) <OperacaoSOAP> - <Domínio>` — projeto Plane `autonr` |
 | Arquivo workflow | Dentro de `workflowDir` (ver `n8nac env status --json`), ex.: `workflows/n8n/gentle-juniper-bb6f8f0940a3/<Nome>.workflow.ts` |
 | Nós | kebab-case pt-BR (`validar-entrada`, `consumir-soap-onr`) |
 | Propriedades classe | PascalCase (`ValidarEntrada`, `ConsumirSoapOnr`) |
+| Postman request | `[AUTONR-n] …` em `onr-webservice-n8n.postman_collection.json` |
 | `<workflow-map>` | Atualizar índice e routing após cada alteração |
 
 ## n8n-as-code (obrigatório)

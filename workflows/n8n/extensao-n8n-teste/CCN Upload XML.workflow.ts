@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-88] (CCN) CCN_Uploads - CCN
+// Workflow : [AUTCCN-1] (ccn) CCN_Uploads - CCN
 // Nodes   : 11  |  Connections: 12
 //
 // NODE INDEX
@@ -42,12 +42,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'oy22MYSQfB7CYcbl',
-    name: '[AUTONR-88] (CCN) CCN_Uploads - CCN',
+    name: '[AUTCCN-1] (ccn) CCN_Uploads - CCN',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr88CcnCcnUploadsCcnWorkflow {
+export class Autccn1CcnCcnUploadsCcnWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

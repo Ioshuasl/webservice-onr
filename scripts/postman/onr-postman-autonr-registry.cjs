@@ -15,6 +15,8 @@ const FILE_TO_OP = {
   "Auth WebService ONR.workflow.ts": "LoginUsuarioCertificado",
   "Obter XML Solicitacoes V6.workflow.ts": "ObterXMLSolicitacoes_v6",
   "Devolver Certidao.workflow.ts": "DevolverCertidao",
+  "Finalizar Resposta Certidao.workflow.ts": "FinalizarRespostaCertidao",
+  "Informar Custas Certidao.workflow.ts": "InformarCustasCertidao",
   "Importacao Arquivos CTP.workflow.ts": "ImportacaoArquivos",
   "Atualizar Status Processo CTP.workflow.ts": "AtualizarStatusProcesso",
   "Obter XML Solicitacoes V2 Matricula Online.workflow.ts": "ObterXMLSolicitacoesV2",
@@ -45,6 +47,8 @@ const REQUEST_NAME_OVERRIDES = {
   "Obter XML Solicitacoes v6": "AUTONR-46",
   "Obter XML — por protocolo": "AUTONR-46",
   "Devolver Certidao": "AUTONR-47",
+  "Finalizar Resposta Certidao": "AUTONR-53",
+  "Informar Custas Certidao": "AUTONR-54",
 };
 
 function resolveRegistryPath() {

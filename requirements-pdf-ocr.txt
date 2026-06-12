@@ -1,0 +1,15 @@
+# Conversor PDF → Markdown (pdf_to_markdown_pymupdf.py)
+# Instalação: py -m pip install -r requirements-pdf-ocr.txt
+# Layout + OCR: inclui pymupdf-layout e dependências de visão computacional.
+
+pymupdf==1.27.2.3
+pymupdf4llm[layout]==1.27.2.3
+rapidocr-onnxruntime>=1.2.3
+opencv-python-headless>=4.10.0
+numpy>=1.26.0
+lxml>=5.0.0
+pytest>=8.0.0
+
+# Opcional Fase 2 — tabelas (PaddleOCR; pode não instalar em Python 3.13+ Windows):
+# paddlepaddle>=2.6.0
+# paddleocr>=2.9.0

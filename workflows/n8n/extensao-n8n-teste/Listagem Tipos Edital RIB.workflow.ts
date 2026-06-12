@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-103] (integração) ListagemTiposEdital - RIB
+// Workflow : [AUTORIB-13] (rib) ListagemTiposEdital - RIB
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: '0dKWrbzXeuAyqvEA',
-    name: '[AUTONR-103] (integração) ListagemTiposEdital - RIB',
+    name: '[AUTORIB-13] (rib) ListagemTiposEdital - RIB',
     active: true,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr103IntegracaoListagemtiposeditalRibWorkflow {
+export class Autorib13RibListagemtiposeditalRibWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

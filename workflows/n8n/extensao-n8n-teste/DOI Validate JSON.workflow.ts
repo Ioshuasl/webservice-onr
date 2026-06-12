@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-87] (DOI) DOI_ValidateJSON - DOI
+// Workflow : [AUTDOI-1] (doi) DOI_ValidateJSON - DOI
 // Nodes   : 5  |  Connections: 4
 //
 // NODE INDEX
@@ -28,12 +28,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'HewsInHfw3Gfrs5Z',
-    name: '[AUTONR-87] (DOI) DOI_ValidateJSON - DOI',
+    name: '[AUTDOI-1] (doi) DOI_ValidateJSON - DOI',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr87DoiDoiValidatejsonDoiWorkflow {
+export class Autdoi1DoiDoiValidatejsonDoiWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-13] (CENSEC) CENSEC_UploadJSON - CENSEC
+// Workflow : [AUTCENSEC-1] (censec) CENSEC_UploadJSON - CENSEC
 // Nodes   : 11  |  Connections: 10
 //
 // NODE INDEX
@@ -40,7 +40,7 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'tav97HSLIT79LpwO',
-    name: '[AUTONR-13] (CENSEC) CENSEC_UploadJSON - CENSEC',
+    name: '[AUTCENSEC-1] (censec) CENSEC_UploadJSON - CENSEC',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },

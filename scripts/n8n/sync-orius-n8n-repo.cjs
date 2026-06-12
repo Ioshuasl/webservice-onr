@@ -13,10 +13,18 @@ const { spawnSync } = require('child_process');
 
 const REPO_ROOT = path.resolve(__dirname, '../..');
 const DEFAULT_ORIUS_N8N = path.resolve(process.env.USERPROFILE || '', 'projetos-orius/N8N');
-const VAULT_ENV = path.resolve(
-  process.env.USERPROFILE || '',
-  'OneDrive/Documentos/Obsidian Vault/env.md',
-);
+function resolveVaultEnvPath() {
+  const candidates = [
+    process.env.OBSIDIAN_VAULT_ENV,
+    process.env.OBSIDIAN_VAULT ? path.join(process.env.OBSIDIAN_VAULT, 'env.md') : null,
+    path.resolve(process.env.USERPROFILE || '', 'Obsidian Vault', 'env.md'),
+    path.resolve(process.env.USERPROFILE || '', 'OneDrive/Documentos/Obsidian Vault/env.md'),
+  ].filter(Boolean);
+  for (const p of candidates) {
+    if (fs.existsSync(p)) return p;
+  }
+  throw new Error(`env.md não encontrado. Tentado: ${candidates.join(', ')}`);
+}
 
 function parseArgs(argv) {
   const names = [];
@@ -37,10 +45,8 @@ function parseArgs(argv) {
 }
 
 function readEnvFromVault() {
-  if (!fs.existsSync(VAULT_ENV)) {
-    throw new Error(`env.md não encontrado: ${VAULT_ENV}`);
-  }
-  const text = fs.readFileSync(VAULT_ENV, 'utf8');
+  const vaultEnv = resolveVaultEnvPath();
+  const text = fs.readFileSync(vaultEnv, 'utf8');
   const env = {};
   for (const line of text.split(/\r?\n/)) {
     const m = line.match(/^([A-Z0-9_]+)=(.+)$/);

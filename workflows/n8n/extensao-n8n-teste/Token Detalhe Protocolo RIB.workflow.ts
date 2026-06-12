@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-94] (integração) TokenDetalheProtocolo - RIB
+// Workflow : [AUTORIB-4] (rib) TokenDetalheProtocolo - RIB
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'HMpCCRnGi6yitVy4',
-    name: '[AUTONR-94] (integração) TokenDetalheProtocolo - RIB',
+    name: '[AUTORIB-4] (rib) TokenDetalheProtocolo - RIB',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr94IntegracaoTokendetalheprotocoloRibWorkflow {
+export class Autorib4RibTokendetalheprotocoloRibWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

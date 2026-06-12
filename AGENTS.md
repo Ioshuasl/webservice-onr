@@ -1,6 +1,6 @@
 # 🤖 AI Agents Guidelines
 <!-- n8n-as-code-start -->
-<!-- n8nac-version: 2.3.6 -->
+<!-- n8nac-version: 2.4.0 -->
 
 ## n8n-as-code Context Root
 
@@ -72,4 +72,4 @@ For **end-to-end** n8n automation (vault research → workflow → push → Post
 - Skill: `.cursor/skills/agent-n8n-orchestrator/SKILL.md`
 - Routing matrix: `.cursor/skills/agent-n8n-orchestrator/routing-matrix.md`
 
-Adapters: **ONR WSOficio SOAP** (`agent-onr-n8n-soap`), **CENSEC** (`agent-censec-n8n`). CCN, DOI, SIGEF, RIB: routing matrix only until Phase 3.
+Adapters: **ONR WSOficio SOAP** (`agent-onr-n8n-soap`), **CRA21 SOAP** (`agent-cra-n8n-soap`), **CENSEC** (`agent-censec-n8n`). CCN, DOI, SIGEF, RIB: routing matrix only until Phase 3.

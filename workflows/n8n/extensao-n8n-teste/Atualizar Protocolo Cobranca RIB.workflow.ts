@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-102] (integração) AtualizarProtocoloCobranca - RIB
+// Workflow : [AUTORIB-12] (rib) AtualizarProtocoloCobranca - RIB
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'anWU5nm66RxqPKPh',
-    name: '[AUTONR-102] (integração) AtualizarProtocoloCobranca - RIB',
+    name: '[AUTORIB-12] (rib) AtualizarProtocoloCobranca - RIB',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr102IntegracaoAtualizarprotocolocobrancaRibWorkflow {
+export class Autorib12RibAtualizarprotocolocobrancaRibWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

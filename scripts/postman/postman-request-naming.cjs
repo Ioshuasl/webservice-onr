@@ -1,45 +1,46 @@
 /**
- * Convenção obrigatória de nomes de requests Postman alinhados ao Plane (AUTONR).
+ * Convenção obrigatória de nomes de requests Postman alinhados ao Plane.
  *
- * Formato canônico: `[AUTONR-n] Nome descritivo`
- * Ex.: `[AUTONR-2] Auth ONR — Login`
+ * Formato canônico: `[{IDENTIFICADOR}-n] Nome descritivo`
+ * Ex.: `[AUTONR-2] Auth ONR — Login` · `[AUTCCN-1] Upload XML CCN — HML`
  *
  * Legado (migrar com --fix): `AUTONR-n: Nome`
  */
-const AUTONR_CANONICAL_RE = /^\[AUTONR-\d+\] .+/;
-const AUTONR_LEGACY_COLON_RE = /^AUTONR-\d+: .+/;
-const AUTONR_ANY_PREFIX_RE = /^(?:\[AUTONR-\d+\] |AUTONR-\d+: )/;
+const PLANE_KEY_RE = /^[A-Z]+-\d+$/;
+const PLANE_CANONICAL_RE = /^\[[A-Z]+-\d+\] .+/;
+const PLANE_LEGACY_COLON_RE = /^AUTONR-\d+: .+/;
+const PLANE_ANY_PREFIX_RE = /^(?:\[[A-Z]+-\d+\] |AUTONR-\d+: )/;
 
 function formatAutonrRequestName(planeKey, baseName) {
-  const key = String(planeKey || "").trim();
-  const base = String(baseName || "").trim();
-  if (!/^AUTONR-\d+$/.test(key)) {
+  const key = String(planeKey || '').trim();
+  const base = String(baseName || '').trim();
+  if (!PLANE_KEY_RE.test(key)) {
     throw new Error(`plane_key inválido: ${planeKey}`);
   }
-  if (!base) throw new Error("baseName obrigatório para formatAutonrRequestName");
+  if (!base) throw new Error('baseName obrigatório para formatAutonrRequestName');
   return `[${key}] ${base}`;
 }
 
 function stripAutonrPrefix(name) {
-  return String(name || "")
-    .replace(/^\[AUTONR-\d+\]\s*/, "")
-    .replace(/^AUTONR-\d+:\s*/, "");
+  return String(name || '')
+    .replace(/^\[[A-Z]+-\d+\]\s*/, '')
+    .replace(/^AUTONR-\d+:\s*/, '');
 }
 
 function hasAutonrPrefix(name) {
-  return AUTONR_ANY_PREFIX_RE.test(String(name || ""));
+  return PLANE_ANY_PREFIX_RE.test(String(name || ''));
 }
 
 function isCanonicalAutonrName(name) {
-  return AUTONR_CANONICAL_RE.test(String(name || ""));
+  return PLANE_CANONICAL_RE.test(String(name || ''));
 }
 
 function isLegacyColonAutonrName(name) {
-  return AUTONR_LEGACY_COLON_RE.test(String(name || ""));
+  return PLANE_LEGACY_COLON_RE.test(String(name || ''));
 }
 
 function migrateLegacyColonName(name) {
-  const s = String(name || "");
+  const s = String(name || '');
   const m = s.match(/^(AUTONR-\d+):\s+(.+)$/);
   if (!m) return s;
   return formatAutonrRequestName(m[1], m[2]);
@@ -82,8 +83,8 @@ function migrateLegacyColonNaming(collection) {
 }
 
 module.exports = {
-  AUTONR_CANONICAL_RE,
-  AUTONR_LEGACY_COLON_RE,
+  AUTONR_CANONICAL_RE: PLANE_CANONICAL_RE,
+  AUTONR_LEGACY_COLON_RE: PLANE_LEGACY_COLON_RE,
   formatAutonrRequestName,
   stripAutonrPrefix,
   hasAutonrPrefix,

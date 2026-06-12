@@ -1,0 +1,1060 @@
+{
+  "active_batch_id": "cnib-1-6",
+  "batches": {
+    "cnib-1-6": {
+      "batch_id": "cnib-1-6",
+      "plane_project": "autcnib",
+      "plane_identifier": "AUTCNIB",
+      "started_at": "2026-06-11T20:00:00.000Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "cnib",
+      "adapter": null,
+      "postman_collection": "postman/cnib-n8n/collection_postman.json",
+      "postman_environment": "postman/cnib-n8n/environment_postman.json",
+      "env_section": "CNIB — API SERVENTIAS (serventia-api)",
+      "range": {
+        "from": "AUTCNIB-1",
+        "to": "AUTCNIB-6"
+      },
+      "execution_order": [
+        "AUTCNIB-1",
+        "AUTCNIB-3",
+        "AUTCNIB-2",
+        "AUTCNIB-4",
+        "AUTCNIB-5",
+        "AUTCNIB-6"
+      ],
+      "current": "AUTCNIB-3",
+      "status": "in_progress",
+      "cards": {
+        "AUTCNIB-1": {
+          "operacao": "AuthToken",
+          "dominio": "CNIB",
+          "direcao": "auth",
+          "status": "done",
+          "anchor": true,
+          "plane_legacy_key": "AUTONR-143",
+          "started_at": "2026-06-11T20:30:00.000Z",
+          "completed_at": "2026-06-12T12:00:00.000Z",
+          "card_title": "[AUTCNIB-1] (cnib) AuthToken - CNIB",
+          "webhook": "POST /cnib/auth/token",
+          "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/AuthToken.md",
+          "workflow_id_n8n": "HZmL8lfjeauwkDzN",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Auth CNIB.workflow.ts",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": false,
+            "docs": true,
+            "payload": true
+          }
+        },
+        "AUTCNIB-2": {
+          "operacao": "Consultar",
+          "dominio": "Ordem",
+          "direcao": "consulta",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-144",
+          "card_title": "[AUTCNIB-2] (cnib) Consultar - Ordem",
+          "webhook": "POST /cnib/ordem/consultar",
+          "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/Consultar.md",
+          "gates": {
+            "vault": true,
+            "workflow": false,
+            "push": false,
+            "postman": true,
+            "sync": false,
+            "docs": true,
+            "payload": false
+          }
+        },
+        "AUTCNIB-3": {
+          "operacao": "VisualizarOrdens",
+          "dominio": "Ordem",
+          "direcao": "consulta",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-145",
+          "card_title": "[AUTCNIB-3] (cnib) VisualizarOrdens - Ordem",
+          "webhook": "POST /cnib/ordem/visualizar",
+          "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/VisualizarOrdens.md",
+          "gates": {
+            "vault": true,
+            "workflow": false,
+            "push": false,
+            "postman": true,
+            "sync": false,
+            "docs": true,
+            "payload": false
+          }
+        },
+        "AUTCNIB-4": {
+          "operacao": "ResponderOrdem",
+          "dominio": "Ordem",
+          "direcao": "upload",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-146",
+          "card_title": "[AUTCNIB-4] (cnib) ResponderOrdem - Ordem",
+          "webhook": "POST /cnib/ordem/responder",
+          "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/ResponderOrdem.md",
+          "gates": {
+            "vault": true,
+            "workflow": false,
+            "push": false,
+            "postman": true,
+            "sync": false,
+            "docs": true,
+            "payload": false
+          }
+        },
+        "AUTCNIB-5": {
+          "operacao": "ResponderLista",
+          "dominio": "Ordem",
+          "direcao": "upload",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-147",
+          "card_title": "[AUTCNIB-5] (cnib) ResponderLista - Ordem",
+          "webhook": "POST /cnib/ordem/responder/lista",
+          "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/ResponderLista.md",
+          "gates": {
+            "vault": true,
+            "workflow": false,
+            "push": false,
+            "postman": true,
+            "sync": false,
+            "docs": true,
+            "payload": false
+          }
+        },
+        "AUTCNIB-6": {
+          "operacao": "DocumentosTipos",
+          "dominio": "Documentos",
+          "direcao": "consulta",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-148",
+          "card_title": "[AUTCNIB-6] (cnib) DocumentosTipos - Documentos",
+          "webhook": "POST /cnib/documentos/tipos",
+          "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/DocumentosTipos.md",
+          "gates": {
+            "vault": true,
+            "workflow": false,
+            "push": false,
+            "postman": true,
+            "sync": false,
+            "docs": true,
+            "payload": false
+          }
+        }
+      }
+    },
+    "cra-1-16": {
+      "batch_id": "cra-1-16",
+      "started_at": "2026-06-11T11:50:00.000Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "cra",
+      "adapter": "agent-cra-n8n-soap",
+      "postman_collection": "postman/cra-webservice-n8n.postman_collection.json",
+      "env_section": "CRA21 — Webservice SOAP Protesto (homologação GO)",
+      "range": {
+        "from": "AUTOCRA-1",
+        "to": "AUTOCRA-16"
+      },
+      "execution_order": [
+        "AUTOCRA-16",
+        "AUTOCRA-9",
+        "AUTOCRA-10",
+        "AUTOCRA-8",
+        "AUTOCRA-2",
+        "AUTOCRA-3",
+        "AUTOCRA-11",
+        "AUTOCRA-13",
+        "AUTOCRA-14",
+        "AUTOCRA-1",
+        "AUTOCRA-4",
+        "AUTOCRA-5",
+        "AUTOCRA-6",
+        "AUTOCRA-7",
+        "AUTOCRA-12",
+        "AUTOCRA-15"
+      ],
+      "current": null,
+      "status": "complete",
+      "completed_at": "2026-06-11T17:30:00.000Z",
+      "cards": {
+        "AUTOCRA-1": {
+          "operacao": "Remessa",
+          "soap_op": "Remessa",
+          "dominio": "Remessa",
+          "direcao": "upload",
+          "status": "done",
+          "started_at": "2026-06-11T14:16:00.000Z",
+          "completed_at": "2026-06-11T14:30:00.000Z",
+          "card_title": "[AUTOCRA-1] (cra) Remessa - Remessa",
+          "webhook": "POST /cra/remessa",
+          "soap_xml": "scripts/cra/soap-requests/Remessa.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Remessa.md",
+          "workflow_id_n8n": "rxiP8oRIStvOz9ht",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-127"
+        },
+        "AUTOCRA-2": {
+          "operacao": "Confirmacao",
+          "soap_op": "Confirmacao",
+          "dominio": "Confirmação",
+          "direcao": "download",
+          "status": "done",
+          "started_at": "2026-06-11T13:01:00.000Z",
+          "completed_at": "2026-06-11T13:15:00.000Z",
+          "card_title": "[AUTOCRA-2] (cra) Confirmacao - Confirmação",
+          "webhook": "POST /cra/confirmacao",
+          "soap_xml": "scripts/cra/soap-requests/Confirmacao.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Confirmacao.md",
+          "workflow_id_n8n": "CS6XCx46zzr7jHX7",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-128"
+        },
+        "AUTOCRA-3": {
+          "operacao": "Retorno",
+          "soap_op": "Retorno",
+          "dominio": "Retorno",
+          "direcao": "download",
+          "status": "done",
+          "started_at": "2026-06-11T13:16:00.000Z",
+          "completed_at": "2026-06-11T13:30:00.000Z",
+          "card_title": "[AUTOCRA-3] (cra) Retorno - Retorno",
+          "webhook": "POST /cra/retorno",
+          "soap_xml": "scripts/cra/soap-requests/Retorno.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Retorno.md",
+          "workflow_id_n8n": "pn54OjS5xQeUJNzV",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-129"
+        },
+        "AUTOCRA-4": {
+          "operacao": "Desistencia",
+          "soap_op": "Desistencia",
+          "dominio": "Desistência",
+          "direcao": "upload",
+          "status": "done",
+          "started_at": "2026-06-11T14:31:00.000Z",
+          "completed_at": "2026-06-11T15:00:00.000Z",
+          "card_title": "[AUTOCRA-4] (cra) Desistencia - Desistência",
+          "webhook": "POST /cra/desistencia",
+          "soap_xml": "scripts/cra/soap-requests/Desistencia.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Desistencia.md",
+          "workflow_id_n8n": "Zu7Ltqw1ArQs17C8",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Desistencia CRA.workflow.ts",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-130"
+        },
+        "AUTOCRA-5": {
+          "operacao": "Cancelamento",
+          "soap_op": "Cancelamento",
+          "dominio": "Cancelamento",
+          "direcao": "upload",
+          "status": "done",
+          "started_at": "2026-06-11T14:46:00.000Z",
+          "completed_at": "2026-06-11T16:00:00.000Z",
+          "card_title": "[AUTOCRA-5] (cra) Cancelamento - Cancelamento",
+          "webhook": "POST /cra/cancelamento",
+          "soap_xml": "scripts/cra/soap-requests/Cancelamento.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Cancelamento.md",
+          "workflow_id_n8n": "ADsgeC6405hahbl4",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Cancelamento CRA.workflow.ts",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-131"
+        },
+        "AUTOCRA-6": {
+          "operacao": "Autoriza_Cancelamento",
+          "soap_op": "Autoriza_Cancelamento",
+          "dominio": "Autorização",
+          "direcao": "upload",
+          "status": "done",
+          "started_at": "2026-06-11T16:01:00.000Z",
+          "completed_at": "2026-06-11T16:30:00.000Z",
+          "card_title": "[AUTOCRA-6] (cra) Autoriza_Cancelamento - Autorização",
+          "webhook": "POST /cra/autoriza-cancelamento",
+          "soap_xml": "scripts/cra/soap-requests/Autoriza_Cancelamento.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Autoriza_Cancelamento.md",
+          "workflow_id_n8n": "MXWDzKFaOgWKMXKr",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Autoriza Cancelamento CRA.workflow.ts",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-132"
+        },
+        "AUTOCRA-7": {
+          "operacao": "Autoriza_Desistencia",
+          "soap_op": "Autoriza_Desistencia",
+          "dominio": "Autorização",
+          "direcao": "upload",
+          "status": "done",
+          "started_at": "2026-06-11T16:31:00.000Z",
+          "completed_at": "2026-06-11T17:00:00.000Z",
+          "card_title": "[AUTOCRA-7] (cra) Autoriza_Desistencia - Autorização",
+          "webhook": "POST /cra/autoriza-desistencia",
+          "soap_xml": "scripts/cra/soap-requests/Autoriza_Desistencia.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Autoriza_Desistencia.md",
+          "workflow_id_n8n": "CZ103VGnFsVRUSKW",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Autoriza Desistencia CRA.workflow.ts",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-133"
+        },
+        "AUTOCRA-8": {
+          "operacao": "Homologadas",
+          "soap_op": "Homologadas",
+          "dominio": "Homologação",
+          "direcao": "download",
+          "status": "done",
+          "started_at": "2026-06-11T12:46:00.000Z",
+          "completed_at": "2026-06-11T13:00:00.000Z",
+          "card_title": "[AUTOCRA-8] (cra) Homologadas - Homologação",
+          "webhook": "POST /cra/homologadas",
+          "soap_xml": "scripts/cra/soap-requests/Homologadas.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Homologadas.md",
+          "workflow_id_n8n": "Tq9ATORk9QNWQsfv",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-134"
+        },
+        "AUTOCRA-9": {
+          "operacao": "Consulta",
+          "soap_op": "Consulta",
+          "dominio": "Consulta",
+          "direcao": "consulta",
+          "status": "done",
+          "started_at": "2026-06-11T12:06:00.000Z",
+          "completed_at": "2026-06-11T12:12:00.000Z",
+          "card_title": "[AUTOCRA-9] (cra) Consulta - Consulta",
+          "webhook": "POST /cra/consulta",
+          "soap_xml": "scripts/cra/soap-requests/Consulta.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Consulta.md",
+          "workflow_id_n8n": "eM9zHTr0SYmczKFG",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-135"
+        },
+        "AUTOCRA-10": {
+          "operacao": "Consulta_Slip",
+          "soap_op": "Consulta_Slip",
+          "dominio": "Consulta",
+          "direcao": "consulta",
+          "status": "done",
+          "started_at": "2026-06-11T12:30:00.000Z",
+          "completed_at": "2026-06-11T12:45:00.000Z",
+          "card_title": "[AUTOCRA-10] (cra) Consulta_Slip - Consulta",
+          "webhook": "POST /cra/consulta-slip",
+          "soap_xml": "scripts/cra/soap-requests/Consulta_Slip.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Consulta_Slip.md",
+          "workflow_id_n8n": "iqe1B9FKkAP3rZPK",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-136"
+        },
+        "AUTOCRA-11": {
+          "operacao": "Instrumento",
+          "soap_op": "Instrumento",
+          "dominio": "Instrumento",
+          "direcao": "download",
+          "status": "done",
+          "started_at": "2026-06-11T13:31:00.000Z",
+          "completed_at": "2026-06-11T13:45:00.000Z",
+          "card_title": "[AUTOCRA-11] (cra) Instrumento - Instrumento",
+          "webhook": "POST /cra/instrumento",
+          "soap_xml": "scripts/cra/soap-requests/Instrumento.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Instrumento.md",
+          "workflow_id_n8n": "hwBubo0sOrSh72BU",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-137"
+        },
+        "AUTOCRA-12": {
+          "operacao": "Imagem",
+          "soap_op": "Imagem",
+          "dominio": "Imagens",
+          "direcao": "upload",
+          "status": "done",
+          "started_at": "2026-06-11T17:01:00.000Z",
+          "completed_at": "2026-06-11T17:15:00.000Z",
+          "card_title": "[AUTOCRA-12] (cra) Imagem - Imagens",
+          "webhook": "POST /cra/imagem",
+          "soap_xml": "scripts/cra/soap-requests/Imagem.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Imagem.md",
+          "workflow_id_n8n": "qjGemkjLBMLeNOyY",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-138"
+        },
+        "AUTOCRA-13": {
+          "operacao": "BoletoAutorizacao",
+          "soap_op": "BoletoAutorizacao",
+          "dominio": "Autorização",
+          "direcao": "download",
+          "status": "done",
+          "started_at": "2026-06-11T13:46:00.000Z",
+          "completed_at": "2026-06-11T14:00:00.000Z",
+          "card_title": "[AUTOCRA-13] (cra) BoletoAutorizacao - Autorização",
+          "webhook": "POST /cra/boleto-autorizacao",
+          "soap_xml": "scripts/cra/soap-requests/BoletoAutorizacao.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/BoletoAutorizacao.md",
+          "workflow_id_n8n": "yeAyMtW4w3IUnu42",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-139"
+        },
+        "AUTOCRA-14": {
+          "operacao": "Andamento",
+          "soap_op": "Andamento",
+          "dominio": "Andamento",
+          "direcao": "download",
+          "status": "done",
+          "started_at": "2026-06-11T14:01:00.000Z",
+          "completed_at": "2026-06-11T15:30:00.000Z",
+          "card_title": "[AUTOCRA-14] (cra) Andamento - Andamento",
+          "webhook": "POST /cra/andamento",
+          "soap_xml": "scripts/cra/soap-requests/Andamento.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Andamento.md",
+          "workflow_id_n8n": "WZCP5YdKA7KzQ2uj",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-140"
+        },
+        "AUTOCRA-15": {
+          "operacao": "Oficio_Titulo",
+          "soap_op": "Oficio_Titulo",
+          "dominio": "Ofício",
+          "direcao": "upload",
+          "status": "done",
+          "started_at": "2026-06-11T17:16:00.000Z",
+          "completed_at": "2026-06-11T17:30:00.000Z",
+          "card_title": "[AUTOCRA-15] (cra) Oficio_Titulo - Ofício",
+          "webhook": "POST /cra/oficio-titulo",
+          "soap_xml": "scripts/cra/soap-requests/Oficio_Titulo.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/Oficio_Titulo.md",
+          "workflow_id_n8n": "Qsemjs7WDHNgvmtD",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-141"
+        },
+        "AUTOCRA-16": {
+          "operacao": "ConsultaJustificativa",
+          "soap_op": "ConsultaJustificativa",
+          "dominio": "Consulta",
+          "direcao": "consulta",
+          "status": "done",
+          "started_at": "2026-06-11T11:50:00.000Z",
+          "completed_at": "2026-06-11T12:05:00.000Z",
+          "anchor": true,
+          "card_title": "[AUTOCRA-16] (cra) ConsultaJustificativa - Consulta",
+          "webhook": "POST /cra/consulta-justificativa",
+          "soap_xml": "scripts/cra/soap-requests/ConsultaJustificativa.xml",
+          "utilizacao": "Orius/integracoes/tabelionato-protesto/cra/webservice-soap/automacao/utilizacao/ConsultaJustificativa.md",
+          "workflow_id_n8n": "16OyU7sRLhlGHOso",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": true,
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-142"
+        }
+      },
+      "plane_project": "autocra",
+      "plane_identifier": "AUTOCRA"
+    },
+    "rib-1-36": {
+      "batch_id": "rib-1-36",
+      "plane_project": "autorib",
+      "plane_identifier": "AUTORIB",
+      "started_at": "2026-06-09T00:00:00.000Z",
+      "completed_at": "2026-06-10T18:00:00.000Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "rib",
+      "postman_collection": "postman/RIB-n8n.postman_collection.json",
+      "range": {
+        "from": "AUTORIB-1",
+        "to": "AUTORIB-36"
+      },
+      "status": "complete",
+      "cards": {
+        "AUTORIB-19": {
+          "operacao": "RetificacaoEditalSimples",
+          "status": "done",
+          "rib_family": "edital-simples",
+          "workflow_id_n8n": "8tFLxV2mLMf9Q1Fr",
+          "completed_at": "2026-06-09T20:00:00.000Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-109"
+        },
+        "AUTORIB-20": {
+          "operacao": "CancelamentoEditalSimples",
+          "status": "done",
+          "workflow_id_n8n": "1si50aAetHpE2rg3",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-110"
+        },
+        "AUTORIB-21": {
+          "operacao": "CadastroEditalLeilao",
+          "status": "done",
+          "rib_family": "edital-leilao",
+          "template": "Cadastro Edital Simples RIB.workflow.ts",
+          "spec": "RFL-01",
+          "webhook": "POST /rib/edital/leilao/envio",
+          "workflow_id": "qLFf5nViKJCLKuSs",
+          "plane_legacy_key": "AUTONR-111",
+          "workflow_id_n8n": "qLFf5nViKJCLKuSs"
+        },
+        "AUTORIB-22": {
+          "operacao": "DetalheEditalLeilao",
+          "status": "done",
+          "rib_family": "edital-leilao",
+          "template": "Detalhe Edital Simples RIB.workflow.ts",
+          "spec": "RFL-04",
+          "webhook": "GET /rib/edital/leilao/detalhes",
+          "workflow_id": "ITjatOxJvXB93x48",
+          "plane_legacy_key": "AUTONR-112",
+          "workflow_id_n8n": "ITjatOxJvXB93x48"
+        },
+        "AUTORIB-23": {
+          "operacao": "RetificacaoEditalLeilao",
+          "status": "done",
+          "rib_family": "edital-leilao",
+          "template": "Retificacao Edital Simples RIB.workflow.ts + Cadastro Edital Leilao RIB.workflow.ts",
+          "spec": "RFL-03",
+          "webhook": "PUT /rib/edital/leilao/retificacao",
+          "workflow_id_n8n": "EpVUICl4P39XzDYp",
+          "completed_at": "2026-06-09T21:00:00.000Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-113"
+        },
+        "AUTORIB-24": {
+          "operacao": "CancelamentoEditalLeilao",
+          "status": "done",
+          "workflow_id_n8n": "cAwmKrG7r5RLkbyQ",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-114"
+        },
+        "AUTORIB-25": {
+          "operacao": "SolicitarExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Cadastro Edital Simples RIB.workflow.ts",
+          "spec": "RFX-02",
+          "webhook": "POST /rib/edital/extracao",
+          "workflow_id": "oifyx0PA6mcDAjtR",
+          "plane_legacy_key": "AUTONR-115"
+        },
+        "AUTORIB-26": {
+          "operacao": "ListagemExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Listagem Editais RIB.workflow.ts",
+          "spec": "RFX-01",
+          "webhook": "GET /rib/edital/extracao",
+          "workflow_id": "RGhVcwOvhmzKq37c",
+          "plane_legacy_key": "AUTONR-116"
+        },
+        "AUTORIB-27": {
+          "operacao": "DetalheExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Detalhe Edital Simples RIB.workflow.ts",
+          "spec": "RFX-03",
+          "webhook": "GET /rib/edital/extracao/detalhes",
+          "workflow_id": "rGzcWmnpPnTUKbGK",
+          "plane_legacy_key": "AUTONR-117",
+          "workflow_id_n8n": "rGzcWmnpPnTUKbGK"
+        },
+        "AUTORIB-28": {
+          "operacao": "DadosExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Detalhe Extracao Editais RIB.workflow.ts",
+          "spec": "RFX-05",
+          "webhook": "GET /rib/edital/extracao/dados",
+          "workflow_id": "pF2SRsZ4m1cA3fzV",
+          "plane_legacy_key": "AUTONR-118",
+          "workflow_id_n8n": "pF2SRsZ4m1cA3fzV"
+        },
+        "AUTORIB-29": {
+          "operacao": "DownloadExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Download Anexo Protocolo RIB.workflow.ts + Detalhe Extracao Editais RIB.workflow.ts",
+          "spec": "RFX-04",
+          "webhook": "GET /rib/edital/extracao/download",
+          "workflow_id_n8n": "D6nLGFkhDHfq0YQj",
+          "completed_at": "2026-06-10T12:00:00.000Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-119"
+        },
+        "AUTORIB-30": {
+          "operacao": "ListagemTiposPagamento",
+          "status": "done",
+          "rib_family": "cobranca",
+          "note": "pre-existing",
+          "plane_legacy_key": "AUTONR-120",
+          "workflow_id_n8n": "1C9hQMPCfrBuaJ78"
+        },
+        "AUTORIB-31": {
+          "operacao": "ListagemCobrancas",
+          "status": "done",
+          "rib_family": "cobranca",
+          "note": "pre-existing",
+          "plane_legacy_key": "AUTONR-121",
+          "workflow_id_n8n": "zWqpw3J2H21zZIxl"
+        },
+        "AUTORIB-32": {
+          "operacao": "DetalheCobranca",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Detalhe Edital Simples RIB.workflow.ts",
+          "spec": "RFC-03",
+          "webhook": "GET /rib/cobranca/detalhes",
+          "workflow_id": "vdX5HRRokKzYiMEn",
+          "plane_legacy_key": "AUTONR-122",
+          "workflow_id_n8n": "vdX5HRRokKzYiMEn"
+        },
+        "AUTORIB-33": {
+          "operacao": "GeracaoCobranca",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Cadastro Cobranca Edital RIB.workflow.ts",
+          "spec": "RFC-01",
+          "webhook": "POST /rib/cobranca",
+          "workflow_id": "dCoacaX1Oj0hBOm5",
+          "plane_legacy_key": "AUTONR-123",
+          "workflow_id_n8n": "dCoacaX1Oj0hBOm5"
+        },
+        "AUTORIB-34": {
+          "operacao": "CancelamentoCobranca",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Cancelamento Edital Simples RIB.workflow.ts + Detalhe Cobranca RIB.workflow.ts",
+          "spec": "RFC-04",
+          "webhook": "PATCH /rib/cobranca/cancelamento",
+          "workflow_id": "TcPxms2EcnItTasU",
+          "plane_legacy_key": "AUTONR-124",
+          "workflow_id_n8n": "TcPxms2EcnItTasU"
+        },
+        "AUTORIB-35": {
+          "operacao": "DevolucaoPix",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Geracao Cobranca RIB.workflow.ts",
+          "spec": "RFC-06",
+          "webhook": "POST /rib/cobranca/devolucao-pix",
+          "workflow_id": "ZCsiyyLsJkOzUIdV",
+          "plane_legacy_key": "AUTONR-125",
+          "workflow_id_n8n": "ZCsiyyLsJkOzUIdV"
+        },
+        "AUTORIB-36": {
+          "operacao": "CadastramentoCobranca",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Geracao Cobranca RIB.workflow.ts + Cadastro Cobranca Edital RIB.workflow.ts",
+          "spec": "cobranca-externa",
+          "webhook": "POST /rib/cobranca/externa",
+          "workflow_id_n8n": "WXOPh0N92vCWkh5B",
+          "completed_at": "2026-06-10T18:00:00.000Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-126"
+        },
+        "AUTORIB-1": {
+          "operacao": "AuthToken",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-91",
+          "card_title": "[AUTORIB-1] (rib) AuthToken - RIB"
+        },
+        "AUTORIB-2": {
+          "operacao": "ListagemProtocolos",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-92",
+          "card_title": "[AUTORIB-2] (rib) ListagemProtocolos - RIB"
+        },
+        "AUTORIB-3": {
+          "operacao": "DetalheProtocoloV2",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-93",
+          "card_title": "[AUTORIB-3] (rib) DetalheProtocoloV2 - RIB"
+        },
+        "AUTORIB-4": {
+          "operacao": "TokenDetalheProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-94",
+          "card_title": "[AUTORIB-4] (rib) TokenDetalheProtocolo - RIB"
+        },
+        "AUTORIB-5": {
+          "operacao": "DetalheBasicoProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-95",
+          "card_title": "[AUTORIB-5] (rib) DetalheBasicoProtocolo - RIB"
+        },
+        "AUTORIB-6": {
+          "operacao": "DownloadAnexoProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-96",
+          "card_title": "[AUTORIB-6] (rib) DownloadAnexoProtocolo - RIB"
+        },
+        "AUTORIB-7": {
+          "operacao": "EnvioProtocoloOnline",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-97",
+          "card_title": "[AUTORIB-7] (rib) EnvioProtocoloOnline - RIB"
+        },
+        "AUTORIB-8": {
+          "operacao": "EnvioProtocoloLote",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-98",
+          "card_title": "[AUTORIB-8] (rib) EnvioProtocoloLote - RIB"
+        },
+        "AUTORIB-9": {
+          "operacao": "ListagemFilaProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-99",
+          "card_title": "[AUTORIB-9] (rib) ListagemFilaProtocolo - RIB"
+        },
+        "AUTORIB-10": {
+          "operacao": "DetalheFilaProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-100",
+          "card_title": "[AUTORIB-10] (rib) DetalheFilaProtocolo - RIB"
+        },
+        "AUTORIB-11": {
+          "operacao": "ExclusaoProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-101",
+          "card_title": "[AUTORIB-11] (rib) ExclusaoProtocolo - RIB"
+        },
+        "AUTORIB-12": {
+          "operacao": "AtualizarProtocoloCobranca",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-102",
+          "card_title": "[AUTORIB-12] (rib) AtualizarProtocoloCobranca - RIB"
+        },
+        "AUTORIB-13": {
+          "operacao": "ListagemTiposEdital",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-103",
+          "card_title": "[AUTORIB-13] (rib) ListagemTiposEdital - RIB",
+          "workflow_id_n8n": "0dKWrbzXeuAyqvEA"
+        },
+        "AUTORIB-14": {
+          "operacao": "ListagemEditais",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-104",
+          "card_title": "[AUTORIB-14] (rib) ListagemEditais - RIB"
+        },
+        "AUTORIB-15": {
+          "operacao": "CadastroCobrancaEdital",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-105",
+          "card_title": "[AUTORIB-15] (rib) CadastroCobrancaEdital - RIB"
+        },
+        "AUTORIB-16": {
+          "operacao": "AtualizarCobrancaEdital",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-106",
+          "card_title": "[AUTORIB-16] (rib) AtualizarCobrancaEdital - RIB"
+        },
+        "AUTORIB-17": {
+          "operacao": "CadastroEditalSimples",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-107",
+          "card_title": "[AUTORIB-17] (rib) CadastroEditalSimples - RIB",
+          "workflow_id_n8n": "xTiINK2TQ7WswSrD"
+        },
+        "AUTORIB-18": {
+          "operacao": "DetalheEditalSimples",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-108",
+          "card_title": "[AUTORIB-18] (rib) DetalheEditalSimples - RIB",
+          "workflow_id_n8n": "c80SWxSIoTQsRBJL"
+        }
+      }
+    },
+    "ccn-1-3": {
+      "batch_id": "ccn-1-3",
+      "plane_project": "autccn",
+      "plane_identifier": "AUTCCN",
+      "started_at": "2026-06-12T18:42:29.303Z",
+      "completed_at": "2026-06-12T18:42:29.307Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "ccn",
+      "postman_collection": "postman/CCN-Upload-XML-n8n.postman_collection.json",
+      "range": {
+        "from": "AUTCCN-1",
+        "to": "AUTCCN-3"
+      },
+      "status": "complete",
+      "cards": {
+        "AUTCCN-1": {
+          "operacao": "CCN_Uploads",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-88",
+          "card_title": "[AUTCCN-1] (ccn) CCN_Uploads - CCN",
+          "workflow_id_n8n": "oy22MYSQfB7CYcbl",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        },
+        "AUTCCN-2": {
+          "operacao": "CCN_ImportsGet",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-89",
+          "card_title": "[AUTCCN-2] (ccn) CCN_ImportsGet - CCN",
+          "workflow_id_n8n": "STRA45Ya8zFPl8YM",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        },
+        "AUTCCN-3": {
+          "operacao": "CCN_ImportsErros",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-90",
+          "card_title": "[AUTCCN-3] (ccn) CCN_ImportsErros - CCN",
+          "workflow_id_n8n": "TUbsvYHrfuS9xf2P",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        }
+      }
+    },
+    "doi-1": {
+      "batch_id": "doi-1",
+      "plane_project": "autdoi",
+      "plane_identifier": "AUTDOI",
+      "started_at": "2026-06-12T19:27:45.537Z",
+      "completed_at": "2026-06-12T19:27:45.542Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "doi",
+      "postman_collection": "postman/DOI-Validate-JSON-n8n.postman_collection.json",
+      "range": {
+        "from": "AUTDOI-1",
+        "to": "AUTDOI-1"
+      },
+      "status": "complete",
+      "cards": {
+        "AUTDOI-1": {
+          "operacao": "DOI_ValidateJSON",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-87",
+          "card_title": "[AUTDOI-1] (doi) DOI_ValidateJSON - DOI",
+          "workflow_id_n8n": "HewsInHfw3Gfrs5Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        }
+      }
+    },
+    "censec-1": {
+      "batch_id": "censec-1",
+      "plane_project": "autcensec",
+      "plane_identifier": "AUTCENSEC",
+      "started_at": "2026-06-12T19:30:50.079Z",
+      "completed_at": "2026-06-12T19:30:50.083Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "censec",
+      "postman_collection": "postman/censec-n8n.postman_collection.json",
+      "range": {
+        "from": "AUTCENSEC-1",
+        "to": "AUTCENSEC-1"
+      },
+      "status": "complete",
+      "cards": {
+        "AUTCENSEC-1": {
+          "operacao": "CENSEC_UploadJSON",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-13",
+          "card_title": "[AUTCENSEC-1] (censec) CENSEC_UploadJSON - CENSEC",
+          "workflow_id_n8n": "tav97HSLIT79LpwO",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        }
+      }
+    }
+  }
+}

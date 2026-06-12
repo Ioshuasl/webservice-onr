@@ -1,0 +1,2090 @@
+{
+  "info": {
+    "_postman_id": "da24f21f-6415-48f1-a67e-ef3d9f3c22ae",
+    "name": "SERVENTIAS API",
+    "description": "Welcome to the SERVENTIAS API documentation that includes all information you need to connect to our service layer",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "35976147"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "ordem",
+          "item": [
+            {
+              "name": "consultar",
+              "item": [
+                {
+                  "name": "/api/ordem/consultar",
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "cnib-serventia-api",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://auth.id.onr.org.br/connect/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "client_credentials",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"documento\": \"string\",\n  \"hash\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/ordem/consultar",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "ordem",
+                        "consultar"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"documento\": \"string\",\n  \"hash\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/consultar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "consultar"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": false,\n  \"message\": \"string\",\n  \"status\": 9891,\n  \"data\": {\n    \"documento\": \"string\",\n    \"nomeRazao\": \"string\",\n    \"indisponivel\": true,\n    \"qtdOrdens\": 8209,\n    \"protocolos\": [\n      \"string\",\n      \"string\"\n    ],\n    \"dados_usuario\": {\n      \"hash\": \"string\",\n      \"data\": \"1966-01-28T23:06:27.048Z\",\n      \"nome\": \"string\",\n      \"documento\": \"string\",\n      \"organizacao\": \"string\",\n      \"filtros\": \"string\"\n    }\n  }\n}"
+                    },
+                    {
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"documento\": \"string\",\n  \"hash\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/consultar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "consultar"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                    },
+                    {
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"documento\": \"string\",\n  \"hash\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/consultar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "consultar"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"documento\": \"string\",\n  \"hash\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/consultar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "consultar"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"documento\": \"string\",\n  \"hash\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/consultar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "consultar"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "visualizar",
+              "item": [
+                {
+                  "name": "/api/ordem/visualizar",
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "cnib-serventia-api",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://auth.id.onr.org.br/connect/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "client_credentials",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/ordem/visualizar",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "ordem",
+                        "visualizar"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/visualizar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "visualizar"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 5436,\n  \"data\": {\n    \"ordens\": [\n      {\n        \"protocoloindisponibilidade\": \"string\",\n        \"status\": \"string\",\n        \"datapedido\": \"1994-01-19T23:47:11.612Z\",\n        \"numeroprocesso\": \"string\",\n        \"telefone\": \"string\",\n        \"nomeinstituicao\": \"string\",\n        \"forumvara\": \"string\",\n        \"usuario\": \"string\",\n        \"email\": \"string\",\n        \"ordemstatus\": \"string\",\n        \"partes\": [\n          {\n            \"cpfcnpj\": \"string\",\n            \"nomerazao\": \"string\",\n            \"matricula\": [\n              {\n                \"tipomatricula\": 4216,\n                \"matricula\": \"string\",\n                \"cpfcnpjbens\": \"string\",\n                \"infoadicionalbens\": \"string\",\n                \"comrestricao\": true\n              },\n              {\n                \"tipomatricula\": 4425,\n                \"matricula\": \"string\",\n                \"cpfcnpjbens\": \"string\",\n                \"infoadicionalbens\": \"string\",\n                \"comrestricao\": true\n              }\n            ]\n          },\n          {\n            \"cpfcnpj\": \"string\",\n            \"nomerazao\": \"string\",\n            \"matricula\": [\n              {\n                \"tipomatricula\": 7163,\n                \"matricula\": \"string\",\n                \"cpfcnpjbens\": \"string\",\n                \"infoadicionalbens\": \"string\",\n                \"comrestricao\": false\n              },\n              {\n                \"tipomatricula\": 3527,\n                \"matricula\": \"string\",\n                \"cpfcnpjbens\": \"string\",\n                \"infoadicionalbens\": \"string\",\n                \"comrestricao\": true\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"protocoloindisponibilidade\": \"string\",\n        \"status\": \"string\",\n        \"datapedido\": \"1975-02-10T10:44:36.046Z\",\n        \"numeroprocesso\": \"string\",\n        \"telefone\": \"string\",\n        \"nomeinstituicao\": \"string\",\n        \"forumvara\": \"string\",\n        \"usuario\": \"string\",\n        \"email\": \"string\",\n        \"ordemstatus\": \"string\",\n        \"partes\": [\n          {\n            \"cpfcnpj\": \"string\",\n            \"nomerazao\": \"string\",\n            \"matricula\": [\n              {\n                \"tipomatricula\": 7303,\n                \"matricula\": \"string\",\n                \"cpfcnpjbens\": \"string\",\n                \"infoadicionalbens\": \"string\",\n                \"comrestricao\": true\n              },\n              {\n                \"tipomatricula\": 9797,\n                \"matricula\": \"string\",\n                \"cpfcnpjbens\": \"string\",\n                \"infoadicionalbens\": \"string\",\n                \"comrestricao\": false\n              }\n            ]\n          },\n          {\n            \"cpfcnpj\": \"string\",\n            \"nomerazao\": \"string\",\n            \"matricula\": [\n              {\n                \"tipomatricula\": 2874,\n                \"matricula\": \"string\",\n                \"cpfcnpjbens\": \"string\",\n                \"infoadicionalbens\": \"string\",\n                \"comrestricao\": true\n              },\n              {\n                \"tipomatricula\": 5469,\n                \"matricula\": \"string\",\n                \"cpfcnpjbens\": \"string\",\n                \"infoadicionalbens\": \"string\",\n                \"comrestricao\": false\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"totalordensrestantes\": 7767\n  }\n}"
+                    },
+                    {
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/visualizar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "visualizar"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                    },
+                    {
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/visualizar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "visualizar"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/visualizar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "visualizar"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/visualizar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "visualizar"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "responder",
+              "item": [
+                {
+                  "name": "lista",
+                  "item": [
+                    {
+                      "name": "/api/ordem/responder/lista",
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "cnib-serventia-api",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://auth.id.onr.org.br/connect/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "client_credentials",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"bens\": [\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 6793,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    },\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 8058,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/responder/lista",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "responder",
+                            "lista"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "text/plain"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"bens\": [\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 6793,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    },\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 8058,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/ordem/responder/lista",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "ordem",
+                                "responder",
+                                "lista"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 7899,\n  \"data\": \"\"\n}"
+                        },
+                        {
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "text/plain"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"bens\": [\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 6793,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    },\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 8058,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/ordem/responder/lista",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "ordem",
+                                "responder",
+                                "lista"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                        },
+                        {
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"bens\": [\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 6793,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    },\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 8058,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/ordem/responder/lista",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "ordem",
+                                "responder",
+                                "lista"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "body": ""
+                        },
+                        {
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"bens\": [\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 6793,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    },\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 8058,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/ordem/responder/lista",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "ordem",
+                                "responder",
+                                "lista"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "body": ""
+                        },
+                        {
+                          "name": "Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "text/plain"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"bens\": [\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 6793,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    },\n    {\n      \"protocolo\": \"string\",\n      \"tipo_matricula\": 8058,\n      \"cpf_cnpj\": \"string\",\n      \"numero_matricula\": \"string\",\n      \"numero_inscricao\": \"string\",\n      \"bens_detalhe\": \"string\",\n      \"bens_parte_cpf_cnpj\": \"string\",\n      \"bens_parte_nome_razao\": \"string\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/ordem/responder/lista",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "ordem",
+                                "responder",
+                                "lista"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "/api/ordem/responder",
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "cnib-serventia-api",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://auth.id.onr.org.br/connect/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "client_credentials",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"protocolo\": \"string\",\n  \"tipo_matricula\": 7280,\n  \"cpf_cnpj\": \"string\",\n  \"numero_matricula\": \"string\",\n  \"numero_inscricao\": \"string\",\n  \"bens_detalhe\": \"string\",\n  \"bens_parte_cpf_cnpj\": \"string\",\n  \"bens_parte_nome_razao\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/ordem/responder",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "ordem",
+                        "responder"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"protocolo\": \"string\",\n  \"tipo_matricula\": 7280,\n  \"cpf_cnpj\": \"string\",\n  \"numero_matricula\": \"string\",\n  \"numero_inscricao\": \"string\",\n  \"bens_detalhe\": \"string\",\n  \"bens_parte_cpf_cnpj\": \"string\",\n  \"bens_parte_nome_razao\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/responder",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "responder"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2304,\n  \"data\": \"string\"\n}"
+                    },
+                    {
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"protocolo\": \"string\",\n  \"tipo_matricula\": 7280,\n  \"cpf_cnpj\": \"string\",\n  \"numero_matricula\": \"string\",\n  \"numero_inscricao\": \"string\",\n  \"bens_detalhe\": \"string\",\n  \"bens_parte_cpf_cnpj\": \"string\",\n  \"bens_parte_nome_razao\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/responder",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "responder"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                    },
+                    {
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"protocolo\": \"string\",\n  \"tipo_matricula\": 7280,\n  \"cpf_cnpj\": \"string\",\n  \"numero_matricula\": \"string\",\n  \"numero_inscricao\": \"string\",\n  \"bens_detalhe\": \"string\",\n  \"bens_parte_cpf_cnpj\": \"string\",\n  \"bens_parte_nome_razao\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/responder",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "responder"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"protocolo\": \"string\",\n  \"tipo_matricula\": 7280,\n  \"cpf_cnpj\": \"string\",\n  \"numero_matricula\": \"string\",\n  \"numero_inscricao\": \"string\",\n  \"bens_detalhe\": \"string\",\n  \"bens_parte_cpf_cnpj\": \"string\",\n  \"bens_parte_nome_razao\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/responder",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "responder"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"protocolo\": \"string\",\n  \"tipo_matricula\": 7280,\n  \"cpf_cnpj\": \"string\",\n  \"numero_matricula\": \"string\",\n  \"numero_inscricao\": \"string\",\n  \"bens_detalhe\": \"string\",\n  \"bens_parte_cpf_cnpj\": \"string\",\n  \"bens_parte_nome_razao\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ordem/responder",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ordem",
+                            "responder"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "ordem",
+              "item": [
+                {
+                  "name": "visualizar",
+                  "item": [
+                    {
+                      "name": "/api/v2/ordem/visualizar",
+                      "request": {
+                        "auth": {
+                          "type": "oauth2",
+                          "oauth2": [
+                            {
+                              "key": "scope",
+                              "value": "cnib-serventia-api",
+                              "type": "string"
+                            },
+                            {
+                              "key": "accessTokenUrl",
+                              "value": "https://auth.id.onr.org.br/connect/token",
+                              "type": "string"
+                            },
+                            {
+                              "key": "grant_type",
+                              "value": "client_credentials",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"pagina_inicial\": 0,\n  \"proxima_pagina\": true,\n  \"tamanho_pagina\": 10,\n  \"ordens_visualizadas\": false,\n  \"protocol\": null,\n  \"data_inicial\": null,\n  \"data_final\": null\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/ordem/visualizar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "ordem",
+                            "visualizar"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"pagina_inicial\": 6639,\n  \"proxima_pagina\": true,\n  \"tamanho_pagina\": 400,\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/ordem/visualizar",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "ordem",
+                                "visualizar"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": false,\n  \"message\": \"string\",\n  \"status\": 921,\n  \"data\": {\n    \"ordens\": [\n      {\n        \"mappedProperties\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"id\": 9794,\n        \"orderCode\": 3427,\n        \"relOrderToOrderStatusCode\": 8800,\n        \"protocol\": \"string\",\n        \"cancellationProtocol\": \"string\",\n        \"processNumber\": \"string\",\n        \"processName\": \"string\",\n        \"organizationLabelComplete\": \"string\",\n        \"processNumberType\": false,\n        \"cancellationType\": 4694,\n        \"orderStatusCode\": 8253,\n        \"orderStatusLabel\": \"string\",\n        \"organizationHierarchyCode\": 6296,\n        \"organizationLabel\": \"string\",\n        \"organizationHierarchyName\": \"string\",\n        \"createdOn\": \"2004-02-04T12:08:04.603Z\",\n        \"cancellationCreatedOn\": \"2000-06-26T23:05:43.154Z\",\n        \"orderApprovedName\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\",\n        \"parties\": [\n          {\n            \"mappedProperties\": {\n              \"key_0\": \"string\"\n            },\n            \"flatTableOrderCode\": 9774,\n            \"relOrderPersonNameCode\": 8086,\n            \"relOrderStatusCode\": 5095,\n            \"orderCode\": 9345,\n            \"personName\": \"string\",\n            \"documentNumber\": \"string\",\n            \"orderStatusCode\": 7045,\n            \"properties\": [\n              {\n                \"mappedProperties\": {\n                  \"key_0\": \"string\"\n                },\n                \"relOrderPersonNameCode\": 233,\n                \"relOrderStatusCode\": 8595,\n                \"documentNumber\": \"string\",\n                \"cpF_CNPJ\": \"string\",\n                \"details\": \"string\",\n                \"identification\": \"string\",\n                \"documentTypeCode\": 6824,\n                \"restrictionStatusCode\": 6879\n              },\n              {\n                \"mappedProperties\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\"\n                },\n                \"relOrderPersonNameCode\": 7505,\n                \"relOrderStatusCode\": 6603,\n                \"documentNumber\": \"string\",\n                \"cpF_CNPJ\": \"string\",\n                \"details\": \"string\",\n                \"identification\": \"string\",\n                \"documentTypeCode\": 7186,\n                \"restrictionStatusCode\": 6260\n              }\n            ]\n          },\n          {\n            \"mappedProperties\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"flatTableOrderCode\": 6155,\n            \"relOrderPersonNameCode\": 362,\n            \"relOrderStatusCode\": 7535,\n            \"orderCode\": 4051,\n            \"personName\": \"string\",\n            \"documentNumber\": \"string\",\n            \"orderStatusCode\": 8581,\n            \"properties\": [\n              {\n                \"mappedProperties\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\"\n                },\n                \"relOrderPersonNameCode\": 2217,\n                \"relOrderStatusCode\": 8879,\n                \"documentNumber\": \"string\",\n                \"cpF_CNPJ\": \"string\",\n                \"details\": \"string\",\n                \"identification\": \"string\",\n                \"documentTypeCode\": 2723,\n                \"restrictionStatusCode\": 1087\n              },\n              {\n                \"mappedProperties\": {\n                  \"key_0\": \"string\"\n                },\n                \"relOrderPersonNameCode\": 6644,\n                \"relOrderStatusCode\": 54,\n                \"documentNumber\": \"string\",\n                \"cpF_CNPJ\": \"string\",\n                \"details\": \"string\",\n                \"identification\": \"string\",\n                \"documentTypeCode\": 7107,\n                \"restrictionStatusCode\": 7202\n              }\n            ]\n          }\n        ],\n        \"ordersOrigin\": [\n          {\n            \"mappedProperties\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"orderCode\": 5182,\n            \"protocol\": \"string\",\n            \"createdOn\": \"2013-01-26T06:01:00.708Z\",\n            \"isPriorityOrder\": true\n          },\n          {\n            \"mappedProperties\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\",\n              \"key_2\": \"string\"\n            },\n            \"orderCode\": 8227,\n            \"protocol\": \"string\",\n            \"createdOn\": \"2002-05-19T10:57:20.426Z\",\n            \"isPriorityOrder\": false\n          }\n        ],\n        \"visualized\": false,\n        \"isPriorityOrder\": false,\n        \"isSecretJustice\": false\n      },\n      {\n        \"mappedProperties\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"id\": 9574,\n        \"orderCode\": 7427,\n        \"relOrderToOrderStatusCode\": 5713,\n        \"protocol\": \"string\",\n        \"cancellationProtocol\": \"string\",\n        \"processNumber\": \"string\",\n        \"processName\": \"string\",\n        \"organizationLabelComplete\": \"string\",\n        \"processNumberType\": false,\n        \"cancellationType\": 9173,\n        \"orderStatusCode\": 6919,\n        \"orderStatusLabel\": \"string\",\n        \"organizationHierarchyCode\": 6572,\n        \"organizationLabel\": \"string\",\n        \"organizationHierarchyName\": \"string\",\n        \"createdOn\": \"1966-09-22T08:04:20.683Z\",\n        \"cancellationCreatedOn\": \"1970-11-29T09:51:15.202Z\",\n        \"orderApprovedName\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\",\n        \"parties\": [\n          {\n            \"mappedProperties\": {\n              \"key_0\": \"string\",\n              \"key_1\": \"string\"\n            },\n            \"flatTableOrderCode\": 1053,\n            \"relOrderPersonNameCode\": 3104,\n            \"relOrderStatusCode\": 9626,\n            \"orderCode\": 5326,\n            \"personName\": \"string\",\n            \"documentNumber\": \"string\",\n            \"orderStatusCode\": 6975,\n            \"properties\": [\n              {\n                \"mappedProperties\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\",\n                  \"key_2\": \"string\",\n                  \"key_3\": \"string\"\n                },\n                \"relOrderPersonNameCode\": 2224,\n                \"relOrderStatusCode\": 8039,\n                \"documentNumber\": \"string\",\n                \"cpF_CNPJ\": \"string\",\n                \"details\": \"string\",\n                \"identification\": \"string\",\n                \"documentTypeCode\": 1912,\n                \"restrictionStatusCode\": 8112\n              },\n              {\n                \"mappedProperties\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\",\n                  \"key_2\": \"string\"\n                },\n                \"relOrderPersonNameCode\": 5118,\n                \"relOrderStatusCode\": 9555,\n                \"documentNumber\": \"string\",\n                \"cpF_CNPJ\": \"string\",\n                \"details\": \"string\",\n                \"identification\": \"string\",\n                \"documentTypeCode\": 2011,\n                \"restrictionStatusCode\": 6660\n              }\n            ]\n          },\n          {\n            \"mappedProperties\": {\n              \"key_0\": \"string\"\n            },\n            \"flatTableOrderCode\": 4479,\n            \"relOrderPersonNameCode\": 6819,\n            \"relOrderStatusCode\": 4394,\n            \"orderCode\": 8606,\n            \"personName\": \"string\",\n            \"documentNumber\": \"string\",\n            \"orderStatusCode\": 1659,\n            \"properties\": [\n              {\n                \"mappedProperties\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\"\n                },\n                \"relOrderPersonNameCode\": 757,\n                \"relOrderStatusCode\": 1758,\n                \"documentNumber\": \"string\",\n                \"cpF_CNPJ\": \"string\",\n                \"details\": \"string\",\n                \"identification\": \"string\",\n                \"documentTypeCode\": 3993,\n                \"restrictionStatusCode\": 5552\n              },\n              {\n                \"mappedProperties\": {\n                  \"key_0\": \"string\",\n                  \"key_1\": \"string\"\n                },\n                \"relOrderPersonNameCode\": 7046,\n                \"relOrderStatusCode\": 5250,\n                \"documentNumber\": \"string\",\n                \"cpF_CNPJ\": \"string\",\n                \"details\": \"string\",\n                \"identification\": \"string\",\n                \"documentTypeCode\": 4412,\n                \"restrictionStatusCode\": 258\n              }\n            ]\n          }\n        ],\n        \"ordersOrigin\": [\n          {\n            \"mappedProperties\": {\n              \"key_0\": \"string\"\n            },\n            \"orderCode\": 3649,\n            \"protocol\": \"string\",\n            \"createdOn\": \"2011-03-03T17:30:10.637Z\",\n            \"isPriorityOrder\": true\n          },\n          {\n            \"mappedProperties\": {\n              \"key_0\": \"string\"\n            },\n            \"orderCode\": 6495,\n            \"protocol\": \"string\",\n            \"createdOn\": \"1989-01-10T14:39:29.993Z\",\n            \"isPriorityOrder\": false\n          }\n        ],\n        \"visualized\": true,\n        \"isPriorityOrder\": false,\n        \"isSecretJustice\": false\n      }\n    ],\n    \"paginação\": {\n      \"mappedProperties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"pageIndex\": 8485,\n      \"pageSize\": 4505,\n      \"totalRows\": 8119,\n      \"totalPages\": 6767,\n      \"firstID\": 2330,\n      \"lastID\": 6046,\n      \"pageForward\": true,\n      \"totalRowsShowUser\": 9282\n    }\n  }\n}"
+                        },
+                        {
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"pagina_inicial\": 6639,\n  \"proxima_pagina\": true,\n  \"tamanho_pagina\": 400,\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/ordem/visualizar",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "ordem",
+                                "visualizar"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                        },
+                        {
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"pagina_inicial\": 6639,\n  \"proxima_pagina\": true,\n  \"tamanho_pagina\": 400,\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/ordem/visualizar",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "ordem",
+                                "visualizar"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                        },
+                        {
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"pagina_inicial\": 6639,\n  \"proxima_pagina\": true,\n  \"tamanho_pagina\": 400,\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/ordem/visualizar",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "ordem",
+                                "visualizar"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "body": ""
+                        },
+                        {
+                          "name": "Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpf_usuario\": \"string\",\n  \"pagina_inicial\": 6639,\n  \"proxima_pagina\": true,\n  \"tamanho_pagina\": 400,\n  \"ordens_visualizadas\": true,\n  \"protocol\": \"string\",\n  \"data_inicial\": \"string\",\n  \"data_final\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/ordem/visualizar",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "ordem",
+                                "visualizar"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "documentos",
+          "item": [
+            {
+              "name": "tipos",
+              "item": [
+                {
+                  "name": "/api/documentos/tipos",
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "cnib-serventia-api",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://auth.id.onr.org.br/connect/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "client_credentials",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/documentos/tipos",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "documentos",
+                        "tipos"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/documentos/tipos",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "documentos",
+                            "tipos"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 3781,\n  \"data\": {\n    \"id\": 7289,\n    \"descricao\": \"string\"\n  }\n}"
+                    },
+                    {
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/documentos/tipos",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "documentos",
+                            "tipos"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                    },
+                    {
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/documentos/tipos",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "documentos",
+                            "tipos"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/documentos/tipos",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "documentos",
+                            "tipos"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/documentos/tipos",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "documentos",
+                            "tipos"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"identifierRequest\": \"string\",\n  \"success\": true,\n  \"message\": \"string\",\n  \"status\": 2810,\n  \"notifications\": [\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"reason\": \"string\",\n      \"errorCode\": \"string\"\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Operation",
+          "item": [
+            {
+              "name": "testeLogInformationLogError",
+              "item": [
+                {
+                  "name": "/api/Operation/testeLogInformationLogError",
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "scope",
+                          "value": "cnib-serventia-api",
+                          "type": "string"
+                        },
+                        {
+                          "key": "accessTokenUrl",
+                          "value": "https://auth.id.onr.org.br/connect/token",
+                          "type": "string"
+                        },
+                        {
+                          "key": "grant_type",
+                          "value": "client_credentials",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/Operation/testeLogInformationLogError",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "Operation",
+                        "testeLogInformationLogError"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/Operation/testeLogInformationLogError",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "Operation",
+                            "testeLogInformationLogError"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/Operation/testeLogInformationLogError",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "Operation",
+                            "testeLogInformationLogError"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/Operation/testeLogInformationLogError",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "Operation",
+                            "testeLogInformationLogError"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "Autenticação",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "grant_type",
+                      "value": "client_credentials",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{client_id}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{client_secret}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "cnib-serventia-api",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "https://auth.id.onr.org.br/connect/token",
+                  "protocol": "https",
+                  "host": [
+                    "auth",
+                    "id",
+                    "onr",
+                    "org",
+                    "br"
+                  ],
+                  "path": [
+                    "connect",
+                    "token"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://auth.id.onr.org.br/connect/token",
+        "type": "string"
+      },
+      {
+        "key": "clientId",
+        "value": "{{client_id}}",
+        "type": "string"
+      },
+      {
+        "key": "clientSecret",
+        "value": "{{client_secret}}",
+        "type": "string"
+      },
+      {
+        "key": "scope",
+        "value": "cnib-serventia-api",
+        "type": "string"
+      },
+      {
+        "key": "clientAuthentication",
+        "value": "body",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://stg-serventia-api.onr.org.br"
+    },
+    {
+      "key": "client_id",
+      "value": ""
+    },
+    {
+      "key": "client_secret",
+      "value": ""
+    },
+    {
+      "key": "cpf_usuario",
+      "value": "00214440133"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Perfil para PDFs escaneados da documentação CRA (webservice-cra, api-cra).
+# Uso: py pdf_to_markdown_pymupdf.py doc.pdf --profile cra-image
+
+name: cra-image
+description: PDF escaneado CRA — layout ML + OCR forçado em português
+
+engine: layout
+force_ocr: true
+skip_image_check: true
+ocr_language: por
+page_separators: true
+use_ocr: true
+ocr_dpi: 300
+preprocess_profile: cra-scan
+retry_omitted_pictures: true
+omitted_ocr_dpi: 400
+postprocess: true
+ocr_engine: auto
+adaptive_dpi: true

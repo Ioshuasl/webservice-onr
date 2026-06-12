@@ -1,0 +1,7 @@
+{
+  "collectionUid": "COLE-AQUI-O-UID-DA-COLECAO-NO-POSTMAN",
+  "collectionName": "cnib - n8n",
+  "collectionFile": "postman/cnib-n8n/collection_postman.json",
+  "workspaceId": "",
+  "comment": "Copie para postman/.postman-sync-cnib.json (gitignored). UID em Share → Via API. API key: POSTMAN_API_KEY no .env ou vault env#Postman — API key (sync coleções). Push: npm run postman:sync:cnib · create: npm run postman:sync:cnib:create"
+}

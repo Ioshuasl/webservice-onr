@@ -192,6 +192,114 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "3.6 Certidões — FinalizarRespostaCertidao",
+      "description": "Encerra resposta positiva da certidão após anexos e custas. Documentação: `webservice-onr/metodos/FinalizarRespostaCertidao.md`",
+      "item": [
+        {
+          "name": "Finalizar Resposta Certidao",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const v = pm.environment.get(key) || pm.collectionVariables.get(key);",
+                  "  return v && String(v).length ? v : null;",
+                  "}",
+                  "if (!getVar('onr_hash')) throw new Error('Defina onr_hash.');",
+                  "if (!getVar('certidoes_protocolo')) throw new Error('Defina certidoes_protocolo.');",
+                  "const interesse = getVar('certidoes_interesse_social');",
+                  "if (interesse !== 'true' && interesse !== 'false') throw new Error('Defina certidoes_interesse_social (true ou false).');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));",
+                  "if (json && json.sucesso) {",
+                  "  pm.test('finalizado', () => pm.expect(json.dados.finalizado).to.eql(true));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{certidoes_protocolo}}\",\n  \"matriculas\": \"{{certidoes_matriculas}}\",\n  \"interesse_social\": {{certidoes_interesse_social}},\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_finalizar_resposta_certidao}}",
+              "host": ["{{n8n_base_url}}"],
+              "path": ["{{n8n_webhook_mode}}", "{{n8n_webhook_id_finalizar_resposta_certidao}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3.6 Certidões — InformarCustasCertidao",
+      "description": "Informa valor de emolumentos/custas da certidão. Documentação: `webservice-onr/metodos/InformarCustasCertidao.md`",
+      "item": [
+        {
+          "name": "Informar Custas Certidao",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const v = pm.environment.get(key) || pm.collectionVariables.get(key);",
+                  "  return v && String(v).length ? v : null;",
+                  "}",
+                  "if (!getVar('onr_hash')) throw new Error('Defina onr_hash.');",
+                  "if (!getVar('certidoes_protocolo')) throw new Error('Defina certidoes_protocolo.');",
+                  "const valor = getVar('certidoes_valor_custas');",
+                  "if (!valor || Number(String(valor).replace(',', '.')) <= 0) throw new Error('Defina certidoes_valor_custas (> 0).');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));",
+                  "if (json && json.sucesso) {",
+                  "  pm.test('custas_informadas', () => pm.expect(json.dados.custas_informadas).to.eql(true));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{certidoes_protocolo}}\",\n  \"valor_custas\": {{certidoes_valor_custas}},\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_informar_custas_certidao}}",
+              "host": ["{{n8n_base_url}}"],
+              "path": ["{{n8n_webhook_mode}}", "{{n8n_webhook_id_informar_custas_certidao}}"]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:crago.cra21.com.br">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <urn:Confirmacao soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+      <userArq xsi:type="xsd:string">C0000101.251</userArq>
+    </urn:Confirmacao>
+  </soapenv:Body>
+</soapenv:Envelope>

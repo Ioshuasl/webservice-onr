@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-98] (integração) EnvioProtocoloLote - RIB
+// Workflow : [AUTORIB-8] (rib) EnvioProtocoloLote - RIB
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'H8gMs70WzJW2uVlJ',
-    name: '[AUTONR-98] (integração) EnvioProtocoloLote - RIB',
+    name: '[AUTORIB-8] (rib) EnvioProtocoloLote - RIB',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr98IntegracaoEnvioprotocololoteRibWorkflow {
+export class Autorib8RibEnvioprotocololoteRibWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

@@ -391,23 +391,23 @@
       "filename": "CENSEC Upload JSON Gateway.workflow.ts"
     },
     "HewsInHfw3Gfrs5Z": {
-      "lastSyncedHash": "8e918d023b9930ef09bacc760a5fefd05f0a79246d8a19807718302394fd1f8e",
-      "lastSyncedAt": "2026-06-03T12:07:24.871Z",
+      "lastSyncedHash": "f87f255fd20967612eccc62f9ec6a2a4dbd37c53bc452034fd4aedeb104a8e83",
+      "lastSyncedAt": "2026-06-12T19:28:02.108Z",
       "filename": "DOI Validate JSON.workflow.ts"
     },
     "oy22MYSQfB7CYcbl": {
-      "lastSyncedHash": "38137f3d0b5df8bc3d0325a5bef9443f901c5d1205465c6c87260a3ebc11694f",
-      "lastSyncedAt": "2026-06-03T12:06:41.693Z",
+      "lastSyncedHash": "39bf39f6d3aa1486dbaedb91369c47ff1f72d8f6ff3ac5adf18f6208f81ee047",
+      "lastSyncedAt": "2026-06-12T18:43:35.533Z",
       "filename": "CCN Upload XML.workflow.ts"
     },
     "STRA45Ya8zFPl8YM": {
-      "lastSyncedHash": "d59a5be7cc6f17e2f2eea4bc5f3c3597897328ae66c72b719236f9914591defd",
-      "lastSyncedAt": "2026-06-03T12:06:27.870Z",
+      "lastSyncedHash": "818187e0a392ee13e48759af997a5d92126ed24bd588a38f1bb9266c3776650c",
+      "lastSyncedAt": "2026-06-12T18:43:21.207Z",
       "filename": "CCN Get Import Status.workflow.ts"
     },
     "TUbsvYHrfuS9xf2P": {
-      "lastSyncedHash": "da8ee9c1bbe97d274c9e893f5ccd345771564d812782efe8b3304da4cceb786e",
-      "lastSyncedAt": "2026-06-03T12:06:18.178Z",
+      "lastSyncedHash": "882f5cdb47eb2c34c057adcffbbbf32c9f672f0100a79b98d71d0cfb69571879",
+      "lastSyncedAt": "2026-06-12T18:43:08.643Z",
       "filename": "CCN Get Import Erros.workflow.ts"
     },
     "5nAZkxl3c7F6mFrh": {
@@ -426,68 +426,68 @@
       "filename": "Enviar Anexos Certidao DocID V2.workflow.ts"
     },
     "Idas4wAPEfIA17xq": {
-      "lastSyncedHash": "2b17f34833a12a09d10a18d519b0eeeafef67a8637d32ef87cf30633c6cfd9f6",
-      "lastSyncedAt": "2026-06-05T13:49:18.307Z",
+      "lastSyncedHash": "9a7f167866d9db5a0b6c0a860b8f9f0dba6b026e881a9b05a831c7eb9c52a0e5",
+      "lastSyncedAt": "2026-06-12T18:11:47.214Z",
       "filename": "Auth RIB.workflow.ts"
     },
     "Sw88u5Dn1Wnbs9c6": {
-      "lastSyncedHash": "cfc2ea409b6b5e4293c31bfe300bcba936983b805b73fe0abcaa62db6753ff09",
-      "lastSyncedAt": "2026-06-05T13:51:15.557Z",
+      "lastSyncedHash": "3b0688d7c78df708c4e935cb82f3c1b60f03b3857ae2c7eb48918c0dc1115b21",
+      "lastSyncedAt": "2026-06-12T18:22:02.486Z",
       "filename": "Listagem Protocolos RIB.workflow.ts"
     },
     "anWU5nm66RxqPKPh": {
-      "lastSyncedHash": "76a2b061c6b06aa5d4cc2dedfc2bd18515f7a3e4c14f513e0150cc054c108b46",
-      "lastSyncedAt": "2026-06-05T13:49:05.039Z",
+      "lastSyncedHash": "bf734c4a80912c416722882e3fd5208c73f1f665e7e7a3ff3904db4d4585fa19",
+      "lastSyncedAt": "2026-06-12T18:11:31.509Z",
       "filename": "Atualizar Protocolo Cobranca RIB.workflow.ts"
     },
     "w9DuDDE9e74jFwVl": {
-      "lastSyncedHash": "2f883a6d7daec75cfa4df12019f8ceb499ad0e6581ec1ea84f28768385bc3019",
-      "lastSyncedAt": "2026-06-05T13:49:29.456Z",
+      "lastSyncedHash": "768c2478cf5eabfd8072caaa511eb48d9e039d3e2cd8dc21c7f7c6645a26dc8d",
+      "lastSyncedAt": "2026-06-12T18:15:12.791Z",
       "filename": "Detalhe Basico Protocolo RIB.workflow.ts"
     },
     "Z0jlhH7XDrY9KKUa": {
-      "lastSyncedHash": "d935aaf1c863d8e6504dd2b1f0b7f7fa9dcf2594b3f069502c6c1effe349b8f8",
-      "lastSyncedAt": "2026-06-05T13:49:41.258Z",
+      "lastSyncedHash": "3dd76cf0d99cccb67195eba56a6e933b4db87e964059982c4a990ea54eb1f1e4",
+      "lastSyncedAt": "2026-06-12T18:17:23.530Z",
       "filename": "Detalhe Fila Protocolo RIB.workflow.ts"
     },
     "6imnqEJHXSvp2EAX": {
-      "lastSyncedHash": "b4143e8f366db65f05fa1a25a12c9fe12a13f08f93a6899e39820e7790c1c48f",
-      "lastSyncedAt": "2026-06-05T13:49:53.321Z",
+      "lastSyncedHash": "fcb11303c5e88e8990fb557bbf18f0ad9ecaa2c7c867e22b058bd147f04a2980",
+      "lastSyncedAt": "2026-06-12T18:17:38.422Z",
       "filename": "Detalhe Protocolo V2 RIB.workflow.ts"
     },
     "uSexWi4TgIUZ0xno": {
-      "lastSyncedHash": "69d3177d59fea70730104b8627968b425969e5256c4e9197e28b56db1c931734",
-      "lastSyncedAt": "2026-06-05T13:50:06.309Z",
+      "lastSyncedHash": "47e1601fa268b5706fdcec8cb4f41943f711c1765b05f4d6ec8d5d37e45d337c",
+      "lastSyncedAt": "2026-06-12T18:18:16.595Z",
       "filename": "Download Anexo Protocolo RIB.workflow.ts"
     },
     "H8gMs70WzJW2uVlJ": {
-      "lastSyncedHash": "aac13103a16e38bad532095dbd2141b48f6c94a0ef4e29f481aabd87988b92ae",
-      "lastSyncedAt": "2026-06-05T13:53:58.162Z",
+      "lastSyncedHash": "8ccee9b9642dab499aacc6903c42440a00dc475b876dda44325bd5f09143e4c3",
+      "lastSyncedAt": "2026-06-12T18:18:51.007Z",
       "filename": "Envio Protocolo Lote RIB.workflow.ts"
     },
     "lGuyT9TxzELzUHa4": {
-      "lastSyncedHash": "41adace2bfe51edbf1fbb1a0857a6a94d730ba09c3367e62205b1653c1b4a7b4",
-      "lastSyncedAt": "2026-06-05T13:53:39.666Z",
+      "lastSyncedHash": "59e0e481db7d45a36f284b56d7b2a839d489a3162437b22da9b88c4b491bee31",
+      "lastSyncedAt": "2026-06-12T18:19:12.705Z",
       "filename": "Envio Protocolo Online RIB.workflow.ts"
     },
     "rPEIpPQRxOvda4ya": {
-      "lastSyncedHash": "01d031aea2751459f5e2b738d613d129814fef446346e75407493ff531dd5381",
-      "lastSyncedAt": "2026-06-05T13:50:49.271Z",
+      "lastSyncedHash": "a4b69b9d1556e058bf103cd2c745e2a6bff04b1e439a499467bcd016d1d7818d",
+      "lastSyncedAt": "2026-06-12T18:19:26.937Z",
       "filename": "Exclusao Protocolo RIB.workflow.ts"
     },
     "3G5maOXe8FOoJksV": {
-      "lastSyncedHash": "a32b6eecffb7ed9a0a033d76e8a72ba56bbdc61e1123f72a7d8cff22cb46e9bd",
-      "lastSyncedAt": "2026-06-05T13:51:02.875Z",
+      "lastSyncedHash": "ebbae9d502546267060a752a674c582a0ee9558c2117ea41a1303e1c1509e8d3",
+      "lastSyncedAt": "2026-06-12T18:21:38.948Z",
       "filename": "Listagem Fila Protocolo RIB.workflow.ts"
     },
     "HMpCCRnGi6yitVy4": {
-      "lastSyncedHash": "ef38a93fef830669a63a6b74e8833ba22be03469f35bb3c5c6dbcbd49f9adb00",
-      "lastSyncedAt": "2026-06-05T13:51:25.557Z",
+      "lastSyncedHash": "42db4fec448f5209b8de6ace479679087954fc4c6967ae4ccb523f382ff63411",
+      "lastSyncedAt": "2026-06-12T18:25:05.546Z",
       "filename": "Token Detalhe Protocolo RIB.workflow.ts"
     },
     "0dKWrbzXeuAyqvEA": {
-      "lastSyncedHash": "8207090bf986a2856ee70ad4925a252c83ef2e8ae39cd7d9bf32154a6ef7f83c",
-      "lastSyncedAt": "2026-06-05T14:29:14.878Z",
+      "lastSyncedHash": "c777a0c7a98d35f5f070e8bb443c5c2eaf05639032bbb811d64106cfb0442e52",
+      "lastSyncedAt": "2026-06-12T18:22:25.249Z",
       "filename": "Listagem Tipos Edital RIB.workflow.ts"
     },
     "IeIifIa6MDnhcKIr": {
@@ -496,18 +496,18 @@
       "filename": "Obter XML Solicitacoes Matricula Online.workflow.ts"
     },
     "1C9hQMPCfrBuaJ78": {
-      "lastSyncedHash": "acc45daab22f014b149fd14096f30c6426e553a6650cac9267733ac0a900330c",
-      "lastSyncedAt": "2026-06-05T14:50:41.919Z",
+      "lastSyncedHash": "443160353f71d453d02e3dc1a4c4395f78720c97539e52ed186197f6417061da",
+      "lastSyncedAt": "2026-06-12T18:22:58.084Z",
       "filename": "Listagem Tipos Pagamento RIB.workflow.ts"
     },
     "nneIeQUKzpG1DlgQ": {
-      "lastSyncedHash": "27dedc0ca6ed8e157472489cfc3b2176b79974cd907c88e9bd1a8830a15d4bb7",
-      "lastSyncedAt": "2026-06-05T14:51:51.395Z",
+      "lastSyncedHash": "eb8b171ab2746ddb25e45494017a554812a8acfd688e598d8258247cf2ea6cdc",
+      "lastSyncedAt": "2026-06-12T18:20:55.462Z",
       "filename": "Listagem Editais RIB.workflow.ts"
     },
     "Q531L7yGaBjjgfmZ": {
-      "lastSyncedHash": "c3c29dc4262422a7a083cb479b254f0c66e0a0c50aea0b67696d06cf553d92f8",
-      "lastSyncedAt": "2026-06-05T15:20:23.540Z",
+      "lastSyncedHash": "3cb07b9ddfdf9408dc514bae14916b189bf8f974fb52393fe7b66abdf4c74d16",
+      "lastSyncedAt": "2026-06-12T18:12:29.570Z",
       "filename": "Cadastro Cobranca Edital RIB.workflow.ts"
     },
     "4PbucfLfZggmCn8b": {
@@ -516,13 +516,13 @@
       "filename": "Obter XML Solicitacoes V2 Matricula Online.workflow.ts"
     },
     "yK0CLwoAhgnVFcIz": {
-      "lastSyncedHash": "15a8c73e3d7cfee548d01585586cede9ad6706826fe081db2c068bf725a6f061",
-      "lastSyncedAt": "2026-06-05T18:41:13.522Z",
+      "lastSyncedHash": "ae548e8f9deca201211078341ae70184cebe9afccce397444202a7d3078198b0",
+      "lastSyncedAt": "2026-06-12T18:11:16.421Z",
       "filename": "Atualizar Cobranca Edital RIB.workflow.ts"
     },
     "zWqpw3J2H21zZIxl": {
-      "lastSyncedHash": "12c4778bb237ccd21a02948541c93c8fd75cbd3b40e83724d49a20aba7f8e410",
-      "lastSyncedAt": "2026-06-05T18:46:01.654Z",
+      "lastSyncedHash": "c515813c5e4a7072bc79df73c5aaeef5471c2380b3eff6776c4c25b510b912f6",
+      "lastSyncedAt": "2026-06-12T18:20:33.732Z",
       "filename": "Listagem Cobrancas RIB.workflow.ts"
     },
     "hRygqgTImKdMY7da": {
@@ -679,6 +679,191 @@
       "lastSyncedHash": "8efd003062172e90ba32018c4f0016ccc65f34d4230df981e1b4802afcff83e7",
       "lastSyncedAt": "2026-06-08T20:18:29.381Z",
       "filename": "Contrato XML to PDF AC.workflow.ts"
+    },
+    "TIoNYTPHiUT9z0U0": {
+      "lastSyncedHash": "c624952c5750f0a5ccc18f621a87a6be3c6d54991914dae262bf9d0acb345bb7",
+      "lastSyncedAt": "2026-06-09T17:45:46.927Z",
+      "filename": "Finalizar Resposta Certidao.workflow.ts"
+    },
+    "9h33TU4MVJvPcz1A": {
+      "lastSyncedHash": "c168d317fb841c3752ee10e7ada841cdf08aa4900c040a075afb2fe4f8e0cb13",
+      "lastSyncedAt": "2026-06-09T17:52:11.127Z",
+      "filename": "Informar Custas Certidao.workflow.ts"
+    },
+    "xTiINK2TQ7WswSrD": {
+      "lastSyncedHash": "53a76d3a12885c971f6f66479f15823b0d613ade05fcbfd6b8fef1fd718efe82",
+      "lastSyncedAt": "2026-06-12T18:13:15.349Z",
+      "filename": "Cadastro Edital Simples RIB.workflow.ts"
+    },
+    "c80SWxSIoTQsRBJL": {
+      "lastSyncedHash": "61afeaee99ae068d13f817504122680ef304a951f9cd287dc265204438f79fe5",
+      "lastSyncedAt": "2026-06-12T18:16:34.196Z",
+      "filename": "Detalhe Edital Simples RIB.workflow.ts"
+    },
+    "8tFLxV2mLMf9Q1Fr": {
+      "lastSyncedHash": "2f3e77d4baa2be85fca527fd9162ece1faed525fd2965d750020e32d184111fd",
+      "lastSyncedAt": "2026-06-12T18:24:05.064Z",
+      "filename": "Retificacao Edital Simples RIB.workflow.ts"
+    },
+    "1si50aAetHpE2rg3": {
+      "lastSyncedHash": "6604ff65367d217acc60edf54342bae45637f7ecd21c84513efe12678bdb5fb9",
+      "lastSyncedAt": "2026-06-12T18:14:30.416Z",
+      "filename": "Cancelamento Edital Simples RIB.workflow.ts"
+    },
+    "qLFf5nViKJCLKuSs": {
+      "lastSyncedHash": "9842dc8d471c5d08a46660976fafd5613ea9bda3d01fd39757f1d4ed2af01437",
+      "lastSyncedAt": "2026-06-12T18:12:51.296Z",
+      "filename": "Cadastro Edital Leilao RIB.workflow.ts"
+    },
+    "ITjatOxJvXB93x48": {
+      "lastSyncedHash": "ea8ca256b3d9dfce51cd1795ed3c458dd7ebdb882212d4a001eb352cf0857f70",
+      "lastSyncedAt": "2026-06-12T18:15:56.102Z",
+      "filename": "Detalhe Edital Leilao RIB.workflow.ts"
+    },
+    "EpVUICl4P39XzDYp": {
+      "lastSyncedHash": "bb5895437053e1b1cee24bc811d9142dd1f946729b5bad1c0c8fabc305b519b3",
+      "lastSyncedAt": "2026-06-12T18:23:32.477Z",
+      "filename": "Retificacao Edital Leilao RIB.workflow.ts"
+    },
+    "cAwmKrG7r5RLkbyQ": {
+      "lastSyncedHash": "d45863ff2fbf6f8aceed9021838aacb1347d777f0c7d488b95654b852290addd",
+      "lastSyncedAt": "2026-06-12T18:14:04.908Z",
+      "filename": "Cancelamento Edital Leilao RIB.workflow.ts"
+    },
+    "oifyx0PA6mcDAjtR": {
+      "lastSyncedHash": "1ad7adac3659aea9f4e0cba2a0451d02b16b57d69d1f72ffffbf99454506f495",
+      "lastSyncedAt": "2026-06-12T18:24:33.011Z",
+      "filename": "Solicitar Extracao Editais RIB.workflow.ts"
+    },
+    "RGhVcwOvhmzKq37c": {
+      "lastSyncedHash": "89213c6fd3f01c05856c655ae07b33ba27df0eac3f62fc8071093d129db545dc",
+      "lastSyncedAt": "2026-06-12T18:21:23.769Z",
+      "filename": "Listagem Extracao Editais RIB.workflow.ts"
+    },
+    "rGzcWmnpPnTUKbGK": {
+      "lastSyncedHash": "c33fa30ceaf2ea9099c804e5de9f636df797a819aeb28d635fed440208e2bd92",
+      "lastSyncedAt": "2026-06-12T18:17:02.356Z",
+      "filename": "Detalhe Extracao Editais RIB.workflow.ts"
+    },
+    "pF2SRsZ4m1cA3fzV": {
+      "lastSyncedHash": "f9ad0ebbc95b16d9e2553705d96f9c56d800ac816036c84f9391c3413bd16518",
+      "lastSyncedAt": "2026-06-12T18:14:53.703Z",
+      "filename": "Dados Extracao Editais RIB.workflow.ts"
+    },
+    "D6nLGFkhDHfq0YQj": {
+      "lastSyncedHash": "2b06d889e6afed7c62e13e13766a2f1f5730c352b36584511663394d040bac56",
+      "lastSyncedAt": "2026-06-12T18:18:36.505Z",
+      "filename": "Download Extracao Editais RIB.workflow.ts"
+    },
+    "vdX5HRRokKzYiMEn": {
+      "lastSyncedHash": "b2538991cc1e18b0be5c06d6405da73b133dae3d80f39809c118f47eba9e7681",
+      "lastSyncedAt": "2026-06-12T18:15:30.461Z",
+      "filename": "Detalhe Cobranca RIB.workflow.ts"
+    },
+    "dCoacaX1Oj0hBOm5": {
+      "lastSyncedHash": "e87a5247f48eb96569d0920d763ef198abb8a5f1bb396bb7111a8bb295e70620",
+      "lastSyncedAt": "2026-06-12T18:20:05.563Z",
+      "filename": "Geracao Cobranca RIB.workflow.ts"
+    },
+    "TcPxms2EcnItTasU": {
+      "lastSyncedHash": "e8bda1c71a1c211129c7cec9524abddd469a310a9d9385994af2cdacae9317ab",
+      "lastSyncedAt": "2026-06-12T18:13:44.446Z",
+      "filename": "Cancelamento Cobranca RIB.workflow.ts"
+    },
+    "ZCsiyyLsJkOzUIdV": {
+      "lastSyncedHash": "4b385e41584b23972d34b4d70a3942ca30044a6ef806f7d8cc8654aed1a7fc32",
+      "lastSyncedAt": "2026-06-12T18:17:55.256Z",
+      "filename": "Devolucao Pix RIB.workflow.ts"
+    },
+    "WXOPh0N92vCWkh5B": {
+      "lastSyncedHash": "054617abc58f9663a9682bf6456409b83f5303525b37de07f17f522fb9f2b27b",
+      "lastSyncedAt": "2026-06-12T18:12:08.359Z",
+      "filename": "Cadastramento Cobranca RIB.workflow.ts"
+    },
+    "16OyU7sRLhlGHOso": {
+      "lastSyncedHash": "cac356cc26d6aad56c315f99dae6234d90f57a1f82e920db555a3dfaf174589e",
+      "lastSyncedAt": "2026-06-12T17:52:32.228Z",
+      "filename": "Consulta Justificativa CRA.workflow.ts"
+    },
+    "eM9zHTr0SYmczKFG": {
+      "lastSyncedHash": "e1f0780459c99a2af1eebdf3fdf525b0a6ca452ef81f4c9f64b3dbf6c9994b8d",
+      "lastSyncedAt": "2026-06-12T17:52:01.786Z",
+      "filename": "Consulta CRA.workflow.ts"
+    },
+    "iqe1B9FKkAP3rZPK": {
+      "lastSyncedHash": "cf5339d7fa94a6d84bea84b5d05e37d1e6f6ff7ede751388c9c627377db01904",
+      "lastSyncedAt": "2026-06-12T17:53:06.953Z",
+      "filename": "Consulta Slip CRA.workflow.ts"
+    },
+    "Tq9ATORk9QNWQsfv": {
+      "lastSyncedHash": "5ef47123d9dd551c43f522707425b42d449bb8fd2fac981409fab8032e2f1c8b",
+      "lastSyncedAt": "2026-06-12T17:56:19.497Z",
+      "filename": "Homologadas CRA.workflow.ts"
+    },
+    "CS6XCx46zzr7jHX7": {
+      "lastSyncedHash": "659e59140eecb481958e83d72fd06b1f19a376b665cfe4f402e26c2c0a2781df",
+      "lastSyncedAt": "2026-06-12T17:51:19.159Z",
+      "filename": "Confirmacao CRA.workflow.ts"
+    },
+    "pn54OjS5xQeUJNzV": {
+      "lastSyncedHash": "407c3eb14ccf9014485bcc53fe7d11ac4f94b67bc884fdcbeaad1d7461022073",
+      "lastSyncedAt": "2026-06-12T18:00:57.869Z",
+      "filename": "Retorno CRA.workflow.ts"
+    },
+    "hwBubo0sOrSh72BU": {
+      "lastSyncedHash": "2f592b09e9c0687cb15af4055545b05d95b2548de51ee2a9265a7f32c922aed6",
+      "lastSyncedAt": "2026-06-12T17:58:39.887Z",
+      "filename": "Instrumento CRA.workflow.ts"
+    },
+    "yeAyMtW4w3IUnu42": {
+      "lastSyncedHash": "ea66cd967b9a4387c73ce2b9fbd545523dee20bc980e2e6bc6c1e3ea477ac82d",
+      "lastSyncedAt": "2026-06-12T17:50:16.209Z",
+      "filename": "Boleto Autorizacao CRA.workflow.ts"
+    },
+    "WZCP5YdKA7KzQ2uj": {
+      "lastSyncedHash": "146a3a575e4bba95ef753146bf9c9e06e726b9afc4a0faef4bbbffef95438ae6",
+      "lastSyncedAt": "2026-06-12T17:48:26.793Z",
+      "filename": "Andamento CRA.workflow.ts"
+    },
+    "rxiP8oRIStvOz9ht": {
+      "lastSyncedHash": "bbc17073bbcebd53be2bdec25540f7b73a279119c84be802010daef720971f34",
+      "lastSyncedAt": "2026-06-12T18:00:06.545Z",
+      "filename": "Remessa CRA.workflow.ts"
+    },
+    "Zu7Ltqw1ArQs17C8": {
+      "lastSyncedHash": "0602cba81c1d60b6fb39afb1e245bc0201a0639f01422d2a7c037f937391879e",
+      "lastSyncedAt": "2026-06-12T17:54:38.346Z",
+      "filename": "Desistencia CRA.workflow.ts"
+    },
+    "ADsgeC6405hahbl4": {
+      "lastSyncedHash": "c039938dc091e1509b82c0567ac279a4c615e4ba34017a0268deff7e19609178",
+      "lastSyncedAt": "2026-06-12T17:50:49.294Z",
+      "filename": "Cancelamento CRA.workflow.ts"
+    },
+    "MXWDzKFaOgWKMXKr": {
+      "lastSyncedHash": "e367f04fe3d5d6a9cd4152fb21b84f96a50e7fee03f7ef66d1b64709c7fc24c8",
+      "lastSyncedAt": "2026-06-12T17:49:21.843Z",
+      "filename": "Autoriza Cancelamento CRA.workflow.ts"
+    },
+    "CZ103VGnFsVRUSKW": {
+      "lastSyncedHash": "793a414c3d864b543a5f5db68cdd4613198e929b33e06533adde48029b4a7123",
+      "lastSyncedAt": "2026-06-12T17:49:46.626Z",
+      "filename": "Autoriza Desistencia CRA.workflow.ts"
+    },
+    "qjGemkjLBMLeNOyY": {
+      "lastSyncedHash": "0c4702f1b9f8c9a45d5444bf963e1c0fbe1e77a1760701c1d13e9fa8d0a7bb04",
+      "lastSyncedAt": "2026-06-12T17:57:48.155Z",
+      "filename": "Imagem CRA.workflow.ts"
+    },
+    "Qsemjs7WDHNgvmtD": {
+      "lastSyncedHash": "c9ca5c3df61da22aafb06a002533f9eb0e00e67a66d9961fd33d448781950a42",
+      "lastSyncedAt": "2026-06-12T17:59:33.112Z",
+      "filename": "Oficio Titulo CRA.workflow.ts"
+    },
+    "HZmL8lfjeauwkDzN": {
+      "lastSyncedHash": "a11e888e123fe9f5fc0594d8c4e3ada1e5f8992270893a5d522b163fcd0c612f",
+      "lastSyncedAt": "2026-06-12T17:38:11.489Z",
+      "filename": "Auth CNIB.workflow.ts"
     }
   }
 }

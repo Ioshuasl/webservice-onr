@@ -1,0 +1,717 @@
+{
+  "info": {
+    "_postman_id": "a8f3c2e1-4b5d-6e7f-8a9b-0c1d2e3f4a5b",
+    "name": "cnib - n8n",
+    "description": "Coleção para testar os **workflows n8n** que fazem proxy para a **API REST CNIB SERVENTIAS** (`serventia-api.onr.org.br`).\n\nOrganização por **módulo CNIB** (espelha `Orius/integracoes/registro-imoveis/api-cnib-serventias/`).\n\n## Workflows cobertos (AUTCNIB-1…6)
+
+| AUTCNIB | Operação | Webhook n8n |
+|---------|----------|-------------|
+| 1 | AuthToken | POST /cnib/auth/token |
+| 2 | Consultar | POST /cnib/ordem/consultar |
+| 3 | VisualizarOrdens | POST /cnib/ordem/visualizar |
+| 4 | ResponderOrdem | POST /cnib/ordem/responder |
+| 5 | ResponderLista | POST /cnib/ordem/responder/lista |
+| 6 | DocumentosTipos | POST /cnib/documentos/tipos |
+
+## Pastas\n\n| Pasta | Uso |\n|-------|-----|\n| **API upstream (referência)** | OAuth + endpoints diretos na SERVENTIAS API — funciona hoje |\n| **n8n — proxy CNIB** | Webhooks HTTP→REST — preencher IDs quando workflows existirem |\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Credenciais CNIB em `CNIB_API_CLIENT_ID` / `CNIB_API_CLIENT_SECRET` (body ou `$env.CNIB_API_*` no n8n).\n4. `CNIB_AMBIENTE`: `producao` ou `stg` — define a URL upstream.\n5. `cpf_usuario` obrigatório em todas as operações de ordem.\n\n## Token para requests futuros\n\nExecute **[AUTCNIB-1] Auth Token** antes dos demais — grava `cnib_access_token`. Workflows seguintes usam header `X-CNIB-Access-Token: {{cnib_access_token}}` (ou Bearer conforme implementação).\n\n## API CNIB upstream (referência)\n\n| Ambiente | Base URL |\n|----------|----------|\n| Produção | `https://serventia-api.onr.org.br` |\n| STG | `https://stg-serventia-api.onr.org.br` |\n\nAuth: `POST https://auth.id.onr.org.br/connect/token` — **form-urlencoded** (`grant_type`, `client_id`, `client_secret`, `scope=cnib-serventia-api`).\n\nColeção upstream ONR: `postman/SERVENTIAS API.postman_collection.json`.\n\n## Atualizar no Postman (API — não reimportar)\n\n```bash\nnpm run postman:sync:cnib\nnpm run postman:sync:cnib:watch\n```\n\nConfig: `postman/.postman-sync-cnib.json`\n\n## Referências\n\n- Vault: `Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/`\n- Batch: `scripts/autonr-batch-state.json` → `cnib-143-148`\n- Credenciais: vault `env#CNIB`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASE_URL",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    },
+    {
+      "key": "CNIB_AMBIENTE",
+      "value": "producao",
+      "type": "string"
+    },
+    {
+      "key": "CNIB_API_BASE_URL",
+      "value": "https://serventia-api.onr.org.br",
+      "type": "string"
+    },
+    {
+      "key": "CNIB_API_BASE_URL_STG",
+      "value": "https://stg-serventia-api.onr.org.br",
+      "type": "string"
+    },
+    {
+      "key": "CNIB_AUTH_TOKEN_URL",
+      "value": "https://auth.id.onr.org.br/connect/token",
+      "type": "string"
+    },
+    {
+      "key": "CNIB_API_CLIENT_ID",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "CNIB_API_CLIENT_SECRET",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "cpf_usuario",
+      "value": "00214440133",
+      "type": "string"
+    },
+    {
+      "key": "cnib_access_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "cnib_protocolo",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "cnib_webhook_path_auth",
+      "value": "cnib/auth/token",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_auth_cnib",
+      "value": "HZmL8lfjeauwkDzN",
+      "type": "string"
+    },
+    {
+      "key": "cnib_webhook_path_consultar",
+      "value": "cnib/ordem/consultar",
+      "type": "string"
+    },
+    {
+      "key": "cnib_webhook_path_visualizar",
+      "value": "cnib/ordem/visualizar",
+      "type": "string"
+    },
+    {
+      "key": "cnib_webhook_path_responder",
+      "value": "cnib/ordem/responder",
+      "type": "string"
+    },
+    {
+      "key": "cnib_webhook_path_responder_lista",
+      "value": "cnib/ordem/responder/lista",
+      "type": "string"
+    },
+    {
+      "key": "cnib_webhook_path_documentos_tipos",
+      "value": "cnib/documentos/tipos",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "API upstream (referência CNIB)",
+      "description": "Chamadas diretas à SERVENTIAS API (OAuth + endpoints). Use para validar credenciais antes dos proxies n8n.",
+      "item": [
+        {
+          "name": "[AUTCNIB-1] OAuth — upstream (referência)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const json = pm.response.json();",
+                  "pm.test('access_token presente', () => {",
+                  "  pm.expect(json.access_token).to.be.a('string').and.not.empty;",
+                  "});",
+                  "if (json.access_token) {",
+                  "  pm.collectionVariables.set('cnib_access_token', json.access_token);",
+                  "  pm.environment.set('cnib_access_token', json.access_token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "type": "text"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{CNIB_API_CLIENT_ID}}",
+                  "type": "text"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "{{CNIB_API_CLIENT_SECRET}}",
+                  "type": "text"
+                },
+                {
+                  "key": "scope",
+                  "value": "cnib-serventia-api",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "{{CNIB_AUTH_TOKEN_URL}}",
+            "description": "Token OAuth2 CNIB. **Usar form-urlencoded** — body JSON retorna 400."
+          }
+        },
+        {
+          "name": "[AUTCNIB-3] Visualizar — upstream (referência)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "const amb = getVar('CNIB_AMBIENTE') || 'producao';",
+                  "const base = amb === 'stg' ? getVar('CNIB_API_BASE_URL_STG') : getVar('CNIB_API_BASE_URL');",
+                  "pm.variables.set('cnib_upstream_base', base);",
+                  "if (!getVar('cnib_access_token')) {",
+                  "  console.warn('cnib_access_token vazio — execute OAuth primeiro.');",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{cnib_access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"pagina_inicial\": 0,\n  \"proxima_pagina\": true,\n  \"tamanho_pagina\": 10,\n  \"ordens_visualizadas\": false,\n  \"protocol\": null,\n  \"data_inicial\": null,\n  \"data_final\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{cnib_upstream_base}}/api/v2/ordem/visualizar",
+            "description": "Endpoint v2 recomendado — paginação obrigatória. `null` sem aspas nos campos opcionais."
+          }
+        },
+        {
+          "name": "[AUTCNIB-2] Consultar — upstream (referência)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  return pm.collectionVariables.get(key);",
+                  "}",
+                  "const amb = getVar('CNIB_AMBIENTE') || 'producao';",
+                  "const base = amb === 'stg' ? getVar('CNIB_API_BASE_URL_STG') : getVar('CNIB_API_BASE_URL');",
+                  "pm.variables.set('cnib_upstream_base', base);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{cnib_access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"documento\": \"05492907000139\",\n  \"hash\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{cnib_upstream_base}}/api/ordem/consultar"
+          }
+        }
+      ]
+    },
+    {
+      "name": "n8n — proxy CNIB",
+      "description": "Webhooks n8n (HTTP→REST). Paths e IDs serão preenchidos na implementação dos workflows AUTCNIB-1…6.",
+      "item": [
+        {
+          "name": "Auth",
+          "item": [
+            {
+              "name": "[AUTCNIB-1] Auth Token",
+              "description": "Proxy n8n — workflow `[AUTCNIB-1] (cnib) AuthToken - CNIB`.\n\nWorkflow ID: `HZmL8lfjeauwkDzN`\n\nWebhook `POST /cnib/auth/token` — proxy `POST https://auth.id.onr.org.br/connect/token` (form-urlencoded, scope `cnib-serventia-api`). Sucesso grava `cnib_access_token`.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('CNIB_API_CLIENT_ID') || !getVar('CNIB_API_CLIENT_SECRET')) {",
+                      "  console.warn('CNIB_API_CLIENT_ID ou CNIB_API_CLIENT_SECRET vazio: preencha no environment (vault env#CNIB).');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 2xx', () => pm.expect(pm.response.code).to.be.oneOf([200, 201]));",
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('Token obtido com sucesso', () => {",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.access_token).to.be.a('string').and.not.empty;",
+                      "});",
+                      "if (json.access_token) {",
+                      "  pm.collectionVariables.set('cnib_access_token', json.access_token);",
+                      "  pm.environment.set('cnib_access_token', json.access_token);",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"client_id\": \"{{CNIB_API_CLIENT_ID}}\",\n  \"client_secret\": \"{{CNIB_API_CLIENT_SECRET}}\",\n  \"grant_type\": \"client_credentials\",\n  \"scope\": \"cnib-serventia-api\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{cnib_webhook_path_auth}}"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ordem",
+          "item": [
+            {
+              "name": "[AUTCNIB-2] Consultar Ordem",
+              "description": "POST /cnib/ordem/consultar → POST /api/ordem/consultar",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('cnib_access_token')) {",
+                      "  throw new Error('cnib_access_token vazio. Execute [AUTCNIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CNIB', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('meta');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-CNIB-Access-Token",
+                    "value": "{{cnib_access_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"documento\": \"05492907000139\",\n  \"hash\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{cnib_webhook_path_consultar}}"
+              }
+            },
+            {
+              "name": "[AUTCNIB-3] Visualizar Ordens",
+              "description": "POST /cnib/ordem/visualizar → POST /api/v2/ordem/visualizar",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('cnib_access_token')) {",
+                      "  throw new Error('cnib_access_token vazio. Execute [AUTCNIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-CNIB-Access-Token",
+                    "value": "{{cnib_access_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"pagina_inicial\": 0,\n  \"proxima_pagina\": true,\n  \"tamanho_pagina\": 10,\n  \"ordens_visualizadas\": false,\n  \"protocol\": null,\n  \"data_inicial\": null,\n  \"data_final\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{cnib_webhook_path_visualizar}}"
+              }
+            },
+            {
+              "name": "[AUTCNIB-4] Responder Ordem",
+              "description": "POST /cnib/ordem/responder → POST /api/ordem/responder",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('cnib_access_token')) {",
+                      "  throw new Error('cnib_access_token vazio. Execute [AUTCNIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-CNIB-Access-Token",
+                    "value": "{{cnib_access_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"protocolo\": \"{{cnib_protocolo}}\",\n  \"tipo_matricula\": 22,\n  \"cpf_cnpj\": \"05492907000139\",\n  \"numero_matricula\": \"12345\",\n  \"numero_inscricao\": null,\n  \"bens_detalhes\": null,\n  \"bens_parte_cpf_cnpj\": null,\n  \"bens_parte_nome_razao\": null\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{cnib_webhook_path_responder}}"
+              }
+            },
+            {
+              "name": "[AUTCNIB-5] Responder Lista",
+              "description": "POST /cnib/ordem/responder/lista → POST /api/ordem/responder/lista",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('cnib_access_token')) {",
+                      "  throw new Error('cnib_access_token vazio. Execute [AUTCNIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-CNIB-Access-Token",
+                    "value": "{{cnib_access_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"bens\": [\n    {\n      \"protocolo\": \"{{cnib_protocolo}}\",\n      \"tipo_matricula\": 22,\n      \"cpf_cnpj\": \"05492907000139\",\n      \"numero_matricula\": \"12345\",\n      \"numero_inscricao\": null,\n      \"bens_detalhes\": null,\n      \"bens_parte_cpf_cnpj\": null,\n      \"bens_parte_nome_razao\": null\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{cnib_webhook_path_responder_lista}}"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Documentos",
+          "item": [
+            {
+              "name": "[AUTCNIB-6] Documentos Tipos",
+              "description": "POST /cnib/documentos/tipos → POST /api/documentos/tipos",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('cnib_access_token')) {",
+                      "  throw new Error('cnib_access_token vazio. Execute [AUTCNIB-1] Auth Token primeiro.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-CNIB-Access-Token",
+                    "value": "{{cnib_access_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{cnib_webhook_path_documentos_tipos}}"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

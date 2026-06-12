@@ -11,7 +11,11 @@ description: >-
 
 Agente desenvolvedor para scripts de integração SOAP. **Sempre** entregar par **Python + JavaScript** com a mesma semântica.
 
-Para **workflows n8n** proxy HTTP→SOAP (webhook JSON, status HTTP, snake_case pt-BR), use [`agent-onr-n8n-soap`](../agent-onr-n8n-soap/SKILL.md) — não misturar com este agente de scripts.
+Para **workflows n8n** proxy HTTP→SOAP (webhook JSON, status HTTP, snake_case pt-BR):
+- ONR WSOficio → [`agent-onr-n8n-soap`](../agent-onr-n8n-soap/SKILL.md)
+- CRA21 protesto → [`agent-cra-n8n-soap`](../agent-cra-n8n-soap/SKILL.md)
+
+Não misturar com este agente de scripts.
 
 ## Antes de codar
 

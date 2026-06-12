@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-89] (CCN) CCN_ImportsGet - CCN
+// Workflow : [AUTCCN-2] (ccn) CCN_ImportsGet - CCN
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'STRA45Ya8zFPl8YM',
-    name: '[AUTONR-89] (CCN) CCN_ImportsGet - CCN',
+    name: '[AUTCCN-2] (ccn) CCN_ImportsGet - CCN',
     active: false,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr89CcnCcnImportsgetCcnWorkflow {
+export class Autccn2CcnCcnImportsgetCcnWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

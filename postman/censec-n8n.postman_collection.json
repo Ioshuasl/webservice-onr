@@ -74,7 +74,7 @@
   ],
   "item": [
     {
-      "name": "[AUTONR-13] Upload JSON — Payload completo",
+      "name": "[AUTCENSEC-1] Upload JSON — Payload completo",
       "description": "Payload completo com `atosCep`, `atosCesdi` e `declaracoes`, formatado para passar na validação local do workflow. Requer Basic Auth do webhook e `X-Api-Key` para o envio ao endpoint CENSEC.",
       "event": [
         {
@@ -124,7 +124,7 @@
       }
     },
     {
-      "name": "[AUTONR-13] Validação CEP — CPF inválido",
+      "name": "[AUTCENSEC-1] Validação CEP — CPF inválido",
       "description": "Força erro local no bloco `atosCep[].partes[].numeroDocumento` quando `tipoDocumento=CPF`.",
       "event": [
         {
@@ -172,7 +172,7 @@
       }
     },
     {
-      "name": "[AUTONR-13] Validação CTP — NI inválido em representante",
+      "name": "[AUTCENSEC-1] Validação CTP — NI inválido em representante",
       "description": "Força erro local em `declaracoes[].alienantes[].representantes[].ni`.",
       "event": [
         {

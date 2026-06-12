@@ -1,0 +1,10 @@
+# Pré-processamento agressivo para retry de blocos omitidos (Fase 1).
+
+name: cra-scan-aggressive
+description: CRA scan + binarização Otsu para retry OCR em alta DPI
+
+deskew: true
+clahe: true
+denoise: bilateral
+binarize: otsu
+shadow_removal: true

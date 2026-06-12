@@ -1,7 +1,7 @@
 import { workflow, node, links } from '@n8n-as-code/transformer';
 
 // <workflow-map>
-// Workflow : [AUTONR-105] (integração) CadastroCobrancaEdital - RIB
+// Workflow : [AUTORIB-15] (rib) CadastroCobrancaEdital - RIB
 // Nodes   : 7  |  Connections: 7
 //
 // NODE INDEX
@@ -33,12 +33,12 @@ import { workflow, node, links } from '@n8n-as-code/transformer';
 
 @workflow({
     id: 'Q531L7yGaBjjgfmZ',
-    name: '[AUTONR-105] (integração) CadastroCobrancaEdital - RIB',
-    active: false,
+    name: '[AUTORIB-15] (rib) CadastroCobrancaEdital - RIB',
+    active: true,
     isArchived: false,
     settings: { executionOrder: 'v1', availableInMCP: false, callerPolicy: 'workflowsFromSameOwner' },
 })
-export class Autonr105IntegracaoCadastrocobrancaeditalRibWorkflow {
+export class Autorib15RibCadastrocobrancaeditalRibWorkflow {
     // =====================================================================
     // CONFIGURATION DES NOEUDS
     // =====================================================================

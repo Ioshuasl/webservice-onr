@@ -1,0 +1,25 @@
+{
+  "chars_out": 2024,
+  "omitted_count": 0,
+  "omitted_ratio": 0.0,
+  "quality_score": 100,
+  "table_rows_detected": 0,
+  "heading_count": 1,
+  "xml_blocks": 0,
+  "xml_valid": 0,
+  "pdf": "C:\\Users\\kenio\\automacoes e testes\\webservice-cra\\WEBSERVICE SOAPUI.pdf",
+  "md_path": "C:\\Users\\kenio\\automacoes e testes\\tests\\pdf\\_fase2_output\\WEBSERVICE SOAPUI.md",
+  "profile": "cra-image",
+  "engine": "layout",
+  "preprocess_profile": "cra-scan",
+  "ocr_engine": "auto",
+  "adaptive_dpi": true,
+  "pages_total": 5,
+  "pages_converted": 5,
+  "duration_sec": 106.06,
+  "retry_warnings": [
+    "page 3: retry OCR aplicado (418 chars)"
+  ],
+  "postprocessed": true,
+  "generated_at": "2026-06-10T15:40:06+00:00"
+}

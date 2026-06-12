@@ -852,6 +852,16 @@
       "type": "string"
     },
     {
+      "key": "certidoes_interesse_social",
+      "value": "false",
+      "type": "string"
+    },
+    {
+      "key": "certidoes_matriculas",
+      "value": "",
+      "type": "string"
+    },
+    {
       "key": "certidoes_motivo_devolucao",
       "value": "Documentação incompleta para emissão da certidão.",
       "type": "string"
@@ -864,6 +874,11 @@
     {
       "key": "certidoes_status_filtro",
       "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "certidoes_valor_custas",
+      "value": "150.00",
       "type": "string"
     },
     {
@@ -1237,6 +1252,11 @@
       "type": "string"
     },
     {
+      "key": "n8n_webhook_id_finalizar_resposta_certidao",
+      "value": "c3d4e5f6-a7b8-4901-c234-567890abcdef",
+      "type": "string"
+    },
+    {
       "key": "n8n_webhook_id_get_detalhes_in_v2",
       "value": "c876i008-7e5f-0a1b-82c3-456789013abc",
       "type": "string"
@@ -1294,6 +1314,11 @@
     {
       "key": "n8n_webhook_id_importar_prenotacao_in",
       "value": "c872i001-4a2b-4c3d-8e5f-012345678abc",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_id_informar_custas_certidao",
+      "value": "d4e5f6a7-b8c9-4012-d345-678901abcdef",
       "type": "string"
     },
     {
@@ -7040,6 +7065,132 @@
               "path": [
                 "{{n8n_webhook_mode}}",
                 "{{n8n_webhook_id_devolver_certidao}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[AUTONR-53] Finalizar Resposta Certidao",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "if (!getVar('onr_hash')) throw new Error('Defina onr_hash.');",
+                  "if (!getVar('certidoes_protocolo')) throw new Error('Defina certidoes_protocolo.');",
+                  "const interesse = getVar('certidoes_interesse_social');",
+                  "if (interesse !== 'true' && interesse !== 'false') throw new Error('Defina certidoes_interesse_social (true ou false).');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));",
+                  "if (json && json.sucesso) {",
+                  "  pm.test('finalizado', () => pm.expect(json.dados.finalizado).to.eql(true));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{certidoes_protocolo}}\",\n  \"matriculas\": \"{{certidoes_matriculas}}\",\n  \"interesse_social\": {{certidoes_interesse_social}},\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_finalizar_resposta_certidao}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "{{n8n_webhook_id_finalizar_resposta_certidao}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[AUTONR-54] Informar Custas Certidao",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "function getVar(key) {",
+                  "  const fromCollection = pm.collectionVariables.get(key);",
+                  "  if (fromCollection !== undefined && fromCollection !== null && String(fromCollection).length > 0) return fromCollection;",
+                  "  const fromEnv = pm.environment.get(key);",
+                  "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                  "  const fromGlobals = pm.globals.get(key);",
+                  "  if (fromGlobals !== undefined && fromGlobals !== null && String(fromGlobals).length > 0) return fromGlobals;",
+                  "  return pm.variables.get(key);",
+                  "}",
+                  "if (!getVar('onr_hash')) throw new Error('Defina onr_hash.');",
+                  "if (!getVar('certidoes_protocolo')) throw new Error('Defina certidoes_protocolo.');",
+                  "const valor = getVar('certidoes_valor_custas');",
+                  "if (!valor || Number(String(valor).replace(',', '.')) <= 0) throw new Error('Defina certidoes_valor_custas (> 0).');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));",
+                  "if (json && json.sucesso) {",
+                  "  pm.test('custas_informadas', () => pm.expect(json.dados.custas_informadas).to.eql(true));",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hash\": \"{{onr_hash}}\",\n  \"protocolo\": \"{{certidoes_protocolo}}\",\n  \"valor_custas\": {{certidoes_valor_custas}},\n  \"url_servico_onr\": \"{{url_servico_certidoes}}\"\n}"
+            },
+            "url": {
+              "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{n8n_webhook_id_informar_custas_certidao}}",
+              "host": [
+                "{{n8n_base_url}}"
+              ],
+              "path": [
+                "{{n8n_webhook_mode}}",
+                "{{n8n_webhook_id_informar_custas_certidao}}"
               ]
             }
           },
