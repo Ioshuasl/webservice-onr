@@ -2,7 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const BATCH_PATH = path.join(__dirname, 'autonr-batch-state.json');
+const { DOMAIN_BATCH_FILES } = require('./batch-state-paths.cjs');
+
+const BATCH_PATH = DOMAIN_BATCH_FILES.autcra.file;
 const state = JSON.parse(fs.readFileSync(BATCH_PATH, 'utf8'));
 const old = state.batches['cra-127-142'];
 if (!old) {

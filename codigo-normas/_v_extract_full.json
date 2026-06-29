@@ -1,0 +1,1396 @@
+{
+  "livro": "V",
+  "livro_nome": "DO TABELIONATO DE NOTAS",
+  "total": 74,
+  "lotes": 5,
+  "dupKeys": [
+    "V/II/I/art-343",
+    "V/II/I/art-343-dup2"
+  ],
+  "incompletos": 41,
+  "incompletosChaves": [
+    "V/I/_/art-336/paragrafo-1",
+    "V/I/_/art-336/paragrafo-2",
+    "V/I/_/art-337",
+    "V/I/_/art-337/inciso-i",
+    "V/I/_/art-337/inciso-iii",
+    "V/I/_/art-337/inciso-v",
+    "V/I/_/art-338",
+    "V/I/_/art-338/inciso-i",
+    "V/I/_/art-338/inciso-v",
+    "V/II/I/art-344",
+    "V/II/I/art-344/inciso-i",
+    "V/II/I/art-344/inciso-ii",
+    "V/II/I/art-344/inciso-iii",
+    "V/II/I/art-344/paragrafo-2",
+    "V/II/I/art-344/paragrafo-4",
+    "V/II/I/art-344/paragrafo-5",
+    "V/II/I/art-345/paragrafo-1",
+    "V/II/I/art-345/paragrafo-2",
+    "V/II/I/art-345/paragrafo-3",
+    "V/II/II/art-346",
+    "V/II/II/art-346/inciso-iii",
+    "V/II/II/art-346/inciso-iv",
+    "V/II/II/art-346/inciso-vii",
+    "V/II/II/art-346/inciso-viii",
+    "V/II/II/art-346/inciso-ix",
+    "V/II/II/art-346/inciso-x",
+    "V/II/III/art-351",
+    "V/III/I/art-352",
+    "V/III/I/art-352/inciso-i",
+    "V/III/I/art-352/inciso-ii",
+    "V/III/I/art-352/inciso-iii",
+    "V/III/I/art-352/inciso-iv",
+    "V/III/I/art-352/inciso-v",
+    "V/III/I/art-352/inciso-vi",
+    "V/III/I/art-352/inciso-viii",
+    "V/III/I/art-352/inciso-x",
+    "V/III/I/art-352/inciso-xii",
+    "V/III/I/art-352/inciso-xiv",
+    "V/III/I/art-354",
+    "V/III/I/art-354/inciso-i",
+    "V/III/I/art-354/paragrafo-1"
+  ],
+  "items": [
+    {
+      "chave": "V/I/_/art-335",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "335",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O tabelião de notas, profissional do direito e dotado de fé pública, velará, no exercício de suas funções, pela eficácia da lei, da segurança jurídica e da prevenção de litígios."
+    },
+    {
+      "chave": "V/I/_/art-336",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "336",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A atividade notarial compreende o assessoramento prévio para a formalização dos atos e negócios jurídicos, orientada pelos princípios e regras de direito, pela prudência e pelo acautelamento."
+    },
+    {
+      "chave": "V/I/_/art-336/paragrafo-1",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "336",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A função pública notarial, a ser exercida com independência e imparcialidade jurídicas, contempla a audiência das partes, o aconselhamento jurídico, a qualificação das manifestações de vontade, a documentação dos fatos, atos e negócios jurídicos e os atos de autenticação."
+    },
+    {
+      "chave": "V/I/_/art-336/paragrafo-2",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "336",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A consultoria e o assessoramento jurídicos serão prestados por meio de informações e de esclarecimentos objetivos, especialmente sobre o melhor meio jurídico de se alcançar os fins desejados pelas partes, bem como os efeitos e consequências dos fatos, atos e negócios jurídicos a serem documentados."
+    },
+    {
+      "chave": "V/I/_/art-337",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "337",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Compete ao tabelião de notas:"
+    },
+    {
+      "chave": "V/I/_/art-337/inciso-i",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "337",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "formalizar juridicamente a vontade das partes;"
+    },
+    {
+      "chave": "V/I/_/art-337/inciso-ii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "337",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "intervir nos atos e negócios jurídicos a que as partes devam ou queiram dar forma legal ou autenticidade, autorizando a redação ou redigindo os instrumentos adequados, conservando os originais e expedindo cópias fidedignas de seu conteúdo;"
+    },
+    {
+      "chave": "V/I/_/art-337/inciso-iii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "337",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "autenticar fato;"
+    },
+    {
+      "chave": "V/I/_/art-337/inciso-iv",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "337",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "lavrar ata notarial, escritura, procuração e testamento público, aprovar o cerrado, bem como todos os atos para os quais a lei exija ou faculte a forma pública;"
+    },
+    {
+      "chave": "V/I/_/art-337/inciso-v",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "337",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "reconhecer firma; e"
+    },
+    {
+      "chave": "V/I/_/art-338",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "338",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "São deveres dos tabeliães de notas, além de outros previstos neste Código:"
+    },
+    {
+      "chave": "V/I/_/art-338/inciso-i",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "338",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "informar à parte interessada quando a prática do negócio jurídico dispensar forma pública;"
+    },
+    {
+      "chave": "V/I/_/art-338/inciso-ii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "338",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "guardar sigilo sobre a documentação e os assuntos de natureza reservada de que tenham conhecimento em razão do exercício de sua profissão;"
+    },
+    {
+      "chave": "V/I/_/art-338/inciso-iii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "338",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "negar, motivadamente, por escrito, a prática de atos nulos, anuláveis ou ineficazes que julgar maliciosos, simulados ou que atentem contra a boa-fé;"
+    },
+    {
+      "chave": "V/I/_/art-338/inciso-iv",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "338",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "exigir e fiscalizar o prévio recolhimento dos tributos incidentes sobre os negócios jurídicos celebrados sob sua responsabilidade;"
+    },
+    {
+      "chave": "V/I/_/art-338/inciso-v",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "338",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "verificar e conferir, nos negócios imobiliários, a prova dominial e a regularidade da situação jurídica do imóvel;"
+    },
+    {
+      "chave": "V/I/_/art-338/inciso-vi",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "338",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "encaminhar informações à Central de Serviços Eletrônicos Compartilhados – CENSEC para os módulos operacionais de Registro Central de Testamentos On-line – RCTO, Central de Escrituras de Separações, Divórcio e Inventários – CESDI, Central de Escrituras e Procurações – CEP, Central Nacional de Sinal Público – CNSIP, com observância do procedimento e cronograma específicos;90"
+    },
+    {
+      "chave": "V/I/_/art-338/inciso-vii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "338",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "comunicar, mensalmente, à Receita Federal do Brasil, via programa informatizado de Declaração de Operações Imobiliárias – DOI, dados de escrituras lavradas referentes a bens imóveis, assim como às Fazendas Estadual e Municipal referentes à comarca de situação do bem, atos relativos a transações imobiliárias, nos termos da lei e regulamento específicos."
+    },
+    {
+      "chave": "V/I/_/art-339",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "339",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Aos tabeliães de notas é facultado realizar, perante registros e repartições públicas em geral ou quaisquer pessoas, naturais ou jurídicas, diligências convenientes ou necessárias ao preparo, validade e eficácia dos atos notariais, requerendo o que couber."
+    },
+    {
+      "chave": "V/I/_/art-341",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "341",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É livre a escolha do tabelião de notas, qualquer que seja o domicílio das partes ou o lugar de situação dos bens objeto do ato ou negócio, salvo se o ato notarial for lavrado eletronicamente.91"
+    },
+    {
+      "chave": "V/I/_/art-341/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "341",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A competição entre os Tabeliães de Notas será leal, pautada pelo reconhecimento de seu preparo e de sua capacidade profissional e praticada de forma a não comprometer a dignidade e o prestígio das funções exercidas e das instituições notariais e de registro, sem utilização de publicidade individual, de estratégias mercadológicas de captação de clientela e da intermediação dos serviços e livre de expedientes próprios de uma economia de mercado, por exemplo, a redução de emolumentos."
+    },
+    {
+      "chave": "V/I/_/art-342",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DO TABELIÃO DE NOTAS"
+        },
+        "capitulo": null,
+        "artigo": "342",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedado ao tabelião de notas e seus prepostos a prática de atos de sua competência fora do município para o qual recebeu a delegação."
+    },
+    {
+      "chave": "V/II/I/art-343",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "343",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Quanto à escrituração, aplica-se o disposto no LIVRO V deste Código, além das normas de caráter geral estabelecidas no TÍTULO II do LIVRO III. (Artigo com redação dada pelo Provimento nº 62, de 12 de agosto de 2021)."
+    },
+    {
+      "chave": "V/II/I/art-343-dup2",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "343",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Quanto à escrituração, aplica-se o disposto no LIVRO V deste Código, além das normas de caráter geral estabelecidas no TÍTULO II do LIVRO II."
+    },
+    {
+      "chave": "V/II/I/art-344",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Tabelionato de Notas manterá os seguintes livros:"
+    },
+    {
+      "chave": "V/II/I/art-344/inciso-i",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "Livro de Protocolo de Notas;"
+    },
+    {
+      "chave": "V/II/I/art-344/inciso-ii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "Livro de Escrituras;"
+    },
+    {
+      "chave": "V/II/I/art-344/inciso-iii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "Livro de Testamento; e"
+    },
+    {
+      "chave": "V/II/I/art-344/inciso-iv",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "Livro de Procurações, para lavratura de procurações e substabelecimento."
+    },
+    {
+      "chave": "V/II/I/art-344/paragrafo-1",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Livro de Protocolo de Notas poderá ser mantido, exclusivamente, em meio eletrônico, e conterá os seguintes campos, excluído de sua escrituração os atos extraprotocolares: a) número e data do protocolo; b) nomes dos interessados; c) espécie do ato; d) data da assinatura; e) livro e folha em que foi lavrado o ato; f) valor de emolumentos taxa judiciária; e g) observações."
+    },
+    {
+      "chave": "V/II/I/art-344/paragrafo-2",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O Livro de Escrituras poderá, segundo a conveniência do tabelião de notas, ser desdobrado em Livros de Escrituras Diversas, Compra e Venda, Contratos, Compromisso de Compra e Venda, Transmissões Diversas, Hipotecas e Quitações, além de outros, visando a eficiência e presteza do serviço."
+    },
+    {
+      "chave": "V/II/I/art-344/paragrafo-4",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O Livro de Procurações poderá ser desdobrado em Livro de Substabelecimentos de Procuração segundo a conveniência do tabelião de notas."
+    },
+    {
+      "chave": "V/II/I/art-344/paragrafo-5",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "344",
+        "paragrafo": "§5º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Além dos livros é obrigatória a existência e manutenção de arquivo próprio das procurações oriundas de outras serventias extrajudiciais."
+    },
+    {
+      "chave": "V/II/I/art-345",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "345",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os livros de notas conterão o número máximo de 200 (duzentas) folhas, cada, numerados em ordem sequencial."
+    },
+    {
+      "chave": "V/II/I/art-345/paragrafo-1",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "345",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". As folhas são insubstituíveis e, ainda que inutilizadas, serão mantidas e encadernadas no livro."
+    },
+    {
+      "chave": "V/II/I/art-345/paragrafo-2",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "345",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Ocorrida falha na impressão, o fato será consignado na própria folha e encadernada em conjunto com as demais."
+    },
+    {
+      "chave": "V/II/I/art-345/paragrafo-3",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DOS LIVROS DE NOTAS"
+        },
+        "artigo": "345",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Respeitado o limite previsto no caput, não sendo possível iniciar e concluir o ato pela quantidade de folhas restantes do livro, o notário deixará de utilizá-las, fazendo constar a expressão \"EM BRANCO\", com o intuito de evitar que o ato iniciado em um livro tenha prosseguimento em outro."
+    },
+    {
+      "chave": "V/II/II/art-346",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Tabelionato de Notas manterá original ou cópia de:"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-i",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "documentos pessoais, como carteira de identidade, CPF/MF, certidões comprobatórias de estado civil e comprovante de endereço;"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-ii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "atos constitutivos de pessoas jurídicas e eventuais alterações, certidões simplificadas dos respectivos órgãos de arquivamento, como juntas comerciais ou serviços de registro civil de pessoas jurídicas;"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-iii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "traslados e substabelecimentos de procurações outorgados em outra serventia;"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-iv",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "alvarás, mandados e ofícios judiciais;"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-vii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "certidões expedidas pelo serviço de Registro de Imóveis;"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-viii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "comprovante de recolhimento do imposto de transmissão, quando houver;"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-ix",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "IX"
+      },
+      "texto_normativo_exato": "informação da CENSEC sobre a inexistência de testamento e documentos de identificação do autor da herança;"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-x",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "X"
+      },
+      "texto_normativo_exato": "comprovantes de propriedades de bens móveis e dos valores a eles atribuídos; e"
+    },
+    {
+      "chave": "V/II/II/art-346/inciso-xi",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "346",
+        "paragrafo": null,
+        "inciso": "XI"
+      },
+      "texto_normativo_exato": "documentos avulsos como orçamentos, mapas, atestados médicos, imagens e outros arquivos que tenham sido utilizados na lavratura de atas notariais."
+    },
+    {
+      "chave": "V/II/II/art-347",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS ARQUIVOS, DAS PASTAS E DOS CLASSIFICADORES"
+        },
+        "artigo": "347",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Tabelionato de Notas manterá seu arquivo em formato físico ou digital, adotando classificadores de documento ou processo por ato lavrado, conforme estabelecido na Parte Geral deste Código."
+    },
+    {
+      "chave": "V/II/III/art-348",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS IMPRESSOS DE SEGURANÇA"
+        },
+        "artigo": "348",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O uso de papel e etiqueta de segurança é obrigatório para lavratura do ato notarial."
+    },
+    {
+      "chave": "V/II/III/art-348/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS IMPRESSOS DE SEGURANÇA"
+        },
+        "artigo": "348",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O disposto no caput será cumprido por todas as serventias no prazo de até (6) seis meses, contados da vigência deste Código."
+    },
+    {
+      "chave": "V/II/III/art-349",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS IMPRESSOS DE SEGURANÇA"
+        },
+        "artigo": "349",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O modelo do papel e da etiqueta de segurança será desenvolvido pela própria serventia, a partir de padrão estabelecido pelo Colégio Notarial do Estado de Goiás e aprovado pela Corregedoria-Geral da Justiça."
+    },
+    {
+      "chave": "V/II/III/art-350",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS IMPRESSOS DE SEGURANÇA"
+        },
+        "artigo": "350",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O tabelião de notas velará pela guarda dos impressos em local seguro."
+    },
+    {
+      "chave": "V/II/III/art-351",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO ACERVO E DOS IMPRESSOS"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS IMPRESSOS DE SEGURANÇA"
+        },
+        "artigo": "351",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Havendo, excepcionalmente, necessidade de lavratura de ato notarial em"
+    },
+    {
+      "chave": "V/III/I/art-352",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "São requisitos do ato notarial, além dos previstos no Código Civil, leis especiais e neste Código:"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-i",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "data, com indicação do local, dia, mês e ano da lavratura;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-ii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "lugar onde foi lido e assinado, com endereço completo, se não se tratar da sede da serventia;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-iii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "nome e qualificação das partes e demais intervenientes;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-iv",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "reconhecimento da identidade e da capacidade das partes e de quantos hajam comparecido ao ato;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-v",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "menção ao livro, folha e serventia em que foi lavrada a procuração que ficará arquivada;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-vi",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "manifestação de vontade das partes e dos intervenientes;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-vii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "comprovação da existência legal e da representação da pessoa jurídica, quando esta for parte, devendo ser fornecido à serventia, para arquivamento, cópia do contrato social ou estatuto e certidão simplificada da Junta Comercial ou do Registro Civil das Pessoas Jurídicas, emitida em até 90 (noventa) dias, ao que se anotará nos arquivamentos o livro e folhas em que foram utilizados; (Inciso com redação dada pelo Provimento nº 84, de 11 de maio de 2022)."
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-vii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "comprovação da existência legal e da representação da pessoa jurídica, quando esta for parte, devendo ser fornecido à serventia, para arquivamento, cópia do contrato social ou estatuto e certidão simplificada da Junta Comercial ou do Registro Civil das Pessoas Jurídicas, emitida em até 30 dias, ao que se anotará nos arquivamentos o livro e folhas em que foram utilizados;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-viii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "indicação clara e precisa da natureza do negócio jurídico e seu objeto;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-ix",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "IX"
+      },
+      "texto_normativo_exato": "declaração, quando for o caso, da forma de pagamento, se em dinheiro ou cheque, se em caráter pro soluto ou pro solvendo, ou por outra forma estipulada pelas partes;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-x",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "X"
+      },
+      "texto_normativo_exato": "representação de dimensão e quantidade em algarismo arábico, seguido da"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-xii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "XII"
+      },
+      "texto_normativo_exato": "declaração de ter sido lido o ato às partes e demais intervenientes, ou de que todos o leram;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-xiii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "XIII"
+      },
+      "texto_normativo_exato": "identificação do número do selo eletrônico e do valor discriminado dos emolumentos, taxa judiciária, fundos e demais encargos no corpo do texto;"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-xiv",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "XIV"
+      },
+      "texto_normativo_exato": "referência expressa ao registro no Livro de Protocolo de Notas, com indicação do número e da data; e"
+    },
+    {
+      "chave": "V/III/I/art-352/inciso-xv",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "352",
+        "paragrafo": null,
+        "inciso": "XV"
+      },
+      "texto_normativo_exato": "termo de encerramento, com assinaturas do tabelião ou escrevente autorizado, das partes e dos intervenientes."
+    },
+    {
+      "chave": "V/III/I/art-353",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "353",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A capacidade do comparecente será verificada de acordo com o prudente arbítrio do tabelião, que poderá realizar diligências para subsidiar sua convicção."
+    },
+    {
+      "chave": "V/III/I/art-354",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "354",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O tabelião de notas declarará o ato incompleto se:"
+    },
+    {
+      "chave": "V/III/I/art-354/inciso-i",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "354",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "decorridos 60 (sessenta) dias da lavratura do ato, ausente a assinatura da parte ou do interessado, seja pelo não comparecimento, desistência ou discordância; ou"
+    },
+    {
+      "chave": "V/III/I/art-354/inciso-ii",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "354",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "verificar, antes da subscrição, qualquer elemento do ato hábil a invalidá-lo ou impossibilitar-lhe a lavratura, ainda que após a assinatura das partes."
+    },
+    {
+      "chave": "V/III/I/art-354/paragrafo-1",
+      "metadados_origem": {
+        "livro": "V",
+        "livro_nome": "DO TABELIONATO DE NOTAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA LAVRATURA DOS ATOS NOTARIAIS PROTOCOLARES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "354",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Ocorrendo a hipótese dos incisos I e II, o tabelião consignará a observação no"
+    }
+  ]
+}

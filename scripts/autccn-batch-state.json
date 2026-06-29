@@ -1,0 +1,64 @@
+{
+  "domain": "AUTCCN",
+  "batch_state_file": "scripts/autccn-batch-state.json",
+  "active_batch_id": "ccn-1-3",
+  "batches": {
+    "ccn-1-3": {
+      "batch_id": "ccn-1-3",
+      "plane_project": "autccn",
+      "plane_identifier": "AUTCCN",
+      "started_at": "2026-06-12T18:42:29.303Z",
+      "completed_at": "2026-06-12T18:42:29.307Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "ccn",
+      "postman_collection": "postman/CCN-Upload-XML-n8n.postman_collection.json",
+      "range": {
+        "from": "AUTCCN-1",
+        "to": "AUTCCN-3"
+      },
+      "status": "complete",
+      "cards": {
+        "AUTCCN-1": {
+          "operacao": "CCN_Uploads",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-88",
+          "card_title": "[AUTCCN-1] (ccn) CCN_Uploads - CCN",
+          "workflow_id_n8n": "oy22MYSQfB7CYcbl",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        },
+        "AUTCCN-2": {
+          "operacao": "CCN_ImportsGet",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-89",
+          "card_title": "[AUTCCN-2] (ccn) CCN_ImportsGet - CCN",
+          "workflow_id_n8n": "STRA45Ya8zFPl8YM",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        },
+        "AUTCCN-3": {
+          "operacao": "CCN_ImportsErros",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-90",
+          "card_title": "[AUTCCN-3] (ccn) CCN_ImportsErros - CCN",
+          "workflow_id_n8n": "TUbsvYHrfuS9xf2P",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        }
+      }
+    }
+  }
+}

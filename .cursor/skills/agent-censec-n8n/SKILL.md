@@ -1,15 +1,13 @@
 ---
 name: agent-censec-n8n
 description: >-
-  Monta workflows n8n (n8n-as-code) como gateway HTTP→REST JSON para a API
-  CENSEC: normalização, validação local CEP/CESDI/CTP, upload, resposta JSON.
-  Use ao criar ou estender workflows CENSEC em workflows/n8n/, webhooks CENSEC,
-  ou quando o usuário mencionar censec, cep, cesdi, ctp censec, upload json
-  censec. Delega tooling a n8n-architect; use com agent-n8n-orchestrator.
+  DEPRECADO — use orius-n8n-integracoes (perfil rest-json). Mantido como referência histórica.
 disable-model-invocation: true
 ---
 
 # Agent CENSEC n8n
+
+> **DEPRECADO** — use [`.cursor/skills/orius-n8n-integracoes/SKILL.md`](../orius-n8n-integracoes/SKILL.md) com perfil **`rest-json`** (validações CENSEC em [perfis-upstream.md](../orius-n8n-integracoes/perfis-upstream.md)). Este arquivo permanece só como referência histórica.
 
 Agente para **workflows n8n** que expõem a API **CENSEC** (REST JSON) via webhook.
 **Não** é SOAP ONR — use [`agent-onr-n8n-soap`](../agent-onr-n8n-soap/SKILL.md) para WSOficio.

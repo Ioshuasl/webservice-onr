@@ -1,0 +1,76 @@
+﻿# .cursorignore — automacoes e testes
+# Reduz indexação do Cursor (busca, @codebase, agentes) sem afetar Git.
+# Sintaxe igual ao .gitignore. Arquivos ignorados ainda podem ser abertos com @arquivo.
+
+# ── Dependências e artefatos de build ─────────────────────────────────────
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ── Segredos e credenciais locais ───────────────────────────────────────────
+.env
+onlyoffice/.env
+postman/*.postman_environment.json
+postman/.postman-sync*.json
+cert-fields.json
+
+# ── Binários e OCR (~30 MB em .tessdata) ────────────────────────────────────
+.tessdata/
+*.traineddata
+
+# ── PDFs de manuais (versões .md costumam existir na mesma pasta) ─────────
+*.pdf
+
+# ── Saídas geradas e scratch ────────────────────────────────────────────────
+output/
+onlyoffice/files/*
+!onlyoffice/files/.gitkeep
+tests/pdf/_fase2_output/
+tests/pdf/fase2-acceptance-report.json
+_tmp-*
+scripts/_tmp-*
+
+# ── Scripts de debug / one-off (não fazem parte do pipeline) ────────────────
+scripts/_debug-briefing*.cjs
+
+# ── Estado n8n local (logs de sync; workflows .ts continuam indexados) ─────
+**/.n8n-sync-events.jsonl
+**/.n8n-state.json
+
+# ── Instâncias n8n inativas (ativa: workflows/n8n/extensao-n8n-teste) ───────
+workflows/n8n/gentle-juniper-bb6f8f0940a3/
+workflows/n8n-censec/
+
+# ── Cópias legadas e duplicatas Postman ─────────────────────────────────────
+orius N8N/
+postman/legacy/
+postman/*copy*
+postman/onr-webservice-n8n-variaveis-explicitas.postman_collection.json
+censec/CENSEC API.postman_collection.json
+api-registro-imoveis/API - Registro de Imóveis do Brasil.postman_collection.json
+e-notariado/signer-cnb.postman_collection*.json
+see-tjgo/Portal de Sistemas do Extrajudicial - CGJ GO.postman_collection.json
+
+# ── Especificação ONR monolítica (use webservice-onr/metodos/*.md) ──────────
+especificacao_wsoficio_dev.md
+
+# ── Código de normas: extrações temporárias e JSON consolidado (~1,4 MB) ─────
+codigo-normas/_*
+codigo-normas/codigo_normas.json
+
+# ── Planos e estado Delphi gerados (batch AUT* em scripts/ permanecem) ─────
+scripts/delphi-*-ri-plan.json
+scripts/delphi-*-ecosystem-state.json
+scripts/delphi-*-batch-state.json
+scripts/delphi-*-runner-state.json
+scripts/delphi-*-runner-next.json
+
+# ── OpenAPI/Swagger volumosos (abrir com @ quando precisar) ─────────────────
+onrcpn/certidao-eletronica/certidao-eletronica.json
+
+# ── Markdown OCR gigante (duplicata de PDF; CRA tem webservice-cra/*.md) ───
+api-cra/
+sirc/manual sirc.md
+api-registro-imoveis/manual-api-acompanhamento-registral-pagamentos-v2.2.md

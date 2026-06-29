@@ -72,4 +72,10 @@ For **end-to-end** n8n automation (vault research → workflow → push → Post
 - Skill: `.cursor/skills/agent-n8n-orchestrator/SKILL.md`
 - Routing matrix: `.cursor/skills/agent-n8n-orchestrator/routing-matrix.md`
 
-Adapters: **ONR WSOficio SOAP** (`agent-onr-n8n-soap`), **CRA21 SOAP** (`agent-cra-n8n-soap`), **CENSEC** (`agent-censec-n8n`). CCN, DOI, SIGEF, RIB: routing matrix only until Phase 3.
+For **batch / multi-card** runs: one `batch-progress.md` per domain in the Obsidian vault (see `.cursor/skills/agent-n8n-batch-orchestrator/batch-progress-paths.md`). Skill: `.cursor/skills/agent-n8n-batch-orchestrator/SKILL.md`
+
+Adapters: **workflows n8n** → `.cursor/skills/orius-n8n-integracoes/SKILL.md` (perfis `soap-onr`, `soap-cra`, `rest-json`). Scripts CLI ONR: `webservice/`, `scripts/`.
+
+## Delphi legado (mapeamento)
+
+Código em `C:\Users\kenio\sistema-delphi` (Delphi 7 / Embarcadero). **Ecossistema (produto inteiro):** `.cursor/skills/agent-delphi-ecosystem-orchestrator/SKILL.md` · **Arquivo:** `agent-delphi-orchestrator` · Inventário: `npm run delphi:sync-tree` · Vault: `Orius/desenvolvimento/legado-delphi/`

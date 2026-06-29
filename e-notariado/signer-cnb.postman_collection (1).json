@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "3ec71261-ee46-4646-b9ff-38ed2ad12a16",
+		"name": "signer-cnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create-document-with-prepositioned-marks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"flowActions\": [\r\n    {\r\n      \"type\": \"Signer\",\r\n      \"step\": 1,\r\n      \"user\": {\r\n        \"name\": \"Lieverton Santos Silva\",\r\n        \"email\": \"lievertonS@lacunasoftware.com\",\r\n        \"identifier\": \"04422674102\",\r\n        \"id\": \"0966bddb-36cf-42cc-b516-bd3c744dea60\"\r\n      },\r\n      \"title\": null,\r\n      \"prepositionedMarks\": [\r\n        {\r\n          \"marks\": {\r\n            \"ba922fee-987e-4bfe-99f5-cea2291bf684\": {\r\n              \"topLeftX\": 262.66666666666663,\r\n              \"topLeftY\": 69.12,\r\n              \"width\": 170.08484848484846,\r\n              \"height\": 93.54666666666665,\r\n              \"pageNumber\": 1\r\n            },\r\n            \"d6102026-cd55-4f22-83ba-0023dd146415\": {\r\n              \"topLeftX\": 386.66666666666663,\r\n              \"topLeftY\": 557.12,\r\n              \"width\": 170.08484848484846,\r\n              \"height\": 93.54666666666665,\r\n              \"pageNumber\": 1\r\n            }\r\n          },\r\n          \"type\": \"SignatureVisualRepresentation\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"observers\": [],\r\n  \"folderId\": null,\r\n  \"newFolderName\": null,\r\n  \"organizationId\": \"a4dba7cb-4bc3-4b98-9323-08d757c7a95a\",\r\n  \"type\": \"Deed\",\r\n  \"notaryType\": null,\r\n  \"book\": null,\r\n  \"page\": null,\r\n  \"referenceDocumentId\": null,\r\n  \"notarizationDate\": \"2022-04-04T00:00:00.000Z\",\r\n  \"files\": [\r\n    {\r\n      \"id\": \"ba922fee-987e-4bfe-99f5-cea2291bf684\",\r\n      \"name\": \"empty.pdf\",\r\n      \"displayName\": \"empty\",\r\n      \"contentType\": \"application/pdf\",\r\n      \"location\": \"/api/uploads/ba922fee-987e-4bfe-99f5-cea2291bf684?access_ticket=CfDJ8LJSw2FhOmlNhOVWLI9CtW_UmxHGhoSX2iPnsf0-Dk6j1qUP55lzn-89koMkTuO4nikYGHeu9eCapKOVloQuJd5Uq33iBNB6MB8MkYjdqzTnIpDadx7jig9Io3NlLBBKoFFq-xEWSG00pTqz8M5bioooyjLCDetbVVUwiOpFyxYkFyHDlRNy-9tD_2hSSrKHHg&culture=pt&contentType=application%2Fpdf\",\r\n      \"size\": 25714,\r\n      \"request\": {\r\n        \"closed\": true,\r\n        \"_parentOrParents\": null,\r\n        \"_subscriptions\": null,\r\n        \"syncErrorValue\": null,\r\n        \"syncErrorThrown\": false,\r\n        \"syncErrorThrowable\": true,\r\n        \"isStopped\": true,\r\n        \"destination\": {\r\n          \"closed\": true,\r\n          \"_parentOrParents\": null,\r\n          \"_subscriptions\": null,\r\n          \"syncErrorValue\": null,\r\n          \"syncErrorThrown\": false,\r\n          \"syncErrorThrowable\": false,\r\n          \"isStopped\": true,\r\n          \"destination\": {\r\n            \"closed\": true\r\n          },\r\n          \"_parentSubscriber\": null,\r\n          \"_context\": null\r\n        }\r\n      },\r\n      \"percentDone\": 100\r\n    },\r\n    {\r\n      \"id\": \"d6102026-cd55-4f22-83ba-0023dd146415\",\r\n      \"name\": \"empty.pdf\",\r\n      \"displayName\": \"empty\",\r\n      \"contentType\": \"application/pdf\",\r\n      \"location\": \"/api/uploads/d6102026-cd55-4f22-83ba-0023dd146415?access_ticket=CfDJ8LJSw2FhOmlNhOVWLI9CtW-OmUbs2Pz14V9Y6UStvosFbu1c9xTAQTYXNTyYPAHwK4YO8Rf9I7B5-Q25W9srzz3CkXIWKb7Wd_7koM3BYey6Y7r39mXXAt6yK6zzqRUV_hOlkup-Cr2VSWSGi3bIecx9h2dhmghRBN0yznYI35Gst1z3raQocrjwrbldbMp9Xw&culture=pt&contentType=application%2Fpdf\",\r\n      \"size\": 25714,\r\n      \"request\": {\r\n        \"closed\": true,\r\n        \"_parentOrParents\": null,\r\n        \"_subscriptions\": null,\r\n        \"syncErrorValue\": null,\r\n        \"syncErrorThrown\": false,\r\n        \"syncErrorThrowable\": true,\r\n        \"isStopped\": true,\r\n        \"destination\": {\r\n          \"closed\": true,\r\n          \"_parentOrParents\": null,\r\n          \"_subscriptions\": null,\r\n          \"syncErrorValue\": null,\r\n          \"syncErrorThrown\": false,\r\n          \"syncErrorThrowable\": false,\r\n          \"isStopped\": true,\r\n          \"destination\": {\r\n            \"closed\": true\r\n          },\r\n          \"_parentSubscriber\": null,\r\n          \"_context\": null\r\n        }\r\n      },\r\n      \"percentDone\": 100\r\n    }\r\n  ],\r\n  \"areFilesScanned\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://assinatura-hml.e-notariado.org.br/api/documents",
+					"protocol": "https",
+					"host": [
+						"assinatura-hml",
+						"e-notariado",
+						"org",
+						"br"
+					],
+					"path": [
+						"api",
+						"documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-document",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"flowActions\": [\r\n    {\r\n      \"type\": \"Signer\",\r\n      \"step\": 1,\r\n      \"user\": {\r\n        \"name\": \"Lieverton Santos Silva\",\r\n        \"email\": \"lievertonS@lacunasoftware.com\",\r\n        \"identifier\": \"04422674102\",\r\n        \"id\": \"0966bddb-36cf-42cc-b516-bd3c744dea60\"\r\n      },\r\n      \"title\": null,\r\n      \"prepositionedMarks\": null\r\n    }\r\n  ],\r\n  \"observers\": [],\r\n  \"folderId\": null,\r\n  \"newFolderName\": null,\r\n  \"organizationId\": \"a4dba7cb-4bc3-4b98-9323-08d757c7a95a\",\r\n  \"type\": \"Deed\",\r\n  \"notaryType\": null,\r\n  \"book\": null,\r\n  \"page\": null,\r\n  \"referenceDocumentId\": null,\r\n  \"notarizationDate\": \"2022-04-04T00:00:00.000Z\",\r\n  \"files\": [\r\n    {\r\n      \"id\": \"ba922fee-987e-4bfe-99f5-cea2291bf684\",\r\n      \"name\": \"empty.pdf\",\r\n      \"displayName\": \"empty\",\r\n      \"contentType\": \"application/pdf\",\r\n      \"location\": \"/api/uploads/ba922fee-987e-4bfe-99f5-cea2291bf684?access_ticket=CfDJ8LJSw2FhOmlNhOVWLI9CtW_UmxHGhoSX2iPnsf0-Dk6j1qUP55lzn-89koMkTuO4nikYGHeu9eCapKOVloQuJd5Uq33iBNB6MB8MkYjdqzTnIpDadx7jig9Io3NlLBBKoFFq-xEWSG00pTqz8M5bioooyjLCDetbVVUwiOpFyxYkFyHDlRNy-9tD_2hSSrKHHg&culture=pt&contentType=application%2Fpdf\",\r\n      \"size\": 25714,\r\n      \"request\": {\r\n        \"closed\": true,\r\n        \"_parentOrParents\": null,\r\n        \"_subscriptions\": null,\r\n        \"syncErrorValue\": null,\r\n        \"syncErrorThrown\": false,\r\n        \"syncErrorThrowable\": true,\r\n        \"isStopped\": true,\r\n        \"destination\": {\r\n          \"closed\": true,\r\n          \"_parentOrParents\": null,\r\n          \"_subscriptions\": null,\r\n          \"syncErrorValue\": null,\r\n          \"syncErrorThrown\": false,\r\n          \"syncErrorThrowable\": false,\r\n          \"isStopped\": true,\r\n          \"destination\": {\r\n            \"closed\": true\r\n          },\r\n          \"_parentSubscriber\": null,\r\n          \"_context\": null\r\n        }\r\n      },\r\n      \"percentDone\": 100\r\n    },\r\n    {\r\n      \"id\": \"d6102026-cd55-4f22-83ba-0023dd146415\",\r\n      \"name\": \"empty.pdf\",\r\n      \"displayName\": \"empty\",\r\n      \"contentType\": \"application/pdf\",\r\n      \"location\": \"/api/uploads/d6102026-cd55-4f22-83ba-0023dd146415?access_ticket=CfDJ8LJSw2FhOmlNhOVWLI9CtW-OmUbs2Pz14V9Y6UStvosFbu1c9xTAQTYXNTyYPAHwK4YO8Rf9I7B5-Q25W9srzz3CkXIWKb7Wd_7koM3BYey6Y7r39mXXAt6yK6zzqRUV_hOlkup-Cr2VSWSGi3bIecx9h2dhmghRBN0yznYI35Gst1z3raQocrjwrbldbMp9Xw&culture=pt&contentType=application%2Fpdf\",\r\n      \"size\": 25714,\r\n      \"request\": {\r\n        \"closed\": true,\r\n        \"_parentOrParents\": null,\r\n        \"_subscriptions\": null,\r\n        \"syncErrorValue\": null,\r\n        \"syncErrorThrown\": false,\r\n        \"syncErrorThrowable\": true,\r\n        \"isStopped\": true,\r\n        \"destination\": {\r\n          \"closed\": true,\r\n          \"_parentOrParents\": null,\r\n          \"_subscriptions\": null,\r\n          \"syncErrorValue\": null,\r\n          \"syncErrorThrown\": false,\r\n          \"syncErrorThrowable\": false,\r\n          \"isStopped\": true,\r\n          \"destination\": {\r\n            \"closed\": true\r\n          },\r\n          \"_parentSubscriber\": null,\r\n          \"_context\": null\r\n        }\r\n      },\r\n      \"percentDone\": 100\r\n    }\r\n  ],\r\n  \"areFilesScanned\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://assinatura-hml.e-notariado.org.br/api/documents",
+					"protocol": "https",
+					"host": [
+						"assinatura-hml",
+						"e-notariado",
+						"org",
+						"br"
+					],
+					"path": [
+						"api",
+						"documents"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

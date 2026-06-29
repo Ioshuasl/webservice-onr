@@ -1,0 +1,2871 @@
+{
+  "livro": "IX",
+  "livro_nome": "DO REGISTRO DE IMÓVEIS",
+  "total": 174,
+  "lotes": 12,
+  "dupKeys": [
+    "IX/I/_/art-791",
+    "IX/I/_/art-793/paragrafo-unico",
+    "IX/I/_/art-796/inciso-i",
+    "IX/c/_/art-817/inciso-ii",
+    "IX/c/_/art-822/inciso-i",
+    "IX/c/_/art-822/inciso-ii",
+    "IX/c/_/art-822/inciso-iii",
+    "IX/c/_/art-827",
+    "IX/c/_/art-833",
+    "IX/c/_/art-833/paragrafo-3",
+    "IX/c/_/art-833/paragrafo-4"
+  ],
+  "incompletos": 50,
+  "incompletosChaves": [
+    "IX/I/_/art-790",
+    "IX/I/_/art-791-dup2",
+    "IX/I/_/art-791/inciso-i",
+    "IX/I/_/art-796/paragrafo-unico",
+    "IX/I/_/art-796/inciso-i-dup2",
+    "IX/I/_/art-796/inciso-ii",
+    "IX/I/_/art-796/inciso-iii",
+    "IX/I/_/art-796/inciso-iv",
+    "IX/I/_/art-797/paragrafo-unico",
+    "IX/I/_/art-797/inciso-i",
+    "IX/I/_/art-797/inciso-ii",
+    "IX/I/_/art-797/inciso-iii",
+    "IX/I/_/art-797/inciso-iv",
+    "IX/c/_/art-819",
+    "IX/c/_/art-819/inciso-i",
+    "IX/c/_/art-819/inciso-ii",
+    "IX/c/_/art-822",
+    "IX/c/_/art-822/inciso-i",
+    "IX/c/_/art-822/inciso-ii",
+    "IX/c/_/art-822/paragrafo-unico",
+    "IX/c/_/art-822/inciso-i-dup2",
+    "IX/c/_/art-823",
+    "IX/c/_/art-823/inciso-i",
+    "IX/c/_/art-823/inciso-ii",
+    "IX/c/_/art-823/inciso-iii",
+    "IX/c/_/art-823/inciso-iv",
+    "IX/c/_/art-824/paragrafo-2",
+    "IX/c/_/art-824/inciso-i",
+    "IX/c/_/art-824/inciso-ii",
+    "IX/c/_/art-825/paragrafo-unico"
+  ],
+  "items": [
+    {
+      "chave": "IX/I/_/art-789",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "789",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "No Registro de Imóveis serão feitos o registro e averbação dos títulos ou atos constitutivos, declaratórios, translativos e extintivos de direitos reais sobre imóveis reconhecidos em lei, inter vivos ou mortis causa, quer para sua constituição, transferência e extinção, quer para sua validade em relação a terceiros, quer para a sua disponibilidade, obedecidas as disposições legais e as normas desta Corregedoria Geral da Justiça."
+    },
+    {
+      "chave": "IX/I/_/art-790",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "790",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "No Registro de Imóveis, além da matrícula, serão feitos:"
+    },
+    {
+      "chave": "IX/I/_/art-790/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "790",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "o registro: 1. da instituição de bem de família (Livros 2 e 3); 2. das hipotecas legais, judiciais e convencionais (Livro 2); 3. dos contratos de locação de prédios, nos quais tenha sido consignada cláusula de vigência no caso de alienação da coisa locada (Livro 2); 4. do penhor de máquinas e de aparelhos utilizados na indústria, instalados e em funcionamento, com os respectivos pertences ou sem eles (Livro 3); 5. das penhoras, arrestos e sequestros de imóveis (Livro 2); 6. das servidões em geral (Livro 2); 7. do usufruto e do uso sobre imóveis e da habitação, quando não resultarem do direito de família (Livro 2); 8. das rendas constituídas sobre imóveis ou a eles vinculadas por disposição de última vontade (Livro 2); 9. dos contratos de compromissos de compra e venda, de permuta e de dação em pagamento, de cessão ou promessa de cessão destes, com ou sem cláusula de arrependimento, que tenham por objeto imóveis não loteados e cujo preço tenha sido pago no ato de sua celebração, ou deva sê-lo a prazo, de uma só vez ou em prestações (Livro 2); 10. da enfiteuse (Livro 2); 13. das cédulas de crédito comercial, industrial e à exportação (Livro 3 Registro da Cédula; Livro 2 Registro da Garantia Cedular Imobiliária); 14. das incorporações (Livro 2), instituições (Livro 2) e convenções de condomínio (Livro 3); 15. dos contratos de promessa de compra e venda, cessão ou promessa de cessão de unidades autônomas condominiais a que alude a Lei nº 4.591, de 16 de dezembro de 1964, quando a incorporação ou a instituição de condomínio se formalizar na vigência da Lei nº 6.015, de 31 de dezembro de 1973 (Livro 2); 16. dos loteamentos urbanos e rurais e desmembramentos urbanos (Livro 2); 17. das citações de ações reais ou pessoais reipersecutórias, relativas a imóveis (Livro 2); 18. do fideicomisso (Livro 2); 19. dos julgados e atos jurídicos entre vivos que dividirem imóveis ou os demarcarem, inclusive nos casos de incorporações que resultarem em constituições de condomínio e atribuírem uma ou mais unidades aos incorporadores (Livro 2); 20. das sentenças que, nos inventários, arrolamentos e partilhas, adjudicarem bens imóveis em pagamento das dívidas de herança (Livro 2); 21. dos atos de entrega de legados de imóveis, dos formais de partilha e das sentenças de adjudicação em inventário ou arrolamento quando não houver partilha (Livro 2); 22. da arrematação e da adjudicação em hasta pública (Livro 2); 23. do dote (Livro 2); 24. das sentenças declaratórias de usucapião (Livro 2); 25. da compra e venda, pura e condicional (Livro 2); 26. da permuta e de sua promessa (Livro 2); 27. da dação em pagamento e de sua promessa (Livro 2); 28. da transferência de imóvel à sociedade, quando integrar quota social (Livro 2); 29. da doação entre vivos (Livro 2); 30. da desapropriação amigável e das sentenças que, em processo de artístico (Livro 3), sem prejuízo da averbação à margem da transcrição ou na matrícula do imóvel (Livro 2); 32. da alienação fiduciária em garantia de coisa imóvel (Livro 2); 33. da imissão provisória na posse, quando concedida à União, aos Estados, ao Distrito Federal, aos Municípios ou às suas entidades delegadas, e respectiva cessão e promessa de cessão (Livro 2); 34. dos termos administrativos ou das sentenças declaratórias da concessão de uso especial para fins de moradia (Livro 2); 35. da constituição do direito de superfície de imóvel urbano (Livro 2); 36. do contrato de concessão de direito real de uso (Livro 2); 37. da legitimação de posse ou da sua conversão em propriedade (Livro 2); 38. da Certidão de Regularização Fundiária (CRF) (Livro 2); 39. da legitimação fundiária (Livro 2); 40. da transformação, da fusão, da cisão e da incorporação de sociedades, quando houver transmissão de imóveis ou direitos reais sobre imóveis (Livro 2); 41. da escritura pública de arrendamento de imóvel rural por estrangeiro residente ou autorizado a funcionar no Brasil, bem como por pessoa jurídica brasileira equiparada a estrangeira (Livro de Registro de Aquisição de Imóveis Rurais por Estrangeiros); 42. do direito real de laje (Livro 2); 43. do condomínio de lotes (Livro 2); 44. do condomínio urbano simples (Livro 2); 45. da multipropriedade (Livro 2); 46. outros atos, fatos ou títulos previstos em lei ou cujo registro em sentido estrito seja definido em ato normativo."
+    },
+    {
+      "chave": "IX/I/_/art-790/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "790",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "averbação: 1. das convenções antenupciais, das escrituras públicas que regulem regime de bens na união estável e dos regimes de bens diversos do legal, nos registros referentes a imóveis ou a direitos reais pertencentes a qualquer dos cônjuges ou companheiros, inclusive 3. dos contratos de promessa de compra e venda, das cessões e das promessas de cessão a que alude o Decreto-Lei nº 58, de 10 de dezembro de 1937, quando o loteamento se tiver formalizado anteriormente à vigência da Lei nº 6.015, de 31 de dezembro de 1973; 4. da mudança de denominação e de numeração dos prédios, da designação cadastral, da edificação, da reconstrução, da demolição e do desdobramento de lotes; 5. do casamento, da alteração de nome por casamento ou por separação judicial, do óbito, ou, ainda, de outras circunstâncias que, de qualquer modo, tenham influência no registro e nas pessoas nele interessadas, inclusive a alteração do regime de bens e da união estável declarada judicialmente ou estabelecida por escritura pública; 6. dos atos pertinentes a unidades autônomas condominiais a que alude a Lei nº 4.591, de 16 de dezembro de 1964, quando a incorporação tiver sido formalizada anteriormente à vigência da Lei nº 6.015, de 31 de dezembro de 1973; 7. das cédulas hipotecárias e das cédulas de crédito imobiliário; 8. da caução e da cessão fiduciária de direitos relativos a imóveis; 9. da sentença de separação de dote; 10. do restabelecimento da sociedade conjugal; 11. das cláusulas de inalienabilidade, impenhorabilidade e incomunicabilidade impostas a imóveis, bem como constituição de fideicomisso; 12. das decisões, recursos e seus efeitos, que tenham por objeto atos ou títulos registrados ou averbados; 13. de ofício ou a requerimento, dos nomes dos logradouros, decretados pelo Poder Público; 14. das escrituras públicas de separação, divórcio e dissolução de união estável, e das sentenças de separação, divórcio, nulidade ou anulação de casamento, quando nas respectivas partilhas existirem imóveis ou direitos reais sujeitos a registro; 15. da rerratificação do contrato de mútuo com pacto adjeto de hipoteca em favor de entidade integrante do Sistema Financeiro da Habitação, ainda que importando elevação da dívida, desde que mantidas as mesmas partes e que inexista outra hipoteca registrada em favor de terceiros; 17. da indisponibilidade dos bens que constituem reservas técnicas das entidades de previdência; 18. do tombamento provisório e definitivo de bens imóveis, declarado por ato administrativo ou legislativo ou por decisão judicial; 19. das restrições próprias dos imóveis reconhecidos como integrantes do patrimônio cultural, por forma diversa do tombamento, em decorrência de ato administrativo ou legislativo ou decisão judicial específicos; 20. das restrições próprias dos imóveis situados na vizinhança dos bens tombados ou reconhecidos como integrantes do patrimônio cultural; 21. da averbação premonitória; 22. das ordens judiciais e administrativas que determinem indisponibilidades de bens; 23. do contrato de locação, para fins do exercício do direito de preferência, e da caução locatícia; 24. do termo de securitização de créditos imobiliários, quando submetidos ao regime fiduciário; 25. da notificação para parcelamento, edificação ou utilização compulsórios de imóvel urbano; 26. da extinção da concessão de uso especial para fins de moradia; 27. da extinção do direito de superfície do imóvel urbano; 28. da cessão de crédito imobiliário; 29. do destaque de imóvel de gleba pública originária; 30. do auto de demarcação urbanística; 31. da extinção da legitimação de posse; 32. da extinção da concessão de uso especial para fins de moradia; 33. da extinção da concessão de direito real de uso; 34. da sub-rogação de dívida, da respectiva garantia fiduciária ou hipotecária e da alteração das condições contratuais, em nome do credor que venha a assumir tal condição na 35. do vínculo de área à Cota de Reserva Ambiental – CRA; 36. do instrumento ou do termo de instituição da servidão ambiental; 37. da reserva legal ou do número de inscrição do imóvel rural no Cadastro Ambiental Rural – CAR; 38. da certidão de liberação de condições resolutivas dos títulos de domínio resolúvel emitidos pelos órgãos fundiários; 39. do termo de quitação de contrato de compromisso de compra e venda registrado e do termo de quitação dos instrumentos públicos ou privados oriundos da implantação de empreendimentos ou de processo de regularização fundiária, firmado pelo empreendedor proprietário de imóvel ou pelo promotor do empreendimento ou da regularização fundiária objeto de loteamento, desmembramento, condomínio de qualquer modalidade ou de regularização fundiária, exclusivamente para fins de exoneração da sua responsabilidade sobre tributos municipais incidentes sobre o imóvel perante o Município, não implicando transferência de domínio ao compromissário comprador ou ao beneficiário da regularização; 40. da autuação de infração ambiental cometida no imóvel; 41. das limitações administrativas e ambientais relativas ao imóvel, tais como taxa de ocupação, potencial construtivo mínimo e máximo, coeficiente de permeabilidade, recuo e gabarito; 42. do comodato e do arrendamento, desde que previamente registrados no Ofício de Registro de Títulos e Documentos, salvo quando arrendado por estrangeiro; 43. do título que reconhecer a união estável e de sua conversão em casamento; 44. do protesto contra alienação de bens quando determinado judicialmente; 45. da certificação de não sobreposição a outros imóveis no cadastro georreferenciado do INCRA; 46. da impossibilidade de negociação dos imóveis rurais concedidos a beneficiários da reforma agrária, pelo prazo de 10 (dez) anos, nos termos do art. 189 da Constituição Federal; 47. da indisponibilidade de bens decorrente de penhora em execução de dívida 48. da indisponibilidade dos bens dos administradores das instituições financeiras, nos casos de intervenção, liquidação extrajudicial ou falência, nos termos do art. 36 da Lei nº 6.024/1974, que “dispõe sobre a intervenção e a liquidação extrajudicial de instituição financeira, e dá outras providências”; 49. da indisponibilidade de bens do requerido em medida cautelar fiscal, nos termos do art. 4º da Lei nº 8.397/1992; 50. das restrições aos bens e direitos adquiridos pela administradora em nome do grupo de consórcio, nos termos do art. 5º, § 7º, da Lei nº 11.795/2008; 51. do patrimônio de afetação, nos termos do art. 31-A da Lei nº 4.591/1964; 52. dos demais atos previstos em lei, as sub-rogações e outras ocorrências que, por qualquer modo, alterem o registro. (Item renumerado pelo Provimento nº 62, de 12 de agosto de 2021) 42. dos demais atos previstos em lei, as sub-rogações e outras ocorrências que, por qualquer modo, alterem o registro."
+    },
+    {
+      "chave": "IX/I/_/art-791",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "791",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Todos os atos dispostos no artigo 790 são obrigatórios e deverão ser efetuados no cartório da situação do imóvel, salvo: (“Caput” do artigo com redação dada pelo Provimento nº 62, de 12 de agosto de 2021)"
+    },
+    {
+      "chave": "IX/I/_/art-791-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "791",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Todos os atos dispostos no artigo 2º são obrigatórios e deverão ser efetuados no cartório da situação do imóvel, salvo:"
+    },
+    {
+      "chave": "IX/I/_/art-791/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "791",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "as averbações, que serão efetuadas na matrícula ou à margem do registro a que se referirem, ainda que o imóvel tenha passado a pertencer à outra circunscrição;"
+    },
+    {
+      "chave": "IX/I/_/art-791/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "791",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "os registros relativos a imóveis situados em comarcas ou circunscrições limítrofes, que serão feitos em todas elas, devendo constar dos registros tal ocorrência."
+    },
+    {
+      "chave": "IX/I/_/art-791/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "791",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "o registro previsto no item 3 do inciso I do art. 790 e a averbação prevista no item 16 do inciso II do art. 790 serão efetuados no cartório, onde o imóvel esteja matriculado mediante apresentação de qualquer das vias do contrato, assinado pelas partes e subscrito por duas testemunhas, bastando a coincidência entre o nome de um dos proprietários e o do locador. (Inciso com redação dada pelo Provimento nº 62, de 12 de agosto de 2021)"
+    },
+    {
+      "chave": "IX/I/_/art-791-dup3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "791",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A. Os contratos e termos administrativos de que trata o inciso VI do art. 221 da Lei n. 6.015/1973 dispensam escritura pública para ingresso no Cartório de Registro de Imóveis, exigido, nesse caso, o reconhecimento de firma. (Artigo com redação dada pelo Provimento nº 140, de 23 de janeiro de 2025)"
+    },
+    {
+      "chave": "IX/I/_/art-792",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "792",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O desmembramento territorial posterior ao registro não exige sua repetição na nova serventia."
+    },
+    {
+      "chave": "IX/I/_/art-792/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "792",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Passando o imóvel a pertencer à outra circunscrição, será aberta matrícula no cartório desta por ocasião do primeiro registro ou, antes, a requerimento do interessado."
+    },
+    {
+      "chave": "IX/I/_/art-792/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "792",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Na hipótese prevista no parágrafo anterior, a matrícula será aberta com os elementos constantes do título apresentado e da certidão da matrícula ou do registro originários expedidos há no máximo 30 (trinta) dias, a qual ficará arquivada em cartório."
+    },
+    {
+      "chave": "IX/I/_/art-792/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "792",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A matrícula será aberta ainda que a descrição do imóvel no registro originário seja precária, cabendo ao oficial da nova circunscrição exigir a retificação antes da prática de qualquer ato de registro ou averbação."
+    },
+    {
+      "chave": "IX/I/_/art-792/paragrafo-4",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "792",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A abertura de matrícula decorrente de desmembramento da circunscrição imobiliária deverá ser comunicada à serventia de origem, via Malote Digital ou Sistema de Registro Eletrônico de Imóveis (SREI), para a averbação, de ofício, do encerramento da matrícula originária."
+    },
+    {
+      "chave": "IX/I/_/art-792/paragrafo-5",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "792",
+        "paragrafo": "§5º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Também será possível a abertura de nova matrícula de ofício, para saneamento, ou a requerimento do interessado, para proteção da intimidade, como no caso de alteração de nome ou de sexo, transportando-se eventuais ônus e mencionando-se no preâmbulo os atuais proprietários e no registro anterior a matrícula encerrada."
+    },
+    {
+      "chave": "IX/I/_/art-793",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "793",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os atos relativos a vias férreas serão registrados na circunscrição imobiliária onde se situe o imóvel."
+    },
+    {
+      "chave": "IX/I/_/art-793/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "793",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A requerimento do interessado, o Oficial do Registro de Imóveis da circunscrição a que se refere o caput abrirá a matrícula da área correspondente, com base em planta, memorial descritivo e certidão atualizada da matrícula ou da transcrição do imóvel,"
+    },
+    {
+      "chave": "IX/I/_/art-793/paragrafo-unico-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "793",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Entretanto, será averbado o desmembramento de um lote em novos lotes, com frente para via oficial de circulação já existente, sem abertura de novas vias e nem prolongamento das vias já existentes, atendendo às exigências mínimas de dimensionamento urbanístico vigente na legislação municipal."
+    },
+    {
+      "chave": "IX/I/_/art-795",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "795",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Não será exigida a apresentação de comprovante de quitação com as obrigações condominiais para a prática de atos relativos a unidades em condomínio edilício."
+    },
+    {
+      "chave": "IX/I/_/art-796",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Caso a matrícula esteja gravada com algum ônus impeditivo de alienação ou oneração, deverá ser apresentado requerimento do interessado solicitando o cancelamento do ônus, acompanhado de documentação competente, ou mandado judicial de registro ou levantamento do ônus."
+    },
+    {
+      "chave": "IX/I/_/art-796/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Constituem ônus impeditivos da alienação ou oneração, entre outros: (Parágrafo único transformado em §1º pelo Provimento nº 71, de 1º de outubro de 2021)"
+    },
+    {
+      "chave": "IX/I/_/art-796/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Constituem ônus impeditivos da alienação ou oneração, entre outros:"
+    },
+    {
+      "chave": "IX/I/_/art-796/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "hipoteca constituída por cédula de crédito rural, industrial, comercial e cédula à exportação; (Inciso com redação dada pelo Provimento nº 71, de 1º de outubro de 2021)"
+    },
+    {
+      "chave": "IX/I/_/art-796/inciso-i-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "hipoteca cedular;"
+    },
+    {
+      "chave": "IX/I/_/art-796/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "hipoteca do Sistema Financeiro da Habitação;"
+    },
+    {
+      "chave": "IX/I/_/art-796/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "penhora da União ou do Instituto Nacional do Seguro Social – INSS;"
+    },
+    {
+      "chave": "IX/I/_/art-796/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "cláusula de inalienabilidade;"
+    },
+    {
+      "chave": "IX/I/_/art-796/inciso-v",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "bloqueio de matrícula; e"
+    },
+    {
+      "chave": "IX/I/_/art-796/inciso-vi",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "indisponibilidade."
+    },
+    {
+      "chave": "IX/I/_/art-796/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O imóvel gravado com os ônus previstos nos incisos I ou II do §1º deste artigo poderá ser alienado ou onerado mediante anuência do credor, por escrito. (Parágrafo acrescido pelo Provimento nº 71, de 1º de outubro de 2021)."
+    },
+    {
+      "chave": "IX/I/_/art-796/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "796",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". No caso de sucessão causa mortis, os ônus previstos nos incisos I a VI do §1º deste artigo não serão considerados impeditivos do registro da partilha. (Parágrafo acrescido"
+    },
+    {
+      "chave": "IX/I/_/art-797",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "797",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Se a matrícula estiver gravada com algum ônus não impeditivo de alienação ou oneração, deverá ser apresentado requerimento do interessado solicitando o cancelamento do ônus, acompanhado de documentação competente, ou declaração expressa do adquirente ou do credor quanto à ciência da existência do ônus."
+    },
+    {
+      "chave": "IX/I/_/art-797/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "797",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Constituem ônus não impeditivos da alienação ou oneração, entre outros:"
+    },
+    {
+      "chave": "IX/I/_/art-797/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "797",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "hipoteca comum;"
+    },
+    {
+      "chave": "IX/I/_/art-797/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "797",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "penhora;"
+    },
+    {
+      "chave": "IX/I/_/art-797/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "797",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "servidão;"
+    },
+    {
+      "chave": "IX/I/_/art-797/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "797",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "usufruto;"
+    },
+    {
+      "chave": "IX/I/_/art-797/inciso-v",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "797",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "promessa de compra e venda."
+    },
+    {
+      "chave": "IX/I/_/art-798",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "798",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "As certidões fiscais municipal, estadual e federal, exigidas de pessoas físicas ou jurídicas para a alienação ou oneração de imóveis, poderão ser dispensadas pelo adquirente por meio de expressa declaração na qual se responsabilize por eventuais débitos existentes."
+    },
+    {
+      "chave": "IX/I/_/art-798/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "798",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A declaração a que se refere o caput pode ser feita no próprio título apresentado ou em instrumento apartado."
+    },
+    {
+      "chave": "IX/I/_/art-798/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "798",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Não será exigida certidão fiscal federal caso o alienante ou devedor declare expressamente no próprio título ou em instrumento apartado que é pessoa jurídica que explora exclusivamente atividade de compra e venda de imóveis, locação, desmembramento ou loteamento de terrenos, incorporação imobiliária ou construção de imóveis destinados à venda e que o imóvel objeto da transmissão ou oneração não faz parte de seu ativo permanente."
+    },
+    {
+      "chave": "IX/I/_/art-799",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "799",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "As cópias de documentos judiciais ou constantes de processos judiciais consideram-se válidas desde que autenticadas por tabelião ou pela Vara Judicial ou, em se tratando de documento eletrônico, contenha código de validação pelo sistema de processo judicial digital (Projudi)."
+    },
+    {
+      "chave": "IX/I/_/art-799/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "799",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Consideram-se válidas também as peças processuais declaradas autênticas"
+    },
+    {
+      "chave": "IX/I/_/art-799/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "799",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Comprova-se a constituição nos autos mediante certidão judicial ou declaração, sob as penas da lei, firmada pelo próprio advogado."
+    },
+    {
+      "chave": "IX/I/_/art-800",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "800",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "As cópias de documentos fiscais ou emitidos por órgãos ou entidades públicos consideram-se válidas desde que autenticadas por tabelião ou, em se tratando de documento eletrônico, contenha código de validação por sistema digital do emitente."
+    },
+    {
+      "chave": "IX/I/_/art-801",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "801",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "As informações e elementos necessários à abertura de matrícula, registro ou averbação, bem como o esclarecimento de situações de fato ou de direito, poderão ser complementados por documentos e declarações exigidos pelo oficial de registro, evitando-se, sempre que possível, a retificação de títulos judiciais e extrajudiciais."
+    },
+    {
+      "chave": "IX/I/_/art-801/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "801",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Será necessária a retificação quando houver qualquer alteração em relação a elementos essenciais do negócio jurídico, que resultem da manifestação de vontade, como partes, objeto e contraprestação."
+    },
+    {
+      "chave": "IX/I/_/art-801/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "801",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para a correção de erros materiais, serão aceitos aditivos às escrituras públicas e a utilização do campo destinado a ressalvas nos instrumentos particulares com efeito de escritura pública, assinados, no primeiro caso, por tabelião ou escrevente e, no segundo, pelo gerente da instituição financeira."
+    },
+    {
+      "chave": "IX/I/_/art-802",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "802",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Com exceção das certidões previstas na legislação, não será devolvido o"
+    },
+    {
+      "chave": "IX/c/_/art-803",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "803",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A critério do oficial, os requerimentos de abertura de matrícula, registro e averbação poderão ser assinados na presença de preposto da serventia, dispensado o reconhecimento de firma, desde que não impliquem renúncia ou transferência de direitos."
+    },
+    {
+      "chave": "IX/c/_/art-804",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "804",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Com exceção do contrato de locação, considera-se válido para fins de"
+    },
+    {
+      "chave": "IX/c/_/art-804/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "804",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Não se exigirá o reconhecimento de firma das partes nos instrumentos particulares com efeito de escritura pública, nos termos da Lei 9.514/97."
+    },
+    {
+      "chave": "IX/c/_/art-805",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "805",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Em se tratando de documentos eletrônicos, consideram-se autênticos os instrumentos públicos ou particulares assinados com certificado digital que atenda os requisitos da Infraestrutura de Chaves Públicas Brasileira – ICP."
+    },
+    {
+      "chave": "IX/c/_/art-806",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "806",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Não serão exigidas as procurações utilizadas para a lavratura dos atos notariais, desde que devidamente identificadas pelo tabelião na escritura pública, verificada sua validade e outorga de poderes."
+    },
+    {
+      "chave": "IX/c/_/art-807",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "807",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Serão exigidos atos constitutivos ou procurações do signatário cuja firma tenha sido reconhecida como pessoa jurídica para verificação dos poderes."
+    },
+    {
+      "chave": "IX/c/_/art-808",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "808",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Em se tratando de pessoas jurídicas, não serão exigidos os atos constitutivos e demais alterações, utilizados para a lavratura de escrituras públicas, desde que devidamente identificados pelo tabelião no instrumento público, verificada sua validade e outorga de poderes, salvo se necessários para manutenção da continuidade e especialidade dos registros e averbações."
+    },
+    {
+      "chave": "IX/c/_/art-808/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "808",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Serão, todavia, exigidos os atos constitutivos, e demais alterações, utilizados para a lavratura dos instrumentos particulares, ainda que com efeito de escritura pública, salvo se arquivadas em repositórios da Central de Registro de Imóveis ou da própria serventia."
+    },
+    {
+      "chave": "IX/c/_/art-809",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "809",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Havendo divergência entre o título e a matrícula ou transcrição quanto ao nome e demais dados de qualificação das partes, serão exigidos os documentos e declarações necessários."
+    },
+    {
+      "chave": "IX/c/_/art-809/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "809",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Salvo se houver solicitação expressa no título apresentado, será exigido requerimento específico de averbação."
+    },
+    {
+      "chave": "IX/c/_/art-809/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "809",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Será feita uma averbação por pessoa, física ou jurídica, não importando a quantidade de elementos a serem alterados ou acrescentados, salvo na situação disposta no § 1º, que será objeto de averbação específica."
+    },
+    {
+      "chave": "IX/c/_/art-809/paragrafo-4",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "809",
+        "paragrafo": "§ 4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Em se tratando de pessoa jurídica, serão apresentados, além dos atos constitutivos e demais alterações, certidão específica contendo o histórico de atos registrados, emitida pela Junta Comercial no caso de sociedade empresária, pela Ordem dos Advogados do Brasil, no caso de sociedade de advogados e certidão do registro civil das pessoas jurídicas, nos demais casos."
+    },
+    {
+      "chave": "IX/c/_/art-810",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "810",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Cabe ao oficial de registro de imóveis exigir prova de quitação do imposto municipal de transmissão onerosa de bens imóveis – ITBI ou reconhecimento administrativo de não incidência, imunidade ou concessão de isenção pela autoridade fazendária municipal."
+    },
+    {
+      "chave": "IX/c/_/art-810/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "810",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Será exigida prova de quitação do ITBI ou reconhecimento administrativo de não incidência, imunidade ou concessão de isenção no caso de cancelamento de atos que importem transmissão, quando as partes resolverem a retratação do contrato que já houver sido registrado, bem assim quando o vendedor exercer o direito de preferência."
+    },
+    {
+      "chave": "IX/c/_/art-810/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "810",
+        "paragrafo": "§ 2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Comprova-se a quitação mediante apresentação de documento de avaliação e do comprovante de pagamento do ITBI."
+    },
+    {
+      "chave": "IX/c/_/art-810/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "810",
+        "paragrafo": "§ 3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Além de descrever o imóvel, o documento de arrecadação municipal deverá mencionar o título de transmissão levado a registro e os nomes dos transmitentes e adquirentes."
+    },
+    {
+      "chave": "IX/c/_/art-811",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "811",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Cabe ao oficial de registro de imóveis exigir prova de quitação do imposto estadual de transmissão causa mortis ou gratuita de bens imóveis – ITCD ou reconhecimento administrativo de não incidência, imunidade ou concessão de isenção pela Secretaria da Fazenda do Estado de Goiás – SEFAZ."
+    },
+    {
+      "chave": "IX/c/_/art-811/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "811",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Comprova-se a quitação mediante apresentação de Documento de Arrecadação de Receita Estadual – DARE, do Demonstrativo de Cálculo do ITCD e do"
+    },
+    {
+      "chave": "IX/c/_/art-811/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "811",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para aferição do excedente, será utilizado o valor de avaliação feito pela SEFAZ, e não o atribuído pelos interessados."
+    },
+    {
+      "chave": "IX/c/_/art-811/paragrafo-4",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "811",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Caso haja divergência entre o título e o Demonstrativo de Cálculo do ITCD com relação ao quinhão, meação ou bens deverá ser retificado este ou aquele."
+    },
+    {
+      "chave": "IX/c/_/art-811/paragrafo-5",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "811",
+        "paragrafo": "§5º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Não serão exigidos os documentos mencionados nos parágrafos anteriores quando, nas separações e divórcios, todos os bens comuns do casal forem partilhados individualmente 50% (cinquenta por cento) para cada ex-cônjuge."
+    },
+    {
+      "chave": "IX/c/_/art-812",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "812",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Compete ao oficial de registro fiscalizar o recolhimento, e não o montante, do imposto de transmissão, municipal ou estadual."
+    },
+    {
+      "chave": "IX/c/_/art-813",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "813",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedado o registro de aquisição de imóvel no Cadastro Nacional da Pessoa Jurídica – CNPJ do empresário individual, sendo possível, no entanto, o registro no Cadastro da Pessoa Física – CPF e a afetação do imóvel ao exercício da atividade empresarial."
+    },
+    {
+      "chave": "IX/c/_/art-813/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "813",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A afetação do imóvel ao exercício da atividade empresarial será objeto de averbação e não exige forma especial, mas requer anuência do cônjuge ou companheiro, salvo se casados ou conviventes no regime da separação total de bens."
+    },
+    {
+      "chave": "IX/c/_/art-813/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "813",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Após afetação nos termos do parágrafo anterior, o imóvel poderá ser alienado ou onerado independentemente de anuência do cônjuge ou companheiro do empresário individual."
+    },
+    {
+      "chave": "IX/c/_/art-814",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "814",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os imóveis garantidores das reservas técnicas, das provisões e dos fundos das entidades de previdência poderão ter sua disponibilidade suspensa mediante averbação feita a partir de requerimento firmado pela própria entidade e pela Superintendência de Seguros Privados – SUSEP."
+    },
+    {
+      "chave": "IX/c/_/art-814/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "814",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Constará da averbação a que se refere o caput que os imóveis garantidores, bem como os direitos deles decorrentes, não poderão ser alienados ou gravados, sob qualquer forma, sem prévia e expressa autorização da Superintendência de Seguros Privados – SUSEP."
+    },
+    {
+      "chave": "IX/c/_/art-814/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "814",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A averbação do direito de preferência independe da existência de cláusula expressa no contrato de locação."
+    },
+    {
+      "chave": "IX/c/_/art-814/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "814",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Caso o contrato contenha expressamente cláusula de vigência em caso de alienação, serão praticados dois atos, sendo um referente ao registro da cláusula de vigência e outro relacionado à averbação da cláusula de preferência, salvo se houver requerimento de cindibilidade por parte do locatário solicitando a prática de um deles apenas."
+    },
+    {
+      "chave": "IX/c/_/art-814/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "814",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O registro e a averbação serão feitos à vista de qualquer das vias do contrato de locação, desde que subscrito também por duas testemunhas, e, havendo condomínio, bastará a coincidência entre o nome de um dos proprietários e o locador."
+    },
+    {
+      "chave": "IX/c/_/art-816",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "816",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A alteração do regime de bens para modalidade diversa do regime legal deverá ser precedida do registro da sentença que autorizou a mudança no Livro nº 3 do registro imobiliário da circunscrição do domicílio dos cônjuges."
+    },
+    {
+      "chave": "IX/c/_/art-816/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "816",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para averbação da alteração que trata o caput em imóvel matriculado em circunscrição imobiliária diversa do domicílio dos cônjuges, deverá ser apresentada, pelos interessados, a certidão de registro competente para averbação na matrícula do respectivo imóvel."
+    },
+    {
+      "chave": "IX/c/_/art-816/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "816",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A sentença transitada em julgado, acompanhada da certidão atualizada do casamento, da qual conste a modificação do regime de bens, servirá de título para o registro, não sendo exigido pacto antenupcial, pacto pós-nupcial ou escritura pública."
+    },
+    {
+      "chave": "IX/c/_/art-817",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "817",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A transferência de bem imóvel de propriedade do sócio para pessoa jurídica em integralização de capital social poderá ser realizada por certidão de arquivamento emitida pela Junta Comercial."
+    },
+    {
+      "chave": "IX/c/_/art-817/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "817",
+        "paragrafo": "§ 1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Caso a certidão que trata o caput não contenha o imóvel integralizado, deverá ser apresentado o ato (escritura pública ou instrumento particular) de constituição e, caso necessário, de alteração, relativo à integralização."
+    },
+    {
+      "chave": "IX/c/_/art-817/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "817",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Será necessária à anuência do cônjuge do sócio casado sob o regime de bem comunicante para a integralização de imóvel ao capital social da sociedade empresária, nos"
+    },
+    {
+      "chave": "IX/c/_/art-817/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "817",
+        "paragrafo": "§2º",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "se o regime for não comunicante e o bem pertencer a ambos os cônjuges, a transferência da quota-parte sobre o imóvel será dada necessariamente por escritura pública, respeitado o art. 108 do Código Civil. (Inciso com redação dada pelo Provimento nº 62, de 12 de agosto de 2021)"
+    },
+    {
+      "chave": "IX/c/_/art-817/inciso-ii-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "817",
+        "paragrafo": "§2º",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "se o regime for não comunicante e o bem pertencer a ambos os cônjuges, a transferência da quota-parte sobre o imóvel será dada necessariamente por escritura pública, respeitado a art. 108 do Código Civil."
+    },
+    {
+      "chave": "IX/c/_/art-818",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "818",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "As cláusulas de inalienabilidade, de impenhorabilidade e de incomunicabilidade serão estabelecidas em testamento e na doação, incluída, nesta hipótese, a doação modal com imposição de cláusulas restritivas."
+    },
+    {
+      "chave": "IX/c/_/art-818/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "818",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A revogação extrajudicial de cláusula restritiva imposta na doação poderá ocorrer desde que observada à forma prescrita em lei, em ato no qual compareçam todos os contratantes ou por decisão judicial."
+    },
+    {
+      "chave": "IX/c/_/art-818/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "818",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Impossibilitado de comparecer o doador, em razão de falecimento ou outra causa impeditiva, o percentual que lhe cabia no imóvel continuará gravado, até que advenha o termo ou condição estabelecida para a extinção da cláusula."
+    },
+    {
+      "chave": "IX/c/_/art-818/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "818",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". As cláusulas restritivas de incomunicabilidade e impenhorabilidade não produzem efeitos sobre terceiro adquirente, podendo este, havendo alienação do imóvel, solicitar o cancelamento mediante requerimento com firma reconhecida."
+    },
+    {
+      "chave": "IX/c/_/art-819",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "819",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de citação de ação real ou pessoal reipersecutória independe de ordem judicial e será realizado mediante apresentação pelo interessado de certidão que mencione:"
+    },
+    {
+      "chave": "IX/c/_/art-819/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "819",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "realização da citação;"
+    },
+    {
+      "chave": "IX/c/_/art-819/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "819",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "qualificação das partes;"
+    },
+    {
+      "chave": "IX/c/_/art-819/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "819",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "natureza, número do processo, órgão judicial e nome do magistrado; e"
+    },
+    {
+      "chave": "IX/c/_/art-819/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "819",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "identificação do imóvel, com suas características essenciais, inclusive o número da matrícula ou transcrição. cartório de registro de imóveis à margem da matrícula do bem sujeito à penhora, arresto ou indisponibilidade."
+    },
+    {
+      "chave": "IX/c/_/art-821",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "821",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A averbação da existência de ação cujo resultado ou responsabilidade patrimonial possa reduzir seu proprietário à insolvência dependerá de determinação judicial e será realizada mediante apresentação de mandado que contenha a identificação das partes, o valor da causa e o juízo para o qual a petição inicial foi distribuída."
+    },
+    {
+      "chave": "IX/c/_/art-822",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de adjudicação compulsória será feito mediante apresentação de mandado contendo:"
+    },
+    {
+      "chave": "IX/c/_/art-822/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "qualificação das partes;"
+    },
+    {
+      "chave": "IX/c/_/art-822/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "natureza, número do processo, órgão judicial e nome do magistrado;"
+    },
+    {
+      "chave": "IX/c/_/art-822/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "identificação do imóvel, com suas características essenciais, inclusive o número da matrícula ou transcrição; e"
+    },
+    {
+      "chave": "IX/c/_/art-822/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "certidão do trânsito em julgado da sentença."
+    },
+    {
+      "chave": "IX/c/_/art-822/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O mandado ou a carta de adjudicação serão acompanhados de:"
+    },
+    {
+      "chave": "IX/c/_/art-822/inciso-i-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "cópia da sentença de adjudicação;"
+    },
+    {
+      "chave": "IX/c/_/art-822/inciso-ii-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "cópia da petição inicial; e"
+    },
+    {
+      "chave": "IX/c/_/art-822/inciso-iii-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "822",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "prova de quitação do imposto de transmissão."
+    },
+    {
+      "chave": "IX/c/_/art-823",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "823",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de adjudicação ao exequente do bem penhorado será feito mediante apresentação da carta de adjudicação contendo:"
+    },
+    {
+      "chave": "IX/c/_/art-823/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "823",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "qualificação das partes;"
+    },
+    {
+      "chave": "IX/c/_/art-823/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "823",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "natureza, número do processo, órgão judicial e nome do magistrado;"
+    },
+    {
+      "chave": "IX/c/_/art-823/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "823",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "descrição do imóvel, com remissão à sua matrícula e aos seus registros;"
+    },
+    {
+      "chave": "IX/c/_/art-823/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "823",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "cópia do auto de adjudicação assinado pelo juiz, pelo adjudicatário, pelo escrivão ou chefe de secretaria, e, se estiver presente, pelo executado;"
+    },
+    {
+      "chave": "IX/c/_/art-823/inciso-v",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "823",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "prova de quitação do imposto de transmissão; e"
+    },
+    {
+      "chave": "IX/c/_/art-824",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A decisão que condenar o réu ao pagamento de prestação consistente em dinheiro e a que determinar a conversão de prestação de fazer, de não fazer ou de dar coisa em prestação pecuniária valerão como título constitutivo de hipoteca judiciária."
+    },
+    {
+      "chave": "IX/c/_/art-824/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A hipoteca judiciária poderá ser realizada mediante apresentação de cópia da sentença perante o cartório de registro imobiliário, independentemente de ordem judicial, de declaração expressa do juiz ou de demonstração de urgência."
+    },
+    {
+      "chave": "IX/c/_/art-824/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para o registro da hipoteca judiciária, serão necessárias as seguintes informações:"
+    },
+    {
+      "chave": "IX/c/_/art-824/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": "§2º",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "qualificação completa das partes;"
+    },
+    {
+      "chave": "IX/c/_/art-824/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": "§2º",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "natureza, número do processo, órgão judicial e nome do magistrado;"
+    },
+    {
+      "chave": "IX/c/_/art-824/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": "§2º",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "identificação do imóvel, com suas características essenciais, inclusive o número da matrícula ou transcrição; e"
+    },
+    {
+      "chave": "IX/c/_/art-824/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": "§2º",
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "valor atualizado do débito que se pretende garantir."
+    },
+    {
+      "chave": "IX/c/_/art-824/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Caso as informações mencionadas no parágrafo anterior não constem da sentença, poderão ser apresentadas cópias autenticadas de documentos comprobatórios."
+    },
+    {
+      "chave": "IX/c/_/art-824/paragrafo-4",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "824",
+        "paragrafo": "§4°",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". No caso de designação genérica de caução nos atos judiciais, quando se referirem a imóveis, o oficial de registro deverá oficiar ao respectivo juízo para esclarecimentos quanto a sua natureza, se de direitos relativos a bem imóvel ou se hipoteca judiciária, nos termos do art. 495 do CPC."
+    },
+    {
+      "chave": "IX/c/_/art-825",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "825",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Para presunção absoluta de conhecimento por terceiros, cabe ao exequente providenciar o registro do arresto ou da penhora no registro imobiliário competente, mediante apresentação de cópia do auto ou do termo, independentemente de mandado judicial."
+    },
+    {
+      "chave": "IX/c/_/art-825/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "825",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Do auto ou termo constará as seguintes informações:"
+    },
+    {
+      "chave": "IX/c/_/art-825/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "825",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "qualificação completa das partes;"
+    },
+    {
+      "chave": "IX/c/_/art-825/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "825",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "natureza, número do processo, órgão judicial e nome do magistrado;"
+    },
+    {
+      "chave": "IX/c/_/art-825/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "825",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "identificação do imóvel, com suas características essenciais, inclusive o número da matrícula ou transcrição; e"
+    },
+    {
+      "chave": "IX/c/_/art-826",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "826",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A pedido do interessado poderá ser registrado do sequestro no ofício imobiliário competente, mediante apresentação do mandado judicial."
+    },
+    {
+      "chave": "IX/c/_/art-826/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "826",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Do mandado judicial constará as seguintes informações:"
+    },
+    {
+      "chave": "IX/c/_/art-826/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "826",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "qualificação completa das partes;"
+    },
+    {
+      "chave": "IX/c/_/art-826/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "826",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "natureza, número do processo, órgão judicial e nome do magistrado;"
+    },
+    {
+      "chave": "IX/c/_/art-826/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "826",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "identificação do imóvel, com suas características essenciais, inclusive o número da matrícula ou transcrição; e"
+    },
+    {
+      "chave": "IX/c/_/art-826/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "826",
+        "paragrafo": "Parágrafo único.",
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "valor atualizado do débito."
+    },
+    {
+      "chave": "IX/c/_/art-827",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de partilha, de adjudicação e de arrolamento será feito mediante apresentação de escritura pública ou, se judicial, de formal de partilha ou de carta de adjudicação contendo:"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "termo de inventariante e título de herdeiros, se for o caso;"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "avaliação dos bens;"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "avaliação dos bens que constituíram o quinhão do herdeiro;"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "pagamento do quinhão hereditário;"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-v",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "prova de quitação dos impostos;"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-vi",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "sentença;"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-vii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "natureza, número do processo e órgão judicial, se for o caso;"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-viii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "qualificação das partes, com indicação de nome completo, nacionalidade, profissão, número da carteira de identidade com o órgão expedidor, número do CPF e endereço completo;"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-ix",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "IX"
+      },
+      "texto_normativo_exato": "descrição dos imóveis objeto da partilha, citando, inclusive, as suas características e os números das matrículas; e"
+    },
+    {
+      "chave": "IX/c/_/art-827/inciso-x",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": "X"
+      },
+      "texto_normativo_exato": "termo de cessão, se houver."
+    },
+    {
+      "chave": "IX/c/_/art-827-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A. A escritura pública de cessão de direitos hereditários não se destina a registro, mas seus efeitos se protraem na partilha. (Artigo acrescido pelo Provimento nº 98, de 26 de disponibilidade, recolhimento dos tributos incidentes e emissão de Declaração de Operações Imobiliárias – DOI."
+    },
+    {
+      "chave": "IX/c/_/art-827/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "827",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Na hipótese do §1º deste artigo, figurarão como transmitentes os herdeiros que receberam o respectivo bem como quinhão hereditário e o cônjuge meeiro."
+    },
+    {
+      "chave": "IX/c/_/art-828",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "828",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A averbação da alteração do estado civil por separação, divórcio, restabelecimento de sociedade conjugal, nulidade ou anulação de casamento será feita mediante a apresentação da certidão de casamento com a respectiva averbação."
+    },
+    {
+      "chave": "IX/c/_/art-829",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "829",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Sendo o imóvel bem particular de um dos cônjuges e havendo separação, divórcio ou óbito do outro cônjuge, bastará a respectiva averbação, sendo desnecessário o registro do instrumento de partilha para fins de disponibilidade."
+    },
+    {
+      "chave": "IX/c/_/art-830",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "830",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Sendo o imóvel bem comum a ambos os cônjuges, havendo separação ou divórcio consumado pendente de partilha, será averbada a alteração do estado civil mediante apresentação da certidão de casamento atualizada, ficando o bem em estado de comunhão."
+    },
+    {
+      "chave": "IX/c/_/art-831",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "831",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Em atendimento ao princípio da continuidade, no caso de escritura ou formal de partilha conjuntivo (dois ou mais de cujus) decorrente de inventário, as partilhas serão registradas na sequência de abertura de cada sucessão."
+    },
+    {
+      "chave": "IX/c/_/art-831/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "831",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para o fim previsto no caput, as partilhas deverão discriminar os pagamentos por sucessão."
+    },
+    {
+      "chave": "IX/c/_/art-831/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "831",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O registro da partilha indicará o estado civil dos beneficiários à época da abertura da respectiva sucessão."
+    },
+    {
+      "chave": "IX/c/_/art-832",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "832",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro da adjudicação ou da arrematação em processo judicial será feito mediante apresentação dos seguintes títulos, documentos e informações:"
+    },
+    {
+      "chave": "IX/c/_/art-832/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "832",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "carta de adjudicação ou carta de arrematação contendo a descrição do imóvel,"
+    },
+    {
+      "chave": "IX/c/_/art-832/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "832",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "indicação da existência de eventual ônus real ou gravame."
+    },
+    {
+      "chave": "IX/c/_/art-833",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "833",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O gravame judicial, a indisponibilidade e a averbação premonitória constante da matrícula do imóvel levado a hasta pública, quando originário do mesmo processo que resultou a arrematação ou a adjudicação, será cancelado independente de ordem judicial específica."
+    },
+    {
+      "chave": "IX/c/_/art-833/paragrafo-1",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "833",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A carta de arrematação ou adjudicação, quando dotada dos requisitos necessários ao registro, ou complementada por declarações e documentos, é título hábil à prática dos atos na matrícula."
+    },
+    {
+      "chave": "IX/c/_/art-833/paragrafo-2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "833",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A indisponibilidade averbada na matrícula do imóvel oriunda da Central Nacional de Indisponibilidades de Bens – CNIB não impede o registro da carta de arrematação ou adjudicação, desde que expressamente consignado no título judicial a prevalência da alienação judicial em relação à restrição oriunda de outro juízo ou autoridade administrativa a que foi dada ciência da execução."
+    },
+    {
+      "chave": "IX/c/_/art-833/paragrafo-3",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "833",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". No caso de arrematação, alienação ou adjudicação, a autoridade judicial que determinou tais medidas deverá, expressamente, prever o cancelamento das demais constrições oriundas de outros processos, arcando o interessado com os emolumentos devidos. (Parágrafo com redação dada pelo Provimento nº 152, de 29 de abril de 2025)."
+    },
+    {
+      "chave": "IX/c/_/art-833/paragrafo-3-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "833",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O gravame judicial e a averbação premonitória constante da matrícula do imóvel levado a hasta pública, quando originário de processo distinto do que deu origem a alienação compulsória, não impedirá o registro da carta de arrematação ou adjudicação, devendo o interessado formular pedido de cancelamento diretamente à autoridade judiciária competente."
+    },
+    {
+      "chave": "IX/c/_/art-833/paragrafo-4",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "833",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O gravame judicial e a averbação premonitória constante da matrícula do imóvel levado a hasta pública, quando originário de processo distinto do que deu origem à alienação compulsória, não impedirá o registro da carta de arrematação ou adjudicação. (Parágrafo com redação dada pelo Provimento nº 152, de 29 de abril de 2025)."
+    },
+    {
+      "chave": "IX/c/_/art-833/paragrafo-4-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "833",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Existindo gravame judicial de processo distinto do que deu origem a alienação compulsória, o oficial de registro oficiará ao respectivo juízo comunicando o registro que trata o caput."
+    },
+    {
+      "chave": "IX/c/_/art-833-dup2",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "c",
+          "nome": "ujo registro ou averbação depender de informações complementares disponíveis na própria unidade de serviço ou em serviços de informações de órgãos oficiais publicadas na internet."
+        },
+        "capitulo": null,
+        "artigo": "833",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A. Aplicam-se ao registro do compromisso de compra e venda os mesmos requisitos exigidos para o registro da escritura definitiva, salvo quanto à forma. (Artigo acrescido pelo Provimento nº 71, de 1º de outubro de 2021)."
+    },
+    {
+      "chave": "IX/II/I/art-834",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "834",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Haverá no Registro de Imóveis, além dos livros comuns a todas as serventias, os seguintes:"
+    },
+    {
+      "chave": "IX/II/I/art-834/inciso-i",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "834",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "Livro nº 1 – Protocolo;"
+    },
+    {
+      "chave": "IX/II/I/art-834/inciso-ii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "834",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "Livro nº 2 – Registro Geral;"
+    },
+    {
+      "chave": "IX/II/I/art-834/inciso-iii",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "834",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "Livro nº 3 – Registro Auxiliar;"
+    },
+    {
+      "chave": "IX/II/I/art-834/inciso-iv",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "834",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "Livro nº 4 – Indicador Real;"
+    },
+    {
+      "chave": "IX/II/I/art-834/inciso-v",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "834",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "Livro nº 5 – Indicador Pessoal; e"
+    },
+    {
+      "chave": "IX/II/I/art-834/inciso-vi",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "834",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "Livro de Registro de Aquisição de Imóveis Rurais por Estrangeiros."
+    },
+    {
+      "chave": "IX/II/I/art-835",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "835",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Com exceção do Livro nº 1 – Protocolo, os demais livros do registro imobiliário poderão ser substituídos por fichas."
+    },
+    {
+      "chave": "IX/II/I/art-835/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "835",
+        "paragrafo": "Parágrafo único.",
+        "inciso": null
+      },
+      "texto_normativo_exato": "As fichas deverão possuir dimensões que permitam a extração de cópias reprográficas e facilitem o manuseio, a boa compreensão da sequência lógica dos atos e o arquivamento."
+    },
+    {
+      "chave": "IX/II/I/art-836",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "836",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Livro nº 1 – Protocolo poderá ser escriturado eletronicamente em base de dados relacional, devendo ser impresso e encerrado diariamente."
+    },
+    {
+      "chave": "IX/II/I/art-837",
+      "metadados_origem": {
+        "livro": "IX",
+        "livro_nome": "DO REGISTRO DE IMÓVEIS",
+        "titulo": {
+          "id": "II",
+          "nome": "LIVROS"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "837",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Livro nº 4 – Indicador Real, o Livro nº 5 – Indicador Pessoal e o"
+    }
+  ]
+}

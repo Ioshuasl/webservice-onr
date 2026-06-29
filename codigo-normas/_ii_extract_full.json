@@ -1,0 +1,4091 @@
+{
+  "parte": "PARTE GERAL",
+  "livro": "II",
+  "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+  "total": 233,
+  "lotes": 16,
+  "dupKeys": [
+    "II/I/I/art-34",
+    "II/I/I/art-34-dup2",
+    "II/III/_/art-57",
+    "II/III/_/art-57-dup2",
+    "II/IV/_/art-61",
+    "II/IV/_/art-61-dup2",
+    "II/V/_/art-68",
+    "II/V/_/art-68-dup2",
+    "II/VII/I/art-75",
+    "II/VII/I/art-75-dup2",
+    "II/VII/I/art-76",
+    "II/VII/I/art-76-dup2"
+  ],
+  "incompletos": 112,
+  "incompletosChaves": [
+    "II/I/I/art-35/paragrafo-1",
+    "II/I/I/art-35/paragrafo-2",
+    "II/I/II/art-38",
+    "II/I/II/art-38/inciso-i",
+    "II/I/II/art-38/inciso-ii",
+    "II/I/II/art-39",
+    "II/I/II/art-39/inciso-ii",
+    "II/I/II/art-39/inciso-v",
+    "II/I/II/art-39/inciso-vi",
+    "II/I/II/art-39/inciso-viii",
+    "II/d/_/art-41",
+    "II/d/_/art-41/inciso-i",
+    "II/d/_/art-41/inciso-iv",
+    "II/d/_/art-41/inciso-v",
+    "II/d/_/art-41/paragrafo-2/inciso-iii",
+    "II/d/III/art-44/paragrafo-1",
+    "II/d/III/art-44/paragrafo-2",
+    "II/d/III/art-44/paragrafo-3",
+    "II/d/IV/art-45/inciso-i",
+    "II/d/IV/art-45/inciso-ii",
+    "II/d/IV/art-45/inciso-iii",
+    "II/II/_/art-48/inciso-i",
+    "II/II/_/art-48/inciso-ii",
+    "II/II/_/art-48/inciso-iii",
+    "II/II/_/art-48/inciso-iv",
+    "II/II/_/art-48/inciso-v",
+    "II/II/_/art-48/paragrafo-1",
+    "II/II/_/art-48/paragrafo-2",
+    "II/II/_/art-49",
+    "II/II/_/art-49/inciso-i",
+    "II/II/_/art-49/inciso-ii",
+    "II/II/_/art-49/inciso-iii",
+    "II/II/_/art-49/inciso-iv",
+    "II/II/_/art-49/inciso-v",
+    "II/II/_/art-50/paragrafo-1",
+    "II/II/_/art-50/paragrafo-1",
+    "II/II/_/art-50/paragrafo-2",
+    "II/II/_/art-50/paragrafo-3",
+    "II/II/_/art-50/paragrafo-4",
+    "II/III/_/art-52/paragrafo-1",
+    "II/III/_/art-52/paragrafo-2",
+    "II/III/_/art-52/paragrafo-3",
+    "II/III/_/art-53/inciso-i",
+    "II/III/_/art-53/paragrafo-1",
+    "II/III/_/art-53/paragrafo-1/inciso-i",
+    "II/III/_/art-53/paragrafo-1/inciso-ii",
+    "II/III/_/art-53/paragrafo-1/inciso-iii",
+    "II/III/_/art-54",
+    "II/III/_/art-54/inciso-i",
+    "II/III/_/art-54/inciso-ii",
+    "II/III/_/art-55/inciso-i",
+    "II/III/_/art-55/inciso-ii",
+    "II/III/_/art-58",
+    "II/III/_/art-58/inciso-i",
+    "II/III/_/art-58/inciso-ii",
+    "II/III/_/art-58/inciso-iii",
+    "II/III/_/art-58/inciso-viii",
+    "II/III/_/art-58/inciso-ix",
+    "II/III/_/art-58/inciso-xiii",
+    "II/III/_/art-58/inciso-xv",
+    "II/III/_/art-58/inciso-xvi",
+    "II/III/_/art-58/inciso-xvii",
+    "II/III/_/art-59/paragrafo-1",
+    "II/III/_/art-59/paragrafo-2",
+    "II/III/_/art-59/paragrafo-3",
+    "II/III/_/art-60/inciso-ii",
+    "II/III/_/art-60/paragrafo-1",
+    "II/III/_/art-60/paragrafo-2",
+    "II/III/_/art-60/paragrafo-3",
+    "II/IV/_/art-61/paragrafo-1",
+    "II/IV/_/art-61/paragrafo-1",
+    "II/IV/_/art-61/paragrafo-2",
+    "II/IV/_/art-61/paragrafo-2",
+    "II/IV/_/art-61/paragrafo-3",
+    "II/IV/_/art-61/paragrafo-3",
+    "II/IV/_/art-61/paragrafo-4",
+    "II/IV/_/art-61/paragrafo-5",
+    "II/IV/_/art-62/paragrafo-1",
+    "II/IV/_/art-62/paragrafo-2",
+    "II/IV/_/art-62/paragrafo-3",
+    "II/V/_/art-66/paragrafo-1",
+    "II/V/_/art-66/paragrafo-2",
+    "II/V/_/art-66/paragrafo-3",
+    "II/V/_/art-66/paragrafo-4",
+    "II/V/_/art-66/paragrafo-5",
+    "II/V/_/art-66/paragrafo-6",
+    "II/V/_/art-66/paragrafo-7",
+    "II/V/_/art-68/inciso-ii",
+    "II/V/_/art-68/paragrafo-1",
+    "II/V/_/art-68/paragrafo-2",
+    "II/VI/_/art-70",
+    "II/VI/_/art-70/inciso-iii",
+    "II/VI/_/art-71/inciso-i",
+    "II/VI/_/art-71/inciso-iii",
+    "II/VI/_/art-71/inciso-iv",
+    "II/VI/_/art-71/inciso-v",
+    "II/VI/_/art-71/paragrafo-1",
+    "II/VI/_/art-71/paragrafo-1",
+    "II/VI/_/art-71/paragrafo-2",
+    "II/VI/_/art-71/paragrafo-2",
+    "II/VI/_/art-71/paragrafo-3",
+    "II/VI/_/art-71/paragrafo-4",
+    "II/VI/_/art-71/paragrafo-5",
+    "II/VII/II/art-77/inciso-i",
+    "II/VII/II/art-77/inciso-iv",
+    "II/VII/II/art-78/inciso-i",
+    "II/VII/II/art-78/inciso-ii",
+    "II/VII/II/art-78/inciso-iii",
+    "II/VII/II/art-81/paragrafo-1",
+    "II/VII/II/art-81/paragrafo-2",
+    "II/VII/II/art-82",
+    "II/VII/II/art-82/inciso-i"
+  ],
+  "items": [
+    {
+      "chave": "II/I/I/art-32",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "32",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O ingresso na titularidade dos serviços notariais e de registros dar-se-á por meio de concurso público de provas e títulos, para provimento ou remoção, a ser realizado pelo Poder Judiciário, com a participação, em todas as suas fases, da Ordem dos Advogados do Brasil, do Ministério Público, de um Notário e de um Registrador.5"
+    },
+    {
+      "chave": "II/I/I/art-33",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "33",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Encerrado o procedimento de escolha das serventias e lavrada a respectiva ata, os candidatos serão declarados habilitados no certame, observada a rigorosa ordem de classificação, e receberão a outorga da delegação por ato do Presidente do Tribunal de Justiça."
+    },
+    {
+      "chave": "II/I/I/art-34",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "34",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A investidura na delegação dar-se-á no prazo de 30 (trinta) dias, prorrogável uma vez, por igual período, por ato do Corregedor-Geral da Justiça, a requerimento do interessado. (“Caput” do artigo com redação dada pelo Provimento nº 71, de 1º de outubro de 2021)."
+    },
+    {
+      "chave": "II/I/I/art-34-dup2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "34",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A investidura na delegação dar-se-á no prazo de 30 (trinta) dias, prorrogável uma vez, por igual período, por ato do Presidente do Tribunal de Justiça, a requerimento do interessado."
+    },
+    {
+      "chave": "II/I/I/art-34/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "34",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Transcorrido o prazo previsto no caput e não ocorrendo a investidura, a outorga da delegação tornar-se-á sem efeito por ato do Presidente do Tribunal de Justiça."
+    },
+    {
+      "chave": "II/I/I/art-35",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "35",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O exercício da atividade notarial e de registro iniciar-se-á no prazo improrrogável de 30 (trinta) dias, contado da investidura."
+    },
+    {
+      "chave": "II/I/I/art-35/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "35",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". É competente para dar exercício ao delegatário o Corregedor-Geral da Justiça"
+    },
+    {
+      "chave": "II/I/I/art-35/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "35",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Transcorrido em branco o prazo previsto no caput, aplica-se o disposto no"
+    },
+    {
+      "chave": "II/I/I/art-35/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "35",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "do artigo 34."
+    },
+    {
+      "chave": "II/I/I/art-36",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "36",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A entrada em exercício pelo titular será condicionada à comprovação de que não exerce cargo, emprego ou função pública, ainda que em comissão, atividade obstativa prevista em lei6 ou, ainda, à desvinculação de qualquer atividade privada."
+    },
+    {
+      "chave": "II/I/I/art-36/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DA OUTORGA, DA INVESTIDURA E DO EXERCÍCIO4"
+        },
+        "artigo": "36",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Nas hipóteses descritas no caput, o titular apresentará renúncia, devidamente homologada, comprovante de desvinculação de atividade privada ou a baixa na Carteira de Trabalho e Previdência Social – CTPS, conforme o caso."
+    },
+    {
+      "chave": "II/I/II/art-37",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "37",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O notário e o oficial de registro gozam de independência no exercício de suas atribuições e só perderão a delegação nas hipóteses previstas em lei."
+    },
+    {
+      "chave": "II/I/II/art-38",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "38",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "São direitos do notário e do registrador:"
+    },
+    {
+      "chave": "II/I/II/art-38/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "38",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "receber os emolumentos integrais pelos atos praticados no exercício da delegação;"
+    },
+    {
+      "chave": "II/I/II/art-38/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "38",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "exercer opção, nos casos de desmembramento ou desdobramento de sua serventia; e"
+    },
+    {
+      "chave": "II/I/II/art-38/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "38",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "organizar associações ou sindicatos de classe e deles participar."
+    },
+    {
+      "chave": "II/I/II/art-39",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "São deveres dos Notários e Registradores:"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "manter em local adequado, devidamente ordenados, livros, fichas, arquivos, documentos, papéis, microfilmes, sistemas de computação da serventia, além das cópias dos dados armazenados, respondendo por sua segurança, ordem e conservação;"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "atender as partes com eficiência, urbanidade e presteza;"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "atender prioritariamente as requisições de papéis, documentos, informações ou providências que lhes forem solicitadas pelas autoridades judiciárias ou administrativas para a defesa das pessoas jurídicas de direito público em juízo;"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "manter em arquivo, físico ou digital, leis, regulamentos, resoluções, provimentos, regimentos, ordens de serviço e quaisquer outros atos que digam respeito à atividade;"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-v",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "proceder de forma a dignificar a função exercida, tanto nas atividades profissionais como na vida privada;"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-vi",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "guardar sigilo sobre a documentação e os assuntos de natureza reservada de que tenham conhecimento em razão do ofício;"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-vii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "afixar em local visível, de fácil leitura e acesso ao público, as tabelas de emolumentos em vigor e suas notas explicativas, bem como aviso de sugestões e reclamações com os endereços e contato do Fórum local, Corregedoria-Geral da Justiça e Ouvidoria do Tribunal de Justiça do Estado de Goiás;"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-viii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "observar os emolumentos fixados para a prática dos atos;"
+    },
+    {
+      "chave": "II/I/II/art-39/inciso-ix",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DOS NOTÁRIOS E REGISTRADORES"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DOS DIREITOS, DOS DEVERES E DAS VEDAÇÕES"
+        },
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "IX"
+      },
+      "texto_normativo_exato": "fornecer recibo ou nota fiscal aos usuários, que discrimine os valores pagos a"
+    },
+    {
+      "chave": "II/d/_/art-39",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A. Os cartórios extrajudiciais do Estado de Goiás devem divulgar os contatos do Serviço de Atendimento ao Usuário nos ambientes de atendimento ao público, observando as seguintes especificações: (Parágrafo acrescido pelo Provimento nº 166, 26 de junho de 2025)."
+    },
+    {
+      "chave": "II/d/_/art-39/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "Adesivo no formato A5 (14,8 cm de largura por 21 cm de comprimento), contendo a arte própria desenvolvida pela Corregedoria do Foro Extrajudicial, a ser fixado em todas as mesas e guichês de atendimento, incluindo o caixa;"
+    },
+    {
+      "chave": "II/d/_/art-39/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "Cartaz no formato A2 (42 cm de largura por 59,4 cm de comprimento), impresso em material resistente ou plastificado, contendo a arte própria desenvolvida pela Corregedoria do Foro Extrajudicial, a ser afixado em todos os salões de atendimento e em todas as recepções;"
+    },
+    {
+      "chave": "II/d/_/art-39/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "39",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "O material a ser utilizado para a confecção dos adesivos e dos cartazes será fornecido pela Corregedoria do Foro Extrajudicial conforme arte em anexo, e sua reposição caberá à serventia respectiva, obedecendo à semelhança do padrão de cores, dos tamanhos, da gramatura e do desenho gráfico;"
+    },
+    {
+      "chave": "II/d/_/art-40",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "40",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O notário e o registrador não poderão praticar, pessoalmente, qualquer ato de seu interesse, ou de interesse de seu cônjuge ou de parentes, na linha reta, ou na colateral, consanguíneos ou afins, até o terceiro grau, aplicando-se, no que couber, o disposto no artigo 45 deste Código."
+    },
+    {
+      "chave": "II/d/_/art-41",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedado ao notário e registrador:"
+    },
+    {
+      "chave": "II/d/_/art-41/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "praticar atos do seu ofício fora do território da circunscrição para a qual recebeu a delegação;"
+    },
+    {
+      "chave": "II/d/_/art-41/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "cobrar valor adicional por consulta ou qualquer outra prestação de serviço distinto dos valores de emolumentos, taxa judiciária e fundos estaduais ou diversos dos legalmente previstos;"
+    },
+    {
+      "chave": "II/d/_/art-41/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "lavrar instrumentos particulares e realizar qualquer trabalho que refuja à peculiaridade de suas atribuições e aos atos do ofício;"
+    },
+    {
+      "chave": "II/d/_/art-41/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "recusar ou retardar, desmotivadamente, a prática de qualquer ato de sua atribuição;"
+    },
+    {
+      "chave": "II/d/_/art-41/inciso-v",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "expedir atos internos que limitem ou dificultem o atendimento a pessoas que se utilizem dos serviços da serventia; e"
+    },
+    {
+      "chave": "II/d/_/art-41/inciso-vi",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "praticar publicidade com fins comerciais, ressalvadas as propagandas de cunho meramente informativo que objetivem a divulgação das atribuições do serviço, qualificação do responsável pela serventia e prepostos, endereço, horário de atendimento, tabela de emolumentos ou notícias e informações voltadas a difundir as atividades notariais e registrais."
+    },
+    {
+      "chave": "II/d/_/art-41/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os delegatários e responsáveis interinos pelos serviços extrajudiciais deverão comunicar à Corregedoria do Foro Extrajudicial a criação ou alteração de perfis institucionais em redes sociais, bem como de páginas eletrônicas, por meio do preenchimento do campo próprio disponibilizado no Sistema Extrajudicial Eletrônico – SEE. (Parágrafo acrescido pelo Provimento nº 175, de 11 de dezembro de 2025 )"
+    },
+    {
+      "chave": "II/d/_/art-41/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A criação e a manutenção de perfis ou páginas institucionais (home pages) em redes sociais, pelas serventias extrajudiciais, deverão observar, cumulativamente, os seguintes"
+    },
+    {
+      "chave": "II/d/_/art-41/paragrafo-2/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": "§2º",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "vedação de manifestações de cunho político-partidário, religioso ou discriminatório;"
+    },
+    {
+      "chave": "II/d/_/art-41/paragrafo-2/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": "§2º",
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "disponibilização de canal de contato destinado ao recebimento de sugestões e reclamações dos usuários dos serviços extrajudiciais, com referência expressa aos canais oficiais da Corregedoria do Foro Extrajudicial (Serviço de Atendimento ao Usuário – SAU) e da própria serventia;"
+    },
+    {
+      "chave": "II/d/_/art-41/paragrafo-2/inciso-v",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": "§2º",
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "vedação de utilização de recursos para impulsionamento, promoção ou divulgação, remunerada ou não, de conteúdos publicitários, em quaisquer plataformas físicas ou digitais."
+    },
+    {
+      "chave": "II/d/_/art-41/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedada a utilização da logomarca do Tribunal de Justiça do Estado de Goiás em quaisquer publicações, digitais ou impressas, salvo mediante autorização expressa da Assessoria de Comunicação Social do TJGO. (Parágrafo acrescido pelo Provimento nº 175, de 11 de dezembro de 2025)"
+    },
+    {
+      "chave": "II/d/_/art-41/paragrafo-4",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "41",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A Corregedoria do Foro Extrajudicial poderá determinar a suspensão, exclusão ou adequação de conteúdos veiculados em home pages ou perfis institucionais das serventias extrajudiciais que contrariem os princípios da publicidade institucional e da moralidade administrativa, infrinjam normas técnicas aplicáveis ou revelem conduta incompatível com a dignidade, a finalidade pública ou a credibilidade da atividade notarial e registral, sem prejuízo da apuração disciplinar cabível. (Parágrafo acrescido pelo Provimento nº 175, de 11 de dezembro de 2025)"
+    },
+    {
+      "chave": "II/d/_/art-42",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": null,
+        "artigo": "42",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É defeso a realização de teletrabalho pelos notários e registradores.9"
+    },
+    {
+      "chave": "II/d/III/art-43",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS AFASTAMENTOS"
+        },
+        "artigo": "43",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O notário ou registrador que se afastar da serventia pelo prazo superior a 15 (quinze) dias comunicará, previamente, ao Corregedor Permanente e à Corregedoria-Geral da Justiça o motivo do afastamento, a data ou a previsão de retorno e o substituto legal."
+    },
+    {
+      "chave": "II/d/III/art-44",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS AFASTAMENTOS"
+        },
+        "artigo": "44",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O notário ou registrador que desejar concorrer a mandato eletivo, afastarse-á do exercício do serviço delegado 90 (noventa) dias antes do pleito eleitoral e, sendo eleito, desde a sua diplomação.10 11"
+    },
+    {
+      "chave": "II/d/III/art-44/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS AFASTAMENTOS"
+        },
+        "artigo": "44",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Havendo compatibilidade de horários, o notário ou registrador poderá cumular o cargo de vereador com o exercício da atividade delegada, devendo afastar-se nos demais tipos de mandatos eletivos. (Parágrafo revogado pelo Provimento nº 71, de 1º de outubro de 2021)."
+    },
+    {
+      "chave": "II/d/III/art-44/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS AFASTAMENTOS"
+        },
+        "artigo": "44",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Em caso de afastamento do notário ou registrador para o exercício de mandato eletivo, a atividade será conduzida pelo substituto designado nos termos do art. 20, § 5°, da Lei Federal nº 8.935, de 18 de novembro de 1994.12"
+    },
+    {
+      "chave": "II/d/III/art-44/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "III",
+          "nome": "DOS AFASTAMENTOS"
+        },
+        "artigo": "44",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Na hipótese do caput, o notário ou registrador fará jus à percepção integral dos emolumentos gerados em decorrência da atividade que lhe foi delegada."
+    },
+    {
+      "chave": "II/d/IV/art-45",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "45",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Em caso de ausência ou impedimento circunstancial, os notários e registradores serão substituídos pelas pessoas indicadas na seguinte ordem:"
+    },
+    {
+      "chave": "II/d/IV/art-45/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "45",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "substituto legal a que se refere o art. 20, §5º da Lei nº 8.935/1994;"
+    },
+    {
+      "chave": "II/d/IV/art-45/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "45",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "escrevente do mesmo serviço;"
+    },
+    {
+      "chave": "II/d/IV/art-45/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "45",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "titular ou preposto de outro serviço extrajudicial da mesma comarca; ou"
+    },
+    {
+      "chave": "II/d/IV/art-45/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "45",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "titular ou preposto de outra comarca."
+    },
+    {
+      "chave": "II/d/IV/art-46",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "46",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Corregedor Permanente editará Portaria, nos termos do artigo 6º, designando substituto provisório do notário e registrador nos casos de impedimento e ausência circunstanciais, sempre que não houver designação formalizada pelo titular ou na impossibilidade de sua aplicação."
+    },
+    {
+      "chave": "II/d/IV/art-46/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "46",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Se a substituição recair sobre titular ou escrevente de serventia submetida à fiscalização de outro magistrado, este também subscreverá a Portaria."
+    },
+    {
+      "chave": "II/d/IV/art-47",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "47",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Aplicam-se aos interinos e aos interventores nomeados para responder pelo serviço notarial e de registro as mesmas disposições relativas aos deveres, vedações e substituições dos titulares."
+    },
+    {
+      "chave": "II/d/IV/art-47/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "d",
+          "nome": "e Emolumentos, de Taxa Judiciária, de Imposto sobre Serviços – ISS e de cada Fundo Estadual, mantendo-se arquivada a segunda via por meio físico ou eletrônico;"
+        },
+        "capitulo": {
+          "id": "IV",
+          "nome": "DAS DISPOSIÇÕES GERAIS"
+        },
+        "artigo": "47",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Não se aplicam ao interino, ao interventor, e aos seus respectivos substitutos legais, as disposições do artigo 44, revogando-se definitivamente as designações nos 3 (três) meses que antecedem o pleito eleitoral."
+    },
+    {
+      "chave": "II/II/_/art-48",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "As serventias notariais e de registro tornar-se-ão vagas com a extinção da delegação por:13"
+    },
+    {
+      "chave": "II/II/_/art-48/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "morte;"
+    },
+    {
+      "chave": "II/II/_/art-48/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "aposentadoria facultativa;"
+    },
+    {
+      "chave": "II/II/_/art-48/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "invalidez;"
+    },
+    {
+      "chave": "II/II/_/art-48/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "renúncia;"
+    },
+    {
+      "chave": "II/II/_/art-48/inciso-v",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "perda da delegação; ou"
+    },
+    {
+      "chave": "II/II/_/art-48/inciso-vi",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "remoção."
+    },
+    {
+      "chave": "II/II/_/art-48/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A perda da delegação depende de sentença judicial transitada em julgado ou de decisão administrativa de que não caiba mais recurso, assegurado amplo direito de defesa e contraditório."
+    },
+    {
+      "chave": "II/II/_/art-48/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "48",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para efeitos da Lei nº 8.935/94, consideram-se vagos os serviços criados e ainda não instalados, os desanexados, os desacumulados e todos aqueles não providos por meio de concurso público."
+    },
+    {
+      "chave": "II/II/_/art-49",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "49",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A data da vacância corresponderá, em caso de:"
+    },
+    {
+      "chave": "II/II/_/art-49/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "49",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "morte, à do óbito;"
+    },
+    {
+      "chave": "II/II/_/art-49/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "49",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "aposentadoria facultativa, à da publicação do decreto de aposentadoria;"
+    },
+    {
+      "chave": "II/II/_/art-49/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "49",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "invalidez, à da publicação da decisão judicial ou administrativa que a reconheça, das quais não caiba mais recurso;"
+    },
+    {
+      "chave": "II/II/_/art-49/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "49",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "renúncia, à da publicação do decreto de homologação desta;"
+    },
+    {
+      "chave": "II/II/_/art-49/inciso-v",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "49",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "perda da delegação, à da publicação da decisão de que não caiba mais recurso ou da sentença judicial transitada em julgado que impôs a pena de perda; ou"
+    },
+    {
+      "chave": "II/II/_/art-49/inciso-vi",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "49",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "remoção, ao dia em que o notário ou registrador entrar em exercício na nova serventia."
+    },
+    {
+      "chave": "II/II/_/art-49/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "49",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Considerar-se-á vaga a nova serventia extrajudicial com a"
+    },
+    {
+      "chave": "II/II/_/art-50",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "50",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A renúncia é ato unilateral, insuscetível de apreciação pela autoridade, salvo para homologá-la e, havendo causa para processo disciplinar, instaurá-lo de imediato."
+    },
+    {
+      "chave": "II/II/_/art-50/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "50",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Ao receber o pedido de renúncia, a Corregedoria Permanente e a SecretariaExecutiva da Corregedoria-Geral da Justiça certificarão nos autos acerca de eventual existência de procedimento disciplinar em tramitação em desfavor do renunciante. (Artigo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/II/_/art-50/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "50",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Ao receber o pedido de renúncia, o Corregedor Permanente certificará eventual existência de procedimento disciplinar em desfavor do renunciante e encaminhará os autos ao Corregedor-Geral da Justiça, com a indicação do substituto mais antigo para responder pela serventia, nos termos do artigo 52."
+    },
+    {
+      "chave": "II/II/_/art-50/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "50",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Eventual procedimento disciplinar em tramitação em desfavor do renunciante seguirá até decisão final e não obstará a homologação da renúncia."
+    },
+    {
+      "chave": "II/II/_/art-50/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "50",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O renunciante permanecerá responsável pelo serviço até a declaração de vacância e transmissão do acervo ao novo designado, ainda que na forma do artigo 46."
+    },
+    {
+      "chave": "II/II/_/art-50/paragrafo-4",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "50",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O Corregedor Permanente encaminhará os autos ao Corregedor do Foro Extrajudicial, com a indicação do substituto mais antigo para responder pela serventia, nos termos do artigo 52. (Parágrafo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/II/_/art-51",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DA EXTINÇÃO E VACÂNCIA DA DELEGAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "51",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É condição para o exercício da delegação por remoção e para homologação de pedido de aposentadoria voluntária ou de renúncia à delegação, a comprovação, ao Corregedor Permanente, pelo notário ou registrador, da regularidade da sua situação em relação às obrigações trabalhistas, fiscais e previdenciárias, mediante apresentação de certidões negativas das Fazendas Nacional, Estadual e Municipal, FGTS, da Diretoria Financeira do TJGO, bem como de comprovantes de aviso prévio dado a todos os funcionários e de pagamento de verbas rescisórias."
+    },
+    {
+      "chave": "II/III/_/art-52",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "52",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Declarada a vacância da serventia, o Corregedor-Geral da Justiça designará como interino quem exerça há mais tempo a função de escrevente substituto, ainda que não seja o substituto legal.14"
+    },
+    {
+      "chave": "II/III/_/art-52/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "52",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Caso nenhum dos escreventes substitutos reúna condições de responder pela serventia vaga, será designado titular que esteja em exercício no mesmo município ou em município contíguo e que detenha uma das atribuições do serviço vago."
+    },
+    {
+      "chave": "II/III/_/art-52/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "52",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Se não houver titular em condições de responder pela serventia vaga, será designado substituto de outra serventia, bacharel em direito e com 10 (dez) anos de exercício comprovados na atividade notarial ou registral."
+    },
+    {
+      "chave": "II/III/_/art-52/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "52",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A designação de substituto ou titular para responder interinamente pelo expediente vago não poderá recair sobre cônjuge, companheiro ou parente até o terceiro grau, por consanguinidade ou por afinidade, do antigo titular, interino ou interventor ou, ainda, de magistrados do Poder Judiciário do Estado de Goiás."
+    },
+    {
+      "chave": "II/III/_/art-52/paragrafo-4",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "52",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Nas hipóteses deste artigo, o interessado deve estar previamente cadastrado no Banco de Interinos e Interventores da Corregedoria-Geral da Justiça, sendo que o cadastro não compreende direito e nem precedência ao deferimento da interinidade. (Parágrafo acrescido pelo Provimento nº 97, 26 de abril de 2023)."
+    },
+    {
+      "chave": "II/III/_/art-53",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A designação de substituto ou titular para responder interinamente pelo serviço vago não poderá recair sobre pessoa condenada em decisão com trânsito em julgado ou proferida por órgão jurisdicional colegiado, nas seguintes hipóteses:"
+    },
+    {
+      "chave": "II/III/_/art-53/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "atos de improbidade administrativa;"
+    },
+    {
+      "chave": "II/III/_/art-53/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "crimes: a) contra a administração pública; b) contra a incolumidade pública; c) contra a fé pública; d) hediondos; g) eleitorais, para os quais a lei comine pena privativa de liberdade; ou h) de lavagem ou ocultação de bens, direitos e valores."
+    },
+    {
+      "chave": "II/III/_/art-53/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O disposto no caput aplica-se àquele que:"
+    },
+    {
+      "chave": "II/III/_/art-53/paragrafo-1/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": "§1º",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "praticou ato que acarretou a perda do cargo ou emprego público;"
+    },
+    {
+      "chave": "II/III/_/art-53/paragrafo-1/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": "§1º",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "foi excluído do exercício da profissão por decisão judicial ou administrativa do órgão profissional competente;"
+    },
+    {
+      "chave": "II/III/_/art-53/paragrafo-1/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": "§1º",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "teve suas contas relativas ao exercício de cargos ou funções públicas rejeitadas por irregularidade insanável que configure ato doloso de improbidade administrativa, por decisão irrecorrível do órgão competente; ou"
+    },
+    {
+      "chave": "II/III/_/art-53/paragrafo-1/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": "§1º",
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "perdeu a delegação por decisão judicial ou administrativa."
+    },
+    {
+      "chave": "II/III/_/art-53/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "53",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O disposto no inciso II não se aplica ao crime culposo ou considerado de menor potencial ofensivo."
+    },
+    {
+      "chave": "II/III/_/art-54",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "54",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedada a designação, como interino, de:"
+    },
+    {
+      "chave": "II/III/_/art-54/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "54",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "preposto auxiliar de serventia extrajudicial;"
+    },
+    {
+      "chave": "II/III/_/art-54/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "54",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "quem não era substituto ou titular de algum serviço notarial ou de registro na data da vacância; e"
+    },
+    {
+      "chave": "II/III/_/art-54/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "54",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "quem já estiver designado como interino ou interventor em outra serventia."
+    },
+    {
+      "chave": "II/III/_/art-54/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "54",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O disposto neste artigo não se aplica se esgotadas as tentativas de se encontrar outra pessoa apta ou em caso de comprovado interesse público."
+    },
+    {
+      "chave": "II/III/_/art-55",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "55",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Poderá ser designada, excepcionalmente, por decisão fundamentada, pessoa diversa das especificadas no caput e nos §§ 1º e 2º do artigo 52, desde que observados:15"
+    },
+    {
+      "chave": "II/III/_/art-55/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "55",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "conhecimento necessário para o exercício das atividades notariais e registrais;"
+    },
+    {
+      "chave": "II/III/_/art-55/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "55",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "inegável reputação ilibada; e"
+    },
+    {
+      "chave": "II/III/_/art-55/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "55",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "ausência de vínculo que implique prática de nepotismo, nos termos do artigo 52, §3º."
+    },
+    {
+      "chave": "II/III/_/art-56",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "56",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A designação de interino será precedida de consulta ao Corregedor Permanente competente pela fiscalização da serventia extrajudicial vaga, o qual indicará, dentre os candidatos, aquele que preencher os requisitos previstos neste Código."
+    },
+    {
+      "chave": "II/III/_/art-56/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "56",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A indicação prevista no caput precederá de entrevista do Corregedor Permanente para averiguação de capacidade técnica e administrativa, de modo a garantir a segurança dos atos jurídicos e a eficiência nos serviços notariais e registrais. (Parágrafo único acrescido pelo Provimento nº 97, 26 de abril de 2023)."
+    },
+    {
+      "chave": "II/III/_/art-57",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "57",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O indicado para responder interinamente pela serventia extrajudicial vaga declarará, sob pena de responsabilidade, que não se insere nas hipóteses de vedação ao nepotismo e que não sofreu condenação nas hipóteses previstas no artigo 53 desta norma, fazendo-o mediante modelo de ‘Termo de Declaração’ elaborado pela Corregedoria-Geral da Justiça. (“Caput” do artigo com redação dada pelo Provimento nº 62, de 12 de agosto de 2021)."
+    },
+    {
+      "chave": "II/III/_/art-57-dup2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "57",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O indicado para responder interinamente pela serventia extrajudicial vaga declarará, sob pena de responsabilidade, que não se insere nas hipóteses de vedação ao nepotismo e que não sofreu condenação nas hipóteses previstas no Art. 50 desta norma, fazendo-o mediante modelo de ‘Termo de Declaração’ elaborado pela Corregedoria-Geral da Justiça."
+    },
+    {
+      "chave": "II/III/_/art-57/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "57",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Configura-se crime previsto no Código Penal Brasileiro e passível de apuração na forma da lei a falsidade do disposto no caput e nos incisos XV a XVIII do artigo 58."
+    },
+    {
+      "chave": "II/III/_/art-58",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O indicado para responder interinamente pela serventia vaga apresentará, antes de sua designação:"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "documento de identificação;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "certidão atualizada de casamento ou de nascimento;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "comprovante de regularidade cadastral do Cadastro de Pessoas Físicas;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "comprovante de formação em direito e de exercício na atividade notarial ou de registro por 10 (dez) anos, se for o caso;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-viii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "certidão de quitação eleitoral;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-ix",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "IX"
+      },
+      "texto_normativo_exato": "certidão negativa de crimes eleitorais;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-xi",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "XI"
+      },
+      "texto_normativo_exato": "certidão negativa de condenações cíveis por ato de improbidade administrativa e inelegibilidade emitida pelo Conselho Nacional de Justiça;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-xii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "XII"
+      },
+      "texto_normativo_exato": "certidão negativa de antecedentes criminais dos locais de domicílio eleitoral, residencial e de atividade profissional dos últimos 5 (cinco) anos, expedida pela Justiça dos Estados e pela Justiça Federal;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-xiii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "XIII"
+      },
+      "texto_normativo_exato": "última declaração do imposto de renda com a informação de envio e recebimento pela Receita Federal;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-xiv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "XIV"
+      },
+      "texto_normativo_exato": "declaração de não-parentesco com o antigo delegatário, interventor ou interino da serventia e com magistrado do Tribunal de Justiça do Estado de Goiás;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-xv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "XV"
+      },
+      "texto_normativo_exato": "declaração de que não possui débito anterior referente a outra serventia extrajudicial do Estado de Goiás;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-xvi",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "XVI"
+      },
+      "texto_normativo_exato": "declaração de não-acúmulo de cargo, emprego ou função pública, ainda que em comissão;"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-xvii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "XVII"
+      },
+      "texto_normativo_exato": "declaração de não-condenação; e"
+    },
+    {
+      "chave": "II/III/_/art-58/inciso-xviii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": null,
+        "inciso": "XVIII"
+      },
+      "texto_normativo_exato": "declaração de incompatibilidade com o exercício da advocacia, quando bacharel em Direito."
+    },
+    {
+      "chave": "II/III/_/art-58/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "58",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A designação não recairá sobre pessoa destituída de interinidade por quebra de confiança ou titular que responda a procedimento sujeito às penalidades previstas no art. 32 da Lei nº 8.935/94."
+    },
+    {
+      "chave": "II/III/_/art-59",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "59",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A designação de interino será feita no interesse do Poder Público, observados os critérios de conveniência e de oportunidade."
+    },
+    {
+      "chave": "II/III/_/art-59/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "59",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O interino tem, salvo disposição legal ou normativa em contrário, e no que couber, os mesmos direitos e deveres do titular de delegação, e exerce função legitimada na confiança."
+    },
+    {
+      "chave": "II/III/_/art-59/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "59",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Ao interino não se aplica o regime disciplinar dos servidores públicos tampouco as penalidades previstas na Lei nº. 8.935/1994, e sua designação é passível de"
+    },
+    {
+      "chave": "II/III/_/art-59/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "59",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Havendo indícios da prática de crime ou de ato de improbidade administrativa pelo interino ou interventor, serão comunicados o Ministério Público e o Tribunal de Contas do Estado."
+    },
+    {
+      "chave": "II/III/_/art-60",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "60",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A designação de responsável interino pela serventia vaga será revogada se verificada eventual conduta inadequada que importe na quebra da confiança junto ao Tribunal de Justiça do Estado de Goiás ou constatada a ausência de repasses:"
+    },
+    {
+      "chave": "II/III/_/art-60/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "60",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "do excedente a 90,25% (noventa inteiros e vinte e cinco centésimos por cento) dos subsídios de ministro do Supremo Tribunal Federal;"
+    },
+    {
+      "chave": "II/III/_/art-60/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "60",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "dos fundos estaduais16 e demais acréscimos legais; ou"
+    },
+    {
+      "chave": "II/III/_/art-60/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "60",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "da Taxa Judiciária."
+    },
+    {
+      "chave": "II/III/_/art-60/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "60",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Verificada qualquer hipótese dos incisos I a III, aplica-se o disposto no"
+    },
+    {
+      "chave": "II/III/_/art-60/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "60",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "do artigo 72 deste Código."
+    },
+    {
+      "chave": "II/III/_/art-60/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "60",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A decisão do expediente instaurado pelo Corregedor Permanente ficará pendente de homologação pelo Corregedor-Geral da Justiça, que tem atribuição para revogar a designação."
+    },
+    {
+      "chave": "II/III/_/art-60/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DOS INTERINOS"
+        },
+        "capitulo": null,
+        "artigo": "60",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Caberá ao Corregedor Permanente, que se manifestar pela quebra de confiança, formular indicação de novo interino ao Corregedor-Geral da Justiça, nos termos do artigo 59."
+    },
+    {
+      "chave": "II/IV/_/art-61",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O titular da serventia extrajudicial poderá ser afastado preventivamente, no curso de sindicância ou de processo administrativo disciplinar, quando a medida se revelar necessária à apuração das faltas que lhe sejam imputadas, pelo prazo de 90 (noventa) dias, prorrogável por 30 (trinta) dias. (Artigo com redação dada pelo Provimento nº 165, de 25 de junho de 2025). 17"
+    },
+    {
+      "chave": "II/IV/_/art-61-dup2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Na hipótese em que, para a apuração de faltas imputadas a notários ou a oficiais de registro, for necessário o afastamento do titular do serviço, ou a gravidade do caso ensejar a perda da delegação, o Corregedor Permanente poderá suspendê-lo, no primeiro caso, pelo prazo de 90 (noventa) dias, prorrogável por 30 (trinta) dias e, quanto ao último caso, até a decisão final do processo administrativo disciplinar."
+    },
+    {
+      "chave": "II/IV/_/art-61/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O afastamento preventivo será determinado pelo Corregedor Permanente ou, no caso de processo administrativo disciplinar, poderá ser formalizado pela Comissão Processante ao Juiz Auxiliar da Corregedoria do Foro Extrajudicial, que emitirá parecer e encaminhará o procedimento ao Corregedor do Foro Extrajudicial para decisão final. (Parágrafo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/IV/_/art-61/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Suspenso o titular do serviço, competirá ao Corregedor Permanente designar interventor para responder pela serventia, quando o substituto também for acusado das faltas ou a medida se revelar conveniente para os serviços."
+    },
+    {
+      "chave": "II/IV/_/art-61/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Na hipótese de afastamento preventivo, competirá ao Corregedor Permanente designar interventor para responder pela serventia, quando o substituto legal também for alvo de apuração ou a medida se mostrar necessária à continuidade dos serviços. (Parágrafo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/IV/_/art-61/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Durante o período de afastamento, o titular perceberá metade da renda líquida da serventia; outra metade será depositada em conta judicial específica, com correção monetária. 17-Art. 35. A perda da delegação dependerá: (...)"
+    },
+    {
+      "chave": "II/IV/_/art-61/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Durante o período de afastamento, o titular perceberá metade da renda líquida da serventia, devendo a outra metade ser depositada em conta judicial específica, com a devida correção monetária. (Parágrafo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/IV/_/art-61/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Absolvido o titular, caber-lhe-á o levantamento do depósito disposto na segunda parte do § 2º; condenado, o montante será devido ao interventor."
+    },
+    {
+      "chave": "II/IV/_/art-61/paragrafo-4",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Em caso de absolvição, o titular terá direito ao levantamento dos valores depositados na forma do § 3º; sendo condenado, o montante será devido ao interventor. (Parágrafo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/IV/_/art-61/paragrafo-5",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "61",
+        "paragrafo": "§5º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Quando houver fortes indícios da prática de falta grave que possa ensejar a perda da delegação, o Corregedor Permanente poderá determinar o afastamento preliminar do notário ou registrador até decisão final do processo administrativo disciplinar. (Parágrafo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/IV/_/art-62",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "62",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A designação do interventor recairá sobre titular que detenha uma das atribuições do notário ou do oficial de registro suspenso, preferencialmente, no mesmo município ou em município contíguo."
+    },
+    {
+      "chave": "II/IV/_/art-62/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "62",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Inexistindo titular interessado, será designado escrevente substituto de outra serventia bacharel em direito, que denote aptidão para o exercício das funções e apresente reputação ilibada."
+    },
+    {
+      "chave": "II/IV/_/art-62/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "62",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A remuneração do interventor será estipulada pelo Corregedor Permanente e observará a capacidade econômica da serventia, a complexidade do trabalho a ser desenvolvido, e a estimativa de valores a serem percebidos pelo titular, ressalvando que os valores estabelecidos não poderão exceder 90,25% (noventa inteiros e vinte e cinco centésimos por cento) do subsídio mensal dos ministros do Supremo Tribunal Federal."
+    },
+    {
+      "chave": "II/IV/_/art-62/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "62",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A designação de interventor não poderá recair sobre cônjuge, companheiro ou parente até o terceiro grau, por consanguinidade ou por afinidade, do titular afastado ou, ainda, de magistrados do Poder Judiciário do Estado de Goiás."
+    },
+    {
+      "chave": "II/IV/_/art-62/paragrafo-4",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "62",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Nas hipóteses deste artigo, o interessado deve estar previamente cadastrado no Banco de Interinos e Interventores da Corregedoria-Geral da Justiça. (Parágrafo acrescido pelo"
+    },
+    {
+      "chave": "II/IV/_/art-63",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "63",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Antes de sua designação, o indicado como interventor deverá apresentar os documentos do artigo 58 deste Código."
+    },
+    {
+      "chave": "II/IV/_/art-63/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "63",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedada a designação de titular que esteja respondendo a infração sujeita a alguma das penalidades previstas no art. 32 da Lei nº 8.935/94."
+    },
+    {
+      "chave": "II/IV/_/art-64",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "64",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Publicado o ato de designação, o interventor providenciará inventário minucioso da serventia sob intervenção, analisando toda a situação contábil, financeira, tributária, trabalhista e patrimonial, tais como, equipamentos, instalações, livros, programas de informática e mobiliários, devendo, ao final, elaborar relatório circunstanciado, o qual será concluído e encaminhado à Comissão Processante, com cópia para a Corregedoria-Geral da Justiça, no prazo de 30 (trinta) dias."
+    },
+    {
+      "chave": "II/IV/_/art-65",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DOS INTERVENTORES"
+        },
+        "capitulo": null,
+        "artigo": "65",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedada a retirada de livros, documentos, equipamentos de informática ou quaisquer outros bens das instalações da unidade sob intervenção, sem a prévia e expressa autorização do interventor, devendo eventuais dúvidas ou controvérsias serem submetidas à apreciação do Corregedor Permanente."
+    },
+    {
+      "chave": "II/V/_/art-66",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "66",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os notários e os oficiais de registro poderão, para o desempenho de suas funções, contratar escreventes, dentre eles escolhendo os substitutos, e auxiliares como empregados, com remuneração livremente ajustada e sob o regime da legislação do trabalho."
+    },
+    {
+      "chave": "II/V/_/art-66/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "66",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Em cada serviço haverá tantos substitutos, escreventes e auxiliares quantos forem necessários para a satisfatória prestação de serviços, a critério de cada notário ou oficial de registro."
+    },
+    {
+      "chave": "II/V/_/art-66/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "66",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Dentre os substitutos, um deles será designado pelo notário ou oficial de registro para responder pelo respectivo serviço nas suas ausências e nos seus impedimentos, o qual será cadastrado no Sistema Extrajudicial Eletrônico – SEE."
+    },
+    {
+      "chave": "II/V/_/art-66/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "66",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Os substitutos poderão, simultaneamente, com o notário ou o oficial de registro, praticar todos os atos que lhe sejam próprios e autorizados pela legislação regente, inclusive, lavrar testamentos."
+    },
+    {
+      "chave": "II/V/_/art-66/paragrafo-4",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "66",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Os escreventes poderão praticar somente os atos que o notário ou o oficial de registro autorizar."
+    },
+    {
+      "chave": "II/V/_/art-66/paragrafo-5",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "66",
+        "paragrafo": "§5º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O auxiliar desempenhará atividades de apoio técnico, vedado o exercício de funções reservadas aos notários e oficiais de registros ou escreventes."
+    },
+    {
+      "chave": "II/V/_/art-66/paragrafo-6",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "66",
+        "paragrafo": "§6º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A nomeação de substitutos, escreventes e auxiliares, assim como sua destituição, deverá ser feita por meio de portaria interna, que, no caso dos escreventes, discriminará as atribuições de cada um dos designados."
+    },
+    {
+      "chave": "II/V/_/art-66/paragrafo-7",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "66",
+        "paragrafo": "§7º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Cópia da portaria disposta no §6º deste artigo será encaminhada ao Corregedor Permanente da respectiva comarca e arquivada no Sistema Extrajudicial Eletrônico – SEE."
+    },
+    {
+      "chave": "II/V/_/art-67",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "67",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os titulares, interinos, interventores, prepostos e demais colaboradores usarão crachá de identificação relativo à serventia, contendo nome completo, cargo e fotografia atual."
+    },
+    {
+      "chave": "II/V/_/art-67/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "67",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Encerrada a relação contratual, o crachá de identificação perderá"
+    },
+    {
+      "chave": "II/V/_/art-68",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "68",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedada a contratação, como preposto ou colaborador, de cônjuge, companheiro ou parente, natural, civil ou afim, na linha reta ou colateral até terceiro grau, de: (Artigo com redação dada pelo Provimento nº 104 de 20 de julho de 2023)."
+    },
+    {
+      "chave": "II/V/_/art-68/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "68",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "magistrado de qualquer modo incumbido da atividade correicional dos serviços notariais e registrais ou de desembargador integrante do Tribunal de Justiça do Estado de Goiás;18"
+    },
+    {
+      "chave": "II/V/_/art-68/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "68",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "interino designado para responder por serviço extrajudicial vago; e"
+    },
+    {
+      "chave": "II/V/_/art-68/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "68",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "substituto ou interventor designados nas formas do art. 61 deste Código."
+    },
+    {
+      "chave": "II/V/_/art-68/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "68",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A vedação disposta neste artigo se estende até dois anos depois de cessada a vinculação correicional, no caso de magistrado ou de desembargador, e alcança as contratações efetivadas em quaisquer circunstâncias que caracterizem ajuste para burlar a regra estabelecida."
+    },
+    {
+      "chave": "II/V/_/art-68/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "68",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O descumprimento às disposições deste artigo sujeitará o titular, o interino, o substituto ou o interventor à abertura de procedimento administrativo disciplinar ou de quebra de confiança, na forma do artigo 72 deste Código, sem prejuízo de eventual responsabilização nas esferas cível e criminal."
+    },
+    {
+      "chave": "II/V/_/art-68-dup2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "68",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedada a contratação, como preposto, de cônjuge, companheiro ou parente, natural, civil ou afim, na linha reta ou colateral até terceiro grau, de magistrado de qualquer modo incumbido da atividade correicional dos serviços notariais e registrais ou de desembargador integrante do Tribunal de Justiça do Estado de Goiás."
+    },
+    {
+      "chave": "II/V/_/art-68/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DOS PREPOSTOS"
+        },
+        "capitulo": null,
+        "artigo": "68",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A vedação disposta no caput se estende até dois anos depois de cessada a vinculação correicional e alcança as contratações efetivadas em quaisquer circunstâncias que caracterizem ajuste para burlar a regra estabelecida."
+    },
+    {
+      "chave": "II/VI/_/art-69",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "69",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Em caso de falta, ausência ou impedimento circunstancial do Juiz de Paz e de seus suplentes, caberá ao Corregedor Permanente a designação de Juiz de Paz ad hoc, nos termos da lei.19"
+    },
+    {
+      "chave": "II/VI/_/art-70",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "70",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedado o exercício da função de juiz de paz ad hoc por:"
+    },
+    {
+      "chave": "II/VI/_/art-70/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "70",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "titular, interino, interventor ou preposto de serventia extrajudicial; 20"
+    },
+    {
+      "chave": "II/VI/_/art-70/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "70",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "servidor público estadual;21"
+    },
+    {
+      "chave": "II/VI/_/art-70/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "70",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "advogado;22 e"
+    },
+    {
+      "chave": "II/VI/_/art-70/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "70",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "pessoa com filiação a partido político ou em exercício de atividade políticopartidária.23"
+    },
+    {
+      "chave": "II/VI/_/art-70/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "70",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Esgotadas as hipóteses de designação de juiz de paz ad hoc que atenda aos requisitos legais e aos deste Código, designar-se-á excepcionalmente preposto de serventia extrajudicial para exercer a função de modo extraordinário. (Parágrafo único acrescido pelo Provimento nº 106, 20 de setembro de 2023)"
+    },
+    {
+      "chave": "II/VI/_/art-71",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O juiz de paz ad hoc terá domicílio eleitoral na circunscrição da serventia e o procedimento para sua designação tramitará na Diretoria do Foro da comarca respectiva, instruído com:"
+    },
+    {
+      "chave": "II/VI/_/art-71/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "cópia de documento de identificação civil;"
+    },
+    {
+      "chave": "II/VI/_/art-71/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "certidões da Justiça Eleitoral que comprovem a quitação, domicílio eleitoral e a inexistência de filiação a partido político e de atividade político-partidária;"
+    },
+    {
+      "chave": "II/VI/_/art-71/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "certidão de quitação com o serviço militar, se possuir até 45 anos de idade;"
+    },
+    {
+      "chave": "II/VI/_/art-71/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "diploma ou certificado de escolaridade equivalente ao Ensino Médio;"
+    },
+    {
+      "chave": "II/VI/_/art-71/inciso-v",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "comprovante de residência; e"
+    },
+    {
+      "chave": "II/VI/_/art-71/inciso-vi",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "declaração de que não é titular, interino, interventor ou preposto de serventia extrajudicial, servidor público estadual ou advogado."
+    },
+    {
+      "chave": "II/VI/_/art-71/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O Corregedor Permanente expedirá Portaria de designação, estabelecendo prazo de atuação de até 90 (noventa) dias, admitindo-se uma única recondução por igual período. (Parágrafo com redação dada pelo Provimento nº 153, 30 de junho de 2025)."
+    },
+    {
+      "chave": "II/VI/_/art-71/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Preenchidos os requisitos, o Corregedor Permanente expedirá portaria de designação."
+    },
+    {
+      "chave": "II/VI/_/art-71/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A recondução deverá ser formalizada por meio de nova Portaria, a ser submetida à análise desta Casa Censora antes do vencimento do prazo original. (Parágrafo com redação dada pelo Provimento nº 153, 30 de junho de 2025)."
+    },
+    {
+      "chave": "II/VI/_/art-71/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A Secretaria do Foro, no prazo de 5 (cinco) dias, procederá ao preenchimento do cadastro do juiz de paz e do ad hoc, quando for o caso, no acesso restrito do Sistema Extrajudicial Eletrônico – SEE, com anexação de cópia integral digitalizada do procedimento de nomeação ou designação."
+    },
+    {
+      "chave": "II/VI/_/art-71/paragrafo-3",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A nomeação deverá ser devidamente fundamentada e instruída no procedimento administrativo submetido à Corregedoria do Foro Extrajudicial, para aprovação da Portaria de designação editada pela Diretoria do Foro. (Parágrafo acrescido pelo Provimento nº 153, 30 de junho de 2025)."
+    },
+    {
+      "chave": "II/VI/_/art-71/paragrafo-4",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". No prazo de 5 (cinco) dias, a Secretaria do Foro deverá cadastrar o Juiz de Paz e, quando for o caso, o Juiz de Paz ad hoc no acesso restrito do Sistema Extrajudicial Eletrônico – SEE, anexando cópia integral digitalizada do procedimento de nomeação ou designação. (Parágrafo acrescido pelo Provimento nº 153, 30 de junho de 2025)."
+    },
+    {
+      "chave": "II/VI/_/art-71/paragrafo-5",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DO JUIZ DE PAZ AD HOC"
+        },
+        "capitulo": null,
+        "artigo": "71",
+        "paragrafo": "§5º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A publicação do decreto judiciário de designação de Juiz de Paz titular e de seus suplentes implicará a cessação dos efeitos da Portaria de designação de Juiz de Paz ad hoc. (Parágrafo acrescido pelo Provimento nº 153, 30 de junho de 2025)."
+    },
+    {
+      "chave": "II/VII/I/art-72",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "72",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "As regras do regime disciplinar dispostas neste Capítulo aplicam-se aos titulares de serviços notariais e de registro."
+    },
+    {
+      "chave": "II/VII/I/art-72/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "72",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Ao tomar conhecimento de fato que possa caracterizar quebra da confiança depositada no interino ou no interventor designado, o Corregedor Permanente instaurará expediente próprio em que, depois de ouvi-lo e produzir as provas que reputar necessárias, se pronunciará motivadamente pela ocorrência ou não da quebra de confiança e encaminhará cópia de todo o procedimento ao Corregedor-Geral da Justiça."
+    },
+    {
+      "chave": "II/VII/I/art-73",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "73",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os notários e oficiais de registro são civilmente responsáveis por todos os prejuízos que causarem a terceiros, por culpa ou dolo, pessoalmente, pelos substitutos que designarem ou escreventes que autorizarem, assegurado o direito de regresso.24"
+    },
+    {
+      "chave": "II/VII/I/art-74",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "74",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Instaurado processo administrativo disciplinar ou sindicância, o Corregedor Permanente remeterá, desde logo, cópia do ato inaugural à Corregedoria-Geral da Justiça, seguindo-se o mesmo procedimento em relação a todos os atos decisórios subsequentes. (Artigo revogado pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/VII/I/art-75",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "75",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Após a aplicação de pena disciplinar ao notário ou ao oficial de registro pelo Corregedor do Foro Extrajudicial, e confirmada a decisão por meio de seu trânsito em julgado administrativo ou da publicação de decisão administrativa que não caiba mais recurso, deverá ser remetido, quando cabível, cópia dos autos ao Ministério Público e à Procuradoria Geral do Estado para adoção das providências, notadamente quanto ao ajuizamento de demandas nas searas cível e criminal. (Parágrafo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/VII/I/art-75/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "75",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Além das hipóteses descritas no caput, será expedido comunicação à Diretoria de Recursos Humanos do Tribunal de Justiça para anotação na ficha"
+    },
+    {
+      "chave": "II/VII/I/art-75-dup2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "75",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Aplicada pena disciplinar ao notário ou oficial de registro, o Corregedor Permanente, a partir da confirmação do trânsito em julgado ou da publicação da decisão administrativa de que não caiba mais recurso, remeterá, quando cabível, cópia dos autos ao Ministério Público e à Procuradoria-Geral do Estado para adoção das providências, notadamente quanto ao ajuizamento de demandas nas searas cível e criminal."
+    },
+    {
+      "chave": "II/VII/I/art-75/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "75",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Além das hipóteses descritas no caput, o Corregedor Permanente expedirá comunicação à Diretoria de Recursos Humanos do Tribunal de Justiça e à Corregedoria-Geral da Justiça para anotação na ficha funcional do sancionado."
+    },
+    {
+      "chave": "II/VII/I/art-76",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "76",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A sindicância e o procedimento administrativo disciplinar contra titulares dos serviços notarial e de registro observarão o disposto no Livro XI deste Código e, no que couber, e até que sobrevenha legislação específica, às disposições da Lei Estadual nº 20.756/2020, aplicandolhes, supletivamente, as disposições da Lei Estadual nº 13.800/2001, e o Regimento Interno do Tribunal de Justiça do Estado de Goiás, com as ressalvas das disposições especiais da Lei nº 8.935/1994. (Parágrafo com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/VII/I/art-76-dup2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "I",
+          "nome": "DISPOSIÇÕES GERAIS E TRANSITÓRIAS"
+        },
+        "artigo": "76",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A sindicância e o procedimento administrativo disciplinar contra titulares dos serviços notarial e de registro observarão, no que couber, e até que sobrevenha legislação específica, às disposições da Lei Estadual nº 20.756/2020, aplicando-lhes, supletivamente, as disposições da Lei Estadual nº 13.800/2001, do Regimento Interno do Tribunal de Justiça do Estado de Goiás e deste Código, com as ressalvas das disposições especiais da Lei nº 8.935/1994."
+    },
+    {
+      "chave": "II/VII/II/art-77",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "77",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "São infrações disciplinares que sujeitam os notários e os oficiais de registro às penalidades previstas na legislação:25"
+    },
+    {
+      "chave": "II/VII/II/art-77/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "77",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "a inobservância das prescrições legais ou normativas;"
+    },
+    {
+      "chave": "II/VII/II/art-77/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "77",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "a violação do sigilo profissional; e"
+    },
+    {
+      "chave": "II/VII/II/art-77/inciso-v",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "77",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "o descumprimento de quaisquer dos deveres descritos no art. 30 da Lei nº 8.935/94 e no artigo 39 deste Código."
+    },
+    {
+      "chave": "II/VII/II/art-78",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "78",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os titulares dos serviços notariais e registrais estão sujeitos, pelas infrações disciplinares que praticarem, assegurado amplo direito de defesa e contraditório, às seguintes penalidades:"
+    },
+    {
+      "chave": "II/VII/II/art-78/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "78",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "repreensão, no caso de falta leve;"
+    },
+    {
+      "chave": "II/VII/II/art-78/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "78",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "multa, em caso de reincidência ou de infração que não configure falta mais grave;"
+    },
+    {
+      "chave": "II/VII/II/art-78/inciso-iii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "78",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "suspensão por 90 (noventa) dias, prorrogável por mais 30 (trinta), em caso de reiterado descumprimento dos deveres ou de falta grave; e"
+    },
+    {
+      "chave": "II/VII/II/art-78/inciso-iv",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "78",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "perda da delegação."
+    },
+    {
+      "chave": "II/VII/II/art-78/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "78",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "As    penas   serão   impostas   pelo   juízo   competente, independentemente da ordem de gradação, conforme a gravidade do fato."
+    },
+    {
+      "chave": "II/VII/II/art-79",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "79",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A pena de multa será fixada em valor que garanta sua eficácia sancionatória e recolhida ao Fundo de Aparelhamento do Poder Judiciário do Estado de Goiás – FUNDESP, no prazo de 5 (cinco) dias, a contar da intimação."
+    },
+    {
+      "chave": "II/VII/II/art-79/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "79",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A multa não recolhida no prazo do caput será inscrita na dívida ativa do Estado, na forma da regulamentação vigente."
+    },
+    {
+      "chave": "II/VII/II/art-80",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "80",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "As penas disciplinares não excluem a incidência cumulativa das sanções previstas na Lei Estadual nº 14.376/2002 – Regimento de Custas Emolumentos do Estado de Goiás."
+    },
+    {
+      "chave": "II/VII/II/art-81",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "81",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Imposta a pena de suspensão prevista no art. 32, III, da Lei n.º 8.935/94 e no artigo 78, III, deste Código os emolumentos a serem percebidos pelo substituto legal,"
+    },
+    {
+      "chave": "II/VII/II/art-81/paragrafo-1",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "81",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Caso o substituto legal seja cônjuge, companheiro ou parente por consanguinidade ou afinidade, até o terceiro grau, do titular suspenso, observar-se-á o disposto no artigo 45 deste Código."
+    },
+    {
+      "chave": "II/VII/II/art-81/paragrafo-2",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "81",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O excedente ao teto remuneratório previsto no caput será recolhido ao Fundo de Aparelhamento do Poder Judiciário do Estado de Goiás – FUNDESP."
+    },
+    {
+      "chave": "II/VII/II/art-82",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "82",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A perda da delegação dependerá de:"
+    },
+    {
+      "chave": "II/VII/II/art-82/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "82",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "sentença judicial transitada em julgado; ou"
+    },
+    {
+      "chave": "II/VII/II/art-82/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "82",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "decisão do Conselho Superior da Magistratura ou do Órgão Especial decorrente de processo administrativo disciplinar instaurado pelo Corregedor do Foro Extrajudicial, assegurando amplo direito de defesa. (Inciso com redação dada pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/VII/II/art-82/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "82",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "decisão do Conselho Superior da Magistratura ou do Órgão Especial 26 decorrente de processo administrativo instaurado pelo Corregedor Permanente, assegurado amplo direito de defesa."
+    },
+    {
+      "chave": "II/VII/II/art-82/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "82",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Configurada hipótese de perda da delegação, o Corregedor Permanente suspenderá o notário ou oficial de registro, até a decisão final, e designará interventor, observando-se o disposto no Capítulo IV deste Título."
+    },
+    {
+      "chave": "II/VII/II/art-83",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "83",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os titulares poderão ser suspensos, cautelarmente, por decisão fundamentada do Corregedor Permanente: (Artigo revogado pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/VII/II/art-83/inciso-i",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "83",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "para apuração de irregularidades em procedimentos administrativos disciplinares, quando a medida for imprescindível para a instrução processual; e (Inciso revogado pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/VII/II/art-83/inciso-ii",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "83",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "quando, instaurado processo administrativo disciplinar, a gravidade do caso ensejar, ao menos em tese, a perda da delegação. (Inciso revogado pelo Provimento nº 165, de 25 de junho de 2025)."
+    },
+    {
+      "chave": "II/VII/II/art-83/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "II",
+        "livro_nome": "DOS RESPONSÁVEIS PELA SERVENTIA EXTRAJUDICIAL E DOS PREPOSTOS",
+        "titulo": {
+          "id": "VII",
+          "nome": "DO REGIME DISCIPLINAR"
+        },
+        "capitulo": {
+          "id": "II",
+          "nome": "DAS INFRAÇÕES DISCIPLINARES E DAS PENALIDADES"
+        },
+        "artigo": "83",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Aplicam-se as disposições do Título IV deste Livro para as"
+    }
+  ]
+}

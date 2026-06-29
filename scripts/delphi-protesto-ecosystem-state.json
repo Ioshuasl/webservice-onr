@@ -1,0 +1,292 @@
+{
+  "product_slug": "protesto",
+  "product_path": "TabelionatoDeProtesto",
+  "code_root": "C:\\Users\\kenio\\sistema-delphi",
+  "ecosystem_state_file": "scripts/delphi-protesto-ecosystem-state.json",
+  "vault_hub": "Orius/desenvolvimento/legado-delphi/produtos/protesto",
+  "inventario_vault": "Orius/desenvolvimento/legado-delphi/produtos/protesto/inventario/inventario-fontes.json",
+  "active_domain_id": "pt-core-controles",
+  "status": "pending",
+  "started_at": null,
+  "completed_at": null,
+  "triage_rules": [
+    {
+      "glob": "**/dependencias/**",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/ResponsiveListDemo.dpr",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/DemoObjHID.dpr",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/demoprj/Project1.dpr",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/Tests/**",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/*Cópia*",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/*Copia*",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/frxClass.pas",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/mORMotReport.pas",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/*.old/**",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/geral/Controles.pas",
+      "tier": "T1",
+      "action": "full"
+    },
+    {
+      "glob": "**/Principal.pas",
+      "tier": "T1",
+      "action": "full"
+    },
+    {
+      "glob": "**/dm*.pas",
+      "tier": "T1",
+      "action": "full"
+    },
+    {
+      "glob": "**/Lockup*.pas",
+      "tier": "T1",
+      "action": "full"
+    },
+    {
+      "glob": "**/ws*.pas",
+      "tier": "T2",
+      "action": "full"
+    },
+    {
+      "glob": "**/geral_sistemas/**",
+      "tier": "T2",
+      "action": "full"
+    },
+    {
+      "glob": "**/Frame*.pas",
+      "tier": "T3",
+      "action": "full"
+    },
+    {
+      "glob": "**/wsInterface.pas",
+      "tier": "T4",
+      "action": "stub"
+    }
+  ],
+  "domains": {
+    "pt-shell": {
+      "domain_id": "pt-shell",
+      "label": "Shell e login",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/Login.pas",
+        "TabelionatoDeProtesto/geral/Splash.pas",
+        "TabelionatoDeProtesto/geral/Config.pas",
+        "TabelionatoDeProtesto/Principal.pas"
+      ],
+      "files_total": 4,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/Login.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-core-controles": {
+      "domain_id": "pt-core-controles",
+      "label": "Controles + LockupProtesto",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/geral/Controles.pas",
+        "TabelionatoDeProtesto/geral/Rotinas.pas",
+        "TabelionatoDeProtesto/LockupProtesto.pas"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/geral/Controles.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-titulo": {
+      "domain_id": "pt-titulo",
+      "label": "Cadastro de título",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/CadTitulo.pas",
+        "TabelionatoDeProtesto/Pessoa.pas",
+        "TabelionatoDeProtesto/Cadastro.pas"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/CadTitulo.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-protocolo": {
+      "domain_id": "pt-protocolo",
+      "label": "Protocolo protesto",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/Protocolo.pas",
+        "TabelionatoDeProtesto/ConfirmarTitulos.pas"
+      ],
+      "files_total": 2,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/Protocolo.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-protesto-lavrar": {
+      "domain_id": "pt-protesto-lavrar",
+      "label": "Lavratura / protestos",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/Protestos.pas"
+      ],
+      "files_total": 1,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/Protestos.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-intimacao": {
+      "domain_id": "pt-intimacao",
+      "label": "Intimações",
+      "priority": "P1",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/GerarIntimacoes.pas",
+        "TabelionatoDeProtesto/IntimacoesAceitas.pas"
+      ],
+      "files_total": 2,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/GerarIntimacoes.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-importacao-cra": {
+      "domain_id": "pt-importacao-cra",
+      "label": "Importação títulos / CRA",
+      "priority": "P1",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/ImportarTitulos.pas",
+        "TabelionatoDeProtesto/DMImportacaoTitulo.pas",
+        "TabelionatoDeProtesto/LayoutArquivoFebraban.pas"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/ImportarTitulos.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-cancelamento": {
+      "domain_id": "pt-cancelamento",
+      "label": "Cancelamentos",
+      "priority": "P1",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/Cancelamentos.pas",
+        "TabelionatoDeProtesto/dmCancelamento.pas"
+      ],
+      "files_total": 2,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/Cancelamentos.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-serasa-cenprot": {
+      "domain_id": "pt-serasa-cenprot",
+      "label": "SERASA e CENPROT",
+      "priority": "P1",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/Serasa.pas"
+      ],
+      "files_total": 1,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/Serasa.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-caixa-servico": {
+      "domain_id": "pt-caixa-servico",
+      "label": "Caixa no protesto",
+      "priority": "P1",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/CaixaServico.pas",
+        "TabelionatoDeProtesto/ConfirmarPagamento.pas"
+      ],
+      "files_total": 2,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/CaixaServico.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-pagamentos-ws": {
+      "domain_id": "pt-pagamentos-ws",
+      "label": "ONR / PIX (xref)",
+      "priority": "P2",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/geral_sistemas/wsgeral/dmONR.pas",
+        "TabelionatoDeProtesto/geral_sistemas/wsgeral/dmPix.pas"
+      ],
+      "files_total": 2,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/geral_sistemas/wsgeral/dmONR.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-dfm-core": {
+      "domain_id": "pt-dfm-core",
+      "label": "DFM core",
+      "priority": "P2",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/Principal.dfm",
+        "TabelionatoDeProtesto/CadTitulo.dfm",
+        "TabelionatoDeProtesto/Protestos.dfm"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/Principal.dfm",
+      "active_file_batch_id": "protesto-mvp-poc"
+    },
+    "pt-vendor": {
+      "domain_id": "pt-vendor",
+      "label": "Vendor",
+      "priority": "P4",
+      "status": "pending",
+      "execution_order": [
+        "TabelionatoDeProtesto/geral/frxClass.pas"
+      ],
+      "files_total": 1,
+      "files_done": 0,
+      "current_file": "TabelionatoDeProtesto/geral/frxClass.pas",
+      "active_file_batch_id": "protesto-mvp-poc"
+    }
+  },
+  "file_progress": {}
+}

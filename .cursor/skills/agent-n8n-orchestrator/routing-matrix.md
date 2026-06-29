@@ -15,16 +15,18 @@ Context root: `c:\Users\kenio\automacoes e testes` · Vault: `C:\Users\kenio\Obs
 
 ## Tabela principal
 
-| Integração | Palavras-chave | Label `(integração)` | Adapter skill | Domínios típicos |
-|------------|----------------|----------------------|---------------|------------------|
-| ONR WSOficio | `wsoficio`, `webservice onr`, `ws oficio`, `acompanhamento titulos`, `penhora`, `oficio eletronico`, `certidoes`, `intimacoes`, `e-protocolo`, `matricula online`, `bdlight`, `bdl`, `ctp onr` | `webservice ONR` | ✅ `agent-onr-n8n-soap` | Autenticação, AT, PO, OE, Certidões, IN, AC, CTP, Matrícula Online |
-| CRA21 SOAP | `webservice cra`, `cra21`, `cra soap`, `protestos.php`, `protesto`, `tabelionato protesto`, `autonr-127`…`142` | `webservice CRA` | ✅ `agent-cra-n8n-soap` | Remessa, Confirmação, Retorno, Desistência, Cancelamento, Autorização, Homologação, Consulta, Instrumento, Imagens, Andamento, Ofício |
-| CENSEC | `censec`, `cesdi`, `cep censec`, `rcto`, `ctp censec`, `upload json`, `censec_uploadjson` | `CENSEC` | ✅ `agent-censec-n8n` | Upload JSON (CEP, CESDI, CTP) |
-| CCN | `ccn`, `e-notariado`, `upload xml ccn` | `CCN` | 📋 F3 | CCN |
-| DOI | `doi`, `validate json doi` | `DOI` | 📋 F3 | DOI |
-| SIGEF | `sigef`, `memorial sigef`, `parse memorial` | `SIGEF` | 📋 F3 | SIGEF |
-| RIB | `rib`, `registro imoveis brasil`, `protocolo rib`, `edital rib` | `RIB` | 📋 F3 | Auth, protocolo, edital, cobrança |
-| CNIB SERVENTIAS | `cnib`, `serventia-api`, `serventias api`, `indisponibilidade`, `autonr-143`…`148` | `API CNIB` | 📋 F3 | Auth, Ordem (consultar, visualizar, responder), Documentos |
+| Integração | Palavras-chave | Label `(integração)` | Skill workflow | Perfil upstream |
+|------------|----------------|----------------------|----------------|-----------------|
+| ONR WSOficio | `wsoficio`, `webservice onr`, … | `webservice ONR` | ✅ `orius-n8n-integracoes` | `soap-onr` |
+| CRA21 SOAP | `webservice cra`, `cra21`, … | `webservice CRA` | ✅ `orius-n8n-integracoes` | `soap-cra` |
+| CENSEC | `censec`, `cesdi`, … | `CENSEC` | ✅ `orius-n8n-integracoes` | `rest-json` |
+| CCN | `ccn`, … | `CCN` | ✅ `orius-n8n-integracoes` | `rest-json` |
+| DOI | `doi`, … | `DOI` | ✅ `orius-n8n-integracoes` | `rest-json` |
+| SIGEF | `sigef`, … | `SIGEF` | ✅ `orius-n8n-integracoes` | `rest-json` |
+| RIB | `rib`, … | `RIB` | ✅ `orius-n8n-integracoes` | `rest-json` |
+| CNIB SERVENTIAS | `cnib`, … | `API CNIB` | ✅ `orius-n8n-integracoes` | `rest-json` |
+| ONRCPN | `onrcpn`, `certidão eletrônica`, … | `onrcpn` | ✅ `orius-n8n-integracoes` | `rest-json` |
+| SEE TJGO | `see tjgo`, … | `see tjgo` | ✅ `orius-n8n-integracoes` | `rest-json` |
 | SOAP (ambíguo) | `soap` sozinho | — | ❓ | ONR WSOficio vs CRA21 |
 | ONR (ambíguo) | `onr` sozinho | — | ❓ | WSOficio vs RIB vs Mapa ONR |
 | CTP (ambíguo) | `ctp` sozinho | — | ❓ | ONR CTP (SOAP) vs CENSEC CTP (declarações) |
@@ -44,11 +46,11 @@ Context root: `c:\Users\kenio\automacoes e testes` · Vault: `C:\Users\kenio\Obs
 
 | Integração | Referência |
 |------------|------------|
-| ONR Auth | `workflows/n8n/gentle-juniper-bb6f8f0940a3/Auth ONR.workflow.ts` ou `extensao-n8n-teste/Auth ONR.workflow.ts` |
-| ONR demais | Pipeline em `agent-onr-n8n-soap` |
-| CRA21 SOAP | Pipeline em `agent-cra-n8n-soap` — card âncora AUTONR-142 ou AUTONR-135 |
-| CENSEC | `extensao-n8n-teste/CENSEC Upload JSON Gateway.workflow.ts` — pipeline em `agent-censec-n8n` |
-| CCN / DOI / SIGEF | workflows homônimos em `extensao-n8n-teste/` |
+| Todas | Pipeline em `.cursor/skills/orius-n8n-integracoes/SKILL.md` |
+| ONR Auth | `Auth ONR.workflow.ts` — perfil `soap-onr` |
+| CRA21 | `Consulta CRA.workflow.ts` — perfil `soap-cra` |
+| REST | `Auth CNIB.workflow.ts`, `Auth RIB.workflow.ts`, `Sessions SEE TJGO.workflow.ts` |
+| CENSEC | `CENSEC Upload JSON Gateway.workflow.ts` |
 
 ---
 

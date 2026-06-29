@@ -1,0 +1,9 @@
+{
+  "ambiente": "homologacao",
+  "is_concluded": true,
+  "is_canceled": false,
+  "document_type": "Deed",
+  "limit": 10,
+  "offset": 0,
+  "order": "desc"
+}

@@ -1,16 +1,14 @@
 ---
 name: agent-onr-n8n-soap
 description: >-
-  Monta workflows n8n (n8n-as-code) como proxy HTTP→SOAP exclusivamente para o
-  webservice ONR WSOficio: pipeline JSON, validação, SOAP, resposta snake_case
-  pt-BR com status HTTP. Use ao criar ou estender workflows em workflows/n8n/,
-  webhooks ONR, ou quando o usuário mencionar agent-onr-n8n-soap, gateway SOAP
-  ONR, Auth ONR, ou consumo SOAP via n8n.
+  DEPRECADO — use orius-n8n-integracoes (perfil soap-onr). Mantido como referência histórica.
 ---
 
 # Agent ONR n8n SOAP
 
-Agente para **workflows n8n** que expõem métodos do **WSOficio (ONR)** via webhook JSON. **Não** cria scripts Python/JS (use [`agent-webservice`](../agent-webservice/SKILL.md)). **Não** substitui operações genéricas do n8n (use [`.agents/skills/n8n-architect/SKILL.md`](../../.agents/skills/n8n-architect/SKILL.md) para `n8nac` push/pull/validate).
+> **DEPRECADO** — use [`.cursor/skills/orius-n8n-integracoes/SKILL.md`](../orius-n8n-integracoes/SKILL.md) com perfil **`soap-onr`**. Este arquivo permanece só como referência histórica.
+
+Agente para **workflows n8n** que expõem métodos do **WSOficio (ONR)** via webhook JSON.
 
 ## Escopo
 

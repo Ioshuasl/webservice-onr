@@ -1,0 +1,39 @@
+{
+  "ambiente": "homologacao",
+  "auth_mode": "api_key",
+  "organization_id": "{{ENOT_ORGANIZATION_ID}}",
+  "type": "Deed",
+  "is_hybrid_act": false,
+  "has_real_estates": false,
+  "real_estates": [],
+  "residences": [
+    {
+      "is_foreign": false,
+      "quantity": 1,
+      "city_id": "{{enot_city_id}}"
+    }
+  ],
+  "findings": [],
+  "files": [
+    {
+      "id": "{{enot_upload_id}}",
+      "name": "ato-livro.pdf",
+      "display_name": "Escritura livro 10 folha 15",
+      "content_type": "application/pdf"
+    }
+  ],
+  "flow_actions": [
+    {
+      "type": "Signer",
+      "step": 1,
+      "user": {
+        "name": "Participante Teste",
+        "identifier": "12345678909",
+        "email": "participante.teste@example.com"
+      },
+      "title": "Outorgante"
+    }
+  ],
+  "protocol": "PROT-2026-0001",
+  "notarization_date": "2026-06-17T12:00:00.000Z"
+}

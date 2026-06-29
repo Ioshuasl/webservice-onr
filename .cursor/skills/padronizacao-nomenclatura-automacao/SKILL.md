@@ -85,6 +85,7 @@ workflow_n8n: "[AUTCNIB-1] (cnib) AuthToken - CNIB"
 | `doi` | AUTDOI | `autdoi` |
 | `sigef` | AUTONR *(por enquanto)* | `autonr` |
 | `crc` | AUTCRC | `autcrc` |
+| `onrcpn` | AUTONRCPN | `autonrcpn` |
 
 SIGEF permanece em **AUTONR** até decisão de projeto dedicado.
 

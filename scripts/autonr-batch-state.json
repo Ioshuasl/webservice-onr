@@ -25,8 +25,9 @@
         "AUTCNIB-5",
         "AUTCNIB-6"
       ],
-      "current": "AUTCNIB-3",
-      "status": "in_progress",
+      "current": null,
+      "status": "complete",
+      "completed_at": "2026-06-15T20:00:00.000Z",
       "cards": {
         "AUTCNIB-1": {
           "operacao": "AuthToken",
@@ -56,95 +57,115 @@
           "operacao": "Consultar",
           "dominio": "Ordem",
           "direcao": "consulta",
-          "status": "pending",
+          "status": "done",
+          "started_at": "2026-06-15T14:35:00.000Z",
+          "completed_at": "2026-06-15T15:00:00.000Z",
           "plane_legacy_key": "AUTONR-144",
           "card_title": "[AUTCNIB-2] (cnib) Consultar - Ordem",
           "webhook": "POST /cnib/ordem/consultar",
           "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/Consultar.md",
+          "workflow_id_n8n": "22S1xeAgHP0iHrqt",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Consultar CNIB.workflow.ts",
           "gates": {
             "vault": true,
-            "workflow": false,
-            "push": false,
+            "workflow": true,
+            "push": true,
             "postman": true,
-            "sync": false,
+            "sync": "partial",
             "docs": true,
-            "payload": false
+            "payload": true
           }
         },
         "AUTCNIB-3": {
           "operacao": "VisualizarOrdens",
           "dominio": "Ordem",
           "direcao": "consulta",
-          "status": "pending",
+          "status": "done",
+          "started_at": "2026-06-15T12:00:00.000Z",
+          "completed_at": "2026-06-15T14:30:00.000Z",
           "plane_legacy_key": "AUTONR-145",
           "card_title": "[AUTCNIB-3] (cnib) VisualizarOrdens - Ordem",
           "webhook": "POST /cnib/ordem/visualizar",
           "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/VisualizarOrdens.md",
+          "workflow_id_n8n": "3GIHtJDvhTQcW2N6",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Visualizar Ordens CNIB.workflow.ts",
           "gates": {
             "vault": true,
-            "workflow": false,
-            "push": false,
+            "workflow": true,
+            "push": true,
             "postman": true,
-            "sync": false,
+            "sync": "partial",
             "docs": true,
-            "payload": false
+            "payload": true
           }
         },
         "AUTCNIB-4": {
           "operacao": "ResponderOrdem",
           "dominio": "Ordem",
           "direcao": "upload",
-          "status": "pending",
+          "status": "done",
+          "started_at": "2026-06-15T15:05:00.000Z",
+          "completed_at": "2026-06-15T18:00:00.000Z",
           "plane_legacy_key": "AUTONR-146",
           "card_title": "[AUTCNIB-4] (cnib) ResponderOrdem - Ordem",
           "webhook": "POST /cnib/ordem/responder",
           "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/ResponderOrdem.md",
+          "workflow_id_n8n": "hdWyT41QufksSxRa",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Responder Ordem CNIB.workflow.ts",
           "gates": {
             "vault": true,
-            "workflow": false,
-            "push": false,
+            "workflow": true,
+            "push": true,
             "postman": true,
-            "sync": false,
+            "sync": "partial",
             "docs": true,
-            "payload": false
+            "payload": true
           }
         },
         "AUTCNIB-5": {
           "operacao": "ResponderLista",
           "dominio": "Ordem",
           "direcao": "upload",
-          "status": "pending",
+          "status": "done",
+          "started_at": "2026-06-15T18:05:00.000Z",
+          "completed_at": "2026-06-15T19:00:00.000Z",
           "plane_legacy_key": "AUTONR-147",
           "card_title": "[AUTCNIB-5] (cnib) ResponderLista - Ordem",
           "webhook": "POST /cnib/ordem/responder/lista",
           "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/ResponderLista.md",
+          "workflow_id_n8n": "mjhtgURHIEY90sah",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Responder Lista CNIB.workflow.ts",
           "gates": {
             "vault": true,
-            "workflow": false,
-            "push": false,
+            "workflow": true,
+            "push": true,
             "postman": true,
-            "sync": false,
+            "sync": "partial",
             "docs": true,
-            "payload": false
+            "payload": true
           }
         },
         "AUTCNIB-6": {
           "operacao": "DocumentosTipos",
           "dominio": "Documentos",
           "direcao": "consulta",
-          "status": "pending",
+          "status": "done",
+          "started_at": "2026-06-15T19:00:00.000Z",
+          "completed_at": "2026-06-15T19:30:00.000Z",
           "plane_legacy_key": "AUTONR-148",
           "card_title": "[AUTCNIB-6] (cnib) DocumentosTipos - Documentos",
           "webhook": "POST /cnib/documentos/tipos",
           "utilizacao": "Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/utilizacao/DocumentosTipos.md",
+          "workflow_id_n8n": "c7ZOZAU1IjHOk20P",
+          "workflow_path": "workflows/n8n/extensao-n8n-teste/Documentos Tipos CNIB.workflow.ts",
           "gates": {
             "vault": true,
-            "workflow": false,
-            "push": false,
+            "workflow": true,
+            "push": true,
             "postman": true,
-            "sync": false,
+            "sync": "partial",
             "docs": true,
-            "payload": false
+            "payload": true
           }
         }
       }

@@ -1,0 +1,2082 @@
+{
+  "info": {
+    "_postman_id": "29d6af2f-3a25-4a15-aa80-89276df400c6",
+    "name": "see tjgo - n8n",
+    "description": "Coleção para testar workflows n8n proxy da **API SEE TJGO** (selo eletrônico CGJ Goiás).\n\n## Workflows (AUTSEETJGO-1…13)\n\nPasta **n8n — proxy SEE TJGO** — preencher conforme subagentes implementam.\n\n## Pré-requisitos\n\n1. Workflow ativo no n8n (produção ou test).\n2. Basic Auth webhook (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Credenciais SEE em `SEE_TJGO_*` (vault `env.md`).\n4. Execute **[AUTSEETJGO-1] Sessions** antes dos demais — grava `see_tjgo_auth_token`.\n\n## Upstream (referência)\n\n| Ambiente | Base URL |\n|----------|----------|\n| HML | `https://portal-hextrajudicial.tjgo.jus.br/api/v1` |\n| Produção | `https://see.tjgo.jus.br/api/v1` |\n\nColeção upstream: `see-tjgo/Portal de Sistemas do Extrajudicial - CGJ GO.postman_collection.json`\n\n## Sync Postman Cloud\n\n```bash\nnpm run postman:sync:seetjgo\n```",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASE_URL",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    },
+    {
+      "key": "SEE_TJGO_AMBIENTE",
+      "value": "homologacao",
+      "type": "string"
+    },
+    {
+      "key": "SEE_TJGO_API_BASE_URL",
+      "value": "https://portal-hextrajudicial.tjgo.jus.br/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "SEE_TJGO_API_BASE_URL_PROD",
+      "value": "https://see.tjgo.jus.br/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_auth_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_sessions",
+      "value": "see-tjgo/sessions",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_status",
+      "value": "see-tjgo/status",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_distribuicao_atos",
+      "value": "see-tjgo/distribuicao-atos",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_distribuicao_atos_pendentes",
+      "value": "see-tjgo/distribuicao-atos/pendentes",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_pedido_id",
+      "value": "3677",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_distribuicao_atos_download",
+      "value": "see-tjgo/distribuicao-atos",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_distribuicao_atos_download_all",
+      "value": "see-tjgo/distribuicao-atos/download-all",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_controle_atos_recebidos",
+      "value": "see-tjgo/controle-atos-recebidos",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_controle_atos_utilizados",
+      "value": "see-tjgo/controle-atos-utilizados",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_cartorios",
+      "value": "see-tjgo/cartorios",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_hash_cartorio",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_tipo_atos",
+      "value": "see-tjgo/tipo-atos",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_tipo_atos_disponiveis",
+      "value": "see-tjgo/tipo-atos/disponiveis",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_tipo_atos_indisponiveis",
+      "value": "see-tjgo/tipo-atos/indisponiveis",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_tipo_ato_id",
+      "value": "8195",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_retorno_id",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_codigo_do_ato",
+      "value": "01234567890123456789012",
+      "type": "string"
+    },
+    {
+      "key": "see_tjgo_webhook_path_empresas_correicao_atualizar",
+      "value": "see-tjgo/empresas-correicao/atualizar-dados-acesso",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "API upstream (referência)",
+      "description": "Importar ou usar `see-tjgo/Portal de Sistemas do Extrajudicial - CGJ GO.postman_collection.json`",
+      "item": []
+    },
+    {
+      "name": "n8n — proxy SEE TJGO",
+      "description": "Webhooks n8n — AUTSEETJGO-1…13",
+      "item": [
+        {
+          "name": "Autenticação",
+          "item": [
+            {
+              "name": "[AUTSEETJGO-1] Sessions",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-1] (see tjgo) Sessions - Autenticação`.\n\nWebhook `POST /see-tjgo/sessions` — proxy `POST {baseUrl}/sessions` (form-urlencoded: email, password, hash_cartorio). Sucesso grava `see_tjgo_auth_token`.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('SEE_TJGO_EMAIL') || !getVar('SEE_TJGO_PASSWORD') || !getVar('SEE_TJGO_HASH_CARTORIO')) {",
+                      "  console.warn('SEE_TJGO_* vazio: preencha no environment (vault env#SEE TJGO).');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('HTTP 2xx', () => pm.expect(pm.response.code).to.be.oneOf([200, 201]));",
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('Token obtido com sucesso', () => {",
+                      "  pm.expect(json.sucesso).to.eql(true);",
+                      "  pm.expect(json.auth_token).to.be.a('string').and.not.empty;",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (json.auth_token) {",
+                      "  pm.collectionVariables.set('see_tjgo_auth_token', json.auth_token);",
+                      "  pm.environment.set('see_tjgo_auth_token', json.auth_token);",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{SEE_TJGO_AMBIENTE}}\",\n  \"email\": \"{{SEE_TJGO_EMAIL}}\",\n  \"password\": \"{{SEE_TJGO_PASSWORD}}\",\n  \"hash_cartorio\": \"{{SEE_TJGO_HASH_CARTORIO}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_sessions}}"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Geral",
+          "item": [
+            {
+              "name": "[AUTSEETJGO-2] Status",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-2] (see tjgo) Status - Geral`.\n\nWebhook `GET /see-tjgo/status` — proxy `GET {baseUrl}/status` (público, sem Bearer). Health check da API SEE TJGO.",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Sistema online', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.message).to.eql('OK');",
+                      "    pm.expect(json.status).to.eql(200);",
+                      "    pm.expect(json.sistema_online).to.eql(true);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_status}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_status}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Cartório",
+          "item": [
+            {
+              "name": "[AUTSEETJGO-3] Cartorios Listar",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-3] (see tjgo) CartoriosListar - Cartório`.\n\nWebhook `GET /see-tjgo/cartorios` — proxy `GET {baseUrl}/cartorios`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Lista de cartorios', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.cartorios).to.be.an('array');",
+                      "    pm.expect(json.total_cartorios).to.eql(json.cartorios.length);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_cartorios}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_cartorios}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-14] Cartorios Detalhe",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-14] (see tjgo) CartoriosDetalhe - Cartório`.\n\nWebhook `GET /see-tjgo/cartorios/{hash_cartorio}` — proxy `GET {baseUrl}/cartorios/{hash_cartorio}`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1) e `SEE_TJGO_HASH_CARTORIO` (ou hash de AUTSEETJGO-3).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}",
+                      "const hash = getVar('SEE_TJGO_HASH_CARTORIO') || getVar('see_tjgo_hash_cartorio');",
+                      "if (!hash) {",
+                      "  throw new Error('SEE_TJGO_HASH_CARTORIO ausente: preencha no environment ou execute [AUTSEETJGO-3] Cartorios Listar.');",
+                      "}",
+                      "pm.collectionVariables.set('see_tjgo_hash_cartorio', hash);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Cartorio detalhado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.cartorio).to.be.an('object');",
+                      "    pm.expect(json.cartorio.hash_cartorio).to.eql(json.hash_cartorio);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_cartorios}}/{{see_tjgo_hash_cartorio}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_cartorios}}",
+                    "{{see_tjgo_hash_cartorio}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tipo Ato",
+          "item": [
+            {
+              "name": "[AUTSEETJGO-15] Tipo Atos Listar",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-15] (see tjgo) TipoAtosListar - Tipo Ato`.\n\nWebhook `GET /see-tjgo/tipo-atos` — proxy `GET {baseUrl}/tipo_atos`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Lista de tipos de ato', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.tipo_atos).to.be.an('array');",
+                      "    pm.expect(json.total_tipo_atos).to.eql(json.tipo_atos.length);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_tipo_atos}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_tipo_atos}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-4] Tipo Atos Disponiveis",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-4] (see tjgo) TipoAtosDisponiveis - Tipo Ato`.\n\nWebhook `GET /see-tjgo/tipo-atos/disponiveis` — proxy `GET {baseUrl}/tipo_atos/disponiveis`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Query opcional `page`.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Lista de tipos de ato', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.tipo_atos).to.be.an('array');",
+                      "    pm.expect(json.total_tipo_atos).to.eql(json.tipo_atos.length);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_tipo_atos_disponiveis}}?ambiente={{SEE_TJGO_AMBIENTE}}&page=1",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_tipo_atos_disponiveis}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-16] Tipo Atos Indisponiveis",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-16] (see tjgo) TipoAtosIndisponiveis - Tipo Ato`.\n\nWebhook `GET /see-tjgo/tipo-atos/indisponiveis` — proxy `GET {baseUrl}/tipo_atos/indisponiveis`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Lista de tipos de ato indisponiveis', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.tipo_atos).to.be.an('array');",
+                      "    pm.expect(json.total_tipo_atos).to.eql(json.tipo_atos.length);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_tipo_atos_indisponiveis}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_tipo_atos_indisponiveis}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-17] Tipo Atos Detalhe",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-17] (see tjgo) TipoAtosDetalhe - Tipo Ato`.\n\nWebhook `GET /see-tjgo/tipo-atos/{id}` — proxy `GET {baseUrl}/tipo_atos/{id}`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Tipo de ato detalhado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.tipo_ato).to.be.an('object');",
+                      "    pm.expect(json.tipo_ato.id).to.eql(json.tipo_ato_id);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_tipo_atos}}/{{see_tjgo_tipo_ato_id}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_tipo_atos}}",
+                    "{{see_tjgo_tipo_ato_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pedido de Atos",
+          "item": [
+            {
+              "name": "[AUTSEETJGO-18] Distribuicao Atos Listar",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-18] (see tjgo) DistribuicaoAtosListar - Pedido de Atos`.\n\nWebhook `GET /see-tjgo/distribuicao-atos` — proxy `GET {baseUrl}/distribuicao_de_atos` (filtros opcionais: id, tipo_ato_id, downloaded, limitar_solicitante, data_inicial, data_final, page, per). Requer `see_tjgo_auth_token` (AUTSEETJGO-1).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Lista de lotes', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.distribuicao_atos).to.be.an('array');",
+                      "    pm.expect(json.total_distribuicao_atos).to.eql(json.distribuicao_atos.length);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_distribuicao_atos}}?ambiente={{SEE_TJGO_AMBIENTE}}&limitar_solicitante=true",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_distribuicao_atos}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    },
+                    {
+                      "key": "limitar_solicitante",
+                      "value": "true"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-9] Distribuicao Atos Pendentes",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-9] (see tjgo) DistribuicaoAtosPendentes - Pedido de Atos`.\n\nWebhook `GET /see-tjgo/distribuicao-atos/pendentes` — proxy `GET {baseUrl}/distribuicao_de_atos/pendentes`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Retorna lotes com atos pendentes de retorno no envelope pt-BR.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Lista de lotes pendentes', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.distribuicao_atos_pendentes).to.be.an('array');",
+                      "    pm.expect(json.total_distribuicao_atos_pendentes).to.eql(json.distribuicao_atos_pendentes.length);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_distribuicao_atos_pendentes}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_distribuicao_atos_pendentes}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-12] Distribuicao Atos Rollback",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-12] (see tjgo) DistribuicaoAtosRollback - Pedido de Atos`.\n\nWebhook `DELETE /see-tjgo/distribuicao-atos/{id}` — proxy `DELETE {baseUrl}/distribuicao_de_atos/{id}`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Cancela lote pedido (rollback); sucesso HTTP 204.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 204) {",
+                      "  pm.test('Rollback realizado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.identificacao_pedido).to.be.a('number');",
+                      "    pm.expect(json.mensagem).to.be.a('string');",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_distribuicao_atos}}/{{see_tjgo_pedido_id}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_distribuicao_atos}}",
+                    "{{see_tjgo_pedido_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-21] Distribuicao Atos Redimensionar",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-21] (see tjgo) DistribuicaoAtosRedimensionar - Pedido de Atos`.\n\nWebhook `PUT /see-tjgo/distribuicao-atos/{id}/redimensionar` — proxy `PUT {baseUrl}/distribuicao_de_atos/{id}/redimensionar` (JSON: quantidade). Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Altera quantidade de selos do lote; sucesso HTTP 200.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Lote redimensionado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.identificacao_pedido).to.be.a('number');",
+                      "    pm.expect(json.quantidade_de_selos).to.be.a('number');",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{SEE_TJGO_AMBIENTE}}\",\n  \"quantidade\": 5\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_distribuicao_atos}}/{{see_tjgo_pedido_id}}/redimensionar?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_distribuicao_atos}}",
+                    "{{see_tjgo_pedido_id}}",
+                    "redimensionar"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-19] Distribuicao Atos Detalhe",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-19] (see tjgo) DistribuicaoAtosDetalhe - Pedido de Atos`.\n\nWebhook `GET /see-tjgo/distribuicao-atos/{id}` — proxy `GET {baseUrl}/distribuicao_de_atos/{id}`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Retorna `PedidoDoSeloEletronico` no envelope pt-BR.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Pedido detalhado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.pedido).to.be.an('object');",
+                      "    pm.expect(json.identificacao_pedido).to.eql(json.pedido.identificacao_pedido);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_distribuicao_atos}}/{{see_tjgo_pedido_id}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_distribuicao_atos}}",
+                    "{{see_tjgo_pedido_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-5] Distribuicao Atos Pedir",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-5] (see tjgo) DistribuicaoAtosPedir - Pedido de Atos`.\n\nWebhook `POST /see-tjgo/distribuicao-atos` — proxy `POST {baseUrl}/distribuicao_de_atos` (JSON: tipo_ato_id, quantidade, codigo_selo_prenotacao opcional). Requer `see_tjgo_auth_token` (AUTSEETJGO-1).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 201) {",
+                      "  pm.test('Pedido criado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.identificacao_pedido).to.be.a('number');",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{SEE_TJGO_AMBIENTE}}\",\n  \"tipo_ato_id\": 8195,\n  \"quantidade\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_distribuicao_atos}}"
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-6] Distribuicao Atos Download",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-6] (see tjgo) DistribuicaoAtosDownload - Pedido de Atos`.\n\nWebhook `GET /see-tjgo/distribuicao-atos/{id}/download` — proxy `GET {baseUrl}/distribuicao_de_atos/{id}/download`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Resposta JSON (`PedidoDoSeloEletronico`) ou binário (`conteudo_base64`).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Download OK', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.formato).to.be.oneOf(['json', 'binario']);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_distribuicao_atos_download}}/{{see_tjgo_pedido_id}}/download?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_distribuicao_atos_download}}",
+                    "{{see_tjgo_pedido_id}}",
+                    "download"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-20] Distribuicao Atos Download All",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-20] (see tjgo) DistribuicaoAtosDownloadAll - Pedido de Atos`.\n\nWebhook `GET /see-tjgo/distribuicao-atos/download-all` — proxy `GET {baseUrl}/distribuicao_de_atos/download_all`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Resposta JSON (`PedidoDoSeloEletronico[]`) ou binário (`conteudo_base64`).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Download All OK', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.formato).to.be.oneOf(['json', 'binario']);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_distribuicao_atos_download_all}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_distribuicao_atos_download_all}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Retorno Atos",
+          "item": [
+            {
+              "name": "[AUTSEETJGO-7] Controle Atos Recebidos",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-7] (see tjgo) ControleAtosRecebidos - Retorno Atos`.\n\nWebhook `POST /see-tjgo/controle-atos-recebidos` — proxy `POST {baseUrl}/controle_atos_recebidos` (campo `arquivo`: RetornoAto[]). Validação local de selos (23 chars). Upstream: urlencoded (padrão) ou multipart via `formato_envio`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Retorno enviado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.id).to.be.a('number');",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{SEE_TJGO_AMBIENTE}}\",\n  \"formato_envio\": \"urlencoded\",\n  \"arquivo\": [\n    {\n      \"identificacao_pedido_na_cgj\": {{see_tjgo_pedido_id}},\n      \"tipo_de_ato\": 8195,\n      \"codigo_do_selo\": \"01234567890123456789012\",\n      \"codigo_do_ato\": \"01234567890123456789012\",\n      \"nome_do_serventuario_que_praticou_ato\": \"João Silva\",\n      \"data_hora_da_solicitacao\": \"2026-06-15T10:00:00-03:00\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_controle_atos_recebidos}}"
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-8] Controle Atos Recebidos Detalhe",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-8] (see tjgo) ControleAtosRecebidosDetalhe - Retorno Atos`.\n\nWebhook `GET /see-tjgo/controle-atos-recebidos/{id}` — proxy `GET {baseUrl}/controle_atos_recebidos/{id}`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Retorna `ControleAtoRecebido` no envelope pt-BR.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Detalhe retorno atos', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.controle_ato_recebido).to.be.an('object');",
+                      "    pm.expect(json.id).to.eql(json.controle_ato_recebido.id);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_controle_atos_recebidos}}/{{see_tjgo_retorno_id}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_controle_atos_recebidos}}",
+                    "{{see_tjgo_retorno_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-10] Controle Atos Utilizados Listar",
+              "description": "Proxy n8n — `[AUTSEETJGO-10] (see tjgo) ControleAtosUtilizadosListar - Atos Utilizados`. GET /see-tjgo/controle-atos-utilizados → GET /controle_de_atos_utilizados.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const token = pm.collectionVariables.get('see_tjgo_auth_token') || pm.environment.get('see_tjgo_auth_token');",
+                      "if (!token) throw new Error('Execute [AUTSEETJGO-1] Sessions antes.');"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "pm.test('status_http', () => pm.expect(json.status_http).to.eql(pm.response.code));",
+                      "if (pm.response.code === 200) { pm.test('lista', () => { pm.expect(json.controle_atos_utilizados).to.be.an('array'); }); }"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_controle_atos_utilizados}}?ambiente={{SEE_TJGO_AMBIENTE}}&page=1",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_controle_atos_utilizados}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-23] Controle Atos Utilizados Detalhe",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-23] (see tjgo) ControleAtosUtilizadosDetalhe - Atos Utilizados`.\n\nWebhook `GET /see-tjgo/controle-atos-utilizados/{codigo_do_ato}` — proxy `GET {baseUrl}/controle_de_atos_utilizados/{codigo_do_ato}`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). `codigo_do_ato` com 23 caracteres. Retorna `AtoUtilizado` no envelope pt-BR.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}",
+                      "const codigo = getVar('see_tjgo_codigo_do_ato');",
+                      "if (!codigo || String(codigo).length !== 23) {",
+                      "  throw new Error('see_tjgo_codigo_do_ato deve ter 23 caracteres.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Detalhe ato utilizado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.controle_ato_utilizado).to.be.an('object');",
+                      "    pm.expect(json.codigo_do_ato).to.eql(json.controle_ato_utilizado.codigo_ato);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_controle_atos_utilizados}}/{{see_tjgo_codigo_do_ato}}?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_controle_atos_utilizados}}",
+                    "{{see_tjgo_codigo_do_ato}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-11] Controle Atos Inutilizar",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-11] (see tjgo) ControleAtosInutilizar - Atos Utilizados`.\n\nWebhook `PUT /see-tjgo/controle-atos-utilizados/{codigo_do_ato}/inutilizar` — proxy `PUT {baseUrl}/controle_de_atos_utilizados/{codigo_do_ato}/inutilizar`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Body: `justificativa_inutilizacao`, `reembolso`. Retorna `AtoInutilizado` no envelope pt-BR.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}",
+                      "const codigo = getVar('see_tjgo_codigo_do_ato');",
+                      "if (!codigo || String(codigo).length !== 23) {",
+                      "  throw new Error('see_tjgo_codigo_do_ato deve ter 23 caracteres.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Ato inutilizado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.controle_ato_inutilizado).to.be.an('object');",
+                      "    pm.expect(json.inutilizado).to.eql(true);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{SEE_TJGO_AMBIENTE}}\",\n  \"justificativa_inutilizacao\": \"Selo emitido por engano — ato não praticado\",\n  \"reembolso\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_controle_atos_utilizados}}/{{see_tjgo_codigo_do_ato}}/inutilizar",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_controle_atos_utilizados}}",
+                    "{{see_tjgo_codigo_do_ato}}",
+                    "inutilizar"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-24] Controle Atos Reativar",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-24] (see tjgo) ControleAtosReativar - Atos Utilizados`.\n\nWebhook `PUT /see-tjgo/controle-atos-utilizados/{codigo_do_ato}/reativar` — proxy `PUT {baseUrl}/controle_de_atos_utilizados/{codigo_do_ato}/reativar`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). PUT sem body upstream. Retorna `message`/`status` no envelope pt-BR.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}",
+                      "const codigo = getVar('see_tjgo_codigo_do_ato');",
+                      "if (!codigo || String(codigo).length !== 23) {",
+                      "  throw new Error('see_tjgo_codigo_do_ato deve ter 23 caracteres.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Ato reativado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.mensagem).to.be.a('string');",
+                      "    pm.expect(json.reativar_resposta).to.be.an('object');",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{SEE_TJGO_AMBIENTE}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_controle_atos_utilizados}}/{{see_tjgo_codigo_do_ato}}/reativar",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_controle_atos_utilizados}}",
+                    "{{see_tjgo_codigo_do_ato}}",
+                    "reativar"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-25] Controle Atos Check",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-25] (see tjgo) ControleAtosCheck - Atos Utilizados`.\n\nWebhook `GET /see-tjgo/controle-atos-utilizados/{codigo_do_ato}/check` — proxy `GET {baseUrl}/controle_de_atos_utilizados/{codigo_do_ato}/check`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). `codigo_do_ato` com 23 caracteres. Verifica se o selo foi retornado à CGJ. Retorna `message`/`status` no envelope pt-BR.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}",
+                      "const codigo = getVar('see_tjgo_codigo_do_ato');",
+                      "if (!codigo || String(codigo).length !== 23) {",
+                      "  throw new Error('see_tjgo_codigo_do_ato deve ter 23 caracteres.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Check ato utilizado', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.mensagem).to.be.a('string');",
+                      "    pm.expect(json.check_resposta).to.be.an('object');",
+                      "    pm.expect(json.retornado_cgj).to.be.a('boolean');",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_controle_atos_utilizados}}/{{see_tjgo_codigo_do_ato}}/check?ambiente={{SEE_TJGO_AMBIENTE}}",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_controle_atos_utilizados}}",
+                    "{{see_tjgo_codigo_do_ato}}",
+                    "check"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTSEETJGO-22] Controle Atos Recebidos Listar",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-22] (see tjgo) ControleAtosRecebidosListar - Retorno Atos`.\n\nWebhook `GET /see-tjgo/controle-atos-recebidos` — proxy `GET {baseUrl}/controle_atos_recebidos`. Requer `see_tjgo_auth_token` (AUTSEETJGO-1). Filtros: page, status, data_inicial, data_final.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "const token = getVar('see_tjgo_auth_token');",
+                      "if (!token) {",
+                      "  throw new Error('see_tjgo_auth_token ausente: execute [AUTSEETJGO-1] Sessions antes deste request.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Lista retornos', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.controle_atos_recebidos).to.be.an('array');",
+                      "    pm.expect(json.total_controle_atos_recebidos).to.eql(json.controle_atos_recebidos.length);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{see_tjgo_auth_token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_controle_atos_recebidos}}?ambiente={{SEE_TJGO_AMBIENTE}}&page=1",
+                  "host": [
+                    "{{n8n_base_url}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "{{see_tjgo_webhook_path_controle_atos_recebidos}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ambiente",
+                      "value": "{{SEE_TJGO_AMBIENTE}}"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Correição Online",
+          "item": [
+            {
+              "name": "[AUTSEETJGO-13] Correicao Atualizar Acesso",
+              "description": "Proxy n8n — workflow `[AUTSEETJGO-13] (see tjgo) CorreicaoAtualizarAcesso - Correição Online`.\n\nWebhook `POST /see-tjgo/empresas-correicao/atualizar-dados-acesso` — proxy `POST {baseUrl}/empresas_correicao/atualizar_dados_acesso` (JSON). **Sem Bearer** upstream (correição online). Campos obrigatórios: `hash`, `password`.",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelhado', () => {",
+                      "  pm.expect(json.status_http).to.eql(pm.response.code);",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Dados atualizados', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.message).to.be.a('string').and.not.empty;",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{SEE_TJGO_AMBIENTE}}\",\n  \"hash\": \"{{SEE_TJGO_HASH_CARTORIO}}\",\n  \"password\": \"teste 2 123\",\n  \"username\": \"usuario teste\",\n  \"chave_acesso\": \"ACC-2025-XYZ-7890\",\n  \"tipo_acesso\": \"Web\",\n  \"email_contato\": \"usuario.teste@example.com\",\n  \"telefone_contato\": \"+55 11 98765-4321\",\n  \"url\": \"https://acesso.interno.exemplo.com/dashboard\",\n  \"periodo_acesso\": \"2025-11-25 a 2025-12-25\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{see_tjgo_webhook_path_empresas_correicao_atualizar}}"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API e-PROCLAMAS",
+    "description": "<hr/> <details> <summary>Nota sobre Autenticação da API e-Proclamas</summary> <p> Informamos que a autenticação da nova API e-Proclamas, disponível em <a href='https://servicosh.registrocivil.org.br/api/proclama/doc/'>https://servicosh.registrocivil.org.br/api/proclama/doc/</a>, utilizará o <b>mesmo modelo de autenticação adotado no projeto das certidões</b> (ON-RCPN), acessível em <a href='https://certidaoh.registrocivil.org.br/api/docs/index.html'>https://certidaoh.registrocivil.org.br/api/docs/index.html</a>. </p> <p> Dessa forma, o <b>token de acesso (IdRC)</b> já utilizado para integração com o sistema de certidões também poderá ser reutilizado para autenticar requisições na API e-Proclamas, sem necessidade de criação de um novo token ou credencial. </p> <p> A documentação detalhada sobre o processo de autenticação com o IdRC, incluindo a obtenção do token via endpoint <i>/api/auth</i>, encontra-se disponível em: </p> <p> <a href='https://docs.google.com/document/d/1Sr7hGBDLNypM0UNn2bL8zTSGWakN3KH_/edit#heading=h.4u3daetfchnc'>Manual sobre Autenticação</a> </p> </details> <br/> <details> <summary>Notas sobre envio de dados aos endpoints da API e-Proclamas</summary> <p> Todos os valores enviados aos endpoints da API e-Proclamas devem seguir os padrões abaixo: </p> <ul> <li><b>Datas:</b> dd/mm/aaaa <i>Exemplo: 28/03/2025</i></li> <li><b>CPF:</b> xxxxxxxxxxx <i>Exemplo: 22105769039</i></li> <li><b>Cep:</b> xxxxx-xxx <i>Exemplo: 01227-200</i></li> <li><b>Sexo:</b> Aceita somente os valores <i>masculino</i> ou <i>feminino</i></li> <li><b>Estado Civil:</b> Aceita somente os valores <i>IGNORADO</i>, <i>SOLTEIRO</i>, <i>VIUVO</i>, <i>DIVORCIADO</i>, <i>SEPARADO</i> ou <i>OUTROS</i></li> <li><b>Tipo Casamento:</b> Aceita somente os valores <i>civil</i>, <i>religioso</i>, <i>conversao</i> ou <i>afixacao</i></li> <li><b>País / Nacionalidade:</b> Aceita somente valores conforme a lista presente <a href='http://unstats.un.org/unsd/methods/m49/m49.htm'>neste link</a></li> <li><b>Município:</b> Aceita somente valores de 7 dígitos conforme a lista presente <a href='http://servicodados.ibge.gov.br/Download/Download.ashx?u=geoftp.ibge.gov.br/organizacao_territorial/divisao_territorial/2014/dtb_2014.zip'>neste link</a></li> </ul> </details> <br/>"
+  },
+  "host": "servicosh.registrocivil.org.br",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/proclama/health": {
+      "get": {
+        "tags": [
+          "Endpoints"
+        ],
+        "description": "Verifica disponibilidade da API e-Proclamas",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/proclama/enviar": {
+      "post": {
+        "tags": [
+          "Endpoints"
+        ],
+        "description": "Recebe lote de proclamas para processamento",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Token obtido via IDRC, conforme nota. Utilizar padrão Bearer <i>Token</i>."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cns": {
+                  "type": "string",
+                  "example": "111111"
+                },
+                "proclamas": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "matricula": {
+                        "type": "string",
+                        "example": "11111101552025600001102000001541"
+                      },
+                      "publicacao": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "livro_eletronico": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "data_proclamas": {
+                        "type": "string",
+                        "example": "28/03/2025"
+                      },
+                      "tipo_casamento": {
+                        "type": "string",
+                        "example": "civil"
+                      },
+                      "cpf_fatura": {
+                        "type": "string",
+                        "example": "22105769039"
+                      },
+                      "nome_fatura": {
+                        "type": "string",
+                        "example": "João Silva"
+                      },
+                      "conjuge_1": {
+                        "type": "object",
+                        "properties": {
+                          "cpf": {
+                            "type": "string",
+                            "example": "22105769039"
+                          },
+                          "nome": {
+                            "type": "string",
+                            "example": "João Silva"
+                          },
+                          "novo_nome": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "sexo": {
+                            "type": "string",
+                            "example": "masculino"
+                          },
+                          "data_nascimento": {
+                            "type": "string",
+                            "example": "28/03/2025"
+                          },
+                          "estado_civil": {
+                            "type": "string",
+                            "example": "SOLTEIRO"
+                          },
+                          "ocupacao": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "naturalidade_estrangeiro": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "ibge_municipio_naturalidade": {
+                            "type": "string",
+                            "example": "3550308"
+                          },
+                          "descricao_naturalidade_estrangeiro": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "pais_nascimento": {
+                            "type": "string",
+                            "example": "076"
+                          },
+                          "nacionalidade": {
+                            "type": "string",
+                            "example": "076"
+                          },
+                          "domicilio_estrangeiro": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "endereco_residencia": {
+                            "type": "object",
+                            "properties": {
+                              "cep": {
+                                "type": "string",
+                                "example": "01227-200"
+                              },
+                              "logradouro": {
+                                "type": "string",
+                                "example": "avenida angelica"
+                              },
+                              "numero": {
+                                "type": "string",
+                                "example": "123"
+                              },
+                              "complemento": {
+                                "type": "string",
+                                "example": ""
+                              },
+                              "bairro": {
+                                "type": "string",
+                                "example": "consolacação"
+                              },
+                              "ibge_municipio": {
+                                "type": "string",
+                                "example": "3550308"
+                              }
+                            }
+                          },
+                          "descricao_domicilio_estrangeiro": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "filiacao": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "nome_genitor": {
+                                  "type": "string",
+                                  "example": "José Silva"
+                                },
+                                "sexo_genitor": {
+                                  "type": "string",
+                                  "example": "masculino"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "conjuge_2": {
+                        "type": "object",
+                        "properties": {
+                          "cpf": {
+                            "type": "string",
+                            "example": "22105769039"
+                          },
+                          "nome": {
+                            "type": "string",
+                            "example": "João Silva"
+                          },
+                          "novo_nome": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "sexo": {
+                            "type": "string",
+                            "example": "masculino"
+                          },
+                          "data_nascimento": {
+                            "type": "string",
+                            "example": "28/03/2025"
+                          },
+                          "estado_civil": {
+                            "type": "string",
+                            "example": "SOLTEIRO"
+                          },
+                          "ocupacao": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "naturalidade_estrangeiro": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "ibge_municipio_naturalidade": {
+                            "type": "string",
+                            "example": "3550308"
+                          },
+                          "descricao_naturalidade_estrangeiro": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "pais_nascimento": {
+                            "type": "string",
+                            "example": "076"
+                          },
+                          "nacionalidade": {
+                            "type": "string",
+                            "example": "076"
+                          },
+                          "domicilio_estrangeiro": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "endereco_residencia": {
+                            "type": "object",
+                            "properties": {
+                              "cep": {
+                                "type": "string",
+                                "example": "01227-200"
+                              },
+                              "logradouro": {
+                                "type": "string",
+                                "example": "avenida angelica"
+                              },
+                              "numero": {
+                                "type": "string",
+                                "example": "123"
+                              },
+                              "complemento": {
+                                "type": "string",
+                                "example": ""
+                              },
+                              "bairro": {
+                                "type": "string",
+                                "example": "consolacação"
+                              },
+                              "ibge_municipio": {
+                                "type": "string",
+                                "example": "3550308"
+                              }
+                            }
+                          },
+                          "descricao_domicilio_estrangeiro": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "filiacao": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "nome_genitor": {
+                                  "type": "string",
+                                  "example": "José Silva"
+                                },
+                                "sexo_genitor": {
+                                  "type": "string",
+                                  "example": "masculino"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "success"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "operation finished succefully"
+                },
+                "proclamas": {
+                  "type": "object",
+                  "properties": {
+                    "batchId": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "success": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "matricula": {
+                            "type": "string",
+                            "example": "11111101552025600001102000001599"
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "success"
+                          },
+                          "message": {
+                            "type": "string",
+                            "example": "the procedure request was a success"
+                          }
+                        }
+                      }
+                    },
+                    "error": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "matricula": {
+                            "type": "string",
+                            "example": "11111101552025600001102000001598"
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "error"
+                          },
+                          "message": {
+                            "type": "string",
+                            "example": "the procedure request failed"
+                          },
+                          "details": {
+                            "type": "string",
+                            "example": "Foi encontrado um ou mais erros na validação dos dados do lote."
+                          },
+                          "errors": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "example": "sexo_genitor"
+                                },
+                                "message": {
+                                  "type": "string",
+                                  "example": "O campo sexo do genitor cônjuge 2 se encontra inválido. Informar masculino ou feminino. Foi informado M"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "auth": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Token expirado"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "error"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "the input received is incorrect"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "error"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "an error has occured"
+                },
+                "details": {
+                  "type": "string",
+                  "example": "<<Error Log>>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/proclama/recibo/:matricula": {
+      "get": {
+        "tags": [
+          "Endpoints"
+        ],
+        "description": "Gera recibo em pdf base64 para o proclama especificado",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Token obtido via IDRC, conforme nota. Utilizar padrão Bearer <i>Token</i>."
+          },
+          {
+            "name": "matricula",
+            "in": "path",
+            "type": "string",
+            "description": "Número da matrícula do proclama"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "success"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "operation finished succefully"
+                },
+                "recibo": {
+                  "type": "string",
+                  "example": "<<html string>>"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "auth": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Token expirado"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "error"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "the input received is incorrect"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "error"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "an error has occured"
+                },
+                "details": {
+                  "type": "string",
+                  "example": "<<Error Log>>"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2013 @@
+{
+  "livro": "VI",
+  "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+  "total": 121,
+  "lotes": 9,
+  "dupKeys": [],
+  "incompletos": 65,
+  "incompletosChaves": [
+    "VI/I/_/art-483",
+    "VI/I/_/art-483/inciso-iv",
+    "VI/I/_/art-483/inciso-v",
+    "VI/I/_/art-484",
+    "VI/I/_/art-484/inciso-ii",
+    "VI/I/_/art-484/paragrafo-1",
+    "VI/I/_/art-484/paragrafo-2",
+    "VI/I/_/art-485",
+    "VI/I/_/art-485/inciso-i",
+    "VI/I/_/art-485/inciso-ii",
+    "VI/I/_/art-485/inciso-iii",
+    "VI/I/_/art-485/inciso-iv",
+    "VI/I/_/art-485/paragrafo-1",
+    "VI/I/_/art-485/paragrafo-2",
+    "VI/I/_/art-487/paragrafo-1",
+    "VI/I/_/art-487/paragrafo-2",
+    "VI/I/_/art-489/paragrafo-1",
+    "VI/I/_/art-489/paragrafo-2",
+    "VI/II/_/art-490/paragrafo-1",
+    "VI/II/_/art-490/paragrafo-2",
+    "VI/II/_/art-490/paragrafo-3",
+    "VI/II/_/art-492",
+    "VI/II/_/art-492/inciso-iii",
+    "VI/II/_/art-492/inciso-v",
+    "VI/II/_/art-492/inciso-vi",
+    "VI/II/_/art-495",
+    "VI/II/_/art-495/inciso-i",
+    "VI/II/_/art-495/inciso-ii",
+    "VI/II/_/art-495/inciso-iii",
+    "VI/II/_/art-495/inciso-iv",
+    "VI/II/_/art-495/inciso-v",
+    "VI/II/_/art-495/inciso-vi",
+    "VI/II/_/art-495/inciso-vii",
+    "VI/II/_/art-495/inciso-viii",
+    "VI/II/_/art-495/inciso-x",
+    "VI/II/_/art-495/paragrafo-1",
+    "VI/II/_/art-495/paragrafo-2",
+    "VI/II/_/art-495/paragrafo-3",
+    "VI/II/_/art-495/paragrafo-4",
+    "VI/II/_/art-496/paragrafo-1",
+    "VI/II/_/art-496/paragrafo-2",
+    "VI/II/_/art-496/paragrafo-3",
+    "VI/II/_/art-497/paragrafo-1",
+    "VI/II/_/art-497/paragrafo-2",
+    "VI/II/_/art-497/paragrafo-3",
+    "VI/II/_/art-497/paragrafo-4",
+    "VI/II/_/art-497/paragrafo-5",
+    "VI/II/_/art-497/paragrafo-6",
+    "VI/II/_/art-500/paragrafo-1",
+    "VI/II/_/art-500/paragrafo-2",
+    "VI/II/_/art-500/paragrafo-3",
+    "VI/II/_/art-503/inciso-i",
+    "VI/II/_/art-503/inciso-ii",
+    "VI/II/_/art-503/inciso-iii",
+    "VI/II/_/art-503/inciso-iv",
+    "VI/II/_/art-503/inciso-v",
+    "VI/II/_/art-503/inciso-vi",
+    "VI/III/_/art-506/inciso-iv",
+    "VI/III/_/art-508/paragrafo-1",
+    "VI/III/_/art-508/paragrafo-2",
+    "VI/III/_/art-509/paragrafo-1",
+    "VI/III/_/art-509/paragrafo-2",
+    "VI/V/_/art-515",
+    "VI/V/_/art-515/inciso-i",
+    "VI/V/_/art-515/inciso-iii"
+  ],
+  "items": [
+    {
+      "chave": "VI/I/_/art-483",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "483",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Compete ao Oficial de Registro Civil de Pessoas Jurídicas:"
+    },
+    {
+      "chave": "VI/I/_/art-483/inciso-i",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "483",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "registrar ato constitutivo, contrato social e estatutos de sociedade simples, associação, organização religiosa, fundação de direito privado, empresa individual de responsabilidade limitada, de natureza simples, e sindicato;"
+    },
+    {
+      "chave": "VI/I/_/art-483/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "483",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "registrar sociedade simples revestida da forma empresária, conforme estabelecido no Código Civil, exceto sociedades anônima e em comandita por ações;"
+    },
+    {
+      "chave": "VI/I/_/art-483/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "483",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "matricular jornais, revistas e demais publicações periódicas, oficinas impressoras, empresas de radiodifusão que mantenham serviços de notícias, reportagens, comentários, debates e entrevistas, e as empresas que tenham por objeto agenciamento de notícias;"
+    },
+    {
+      "chave": "VI/I/_/art-483/inciso-iv",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "483",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "averbar, na respectiva inscrição e matrícula, toda alteração superveniente a comportar modificação da circunstância constante do registro, ato ou documento, atendidas as exigências legais; e"
+    },
+    {
+      "chave": "VI/I/_/art-483/inciso-v",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "483",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "fornecer certidões dos atos praticados em razão do ofício, no prazo e forma legais;"
+    },
+    {
+      "chave": "VI/I/_/art-483/inciso-vi",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "483",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "registrar e autenticar os livros físicos ou digitais das pessoas jurídicas, exigindo a apresentação do anterior, observando-se sua rigorosa sequência numérica, com a comprovação de, no mínimo, 50% (cinquenta por cento) da utilização de suas páginas, bem como uma cópia reprográfica do termo de encerramento para arquivo Na serventia."
+    },
+    {
+      "chave": "VI/I/_/art-483/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "483",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "No registro de atos constitutivos e estatutos de entidades sindicais, o controle da unidade sindical e da base territorial não será feito pelo oficial registrador."
+    },
+    {
+      "chave": "VI/I/_/art-484",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "484",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "No Registro Civil de Pessoas Jurídicas haverá os seguintes livros:"
+    },
+    {
+      "chave": "VI/I/_/art-484/inciso-i",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "484",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "Livro de Protocolo, para o lançamento de todos os requerimentos, documentos, papéis e títulos ingressados, que digam respeito a atos de registro, matrícula ou averbação;"
+    },
+    {
+      "chave": "VI/I/_/art-484/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "484",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "Livro A, com 300 (trezentas) folhas, para a inscrição das pessoas elencadas nos incisos I e II do artigo 483; e 99 (Inciso com redação dada pelo Provimento nº 62, de 12 de agosto de 2021)."
+    },
+    {
+      "chave": "VI/I/_/art-484/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "484",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "Livro A, com 300 (trezentas) folhas, para a inscrição das pessoas elencadas nos incisos I e II do artigo 1º; e"
+    },
+    {
+      "chave": "VI/I/_/art-484/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "484",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "Livro B, com 150 (cento e cinquenta) folhas, para os fins indicados no inciso III do artigo 483.100 (Inciso com redação dada pelo Provimento nº 62, de 12 de agosto de 2021)."
+    },
+    {
+      "chave": "VI/I/_/art-484/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "484",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "Livro B, com 150 (cento e cinquenta) folhas, para os fins indicados no inciso III do artigo 1º."
+    },
+    {
+      "chave": "VI/I/_/art-484/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "484",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". No Livro A serão lavrados o registro integral de ato constitutivo de pessoa jurídica e as averbações das alterações supervenientes a este, bem como de atas de reuniões e assembleias ou de quaisquer outros atos, de natureza societária ou associativa, realizados pela pessoa jurídica."
+    },
+    {
+      "chave": "VI/I/_/art-484/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "484",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". No Livro B serão matriculados jornais, revistas e demais publicações periódicas, oficinas impressoras e de agência de notícias, bem como averbadas todas as alterações supervenientes das declarações ou documentos constantes na matrícula."
+    },
+    {
+      "chave": "VI/I/_/art-485",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "485",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Livro de Protocolo, escriturado mediante processo eletrônico ou informatizado, conterá campos para a indicação de:"
+    },
+    {
+      "chave": "VI/I/_/art-485/inciso-i",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "485",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "número de ordem, que seguirá de forma crescente e infinita;"
+    },
+    {
+      "chave": "VI/I/_/art-485/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "485",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "data, cuja coluna pode ser substituída por termo de encerramento diário;"
+    },
+    {
+      "chave": "VI/I/_/art-485/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "485",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "natureza do documento, que poderá ser indicada abreviadamente;"
+    },
+    {
+      "chave": "VI/I/_/art-485/inciso-iv",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "485",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "nome do apresentante; e"
+    },
+    {
+      "chave": "VI/I/_/art-485/inciso-v",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "485",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "anotações e averbações."
+    },
+    {
+      "chave": "VI/I/_/art-485/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "485",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A escrituração será diária, cujo termo eletrônico de encerramento, subscrito pelo oficial ou escrevente autorizado, constará o número de documentos apresentados no dia, sendo a data do protocolo a mesma do termo diário do encerramento."
+    },
+    {
+      "chave": "VI/I/_/art-485/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "485",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Em seguida ao registro, far-se-á, no protocolo, remissão ao número e data em que efetivado."
+    },
+    {
+      "chave": "VI/I/_/art-486",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "486",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A escrituração do Livro de Protocolo do Registro Civil de Pessoas Jurídicas será distinta e independente àquela do Livro “A” de Protocolo do Registro de Títulos e Documentos."
+    },
+    {
+      "chave": "VI/I/_/art-487",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "487",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os Livros A e B poderão ser substituídos por sistema de digitalização."
+    },
+    {
+      "chave": "VI/I/_/art-487/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "487",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Adotada a digitalização em formato eletrônico, fica dispensado o arquivamento de via original, que será devolvida para o apresentante, após o registro."
+    },
+    {
+      "chave": "VI/I/_/art-487/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "487",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Os livros serão formados por arquivo no formato “.PDF-A”, assinado eletronicamente pelo registrador ou escrevente, contendo imagens digitalizada do documento em papel ou anexo do arquivo eletrônico original apresentado pelo interessado, e a certificação do registro, que indicará o número de ordem e a data no protocolo e o número de ordem do registro e a data do registro."
+    },
+    {
+      "chave": "VI/I/_/art-488",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "488",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os livros obrigatórios serão encadernados conforme previsto nas regras gerais de escrituração deste Código, ou mantidos eletronicamente, disponíveis para impressão."
+    },
+    {
+      "chave": "VI/I/_/art-489",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "489",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Todo exemplar de contrato, ato, estatuto e publicação, registrado ou averbado, será arquivado por período certo, na forma da lei, acompanhado de índice que facilite a sua busca e exame."
+    },
+    {
+      "chave": "VI/I/_/art-489/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "489",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O índice será organizado em ordem cronológica e alfabética de todos os registros, averbações e arquivamentos, e indicará o nome dos interessados, intervenientes e cônjuges."
+    },
+    {
+      "chave": "VI/I/_/art-489/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES, DOS LIVROS E DA ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "489",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para a elaboração do índice, poderá ser adotado sistema de fichas ou informatizado."
+    },
+    {
+      "chave": "VI/II/_/art-490",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "490",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A existência legal da pessoa jurídica inicia-se com o registro de seu ato constitutivo, que será realizado no local de sua sede.101"
+    },
+    {
+      "chave": "VI/II/_/art-490/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "490",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O ato e contrato constitutivo de pessoa jurídica, incluindo os relativos às fundação de direito privado fiscalizada pelo Ministério Público e o estatuto da sociedade civil, somente serão admitidos a registro quando visados por advogado 102, ressalvada a microempresa – ME e empresa de pequeno porte – EPP103."
+    },
+    {
+      "chave": "VI/II/_/art-490/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "490",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O registro da pessoa jurídica não poderá ser feito sem a aprovação da autoridade competente caso exigida para o seu funcionamento.104"
+    },
+    {
+      "chave": "VI/II/_/art-490/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "490",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O registro do ato constitutivo e averbação da fundação só serão feitos com a aprovação prévia do Ministério Público, salvo a fundação previdenciária, cuja anuência será dada pelo órgão regulador e fiscalizador vinculado ao Ministério da Previdência Social.105"
+    },
+    {
+      "chave": "VI/II/_/art-491",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "491",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Para o registro dos atos constitutivos e de suas alterações, exigir-se-á a comprovação da inscrição no respectivo órgão de disciplina e fiscalização do exercício profissional."
+    },
+    {
+      "chave": "VI/II/_/art-491/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "491",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "É dispensada a aprovação prévia do Conselho Profissional para registro de pessoa jurídica."
+    },
+    {
+      "chave": "VI/II/_/art-492",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedado no serviço de Registro Civil de Pessoas Jurídicas:"
+    },
+    {
+      "chave": "VI/II/_/art-492/inciso-i",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "da mesma comarca, o registro de sociedade, associação e fundação ou a matrícula de jornal, periódico, oficina impressora, empresa de radiodifusão e agência de notícia com denominação idêntica ou semelhante a outra já existente, que possa ocasionar dúvida ao usuário do serviço;106"
+    },
+    {
+      "chave": "VI/II/_/art-492/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "o registro ou averbação de qualquer ato relativo à pessoa jurídica caso não esteja registrado seu ato constitutivo no mesmo serviço;"
+    },
+    {
+      "chave": "VI/II/_/art-492/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "o registro de sociedade cooperativa, factoring e de empresário individual;"
+    },
+    {
+      "chave": "VI/II/_/art-492/inciso-iv",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "o registro de pessoa jurídica que inclua ou reproduza em sua composição, sigla ou denominação de órgão público da administração direta, indireta e de organismo nacional e internacional, bem como serviço público delegado a particular;"
+    },
+    {
+      "chave": "VI/II/_/art-492/inciso-v",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "o registro de sociedade de advogados ou de outra que inclua, entre suas finalidades, a atividade de advocacia;"
+    },
+    {
+      "chave": "VI/II/_/art-492/inciso-vi",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "o registo de ato de sociedade declarada como empresária, por constituir atribuição exclusiva do Registro Público das Empresas Mercantis; e"
+    },
+    {
+      "chave": "VI/II/_/art-492/inciso-vii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "o registro de sociedade formada por cônjuges, entre si ou com terceiros, casados no regime de comunhão universal de bens ou no da separação obrigatória, exceto se um dos sócios for exclusivamente de serviços.107"
+    },
+    {
+      "chave": "VI/II/_/art-492/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "492",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Havendo na comarca mais de um Registro Civil de Pessoas Jurídicas, o oficial informará aos demais a denominação com a qual pretenda a pessoa jurídica ser constituída, para os fins do disposto no inciso I, ao que estes o responderão no prazo de 2 (dois) dias."
+    },
+    {
+      "chave": "VI/II/_/art-493",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "493",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Na hipótese em que o ato constitutivo da pessoa jurídica indicar destino ou atividade ilícitos, ou contrários, nocivos ou perigosos ao bem público, à segurança do Estado e da coletividade, à ordem pública ou social, à moral e aos bons costumes, não será feito o registro.108"
+    },
+    {
+      "chave": "VI/II/_/art-493/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "493",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Para efeito do disposto no caput, o registrador, de ofício ou por provocação de qualquer autoridade, sobrestará o processo de registro e suscitará dúvida ao juízo com competência em matéria de registros públicos a que estiver sujeito, observando, no que couber, o disposto no artigo 198 da Lei nº 6.015/1973."
+    },
+    {
+      "chave": "VI/II/_/art-494",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "494",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro e a averbação serão lavrados mediante requerimento do representante legal da pessoa jurídica, com firma reconhecida ou certificação digital, se eletrônico."
+    },
+    {
+      "chave": "VI/II/_/art-495",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de pessoas jurídicas será feito sequencialmente pelo oficial,"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-i",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "denominação ou firma;"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "fundo social, quando houver;"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "fins ou objeto social;"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-iv",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "sede com endereço completo;"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-v",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "tempo de sua duração, presumindo-se, na falta de menção expressa, cuidar-se de prazo indeterminado;"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-vi",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "modo por que se administra e representa a pessoa jurídica, ativa e passivamente, judicial e extrajudicialmente;"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-vii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "se o estatuto, o contrato ou o compromisso é reformável, no tocante à administração, e de que modo;"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-viii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "se os membros respondem ou não, subsidiariamente, pelas obrigações sociais;"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-ix",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "IX"
+      },
+      "texto_normativo_exato": "condições de extinção da pessoa jurídica e, nesse caso, o destino do seu patrimônio; 109 110"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-x",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "X"
+      },
+      "texto_normativo_exato": "qualificação111 dos fundadores ou instituidores e dos membros da diretoria, provisória ou definitiva, com indicação da nacionalidade, estado civil e profissão de cada um, bem como nome e residência do apresentante dos exemplares112; e"
+    },
+    {
+      "chave": "VI/II/_/art-495/inciso-xi",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": null,
+        "inciso": "XI"
+      },
+      "texto_normativo_exato": "visto de advogado no ato constitutivo e suas alterações, com o seu nome e respectivo número de inscrição na Ordem dos Advogados do Brasil 113, dispensado quando se tratar de Microempresa ou Empresa de Pequeno Porte.114"
+    },
+    {
+      "chave": "VI/II/_/art-495/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O registro de sociedade simples observará, além dos requisitos deste artigo, os estabelecidos nos artigos 997 a 1.000 do Código Civil."
+    },
+    {
+      "chave": "VI/II/_/art-495/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Exigir-se-á a comprovação da inscrição originária no serviço de Registro Civil de Pessoas Jurídicas da sede, acompanhada de certidão atualizada, para a criação de sucursal, filial ou agência."
+    },
+    {
+      "chave": "VI/II/_/art-495/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para a transferência da sede da pessoa jurídica à circunscrição de outro serviço extrajudicial, exigir-se-á averbação do ato e certidão simplificada atualizada. (Primitivo §4º renumerado pelo Provimento nº 62, de 12 de agosto de 2021)."
+    },
+    {
+      "chave": "VI/II/_/art-495/paragrafo-4",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "495",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para a transferência da sede da pessoa jurídica à circunscrição de outro serviço extrajudicial exigir-se-á averbação do ato e certidão simplificada atualizada."
+    },
+    {
+      "chave": "VI/II/_/art-496",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "496",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de partido político observará os requisitos no art. 495 e na legislação específica.115 116 117"
+    },
+    {
+      "chave": "VI/II/_/art-496/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "496",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O diretório estadual de partido político será registrado nos serviços de Registro Civil de Pessoas Jurídicas da Comarca de Goiânia."
+    },
+    {
+      "chave": "VI/II/_/art-496/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "496",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O diretório municipal de partido político será registrado no Registro Civil de Pessoas Jurídicas de cada município, mediante apresentação da ata de aprovação de sua criação ou eleição e da cópia da última alteração estatutária do partido."
+    },
+    {
+      "chave": "VI/II/_/art-496/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "496",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O registro de diretório zonal ou municipal independe da existência de diretório estadual."
+    },
+    {
+      "chave": "VI/II/_/art-497",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "497",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Para o registro da pessoa jurídica serão apresentadas duas vias originais do ato constitutivo, contrato social ou estatuto, mediante requerimento escrito firmado pelos sócios, administrador, designado na forma da lei, ou interessado, nas quais será lançada a competente certidão do registro, com o respectivo número de ordem, livro e folha.118"
+    },
+    {
+      "chave": "VI/II/_/art-497/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "497",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". É considerado interessado toda e qualquer pessoa que, tendo direito ou legítimo interesse, possa ser afetada pela ausência do arquivamento do ato."
+    },
+    {
+      "chave": "VI/II/_/art-497/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "497",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Todas as folhas dos atos constitutivos de sociedade e alterações serão rubricadas por todos os sócios e, ao final, reconhecidas suas assinaturas."
+    },
+    {
+      "chave": "VI/II/_/art-497/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "497",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". São indispensáveis, na entidade sem fim lucrativo, a rubrica do presidente, com firma reconhecida, e, ao final, as assinaturas dos membros da diretoria provisória ou definitiva."
+    },
+    {
+      "chave": "VI/II/_/art-497/paragrafo-4",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "497",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Fica dispensado o reconhecimento de firma caso o apresentante do requerimento seja seu subscritor, devidamente identificado pelo oficial ou escrevente autorizado."
+    },
+    {
+      "chave": "VI/II/_/art-497/paragrafo-5",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "497",
+        "paragrafo": "§5º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Uma das vias será entregue ao representante e a outra arquivada na serventia, rubricando o oficial as folhas em que estiver impresso o contrato, compromisso ou estatuto."
+    },
+    {
+      "chave": "VI/II/_/art-497/paragrafo-6",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "497",
+        "paragrafo": "§6º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O oficial de registros exigirá o instrumento de mandato, com firma reconhecida, ou cópia autenticada se algum dos sócios for representado por procurador."
+    },
+    {
+      "chave": "VI/II/_/art-498",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "498",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Havendo administrador estrangeiro, exigir-se-á visto de sua permanência legal no país."
+    },
+    {
+      "chave": "VI/II/_/art-499",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "499",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Todo documento que instrua averbação posterior será arquivado nos autos que deram origem ao registro, com a respectiva certidão do ato realizado."
+    },
+    {
+      "chave": "VI/II/_/art-499/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "499",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registrador poderá, por conveniência do serviço, registrar a alteração e averbá-la no registro originário, podendo cobrar do interessado somente os emolumentos relativos à averbação."
+    },
+    {
+      "chave": "VI/II/_/art-500",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "500",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O contrato e ato registrado no Registro Civil de Pessoas Jurídicas são títulos hábeis para transferência, no Registro de Imóveis, dos bens e direitos sobre imóvel com o que o sócio tiver contribuído para formação ou aumento do capital social."
+    },
+    {
+      "chave": "VI/II/_/art-500/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "500",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para a integralização de imóvel ao capital social de pessoa jurídica com fins lucrativos, serão exigidas e arquivadas as certidões de inteiro teor da matrícula e negativa de ônus, válidas por 30 (trinta) dias, e a anuência do cônjuge, se for o caso."
+    },
+    {
+      "chave": "VI/II/_/art-500/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "500",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O contrato social e suas alterações conterão a descrição do imóvel, identificação, área, dados relativos à titulação e número da matrícula no registro imobiliário."
+    },
+    {
+      "chave": "VI/II/_/art-500/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "500",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O sócio que integralizar as cotas será o único proprietário do imóvel objeto de integralização, ressalvadas as hipóteses expressamente previstas na legislação ou decorrentes de ordem judicial."
+    },
+    {
+      "chave": "VI/II/_/art-501",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "501",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Havendo pessoa jurídica no quadro de associados e de sócios, serão informados ao órgão competente os seus dados de registro, instruídos com certidão simplificada atualizada."
+    },
+    {
+      "chave": "VI/II/_/art-502",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "502",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Apresentado ato constitutivo de pessoa jurídica de fim não econômico, juntar-se-ão as atas de fundação, eleição e posse da primeira diretoria, devidamente"
+    },
+    {
+      "chave": "VI/II/_/art-503",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "503",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de estatuto de associação conterá:119"
+    },
+    {
+      "chave": "VI/II/_/art-503/inciso-i",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "503",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "a sua denominação, finalidade e sede;"
+    },
+    {
+      "chave": "VI/II/_/art-503/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "503",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "os requisitos para a admissão, demissão e exclusão dos associados;"
+    },
+    {
+      "chave": "VI/II/_/art-503/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "503",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "os direitos e deveres dos associados;"
+    },
+    {
+      "chave": "VI/II/_/art-503/inciso-iv",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "503",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "as fontes de recursos para sua manutenção;"
+    },
+    {
+      "chave": "VI/II/_/art-503/inciso-v",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "503",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "o modo de constituição e de funcionamento dos órgãos deliberativos;"
+    },
+    {
+      "chave": "VI/II/_/art-503/inciso-vi",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "503",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "as condições para a alteração das disposições estatutárias e para a dissolução; e"
+    },
+    {
+      "chave": "VI/II/_/art-503/inciso-vii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "503",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "a forma de gestão administrativa e de aprovação das respectivas contas."
+    },
+    {
+      "chave": "VI/II/_/art-504",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "504",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O requerimento de registro de sindicato e federação será instruído com informações e documentos próprios do registro de associação, competindo ao Ministério 120 responsável por conceder a personalidade sindical estabelecer demais exigências."
+    },
+    {
+      "chave": "VI/II/_/art-505",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "II",
+          "nome": "DO REGISTRO"
+        },
+        "capitulo": null,
+        "artigo": "505",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Ao registro civil eletrônico de pessoas jurídicas, de que tratam a Lei nº 11.977, de 7 de julho de 2009 e o Provimento nº 48, de 16 de março de 2016, da Corregedoria Nacional de Justiça, aplicam-se as disposições do Provimento nº 15, de 19 de julho de 2019, da Corregedoria-Geral da Justiça do Estado de Goiás."
+    },
+    {
+      "chave": "VI/III/_/art-506",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "506",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O requerimento de matrícula conterá as seguintes informações e documentos, relativamente:121"
+    },
+    {
+      "chave": "VI/III/_/art-506/inciso-i",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "506",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "ao jornal e outros periódicos: a) título do jornal ou periódico, sede da redação, administração e oficinas impressoras, para a publicação em papel, ou servidores, no caso de publicação em meio eletrônico, esclarecendo, quanto aos últimos, se são próprios ou de terceiros, com indicação dos respectivos proprietários; b) qualificação e prova de nacionalidade do diretor ou redator-chefe e do proprietário; e c) exemplar do respectivo estatuto ou contrato social, e qualificação e prova de nacionalidade da pessoa jurídica proprietária e dos diretores, administradores e sócios."
+    },
+    {
+      "chave": "VI/III/_/art-506/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "506",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "à oficina impressora: a) qualificação do administrador e do proprietário, se pessoa física; b) sede da administração e endereço completo de funcionamento da oficina, com a respectiva denominação; e c) exemplar do respectivo estatuto ou contrato social, e qualificação da pessoa jurídica proprietária e dos diretores, administradores e sócios."
+    },
+    {
+      "chave": "VI/III/_/art-506/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "506",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "à empresa de radiodifusão: a) designação da emissora, sede de sua administração e local das instalações do estúdio; b) qualificação e prova de nacionalidade do diretor, ou redator-chefe responsável pelos serviços, reportagens, comentários, debates e entrevistas."
+    },
+    {
+      "chave": "VI/III/_/art-506/inciso-iv",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "506",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "à agência de notícia: a) qualificação do administrador e do proprietário, se pessoa física; b) sede da administração; e"
+    },
+    {
+      "chave": "VI/III/_/art-507",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "507",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A alteração de informação ou documento será averbada na matrícula, no prazo de 8 (oito) dias e, a cada declaração a se averbar, corresponderá a um requerimento.122"
+    },
+    {
+      "chave": "VI/III/_/art-508",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "508",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Verificada a intempestividade de requerimento de averbação ou que o pedido de matrícula refere-se a publicação já em circulação, o oficial de registros representará ao Juízo com competência em matéria de Registros Públicos, para considerar sobre eventual aplicação de multa."
+    },
+    {
+      "chave": "VI/III/_/art-508/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "508",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A multa prevista no art. 124 da Lei de Registros Públicos 123 será fixada de acordo com os valores de referência, estabelecidos pelo Governo Federal."
+    },
+    {
+      "chave": "VI/III/_/art-508/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "508",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Salvo disposição em contrário, a multa será recolhida pelo interessado à União, em guia própria."
+    },
+    {
+      "chave": "VI/III/_/art-509",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "509",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Aplicam-se à matrícula, no que couber, os procedimentos para o registro constitutivo de pessoa jurídica."
+    },
+    {
+      "chave": "VI/III/_/art-509/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "509",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O requerente apresentará petição em 2 (duas) vias, com firma reconhecida, instruídas dos documentos exigidos por lei."
+    },
+    {
+      "chave": "VI/III/_/art-509/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "III",
+          "nome": "DO REGISTRO DE JORNAL, OFICINA IMPRESSORA, EMPRESA DE RADIODIFUSÃO E AGÊNCIA DE NOTÍCIA"
+        },
+        "capitulo": null,
+        "artigo": "509",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O oficial ou preposto autorizado rubricará as folhas e certificará, nas duas vias, os atos praticados com o respectivo número de ordem, livro e folha, entregando a segunda ao requerente. 122 -Lei nº 6.015/73, art. 123, §§1º e 2º."
+    },
+    {
+      "chave": "VI/IV/_/art-510",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DO REGISTRO DOS LIVROS CONTÁBEIS DA PESSOA JURÍDICA"
+        },
+        "capitulo": null,
+        "artigo": "510",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Sem prejuízo da competência da Secretaria da Receita Federal do Brasil – SRF, o oficial registrará e autenticará os livros contábeis ou não obrigatórios da associação, organização religiosa, sindicato, partido político, fundação ou sociedade simples, ou as fichas ou microfilmes substitutivos dos livros, cujos atos constitutivos estiverem registrados na comarca do serviço."
+    },
+    {
+      "chave": "VI/IV/_/art-510/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DO REGISTRO DOS LIVROS CONTÁBEIS DA PESSOA JURÍDICA"
+        },
+        "capitulo": null,
+        "artigo": "510",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A autenticação de novo livro far-se-á mediante exibição do termo de encerramento do livro anterior a ser registrado, e será dispensada caso este tenha sido processado por meio eletrônico e autenticado no serviço competente."
+    },
+    {
+      "chave": "VI/IV/_/art-511",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DO REGISTRO DOS LIVROS CONTÁBEIS DA PESSOA JURÍDICA"
+        },
+        "capitulo": null,
+        "artigo": "511",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A chancela poderá ser utilizada para a rubrica dos livros, desde que conste do termo o nome do oficial ou escrevente responsável pelo ato."
+    },
+    {
+      "chave": "VI/IV/_/art-512",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DO REGISTRO DOS LIVROS CONTÁBEIS DA PESSOA JURÍDICA"
+        },
+        "capitulo": null,
+        "artigo": "512",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Para registro e rubrica de livro já escriturado exigir-se-á requerimento escrito e fundamentado."
+    },
+    {
+      "chave": "VI/IV/_/art-513",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DO REGISTRO DOS LIVROS CONTÁBEIS DA PESSOA JURÍDICA"
+        },
+        "capitulo": null,
+        "artigo": "513",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os termos de abertura e de encerramento serão averbados no Livro A, facultada a adoção de fichário especial pelo nome das sociedades, cujos livros foram submetidos a registro e autenticação."
+    },
+    {
+      "chave": "VI/V/_/art-514",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA ALTERAÇÃO E DISSOLUÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "514",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "À averbação de alteração contratual ou estatutária de pessoa jurídica exigir-se-á requerimento assinado por seu representante legal, instruído com os documentos da respectiva alteração, devidamente assinados, rubricados nas demais folhas."
+    },
+    {
+      "chave": "VI/V/_/art-515",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA ALTERAÇÃO E DISSOLUÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "515",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O requerimento de dissolução ou extinção de pessoa jurídica será assinado pelo representante legal e instruído com:"
+    },
+    {
+      "chave": "VI/V/_/art-515/inciso-i",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA ALTERAÇÃO E DISSOLUÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "515",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "via da ata de dissolução ou do distrato social;"
+    },
+    {
+      "chave": "VI/V/_/art-515/inciso-ii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA ALTERAÇÃO E DISSOLUÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "515",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "Certificado de Regularidade perante o Fundo de Garantia do Tempo de Serviço – FGTS, expedido pela Caixa Econômica Federal, nos termos do disposto no inciso V do artigo 44 do Decreto nº 99.684, de 8 de novembro de 1990;"
+    },
+    {
+      "chave": "VI/V/_/art-515/inciso-iii",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA ALTERAÇÃO E DISSOLUÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "515",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "Certidão Negativa de Tributos Federais, nos termos do disposto no inciso V do artigo 1º do Decreto-lei nº 1.715, de 22 de novembro de 1979; e"
+    },
+    {
+      "chave": "VI/V/_/art-515/inciso-iv",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA ALTERAÇÃO E DISSOLUÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "515",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "Certidão Negativa de Inscrição de Dívida Ativa da União, expedida pela Procuradoria da Fazenda Nacional competente, nos termos do disposto no artigo 62 do Decreto-lei nº 147, de 3 de fevereiro de 1967, em todos os casos que for exigida a Certidão Negativa de Tributos Federais."
+    },
+    {
+      "chave": "VI/V/_/art-515/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA ALTERAÇÃO E DISSOLUÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "515",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "É dever do liquidante averbar e publicar a ata, sentença ou instrumento de dissolução da sociedade."
+    },
+    {
+      "chave": "VI/V/_/art-516",
+      "metadados_origem": {
+        "livro": "VI",
+        "livro_nome": "DO REGISTRO CIVIL DE PESSOAS JURÍDICAS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA ALTERAÇÃO E DISSOLUÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "516",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registrador averbará todas as alterações supervenientes na respectiva inscrição e matrícula."
+    }
+  ]
+}

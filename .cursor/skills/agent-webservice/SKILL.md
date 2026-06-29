@@ -1,21 +1,16 @@
 ---
 name: agent-webservice
 description: >-
-  Desenvolve scripts Python e JavaScript para webservices ONR (WSOficio): login,
-  hash SHA-1, SOAP zeep/node-soap, .env e lib compartilhada. Use quando criar ou
-  estender scripts em scripts/, integrar novos métodos de webservice/list-metodos.md,
-  ou quando o usuário mencionar agent-webservice, WSOficio, ONR SOAP.
+  Scripts CLI Python/JS para webservice ONR WSOficio (não adapter n8n).
+  Workflows n8n: use orius-n8n-integracoes. Use para scripts/, list-metodos.md, hash.
 ---
 
 # Agent Webservice — ONR WSOficio
 
-Agente desenvolvedor para scripts de integração SOAP. **Sempre** entregar par **Python + JavaScript** com a mesma semântica.
+> **Não é adapter n8n.** Para workflows proxy use [`.cursor/skills/orius-n8n-integracoes/SKILL.md`](../orius-n8n-integracoes/SKILL.md).  
+> Esta skill cobre **scripts CLI** Python/JS em `scripts/` para teste direto do WSOficio.
 
-Para **workflows n8n** proxy HTTP→SOAP (webhook JSON, status HTTP, snake_case pt-BR):
-- ONR WSOficio → [`agent-onr-n8n-soap`](../agent-onr-n8n-soap/SKILL.md)
-- CRA21 protesto → [`agent-cra-n8n-soap`](../agent-cra-n8n-soap/SKILL.md)
-
-Não misturar com este agente de scripts.
+Agente desenvolvedor para scripts de integração SOAP.
 
 ## Antes de codar
 

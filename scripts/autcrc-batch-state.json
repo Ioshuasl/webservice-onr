@@ -1,0 +1,6 @@
+{
+  "domain": "AUTCRC",
+  "batch_state_file": "scripts/autcrc-batch-state.json",
+  "active_batch_id": null,
+  "batches": {}
+}

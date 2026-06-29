@@ -1,0 +1,61 @@
+{
+  "id": "onrcpn-n8n-template",
+  "name": "onrcpn - n8n (template)",
+  "values": [
+    {
+      "key": "ONRCPN_CERTIDAO_BASE_URL",
+      "value": "https://certidaoh.registrocivil.org.br",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "ONRCPN_PROCLAMA_BASE_URL",
+      "value": "https://servicosh.registrocivil.org.br/api/proclama",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "ONRCPN_IDRC_TOKEN",
+      "value": "",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "onrcpn_certidao_id",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "N8N_BASE_URL",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "secret",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}

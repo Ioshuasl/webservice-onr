@@ -1,0 +1,18 @@
+{
+  "id": "see-tjgo-n8n-template",
+  "name": "see tjgo - n8n (template)",
+  "values": [
+    { "key": "SEE_TJGO_AMBIENTE", "value": "homologacao", "type": "default", "enabled": true },
+    { "key": "SEE_TJGO_API_BASE_URL", "value": "https://portal-hextrajudicial.tjgo.jus.br/api/v1", "type": "default", "enabled": true },
+    { "key": "SEE_TJGO_API_BASE_URL_PROD", "value": "https://see.tjgo.jus.br/api/v1", "type": "default", "enabled": true },
+    { "key": "SEE_TJGO_EMAIL", "value": "", "type": "secret", "enabled": true },
+    { "key": "SEE_TJGO_PASSWORD", "value": "", "type": "secret", "enabled": true },
+    { "key": "SEE_TJGO_HASH_CARTORIO", "value": "", "type": "secret", "enabled": true },
+    { "key": "see_tjgo_auth_token", "value": "", "type": "secret", "enabled": true },
+    { "key": "N8N_BASE_URL", "value": "https://api-n8n.gbrqne.easypanel.host", "type": "default", "enabled": true },
+    { "key": "n8n_webhook_mode", "value": "webhook-test", "type": "default", "enabled": true },
+    { "key": "N8N_BASIC_AUTH_USER", "value": "orius", "type": "default", "enabled": true },
+    { "key": "N8N_BASIC_AUTH_PASSWORD", "value": "master@orius", "type": "secret", "enabled": true }
+  ],
+  "_postman_variable_scope": "environment"
+}

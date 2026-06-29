@@ -1,0 +1,53 @@
+# ONLYOFFICE Document Server — dev / integração
+# Uso: docker compose -f onlyoffice/docker-compose.yml --env-file onlyoffice/.env up -d
+#
+# Se já existir container manual onlyoffice-docs-dev:
+#   docker stop onlyoffice-docs-dev && docker rm onlyoffice-docs-dev
+#   npm run onlyoffice:up
+
+services:
+  onlyoffice-documentserver:
+    image: onlyoffice/documentserver:${ONLYOFFICE_IMAGE_TAG:-latest}
+    container_name: onlyoffice-docs-dev
+    restart: unless-stopped
+    ports:
+      - "${ONLYOFFICE_HTTP_PORT:-8080}:80"
+      # Descomente para HTTPS direto no container (certs em volume onlyoffice_data)
+      # - "${ONLYOFFICE_HTTPS_PORT:-8443}:443"
+    environment:
+      # --- JWT (obrigatório fixar secret em qualquer ambiente com integração) ---
+      JWT_ENABLED: ${ONLYOFFICE_JWT_ENABLED:-true}
+      JWT_SECRET: ${ONLYOFFICE_JWT_SECRET:?defina ONLYOFFICE_JWT_SECRET em onlyoffice/.env}
+      JWT_HEADER: ${ONLYOFFICE_JWT_HEADER:-Authorization}
+      JWT_IN_BODY: ${ONLYOFFICE_JWT_IN_BODY:-false}
+      # --- Rede Docker / callbacks locais ---
+      ALLOW_PRIVATE_IP_ADDRESS: ${ONLYOFFICE_ALLOW_PRIVATE_IP:-true}
+      ALLOW_META_IP_ADDRESS: ${ONLYOFFICE_ALLOW_META_IP:-true}
+      # --- Opcionais ---
+      WOPI_ENABLED: ${ONLYOFFICE_WOPI_ENABLED:-false}
+      USE_UNAUTHORIZED_STORAGE: ${ONLYOFFICE_USE_UNAUTHORIZED_STORAGE:-false}
+      GENERATE_FONTS: ${ONLYOFFICE_GENERATE_FONTS:-true}
+      PLUGINS_ENABLED: ${ONLYOFFICE_PLUGINS_ENABLED:-true}
+      EXAMPLE_ENABLED: ${ONLYOFFICE_EXAMPLE_ENABLED:-false}
+      METRICS_ENABLED: ${ONLYOFFICE_METRICS_ENABLED:-false}
+      # --- Let's Encrypt (produção; requer portas 80+443 e domínio público) ---
+      # LETS_ENCRYPT_DOMAIN: ${ONLYOFFICE_LETS_ENCRYPT_DOMAIN:-}
+      # LETS_ENCRYPT_MAIL: ${ONLYOFFICE_LETS_ENCRYPT_MAIL:-}
+    volumes:
+      - onlyoffice_logs:/var/log/onlyoffice
+      - onlyoffice_data:/var/www/onlyoffice/Data
+      - onlyoffice_lib:/var/lib/onlyoffice
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+
+volumes:
+  onlyoffice_logs:
+    name: onlyoffice_logs
+  onlyoffice_data:
+    name: onlyoffice_data
+  onlyoffice_lib:
+    name: onlyoffice_lib

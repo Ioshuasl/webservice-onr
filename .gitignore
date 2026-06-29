@@ -1,4 +1,5 @@
 .env
+onlyoffice/.env
 node_modules/
 __pycache__/
 *.pyc

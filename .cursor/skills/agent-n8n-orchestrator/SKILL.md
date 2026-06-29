@@ -25,15 +25,15 @@ Não substitui as skills filhas — **compõe, roteia e audita** o cumprimento d
 
 **Não usar** para tarefas isoladas (só debug, só Postman, só pull) — nesses casos use a skill específica diretamente.
 
+**Lotes multi-card** (`AUTCNIB-2…6`, `AUTONRCPN-1…13`, `execution_order`): use [`agent-n8n-batch-orchestrator`](../agent-n8n-batch-orchestrator/SKILL.md) — estado do lote em **`batch-progress.md`** no vault Obsidian (não mais JSON em `scripts/`).
+
 ## Skills delegadas (não duplicar)
 
 | Papel | Skill / agente |
 |-------|----------------|
 | Tooling n8n-as-code | [`.agents/skills/n8n-architect/SKILL.md`](../../../.agents/skills/n8n-architect/SKILL.md) |
-| Pipeline ONR WSOficio SOAP | [`.cursor/skills/agent-onr-n8n-soap/SKILL.md`](../agent-onr-n8n-soap/SKILL.md) |
-| Pipeline CRA21 SOAP (protesto) | [`.cursor/skills/agent-cra-n8n-soap/SKILL.md`](../agent-cra-n8n-soap/SKILL.md) |
-| Gateway CENSEC REST JSON | [`.cursor/skills/agent-censec-n8n/SKILL.md`](../agent-censec-n8n/SKILL.md) |
-| Scripts ONR (referência) | [`.cursor/skills/agent-webservice/SKILL.md`](../agent-webservice/SKILL.md) |
+| **Workflows proxy (único)** | [`.cursor/skills/orius-n8n-integracoes/SKILL.md`](../orius-n8n-integracoes/SKILL.md) |
+| Scripts ONR CLI (referência) | `scripts/`, `webservice/` — não adapter n8n |
 | Vault + roteamento notas | [`obsidian-vault`](file:///C:/Users/kenio/.cursor/skills/obsidian-vault/SKILL.md) |
 | Plane (multi-projeto) | vault `Meta/integracoes/plane/agente-plane.md` · `palavras-chave-plane.md` · `projetos/<slug>.md` |
 | Matriz integração → Postman/sync | [routing-matrix.md](routing-matrix.md) |
@@ -54,6 +54,8 @@ Antes de criar card ou sync, resolver **slug** e **identificador** via vault `Me
 | CENPROT | `autcenprot` | AUTCENPROT | `projetos/autcenprot.md` |
 | CRC | `autcrc` | AUTCRC | `projetos/autcrc.md` |
 | SIRC | `autsirc` | AUTSIRC | `projetos/autsirc.md` |
+| ONRCPN (Certidão + e-Proclamas) | `autonrcpn` | AUTONRCPN | `projetos/autonrcpn.md` |
+| SEE TJGO | `autseetjgo` | AUTSEETJGO | `projetos/autseetjgo.md` |
 
 **Novos cards:** `[{IDENTIFICADOR}-n] (<integração>) <Método> - <Classificação>` — skill `@padronizacao-nomenclatura-automacao`. Ex.: `[AUTCNIB-1] (cnib) AuthToken - CNIB`.  
 **Legado:** cards `AUTONR-n` de outras integrações ainda no projeto `autonr` até migração; registry histórico em `maps/autonr-work-items.json`.
@@ -64,16 +66,22 @@ Antes da etapa 1, classificar a integração. Em **ambiguidade**, **perguntar** 
 
 | Palavras-chave | Integração | Adapter |
 |----------------|------------|---------|
-| `wsoficio`, `webservice onr`, `loginusuario`, `*AT`, `*PO`, `*OE`, `certidoes`, `*IN`, `*AC`, `matricula online`, `bdlight` | ONR WSOficio | `agent-onr-n8n-soap` |
-| `webservice cra`, `cra21`, `cra soap`, `protestos.php`, `protesto soap`, `autonr-127`…`142` | CRA21 SOAP | `agent-cra-n8n-soap` |
-| `censec`, `cep censec`, `cesdi`, `ctp censec`, `upload json censec`, `censec_uploadjson` | CENSEC | `agent-censec-n8n` |
+| `wsoficio`, `webservice onr`, `loginusuario`, `*AT`, `*PO`, `*OE`, `certidoes`, `*IN`, `*AC`, `matricula online`, `bdlight` | ONR WSOficio | `orius-n8n-integracoes` · perfil `soap-onr` |
+| `webservice cra`, `cra21`, `cra soap`, `protestos.php`, `protesto soap`, `autonr-127`…`142` | CRA21 SOAP | `orius-n8n-integracoes` · perfil `soap-cra` |
+| `censec`, `cep censec`, `cesdi`, `ctp censec`, `upload json censec`, `censec_uploadjson` | CENSEC | `orius-n8n-integracoes` · perfil `rest-json` |
 | `soap` (sem contexto) | **Ambíguo** | Perguntar: ONR WSOficio ou CRA21? |
 | `onr` (sem contexto) | **Ambíguo** | Perguntar: WSOficio SOAP ou RIB? |
 | `ctp` (sem contexto) | **Ambíguo** | Perguntar: ONR CTP (SOAP) ou CENSEC CTP (declarações)? |
-| `cnib`, `serventia-api`, `serventias api`, `indisponibilidade`, `autcnib`, `autcnib-1`…`6` | API CNIB SERVENTIAS | Projeto **AUTCNIB**; REST como RIB; ver [routing-matrix.md](routing-matrix.md) |
-| `ccn`, `doi`, `sigef`, `rib` | Outras | **Fase 3+** — ver [routing-matrix.md](routing-matrix.md); parar na etapa 3 sem adapter |
+| `cnib`, `serventia-api`, `serventias api`, `indisponibilidade`, `autcnib`, `autcnib-1`…`6` | API CNIB SERVENTIAS | `orius-n8n-integracoes` · perfil `rest-json` |
+| `onrcpn`, `autonrcpn`, `certidão eletrônica`, `e-proclamas`, `idrc` | API ONRCPN (REST) | `orius-n8n-integracoes` · perfil `rest-json` |
+| `see tjgo`, `autseetjgo` | SEE TJGO REST | `orius-n8n-integracoes` · perfil `rest-json` |
+| `rib`, `autorib` | RIB REST | `orius-n8n-integracoes` · perfil `rest-json` |
+
+| `ccn`, `doi`, `sigef` | Outras REST | `orius-n8n-integracoes` · perfil `rest-json` — ver [routing-matrix.md](routing-matrix.md) |
 
 Detalhes completos: [routing-matrix.md](routing-matrix.md).
+
+**Lotes:** mapa `batch-progress.md` → [batch-progress-paths.md](../agent-n8n-batch-orchestrator/batch-progress-paths.md). Ex.: CNIB `Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/batch-progress.md`; ONRCPN `.../onrcpn/automacao/batch-progress.md`.
 
 ## Protocolo BLOCKERS — perguntar antes de codar
 
@@ -121,10 +129,10 @@ Consultar, na ordem:
 
 1. Resolver ambiente: `npx --yes n8nac env status --json` → `workflowsPath`
 2. Seguir **integralmente** `n8n-architect` (schema-first, decorators, validate)
-3. Aplicar adapter de domínio:
-   - **ONR WSOficio:** pipeline SOAP de `agent-onr-n8n-soap` + `workflow-template.md`
-   - **CRA21 SOAP:** pipeline de `agent-cra-n8n-soap` + `workflow-template.md`
-   - **CENSEC:** pipeline gateway REST de `agent-censec-n8n` + `workflow-template.md`
+3. Aplicar skill única [`orius-n8n-integracoes`](../orius-n8n-integracoes/SKILL.md) + perfil upstream ([perfis-upstream.md](../orius-n8n-integracoes/perfis-upstream.md)):
+   - **SOAP ONR:** perfil `soap-onr`
+   - **SOAP CRA:** perfil `soap-cra`
+   - **REST/JSON:** perfil `rest-json` (CNIB, RIB, SEE TJGO, ONRCPN, CENSEC, …)
 4. Nome publicado no `@workflow({ name })` — **igual ao título do card** no projeto Plane da integração:
 
 ```text
@@ -154,6 +162,14 @@ npx --yes n8nac workflow present <workflowId> --json
 
 Usar [routing-matrix.md](routing-matrix.md) para coleção e script de build.
 
+**Regra de autonomia (Postman):**
+
+- Se o arquivo de **coleção** já existir no path esperado, **atualizar** esse JSON; não recriar.
+- Se o arquivo de **environment** já existir no path esperado, **atualizar** esse JSON; não recriar.
+- Somente se a coleção e/ou o environment **não existirem** ou **não forem encontrados** no repo, a skill pode **criar automaticamente** o(s) arquivo(s) base no diretório `postman/` da integração antes de continuar.
+- Ao criar arquivo novo, seguir o padrão de nomenclatura e estrutura da integração mais próxima na [routing-matrix.md](routing-matrix.md) e registrar o path final no brief/entrega.
+- A criação automática vale para **artefatos JSON locais do Postman**; não pressupõe sync cloud, ID remoto, ou configuração `.postman-sync-*.json`.
+
 **ONR WSOficio (Fase 1):**
 
 1. Adicionar/atualizar request com nome `[AUTONR-n] …` (regra `.cursor/rules/postman-autonr-naming.mdc`)
@@ -180,9 +196,11 @@ Usar [routing-matrix.md](routing-matrix.md) para coleção e script de build.
 3. `npm run postman:validate:naming -- postman/cnib-n8n/collection_postman.json`
 4. `npm run postman:sync:cnib` (após configurar `postman/.postman-sync-cnib.json`)
 
-Batch ativo: `scripts/autonr-batch-state.json` → `cnib-1-6` (projeto **AUTCNIB**). Ordem: Auth (1) → Visualizar (3) → Consultar (2) → Responder (4–5) → Documentos (6).
+**Lotes ativos:** consultar `batch-progress.md` do domínio no vault — campo `execution_order` no frontmatter. Legado JSON em `scripts/aut*-batch-state.json` não é mais atualizado.
 
 **Outras integrações (Fase 3+):** editar JSON em `postman/` conforme matriz; validar naming antes de sync.
+
+Se a integração ainda **não** tiver `collection_postman.json` e/ou `environment_postman.json`, a etapa 5 pode começar pela **criação automática** desses arquivos e só depois seguir com update, validate naming e sync aplicável.
 
 ### Etapa 6 — Sincronização
 
@@ -263,18 +281,19 @@ Ao concluir (ou pausar por BLOCKER), usar estrutura:
 
 ## Escopo por fase
 
-| Integração | Adapter etapa 3 | Postman/sync etapas 5–6 |
-|------------|-----------------|-------------------------|
-| ONR WSOficio SOAP | ✅ `agent-onr-n8n-soap` | ✅ `postman:build:onr` + syncs |
-| CRA21 SOAP (protesto) | ✅ `agent-cra-n8n-soap` | ✅ `postman:build:cra` + validate naming |
-| CENSEC | ✅ `agent-censec-n8n` | ✅ `postman:sync:censec` |
-| CNIB SERVENTIAS | ⏳ Fase 3 (REST, padrão RIB) | 📋 `postman/cnib-n8n/` + `postman:sync:cnib` |
-| CCN, DOI, SIGEF, RIB | ⏳ Fase 3 | 📋 matriz documentada |
+| Integração | Skill etapa 3 | Postman/sync etapas 5–6 |
+|------------|---------------|-------------------------|
+| ONR WSOficio SOAP | ✅ `orius-n8n-integracoes` (`soap-onr`) | ✅ `postman:build:onr` + syncs |
+| CRA21 SOAP (protesto) | ✅ `orius-n8n-integracoes` (`soap-cra`) | ✅ `postman:build:cra` + validate naming |
+| CENSEC | ✅ `orius-n8n-integracoes` (`rest-json`) | ✅ `postman:sync:censec` |
+| CNIB, RIB, SEE TJGO, ONRCPN | ✅ `orius-n8n-integracoes` (`rest-json`) | 📋 matriz + autocreate Postman se ausente |
+| CCN, DOI, SIGEF | ✅ `orius-n8n-integracoes` (`rest-json`) | 📋 matriz documentada |
 
-Para integrações sem adapter: completar etapas 1–2, pausar na 3 e avisar; **não improvisar** pipeline sem skill de domínio.
+Para integrações sem documentação vault suficiente: completar etapas 1–2, pausar na 3 e avisar BLOCKER.
 
 ## Referências
 
 - Padronização Orius: vault `Orius/desenvolvimento/padronizacao-n8n-autonr-plane-postman.md`
 - Postman: `postman/README.md`
 - Templates docs: vault `Orius/integracoes/automacao/templates/00-indice-templates-automacao-n8n.md`
+- Pipeline workflow: [`.cursor/skills/orius-n8n-integracoes/SKILL.md`](../orius-n8n-integracoes/SKILL.md)

@@ -1,0 +1,65 @@
+{
+  "certidao_id": "",
+  "idrc_token": "",
+  "certidao": {
+    "plataformaId": "certidao-eletronica",
+    "tipo_registro": "nascimento",
+    "tipo_certidao": "",
+    "transcricao": true,
+    "cartorio_cns": "115204",
+    "selo": "345739463498653",
+    "cod_selo": "12345678910",
+    "cota_emolumentos": "Cota",
+    "cota_emolumentos_isento": false
+  },
+  "registro": {
+    "nome_completo": "Nome teste de nascimento via API (atualizado)",
+    "cpf_sem_inscricao": false,
+    "cpf": "831.677.010-56",
+    "matricula": "34645748457456456236523423523423",
+    "data_registro": "18/07/2024",
+    "data_nascimento_ignorada": false,
+    "data_nascimento": "09/06/1997",
+    "hora_nascimento": "03:10 horas",
+    "municipio_naturalidade": "Sao Paulo",
+    "uf_naturalidade": "SP",
+    "local_nascimento": "Hospital",
+    "municipio_nascimento": "Franca",
+    "uf_nascimento": "SP",
+    "sexo": "masculino",
+    "gemeos": {
+      "quantidade": "1",
+      "irmao": [
+        {
+          "nome": "Mario Alves",
+          "matricula": "34645748457456456236523423523423"
+        }
+      ]
+    },
+    "filiacao": [
+      {
+        "nome": "Bianca test",
+        "municipio_nascimento": "Sao Paulo",
+        "uf_nascimento": "SP",
+        "avos": "Joao teste; Maria Ana da Silva"
+      },
+      {
+        "nome": "Jose Carlos",
+        "municipio_nascimento": "Sao Paulo",
+        "uf_nascimento": "SP",
+        "avos": "Alfredo teste; Ana Maria Silva"
+      }
+    ],
+    "numero_dnv": "122141241253",
+    "averbacao_anotacao": "Informacoes para averbacao e anotacao (atualizado)",
+    "anotacoes_cadastro": [
+      {
+        "tipo": "RG",
+        "documento": "26.815.096-5",
+        "orgao_emissor": "SSP - Secretaria de Seguranca Publica",
+        "uf_emissao": "SP",
+        "data_emissao": "01/01/2002"
+      }
+    ]
+  }
+}

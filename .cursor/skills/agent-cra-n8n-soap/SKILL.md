@@ -1,14 +1,12 @@
 ---
 name: agent-cra-n8n-soap
 description: >-
-  Monta workflows n8n (n8n-as-code) como proxy HTTP→SOAP exclusivamente para o
-  webservice CRA21 (protestos.php): pipeline JSON, validação, SOAP RPC, resposta
-  snake_case pt-BR com status HTTP. Use ao criar workflows CRA AUTOCRA-1…16,
-  webhooks protesto, ou quando o usuário mencionar agent-cra-n8n-soap, gateway
-  SOAP CRA, webservice CRA, CRA21.
+  DEPRECADO — use orius-n8n-integracoes (perfil soap-cra). Mantido como referência histórica.
 ---
 
 # Agent CRA n8n SOAP
+
+> **DEPRECADO** — use [`.cursor/skills/orius-n8n-integracoes/SKILL.md`](../orius-n8n-integracoes/SKILL.md) com perfil **`soap-cra`**. Este arquivo permanece só como referência histórica.
 
 Agente para **workflows n8n** que expõem as **16 operações SOAP** do CRA21 (`protestos.php`) via webhook JSON.
 

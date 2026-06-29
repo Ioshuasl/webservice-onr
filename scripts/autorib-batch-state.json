@@ -1,0 +1,367 @@
+{
+  "domain": "AUTORIB",
+  "batch_state_file": "scripts/autorib-batch-state.json",
+  "active_batch_id": "rib-1-36",
+  "batches": {
+    "rib-1-36": {
+      "batch_id": "rib-1-36",
+      "plane_project": "autorib",
+      "plane_identifier": "AUTORIB",
+      "started_at": "2026-06-09T00:00:00.000Z",
+      "completed_at": "2026-06-10T18:00:00.000Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "rib",
+      "postman_collection": "postman/RIB-n8n.postman_collection.json",
+      "range": {
+        "from": "AUTORIB-1",
+        "to": "AUTORIB-36"
+      },
+      "status": "complete",
+      "cards": {
+        "AUTORIB-19": {
+          "operacao": "RetificacaoEditalSimples",
+          "status": "done",
+          "rib_family": "edital-simples",
+          "workflow_id_n8n": "8tFLxV2mLMf9Q1Fr",
+          "completed_at": "2026-06-09T20:00:00.000Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-109"
+        },
+        "AUTORIB-20": {
+          "operacao": "CancelamentoEditalSimples",
+          "status": "done",
+          "workflow_id_n8n": "1si50aAetHpE2rg3",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-110"
+        },
+        "AUTORIB-21": {
+          "operacao": "CadastroEditalLeilao",
+          "status": "done",
+          "rib_family": "edital-leilao",
+          "template": "Cadastro Edital Simples RIB.workflow.ts",
+          "spec": "RFL-01",
+          "webhook": "POST /rib/edital/leilao/envio",
+          "workflow_id": "qLFf5nViKJCLKuSs",
+          "plane_legacy_key": "AUTONR-111",
+          "workflow_id_n8n": "qLFf5nViKJCLKuSs"
+        },
+        "AUTORIB-22": {
+          "operacao": "DetalheEditalLeilao",
+          "status": "done",
+          "rib_family": "edital-leilao",
+          "template": "Detalhe Edital Simples RIB.workflow.ts",
+          "spec": "RFL-04",
+          "webhook": "GET /rib/edital/leilao/detalhes",
+          "workflow_id": "ITjatOxJvXB93x48",
+          "plane_legacy_key": "AUTONR-112",
+          "workflow_id_n8n": "ITjatOxJvXB93x48"
+        },
+        "AUTORIB-23": {
+          "operacao": "RetificacaoEditalLeilao",
+          "status": "done",
+          "rib_family": "edital-leilao",
+          "template": "Retificacao Edital Simples RIB.workflow.ts + Cadastro Edital Leilao RIB.workflow.ts",
+          "spec": "RFL-03",
+          "webhook": "PUT /rib/edital/leilao/retificacao",
+          "workflow_id_n8n": "EpVUICl4P39XzDYp",
+          "completed_at": "2026-06-09T21:00:00.000Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-113"
+        },
+        "AUTORIB-24": {
+          "operacao": "CancelamentoEditalLeilao",
+          "status": "done",
+          "workflow_id_n8n": "cAwmKrG7r5RLkbyQ",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-114"
+        },
+        "AUTORIB-25": {
+          "operacao": "SolicitarExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Cadastro Edital Simples RIB.workflow.ts",
+          "spec": "RFX-02",
+          "webhook": "POST /rib/edital/extracao",
+          "workflow_id": "oifyx0PA6mcDAjtR",
+          "plane_legacy_key": "AUTONR-115"
+        },
+        "AUTORIB-26": {
+          "operacao": "ListagemExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Listagem Editais RIB.workflow.ts",
+          "spec": "RFX-01",
+          "webhook": "GET /rib/edital/extracao",
+          "workflow_id": "RGhVcwOvhmzKq37c",
+          "plane_legacy_key": "AUTONR-116"
+        },
+        "AUTORIB-27": {
+          "operacao": "DetalheExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Detalhe Edital Simples RIB.workflow.ts",
+          "spec": "RFX-03",
+          "webhook": "GET /rib/edital/extracao/detalhes",
+          "workflow_id": "rGzcWmnpPnTUKbGK",
+          "plane_legacy_key": "AUTONR-117",
+          "workflow_id_n8n": "rGzcWmnpPnTUKbGK"
+        },
+        "AUTORIB-28": {
+          "operacao": "DadosExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Detalhe Extracao Editais RIB.workflow.ts",
+          "spec": "RFX-05",
+          "webhook": "GET /rib/edital/extracao/dados",
+          "workflow_id": "pF2SRsZ4m1cA3fzV",
+          "plane_legacy_key": "AUTONR-118",
+          "workflow_id_n8n": "pF2SRsZ4m1cA3fzV"
+        },
+        "AUTORIB-29": {
+          "operacao": "DownloadExtracaoEditais",
+          "status": "done",
+          "rib_family": "edital-extracao",
+          "template": "Download Anexo Protocolo RIB.workflow.ts + Detalhe Extracao Editais RIB.workflow.ts",
+          "spec": "RFX-04",
+          "webhook": "GET /rib/edital/extracao/download",
+          "workflow_id_n8n": "D6nLGFkhDHfq0YQj",
+          "completed_at": "2026-06-10T12:00:00.000Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-119"
+        },
+        "AUTORIB-30": {
+          "operacao": "ListagemTiposPagamento",
+          "status": "done",
+          "rib_family": "cobranca",
+          "note": "pre-existing",
+          "plane_legacy_key": "AUTONR-120",
+          "workflow_id_n8n": "1C9hQMPCfrBuaJ78"
+        },
+        "AUTORIB-31": {
+          "operacao": "ListagemCobrancas",
+          "status": "done",
+          "rib_family": "cobranca",
+          "note": "pre-existing",
+          "plane_legacy_key": "AUTONR-121",
+          "workflow_id_n8n": "zWqpw3J2H21zZIxl"
+        },
+        "AUTORIB-32": {
+          "operacao": "DetalheCobranca",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Detalhe Edital Simples RIB.workflow.ts",
+          "spec": "RFC-03",
+          "webhook": "GET /rib/cobranca/detalhes",
+          "workflow_id": "vdX5HRRokKzYiMEn",
+          "plane_legacy_key": "AUTONR-122",
+          "workflow_id_n8n": "vdX5HRRokKzYiMEn"
+        },
+        "AUTORIB-33": {
+          "operacao": "GeracaoCobranca",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Cadastro Cobranca Edital RIB.workflow.ts",
+          "spec": "RFC-01",
+          "webhook": "POST /rib/cobranca",
+          "workflow_id": "dCoacaX1Oj0hBOm5",
+          "plane_legacy_key": "AUTONR-123",
+          "workflow_id_n8n": "dCoacaX1Oj0hBOm5"
+        },
+        "AUTORIB-34": {
+          "operacao": "CancelamentoCobranca",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Cancelamento Edital Simples RIB.workflow.ts + Detalhe Cobranca RIB.workflow.ts",
+          "spec": "RFC-04",
+          "webhook": "PATCH /rib/cobranca/cancelamento",
+          "workflow_id": "TcPxms2EcnItTasU",
+          "plane_legacy_key": "AUTONR-124",
+          "workflow_id_n8n": "TcPxms2EcnItTasU"
+        },
+        "AUTORIB-35": {
+          "operacao": "DevolucaoPix",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Geracao Cobranca RIB.workflow.ts",
+          "spec": "RFC-06",
+          "webhook": "POST /rib/cobranca/devolucao-pix",
+          "workflow_id": "ZCsiyyLsJkOzUIdV",
+          "plane_legacy_key": "AUTONR-125",
+          "workflow_id_n8n": "ZCsiyyLsJkOzUIdV"
+        },
+        "AUTORIB-36": {
+          "operacao": "CadastramentoCobranca",
+          "status": "done",
+          "rib_family": "cobranca",
+          "template": "Geracao Cobranca RIB.workflow.ts + Cadastro Cobranca Edital RIB.workflow.ts",
+          "spec": "cobranca-externa",
+          "webhook": "POST /rib/cobranca/externa",
+          "workflow_id_n8n": "WXOPh0N92vCWkh5B",
+          "completed_at": "2026-06-10T18:00:00.000Z",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true,
+            "sync": "partial",
+            "docs": true,
+            "payload": true
+          },
+          "plane_legacy_key": "AUTONR-126"
+        },
+        "AUTORIB-1": {
+          "operacao": "AuthToken",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-91",
+          "card_title": "[AUTORIB-1] (rib) AuthToken - RIB"
+        },
+        "AUTORIB-2": {
+          "operacao": "ListagemProtocolos",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-92",
+          "card_title": "[AUTORIB-2] (rib) ListagemProtocolos - RIB"
+        },
+        "AUTORIB-3": {
+          "operacao": "DetalheProtocoloV2",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-93",
+          "card_title": "[AUTORIB-3] (rib) DetalheProtocoloV2 - RIB"
+        },
+        "AUTORIB-4": {
+          "operacao": "TokenDetalheProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-94",
+          "card_title": "[AUTORIB-4] (rib) TokenDetalheProtocolo - RIB"
+        },
+        "AUTORIB-5": {
+          "operacao": "DetalheBasicoProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-95",
+          "card_title": "[AUTORIB-5] (rib) DetalheBasicoProtocolo - RIB"
+        },
+        "AUTORIB-6": {
+          "operacao": "DownloadAnexoProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-96",
+          "card_title": "[AUTORIB-6] (rib) DownloadAnexoProtocolo - RIB"
+        },
+        "AUTORIB-7": {
+          "operacao": "EnvioProtocoloOnline",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-97",
+          "card_title": "[AUTORIB-7] (rib) EnvioProtocoloOnline - RIB"
+        },
+        "AUTORIB-8": {
+          "operacao": "EnvioProtocoloLote",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-98",
+          "card_title": "[AUTORIB-8] (rib) EnvioProtocoloLote - RIB"
+        },
+        "AUTORIB-9": {
+          "operacao": "ListagemFilaProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-99",
+          "card_title": "[AUTORIB-9] (rib) ListagemFilaProtocolo - RIB"
+        },
+        "AUTORIB-10": {
+          "operacao": "DetalheFilaProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-100",
+          "card_title": "[AUTORIB-10] (rib) DetalheFilaProtocolo - RIB"
+        },
+        "AUTORIB-11": {
+          "operacao": "ExclusaoProtocolo",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-101",
+          "card_title": "[AUTORIB-11] (rib) ExclusaoProtocolo - RIB"
+        },
+        "AUTORIB-12": {
+          "operacao": "AtualizarProtocoloCobranca",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-102",
+          "card_title": "[AUTORIB-12] (rib) AtualizarProtocoloCobranca - RIB"
+        },
+        "AUTORIB-13": {
+          "operacao": "ListagemTiposEdital",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-103",
+          "card_title": "[AUTORIB-13] (rib) ListagemTiposEdital - RIB",
+          "workflow_id_n8n": "0dKWrbzXeuAyqvEA"
+        },
+        "AUTORIB-14": {
+          "operacao": "ListagemEditais",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-104",
+          "card_title": "[AUTORIB-14] (rib) ListagemEditais - RIB"
+        },
+        "AUTORIB-15": {
+          "operacao": "CadastroCobrancaEdital",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-105",
+          "card_title": "[AUTORIB-15] (rib) CadastroCobrancaEdital - RIB"
+        },
+        "AUTORIB-16": {
+          "operacao": "AtualizarCobrancaEdital",
+          "status": "pending",
+          "plane_legacy_key": "AUTONR-106",
+          "card_title": "[AUTORIB-16] (rib) AtualizarCobrancaEdital - RIB"
+        },
+        "AUTORIB-17": {
+          "operacao": "CadastroEditalSimples",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-107",
+          "card_title": "[AUTORIB-17] (rib) CadastroEditalSimples - RIB",
+          "workflow_id_n8n": "xTiINK2TQ7WswSrD"
+        },
+        "AUTORIB-18": {
+          "operacao": "DetalheEditalSimples",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-108",
+          "card_title": "[AUTORIB-18] (rib) DetalheEditalSimples - RIB",
+          "workflow_id_n8n": "c80SWxSIoTQsRBJL"
+        }
+      }
+    }
+  }
+}

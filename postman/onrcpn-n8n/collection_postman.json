@@ -1,0 +1,901 @@
+{
+  "info": {
+    "_postman_id": "b7c4e8f2-1a3d-5e6f-9b0c-2d3e4f5a6b7c",
+    "name": "onrcpn - n8n",
+    "description": "Coleção para testar workflows n8n proxy da **API ONRCPN** (Certidão Eletrônica + e-Proclamas).\n\n## Workflows (AUTONRCPN-1…13)\n\nPasta **n8n — proxy ONRCPN** — preencher conforme subagentes implementam.\n\n## Pré-requisitos\n\n1. Workflow ativo no n8n (produção ou test).\n2. Basic Auth webhook (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Token IdRC em `ONRCPN_IDRC_TOKEN` (vault `env.md` → seção ONRCPN).\n4. Header upstream: `Authorization: Bearer {{ONRCPN_IDRC_TOKEN}}`.\n\n## Upstream (referência)\n\n| Serviço | Base URL |\n|---------|----------|\n| Certidão Eletrônica | `https://certidaoh.registrocivil.org.br` |\n| e-Proclamas | `https://servicosh.registrocivil.org.br/api/proclama` |\n\nCollection upstream: `onrcpn/certidao-eletronica/certidao-eletronica.json`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASE_URL",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    },
+    {
+      "key": "ONRCPN_CERTIDAO_BASE_URL",
+      "value": "https://certidaoh.registrocivil.org.br",
+      "type": "string"
+    },
+    {
+      "key": "ONRCPN_PROCLAMA_BASE_URL",
+      "value": "https://servicosh.registrocivil.org.br/api/proclama",
+      "type": "string"
+    },
+    {
+      "key": "ONRCPN_IDRC_TOKEN",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "onrcpn_proclama_matricula",
+      "value": "11111101552025600001102000001541",
+      "type": "string"
+    },
+    {
+      "key": "onrcpn_certidao_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_certificate_json_create",
+      "value": "KU15nttSxHXkarQG",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_certificate_json_get",
+      "value": "HXfIyLqYyAIiUv8T",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_certificate_json_update",
+      "value": "jtKlI2Q8GYp7Ze35",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_certificate_json_sign",
+      "value": "mP7Ac2OWOGFjStku",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_certificate_file_create",
+      "value": "L2FwhXvCm86fQVPR",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_certificate_file_update",
+      "value": "2cXMF8rcvwiRpyp8",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_certificate_cancel",
+      "value": "8ToVzoxYsn1HnM8n",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_pedidos_obter",
+      "value": "9XXkgX2TUwThc8vr",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_pedidos_enviar",
+      "value": "bj54E3wFSVjL75zp",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_pedidos_rejeitar",
+      "value": "NqcDwHlxBxL2bqL3",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_proclama_health",
+      "value": "dNXpwlR198b2TUyX",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_proclama_enviar",
+      "value": "6THLGlwxk4NbBAwa",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_proclama_recibo",
+      "value": "odaoBUhf2BkWVZvh",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "API upstream (referência)",
+      "description": "Endpoints diretos na API ONRCPN — requer IdRC token.",
+      "item": []
+    },
+    {
+      "name": "n8n — proxy ONRCPN",
+      "description": "Webhooks HTTP→REST dos workflows AUTONRCPN.",
+      "item": [
+        {
+          "name": "Certidão",
+          "item": [
+            {
+              "name": "[AUTONRCPN-1] (onrcpn) CertificateJsonCreate - Certidão",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-1] (onrcpn) CertificateJsonCreate - Certidão`.\n\nWorkflow ID: `{{n8n_workflow_id_certificate_json_create}}`\n\nWebhook `POST /onrcpn/certificate-json/create` → upstream `POST /api/v1.0/certificate-json`.\n\nHeader upstream (futuro): `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body / `Authorization` no webhook).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso && json.dados && json.dados.certidao_id) {",
+                      "    pm.collectionVariables.set('onrcpn_certidao_id', json.dados.certidao_id);",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\",\n  \"certidao\": {\n    \"plataformaId\": \"certidao-eletronica\",\n    \"tipo_registro\": \"nascimento\",\n    \"tipo_certidao\": \"\",\n    \"transcricao\": true,\n    \"cartorio_cns\": \"115204\",\n    \"selo\": \"345739463498653\",\n    \"cod_selo\": \"12345678910\",\n    \"modalidade\": \"eletronica\",\n    \"cota_emolumentos\": \"Cota\",\n    \"cota_emolumentos_isento\": false\n  },\n  \"registro\": {\n    \"nome_completo\": \"Caique teste de nascimento via API\",\n    \"cpf_sem_inscricao\": false,\n    \"cpf\": \"831.677.010-56\",\n    \"matricula\": \"34645748457456456236523423523423\",\n    \"data_registro\": \"18/07/2024\",\n    \"data_nascimento_ignorada\": false,\n    \"data_nascimento\": \"09/06/1990\",\n    \"hora_nascimento\": \"03:10 horas\",\n    \"municipio_naturalidade\": \"Sao Paulo\",\n    \"uf_naturalidade\": \"SP\",\n    \"local_nascimento\": \"Hospital\",\n    \"municipio_nascimento\": \"Sao Paulo\",\n    \"uf_nascimento\": \"SP\",\n    \"sexo\": \"masculino\",\n    \"gemeos\": {\n      \"quantidade\": \"1\",\n      \"irmao\": [\n        {\n          \"nome\": \"Mario Alves\",\n          \"matricula\": \"34645748457456456236523423523423\"\n        }\n      ]\n    },\n    \"filiacao\": [\n      {\n        \"nome\": \"Bianca test\",\n        \"municipio_nascimento\": \"Sao Paulo\",\n        \"uf_nascimento\": \"SP\",\n        \"avos\": \"Joao teste; Maria Ana da Silva\"\n      }\n    ],\n    \"numero_dnv\": \"122141241253\",\n    \"averbacao_anotacao\": \"Anotacoes da averbacao\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/certificate-json/create"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-2] (onrcpn) CertificateJsonUpdate - Certidão",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-2] (onrcpn) CertificateJsonUpdate - Certidão`.\n\nWorkflow ID: `{{n8n_workflow_id_certificate_json_update}}`\n\nWebhook `PUT /onrcpn/certificate-json/update` → upstream `PUT /api/v1.0/certificate-json/{id}`.\n\nBody: `certidao_id` (ou query) + `certidao` + `registro` (mesmo contrato do create; `tipo_registro` deve coincidir com o registro existente). Header upstream: `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso && json.dados && json.dados.arquivo) {",
+                      "    pm.expect(json.dados.arquivo).to.have.property('type');",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"certidao_id\": \"{{onrcpn_certidao_id}}\",\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\",\n  \"certidao\": {\n    \"plataformaId\": \"certidao-eletronica\",\n    \"tipo_registro\": \"nascimento\",\n    \"tipo_certidao\": \"\",\n    \"transcricao\": true,\n    \"cartorio_cns\": \"115204\",\n    \"selo\": \"345739463498653\",\n    \"cod_selo\": \"12345678910\",\n    \"cota_emolumentos\": \"Cota\",\n    \"cota_emolumentos_isento\": false\n  },\n  \"registro\": {\n    \"nome_completo\": \"Nome teste de nascimento via API (atualizado)\",\n    \"cpf_sem_inscricao\": false,\n    \"cpf\": \"831.677.010-56\",\n    \"matricula\": \"34645748457456456236523423523423\",\n    \"data_registro\": \"18/07/2024\",\n    \"data_nascimento_ignorada\": false,\n    \"data_nascimento\": \"09/06/1997\",\n    \"hora_nascimento\": \"03:10 horas\",\n    \"municipio_naturalidade\": \"Sao Paulo\",\n    \"uf_naturalidade\": \"SP\",\n    \"local_nascimento\": \"Hospital\",\n    \"municipio_nascimento\": \"Franca\",\n    \"uf_nascimento\": \"SP\",\n    \"sexo\": \"masculino\",\n    \"gemeos\": {\n      \"quantidade\": \"1\",\n      \"irmao\": [\n        {\n          \"nome\": \"Mario Alves\",\n          \"matricula\": \"34645748457456456236523423523423\"\n        }\n      ]\n    },\n    \"filiacao\": [\n      {\n        \"nome\": \"Bianca test\",\n        \"municipio_nascimento\": \"Sao Paulo\",\n        \"uf_nascimento\": \"SP\",\n        \"avos\": \"Joao teste; Maria Ana da Silva\"\n      }\n    ],\n    \"numero_dnv\": \"122141241253\",\n    \"averbacao_anotacao\": \"Informacoes para averbacao e anotacao (atualizado)\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/certificate-json/update"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-3] (onrcpn) CertificateFileCreate - Certidão",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-3] (onrcpn) CertificateFileCreate - Certidão`.\n\nWorkflow ID: `{{n8n_workflow_id_certificate_file_create}}`\n\nWebhook `POST /onrcpn/certificate-file/create` → upstream `POST /api/v1.0/certificate-file` (multipart: `certidao`, `registro`, `documento_anexado_arquivo`).\n\nBody JSON: `certidao` + `registro` + `documento_base64` (workflow monta multipart). Header upstream: `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso && json.dados && json.dados.certidao_id) {",
+                      "    pm.collectionVariables.set('onrcpn_certidao_id', json.dados.certidao_id);",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\",\n  \"certidao\": {\n    \"plataformaId\": \"certidao-eletronica\",\n    \"tipo_registro\": \"nascimento\",\n    \"tipo_certidao\": \"\",\n    \"transcricao\": false,\n    \"cartorio_cns\": \"115204\",\n    \"selo\": \"345739463498653\",\n    \"cod_selo\": \"12345678910\",\n    \"modalidade\": \"eletronica\",\n    \"cota_emolumentos\": \"Cota\",\n    \"cota_emolumentos_isento\": false\n  },\n  \"registro\": {\n    \"nome_completo\": \"Caique teste certidao PDF via API\",\n    \"cpf_sem_inscricao\": false,\n    \"cpf\": \"831.677.010-56\",\n    \"matricula\": \"34645748457456456236523423523423\",\n    \"data_registro\": \"18/07/2024\",\n    \"data_nascimento_ignorada\": false,\n    \"data_nascimento\": \"09/06/1990\",\n    \"hora_nascimento\": \"03:10 horas\",\n    \"municipio_naturalidade\": \"Sao Paulo\",\n    \"uf_naturalidade\": \"SP\",\n    \"local_nascimento\": \"Hospital\",\n    \"municipio_nascimento\": \"Sao Paulo\",\n    \"uf_nascimento\": \"SP\",\n    \"sexo\": \"masculino\",\n    \"numero_dnv\": \"122141241253\"\n  },\n  \"nome_arquivo\": \"certidao-anexada.pdf\",\n  \"content_type\": \"application/pdf\",\n  \"documento_base64\": \"JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL1R5cGUgL1BhZ2VzCi9LaWRzIFszIDAgUl0KL0NvdW50IDEKL01lZGlhQm94IFswIDAgNjEyIDc5Ml0KPj4KZW5kb2JqCjMgMCBvYmoKPDwKL1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovUmVkaWFNYm94IFswIDAgNjEyIDc5Ml0KL0NvbnRlbnRzIDQgMCBSCj4+CmVuZG9iagogNCAwIG9iago8PAovTGVuZ3RoIDQ0Cj4+CnN0cmVhbQpCVAovRjEgMTIgVGYKNzIgNzIwIFRkCihUZXN0ZSkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgNQowMDAwMDAwMDAwIDY1NTM1IGYKMDAwMDAwMDAxMCAwMDAwMCBuCjAwMDAwMDAwNzkgMDAwMDAgbgowMDAwMDAwMTczIDAwMDAwIG4KMDAwMDAwMDMwMSAwMDAwMCBuCnRyYWlsZXIKPDwKL1NpemUgNQovUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKMzk4CiUlRU9G\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/certificate-file/create"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-4] (onrcpn) CertificateFileUpdate - Certidão",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-4] (onrcpn) CertificateFileUpdate - Certidão`.\n\nWorkflow ID: `{{n8n_workflow_id_certificate_file_update}}`\n\nWebhook `PUT /onrcpn/certificate-file/update` → upstream `PUT /api/v1.0/certificate-file/{id}` (multipart: `certidao`, `registro`, `documento_anexado_arquivo`).\n\nBody JSON: `certidao_id` + `certidao` + `registro` + `documento_base64` (workflow monta multipart). Header upstream: `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"certidao_id\": \"{{onrcpn_certidao_id}}\",\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\",\n  \"certidao\": {\n    \"plataformaId\": \"certidao-eletronica\",\n    \"tipo_registro\": \"nascimento\",\n    \"tipo_certidao\": \"\",\n    \"transcricao\": true,\n    \"cartorio_cns\": \"115204\",\n    \"selo\": \"345739463498653\",\n    \"cod_selo\": \"12345678910\",\n    \"modalidade\": \"eletronica\",\n    \"cota_emolumentos\": \"Cota\",\n    \"cota_emolumentos_isento\": false\n  },\n  \"registro\": {\n    \"nome_completo\": \"Caique teste de nascimento via API (PDF atualizado)\",\n    \"cpf_sem_inscricao\": false,\n    \"cpf\": \"831.677.010-56\",\n    \"matricula\": \"34645748457456456236523423523423\",\n    \"data_registro\": \"18/07/2024\",\n    \"data_nascimento_ignorada\": false,\n    \"data_nascimento\": \"09/06/1990\",\n    \"hora_nascimento\": \"03:10 horas\",\n    \"municipio_naturalidade\": \"Sao Paulo\",\n    \"uf_naturalidade\": \"SP\",\n    \"local_nascimento\": \"Hospital\",\n    \"municipio_nascimento\": \"Sao Paulo\",\n    \"uf_nascimento\": \"SP\",\n    \"sexo\": \"masculino\",\n    \"numero_dnv\": \"122141241253\",\n    \"averbacao_anotacao\": \"Certidao PDF atualizada via API\"\n  },\n  \"nome_arquivo\": \"certidao-atualizada.pdf\",\n  \"content_type\": \"application/pdf\",\n  \"documento_base64\": \"JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL1R5cGUgL1BhZ2VzCi9LaWRzIFszIDAgUl0KL0NvdW50IDEKL01lZGlhQm94IFswIDAgNjEyIDc5Ml0KPj4KZW5kb2JqCjMgMCBvYmoKPDwKL1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovUmVkaWFNYm94IFswIDAgNjEyIDc5Ml0KL0NvbnRlbnRzIDQgMCBSCj4+CmVuZG9iagogNCAwIG9iago8PAovTGVuZ3RoIDQ0Cj4+CnN0cmVhbQpCVAovRjEgMTIgVGYKNzIgNzIwIFRkCihUZXN0ZSkgVGoKRVQKZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgNQowMDAwMDAwMDAwIDY1NTM1IGYKMDAwMDAwMDAxMCAwMDAwMCBuCjAwMDAwMDAwNzkgMDAwMDAgbgowMDAwMDAwMTczIDAwMDAwIG4KMDAwMDAwMDMwMSAwMDAwMCBuCnRyYWlsZXIKPDwKL1NpemUgNQovUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKMzk4CiUlRU9G\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/certificate-file/update"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-5] (onrcpn) GetCertificateJson - Certidão",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-5] (onrcpn) GetCertificateJson - Certidão`.\n\nWorkflow ID: `{{n8n_workflow_id_certificate_json_get}}`\n\nWebhook `GET /onrcpn/certificate-json/get` → upstream `GET /api/v1.0/get-certificate-json/{id}`.\n\nQuery: `certidao_id` (ou `id`). Header upstream (futuro): `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` na query).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso && json.dados && json.dados.arquivo) {",
+                      "    pm.expect(json.dados.arquivo).to.have.property('type');",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/certificate-json/get?certidao_id={{onrcpn_certidao_id}}",
+                  "host": [
+                    "{{N8N_BASE_URL}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "onrcpn",
+                    "certificate-json",
+                    "get"
+                  ],
+                  "query": [
+                    {
+                      "key": "certidao_id",
+                      "value": "{{onrcpn_certidao_id}}"
+                    },
+                    {
+                      "key": "idrc_token",
+                      "value": "{{ONRCPN_IDRC_TOKEN}}",
+                      "disabled": true
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "[AUTONRCPN-6] (onrcpn) SignCertificateJson - Certidão",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-6] (onrcpn) SignCertificateJson - Certidão`.\n\nWorkflow ID: `{{n8n_workflow_id_certificate_json_sign}}`\n\nWebhook `POST /onrcpn/certificate-json/sign` → upstream `POST /api/v1.0/sign-certificate-json/{id}` (sem body).\n\nBody ou query: `certidao_id` (ou `id`). Header upstream: `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body/query).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso && json.dados) {",
+                      "    if (json.dados.link_assinatura) {",
+                      "      pm.expect(json.dados.link_assinatura).to.be.a('string');",
+                      "    }",
+                      "    if (json.dados.id_assinatura) {",
+                      "      pm.expect(json.dados.id_assinatura).to.be.a('string');",
+                      "    }",
+                      "    if (json.dados.arquivo) {",
+                      "      pm.expect(json.dados.arquivo).to.have.property('type');",
+                      "    }",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"certidao_id\": \"{{onrcpn_certidao_id}}\",\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/certificate-json/sign"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-7] (onrcpn) CancelCertificate - Certidão",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-7] (onrcpn) CancelCertificate - Certidão`.\n\nWorkflow ID: `{{n8n_workflow_id_certificate_cancel}}`\n\nWebhook `POST /onrcpn/certificate/cancel` → upstream `POST /api/v1.0/cancel-certificate/{id}` (sem body).\n\nBody ou query: `certidao_id` (ou `id`). Header upstream: `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body/query).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso) {",
+                      "    pm.expect(json.mensagem).to.be.a('string');",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"certidao_id\": \"{{onrcpn_certidao_id}}\",\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/certificate/cancel"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pedidos",
+          "item": [
+            {
+              "name": "[AUTONRCPN-8] (onrcpn) ObterPedidos - Pedidos",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-8] (onrcpn) ObterPedidos - Pedidos`.\n\nWorkflow ID: `{{n8n_workflow_id_pedidos_obter}}`\n\nWebhook `POST /onrcpn/pedidos/obter` → upstream `POST /api/v1.0/obter-pedidos`.\n\nBody: `modulo` (CRC, REG, JUD, EPR, P13, RSE, EOB) + `cns`. Header upstream: `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso && json.dados) {",
+                      "    pm.expect(json.dados).to.have.property('count');",
+                      "    pm.expect(json.dados.rows).to.be.an('array');",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\",\n  \"modulo\": \"CRC\",\n  \"cns\": \"111111\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/pedidos/obter"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-9] (onrcpn) EnviarPedidos - Pedidos",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-9] (onrcpn) EnviarPedidos - Pedidos`.\n\nWorkflow ID: `{{n8n_workflow_id_pedidos_enviar}}`\n\nWebhook `POST /onrcpn/pedidos/enviar` → upstream `POST /api/v1.0/enviar-pedidos`.\n\nBody: `numero_pedido`, `modulo`, `valor_emolumentos`, `id_externo`, `id_verificador` (+ opcionais `quantidade_averbacao`, `valor_adicional`, `observacoes_emissao`). Header upstream: `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso && json.dados) {",
+                      "    pm.expect(json.dados).to.have.property('codigo_retorno');",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\",\n  \"numero_pedido\": \"21038065\",\n  \"modulo\": \"CRC\",\n  \"quantidade_averbacao\": 1,\n  \"valor_adicional\": \"10.00\",\n  \"valor_emolumentos\": \"1.00\",\n  \"observacoes_emissao\": \"Obs\",\n  \"id_externo\": \"6152\",\n  \"id_verificador\": \"asd4-erqz\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/pedidos/enviar"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-10] (onrcpn) RejeitarPedidos - Pedidos",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-10] (onrcpn) RejeitarPedidos - Pedidos`.\n\nWorkflow ID: `{{n8n_workflow_id_pedidos_rejeitar}}`\n\nWebhook `POST /onrcpn/pedidos/rejeitar` → upstream `POST /api/v1.0/rejeitar-pedidos`.\n\nBody: `numero_pedido`, `modulo`, `descricao_motivo`. Header upstream: `Authorization: Bearer` com token IdRC (`ONRCPN_IDRC_TOKEN` ou override `idrc_token` no body).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "  if (json.sucesso && json.dados) {",
+                      "    pm.expect(json.dados).to.have.property('mensagem_retorno');",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\",\n  \"numero_pedido\": 21038065,\n  \"modulo\": \"CRC\",\n  \"descricao_motivo\": \"Descrição\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/pedidos/rejeitar"
+              }
+            }
+          ]
+        },
+        {
+          "name": "e-Proclamas",
+          "item": [
+            {
+              "name": "[AUTONRCPN-11] (onrcpn) ProclamaHealth - e-Proclamas",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-11] (onrcpn) ProclamaHealth - e-Proclamas`.\n\nWorkflow ID: `{{n8n_workflow_id_proclama_health}}`\n\nWebhook `GET /onrcpn/proclama/health` → upstream `GET /api/proclama/health`.\n\nHealth check público (sem Bearer obrigatório). Base: `ONRCPN_PROCLAMA_BASE_URL` (default `https://servicosh.registrocivil.org.br/api/proclama`).",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "});",
+                      "if (pm.response.code === 200) {",
+                      "  pm.test('Sistema online', () => {",
+                      "    pm.expect(json.sucesso).to.eql(true);",
+                      "    pm.expect(json.sistema_online).to.eql(true);",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/proclama/health"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-12] (onrcpn) ProclamaEnviar - e-Proclamas",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-12] (onrcpn) ProclamaEnviar - e-Proclamas`.\n\nWorkflow ID: `{{n8n_workflow_id_proclama_enviar}}`\n\nWebhook `POST /onrcpn/proclama/enviar` → upstream `POST /api/proclama/enviar`.\n\nBody: `cns` + `proclamas[]` (ver `onrcpn/payload-proclama-enviar-test.json`). Bearer IdRC obrigatório upstream (`ONRCPN_IDRC_TOKEN` ou `idrc_token` no body). Base: `ONRCPN_PROCLAMA_BASE_URL`.",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "});",
+                      "if (pm.response.code === 200 && json.sucesso) {",
+                      "  pm.test('Lote com batchId', () => {",
+                      "    pm.expect(json.dados).to.have.property('batchId');",
+                      "  });",
+                      "  if (json.dados && json.dados.batchId) {",
+                      "    pm.collectionVariables.set('onrcpn_proclama_batch_id', json.dados.batchId);",
+                      "  }",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"idrc_token\": \"{{ONRCPN_IDRC_TOKEN}}\",\n  \"cns\": \"111111\",\n  \"proclamas\": [\n    {\n      \"matricula\": \"11111101552025600001102000001541\",\n      \"publicacao\": true,\n      \"livro_eletronico\": true,\n      \"data_proclamas\": \"28/03/2025\",\n      \"tipo_casamento\": \"civil\",\n      \"cpf_fatura\": \"22105769039\",\n      \"nome_fatura\": \"João Silva\",\n      \"conjuge_1\": {\n        \"cpf\": \"22105769039\",\n        \"nome\": \"João Silva\",\n        \"novo_nome\": \"\",\n        \"sexo\": \"masculino\",\n        \"data_nascimento\": \"28/03/1990\",\n        \"estado_civil\": \"SOLTEIRO\",\n        \"ocupacao\": \"\",\n        \"naturalidade_estrangeiro\": false,\n        \"ibge_municipio_naturalidade\": \"3550308\",\n        \"descricao_naturalidade_estrangeiro\": \"\",\n        \"pais_nascimento\": \"076\",\n        \"nacionalidade\": \"076\",\n        \"domicilio_estrangeiro\": false,\n        \"endereco_residencia\": {\n          \"cep\": \"01227-200\",\n          \"logradouro\": \"avenida angelica\",\n          \"numero\": \"123\",\n          \"complemento\": \"\",\n          \"bairro\": \"consolacao\",\n          \"ibge_municipio\": \"3550308\"\n        },\n        \"descricao_domicilio_estrangeiro\": \"\",\n        \"filiacao\": [\n          { \"nome_genitor\": \"José Silva\", \"sexo_genitor\": \"masculino\" }\n        ]\n      },\n      \"conjuge_2\": {\n        \"cpf\": \"98765432100\",\n        \"nome\": \"Maria Santos\",\n        \"novo_nome\": \"\",\n        \"sexo\": \"feminino\",\n        \"data_nascimento\": \"15/08/1992\",\n        \"estado_civil\": \"SOLTEIRO\",\n        \"ocupacao\": \"\",\n        \"naturalidade_estrangeiro\": false,\n        \"ibge_municipio_naturalidade\": \"3550308\",\n        \"descricao_naturalidade_estrangeiro\": \"\",\n        \"pais_nascimento\": \"076\",\n        \"nacionalidade\": \"076\",\n        \"domicilio_estrangeiro\": false,\n        \"endereco_residencia\": {\n          \"cep\": \"01227-200\",\n          \"logradouro\": \"avenida angelica\",\n          \"numero\": \"456\",\n          \"complemento\": \"\",\n          \"bairro\": \"consolacao\",\n          \"ibge_municipio\": \"3550308\"\n        },\n        \"descricao_domicilio_estrangeiro\": \"\",\n        \"filiacao\": [\n          { \"nome_genitor\": \"Ana Santos\", \"sexo_genitor\": \"feminino\" }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/proclama/enviar"
+              }
+            },
+            {
+              "name": "[AUTONRCPN-13] (onrcpn) ProclamaRecibo - e-Proclamas",
+              "description": "Proxy n8n — workflow `[AUTONRCPN-13] (onrcpn) ProclamaRecibo - e-Proclamas`.\n\nWorkflow ID: `{{n8n_workflow_id_proclama_recibo}}`\n\nWebhook `GET /onrcpn/proclama/recibo?matricula=...` → upstream `GET /api/proclama/recibo/{matricula}`.\n\nQuery obrigatória: `matricula`. Bearer IdRC obrigatório upstream (`ONRCPN_IDRC_TOKEN` ou `idrc_token` na query). Base: `ONRCPN_PROCLAMA_BASE_URL`.",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "let json;",
+                      "pm.test('Resposta JSON válida', () => {",
+                      "  json = pm.response.json();",
+                      "  pm.expect(json).to.be.an('object');",
+                      "});",
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope ONRCPN', () => {",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('status_http');",
+                      "});",
+                      "if (pm.response.code === 200 && json.sucesso) {",
+                      "  pm.test('Recibo presente', () => {",
+                      "    pm.expect(json.dados).to.have.property('recibo');",
+                      "    pm.expect(json.dados.recibo).to.be.a('string').and.not.empty;",
+                      "  });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{ONRCPN_IDRC_TOKEN}}",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{N8N_BASE_URL}}/{{n8n_webhook_mode}}/onrcpn/proclama/recibo?matricula={{onrcpn_proclama_matricula}}&idrc_token={{ONRCPN_IDRC_TOKEN}}",
+                  "host": [
+                    "{{N8N_BASE_URL}}"
+                  ],
+                  "path": [
+                    "{{n8n_webhook_mode}}",
+                    "onrcpn",
+                    "proclama",
+                    "recibo"
+                  ],
+                  "query": [
+                    {
+                      "key": "matricula",
+                      "value": "{{onrcpn_proclama_matricula}}"
+                    },
+                    {
+                      "key": "idrc_token",
+                      "value": "{{ONRCPN_IDRC_TOKEN}}",
+                      "disabled": true
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

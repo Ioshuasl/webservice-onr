@@ -1,0 +1,7 @@
+{
+  "_comentario": "GET /onrcpn/proclama/health — sem body obrigatório. Query opcional: base_url, idrc_token.",
+  "query_exemplo": {},
+  "query_com_override": {
+    "base_url": "https://servicosh.registrocivil.org.br/api/proclama"
+  }
+}

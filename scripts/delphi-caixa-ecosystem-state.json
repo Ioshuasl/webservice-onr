@@ -1,0 +1,267 @@
+{
+  "product_slug": "caixa",
+  "product_path": "Caixa",
+  "code_root": "C:\\Users\\kenio\\sistema-delphi",
+  "ecosystem_state_file": "scripts/delphi-caixa-ecosystem-state.json",
+  "vault_hub": "Orius/desenvolvimento/legado-delphi/produtos/caixa",
+  "inventario_vault": "Orius/desenvolvimento/legado-delphi/produtos/caixa/inventario/inventario-fontes.json",
+  "active_domain_id": "cx-core-controles",
+  "status": "pending",
+  "started_at": null,
+  "completed_at": null,
+  "triage_rules": [
+    {
+      "glob": "**/dependencias/**",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/ResponsiveListDemo.dpr",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/DemoObjHID.dpr",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/demoprj/Project1.dpr",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/Tests/**",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/*Cópia*",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/*Copia*",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/frxClass.pas",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/mORMotReport.pas",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/*.old/**",
+      "tier": "T0",
+      "action": "skip"
+    },
+    {
+      "glob": "**/geral/Controles.pas",
+      "tier": "T1",
+      "action": "full"
+    },
+    {
+      "glob": "**/Principal.pas",
+      "tier": "T1",
+      "action": "full"
+    },
+    {
+      "glob": "**/dm*.pas",
+      "tier": "T1",
+      "action": "full"
+    },
+    {
+      "glob": "**/Lockup*.pas",
+      "tier": "T1",
+      "action": "full"
+    },
+    {
+      "glob": "**/ws*.pas",
+      "tier": "T2",
+      "action": "full"
+    },
+    {
+      "glob": "**/geral_sistemas/**",
+      "tier": "T2",
+      "action": "full"
+    },
+    {
+      "glob": "**/Frame*.pas",
+      "tier": "T3",
+      "action": "full"
+    },
+    {
+      "glob": "**/wsInterface.pas",
+      "tier": "T4",
+      "action": "stub"
+    }
+  ],
+  "domains": {
+    "cx-shell": {
+      "domain_id": "cx-shell",
+      "label": "Shell e login",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/geral/Login.pas",
+        "Caixa/geral/Config.pas",
+        "Caixa/Principal.pas"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "Caixa/geral/Login.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-core-controles": {
+      "domain_id": "cx-core-controles",
+      "label": "Controles + Lookup_Caixa",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/geral/Controles.pas",
+        "Caixa/geral/Rotinas.pas",
+        "Caixa/Lookup_Caixa.pas"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "Caixa/geral/Controles.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-controle-caixa": {
+      "domain_id": "cx-controle-caixa",
+      "label": "Controle de caixa",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/ControleCaixa.pas",
+        "Caixa/CaixaSimplificado.pas",
+        "Caixa/TotalizarCaixa.pas"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "Caixa/ControleCaixa.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-recibo-pagamento": {
+      "domain_id": "cx-recibo-pagamento",
+      "label": "Recibo e pagamentos",
+      "priority": "P0",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/ReciboCaixa.pas",
+        "Caixa/CaixaPagamentos.pas",
+        "Caixa/ConfirmarPagamento.pas",
+        "Caixa/AlterarFormaPagamento.pas"
+      ],
+      "files_total": 4,
+      "files_done": 0,
+      "current_file": "Caixa/ReciboCaixa.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-livro-diario": {
+      "domain_id": "cx-livro-diario",
+      "label": "Livro diário auxiliar",
+      "priority": "P1",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/LivroDiarioAuxiliarDF.pas",
+        "Caixa/LivroDiarioAuxiliar.pas"
+      ],
+      "files_total": 2,
+      "files_done": 0,
+      "current_file": "Caixa/LivroDiarioAuxiliarDF.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-boleto-nfse": {
+      "domain_id": "cx-boleto-nfse",
+      "label": "Boleto e NFSe",
+      "priority": "P1",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/geral/EmitirBoleto.pas",
+        "Caixa/geral/EmissaoNFSe.pas",
+        "Caixa/geral_sistemas/wsgeral/dmBoleto.pas"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "Caixa/geral/EmitirBoleto.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-estorno-cheque": {
+      "domain_id": "cx-estorno-cheque",
+      "label": "Estorno e cheque",
+      "priority": "P1",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/Estorno.pas",
+        "Caixa/Cheque.pas"
+      ],
+      "files_total": 2,
+      "files_done": 0,
+      "current_file": "Caixa/Estorno.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-pagamentos-ws": {
+      "domain_id": "cx-pagamentos-ws",
+      "label": "ONR / PIX (xref)",
+      "priority": "P2",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/geral_sistemas/wsgeral/dmONR.pas",
+        "Caixa/geral_sistemas/wsgeral/dmPix.pas"
+      ],
+      "files_total": 2,
+      "files_done": 0,
+      "current_file": "Caixa/geral_sistemas/wsgeral/dmONR.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-transversal-produtos": {
+      "domain_id": "cx-transversal-produtos",
+      "label": "Uso por outros produtos",
+      "priority": "P2",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/ReciboCaixa.pas"
+      ],
+      "files_total": 1,
+      "files_done": 0,
+      "current_file": "Caixa/ReciboCaixa.pas",
+      "active_file_batch_id": "caixa-mvp-poc",
+      "notes": "Referenciado por Civil, RTD, Protesto, Imóveis"
+    },
+    "cx-dfm-core": {
+      "domain_id": "cx-dfm-core",
+      "label": "DFM core",
+      "priority": "P2",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/Principal.dfm",
+        "Caixa/ControleCaixa.dfm",
+        "Caixa/CaixaSimplificado.dfm"
+      ],
+      "files_total": 3,
+      "files_done": 0,
+      "current_file": "Caixa/Principal.dfm",
+      "active_file_batch_id": "caixa-mvp-poc"
+    },
+    "cx-vendor": {
+      "domain_id": "cx-vendor",
+      "label": "Vendor",
+      "priority": "P4",
+      "status": "pending",
+      "execution_order": [
+        "Caixa/geral/frxClass.pas"
+      ],
+      "files_total": 1,
+      "files_done": 0,
+      "current_file": "Caixa/geral/frxClass.pas",
+      "active_file_batch_id": "caixa-mvp-poc"
+    }
+  },
+  "file_progress": {}
+}

@@ -1,0 +1,941 @@
+{
+  "info": {
+    "_postman_id": "b8dadaec-4326-438e-834b-af2672f68110",
+    "name": "enot - n8n",
+    "description": "Coleção para testar workflows n8n proxy do **Fluxo de Assinaturas** e **e-Not Assina** (e-Notariado / CNB-CF).\n\n## Workflows (AUTENOT-1…8)\n\n| AUTENOT | Operação | Webhook n8n |\n|---------|----------|-------------|\n| 1 | Cities | POST /enot/catalogo/cities |\n| 2 | Uploads | POST /enot/documento/upload |\n| 3 | DocumentsCreate | POST /enot/fluxo/criar |\n| 4 | DocumentsList | POST /enot/fluxo/listar |\n| 5 | DocumentsGet | POST /enot/fluxo/detalhe |\n| 6 | DocumentsTicket | POST /enot/fluxo/download |\n| 7 | PendingTranscript | POST /enot/fluxo/traslado |\n| 8 | ENotAssinaRecognitions | POST /enot/assina/reconhecimentos |\n\n## Pastas\n\n| Pasta | Uso |\n|-------|-----|\n| **API upstream (referência)** | Endpoints diretos na API assinatura |\n| **n8n — proxy ENOT** | Webhooks HTTP→REST — preencher conforme subagentes implementam |\n\n## Pré-requisitos\n\n1. Workflow ativo no n8n (produção ou test).\n2. Basic Auth webhook (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. `ENOT_API_KEY` (header upstream `X-Api-Key`).\n4. `ENOT_AMBIENTE`: `homologacao` ou `producao`.\n\n## Upstream\n\n| Ambiente | Base URL |\n|----------|----------|\n| HML | `https://assinatura-hml.e-notariado.org.br` |\n| Produção | `https://assinatura.e-notariado.org.br` |\n\n## Sync Postman Cloud\n\n```bash\nnpm run postman:sync:enot\n```",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{N8N_BASIC_AUTH_USER}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{N8N_BASIC_AUTH_PASSWORD}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "n8n_base_url",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASE_URL",
+      "value": "https://api-n8n.gbrqne.easypanel.host",
+      "type": "string"
+    },
+    {
+      "key": "n8n_webhook_mode",
+      "value": "webhook-test",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_USER",
+      "value": "orius",
+      "type": "string"
+    },
+    {
+      "key": "N8N_BASIC_AUTH_PASSWORD",
+      "value": "master@orius",
+      "type": "string"
+    },
+    {
+      "key": "ENOT_AMBIENTE",
+      "value": "homologacao",
+      "type": "string"
+    },
+    {
+      "key": "ENOT_API_BASE_URL",
+      "value": "https://assinatura-hml.e-notariado.org.br",
+      "type": "string"
+    },
+    {
+      "key": "ENOT_API_BASE_URL_PROD",
+      "value": "https://assinatura.e-notariado.org.br",
+      "type": "string"
+    },
+    {
+      "key": "ENOT_API_KEY",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ENOT_ORGANIZATION_ID",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "enot_webhook_path_cities",
+      "value": "enot/catalogo/cities",
+      "type": "string"
+    },
+    {
+      "key": "enot_webhook_path_upload",
+      "value": "enot/documento/upload",
+      "type": "string"
+    },
+    {
+      "key": "enot_webhook_path_fluxo_criar",
+      "value": "enot/fluxo/criar",
+      "type": "string"
+    },
+    {
+      "key": "enot_webhook_path_fluxo_listar",
+      "value": "enot/fluxo/listar",
+      "type": "string"
+    },
+    {
+      "key": "enot_webhook_path_fluxo_detalhe",
+      "value": "enot/fluxo/detalhe",
+      "type": "string"
+    },
+    {
+      "key": "enot_webhook_path_fluxo_download",
+      "value": "enot/fluxo/download",
+      "type": "string"
+    },
+    {
+      "key": "enot_webhook_path_fluxo_traslado",
+      "value": "enot/fluxo/traslado",
+      "type": "string"
+    },
+    {
+      "key": "enot_webhook_path_assina_reconhecimentos",
+      "value": "enot/assina/reconhecimentos",
+      "type": "string"
+    },
+    {
+      "key": "enot_upload_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "enot_city_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "enot_document_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ENOT_PDF_PATH",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "API upstream (referência)",
+      "description": "Chamadas diretas na API Fluxo de Assinaturas (e-Notariado).",
+      "item": [
+        {
+          "name": "Catálogo",
+          "item": [
+            {
+              "name": "GET /api/parent/cities",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{ENOT_API_KEY}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{ENOT_API_BASE_URL}}/api/parent/cities",
+                  "host": [
+                    "{{ENOT_API_BASE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "parent",
+                    "cities"
+                  ]
+                },
+                "description": "Catálogo de municípios (v2.4+). Referência upstream para AUTENOT-1."
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Fluxo",
+          "item": [
+            {
+              "name": "GET /api/documents",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{ENOT_API_KEY}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{ENOT_API_BASE_URL}}/api/documents?IsConcluded=true&IsCanceled=false&DocumentType=Deed&Offset=0&order=desc&Limit=10",
+                  "host": [
+                    "{{ENOT_API_BASE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "documents"
+                  ],
+                  "query": [
+                    {
+                      "key": "IsConcluded",
+                      "value": "true"
+                    },
+                    {
+                      "key": "IsCanceled",
+                      "value": "false"
+                    },
+                    {
+                      "key": "DocumentType",
+                      "value": "Deed"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "10"
+                    }
+                  ]
+                },
+                "description": "Lista atos do cartório (Etapa 1). Referência upstream para AUTENOT-4."
+              },
+              "response": []
+            },
+            {
+              "name": "GET /api/documents/{id}",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{ENOT_API_KEY}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{ENOT_API_BASE_URL}}/api/documents/{{enot_document_id}}",
+                  "host": [
+                    "{{ENOT_API_BASE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "documents",
+                    "{{enot_document_id}}"
+                  ]
+                },
+                "description": "Detalhe do documento e traslado assinado (Etapa 2). Referência upstream para AUTENOT-5."
+              },
+              "response": []
+            },
+            {
+              "name": "GET /api/documents/{id}/ticket",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{ENOT_API_KEY}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{ENOT_API_BASE_URL}}/api/documents/{{enot_document_id}}/ticket?type=Signatures&preview=false",
+                  "host": [
+                    "{{ENOT_API_BASE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "documents",
+                    "{{enot_document_id}}",
+                    "ticket"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "Signatures"
+                    },
+                    {
+                      "key": "preview",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "description": "Ticket para download da versão assinada (Etapa 3). Referência upstream para AUTENOT-6. Concatene base URL com `location` do resultado."
+              },
+              "response": []
+            },
+            {
+              "name": "PUT /api/documents/{id}/pending-transcript",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{ENOT_API_KEY}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"{{enot_upload_id}}\",\n  \"name\": \"traslado.pdf\",\n  \"displayName\": \"Traslado do ato\",\n  \"contentType\": \"application/pdf\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{ENOT_API_BASE_URL}}/api/documents/{{enot_document_id}}/pending-transcript",
+                  "host": [
+                    "{{ENOT_API_BASE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "documents",
+                    "{{enot_document_id}}",
+                    "pending-transcript"
+                  ]
+                },
+                "description": "Submete traslado após upload (Upload do Traslado). Referência upstream para AUTENOT-7. Body: id do POST /api/uploads + metadados do arquivo."
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "e-Not Assina",
+          "item": [
+            {
+              "name": "GET /api/reports/organizations/{organizationId}/e-not-assina-recognitions",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{ENOT_API_KEY}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{ENOT_API_BASE_URL}}/api/reports/organizations/{{ENOT_ORGANIZATION_ID}}/e-not-assina-recognitions?StartDateUtc=2023-01-01T00:00:00.001Z&EndDateUtc=2023-01-02T00:00:00.001Z",
+                  "host": [
+                    "{{ENOT_API_BASE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "reports",
+                    "organizations",
+                    "{{ENOT_ORGANIZATION_ID}}",
+                    "e-not-assina-recognitions"
+                  ],
+                  "query": [
+                    {
+                      "key": "StartDateUtc",
+                      "value": "2023-01-01T00:00:00.001Z"
+                    },
+                    {
+                      "key": "EndDateUtc",
+                      "value": "2023-01-02T00:00:00.001Z"
+                    }
+                  ]
+                },
+                "description": "Lista documentos do e-Not Assina reconhecidos pelo tabelião. Referência upstream para AUTENOT-8."
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "n8n — proxy ENOT",
+      "description": "Webhooks n8n (HTTP→REST). Preencher conforme implementação dos workflows AUTENOT-1…8.",
+      "item": [
+        {
+          "name": "Catálogo",
+          "item": [
+            {
+              "name": "[AUTENOT-1] Cities",
+              "description": "POST /enot/catalogo/cities → GET /api/parent/cities",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('ENOT_API_KEY')) {",
+                      "  throw new Error('ENOT_API_KEY vazio. Configure no environment ou informe api_key no body.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{ENOT_AMBIENTE}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{enot_webhook_path_cities}}"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Documento",
+          "item": [
+            {
+              "name": "[AUTENOT-2] Uploads",
+              "description": "POST /enot/documento/upload → POST /api/uploads (multipart PDF/A).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('ENOT_API_KEY')) {",
+                      "  throw new Error('ENOT_API_KEY vazio. Configure no environment ou informe api_key no form-data.');",
+                      "}",
+                      "const pdfPath = getVar('ENOT_PDF_PATH');",
+                      "if (pdfPath) {",
+                      "  const fileRow = pm.request.body.formdata.find((r) => r.key === 'file');",
+                      "  if (fileRow) fileRow.src = pdfPath;",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('Upload retorna id do arquivo', () => {",
+                      "  const json = pm.response.json();",
+                      "  if (json.sucesso) {",
+                      "    pm.expect(json.dados).to.be.an('object');",
+                      "    pm.expect(json.dados.id).to.be.a('string').and.not.empty;",
+                      "    pm.environment.set('enot_upload_id', json.dados.id);",
+                      "    pm.collectionVariables.set('enot_upload_id', json.dados.id);",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "file",
+                      "description": "PDF/A do ato do livro",
+                      "type": "file",
+                      "src": []
+                    },
+                    {
+                      "key": "ambiente",
+                      "value": "{{ENOT_AMBIENTE}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{enot_webhook_path_upload}}",
+                "description": "Multipart com campo **file** (PDF/A). Opcional: `api_key` no form-data.\n\nDefina `ENOT_PDF_PATH` no environment para anexar automaticamente um PDF de teste."
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fluxo",
+          "item": [
+            {
+              "name": "[AUTENOT-3] DocumentsCreate",
+              "description": "POST /enot/fluxo/criar → POST /api/documents (criação do fluxo de assinaturas). Pré-requisito: AUTENOT-2 (upload) e opcional AUTENOT-1 (city_id).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('ENOT_API_KEY')) {",
+                      "  throw new Error('ENOT_API_KEY vazio. Configure no environment ou informe api_key no body.');",
+                      "}",
+                      "if (!getVar('ENOT_ORGANIZATION_ID')) {",
+                      "  throw new Error('ENOT_ORGANIZATION_ID vazio. Configure no environment ou informe organization_id no body.');",
+                      "}",
+                      "if (!getVar('enot_upload_id')) {",
+                      "  console.warn('enot_upload_id vazio — execute [AUTENOT-2] Uploads antes ou preencha manualmente.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('DocumentsCreate retorna id do fluxo', () => {",
+                      "  const json = pm.response.json();",
+                      "  if (json.sucesso) {",
+                      "    pm.expect(json.dados).to.be.an('object');",
+                      "    pm.expect(json.dados.id).to.be.a('string').and.not.empty;",
+                      "    pm.environment.set('enot_document_id', json.dados.id);",
+                      "    pm.collectionVariables.set('enot_document_id', json.dados.id);",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{ENOT_AMBIENTE}}\",\n  \"auth_mode\": \"api_key\",\n  \"organization_id\": \"{{ENOT_ORGANIZATION_ID}}\",\n  \"type\": \"Deed\",\n  \"is_hybrid_act\": false,\n  \"has_real_estates\": false,\n  \"real_estates\": [],\n  \"residences\": [\n    {\n      \"is_foreign\": false,\n      \"quantity\": 1,\n      \"city_id\": \"{{enot_city_id}}\"\n    }\n  ],\n  \"findings\": [],\n  \"files\": [\n    {\n      \"id\": \"{{enot_upload_id}}\",\n      \"name\": \"ato-livro.pdf\",\n      \"display_name\": \"Escritura livro 10 folha 15\",\n      \"content_type\": \"application/pdf\"\n    }\n  ],\n  \"flow_actions\": [\n    {\n      \"type\": \"Signer\",\n      \"step\": 1,\n      \"user\": {\n        \"name\": \"Participante Teste\",\n        \"identifier\": \"12345678909\",\n        \"email\": \"participante.teste@example.com\"\n      },\n      \"title\": \"Outorgante\"\n    }\n  ],\n  \"protocol\": \"PROT-2026-0001\",\n  \"notarization_date\": \"2026-06-17T12:00:00.000Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{enot_webhook_path_fluxo_criar}}",
+                "description": "Cria fluxo de assinaturas no e-Notariado.\n\n**Auth upstream (interno):** padrão `X-Api-Key` com `ENOT_API_KEY`. Para espelhar a coleção CNB (`signer-cnb`), use `auth_mode: bearer` ou header `Authorization: Bearer`.\n\n**Campos v2.3+ obrigatórios:** `is_hybrid_act`, `has_real_estates`, `real_estates`, `residences`, `findings` (para `NotarialMinutes`)."
+              }
+            },
+            {
+              "name": "[AUTENOT-4] DocumentsList",
+              "description": "POST /enot/fluxo/listar → GET /api/documents (lista atos do cartório). Etapa 1 do fluxo de assinaturas.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('ENOT_API_KEY')) {",
+                      "  throw new Error('ENOT_API_KEY vazio. Configure no environment ou informe api_key no body.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('DocumentsList retorna dados', () => {",
+                      "  const json = pm.response.json();",
+                      "  if (json.sucesso) {",
+                      "    pm.expect(json.dados).to.exist;",
+                      "    const items = Array.isArray(json.dados) ? json.dados : (json.dados.items || json.dados.data || []);",
+                      "    if (Array.isArray(items) && items.length > 0 && items[0].id) {",
+                      "      pm.environment.set('enot_document_id', items[0].id);",
+                      "      pm.collectionVariables.set('enot_document_id', items[0].id);",
+                      "    }",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{ENOT_AMBIENTE}}\",\n  \"is_concluded\": true,\n  \"is_canceled\": false,\n  \"document_type\": \"Deed\",\n  \"limit\": 10,\n  \"offset\": 0,\n  \"order\": \"desc\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{enot_webhook_path_fluxo_listar}}",
+                "description": "Lista documentos/atos do fluxo de assinaturas.\n\n**Filtros opcionais (snake_case):** `is_concluded`, `is_canceled`, `document_type`, `limit`, `offset`, `order` (asc|desc).\n\nTodos os filtros são opcionais; omita para listar sem restrição adicional."
+              }
+            },
+            {
+              "name": "[AUTENOT-5] DocumentsGet",
+              "description": "POST /enot/fluxo/detalhe → GET /api/documents/{id} (detalhe e versão assinada do traslado). Etapa 2 do fluxo de assinaturas.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('ENOT_API_KEY')) {",
+                      "  throw new Error('ENOT_API_KEY vazio. Configure no environment ou informe api_key no body.');",
+                      "}",
+                      "if (!getVar('enot_document_id')) {",
+                      "  console.warn('enot_document_id vazio — execute [AUTENOT-4] DocumentsList antes ou preencha manualmente.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('DocumentsGet retorna dados do documento', () => {",
+                      "  const json = pm.response.json();",
+                      "  if (json.sucesso) {",
+                      "    pm.expect(json.dados).to.be.an('object');",
+                      "    if (json.dados.id) {",
+                      "      pm.environment.set('enot_document_id', json.dados.id);",
+                      "      pm.collectionVariables.set('enot_document_id', json.dados.id);",
+                      "    }",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{ENOT_AMBIENTE}}\",\n  \"document_id\": \"{{enot_document_id}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{enot_webhook_path_fluxo_detalhe}}",
+                "description": "Obtém detalhe do documento/ato do fluxo de assinaturas.\n\n**Campo obrigatório:** `document_id` (UUID obtido em AUTENOT-4).\n\nAliases aceitos: `id`, `documentId`.\n\nEm `dados.files[].location` pode constar o link do traslado assinado (concatenar com base URL upstream)."
+              }
+            },
+            {
+              "name": "[AUTENOT-6] DocumentsTicket",
+              "description": "POST /enot/fluxo/download → GET /api/documents/{id}/ticket (download versão assinada). Etapa 3 do fluxo de assinaturas.",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('ENOT_API_KEY')) {",
+                      "  throw new Error('ENOT_API_KEY vazio. Configure no environment ou informe api_key no body.');",
+                      "}",
+                      "if (!getVar('enot_document_id')) {",
+                      "  console.warn('enot_document_id vazio — execute [AUTENOT-4] DocumentsList antes ou preencha manualmente.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('DocumentsTicket retorna location do ticket', () => {",
+                      "  const json = pm.response.json();",
+                      "  if (json.sucesso) {",
+                      "    pm.expect(json.dados).to.be.an('object');",
+                      "    if (json.dados.location) {",
+                      "      pm.expect(json.dados.location).to.be.a('string').and.not.empty;",
+                      "    }",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{ENOT_AMBIENTE}}\",\n  \"document_id\": \"{{enot_document_id}}\",\n  \"type\": \"Signatures\",\n  \"preview\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{enot_webhook_path_fluxo_download}}",
+                "description": "Obtém ticket para download da versão assinada do documento.\n\n**Campo obrigatório:** `document_id` (UUID obtido em AUTENOT-4).\n\n**Query params upstream (body snake_case):** `type` (default `Signatures`), `preview` (boolean, default `false`).\n\nEm `dados.location`, concatenar com base URL upstream para baixar o PDF assinado."
+              }
+            },
+            {
+              "name": "[AUTENOT-7] PendingTranscript",
+              "description": "POST /enot/fluxo/traslado → POST /api/uploads + PUT /api/documents/{id}/pending-transcript (upload e submissão do traslado).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('ENOT_API_KEY')) {",
+                      "  throw new Error('ENOT_API_KEY vazio. Configure no environment ou informe api_key no form-data.');",
+                      "}",
+                      "if (!getVar('enot_document_id')) {",
+                      "  console.warn('enot_document_id vazio — execute AUTENOT-3/4 antes ou preencha manualmente.');",
+                      "}",
+                      "const pdfPath = getVar('ENOT_PDF_PATH');",
+                      "if (pdfPath) {",
+                      "  const fileRow = pm.request.body.formdata.find((r) => r.key === 'file');",
+                      "  if (fileRow) fileRow.src = pdfPath;",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('PendingTranscript retorna document_id e upload_id', () => {",
+                      "  const json = pm.response.json();",
+                      "  if (json.sucesso) {",
+                      "    pm.expect(json.dados).to.be.an('object');",
+                      "    pm.expect(json.dados.document_id).to.be.a('string').and.not.empty;",
+                      "    if (json.dados.upload_id) {",
+                      "      pm.environment.set('enot_transcript_upload_id', json.dados.upload_id);",
+                      "      pm.collectionVariables.set('enot_transcript_upload_id', json.dados.upload_id);",
+                      "    }",
+                      "    if (json.dados.portal_url) {",
+                      "      console.log('Portal assinatura traslado:', json.dados.portal_url);",
+                      "    }",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "file",
+                      "description": "PDF/A do traslado",
+                      "type": "file",
+                      "src": []
+                    },
+                    {
+                      "key": "document_id",
+                      "value": "{{enot_document_id}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "ambiente",
+                      "value": "{{ENOT_AMBIENTE}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{enot_webhook_path_fluxo_traslado}}",
+                "description": "Upload do traslado e submissão no fluxo de assinaturas.\n\n**Campo obrigatório:** `document_id` (UUID do fluxo — AUTENOT-3/4).\n\n**Modo multipart (recomendado):** campo `file` (PDF/A) + `document_id`.\n\n**Modo JSON alternativo:** `document_id` + `file_id`/`upload_id` (pular upload se já executou AUTENOT-2) ou `arquivo_base64`.\n\nApós sucesso, direcione o tabelião a `dados.portal_url` para assinar o traslado."
+              }
+            }
+          ]
+        },
+        {
+          "name": "e-Not Assina",
+          "item": [
+            {
+              "name": "[AUTENOT-8] ENotAssinaRecognitions",
+              "description": "POST /enot/assina/reconhecimentos → GET /api/reports/organizations/{organizationId}/e-not-assina-recognitions (documentos reconhecidos pelo tabelião).",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "function getVar(key) {",
+                      "  const fromEnv = pm.environment.get(key);",
+                      "  if (fromEnv !== undefined && fromEnv !== null && String(fromEnv).length > 0) return fromEnv;",
+                      "  return pm.collectionVariables.get(key);",
+                      "}",
+                      "if (!getVar('ENOT_API_KEY')) {",
+                      "  throw new Error('ENOT_API_KEY vazio. Configure no environment ou informe api_key no body.');",
+                      "}",
+                      "if (!getVar('ENOT_ORGANIZATION_ID')) {",
+                      "  throw new Error('ENOT_ORGANIZATION_ID vazio. Configure no environment ou informe organization_id no body.');",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('status_http espelha HTTP', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('ENotAssinaRecognitions retorna dados', () => {",
+                      "  const json = pm.response.json();",
+                      "  if (json.sucesso) {",
+                      "    pm.expect(json.dados).to.be.an('object');",
+                      "    pm.expect(json.dados).to.have.property('items');",
+                      "    pm.expect(json.dados.totalCount).to.be.a('number');",
+                      "  }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ambiente\": \"{{ENOT_AMBIENTE}}\",\n  \"organization_id\": \"{{ENOT_ORGANIZATION_ID}}\",\n  \"start_date_utc\": \"2023-01-01T00:00:00.001Z\",\n  \"end_date_utc\": \"2023-01-02T00:00:00.001Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{n8n_base_url}}/{{n8n_webhook_mode}}/{{enot_webhook_path_assina_reconhecimentos}}",
+                "description": "Lista documentos do e-Not Assina reconhecidos pelo tabelião no intervalo informado.\n\n**Campos obrigatórios (snake_case):** `organization_id`, `start_date_utc`, `end_date_utc` (ISO 8601 UTC).\n\n**organization_id:** UUID do cartório na URL do fluxo de assinaturas — configure `ENOT_ORGANIZATION_ID` ou informe no body.\n\n**Upstream query:** `StartDateUtc`, `EndDateUtc`.\n\nPré-requisito opcional: **AUTENOT-1 Cities** (catálogo) para contexto de integração; credencial `ENOT_API_KEY` é a mesma do Fluxo de Assinaturas."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

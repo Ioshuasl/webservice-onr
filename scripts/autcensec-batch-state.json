@@ -1,0 +1,38 @@
+{
+  "domain": "AUTCENSEC",
+  "batch_state_file": "scripts/autcensec-batch-state.json",
+  "active_batch_id": "censec-1",
+  "batches": {
+    "censec-1": {
+      "batch_id": "censec-1",
+      "plane_project": "autcensec",
+      "plane_identifier": "AUTCENSEC",
+      "started_at": "2026-06-12T19:30:50.079Z",
+      "completed_at": "2026-06-12T19:30:50.083Z",
+      "context_root": "c:\\Users\\kenio\\automacoes e testes",
+      "workflows_path": "workflows/n8n/extensao-n8n-teste",
+      "integration": "censec",
+      "postman_collection": "postman/censec-n8n.postman_collection.json",
+      "range": {
+        "from": "AUTCENSEC-1",
+        "to": "AUTCENSEC-1"
+      },
+      "status": "complete",
+      "cards": {
+        "AUTCENSEC-1": {
+          "operacao": "CENSEC_UploadJSON",
+          "status": "done",
+          "plane_legacy_key": "AUTONR-13",
+          "card_title": "[AUTCENSEC-1] (censec) CENSEC_UploadJSON - CENSEC",
+          "workflow_id_n8n": "tav97HSLIT79LpwO",
+          "gates": {
+            "vault": true,
+            "workflow": true,
+            "push": true,
+            "postman": true
+          }
+        }
+      }
+    }
+  }
+}

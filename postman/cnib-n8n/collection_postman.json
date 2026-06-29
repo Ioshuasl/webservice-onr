@@ -2,18 +2,7 @@
   "info": {
     "_postman_id": "a8f3c2e1-4b5d-6e7f-8a9b-0c1d2e3f4a5b",
     "name": "cnib - n8n",
-    "description": "Coleção para testar os **workflows n8n** que fazem proxy para a **API REST CNIB SERVENTIAS** (`serventia-api.onr.org.br`).\n\nOrganização por **módulo CNIB** (espelha `Orius/integracoes/registro-imoveis/api-cnib-serventias/`).\n\n## Workflows cobertos (AUTCNIB-1…6)
-
-| AUTCNIB | Operação | Webhook n8n |
-|---------|----------|-------------|
-| 1 | AuthToken | POST /cnib/auth/token |
-| 2 | Consultar | POST /cnib/ordem/consultar |
-| 3 | VisualizarOrdens | POST /cnib/ordem/visualizar |
-| 4 | ResponderOrdem | POST /cnib/ordem/responder |
-| 5 | ResponderLista | POST /cnib/ordem/responder/lista |
-| 6 | DocumentosTipos | POST /cnib/documentos/tipos |
-
-## Pastas\n\n| Pasta | Uso |\n|-------|-----|\n| **API upstream (referência)** | OAuth + endpoints diretos na SERVENTIAS API — funciona hoje |\n| **n8n — proxy CNIB** | Webhooks HTTP→REST — preencher IDs quando workflows existirem |\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Credenciais CNIB em `CNIB_API_CLIENT_ID` / `CNIB_API_CLIENT_SECRET` (body ou `$env.CNIB_API_*` no n8n).\n4. `CNIB_AMBIENTE`: `producao` ou `stg` — define a URL upstream.\n5. `cpf_usuario` obrigatório em todas as operações de ordem.\n\n## Token para requests futuros\n\nExecute **[AUTCNIB-1] Auth Token** antes dos demais — grava `cnib_access_token`. Workflows seguintes usam header `X-CNIB-Access-Token: {{cnib_access_token}}` (ou Bearer conforme implementação).\n\n## API CNIB upstream (referência)\n\n| Ambiente | Base URL |\n|----------|----------|\n| Produção | `https://serventia-api.onr.org.br` |\n| STG | `https://stg-serventia-api.onr.org.br` |\n\nAuth: `POST https://auth.id.onr.org.br/connect/token` — **form-urlencoded** (`grant_type`, `client_id`, `client_secret`, `scope=cnib-serventia-api`).\n\nColeção upstream ONR: `postman/SERVENTIAS API.postman_collection.json`.\n\n## Atualizar no Postman (API — não reimportar)\n\n```bash\nnpm run postman:sync:cnib\nnpm run postman:sync:cnib:watch\n```\n\nConfig: `postman/.postman-sync-cnib.json`\n\n## Referências\n\n- Vault: `Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/`\n- Batch: `scripts/autonr-batch-state.json` → `cnib-143-148`\n- Credenciais: vault `env#CNIB`",
+    "description": "Coleção para testar os **workflows n8n** que fazem proxy para a **API REST CNIB SERVENTIAS** (`serventia-api.onr.org.br`).\n\nOrganização por **módulo CNIB** (espelha `Orius/integracoes/registro-imoveis/api-cnib-serventias/`).\n\n## Workflows cobertos (AUTCNIB-1…6)\n\n| AUTCNIB | Operação | Webhook n8n |\n|---------|----------|-------------|\n| 1 | AuthToken | POST /cnib/auth/token |\n| 2 | Consultar | POST /cnib/ordem/consultar |\n| 3 | VisualizarOrdens | POST /cnib/ordem/visualizar |\n| 4 | ResponderOrdem | POST /cnib/ordem/responder |\n| 5 | ResponderLista | POST /cnib/ordem/responder/lista |\n| 6 | DocumentosTipos | POST /cnib/documentos/tipos |\n\n## Pastas\n\n| Pasta | Uso |\n|-------|-----|\n| **API upstream (referência)** | OAuth + endpoints diretos na SERVENTIAS API — funciona hoje |\n| **n8n — proxy CNIB** | Webhooks HTTP→REST — preencher IDs quando workflows existirem |\n\n## Pré-requisitos\n\n1. Workflow **ativo** (produção) ou em modo teste no editor n8n.\n2. Basic Auth do webhook n8n (`N8N_BASIC_AUTH_USER` / `N8N_BASIC_AUTH_PASSWORD`).\n3. Credenciais CNIB em `CNIB_API_CLIENT_ID` / `CNIB_API_CLIENT_SECRET` (body ou `$env.CNIB_API_*` no n8n).\n4. `CNIB_AMBIENTE`: `producao` ou `stg` — define a URL upstream.\n5. `cpf_usuario` obrigatório em todas as operações de ordem.\n\n## Token para requests futuros\n\nExecute **[AUTCNIB-1] Auth Token** antes dos demais — grava `cnib_access_token`. Workflows seguintes usam header `X-CNIB-Access-Token: {{cnib_access_token}}` (ou Bearer conforme implementação).\n\n## API CNIB upstream (referência)\n\n| Ambiente | Base URL |\n|----------|----------|\n| Produção | `https://serventia-api.onr.org.br` |\n| STG | `https://stg-serventia-api.onr.org.br` |\n\nAuth: `POST https://auth.id.onr.org.br/connect/token` — **form-urlencoded** (`grant_type`, `client_id`, `client_secret`, `scope=cnib-serventia-api`).\n\nColeção upstream ONR: `postman/SERVENTIAS API.postman_collection.json`.\n\n## Atualizar no Postman (API — não reimportar)\n\n```bash\nnpm run postman:sync:cnib\nnpm run postman:sync:cnib:watch\n```\n\nConfig: `postman/.postman-sync-cnib.json`\n\n## Referências\n\n- Vault: `Orius/integracoes/registro-imoveis/api-cnib-serventias/automacao/`\n- Batch: `scripts/autonr-batch-state.json` → `cnib-1-6`\n- Credenciais: vault `env#CNIB`",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
@@ -113,6 +102,11 @@
       "type": "string"
     },
     {
+      "key": "n8n_workflow_id_consultar_cnib",
+      "value": "22S1xeAgHP0iHrqt",
+      "type": "string"
+    },
+    {
       "key": "cnib_webhook_path_consultar",
       "value": "cnib/ordem/consultar",
       "type": "string"
@@ -120,6 +114,16 @@
     {
       "key": "cnib_webhook_path_visualizar",
       "value": "cnib/ordem/visualizar",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_responder_ordem_cnib",
+      "value": "hdWyT41QufksSxRa",
+      "type": "string"
+    },
+    {
+      "key": "n8n_workflow_id_responder_lista_cnib",
+      "value": "mjhtgURHIEY90sah",
       "type": "string"
     },
     {
@@ -407,8 +411,8 @@
           "name": "Ordem",
           "item": [
             {
-              "name": "[AUTCNIB-2] Consultar Ordem",
-              "description": "POST /cnib/ordem/consultar → POST /api/ordem/consultar",
+              "name": "[AUTCNIB-2] (cnib) Consultar - Ordem",
+              "description": "Proxy n8n — workflow `[AUTCNIB-2] (cnib) Consultar - Ordem`.\n\nWorkflow ID: `{{n8n_workflow_id_consultar_cnib}}`\n\nWebhook `POST /cnib/ordem/consultar` → upstream `POST /api/ordem/consultar`. Header `X-CNIB-Access-Token` (token de [AUTCNIB-1]).",
               "event": [
                 {
                   "listen": "prerequest",
@@ -473,8 +477,8 @@
               }
             },
             {
-              "name": "[AUTCNIB-3] Visualizar Ordens",
-              "description": "POST /cnib/ordem/visualizar → POST /api/v2/ordem/visualizar",
+              "name": "[AUTCNIB-3] (cnib) VisualizarOrdens - Ordem",
+              "description": "Proxy n8n — workflow `[AUTCNIB-3] (cnib) VisualizarOrdens - Ordem`.\n\nWorkflow ID: `3GIHtJDvhTQcW2N6`\n\nWebhook `POST /cnib/ordem/visualizar` → upstream `POST /api/v2/ordem/visualizar`. Header `X-CNIB-Access-Token` (token de [AUTCNIB-1]).",
               "event": [
                 {
                   "listen": "prerequest",
@@ -534,8 +538,8 @@
               }
             },
             {
-              "name": "[AUTCNIB-4] Responder Ordem",
-              "description": "POST /cnib/ordem/responder → POST /api/ordem/responder",
+              "name": "[AUTCNIB-4] (cnib) ResponderOrdem - Ordem",
+              "description": "Proxy n8n — workflow `[AUTCNIB-4] (cnib) ResponderOrdem - Ordem`.\n\nWorkflow ID: `{{n8n_workflow_id_responder_ordem_cnib}}`\n\nWebhook `POST /cnib/ordem/responder` → upstream `POST /api/ordem/responder`. Header `X-CNIB-Access-Token` (token de [AUTCNIB-1]). Campo canônico upstream: `bens_detalhe` (não `bens_detalhes`).",
               "event": [
                 {
                   "listen": "prerequest",
@@ -561,6 +565,11 @@
                       "pm.test('status_http espelha HTTP', () => {",
                       "  const json = pm.response.json();",
                       "  pm.expect(pm.response.code).to.eql(json.status_http);",
+                      "});",
+                      "pm.test('envelope CNIB', () => {",
+                      "  const json = pm.response.json();",
+                      "  pm.expect(json).to.have.property('sucesso');",
+                      "  pm.expect(json).to.have.property('meta');",
                       "});"
                     ]
                   }
@@ -580,7 +589,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"protocolo\": \"{{cnib_protocolo}}\",\n  \"tipo_matricula\": 22,\n  \"cpf_cnpj\": \"05492907000139\",\n  \"numero_matricula\": \"12345\",\n  \"numero_inscricao\": null,\n  \"bens_detalhes\": null,\n  \"bens_parte_cpf_cnpj\": null,\n  \"bens_parte_nome_razao\": null\n}",
+                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"protocolo\": \"{{cnib_protocolo}}\",\n  \"tipo_matricula\": 22,\n  \"cpf_cnpj\": \"05492907000139\",\n  \"numero_matricula\": \"12345\",\n  \"numero_inscricao\": null,\n  \"bens_detalhe\": null,\n  \"bens_parte_cpf_cnpj\": null,\n  \"bens_parte_nome_razao\": null\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -591,8 +600,8 @@
               }
             },
             {
-              "name": "[AUTCNIB-5] Responder Lista",
-              "description": "POST /cnib/ordem/responder/lista → POST /api/ordem/responder/lista",
+              "name": "[AUTCNIB-5] (cnib) ResponderLista - Ordem",
+              "description": "Proxy n8n — workflow `[AUTCNIB-5] (cnib) ResponderLista - Ordem`.\n\nWorkflow ID: `{{n8n_workflow_id_responder_lista_cnib}}`\n\nWebhook `POST /cnib/ordem/responder/lista` → upstream `POST /api/ordem/responder/lista`. Header `X-CNIB-Access-Token` (token de [AUTCNIB-1]). Campo canônico upstream: `bens_detalhe` (não `bens_detalhes`).",
               "event": [
                 {
                   "listen": "prerequest",
@@ -637,7 +646,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"bens\": [\n    {\n      \"protocolo\": \"{{cnib_protocolo}}\",\n      \"tipo_matricula\": 22,\n      \"cpf_cnpj\": \"05492907000139\",\n      \"numero_matricula\": \"12345\",\n      \"numero_inscricao\": null,\n      \"bens_detalhes\": null,\n      \"bens_parte_cpf_cnpj\": null,\n      \"bens_parte_nome_razao\": null\n    }\n  ]\n}",
+                  "raw": "{\n  \"ambiente\": \"{{CNIB_AMBIENTE}}\",\n  \"cpf_usuario\": \"{{cpf_usuario}}\",\n  \"bens\": [\n    {\n      \"protocolo\": \"{{cnib_protocolo}}\",\n      \"tipo_matricula\": 22,\n      \"cpf_cnpj\": \"05492907000139\",\n      \"numero_matricula\": \"12345\",\n      \"numero_inscricao\": null,\n      \"bens_detalhe\": null,\n      \"bens_parte_cpf_cnpj\": null,\n      \"bens_parte_nome_razao\": null\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"

@@ -1,0 +1,76 @@
+{
+  "_comentario": "POST /onrcpn/proclama/enviar — body espelha upstream POST /api/proclama/enviar. Ver onrcpn/e-proclamas/proclama-swagger.json e vault payload-proclama.md.",
+  "idrc_token": "",
+  "cns": "111111",
+  "proclamas": [
+    {
+      "matricula": "11111101552025600001102000001541",
+      "publicacao": true,
+      "livro_eletronico": true,
+      "data_proclamas": "28/03/2025",
+      "tipo_casamento": "civil",
+      "cpf_fatura": "22105769039",
+      "nome_fatura": "João Silva",
+      "conjuge_1": {
+        "cpf": "22105769039",
+        "nome": "João Silva",
+        "novo_nome": "",
+        "sexo": "masculino",
+        "data_nascimento": "28/03/1990",
+        "estado_civil": "SOLTEIRO",
+        "ocupacao": "",
+        "naturalidade_estrangeiro": false,
+        "ibge_municipio_naturalidade": "3550308",
+        "descricao_naturalidade_estrangeiro": "",
+        "pais_nascimento": "076",
+        "nacionalidade": "076",
+        "domicilio_estrangeiro": false,
+        "endereco_residencia": {
+          "cep": "01227-200",
+          "logradouro": "avenida angelica",
+          "numero": "123",
+          "complemento": "",
+          "bairro": "consolacao",
+          "ibge_municipio": "3550308"
+        },
+        "descricao_domicilio_estrangeiro": "",
+        "filiacao": [
+          {
+            "nome_genitor": "José Silva",
+            "sexo_genitor": "masculino"
+          }
+        ]
+      },
+      "conjuge_2": {
+        "cpf": "98765432100",
+        "nome": "Maria Santos",
+        "novo_nome": "",
+        "sexo": "feminino",
+        "data_nascimento": "15/08/1992",
+        "estado_civil": "SOLTEIRO",
+        "ocupacao": "",
+        "naturalidade_estrangeiro": false,
+        "ibge_municipio_naturalidade": "3550308",
+        "descricao_naturalidade_estrangeiro": "",
+        "pais_nascimento": "076",
+        "nacionalidade": "076",
+        "domicilio_estrangeiro": false,
+        "endereco_residencia": {
+          "cep": "01227-200",
+          "logradouro": "avenida angelica",
+          "numero": "456",
+          "complemento": "",
+          "bairro": "consolacao",
+          "ibge_municipio": "3550308"
+        },
+        "descricao_domicilio_estrangeiro": "",
+        "filiacao": [
+          {
+            "nome_genitor": "Ana Santos",
+            "sexo_genitor": "feminino"
+          }
+        ]
+      }
+    }
+  ]
+}

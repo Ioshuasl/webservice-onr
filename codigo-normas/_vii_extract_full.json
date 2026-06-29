@@ -1,0 +1,2658 @@
+{
+  "parte": "PARTE ESPECIAL",
+  "livro": "VII",
+  "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+  "total": 161,
+  "lotes": 11,
+  "dupKeys": [],
+  "incompletos": 69,
+  "incompletosChaves": [
+    "VII/I/_/art-517/paragrafo-1",
+    "VII/I/_/art-517/paragrafo-2",
+    "VII/I/_/art-518/inciso-i",
+    "VII/I/_/art-518/inciso-ii",
+    "VII/I/_/art-518/inciso-iii",
+    "VII/I/_/art-518/inciso-iv",
+    "VII/I/_/art-518/inciso-v",
+    "VII/I/_/art-518/inciso-vi",
+    "VII/I/_/art-518/inciso-vii",
+    "VII/I/_/art-518/paragrafo-unico",
+    "VII/I/_/art-519/inciso-iii",
+    "VII/I/_/art-520",
+    "VII/I/_/art-520/inciso-iv",
+    "VII/I/_/art-520/inciso-viii",
+    "VII/I/_/art-520/inciso-ix",
+    "VII/I/_/art-520/paragrafo-1",
+    "VII/I/_/art-520/paragrafo-2",
+    "VII/I/_/art-526/paragrafo-1",
+    "VII/I/_/art-526/paragrafo-2",
+    "VII/II/_/art-528/inciso-iii",
+    "VII/II/_/art-528/paragrafo-1",
+    "VII/II/_/art-528/paragrafo-2",
+    "VII/II/_/art-528/paragrafo-3",
+    "VII/II/_/art-529/inciso-i",
+    "VII/II/_/art-529/inciso-ii",
+    "VII/II/_/art-529/inciso-iii",
+    "VII/II/_/art-529/inciso-iv",
+    "VII/II/_/art-530/inciso-i",
+    "VII/II/_/art-530/inciso-ii",
+    "VII/II/_/art-530/inciso-iii",
+    "VII/II/_/art-530/inciso-iv",
+    "VII/II/_/art-532/inciso-i",
+    "VII/II/_/art-532/inciso-ii",
+    "VII/II/_/art-532/inciso-iii",
+    "VII/II/_/art-532/paragrafo-unico/inciso-i",
+    "VII/III/_/art-537/inciso-i",
+    "VII/III/_/art-537/inciso-ii",
+    "VII/III/_/art-537/inciso-iii",
+    "VII/III/_/art-541/paragrafo-1",
+    "VII/III/_/art-541/paragrafo-2",
+    "VII/III/_/art-541/paragrafo-2/inciso-i",
+    "VII/III/_/art-541/paragrafo-2/inciso-ii",
+    "VII/III/_/art-541/paragrafo-3",
+    "VII/IV/_/art-550/inciso-i",
+    "VII/IV/_/art-550/inciso-ii",
+    "VII/IV/_/art-550/inciso-iii",
+    "VII/IV/_/art-550/inciso-iv",
+    "VII/IV/_/art-550/inciso-v",
+    "VII/IV/_/art-550/inciso-vi",
+    "VII/IV/_/art-550/inciso-vii",
+    "VII/IV/_/art-550/inciso-viii",
+    "VII/IV/_/art-551/inciso-i",
+    "VII/IV/_/art-551/inciso-ii",
+    "VII/IV/_/art-551/inciso-iii",
+    "VII/IV/_/art-551/inciso-iv",
+    "VII/IV/_/art-551/inciso-v",
+    "VII/V/_/art-552/paragrafo-1",
+    "VII/V/_/art-552/paragrafo-2",
+    "VII/V/_/art-552/paragrafo-3",
+    "VII/V/_/art-552/paragrafo-4",
+    "VII/V/_/art-554/paragrafo-1",
+    "VII/V/_/art-554/paragrafo-2",
+    "VII/V/_/art-554/paragrafo-3",
+    "VII/V/_/art-556/paragrafo-1",
+    "VII/V/_/art-556/paragrafo-2",
+    "VII/V/_/art-558/paragrafo-1",
+    "VII/V/_/art-558/paragrafo-2",
+    "VII/V/_/art-558/paragrafo-3",
+    "VII/V/_/art-558/paragrafo-4"
+  ],
+  "items": [
+    {
+      "chave": "VII/I/_/art-517",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "517",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Registro de Títulos e Documentos, no âmbito de suas atribuições, é o serviço de organização técnica e administrativa que tem por finalidade assegurar a autenticidade, segurança, publicidade e eficácia dos atos e negócios jurídicos, constituindo ou declarando direitos e obrigações, para prova de sua existência e data, além da conservação perpétua de seu conteúdo."
+    },
+    {
+      "chave": "VII/I/_/art-517/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "517",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". São princípios informadores do registro de títulos e documentos, dentre outros de direito público, a segurança jurídica, a legalidade, a territorialidade, a compatibilidade, a preponderância e a finalidade."
+    },
+    {
+      "chave": "VII/I/_/art-517/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "517",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O princípio da territorialidade não se aplica à notificação e ao registro facultativo de qualquer documento para sua exclusiva guarda e conservação."
+    },
+    {
+      "chave": "VII/I/_/art-518",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "No Registro de Títulos e Documentos proceder-se-á à transcrição:124"
+    },
+    {
+      "chave": "VII/I/_/art-518/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "dos instrumentos particulares, para a prova das obrigações convencionais de qualquer valor;"
+    },
+    {
+      "chave": "VII/I/_/art-518/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "do penhor comum sobre coisas móveis;"
+    },
+    {
+      "chave": "VII/I/_/art-518/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "da caução de títulos de crédito pessoal e da dívida pública federal, estadual ou municipal, ou de bolsa ao portador;"
+    },
+    {
+      "chave": "VII/I/_/art-518/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "do contrato de penhor de animais, não compreendido nas disposições do art. 10 da Lei nº 492, de 30 de agosto de 1934;"
+    },
+    {
+      "chave": "VII/I/_/art-518/inciso-v",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "do contrato de parceria agrícola ou pecuária;"
+    },
+    {
+      "chave": "VII/I/_/art-518/inciso-vi",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "do mandado judicial de renovação do contrato de arrendamento para sua vigência, quer entre as partes contratantes, quer em face de terceiros;125 e"
+    },
+    {
+      "chave": "VII/I/_/art-518/inciso-vii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "facultativamente, de quaisquer documentos ou imagens para sua conservação;"
+    },
+    {
+      "chave": "VII/I/_/art-518/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "518",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Caberá ao Registro de Títulos e Documentos a realização de"
+    },
+    {
+      "chave": "VII/I/_/art-519",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Além das atribuições previstas na Lei nº 6.015, de 31 de dezembro de 1973, compete ao Registro de Títulos e Documentos o registro:"
+    },
+    {
+      "chave": "VII/I/_/art-519/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "do contrato de cessão dos créditos operacionais futuros de concessionárias;126"
+    },
+    {
+      "chave": "VII/I/_/art-519/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "do contrato de locação de bens móveis para validade da cláusula de vigência;127"
+    },
+    {
+      "chave": "VII/I/_/art-519/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "do contrato de alienação fiduciária de bens móveis;"
+    },
+    {
+      "chave": "VII/I/_/art-519/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "do penhor comum;128"
+    },
+    {
+      "chave": "VII/I/_/art-519/inciso-v",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "do penhor de direito;129"
+    },
+    {
+      "chave": "VII/I/_/art-519/inciso-vi",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "do penhor de veículos;130"
+    },
+    {
+      "chave": "VII/I/_/art-519/inciso-vii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "do consórcio simplificado de produtores rurais;131e"
+    },
+    {
+      "chave": "VII/I/_/art-519/inciso-viii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "519",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "da constituição do patrimônio de afetação.132"
+    },
+    {
+      "chave": "VII/I/_/art-520",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Para surtir efeitos em relação a terceiros, serão registrados no Registro de Títulos e Documentos, dentre outros:"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "contrato de locação de prédio, sem prejuízo de ser também levado ao Registro de Imóveis, quando consignada cláusula de vigência no caso de alienação da coisa locada;"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "documento decorrente de depósito ou de caução, instrumentalizada em garantia de cumprimento de obrigação contratual, ainda que em separado do respectivo instrumento;"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "carta de fiança em geral, formalizada por instrumento particular, independente da natureza do compromisso por esta abonado;"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "contrato de locação de serviço não atribuído a outra especialidade de registro;"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-v",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "contrato de compra e venda em prestação, com ou sem reserva de domínio, sob qualquer forma de se revista, o de alienação ou de promessa de venda referente a bens móveis e o de alienação fiduciária;133"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-vi",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "todo documento de procedência estrangeira, acompanhado da respectiva tradução, se redigido em idioma diverso do português, para produzir efeito em repartições da União, dos Estados, do Distrito Federal, dos Territórios e dos Municípios, ou em qualquer juízo ou tribunal;"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-viii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "quitação, recibo e contrato de compra e venda de automóvel e o penhor deste, qualquer que seja a forma que revistam;"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-viii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "ato administrativo expedido para cumprimento de decisão judicial, sem trânsito em julgado, pela qual for determinada a entrega, pelas alfândegas e mesas de renda, de bem e mercadoria procedentes do exterior;"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-ix",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "IX"
+      },
+      "texto_normativo_exato": "instrumento de cessão de direito e de crédito, de sub-rogação e de dação em pagamento; e"
+    },
+    {
+      "chave": "VII/I/_/art-520/inciso-x",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": null,
+        "inciso": "X"
+      },
+      "texto_normativo_exato": "cédula de crédito a consignar a garantia de alienação fiduciária de bem móvel, sem prejuízo de seu registro no Registro Imobiliário.134"
+    },
+    {
+      "chave": "VII/I/_/art-520/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O documento escrito em língua estrangeira, desacompanhado de tradução, será registrado exclusivamente para fins de conservação, desde que adotados os caracteres comuns."
+    },
+    {
+      "chave": "VII/I/_/art-520/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "520",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para efeito do disposto no inciso VI deste artigo, se o documento for autenticado por via consular, é desnecessário o registro no Registro de Títulos e Documentos para produzir efeitos em Juízo.135"
+    },
+    {
+      "chave": "VII/I/_/art-521",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "521",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Poderá ser registrado documento que tenha por objeto a transmissão, constituição ou extinção de direito real sobre bem imóvel, desde que se destine unicamente à conservação e fixação da data, a ser consignado expressamente no ato, não gerando a constituição de domínio ou de outro direito real."
+    },
+    {
+      "chave": "VII/I/_/art-521/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "521",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A serventia que contar com mais de um serviço anexado fará constar, expressamente, no carimbo ou em qualquer outra indicação em documento registrado ou por ela expedido, em qual deles praticou-se o ato."
+    },
+    {
+      "chave": "VII/I/_/art-522",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "522",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É vedado o registro de cópia obtida por qualquer meio de reprodução, ainda que autenticada, seja para fins de publicidade ou de eficácia em relação a terceiro, salvo se constar como simples anexo de documento original submetido a registro."
+    },
+    {
+      "chave": "VII/I/_/art-523",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "523",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os instrumentos particulares declaratórios de união estável e da respectiva dissolução poderão ser registrados no Registro de Títulos e Documentos do domicílio dos conviventes para fazer prova das obrigações convencionais e para validade contra terceiros."
+    },
+    {
+      "chave": "VII/I/_/art-524",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "524",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro reputado obrigatório pela legislação vigente será lavrado, dentro de 20 (vinte) dias da sua assinatura, no domicílio das partes contratantes e, quando residirem em circunscrições territoriais diversas, no domicílio de todos.136"
+    },
+    {
+      "chave": "VII/I/_/art-524/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "524",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Registrar-se-á, ainda, o documento apresentado depois de findo o prazo do caput, para produzirem efeitos a partir da data de apresentação."
+    },
+    {
+      "chave": "VII/I/_/art-525",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "525",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de título e documento que tenha por finalidade surtir efeito em relação a terceiro está sujeito ao princípio da territorialidade, devendo o ato ser praticado pelo registrador localizado no domicílio das partes."
+    },
+    {
+      "chave": "VII/I/_/art-525/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "525",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Caso as partes possuam domicílio em circunscrições diversas, far-se-á o registro em cada uma delas."
+    },
+    {
+      "chave": "VII/I/_/art-526",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "526",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro facultativo de documento em papel ou eletrônico destina-se a sua mera conservação e ao arquivamento e autenticação da data, da existência e de seu conteúdo."
+    },
+    {
+      "chave": "VII/I/_/art-526/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "526",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O registro implementado nos termos do caput não gera publicidade ou eficácia em face de terceiro, o que será previamente esclarecido ao interessado, vedada qualquer indicação que possa ensejar dúvida ou confusão sobre a sua natureza e eficácia."
+    },
+    {
+      "chave": "VII/I/_/art-526/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "526",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Na folha da certificação constará obrigatoriamente a seguinte declaração: “Certifico que o registro exclusivamente para fins de conservação, nos termos do art. 127, VII, da Lei nº 6.015/73, prova apenas a existência, a data e o conteúdo do documento original, não gerando publicidade nem efeitos em relação a terceiros”."
+    },
+    {
+      "chave": "VII/I/_/art-527",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "I",
+          "nome": "DAS ATRIBUIÇÕES"
+        },
+        "capitulo": null,
+        "artigo": "527",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro atribuído ao serviço de Registro de Títulos e Documentos"
+    },
+    {
+      "chave": "VII/II/_/art-528",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "528",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Serão utilizados os seguintes livros no serviço de registro de Títulos e Documentos:138"
+    },
+    {
+      "chave": "VII/II/_/art-528/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "528",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "Livro A – protocolo para apontamento diário e sequencial de todos os títulos, documentos e papéis apresentados para serem registrados ou averbados;"
+    },
+    {
+      "chave": "VII/II/_/art-528/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "528",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "Livro B – para trasladação integral de títulos e documentos, sua conservação e validade contra terceiros, ainda que registrados por extratos em outros livros;"
+    },
+    {
+      "chave": "VII/II/_/art-528/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "528",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "Livro C – para inscrição, por extração, de títulos e documentos, a fim de surtirem efeitos em relação a terceiros e autenticação de data; e"
+    },
+    {
+      "chave": "VII/II/_/art-528/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "528",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "Livro D – indicador pessoal, com indicação do nome de todas as partes intervenientes e respectivos consortes, que figurem ativa ou passivamente no registro ou averbação, mencionando, sempre que possível, o número do documento de identificação e do CPF ou CNPJ."
+    },
+    {
+      "chave": "VII/II/_/art-528/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "528",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Os livros serão encadernados com 300 (trezentas) folhas, numeradas e rubricadas, e conterão termos de abertura e encerramento.139"
+    },
+    {
+      "chave": "VII/II/_/art-528/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "528",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Os livros poderão ser substituídos e mantidos por escrituração eletrônica, com termos de abertura e encerramento, disponíveis para impressão."
+    },
+    {
+      "chave": "VII/II/_/art-528/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "528",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O oficial é obrigado a fornecer, com presteza, as certidões requeridas pelos nomes das partes que figurarem, por qualquer modo, nos livros de registros.140"
+    },
+    {
+      "chave": "VII/II/_/art-529",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "529",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Livro A, para protocolo, conterá colunas para as seguintes anotações:141"
+    },
+    {
+      "chave": "VII/II/_/art-529/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "529",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "número de ordem, continuando, indefinidamente, nos seguintes;"
+    },
+    {
+      "chave": "VII/II/_/art-529/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "529",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "data;"
+    },
+    {
+      "chave": "VII/II/_/art-529/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "529",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "natureza do título e qualidade do lançamento, se integral, resumido ou outros;"
+    },
+    {
+      "chave": "VII/II/_/art-529/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "529",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "nome do apresentante; e"
+    },
+    {
+      "chave": "VII/II/_/art-529/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "529",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Efetivado o registro, far-se-á, no protocolo, remissão ao número da página do livro em que fora lançado, bem como ao número e a página de outros livros em que houver qualquer nota ou declaração concernente ao mesmo ato."
+    },
+    {
+      "chave": "VII/II/_/art-530",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "530",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Livro B será escriturado nos termos do art. 548, e conterá colunas para inserção das seguintes informações:142"
+    },
+    {
+      "chave": "VII/II/_/art-530/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "530",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "número de ordem e data do protocolo;"
+    },
+    {
+      "chave": "VII/II/_/art-530/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "530",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "nome do apresentante;"
+    },
+    {
+      "chave": "VII/II/_/art-530/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "530",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "número de ordem, data do registro;"
+    },
+    {
+      "chave": "VII/II/_/art-530/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "530",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "transcrição; e"
+    },
+    {
+      "chave": "VII/II/_/art-530/inciso-v",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "530",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "anotações e averbações."
+    },
+    {
+      "chave": "VII/II/_/art-530/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "530",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A escrituração do Livro B é contínua, em folhas soltas, mediante processo reprográfico ou digitalizado que assegure legibilidade permanente."
+    },
+    {
+      "chave": "VII/II/_/art-531",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "531",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Poderá ser implantada, como auxiliar do Livro B, pasta classificadora de cópias reprográficas ou digitais, autenticadas, dos títulos, documentos ou papéis levados a registro integral caso não adotada escrituração em formato eletrônico."
+    },
+    {
+      "chave": "VII/II/_/art-531/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "531",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "A pasta será numerada em correspondência com o Livro B respectivo e encadernada assim que encerrada."
+    },
+    {
+      "chave": "VII/II/_/art-532",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Livro C, para registro por extrato, conterá as seguintes informações:143"
+    },
+    {
+      "chave": "VII/II/_/art-532/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "número de ordem;"
+    },
+    {
+      "chave": "VII/II/_/art-532/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "dia e mês;"
+    },
+    {
+      "chave": "VII/II/_/art-532/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "espécie e resumo do título; e"
+    },
+    {
+      "chave": "VII/II/_/art-532/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "anotações e averbações."
+    },
+    {
+      "chave": "VII/II/_/art-532/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "É dispensado o Livro C para as serventias que utilizarem sistema informatizado."
+    },
+    {
+      "chave": "VII/II/_/art-532/paragrafo-unico/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": "§único",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "divisão alfabética para a indicação do nome de todas as pessoas que, ativa ou passivamente, individual ou coletivamente, figurarem nos livros de registro e os respectivos números de CPF ou CNPJ; e"
+    },
+    {
+      "chave": "VII/II/_/art-532/paragrafo-unico/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": "§único",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "referência aos números de ordem e páginas dos outros livros e anotações."
+    },
+    {
+      "chave": "VII/II/_/art-532/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "532",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O indicador pessoal será escriturado e mantido exclusivamente em sistema informatizado."
+    },
+    {
+      "chave": "VII/II/_/art-534",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "534",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É facultado o desdobramento dos livros de registro de títulos e documentos, para a escrituração das várias espécies de atos, sem prejuízo da unidade do protocolo e de sua numeração, com menções recíprocas.145"
+    },
+    {
+      "chave": "VII/II/_/art-534/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "534",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Ao livro desdobrado atribuir-se-á letra sucessiva, em ordem alfabética."
+    },
+    {
+      "chave": "VII/II/_/art-535",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "535",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Registro de Títulos e Documentos disponibilizará ao usuário serviços de recepção de títulos e de fornecimento de informações e certidões."
+    },
+    {
+      "chave": "VII/II/_/art-536",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "II",
+          "nome": "DOS LIVROS E ESCRITURAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "536",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Ao registro eletrônico de títulos e documentos, de que tratam a Lei nº 11.977, de 7 de julho de 2009 e o Provimento nº 48, de 16 de março de 2016, da Corregedoria Nacional de Justiça, aplicam-se as disposições do Provimento nº 15, de 19 de julho de 2019, da Corregedoria-Geral da Justiça do Estado de Goiás."
+    },
+    {
+      "chave": "VII/III/_/art-537",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "537",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Apresentado o título, documento ou papel para registro ou averbação, serão anotados no protocolo:146"
+    },
+    {
+      "chave": "VII/III/_/art-537/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "537",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "a data de sua apresentação, sob o número de ordem que seguir imediatamente;"
+    },
+    {
+      "chave": "VII/III/_/art-537/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "537",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "a natureza do instrumento;"
+    },
+    {
+      "chave": "VII/III/_/art-537/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "537",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "a espécie de lançamento a fazer, se registro integral, resumido ou averbação; e"
+    },
+    {
+      "chave": "VII/III/_/art-537/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "537",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "o nome do apresentante, reproduzindo-se as declarações relativas ao número de ordem, à data e à espécie de lançamento a fazer no corpo do título, do documento ou papel."
+    },
+    {
+      "chave": "VII/III/_/art-537/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "537",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Caso o contrato possua mais de uma folha, as partes assinarão a última e rubricarão ou assinarão as demais, respeitada a margem destinada à encadernação."
+    },
+    {
+      "chave": "VII/III/_/art-538",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "538",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Em seguida ao protocolo, far-se-á o lançamento no livro respectivo e, após concluído, declarar-se-á no corpo do título, documento ou papel, o número de ordem e a data do procedimento, rubricando a declaração e as demais folhas o oficial ou os escreventes autorizados.147"
+    },
+    {
+      "chave": "VII/III/_/art-539",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "539",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O apontamento de título, documento ou papel será lavrado de forma sequencial e imediata, um após o outro.148"
+    },
+    {
+      "chave": "VII/III/_/art-539/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "539",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Sem prejuízo da numeração individual do documento, caso a pessoa apresente, simultaneamente, documentos de idêntica natureza para lançamento da mesma espécie, serão eles lançados de forma englobada no protocolo, com informação da quantidade."
+    },
+    {
+      "chave": "VII/III/_/art-540",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "540",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Lavrar-se-á, no fim do expediente diário, termo de encerramento, no qual serão consignados a data, a assinatura do oficial ou escrevente autorizado e o número de atos apontados, ainda que não tenha sido apresentado qualquer título ou documento.149"
+    },
+    {
+      "chave": "VII/III/_/art-541",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "541",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Os títulos terão sempre um número diferente, segundo a ordem de apresentação, ainda que se refiram à mesma pessoa.150"
+    },
+    {
+      "chave": "VII/III/_/art-541/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "541",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Os atos de registro e averbação serão lavrados imediatamente, salvo se, em razão do acúmulo de serviço, não for possível, caso em que o lançamento será feito no prazo estritamente necessário, sem prejuízo da ordem de prenotação."
+    },
+    {
+      "chave": "VII/III/_/art-541/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "541",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Após o protocolo e o lançamento das declarações prescritas no corpo do título ou documento, o oficial fornecerá recibo ao apresentante, em que constará:"
+    },
+    {
+      "chave": "VII/III/_/art-541/paragrafo-2/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "541",
+        "paragrafo": "§2º",
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "data da apresentação;"
+    },
+    {
+      "chave": "VII/III/_/art-541/paragrafo-2/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "541",
+        "paragrafo": "§2º",
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "número de ordem no protocolo; e"
+    },
+    {
+      "chave": "VII/III/_/art-541/paragrafo-2/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "541",
+        "paragrafo": "§2º",
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "indicação do dia em que será entregue, devidamente legalizado."
+    },
+    {
+      "chave": "VII/III/_/art-541/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "541",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O recibo a que se refere o §2º será restituído pelo apresentante no dia da retirada do título ou documento."
+    },
+    {
+      "chave": "VII/III/_/art-542",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "542",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro iniciado dentro do horário regulamentar não será interrompido, salvo motivo de força maior declarado, prorrogando-se o expediente até ser concluído.151"
+    },
+    {
+      "chave": "VII/III/_/art-542/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "542",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O título apresentado, cujo registro for adiado, constará do termo de encerramento diário com a indicação de seu número e a declaração dos motivos do adiamento."
+    },
+    {
+      "chave": "VII/III/_/art-543",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "543",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "À margem do respectivo registro, será averbada qualquer ocorrência que o alterar, quer em relação às obrigações, quer em atinência às pessoas que nos atos figurarem, inclusive quanto à prorrogação dos prazos.152"
+    },
+    {
+      "chave": "VII/III/_/art-544",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "544",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro ou averbação no livro respectivo será feito, de forma continuada, na ordem de prioridade do seu apontamento no protocolo, salvo se obstado por ordem de autoridade judiciária competente ou por dúvida superveniente.153"
+    },
+    {
+      "chave": "VII/III/_/art-544/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "544",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Ocorrendo qualquer das ressalvas dispostas no caput, seguir-se-á o registro ou averbação dos subsequentes, sem prejuízo da data autenticada pelo competente"
+    },
+    {
+      "chave": "VII/III/_/art-545",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "545",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O título já registrado por extrato e levado a registro integral, ou caso exigido simultaneamente pelo apresentante o duplo registro, será mencionado no lançamento posterior e, nas anotações do protocolo, far-se-ão referências recíprocas para verificação das diversas espécies de lançamento do mesmo título.154"
+    },
+    {
+      "chave": "VII/III/_/art-546",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "546",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "É requisito da procuração levada ao Registro de Títulos e Documentos firma reconhecida do outorgante; do traslado, de quem o tiver assinado."
+    },
+    {
+      "chave": "VII/III/_/art-547",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "547",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O Oficial comunicará à Secretaria da Receita Federal o registro que envolva alienação de imóvel celebrada por instrumento particular, observando, no que couber, as disposições pertinentes aos Tabeliães de Notas sobre o preenchimento da Declaração sobre Operações Imobiliárias – DOI, e, em especial, as instruções normativas da Receita Federal do Brasil."
+    },
+    {
+      "chave": "VII/III/_/art-547/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "III",
+          "nome": "DA ORDEM DO SERVIÇO"
+        },
+        "capitulo": null,
+        "artigo": "547",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Quanto ao documento que tenha por objeto bem imóvel, constará do ato declaração expressa de que a finalidade do registro no serviço de Registro de Títulos e Documentos abrange unicamente os efeitos obrigacionais do negócio, não substituindo o registro obrigatório no Registro de Imóveis, essencial para a aquisição e transmissão de qualquer direito sobre o imóvel."
+    },
+    {
+      "chave": "VII/IV/_/art-548",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "548",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro integral do documento consiste na sua trasladação, com a mesma ortografia, pontuação e referência à entrelinha ou qualquer acréscimo, alteração, defeito e vício que tiver o original apresentado, além da menção precisa aos seus característicos exteriores e às formalidades legais.155"
+    },
+    {
+      "chave": "VII/IV/_/art-549",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "549",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A certidão do registro integral de título terá o mesmo valor probante do original, ressalvado o incidente de falsidade deste, oportunamente levantado em juízo.156"
+    },
+    {
+      "chave": "VII/IV/_/art-549/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "549",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O apresentante do título para registro integral poderá também deixá-lo arquivado na serventia ou a sua fotocópia, autenticada pelo oficial, circunstâncias que serão declaradas no registro e nas certidões."
+    },
+    {
+      "chave": "VII/IV/_/art-550",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro resumido conterá as seguintes informações:157"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "natureza do título, documento ou papel;"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "valor e prazo;"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "lugar que tenha sido praticado;"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "nome e condição jurídica das partes;"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-v",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "nomes das testemunhas;"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-vi",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "data da assinatura e do reconhecimento de firma, com indicação do serviço, da data e do tabelião que a reconheceu;"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-vii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "VII"
+      },
+      "texto_normativo_exato": "nome do apresentante;"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-viii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "VIII"
+      },
+      "texto_normativo_exato": "número de ordem e as datas do protocolo e da averbação; e"
+    },
+    {
+      "chave": "VII/IV/_/art-550/inciso-ix",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": null,
+        "inciso": "IX"
+      },
+      "texto_normativo_exato": "valor e a qualidade do tributo recolhido, se houver."
+    },
+    {
+      "chave": "VII/IV/_/art-550/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "550",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Para efeito do disposto no caput, será traduzido para o vernáculo o título, documento ou papel em língua estrangeira.158"
+    },
+    {
+      "chave": "VII/IV/_/art-551",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "551",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O registro de contratos de penhor, caução e parceria será lavrado com as"
+    },
+    {
+      "chave": "VII/IV/_/art-551/inciso-i",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "551",
+        "paragrafo": null,
+        "inciso": "I"
+      },
+      "texto_normativo_exato": "nome, profissão e domicílio do credor e do devedor;"
+    },
+    {
+      "chave": "VII/IV/_/art-551/inciso-ii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "551",
+        "paragrafo": null,
+        "inciso": "II"
+      },
+      "texto_normativo_exato": "valor da dívida, juros, pena, vencimento e especificação do objeto apenhado;"
+    },
+    {
+      "chave": "VII/IV/_/art-551/inciso-iii",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "551",
+        "paragrafo": null,
+        "inciso": "III"
+      },
+      "texto_normativo_exato": "nome da pessoa em poder de quem fica;"
+    },
+    {
+      "chave": "VII/IV/_/art-551/inciso-iv",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "551",
+        "paragrafo": null,
+        "inciso": "IV"
+      },
+      "texto_normativo_exato": "espécie do título;"
+    },
+    {
+      "chave": "VII/IV/_/art-551/inciso-v",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "551",
+        "paragrafo": null,
+        "inciso": "V"
+      },
+      "texto_normativo_exato": "condições do contrato; e"
+    },
+    {
+      "chave": "VII/IV/_/art-551/inciso-vi",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "551",
+        "paragrafo": null,
+        "inciso": "VI"
+      },
+      "texto_normativo_exato": "data e número de ordem."
+    },
+    {
+      "chave": "VII/IV/_/art-551/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "IV",
+          "nome": "DA TRANSCRIÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "551",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "No contrato de parceria, serão considerados credor o parceiro proprietário e devedor, o parceiro cultivador ou criador."
+    },
+    {
+      "chave": "VII/V/_/art-552",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "552",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O oficial notificará, mediante requerimento do apresentante, os demais interessados que figurarem no título, documento ou papel apresentado e a qualquer terceiro indicado, acerca do registro ou da averbação.160"
+    },
+    {
+      "chave": "VII/V/_/art-552/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "552",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A notificação extrajudicial não se submete ao disposto no artigo 130 da Lei n° 6.015/1973.161"
+    },
+    {
+      "chave": "VII/V/_/art-552/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "552",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A certidão de notificação ou de entrega de registro será lavrada na coluna da anotação, no livro competente, à margem do respectivo registro."
+    },
+    {
+      "chave": "VII/V/_/art-552/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "552",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A notificação e demais diligências poderão ser realizadas por escrevente autorizado, em qualquer lugar em que se encontrar o notificado, salvo as exceções previstas no art. 244 do Código de Processo Civil."
+    },
+    {
+      "chave": "VII/V/_/art-552/paragrafo-4",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "552",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". A diligência de notificação ocorrerá diariamente, no horário compreendido entre 6h e 20h, exceto aos domingos e feriados."
+    },
+    {
+      "chave": "VII/V/_/art-553",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "553",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A notificação extrajudicial poderá efetivar-se pessoalmente, via postal, meio eletrônico, Sistema de Registro Eletrônico de Títulos e Documentos e Civil de Pessoas Jurídicas ou edital, pelo oficial da escolha do apresentante, averbando-se ao registro o resultado positivo ou negativo."
+    },
+    {
+      "chave": "VII/V/_/art-553/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "553",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O documento eletrônico apresentado para notificação de destinatário domiciliado em local diverso será enviado a cada um dos registradores competentes, via Sistema de Registro Eletrônico de Títulos e Documentos e Civil de Pessoas Jurídicas."
+    },
+    {
+      "chave": "VII/V/_/art-554",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "554",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A primeira diligência de notificação realizar-se-á no prazo máximo de 10 (dez) dias, contados da data da apresentação do documento para registro ou da carta de notificação."
+    },
+    {
+      "chave": "VII/V/_/art-554/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "554",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Decorridos 30 (trinta) dias da notificação, será averbado o seu resultado, positivo ou negativo."
+    },
+    {
+      "chave": "VII/V/_/art-554/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "554",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Frustrada a tentativa de localização do destinatário no endereço indicado pelo requerente, a certificação do resultado negativo dependerá da realização de, no mínimo, 3 (três) diligências, em dias e horários alternados."
+    },
+    {
+      "chave": "VII/V/_/art-554/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "554",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Caso o requerente indique novo endereço do destinatário, deverá ser apresentada nova carta de notificação, cobrando-se os respectivos emolumentos."
+    },
+    {
+      "chave": "VII/V/_/art-555",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "555",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O oficial poderá convocar o notificando por escrito, via carta, mencionando expressamente sua finalidade, para que venha a sua presença e tome ciência da notificação, do aviso ou da comunicação a seu encargo, sem prejuízo do prazo fixado para o cumprimento do ato."
+    },
+    {
+      "chave": "VII/V/_/art-556",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "556",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O interessado poderá requerer ao oficial de sua escolha para que a notificação seja via postal, mediante o envio de carta registrada com aviso de recebimento – AR para o endereço indicado."
+    },
+    {
+      "chave": "VII/V/_/art-556/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "556",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Considerar-se-á finalizado o ato com a devolução do aviso de recebimento."
+    },
+    {
+      "chave": "VII/V/_/art-556/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "556",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Recebido o aviso de recebimento, o Oficial averbará o resultado da notificação, no prazo máximo de 5 (cinco) dias."
+    },
+    {
+      "chave": "VII/V/_/art-557",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "557",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A notificação de que trata o § 2º do artigo 2º do Decreto-Lei nº 911/69 poderá realizar-se por meio de carta registrada com aviso de recebimento, bastando a entrega do documento no endereço do devedor ou garante mencionado no contrato."
+    },
+    {
+      "chave": "VII/V/_/art-558",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "558",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Efetuar-se-á a notificação, por edital, a requerimento do interessado, por meio da afixação do conteúdo integral do documento registrado em local próprio da serventia e da sua publicação, em 3 (três) dias consecutivos, em jornal de grande circulação ou veículo de comunicação eletrônica."
+    },
+    {
+      "chave": "VII/V/_/art-558/paragrafo-1",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "558",
+        "paragrafo": "§1º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Além da publicação em jornal, será afixada cópia da notificação ou intimação em local visível na serventia"
+    },
+    {
+      "chave": "VII/V/_/art-558/paragrafo-2",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "558",
+        "paragrafo": "§2º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Após a publicação do último edital, o oficial aguardará por 30 (trinta) dias"
+    },
+    {
+      "chave": "VII/V/_/art-558/paragrafo-3",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "558",
+        "paragrafo": "§3º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". O prazo disposto no §2º iniciar-se-á no primeiro dia útil seguinte ao da última publicação, e se encerrará no final do expediente do último dia."
+    },
+    {
+      "chave": "VII/V/_/art-558/paragrafo-4",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "558",
+        "paragrafo": "§4º",
+        "inciso": null
+      },
+      "texto_normativo_exato": ". Para a expedição de notificação por edital, aplica-se o item 81, b, da Tabela XIV do Regimento de Custas e Emolumentos do Estado de Goiás."
+    },
+    {
+      "chave": "VII/V/_/art-559",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "559",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Após a notificação ou a certidão da impossibilidade de sua realização, o registrador procederá à necessária averbação."
+    },
+    {
+      "chave": "VII/V/_/art-559/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "559",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "O oficial arquivará documentos comprobatórios de eventual circunstância relativa à efetivação da notificação ou à impossibilidade de sua realização, como data, hora e outras informações que julgar pertinentes."
+    },
+    {
+      "chave": "VII/V/_/art-560",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "560",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Somente após a efetivação do registro ou da averbação o oficial poderá certificar o inteiro teor da notificação, a ciência do destinatário ou sua recusa em recebê-la e as diligências de resultado negativo, se for o caso."
+    },
+    {
+      "chave": "VII/V/_/art-561",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "V",
+          "nome": "DA NOTIFICAÇÃO"
+        },
+        "capitulo": null,
+        "artigo": "561",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A notificação restringir-se-á à entrega, ao notificando, do título, documento ou papel registrado, vedada a anexação de objeto de qualquer espécie ou outro documento original."
+    },
+    {
+      "chave": "VII/VI/_/art-562",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DA AVERBAÇÃO E DO CANCELAMENTO"
+        },
+        "capitulo": null,
+        "artigo": "562",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "A ocorrência que venha a alterar documento já registrado, no que se refere as suas obrigações, cláusulas em geral e pessoas que neles figurem, será averbada no registro originário."
+    },
+    {
+      "chave": "VII/VI/_/art-563",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DA AVERBAÇÃO E DO CANCELAMENTO"
+        },
+        "capitulo": null,
+        "artigo": "563",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O cancelamento de registro ou averbação será feito em virtude de sentença transitada em julgado ou de documento autêntico de quitação ou de extinção do título registrado.163"
+    },
+    {
+      "chave": "VII/VI/_/art-564",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DA AVERBAÇÃO E DO CANCELAMENTO"
+        },
+        "capitulo": null,
+        "artigo": "564",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Apresentado documento hábil, o oficial certificará, na coluna das averbações do livro respectivo, o cancelamento e sua razão, e mencionará o documento que o autorizou, aponto na certidão a sua assinatura e a data em que lavrada, ao que fará referência nas anotações do protocolo.164"
+    },
+    {
+      "chave": "VII/VI/_/art-564/paragrafo-unico",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DA AVERBAÇÃO E DO CANCELAMENTO"
+        },
+        "capitulo": null,
+        "artigo": "564",
+        "paragrafo": "§único",
+        "inciso": null
+      },
+      "texto_normativo_exato": "Constatada a insuficiência do espaço da coluna das averbações, lavrar-se-á novo registro, com referências recíprocas, na coluna própria."
+    },
+    {
+      "chave": "VII/VI/_/art-565",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DA AVERBAÇÃO E DO CANCELAMENTO"
+        },
+        "capitulo": null,
+        "artigo": "565",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "Para o cancelamento de registro de penhor, exigir-se-á a quitação do credor, com firma reconhecida, caso o respectivo documento exibido seja particular."
+    },
+    {
+      "chave": "VII/VI/_/art-566",
+      "metadados_origem": {
+        "livro": "VII",
+        "livro_nome": "DO REGISTRO DE TÍTULOS E DOCUMENTOS",
+        "titulo": {
+          "id": "VI",
+          "nome": "DA AVERBAÇÃO E DO CANCELAMENTO"
+        },
+        "capitulo": null,
+        "artigo": "566",
+        "paragrafo": null,
+        "inciso": null
+      },
+      "texto_normativo_exato": "O requerimento de cancelamento será arquivado com os documentos que o instruir.165"
+    }
+  ]
+}

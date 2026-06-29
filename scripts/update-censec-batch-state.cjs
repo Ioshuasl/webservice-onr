@@ -2,7 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const BATCH_PATH = path.join(__dirname, 'autonr-batch-state.json');
+const { DOMAIN_BATCH_FILES } = require('./batch-state-paths.cjs');
+
+const BATCH_PATH = DOMAIN_BATCH_FILES.autcensec.file;
 const REG_PATH = path.join(
   process.env.USERPROFILE || '',
   'Obsidian Vault/Meta/integracoes/plane/maps/autcensec-work-items.json',

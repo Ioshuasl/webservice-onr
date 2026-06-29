@@ -1,0 +1,994 @@
+{
+  "root": {
+    "required": [
+      "version",
+      "cns",
+      "imoveis"
+    ],
+    "properties": {
+      "version": {
+        "type": "string",
+        "const": "1.2.0"
+      },
+      "cns": {
+        "type": "string",
+        "pattern": "^(?:\\d{6}|\\d{5}-\\d)$"
+      },
+      "imoveis": {
+        "type": "array",
+        "minItems": 1
+      }
+    },
+    "additionalProperties": false
+  },
+  "imovelItems": {
+    "allOfCount": 7,
+    "branchCount": 14,
+    "branches": [
+      {
+        "path": "items.allOf[0].anyOf[0]",
+        "discriminators": {
+          "tipo_imovel": 1,
+          "contexto_urbano": [
+            1,
+            2
+          ],
+          "ato": 2,
+          "tipo_matricula_transcricao": 1,
+          "motivo_envio": [
+            1,
+            2
+          ]
+        },
+        "required": [
+          "tipo_imovel",
+          "contexto_urbano",
+          "ato",
+          "tipo_matricula_transcricao",
+          "numero_matricula"
+        ],
+        "properties": [
+          "tipo_imovel",
+          "contexto_urbano",
+          "ato",
+          "tipo_matricula_transcricao",
+          "numero_matricula",
+          "data_matricula",
+          "cnm",
+          "situacao",
+          "motivo_envio",
+          "georreferenciamento",
+          "protocolo_prenotacao",
+          "data_protocolo_prenotacao",
+          "dados_imovel",
+          "dados_pessoa",
+          "cib"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": {
+            "minItems": 1,
+            "required": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf"
+            ],
+            "properties": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "complemento",
+              "bairro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf",
+              "area_m2"
+            ],
+            "additionalProperties": false
+          },
+          "dados_pessoa": [
+            {
+              "required": [
+                "estrangeiro",
+                "estado_civil"
+              ],
+              "properties": [
+                "nome_completo",
+                "estrangeiro",
+                "cpf_cnpj",
+                "nacionalidade",
+                "estado_civil",
+                "regime_bens",
+                "relacao_juridica",
+                "data_inicio_rel_juridica",
+                "data_fim_rel_juridica",
+                "percentual",
+                "tipo_logradouro",
+                "logradouro",
+                "numero_logradouro",
+                "complemento",
+                "bairro",
+                "cep",
+                "cod_ibge_municipio",
+                "uf",
+                "condicao_parte"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[0].anyOf[1].anyOf[0]",
+        "discriminators": {
+          "tipo_imovel": 1,
+          "contexto_urbano": 1,
+          "ato": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "tipo_matricula_transcricao": 1,
+          "motivo_envio": [
+            1,
+            2
+          ],
+          "tipo_ato": [
+            1,
+            2
+          ]
+        },
+        "required": [
+          "georreferenciamento",
+          "tipo_matricula_transcricao",
+          "tipo_imovel",
+          "contexto_urbano",
+          "numero_matricula",
+          "data_matricula",
+          "cnm"
+        ],
+        "properties": [
+          "motivo_envio",
+          "georreferenciamento",
+          "sistema_coordenadas",
+          "fuso_zona",
+          "sistema_referencia",
+          "numero_poligono",
+          "coordenadas",
+          "certificacao_incra",
+          "tipo_matricula_transcricao",
+          "protocolo_prenotacao",
+          "data_protocolo_prenotacao",
+          "categoria_poligono",
+          "situacao",
+          "dados_confrontantes",
+          "tipo_ato",
+          "numero_ato",
+          "ato",
+          "alteracao_titularidade",
+          "alteracao_imovel",
+          "data_ato",
+          "valor_imposto",
+          "valor_transacao",
+          "tipo_imovel",
+          "contexto_urbano",
+          "dados_imovel",
+          "dados_pessoa",
+          "cif",
+          "cib",
+          "area_terreno_total",
+          "numero_matricula",
+          "data_matricula",
+          "livro_matricula",
+          "folha_matricula",
+          "cnm"
+        ],
+        "additionalProperties": false,
+        "nested": {
+          "dados_imovel": {
+            "minItems": 1,
+            "required": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf"
+            ],
+            "properties": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "complemento",
+              "bairro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf",
+              "area_m2"
+            ],
+            "additionalProperties": false
+          },
+          "dados_pessoa": [
+            {
+              "required": [
+                "estrangeiro",
+                "estado_civil"
+              ],
+              "properties": [
+                "nome_completo",
+                "estrangeiro",
+                "cpf_cnpj",
+                "nacionalidade",
+                "estado_civil",
+                "regime_bens",
+                "relacao_juridica",
+                "data_inicio_rel_juridica",
+                "data_fim_rel_juridica",
+                "percentual",
+                "tipo_logradouro",
+                "logradouro",
+                "numero_logradouro",
+                "complemento",
+                "bairro",
+                "cep",
+                "cod_ibge_municipio",
+                "uf",
+                "condicao_parte"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[0].anyOf[1].anyOf[1]",
+        "discriminators": {
+          "tipo_imovel": 1,
+          "contexto_urbano": 1,
+          "ato": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "tipo_matricula_transcricao": 2,
+          "motivo_envio": [
+            1,
+            2
+          ],
+          "tipo_ato": [
+            1,
+            2
+          ]
+        },
+        "required": [
+          "georreferenciamento",
+          "tipo_matricula_transcricao",
+          "tipo_imovel",
+          "contexto_urbano",
+          "numero_transcricao",
+          "data_transcricao"
+        ],
+        "properties": [
+          "motivo_envio",
+          "georreferenciamento",
+          "sistema_coordenadas",
+          "fuso_zona",
+          "sistema_referencia",
+          "numero_poligono",
+          "coordenadas",
+          "certificacao_incra",
+          "tipo_matricula_transcricao",
+          "protocolo_prenotacao",
+          "data_protocolo_prenotacao",
+          "categoria_poligono",
+          "situacao",
+          "dados_confrontantes",
+          "tipo_ato",
+          "numero_ato",
+          "ato",
+          "alteracao_titularidade",
+          "alteracao_imovel",
+          "data_ato",
+          "valor_imposto",
+          "valor_transacao",
+          "tipo_imovel",
+          "contexto_urbano",
+          "dados_imovel",
+          "dados_pessoa",
+          "cif",
+          "cib",
+          "area_terreno_total",
+          "numero_transcricao",
+          "data_transcricao",
+          "livro_transcricao",
+          "folha_transcricao"
+        ],
+        "additionalProperties": false,
+        "nested": {
+          "dados_imovel": {
+            "minItems": 1,
+            "required": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf"
+            ],
+            "properties": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "complemento",
+              "bairro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf",
+              "area_m2"
+            ],
+            "additionalProperties": false
+          },
+          "dados_pessoa": [
+            {
+              "required": [
+                "estrangeiro",
+                "estado_civil"
+              ],
+              "properties": [
+                "nome_completo",
+                "estrangeiro",
+                "cpf_cnpj",
+                "nacionalidade",
+                "estado_civil",
+                "regime_bens",
+                "relacao_juridica",
+                "data_inicio_rel_juridica",
+                "data_fim_rel_juridica",
+                "percentual",
+                "tipo_logradouro",
+                "logradouro",
+                "numero_logradouro",
+                "complemento",
+                "bairro",
+                "cep",
+                "cod_ibge_municipio",
+                "uf",
+                "condicao_parte"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[0].anyOf[2].anyOf[0]",
+        "discriminators": {
+          "tipo_imovel": 1,
+          "contexto_urbano": 2,
+          "ato": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "tipo_matricula_transcricao": 1,
+          "motivo_envio": [
+            1,
+            2
+          ],
+          "tipo_ato": [
+            1,
+            2
+          ]
+        },
+        "required": [
+          "georreferenciamento",
+          "tipo_matricula_transcricao",
+          "tipo_imovel",
+          "contexto_urbano",
+          "regime_utilizacao",
+          "imovel_possui_nome",
+          "numero_matricula",
+          "data_matricula",
+          "cnm"
+        ],
+        "properties": [
+          "motivo_envio",
+          "georreferenciamento",
+          "sistema_coordenadas",
+          "fuso_zona",
+          "sistema_referencia",
+          "numero_poligono",
+          "coordenadas",
+          "certificacao_incra",
+          "tipo_matricula_transcricao",
+          "protocolo_prenotacao",
+          "data_protocolo_prenotacao",
+          "categoria_poligono",
+          "situacao",
+          "dados_confrontantes",
+          "tipo_ato",
+          "numero_ato",
+          "ato",
+          "alteracao_titularidade",
+          "alteracao_imovel",
+          "data_ato",
+          "valor_imposto",
+          "valor_transacao",
+          "tipo_imovel",
+          "contexto_urbano",
+          "dados_imovel",
+          "dados_pessoa",
+          "regime_utilizacao",
+          "onerosa_nao_onerosa",
+          "cat",
+          "base_calculo_itbi",
+          "rip",
+          "area_terreno_total",
+          "area_terreno_uniao",
+          "fracao",
+          "nome_representante_legal",
+          "cpf_representante_legal",
+          "cif",
+          "cib",
+          "imovel_possui_nome",
+          "nome_imovel",
+          "numero_matricula",
+          "data_matricula",
+          "livro_matricula",
+          "folha_matricula",
+          "cnm"
+        ],
+        "additionalProperties": false,
+        "nested": {
+          "dados_imovel": {
+            "minItems": 1,
+            "required": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf"
+            ],
+            "properties": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "complemento",
+              "bairro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf",
+              "area_m2"
+            ],
+            "additionalProperties": false
+          },
+          "dados_pessoa": [
+            {
+              "required": [
+                "estrangeiro",
+                "estado_civil"
+              ],
+              "properties": [
+                "nome_completo",
+                "estrangeiro",
+                "cpf_cnpj",
+                "nacionalidade",
+                "estado_civil",
+                "regime_bens",
+                "relacao_juridica",
+                "data_inicio_rel_juridica",
+                "data_fim_rel_juridica",
+                "percentual",
+                "tipo_logradouro",
+                "logradouro",
+                "numero_logradouro",
+                "complemento",
+                "bairro",
+                "cep",
+                "cod_ibge_municipio",
+                "uf",
+                "condicao_parte"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[0].anyOf[2].anyOf[1]",
+        "discriminators": {
+          "tipo_imovel": 1,
+          "contexto_urbano": 2,
+          "ato": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "tipo_matricula_transcricao": 2,
+          "motivo_envio": [
+            1,
+            2
+          ],
+          "tipo_ato": [
+            1,
+            2
+          ]
+        },
+        "required": [
+          "georreferenciamento",
+          "tipo_matricula_transcricao",
+          "tipo_imovel",
+          "contexto_urbano",
+          "regime_utilizacao",
+          "imovel_possui_nome",
+          "numero_transcricao",
+          "data_transcricao"
+        ],
+        "properties": [
+          "motivo_envio",
+          "georreferenciamento",
+          "sistema_coordenadas",
+          "fuso_zona",
+          "sistema_referencia",
+          "numero_poligono",
+          "coordenadas",
+          "certificacao_incra",
+          "tipo_matricula_transcricao",
+          "protocolo_prenotacao",
+          "data_protocolo_prenotacao",
+          "categoria_poligono",
+          "situacao",
+          "dados_confrontantes",
+          "tipo_ato",
+          "numero_ato",
+          "ato",
+          "alteracao_titularidade",
+          "alteracao_imovel",
+          "data_ato",
+          "valor_imposto",
+          "valor_transacao",
+          "tipo_imovel",
+          "contexto_urbano",
+          "dados_imovel",
+          "dados_pessoa",
+          "regime_utilizacao",
+          "onerosa_nao_onerosa",
+          "cat",
+          "base_calculo_itbi",
+          "rip",
+          "area_terreno_total",
+          "area_terreno_uniao",
+          "fracao",
+          "nome_representante_legal",
+          "cpf_representante_legal",
+          "cif",
+          "cib",
+          "imovel_possui_nome",
+          "nome_imovel",
+          "numero_transcricao",
+          "data_transcricao",
+          "livro_transcricao",
+          "folha_transcricao"
+        ],
+        "additionalProperties": false,
+        "nested": {
+          "dados_imovel": {
+            "minItems": 1,
+            "required": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf"
+            ],
+            "properties": [
+              "tipo_logradouro",
+              "logradouro",
+              "numero_logradouro",
+              "complemento",
+              "bairro",
+              "cep",
+              "cod_ibge_municipio",
+              "uf",
+              "area_m2"
+            ],
+            "additionalProperties": false
+          },
+          "dados_pessoa": [
+            {
+              "required": [
+                "estrangeiro",
+                "estado_civil"
+              ],
+              "properties": [
+                "nome_completo",
+                "estrangeiro",
+                "cpf_cnpj",
+                "nacionalidade",
+                "estado_civil",
+                "regime_bens",
+                "relacao_juridica",
+                "data_inicio_rel_juridica",
+                "data_fim_rel_juridica",
+                "percentual",
+                "tipo_logradouro",
+                "logradouro",
+                "numero_logradouro",
+                "complemento",
+                "bairro",
+                "cep",
+                "cod_ibge_municipio",
+                "uf",
+                "condicao_parte"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[1]",
+        "discriminators": {},
+        "required": [],
+        "properties": [],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": null,
+          "dados_pessoa": null,
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[2].anyOf[0]",
+        "discriminators": {
+          "ato": 2
+        },
+        "required": [
+          "ato"
+        ],
+        "properties": [
+          "ato",
+          "data_matricula"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": null,
+          "dados_pessoa": null,
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[3].anyOf[1]",
+        "discriminators": {
+          "contexto_urbano": 1
+        },
+        "required": [
+          "contexto_urbano"
+        ],
+        "properties": [
+          "contexto_urbano"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": null,
+          "dados_pessoa": null,
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[3].anyOf[2].anyOf[0]",
+        "discriminators": {
+          "contexto_urbano": 2
+        },
+        "required": [
+          "contexto_urbano",
+          "imovel_possui_nome"
+        ],
+        "properties": [
+          "contexto_urbano",
+          "imovel_possui_nome"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": null,
+          "dados_pessoa": null,
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[4].anyOf[0]",
+        "discriminators": {
+          "motivo_envio": 2
+        },
+        "required": [
+          "motivo_envio"
+        ],
+        "properties": [
+          "motivo_envio"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": null,
+          "dados_pessoa": null,
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[4].anyOf[2]",
+        "discriminators": {
+          "motivo_envio": 1
+        },
+        "required": [
+          "motivo_envio",
+          "tipo_ato",
+          "numero_ato",
+          "ato",
+          "data_ato",
+          "cif",
+          "dados_imovel",
+          "dados_pessoa"
+        ],
+        "properties": [
+          "motivo_envio",
+          "tipo_ato",
+          "numero_ato",
+          "ato",
+          "data_ato",
+          "cif",
+          "dados_imovel",
+          "dados_pessoa"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": {
+            "required": [
+              "area_m2"
+            ],
+            "properties": [
+              "area_m2"
+            ],
+            "additionalProperties": {}
+          },
+          "dados_pessoa": {
+            "minItems": 1,
+            "branches": [
+              {
+                "discriminators": {},
+                "required": [
+                  "nome_completo",
+                  "cpf_cnpj",
+                  "percentual",
+                  "condicao_parte"
+                ],
+                "properties": [
+                  "nome_completo",
+                  "cpf_cnpj",
+                  "percentual",
+                  "condicao_parte"
+                ],
+                "additionalProperties": {},
+                "nested": {
+                  "dados_imovel": null,
+                  "dados_pessoa": null,
+                  "atos": null,
+                  "unidades": null,
+                  "loteamento": null,
+                  "condominio": null,
+                  "georreferenciamento_coords": null
+                }
+              },
+              {
+                "discriminators": {},
+                "required": [
+                  "nome_completo",
+                  "cpf_cnpj",
+                  "percentual",
+                  "condicao_parte",
+                  "relacao_juridica"
+                ],
+                "properties": [
+                  "nome_completo",
+                  "cpf_cnpj",
+                  "percentual",
+                  "condicao_parte",
+                  "relacao_juridica"
+                ],
+                "additionalProperties": {},
+                "nested": {
+                  "dados_imovel": null,
+                  "dados_pessoa": null,
+                  "atos": null,
+                  "unidades": null,
+                  "loteamento": null,
+                  "condominio": null,
+                  "georreferenciamento_coords": null
+                }
+              }
+            ]
+          },
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[5].anyOf[0]",
+        "discriminators": {
+          "ato": 4
+        },
+        "required": [
+          "ato",
+          "alteracao_titularidade",
+          "valor_transacao",
+          "valor_imposto",
+          "dados_pessoa"
+        ],
+        "properties": [
+          "ato",
+          "alteracao_titularidade",
+          "valor_transacao",
+          "valor_imposto",
+          "dados_pessoa"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": null,
+          "dados_pessoa": {
+            "minItems": 1,
+            "required": [
+              "condicao_parte"
+            ],
+            "properties": [
+              "condicao_parte"
+            ],
+            "additionalProperties": {}
+          },
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[5].anyOf[1]",
+        "discriminators": {
+          "ato": 5
+        },
+        "required": [
+          "ato",
+          "alteracao_imovel"
+        ],
+        "properties": [
+          "ato",
+          "alteracao_imovel"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": null,
+          "dados_pessoa": null,
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      },
+      {
+        "path": "items.allOf[5].anyOf[2]",
+        "discriminators": {
+          "ato": [
+            1,
+            2,
+            3,
+            6
+          ]
+        },
+        "required": [],
+        "properties": [
+          "ato"
+        ],
+        "additionalProperties": {},
+        "nested": {
+          "dados_imovel": null,
+          "dados_pessoa": null,
+          "atos": null,
+          "unidades": null,
+          "loteamento": null,
+          "condominio": null,
+          "georreferenciamento_coords": null
+        }
+      }
+    ]
+  },
+  "patterns": {
+    "cns": "^(?:\\d{6}|\\d{5}-\\d)$",
+    "data_dd_mm_aaaa": "^\\d{2}/\\d{2}/\\d{4}$",
+    "cnm": "^(?:\\d{6}\\.\\d\\.\\d{7}-\\d{2}|\\d{16})$",
+    "cep": "^(?:\\d{8}|\\d{2}\\.\\d{3}-\\d{3})$",
+    "cib": "^(?:[A-Za-z0-9]{8}|[A-Za-z0-9]{7}-[A-Za-z0-9])$",
+    "cpf_cnpj": "^(?:\\d{11}|\\d{14}|[A-Za-z0-9]{1,20})$",
+    "cpf": "^(?:\\d{11}|\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})$",
+    "cat": "^\\d{1,15}$",
+    "rip": "^\\d{1,13}$"
+  }
+}

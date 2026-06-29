@@ -1,0 +1,37 @@
+{
+  "certidao_id": "",
+  "idrc_token": "",
+  "documento_base64": "JVBERi0xLjQKJeLjz9MKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL1R5cGUgL1BhZ2VzCi9LaWRzIFszIDAgUl0KL0NvdW50IDEKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA2MTIgNzkyXQo+PgplbmRvYmoKeHJlZgowIDQKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDExNSAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9TaXplIDQKL1Jvb3QgMSAwIFIKPj4Kc3RhcnR4cmVmCjE3NQolJUVPRg==",
+  "nome_documento": "certidao-atualizada.pdf",
+  "content_type": "application/pdf",
+  "certidao": {
+    "plataformaId": "certidao-eletronica",
+    "tipo_registro": "nascimento",
+    "tipo_certidao": "",
+    "transcricao": true,
+    "cartorio_cns": "115204",
+    "selo": "345739463498653",
+    "cod_selo": "12345678910",
+    "modalidade": "eletronica",
+    "cota_emolumentos": "Cota",
+    "cota_emolumentos_isento": false
+  },
+  "registro": {
+    "nome_completo": "Caique teste de nascimento via API (PDF atualizado)",
+    "cpf_sem_inscricao": false,
+    "cpf": "831.677.010-56",
+    "matricula": "34645748457456456236523423523423",
+    "data_registro": "18/07/2024",
+    "data_nascimento_ignorada": false,
+    "data_nascimento": "09/06/1990",
+    "hora_nascimento": "03:10 horas",
+    "municipio_naturalidade": "Sao Paulo",
+    "uf_naturalidade": "SP",
+    "local_nascimento": "Hospital",
+    "municipio_nascimento": "Sao Paulo",
+    "uf_nascimento": "SP",
+    "sexo": "masculino",
+    "numero_dnv": "122141241253",
+    "averbacao_anotacao": "Certidao PDF atualizada via API"
+  }
+}

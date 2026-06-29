@@ -1,0 +1,196 @@
+{
+  "generated_at": "2026-06-16T21:03:53.896Z",
+  "source": "ri-plan",
+  "plan_file": "scripts/delphi-imoveis-ri-plan.json",
+  "plan_generated_at": "2026-06-16T21:03:43.006Z",
+  "schema_version": "1.0.0",
+  "domain": "ri-eridf-prod",
+  "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+  "vault_key": "formularios/teste-wsERIDF",
+  "tasks_remaining": 14,
+  "pipeline_status": "in_progress",
+  "jobs": [
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        201,
+        225
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button15Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        227,
+        249
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button16Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        251,
+        270
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button17Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        272,
+        312
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button18Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        315,
+        335
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button19Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        388,
+        409
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button20Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        411,
+        434
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button21Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        436,
+        445
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button22Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        447,
+        457
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button23Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        459,
+        475
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button24Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        477,
+        561
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button25Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        563,
+        631
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button26Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        634,
+        660
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button27Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    },
+    {
+      "type": "revalidate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "lines": [
+        662,
+        671
+      ],
+      "priority": true,
+      "source": "ri-plan",
+      "symbol": "Button28Click",
+      "needs_split": false,
+      "reason": "validation_pass false"
+    }
+  ]
+}

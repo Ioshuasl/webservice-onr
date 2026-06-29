@@ -1,0 +1,6 @@
+{
+  "domain": "AUTSIRC",
+  "batch_state_file": "scripts/autsirc-batch-state.json",
+  "active_batch_id": null,
+  "batches": {}
+}

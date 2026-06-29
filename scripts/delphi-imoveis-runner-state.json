@@ -1,0 +1,42 @@
+{
+  "product_slug": "imoveis",
+  "runner_state_file": "scripts/delphi-imoveis-runner-state.json",
+  "status": "needs_ai",
+  "started_at": "2026-06-15T17:16:12.987Z",
+  "last_tick_at": "2026-06-16T21:03:53.901Z",
+  "ticks": 151,
+  "active_domain_id": "ri-eridf-prod",
+  "active_file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+  "config": {
+    "symbols_per_ai_batch": 15,
+    "events_per_ai_batch": 10,
+    "stub_per_ai_batch": 20,
+    "require_validation_pass": true,
+    "auto_validate": true,
+    "auto_grafo_on_domain_complete": true,
+    "auto_coverage_each_tick": true
+  },
+  "last_actions": [
+    {
+      "action": "plan_queue",
+      "source": "ri-plan",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas",
+      "domain": "ri-eridf-prod",
+      "reason": "plan_tasks_remaining",
+      "plan_generated_at": "2026-06-16T21:03:43.006Z"
+    },
+    {
+      "action": "triage",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas"
+    },
+    {
+      "action": "validate",
+      "file": "RegistroDeImoveis/eridf/wsERIDF/teste.pas"
+    },
+    {
+      "action": "coverage",
+      "pct": 94.3
+    }
+  ],
+  "history": []
+}

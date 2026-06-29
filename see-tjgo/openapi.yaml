@@ -1,0 +1,2085 @@
+openapi: 3.0.1
+info:
+  title: Portal de Sistemas do Extrajudicial - CGJ GO
+  description: 'Esta documentação abrange todas as formas de comunicação disponíveis no WebService do Sistema do Extrajudicial, e será atualizada conforme novas funcionalidades sejam adicionadas. Deve-se usar **Bearer Authentication** com o [JWT](https://jwt.io/) adquirido como resposta do login.'
+  contact:
+    email: dti@tjgo.jus.br
+  version: 0.4.2
+externalDocs:
+  description: Change Log
+  url: 'https://see.tjgo.jus.br/api-change-log-0.4.2.md'
+servers:
+  - url: 'https://portal-hextrajudicial.tjgo.jus.br/api/v1'
+    description: Servidor de Homologação
+  - url: 'https://see.tjgo.jus.br/api/v1'
+    description: Servidor de Produção
+tags:
+  - name: Login
+    description: Entrar com usuário
+  - name: Atos Utilizados
+    description: Selos utilizados e retornados ao Sistema Extrajudicial
+  - name: Cartorio
+    description: Informações do Cartório
+  - name: Pedido de Atos
+    description: Lotes de pedido de selos
+  - name: Retorno Atos
+    description: Arquivos de retorno de selos
+  - name: Tipo Ato
+    description: Tipo de Atos do cartório logado
+  - name: Geral
+    description: Funcionalidades gerais do sistema
+  - name: Correição Online
+    description: Alterar Dados de Acesso dos Sistemas WEB dos Cartórios
+paths:
+  /status:
+    get:
+      tags:
+        - Geral
+      summary: Verifica se o sistema está online e funcionando corretamente
+      responses:
+        '200':
+          description: 'O sistema está funcionando corretamente'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: 'OK'
+                  status:
+                    type: integer
+                    example: 200
+        '500':
+          description: 'O Sistema está com algum erro interno'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: integer
+                    example: 500
+  /sessions:
+    post:
+      tags:
+        - Login
+      summary: Entra com usuário para o cartório
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  example: 'exemplo@tjgo.jus.br'
+                password:
+                  type: string
+                  format: pasword
+                  example: senha
+                hash_cartorio:
+                  type: string
+                  description: cartório que pretende logar
+                  example: 1d6957cc9af6d852939375e20286e3bdb8a09920
+        required: true
+      responses:
+        '201':
+          description: created
+          content:
+            application/json:
+              schema:
+                properties:
+                  auth_token:
+                    type: string
+                    description: JTW que será utilizado para autorização na API
+                    example: "eyJhbGciOiJIUzI1NiJ9.eyJhdXRoX2lkIjoxLCJjYXJ0b3Jpb19pZCI6ODUsImlkZW50aWZpY2Fkb3IiOiIxNl8xXzAzMDEyMDIyMDkxNTAxIiwiZXhwIjoxNjQxMjU1MzAxfQ.N_0roLD1IxXGeo_bTseVGHYOAYd3pFKNw3Wo0dwacu8"
+                  message:
+                    type: string
+                    example: "Header: 'Authorization: Bearer <auth_token>'"
+                  expire_at:
+                    type: string
+                    format: datetime
+                    example: '2022-12-15T01:36:57-03:00'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '406':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:       # Multiple examples
+                'Senha Inválida':
+                  description: 'quando informa a senha errada'
+                  value:
+                    message: Senha inválida
+                'E-mail inválido':
+                  value:
+                    message: 'Usuário não encontrado'
+                'Cartório inválido':
+                  description: 'O Hash do cartório foi informado incorretamente, ou não existe vínculo
+                              entre o cartório e a empresa'
+                  value:
+                    message: O Cartório informado não está vinculado à este usuário
+  /cartorios:
+    get:
+      tags:
+        - Cartorio
+      summary: Lista as serventias extrajudiciais (cartório) que o usuário tem vínculo
+      description: Retorna lista de cartórios que o usuário tem vínculo.
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cartorio'
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/cartorios/{hash_cartorio}':
+    get:
+      tags:
+        - Cartorio
+      summary: Busca Cartório pelo Hash
+      description: Retorna os dados do cartório
+      parameters:
+        - name: hash_cartorio
+          in: path
+          description: hash de identificação do cartorio
+          required: true
+          schema:
+            type: string
+          example: '1d6957cc9af6d852939375e20286e3bdb8a09920'
+
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cartorio'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              example:
+                message: 'Cartório não encontrado'
+      security:
+        - bearerAuth: []
+  /controle_de_atos_utilizados:
+    get:
+      tags:
+        - Atos Utilizados
+      description: Retorna lista dos selos utilizados pelo cartório e retornados à CGJ.
+      parameters:
+        - name: page
+          in: query
+          description: Número da página a ser consultada
+          required: false
+          schema:
+            type: integer
+          example: 1
+        - name: per
+          in: query
+          description: Quantidade de registros por página
+          required: false
+          example: 10
+          schema:
+            type: integer
+        - name: codigo_selo
+          in: query
+          description: Código do selo a ser consultado. Quando se tratar de um selo dependente, refere-se ao selo principal.
+          required: false
+          example: '01234567890123456789012'
+          schema:
+            type: string
+        - name: codigo_ato
+          in: query
+          description: Código do selo a ser consultado
+          required: false
+          example: '01234567890123456789012'
+          schema:
+            type: string
+        - name: tipo_ato_id
+          in: query
+          description: Identificação do tipo de ato.
+          required: false
+          example: 9999
+          schema:
+            type: integer
+        - name: protocolo_pedido
+          in: query
+          description: Identificação do pedido do lote na CGJ-GO.
+          required: false
+          example: 1234
+          schema:
+            type: integer
+        - name: inutilizado
+          in: query
+          description: Selo inutilizado? (true | false)
+          required: false
+          example: false
+          schema:
+            type: boolean
+          allowEmptyValue: true
+        - name: limitar_solicitante
+          in: query
+          description: Filtrar apenas os selos retornados pelo usuário/empresa logado? (true | false)
+          required: false
+          example: false
+          schema:
+            type: boolean
+          allowEmptyValue: true
+        - name: data_inicial_retorno
+          in: query
+          description: Data em que o selo foi retornado a CGJ (2019-01-01)
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: data_final_retorno
+          in: query
+          description: Data em que o selo foi retornado a CGJ (2019-01-31)
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: data_inicial_utilizacao
+          in: query
+          description: Data em que o selo foi utilizado na Serventia (2019-01-01)
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: data_final_utilizacao
+          in: query
+          description: Data em que o selo foi utilizado na Serventia (2019-01-31)
+          required: false
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+            X-Pagination-Limit:
+              $ref: '#/components/headers/X-Pagination-Limit'
+            X-Pagination-Count:
+              $ref: '#/components/headers/X-Pagination-Count'
+            X-Pagination-Page:
+              $ref: '#/components/headers/X-Pagination-Page'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AtoUtilizado'
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/controle_de_atos_utilizados/{codigo_do_ato}':
+    get:
+      tags:
+        - Atos Utilizados
+      description: 'Retorna as informações sobre o selo/ato e os selos vinculados, se houver'
+      parameters:
+        - name: codigo_do_ato
+          in: path
+          description: Código do Ato
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                properties:
+                  protocolo_pedido:
+                    type: integer
+                    example: 1234
+                  tipo_ato_id:
+                    type: integer
+                    example: 5678
+                  codigo_ato:
+                    type: string
+                    example: '01234567890123456789012'
+                  codigo_selo:
+                    type: string
+                    example: '01234567890123456789012'
+                  data_hora_utilizacao:
+                    type: string
+                    format: date-time
+                  taxa_judiciaria:
+                    type: number
+                    format: currency
+                  emolumento:
+                    type: number
+                    format: currency
+                  fundesp:
+                    type: number
+                    format: currency
+                  nome_de_uma_parte_no_ato:
+                    type: string
+                  inutilizado:
+                    type: boolean
+                  justificativa_inutilizacao:
+                    type: string
+                  data_retorno:
+                    type: string
+                    format: date-time
+                  vinculados:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AtoUtilizado'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/controle_de_atos_utilizados/{codigo_do_ato}/inutilizar':
+    put:
+      tags:
+        - Atos Utilizados
+      summary: Inutilizar selo
+      description: Cancela/Inutiliza um selo já retornado à CGJ
+      parameters:
+        - name: codigo_do_ato
+          in: path
+          description: Codigo do ato
+          required: true
+          schema:
+            type: string
+          example: '01234567890123456789012'
+      requestBody:
+        content:
+          '* /*':
+            schema:
+              properties:
+                justificativa:
+                  type: string
+                  description: Motivo pelo qual o selo foi cancelado
+                reembolso:
+                  type: boolean
+                  description: Houve restituição financeira ao cliente ou foi utilizado um novo selo?
+                  example: true
+              required:
+                - justificativa
+                - reembolso
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtoInutilizado'
+        '400':
+          description: Quando o selo principal ou um dos dependentes gerem erro de validação
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                'Já inutilizado':
+                  value:
+                    message: 'Selo já está inutilizado'
+                'Cartório diferente':
+                  value:
+                    message: 'Selo informado não pertence ao cartorio logado'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/controle_de_atos_utilizados/{codigo_do_ato}/reativar':
+    put:
+      tags:
+        - Atos Utilizados
+      summary: Reativar um selo cancelado
+      description: Reativa um selo cancelado
+      parameters:
+        - name: codigo_do_ato
+          in: path
+          description: Codigo do ato
+          required: true
+          schema:
+            type: string
+            example: '01234567890123456789012'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Selo reativado com sucesso
+                  status:
+                    type: integer
+                    example: 200
+        '400':
+          description: Quando o selo não pode ser reativado
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: integer
+              examples:
+                'Não inutilizado':
+                  value:
+                    message: 'Cancelamento não encontrado'
+                'Cartório diferente':
+                  value:
+                    message: 'Selo informado não pertence ao cartorio logado'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                  status:
+                    type: integer
+      security:
+        - bearerAuth: []
+  '/controle_de_atos_utilizados/{codigo_do_ato}/check':
+    get:
+      tags:
+        - Atos Utilizados
+      description: Verifica se o selo/ato foi retornado à CGJ
+      parameters:
+        - name: codigo_do_ato
+          in: path
+          description: Código do Ato
+          required: true
+          schema:
+            type: string
+          example: '01234567890123456789012'
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+              example:
+                message: 'OK'
+                status: 'ok'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              example:
+                message: 'Selo não encontrado'
+                status: 404
+      security:
+        - bearerAuth: []
+  /controle_atos_recebidos:
+    get:
+      tags:
+        - Retorno Atos
+      description: Retorna informação do envio dos selos ao Sistema Extrajudicial
+      parameters:
+        - name: page
+          in: query
+          description: Número da página a ser consultada
+          required: false
+          schema:
+            type: integer
+          example: 1
+        - name: status
+          in: query
+          description: 'Status de processamento do retorno (200: totalmente processado, 400: algum selo com critica)'
+          required: false
+          schema:
+            type: integer
+          example: 200
+        - name: data_inicial
+          in: query
+          description: retorno do lote de selos realizado à partir da data informada
+          required: false
+          schema:
+            type: string
+            format: date
+          example: 2022-01-01
+        - name: data_final
+          in: query
+          description: retorno do lote de selos realizado até a data informada
+          required: false
+          schema:
+            type: string
+            format: date
+          example: 2022-01-01
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+            X-Pagination-Limit:
+              $ref: '#/components/headers/X-Pagination-Limit'
+            X-Pagination-Count:
+              $ref: '#/components/headers/X-Pagination-Count'
+            X-Pagination-Page:
+              $ref: '#/components/headers/X-Pagination-Page'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ControleAtoRecebido'
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Retorno Atos
+      description: Envia os selos utilizados pela serventia para o sistema do Extrajudicial
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                arquivo:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/RetornoAto'
+          multipart/form-data:
+            schema:
+              properties:
+                arquivo:
+                  type: string
+                  description: Arquivo .json com os atos a serem retornados, vide Content-Type 'application/x-www-form-urlencoded' para conferir o estrutura do arquivo
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControleAtoRecebido'
+              example:
+                id: 123
+                status: 200
+                data_cricao: "2022-12-07T19:44:58.678Z"
+                criticas: []
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControleAtoRecebido'
+              examples:
+                'Identificação Pedido inválido':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'A identificação do pedido do lote na CGJ não foi encontrado.'}
+                      ]
+
+                'Cartorio':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {
+                          codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Cartorio não informado'},
+
+                        {
+                          codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Cartorio 1234 não encontrado.'},
+
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Cartorio do pedido não corresponde ao cartorio logado'}
+                      ]
+                'Tipo Ato':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O tipo de ato informado não faz parte da atribuição do cartório, não pode ser retornado'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O tipo de ato informado não existe'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O tipo de ato informado é do modelo antigo, não pode ser retornado'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O tipo de ato informado não corresponde com o tipo de ato solicitado no lote.'}
+                      ]
+                'Código do Ato':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '012345678901234567890',
+                        status: 400,
+                        message: 'não possui o tamanho esperado (23 caracteres)'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O selo já se encontra utilizado na CGJ'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O selo informado não corresponde ao lote informado no campo identificação_do_pedido_na_cgj'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Esse código de selo (dependente) não pode ser combinado com esse código do selo (principal)'}
+                      ]
+                'Código do Selo':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O código do selo informado como selo principal não pode ser utilizado pois não se encontra na CGJ'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O tipo de ato informado não existe'},
+                        {codigo_do_ato: 'Esse tipo de selo deve vir combinado com o tipo específico de código de selo, ou seja, esse código de selo deve vir acompanhado do código de selo do tipo 1234',
+                        status: 400,
+                        message: 'O código do selo informado não corresponde ao lote de prenotação vinculado a este ato'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Este ato tem vinculação obrigatória com um selo de tipo 1234, 1235'}
+                      ]
+
+                'Data hora da solicitação':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Data/Hora da utilização do selo na serventia extrajudicial no formato inválido'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Data/Hora da utilização do selo na serventia extrajudicial inferior à data da solicitação do lote na CGJ'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Data/Hora da utilização do selo na serventia extrajudicial superior à data de retorno do selo à CGJ'}
+                      ]
+                'ID do ato Isentado':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O Id do tipo de ato isentado informado é inválido'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O Id do tipo de ato isentado informado não corresponde a um ato isento'}
+                      ]
+                'Nomes':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O nome do civil deve ser composto por Nome e Sobrenome'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O nome do serventuário que praticou o ato deve ser composto por Nome e Sobrenome'}
+                      ]
+                'Protocolos Imóvel/Protesto':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O Protocolo do imóvel deve ser informado'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O Protocolo do protesto deve ser informado'}
+                      ]
+                'Valores':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O valor de entrada do selo está fora do padrão 999999.99'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O valor do emolumento do selo está fora do padrão 999999.99'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O valor da taxa judiciária do selo está fora do padrão 999999.99'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'O valor dos fundos estaduais do selo está fora do padrão 999999.99'}
+                      ]
+                'Informações adicionais':
+                  value:
+                    id: 123
+                    status: 400
+                    data_cricao: "2022-12-07T19:44:58.678Z"
+                    criticas:
+                      [
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'As Informações Adicionais obrigatórios não foram informadas: chave'},
+                        {codigo_do_ato: '01234567890123456789012',
+                        status: 400,
+                        message: 'Os valores informados para chave não são válidos: valor'},
+                      ]
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/controle_atos_recebidos/{id}':
+    get:
+      tags:
+        - Retorno Atos
+      description: 'Detalhes do retorno, com status geral e status de cada ato informado no retorno'
+      parameters:
+        - name: id
+          in: path
+          description: ID do Arquivo de Retorno
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ControleAtoRecebido'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  /distribuicao_de_atos:
+    get:
+      tags:
+        - Pedido de Atos
+      summary: Lista dos lotes solicitados
+      description: Retorna lista com todos os lotes solicitados pelo cartório
+      parameters:
+        - name: id
+          in: query
+          description: Identificação do protocolo de pedido de atos
+          required: false
+          schema:
+            type: integer
+        - name: tipo_ato_id
+          in: query
+          description: Identificação do tipo de ato
+          required: false
+          schema:
+            type: integer
+          example: 1234
+        - name: downloaded
+          in: query
+          description: download do pedido de atos realizado
+          required: false
+          schema:
+            type: boolean
+        - name: limitar_solicitante
+          in: query
+          description: Retorna apenas os lotes solicitados pela empresa/usuário logada
+          required: false
+          schema:
+            type: boolean
+        - name: data_inicial
+          in: query
+          description: lote solicitado à partir da data informada
+          required: false
+          schema:
+            type: string
+            format: date
+          example:  2022-01-01
+        - name: data_final
+          in: query
+          description: lote solicitado até a data informada
+          required: false
+          schema:
+            type: string
+            format: date
+          example: 2022-01-10
+        - name: page
+          in: query
+          description: Página de resultado
+          required: false
+          schema:
+            type: integer
+          example: 2
+        - name: per
+          in: query
+          description: Quantidade de resultados por página
+          required: false
+          schema:
+            type: integer
+          example: 10
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+            X-Pagination-Limit:
+              $ref: '#/components/headers/X-Pagination-Limit'
+            X-Pagination-Count:
+              $ref: '#/components/headers/X-Pagination-Count'
+            X-Pagination-Page:
+              $ref: '#/components/headers/X-Pagination-Page'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DistribuicaoDeAto'
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Pedido de Atos
+      summary: Pedir mais atos
+      requestBody:
+        description: Solicita mais atos conforme o tipo de ato e a quantidade informada
+        content:
+          '*/*':
+            schema:
+              properties:
+                tipo_ato_id:
+                  type: integer
+                quantidade:
+                  type: integer
+                  description: Solicitar de 1 até a quantidade limite para o tipo de ato desejado
+                codigo_selo_prenotacao:
+                  type: string
+                  description: Codigo do selo utilizado de prenotação para o qual o lote solicitado sera utilizado em conjunto
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PedidoDoSeloEletronico'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                'Obrigatórios':
+                  value: [
+                   {message: 'tipo_ato_id não pode ficar em branco'},
+                   {message: 'Quantidade não pode ficar em branco'}
+                  ]
+                'Quantidades':
+                  value: [
+                   {message: 'A quantidade deve ser entre 1 e 10.000'},
+                   {message: 'Quantidade N é superior ao lime N para o ato de tipo X'}
+                  ]
+                'Tipo Ato':
+                  value: [
+                   {message: 'Tipo de Ato solicitado não é mais um ato válido'},
+                   {message: 'Este tipo de ato não faz parte das atribuições do cartório'}
+                  ]
+                'Lotes em aberto':
+                  value: [
+                   {message: 'Há dois pedidos ainda não devolvidos do ato: 1234'},
+                   {message: 'O pedido de ID/Protocolo nº: 123 deve ser integralmente retornado, pois existe um lote posterior que foi devolvido completamente.'}
+                  ]
+                'Codigo Selo (prenotação)':
+                  value: [
+                   {message: 'O Selo informado para vínculo ainda não foi retornado'},
+                   {message: 'Não é permitido solicitação com vínculo para o selo informado'},
+                   {message: 'O tipo de ato da solicitação não pode ser vinculado ao tipo de ato do selo informado'}
+                  ]
+                'Empresa':
+                  value: [
+                   {message: 'Empresa não tem permissão para solicitar selos dessa attribuição no cartorio atual'}
+                  ]
+                'Guias em aberto':
+                  value: [
+                   {message: ' Há n guias aguardando pagamento e/ou confirmação: 123,456 - conforme Decreto 48/2015 Art. 2 §. 4'}
+                  ]
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/distribuicao_de_atos/{id}':
+    get:
+      tags:
+        - Pedido de Atos
+      summary: Busca o lote do pedido de selos pelo ID do Protocolo
+      description: Retorna o pedido de selos pelo ID do Protocolo
+      parameters:
+        - name: id
+          in: path
+          description: Protocolo/ID do Pedido
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistribuicaoDeAto'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+      security:
+        - bearerAuth: []
+    delete:
+      tags:
+        - Pedido de Atos
+      summary: Realiza o Rollback do lote
+      description: Cancela o lote pedido
+      parameters:
+        - name: id
+          in: path
+          description: Protocolo/ID do Pedido
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Rollback realizado
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              example:
+                value:
+                  [ {message: 'Lote solicitado por outro usuário' },
+                  {message: 'Lote não pode ser cancelado por já ter atos devolvidos' } ]
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+      security:
+        - bearerAuth: []
+  /distribuicao_de_atos/pendentes:
+    get:
+      tags:
+        - Pedido de Atos
+      summary: Lista dos lotes com atos pendentes de retorno
+      description: Retorna lista de todos os lotes solicitados que não foram integralmente retornados
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+            X-Pagination-Limit:
+              $ref: '#/components/headers/X-Pagination-Limit'
+            X-Pagination-Count:
+              $ref: '#/components/headers/X-Pagination-Count'
+            X-Pagination-Page:
+              $ref: '#/components/headers/X-Pagination-Page'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    tipo_ato_id:
+                      type: integer
+                    retorno:
+                      type: string
+                    percent:
+                      type: string
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  /distribuicao_de_atos/download_all:
+    get:
+      tags:
+        - Pedido de Atos
+      summary: Gera o arquivo de importação contendo todos os lotes
+      description: Retorna o conteúdo dos lotes que não foi feito download.
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PedidoDoSeloEletronico'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/distribuicao_de_atos/{id}/download':
+    get:
+      tags:
+        - Pedido de Atos
+      summary: Gera o arquivo de importação contendo lote informado
+      description: Retorna os dados do lote informado
+      parameters:
+        - name: id
+          in: path
+          description: ID/Protocolo do Pedido
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PedidoDoSeloEletronico'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/distribuicao_de_atos/{id}/redimensionar':
+    put:
+      tags:
+        - Pedido de Atos
+      summary: Redimensionar o lote pedido
+      description: Altera a quantidade de selos do lote informado
+      parameters:
+        - name: id
+          in: path
+          description: ID/Protocolo do Pedido
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              properties:
+                quantidade:
+                  type: integer
+                  description: Quantidade para a qual deseja redimensionar o lote
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistribuicaoDeAto'
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                'Empresa':
+                  value: [
+                   {message: 'Empresa não tem permissão para redimensionar selos dessa attribuição no cartorio atual'},
+                   {message: 'Lote solicitado por outro usuário'}
+                  ]
+                'Guia':
+                  value: [
+                   {message: 'O lote já foi lançado em uma guia confirmada, não podendo ser redimensionado'}
+                  ]
+                'Quantidade':
+                  value: [
+                    {message: 'Não é permitido quantidades negativas'},
+                    {message: 'Nova quantidade superior à quantidade original do lote'},
+                    {message: 'Quantidade definida é inferior à sequencia do último selo retornado: 12312313213'}
+                  ]
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  /tipo_atos:
+    get:
+      tags:
+        - Tipo Ato
+      summary: Lista de Atos
+      description: Retorna uma lista dos Tipo de Atos que fazem parte das atribuições do Cartorio
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+            X-Pagination-Limit:
+              $ref: '#/components/headers/X-Pagination-Limit'
+            X-Pagination-Count:
+              $ref: '#/components/headers/X-Pagination-Count'
+            X-Pagination-Page:
+              $ref: '#/components/headers/X-Pagination-Page'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TipoAto'
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  /tipo_atos/disponiveis:
+    get:
+      tags:
+        - Tipo Ato
+      summary: Lista de Atos disponiveis para solicitar
+      description: Retorna uma lista dos Tipo de Atos disponiveis para solicitação
+      parameters:
+        - name: page
+          in: query
+          description: Número da página a ser consultada
+          required: false
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+            X-Pagination-Limit:
+              $ref: '#/components/headers/X-Pagination-Limit'
+            X-Pagination-Count:
+              $ref: '#/components/headers/X-Pagination-Count'
+            X-Pagination-Page:
+              $ref: '#/components/headers/X-Pagination-Page'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TipoAto'
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  /tipo_atos/indisponiveis:
+    get:
+      tags:
+        - Tipo Ato
+      summary: Lista de Atos indisponiveis para solicitação
+      description: Retorna uma lista dos Tipo de Atos que tenham dois pedidos em aberto
+      parameters:
+        - name: page
+          in: query
+          description: Número da página a ser consultada
+          required: false
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+            X-Pagination-Limit:
+              $ref: '#/components/headers/X-Pagination-Limit'
+            X-Pagination-Count:
+              $ref: '#/components/headers/X-Pagination-Count'
+            X-Pagination-Page:
+              $ref: '#/components/headers/X-Pagination-Page'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    protocolo_pedido:
+                      type: integer
+                      description: Identificador do lote em aberto
+                    id:
+                      type: integer
+                      description: Identificador do Tipo Ato
+                    codigo:
+                      type: string
+                      description: Código do Tipo Ato
+                    nome:
+                      type: string
+                      description: Descricao do Tipo Ato
+        '400':
+          description: Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+  '/tipo_atos/{id}':
+    get:
+      tags:
+        - Tipo Ato
+      summary: Busca Tipo Ato pelo ID
+      description: Retorna o Tipo de Ato pelo Id
+      parameters:
+        - name: id
+          in: path
+          description: ID do Tipo Ato
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Count:
+              $ref: '#/components/headers/X-RateLimit-Count'
+            X-RateLimit-Expiration:
+              $ref: '#/components/headers/X-RateLimit-Expiration'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TipoAto'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+      security:
+        - bearerAuth: []
+
+  /empresas_correicao/atualizar_dados_acesso:
+    post:
+      tags:
+        - Correição Online
+      summary: Altera credenciais e dados de acesso ao sistema WEB do cartório
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hash:
+                  type: string
+                  example: '00f184cf11c1680ed79989b2a16a7b615c940ce5'
+                username:
+                  type: string
+                  example: 'usuario teste'
+                password:
+                  type: string
+                  example: 'teste 2 123'
+                chave_acesso:
+                  type: string
+                  example: 'ACC-2025-XYZ-7890'
+                tipo_acesso:
+                  type: string
+                  enum: [ Web, Desktop ]
+                  description: Tipo de acesso ao sistema. Apenas os valores `Web` ou `Desktop` são aceitos.
+                  example: Web
+                email_contato:
+                  type: string
+                  format: email
+                  example: 'usuario.teste@example.com'
+                telefone_contato:
+                  type: string
+                  example: '+55 11 98765-4321'
+                url:
+                  type: string
+                  format: uri
+                  example: 'https://acesso.interno.exemplo.com/dashboard'
+                periodo_acesso:
+                  type: string
+                  example: '2025-11-25 a 2025-12-25'
+              required:
+                - hash
+                - password
+      responses:
+        '200':
+          description: Criado com Sucesso
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Dados atualizados com sucesso!
+        '400':
+          description: Parâmetros obrigatórios ausentes
+          content:
+            application/json:
+              examples:
+                'Hash não fornecida':
+                  description: Quando o parâmetro `hash` está ausente ou vazio
+                  value:
+                    error: A hash do cartório deve ser informada!
+                'Password não fornecido':
+                  description: Quando o parâmetro `password` está ausente ou vazio
+                  value:
+                    message: 'O password não foi fornecido'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: Acesso não
+
+
+
+
+components:
+  headers:
+    X-RateLimit-Limit:
+      description: Número máximo de requisições permitidas
+      schema:
+        type: integer
+      example: 60
+    X-RateLimit-Count:
+      description: Total de requisilçoes realizadas
+      schema:
+        type: integer
+      example: 10
+    X-RateLimit-Expiration:
+      description: Tempo restante em Minutos e Segundos para reiniciar o contador de requisições
+      schema:
+        type: string
+      example: '08:15'
+    X-Pagination-Count:
+      description: Total de registros da busca
+      schema:
+        type: integer
+    X-Pagination-Page:
+      description: Página atual
+      schema:
+        type: integer
+    X-Pagination-Limit:
+      description: Número de registros retornados por página
+      schema:
+        type: integer
+  schemas:
+    ErrorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+    TipoCartorio:
+      properties:
+        atribuicao:
+          type: string
+          description: atribuicoes do cartorio
+          enum:
+            - Tabelionato de Notas e Registro de Contratos Marítimos
+            - Registro de Imóveis
+            - Registro Civil de Pessoas Naturais e de Interdições e Tutelas
+            - 'Registro Civil das Pessoas Jurídicas, De Títulos e Documentos'
+            - Protesto de Títulos
+    Cartorio:
+      type: object
+      properties:
+        codigo:
+          type: string
+        nome:
+          type: string
+        hash_cartorio:
+          type: string
+        telefones:
+          type: string
+        email:
+          type: string
+        atribuicoes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TipoCartorio'
+    TipoAto:
+      type: object
+      properties:
+        id:
+          type: integer
+        codigo:
+          type: integer
+        nome:
+          type: string
+        tipo_cartorio:
+          type: string
+        emolumento:
+          type: string
+        emolumento_inicio_vigencia:
+          type: string
+          format: date
+        fundesp:
+          type: string
+        taxa_judiciaria:
+          type: string
+        taxa_judiciaria_vigencia:
+          type: string
+          format: date
+        base_calculo:
+          type: string
+          description: 'Devido alguns tipos de atos não cobrarem emolumento, somente os fundos, é utilizado esse valor para calcular os fundos, não interferindo no calculo da arrecadação'
+        base_calculo_inicio_vigencia:
+          type: string
+          format: date
+        limite_pedido:
+          type: integer
+        id_antigo:
+          type: integer
+          description: 'ID/Código do tipo de ato antigo ao qual este substitui'
+        vinculo_obrigatorio:
+          type: array
+          description: Tipo(s) de Ato(s) que devem ser vinculados ao ato, informando o codigo no campo 'codigo_selo'
+          items:
+            type: object
+            properties:
+              codigo:
+                type: string
+              nome:
+                type: string
+        informacoes_adicionais:
+          type: array
+          description: 'Informações adicionais sobre o tipo de ato'
+          items:
+            type: object
+            properties:
+              chave:
+                type: string
+                description: 'chave que será utilizada no json de retorno'
+              nome:
+                type: string
+              obrigatorio:
+                type: boolean
+                description: 'Se a informação for obrigatória será validada seu preenchimento'
+              publico:
+                type: boolean
+                description: 'A informação aparecerá na busca publica'
+              tipo:
+                type: string
+                description: 'O formato de dado que será inserido, texto, inteiro, boleano, moeda...etc'
+              data_vigencia_inicio:
+                type: string
+                format: date
+                description: 'Data de inicio de vigencia da informação, onde se for obrigatória começa a ser cobrado seu preenchimento'
+              data_vigencia_fim:
+                type: string
+                format: date
+                description: 'Data de fim de vigencia da informação'
+    DistribuicaoDeAto:
+      type: object
+      properties:
+        id:
+          type: integer
+        tipo_ato_id:
+          type: integer
+        codigo_inicial:
+          type: string
+        codigo_final:
+          type: string
+        codigo_selo_pronotacao:
+          type: string
+          description: Codigo do selo utilizado de prenotação para o qual o lote solicitado sera utilizado em conjunto
+        retorno:
+          type: string
+        quantidade:
+          type: integer
+        quantidade_anterior:
+          type: integer
+        percent:
+          type: string
+        downloaded:
+          type: boolean
+        usado:
+          type: boolean
+          description: O lote foi inteiramente devolvido
+        data_criacao:
+          type: string
+          format: date-time
+    PedidoDoSeloEletronico:
+      type: object
+      properties:
+        identificacao_pedido:
+          type: integer
+        tipo_de_ato:
+          type: integer
+        data_da_solicitacao:
+          type: string
+          format: date
+        codigo_inicial_do_selo:
+          type: string
+        codigo_final_do_selo:
+          type: string
+        quantidade_de_selos:
+          type: integer
+    AtoUtilizado:
+      type: object
+      properties:
+        protocolo_pedido:
+          type: integer
+          description: 'Identificação do pedido do lote na CGJ-GO'
+        tipo_ato_id:
+          type: integer
+          description: 'Identificação do tipo do ato utilizado.'
+        codigo_ato:
+          type: string
+          description: 'Código do selo utilizado.'
+        codigo_selo:
+          type: string
+          description: 'Código do selo utilizado.
+                        Quando o codigo_do_ato informado se tratar de um selo
+                        dependente, o codigo_selo refere-se ao código do selo principal'
+        data_hora_utilizacao:
+          type: string
+          format: date-time
+          description: 'Data/hora que o selo foi utilizado na serventia (padrão ISO 8601 com Timezone Brasilia).'
+        taxa_judiciaria:
+          type: number
+          format: currency
+        emolumento:
+          type: number
+          format: currency
+        fundesp:
+          type: number
+          format: currency
+        nome_de_uma_parte_no_ato:
+          type: string
+        inutilizado:
+          type: boolean
+        justificativa_inutilizacao:
+          type: string
+        data_retorno:
+          type: string
+          format: date-time
+          description: 'Data/hora que o selo foi devolvido à CGJ-GO (padrão ISO 8601).'
+        partes:
+          type: array
+          items:
+            type: object
+            properties:
+              nome:
+                type: string
+              cpf_cnpj:
+                type: string
+              data_nascimento:
+                type: string
+                format: date
+              telefone:
+                type: string
+              nome_mae:
+                type: string
+              tipo:
+                type: string
+                description: 'Tipo da parte no ato, ex: outorgante, outorgado, comprador, vendedor, etc.'
+        informacoes_adicionais:
+          type: array
+          items:
+            $ref: '#/components/schemas/InformacoesAdicionaisSelo'
+    Parte:
+      type: object
+      properties:
+        nome:
+          type: string
+        cpf_cnpj:
+          type: string
+        data_nascimento:
+          type: string
+          format: date
+        telefone:
+          type: string
+        nome_mae:
+          type: string
+        tipo:
+          type: string
+          description: 'Tipo da parte no ato, ex: outorgante, outorgado, comprador, vendedor, etc.'
+    RetornoAto:
+      type: object
+      properties:
+        identificacao_pedido_na_cgj:
+          type: integer
+        tipo_de_ato:
+          type: integer
+        codigo_do_selo:
+          type: string
+        codigo_do_ato:
+          type: string
+        nome_do_civil_do_ato:
+          type: string
+        nome_do_serventuario_que_praticou_ato:
+          type: string
+        data_hora_da_solicitacao:
+          type: string
+          format: date-time
+          pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d{3}Z|[+-]\d{2}:\d{2})$'
+          example: '2025-05-07T10:00:00-03:00'
+          description: Data/Hora de utilização do selo na serventia extrajudicial em formato ISO 8601 com timezone Brasilia
+        ip_da_maquina_que_praticou_ato:
+          type: string
+        valor_de_entrada_do_ato:
+          type: string
+          format: float
+        emolumento_do_ato:
+          type: string
+          format: float
+        taxa_judiciaria_do_ato:
+          type: string
+          format: float
+        fundos_estaduais_do_ato:
+          type: string
+          format: float
+        valor_iss:
+          type: string
+          format: float
+        id_do_ato_isentado:
+          type: integer
+        protocolo_do_protesto:
+          type: integer
+        protocolo_do_imovel:
+          type: integer
+        informacoes_adicionais:
+          type: array
+          items:
+            $ref: '#/components/schemas/InformacoesAdicionaisSelo'
+        partes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parte'
+
+    RetornoAtoArquivo:
+      type: object
+      properties:
+        arquivo:
+          type: array
+          items:
+            $ref: '#/components/schemas/RetornoAto'
+    AtoInutilizado:
+      type: object
+      properties:
+        protocolo_pedido:
+          type: integer
+        tipo_ato_id:
+          type: integer
+        codigo_ato:
+          type: string
+        codigo_selo:
+          type: string
+        data_hora_utilizacao:
+          type: string
+          format: date-time
+          pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d{3}Z|[+-]\d{2}:\d{2})$'
+          description: 'Data/hora da utilização do selo (padrão ISO 8601 com Timezone)'
+        nome_de_uma_parte_no_ato:
+          type: string
+        inutilizado:
+          type: boolean
+        justificativa_inutilizacao:
+          type: string
+        reembolsado:
+          type: boolean
+        data_retorno:
+          type: string
+          format: date-time
+        vinculados:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtoUtilizado'
+        informacoes_adicionais:
+          type: array
+          items:
+            $ref: '#/components/schemas/InformacoesAdicionaisSelo'
+    ControleAtoRecebido:
+      type: object
+      properties:
+        id:
+          type: integer
+        status:
+          type: integer
+          description: 'Status do processamento, ''200:'' processado integralmente, ''400:'' processado parcialmente'
+          enum:
+            - 200
+            - 400
+            - 500
+        data_criacao:
+          type: string
+          format: date-time
+        criticas:
+          type: array
+          items:
+            $ref: '#/components/schemas/Critica'
+    Critica:
+      type: object
+      properties:
+        codigo_do_ato:
+          type: string
+        status:
+          type: integer
+          enum:
+            - 201
+            - 400
+        message:
+          type: string
+    InformacoesAdicionaisSelo:
+      type: object
+      properties:
+        nome_da_chave:
+          type: string
+          description: 'O tipo de dado varia de acordo com o "tipo" registrado pra cada key'
+
+  responses:
+    Ok:
+      description: Requisição completada com sucesso.
+    '200':
+      description: Requisição completada com sucesso.
+    Created:
+      description: Criado(a) com sucesso.
+    '201':
+      description: Criado(a) com sucesso.
+    '204':
+      description: Deletado(a) com sucesso.
+    ValidationError:
+      description: A Requisição não foi completada devido a regras de validação.
+    '400':
+      description: A Requisição não foi completada devido a regras de validação.
+    UnauthorizedError:
+      description: Token de acesso inválido.
+    ExpiredToken:
+      description: O token informado expirou
+    '401':
+      description: Token de acesso inválido.
+    Forbidden:
+      description: O Cliente não tem permissão para realizar essa ação.
+    '403':
+      description: O Cliente não tem permissão para realizar essa ação.
+    NotFound:
+      description: Recurso não encontrado.
+    '404':
+      description: Recurso não encontrado.
+    BadRequest:
+      description: Requisição inválida.
+    '406':
+      description: Requisição inválida.
+    '422':
+      description: Entidade não processável.
+    '429':
+      description: To many requests
+    InternalError:
+      description: A Requisição não foi completada devido a um erro interno do servidor.
+    '500':
+      description: A Requisição não foi completada devido a um erro interno do servidor.
+  securitySchemes:
+    bearerAuth:
+      scheme: bearer
+      type: http
+      bearerFormat: JWT

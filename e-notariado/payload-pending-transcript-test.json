@@ -1,0 +1,7 @@
+{
+  "ambiente": "homologacao",
+  "document_id": "{{enot_document_id}}",
+  "nome_arquivo": "traslado.pdf",
+  "content_type": "application/pdf",
+  "arquivo_base64": "<base64 do PDF/A do traslado>"
+}

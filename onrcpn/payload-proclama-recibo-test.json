@@ -1,0 +1,11 @@
+{
+  "_comentario": "GET /onrcpn/proclama/recibo — matricula obrigatória na query. Bearer IdRC via ONRCPN_IDRC_TOKEN, query idrc_token ou header Authorization.",
+  "query_exemplo": {
+    "matricula": "11111101552025600001102000001541"
+  },
+  "query_com_override": {
+    "matricula": "11111101552025600001102000001541",
+    "idrc_token": "",
+    "base_url": "https://servicosh.registrocivil.org.br/api/proclama"
+  }
+}
